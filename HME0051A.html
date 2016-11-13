@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HME0051A] ●漢字コードの使い分け - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HME0050A.html">←前へ</a> <a href="HME0052A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hme0051a">[HME0051A]</h1>
+<h2 id="HME0051A_01">●漢字コードの使い分け</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>秀丸で複数の漢字コードを使い分けたいのですがどうすればいいでしょうか?</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>秀丸エディタは、基本的には自動的に判別するので、(自動判定が有効になっていれば)何の設定も必要ではないです。 特定のエンコードを使う場合は種々の方法が存在します。 (自動判定で全てのエンコードを、間違いなく判定する保証はないです。)</p>
+<ol style="list-style-type: decimal">
+<li><p>自動判定を有効にする。<br />
+「その他→動作環境」の「ファイル→エンコード1→自動判定で開くとき」で、 「ファイルの内容を解析してエンコードの種類を自動認識する」をＯＮにして下さい。</p>
+<img src="HME0051A_01.png" alt="エンコード1" width="605" height="415" /><br />
+</li>
+<li><p><strong>ファイルを開くときに明示的に文字コードを指定する。</strong><br />
+メニューの「ファイル」→「開く」等のダイアログで、「文字コード」で正しい文字コードを指定します。</p></li>
+<li><p>ファイルのエンコードを指定したショートカットを利用する。<br />
+ショートカットの作成方法は、<a href="4_cmdlin.html#DRAGDROP">テキスト編集を極める！！　起動オプションを使ってみよう</a> を参照してください。</p></li>
+<li><p><strong>(EUCコードの場合のみ)保存するフォルダを決めておく。</strong><br />
+秀丸エディタの「その他→動作環境」－「エンコード2」にある「EUCコードの指定ドライブ」の欄にドライブを指定し、 EUCコードのファイルはそこに保存する。</p>
+<p><img src="HME0051A_02.png" alt="エンコード2" width="605" height="415" /><br />
+</p></li>
+</ol>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HME0050A.html">←前へ</a> <a href="HME0052A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

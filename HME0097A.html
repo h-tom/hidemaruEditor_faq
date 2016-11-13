@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HME0097A] ●ファイルを秀丸エディタで編集したのに、反映されていない - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HME0096A.html">←前へ</a> <a href="HMM0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hme0097a">[HME0097A]</h1>
+<h2 id="HME0097A_01">●ファイルを秀丸エディタで編集したのに、反映されていない</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong> ファイルを秀丸エディタで編集したのに、 メモ帳など他のアプリケーションで確認しても編集した内容が反映されていないですが？ </strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>以降の内容は、Windows Vista以降のOSで、ユーザーアカウント制御（UAC）が有効になっている場合の内容になります。</p>
+<hr />
+<p>Windowsの「<strong>VirtualStore</strong>」という機能です。</p>
+<p>Windows Vist以降、&quot;C:\Program Files&quot;や、Windowsのシステムフォルダ等、「<span class="font_red_bold">保護されたフォルダ</span>」に書き込むには、 「<strong>管理者権限</strong>」が必要です。<br />
+Windows Vistaより前のWindowsでは、そのような制限がなかったため、 対応していないソフトで、「<span class="font_red_bold">保護されたフォルダ</span>」のファイルを書き換えようとしても、 エラーになったり、最悪の場合アプリケーションがクラッシュする事もあります。</p>
+<p>その為、過去との互換性を重視し、 &quot;<span class="font_blue_bold">Windows Vista以降に対応していないソフト</span>&quot;で「<span class="font_red_bold">保護されたフォルダ</span>」のファイルを書き換えた場合、 実際のファイルを書き換えるのではなく、別の場所にファイルを作成し、そのファイルを書き換えるような動作になってます。</p>
+<p>つまり、&quot;<span class="font_blue_bold">Windows Vista以降に対応していないソフト</span>&quot;側から見ると、「<span class="font_red_bold">保護されたフォルダ</span>」のファイルを書き換えたように見えるが、 実際は、Windowsがこっそり違う場所にすり替えているという状態です。</p>
+<p>読み込み時も同様で、すり替えた場所にファイルが存在すれば、そちらのファイルを開く事になります。<br />
+「<span class="font_red_bold">保護されたフォルダ</span>」のファイルを見た場合、</p>
+<ul>
+<li>&quot;<span class="font_blue_bold">Windows Vista以降に対応していないソフト</span>&quot;は、<strong>Windowsがこっそり違う場所にすり替えた場所のファイル</strong></li>
+<li>&quot;<span class="font_red_bold">Windows Vista以降に対応したソフト</span>&quot;は、<strong>実際のファイル</strong></li>
+</ul>
+<p>という別のファイルを開く事になるので、表示される内容が違ってしまいます。</p>
+<p>秀丸エディタ 32bit版は、初期状態では、&quot;<span class="font_blue_bold">Windows Vista以降に対応していないソフト</span>&quot;に分類されていますが、 設定により&quot;<span class="font_red_bold">Windows Vistaに対応したソフト</span>&quot;に切り替える事が可能です。(32bitのみ、64bit版秀丸エディタにはない。)</p>
+<p><img src="HME0097A_01.png" alt="動作環境-VirtualStore" width="605" height="433" /><br />
+</p>
+<p>切り替えた場合は、「<span class="font_red_bold">保護されたフォルダ</span>」内のファイル編集・保存するに、管理者に昇格する必要があります。 「管理者に昇格」できない場合は、編集は可能ですが、上書き保存する事はできません。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HME0096A.html">←前へ</a> <a href="HMM0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

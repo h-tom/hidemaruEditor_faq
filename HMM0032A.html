@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0032A] ●「検索での表示」を設定 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0032a">[HMM0032A]</h1>
+<h2 id="HMM0032A_01">●「検索での表示」を設定</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>ある文字列を検索させて消去したいのですがうまくいきません。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>「その他-動作環境-検索-検索での表示」を［点滅］ではなく、［範囲選択］にしないとうまくいきません。</p>
+<p>「setcompatiblemode文」を使えば、マクロ実行時に一時的に設定を変更できます。</p>
+<div class="macro">
+<pre><code>setcompatiblemode 0x00000200；</code></pre>
+</div>
+<p>setcompatiblemode文の設定抜粋</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>0x00000000</td>
+<td align="center">マクロの標準動作（動作環境に従う）</td>
+</tr>
+<tr class="even">
+<td>0x00000100</td>
+<td align="center">点滅表示</td>
+</tr>
+<tr class="odd">
+<td>0x00000200</td>
+<td align="center">範囲選択</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

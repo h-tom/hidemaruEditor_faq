@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0026A] ●setsearchのフラグ - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0025A.html">←前へ</a> <a href="HMM0027A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0026a">[HMM0026A]</h1>
+<h2 id="HMM0026A_01">●setsearchのフラグ</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>setsearchのフラグって何ですか？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>検索ダイアログボックスの設定状態をマクロ文で再現するためのものです。下記の数値(の和)を指定します。</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">単語の検索</td>
+<td align="left">0x00000001（ビット０）</td>
+</tr>
+<tr class="even">
+<td align="left">大文字/小文字の区別</td>
+<td align="left">0x00000002（ビット１）</td>
+</tr>
+<tr class="odd">
+<td align="left">置換かどうか</td>
+<td align="left">0x00000004（ビット２）（置換の場合に１）</td>
+</tr>
+<tr class="even">
+<td align="left">置換の場合、問い合わせの有無</td>
+<td align="left">0x00000008（ビット３）</td>
+</tr>
+<tr class="odd">
+<td align="left">正規表現</td>
+<td align="left">0x00000010（ビット４）</td>
+</tr>
+<tr class="even">
+<td align="left">あいまい検索</td>
+<td align="left">0x00000020（ビット５）</td>
+</tr>
+<tr class="odd">
+<td align="left">ファイル名一覧だけ作成</td>
+<td align="left">0x00000040（ビット６）（grep用）</td>
+</tr>
+<tr class="even">
+<td align="left">次の秀丸エディタも続けて検索</td>
+<td align="left">0x00000080（ビット７）</td>
+</tr>
+<tr class="odd">
+<td align="left">サブフォルダも検索</td>
+<td align="left">0x00000100（ビット８）（grep用）</td>
+</tr>
+<tr class="even">
+<td align="left">最小化状態で実行</td>
+<td align="left">0x00000200（ビット９）（grep用）</td>
+</tr>
+<tr class="odd">
+<td align="left">ファイル名をフルパスで出力</td>
+<td align="left">0x00000400（ビット１０）（grep用）</td>
+</tr>
+<tr class="even">
+<td align="left">検索文字列の強調</td>
+<td align="left">0x00000800（ビット１１）（検索，grep用）（V5.00以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">検索文字列の強調</td>
+<td align="left">0x00001000（ビット１２）（置換用）（V5.00以降）</td>
+</tr>
+<tr class="even">
+<td align="left">検索文字列の強調を変更</td>
+<td align="left">0x00002000（ビット１３）（V5.00以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">追加の条件（普通の文字）</td>
+<td align="left">0x00010000(ビット１６)（V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">追加の条件（コメント）</td>
+<td align="left">0x00020000(ビット１７)（V6.50以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">追加の条件（#ifdef等の無効部分）</td>
+<td align="left">0x00040000(ビット１８)（V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">追加の条件（スクリプト部分）</td>
+<td align="left">0x00080000(ビット１９)（V6.50以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">追加の条件（文字列）</td>
+<td align="left">0x00100000(ビット２０)（V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">追加の条件（HTML/XMLタグ）</td>
+<td align="left">0x00200000(ビット２１)（V6.50以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">追加の条件（「のみ」）</td>
+<td align="left">0x00400000(ビット２２)（V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">追加の条件が有効であるかどうか</td>
+<td align="left">0x00800000(ビット２３)（V6.50以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">一周する</td>
+<td align="left">0x01000000(ビット２４) （V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">検索したら閉じる</td>
+<td align="left">0x02000000(ビット２５)（V6.50以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">バックアップ</td>
+<td align="left">0x04000000(ビット２６)（grepして置換用）（V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">保存の前に確認</td>
+<td align="left">0x08000000(ビット２７)（grepして置換用）（V6.50以降）</td>
+</tr>
+<tr class="odd">
+<td align="left">出力先</td>
+<td align="left">0x30000000(ビット２８，２９)（grep用）（V6.50以降）</td>
+</tr>
+<tr class="even">
+<td align="left">searchoption2が有効かどうか</td>
+<td align="left">0x80000000(ビット３１)（V8.00以降）</td>
+</tr>
+</tbody>
+</table>
+<p>フラグ２は拡張されたフラグで、searchoption2に相当するフラグを設定します。（V8.00以降） フラグ２は省略できます。</p>
+<p>フラグ２を有効にするためには、フラグ１のほうで0x80000000のビットを立てる必要があります。</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left">ヒットしない行</td>
+<td align="left">0x00000001（ビット０）（grep用）（V8.00以降）</td>
+</tr>
+</tbody>
+</table>
+<p>例えば「単語でしかも大文字小文字の区別あり」の場合は(1 + 2 =) 3 を指定します。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0025A.html">←前へ</a> <a href="HMM0027A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

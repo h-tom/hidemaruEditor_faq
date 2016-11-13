@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第III部～秀丸マクロのいろはにほへと　秀丸マクロで文字列を編集する</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
+　秀丸マクロで文字列を編集する</h1>
+<hr />
+<h2 id="EDIT">●秀丸マクロで文字列を編集する</h2>
+<p>ここでは、秀丸マクロで文字列を編集するときによく使うコマンドの基本的な解説と、 実際にコマンドを使う上でいくつか注意すべき点をまとめました。<br />
+秀丸マクロで文字列を編集するには、大きく分けて、秀丸ウィンドウ上でカーソル移動したり範囲選択したり、 直接文字列を挿入したりして処理する方法と、文字列変数に取り込んで変数の中で処理する方法があります。 それらの処理を行うにあたって、範囲選択の方法や、文字列変数に取り込む方法、２バイト文字の扱いなどについて主に説明します。</p>
+<p>【１】<a href="#RETURN">改行を挿入するには（insertreturn; とinsert &quot;\n&quot;;）</a><br />
+【２】<a href="#CODE">カーソル位置の文字が何かを知るには（code, unicodeキーワード）</a><br />
+【３】<a href="#MOVETO">任意の座標にある文字が何かを判断するには（moveto,カーソル移動系コマンド）</a><br />
+【４】<a href="#BEGINSEL">範囲選択するには</a><br />
+【５】<a href="#ESCAPE">範囲選択を解除するには</a><br />
+【６】<a href="#GETTEXT">文字列型変数に取り込むには：その１（gettext文)</a><br />
+【７】<a href="#SELECTING">範囲選択されているかどうか判断するには（selectingキーワード）</a><br />
+【８】<a href="#CLIPBOARD">文字列型変数に取り込むには：その２（クリップボード経由）</a><br />
+【９】<a href="#ASCII">変数内の文字が何かを知るには（ascii関数）</a><br />
+【１０】<a href="#DOUBLE">文字列中の先頭以外の文字が１バイト文字か２バイト文字かを区別するには（midstr文等への注意事項）</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="RETURN">【１】改行を挿入するには（insertreturn; とinsert &quot;\n&quot;;）</h3>
+<p>秀丸マクロで改行を挿入するには、どうすればよいでしょうか？。</p>
+<p>その名もずばり、<strong>insertreturn</strong>という命令があります。<br />
+insertreturn文は、「改行キーを押したのと全く同じ働き」をします。<br />
+秀丸ヘルプの「挿入系文」にも説明されているように、insertreturn文は現在のモードが上書きモードか挿入モードかによって動作が異なります。<br />
+上書きモードの場合、「動作環境」-「編集」-「高度な編集1」の「上書きモード時のリターン」の設定によって動作が変わります。 「カーソル移動する」が選択されていると、改行は挿入されず、カーソルが次行行頭に移動します。<br />
+また「ファイルタイプ別の設定」-「体裁」-「インデント」の、自動インデントに関する設定に従った動作を行います。</p>
+<p>「改行キーを押したのと全く同じ働き」をさせたい場合は、insertreturn文が便利ですが、 上書きモードでも挿入モードでも必ず改行を挿入したい場合はどうするのが良いでしょうか？。<br />
+<strong>insert</strong>文で改行文字を挿入するのが簡単です。</p>
+<p>（例） 改行を挿入するには</p>
+<div class="macro">
+<pre><code>insert &quot;\\n&quot;;</code></pre>
+</div>
+<p>　または</p>
+<div class="macro">
+<pre><code>insert &quot;\\x0a&quot;;</code></pre>
+</div>
+<p>または、上書きモードの時、一旦、挿入モードに変えて、insertreturnしてまた上書きモードに戻してあげる方法もあります。<br />
+この場合、インデントの設定に従った動作を行います。</p>
+<div class="macro">
+<pre><code>if(overwrite){
+    overwriteswitch;\
+    insertreturn;\
+    overwriteswitch;
+} else {
+    insertreturn;
+}</code></pre>
+</div>
+<h3 id="CODE">【２】カーソル位置の文字が何かを知るには（code, unicodeキーワード）</h3>
+<p>現在のカーソル位置にある文字が、1バイト文字か、2バイト文字かを調べるにはどうすれば良いでしょうか？。</p>
+<p><strong>code</strong>というキーワードがあります。<br />
+codeキーワードは、カーソル位置の文字コードを表します。<br />
+このキーワードは2バイト文字に対応しており、2バイト文字の場合は2バイトのコード(Shift_JIS)を返します。 例えば全角空白の場合は0x8140になります。<br />
+カーソル位置の文字のunicodeを取得したい場合には、<strong>unicode</strong>キーワードを使用します。</p>
+<ul>
+<li>codeキーワードは、編集中のテキストのエンコードには関係なく、Shift_JISの文字コードを返します。 その為、Shift_JISに含まれない文字の場合は、「0」を返します。<br />
+</li>
+</ul>
+<p>（例）現在のカーソル位置にある文字が、1バイト文字か、2バイト文字かをメッセージボックスで表示する</p>
+<div class="macro">
+<pre><code>if (code &gt; 0xff) {
+    message &quot;2バイト文字です&quot;;
+} else {
+    message &quot;1バイト文字です&quot;;
+}</code></pre>
+</div>
+<p>秀丸マクロの数値型は４バイトであり、0x8000以降も正の値となるので、上記の書き方でＯＫです。</p>
+<p>（例） または、以下でもＯＫ</p>
+<div class="macro">
+<pre><code>if (code &amp;&amp; 0xff00 != 0) {
+    message &quot;2バイト文字です&quot;;
+} else {
+    message &quot;1バイト文字です&quot;;
+}</code></pre>
+</div>
+<p>ここで他の特殊文字の例も見ましょう。</p>
+<p>（例） 改行文字を判定する</p>
+<div class="macro">
+<pre><code>if (code == 0x0d) {
+    message &quot;改行文字です&quot;;
+}</code></pre>
+</div>
+<p>以下の書き方では改行文字と判定できません。insert文で改行を挿入する場合との違いに注意しましょう。</p>
+<div class="macro">
+<pre><code>if (code == 0x0a) {
+if (code == &#39;\\n&#39;) {
+if (code == ascii(&quot;\\n&quot;)) {
+if (code == ascii(&quot;\\r&quot;)) { // これもなぜか ascii(&quot;\\r&quot;) == 10
+となり駄目</code></pre>
+</div>
+<p>※秀丸マクロでは、\rも 0x0a として処理されます。</p>
+<p>（例） 文末を判定する<br />
+<strong>eof</strong>キーワードが文末を示します。</p>
+<div class="macro">
+<pre><code>if (code == eof) {
+    message &quot;文末です&quot;;
+}</code></pre>
+</div>
+<p>（例） タブ文字の判定</p>
+<div class="macro">
+<pre><code>if (code == 0x09) {
+    message &quot;タブ文字です&quot;;
+}</code></pre>
+</div>
+<h3 id="MOVETO">【３】任意の座標にある文字が何かを判断するには（moveto,カーソル移動系コマンド）</h3>
+<p>任意の座標にある文字が何かを判断するにはどうすれば良いでしょうか。<br />
+簡単な方法としては、カーソル移動系コマンドの<strong>moveto</strong>でカーソルを移動してから、<strong>code</strong>キーワードを使います。</p>
+<p>ここで疑問が出てきます。movetoで２バイト文字の真ん中の座標に移動するとどうなるでしょうか？。<br />
+答え：２バイト文字の先頭にカーソルが移動します。</p>
+<p>逆に、上記の性質を使うと、movetoで指定した座標値と、実際に移動した先の座標値（キーワードx と yで取得出来る）を比較することで、 その座標にある文字が、１バイト文字か、２バイト文字の１バイト目か２バイト目かを区別することができます。</p>
+<ul>
+<li><p><strong>movetolineno</strong>文の場合、移動指定先が、2 バイトコードの 2バイト目に来る場合、2バイト目の最後、 すなわち次の文字の先頭にカーソルが移動します。</p></li>
+<li><p>タブ文字の上に移動する場合も、２バイト文字と同様の動作になります。<br />
+「動作環境」-「高度なカーソル」の「タブ文字の上のカーソル移動した時」の設定は、moveto,movetolineno 文の動作には影響しません。</p></li>
+</ul>
+<h3 id="BEGINSEL">【４】範囲選択するには</h3>
+<p>後で文字列変数に取り込んだり、秀丸の編集系コマンド(例えば、<strong>tohankaku</strong>など)を使ったりする場合には、範囲選択されている必要があります。<br />
+秀丸マクロで範囲選択するにはいくつかの方法があります。</p>
+<ul>
+<li><strong>beginsel</strong>と、その後に<strong>right</strong>や<strong>moveto</strong>等のカーソル移動系文を使う</li>
+<li><strong>selectline</strong>や <strong>selectword</strong>などのクリップボード系文を使う</li>
+<li>検索系文を使って検索する<br />
+「動作環境」-「検索」-「検索の動作」-「検索での表示」で、「範囲選択」が選択されている必要があります。<br />
+ちなみに、この選択状態は、<strong>searchmode</strong>キーワードで知ることができます。</li>
+</ul>
+<!-- h4 -->
+<div class="marginleft">
+<h4 id="BEGINSEL-1">「検索系文を使って検索する」の補足説明</h4>
+<p>現状(Ver.4.10以降)では、「動作環境」-「検索」-「検索の動作」-「検索での表示」が「点滅表示」でも取り込む事は可能です。</p>
+<p>foundtopx、foundtopy、foundendx、foundendy キーワードが追加され、それぞれに検索にマッチした座標がセットされます。 検索にマッチした事を確認して、foundtopx、foundtopy、foundendx、foundendy キーワードを使い、gettext文で文字変数に取り込む事が可能です。</p>
+<p>また、「setcompatiblemode文」が追加され(Ver.6.00以降）、マクロ内で一時的に「検索での表示」の動作を切り替える事も、 可能になっています。その為、「動作環境」に関係なく使用したい「検索での表示」の設定で、マクロを実行する事が可能になっています。</p>
+</div>
+<h3 id="ESCAPE">【５】範囲選択を解除するには</h3>
+<p>範囲選択を解除するには<strong>escape</strong>文を使用します。<br />
+例えばマクロ文で選択を行う場合、既に範囲選択されていると不都合がある場合があります。そのようなときに利用できます。<br />
+ちなみにbeginsel等で範囲選択モードになっているときに範囲選択モードを解除する（選択範囲は残す）場合に使うのは<strong>endsel</strong>文です。</p>
+<!-- h4 -->
+<div class="marginleft">
+<h4 id="endsel">endsel使用時の注意点</h4>
+<p>選択モードを終了しても範囲選択状態でカーソル移動コマンドを使うと、移動した場所まで範囲選択状態になります。 (範囲選択が広がってしまう。)</p>
+<p>確認用マクロ</p>
+<div class="macro">
+<pre><code>//範囲選択開始
+beginsel;
+moveto x + 3, y;
+//範囲選択モード解除
+endsel;
+message &quot;範囲選択終了&quot;;
+//範囲選択モードを解除したはずなのに移動したカーソル位置まで選択される。
+moveto x + 3, y + 3;
+message &quot;カーソル移動&quot;;
+endmacro;</code></pre>
+</div>
+<p><img src="3_string_501.png" alt="範囲選択終了時" width="310" height="200" /> <img src="3_string_502.png" alt="カーソル移動終了時" width="310" height="199" /><br />
+</p>
+<p>動作的にはおかしいが、現状（2016/05/11）においては仕様ということです。 範囲選択状態から、検索を使用し、見つけた位置まで範囲選択を伸ばす事も可能になっているので、 カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+(カーソル移動コマンドとは、moveto、movetolineno goline～のコマンドです。)</p>
+<p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、 解除されない場合はカーソル移動を行うと思わぬ結果になるので注意すること。</p>
+<p>この動作を回避するには、範囲選択終了後に、一度カーソルを動かせばいい。(left、right等)</p>
+</div>
+<h3 id="GETTEXT">【６】文字列型変数に取り込むには：その１（gettext文,gettext2文)</h3>
+<p>ユーザーの操作または上記のマクロ文で範囲選択した後、その選択された文字列を文字列型変数に取り込むにはどうすれば良いでしょうか。</p>
+<p>典型的には、以下のようなコーディングを見ることが多くなるでしょう。</p>
+<div class="macro">
+<pre><code>$s = gettext(seltopx,seltopy,selendx,selendy);</code></pre>
+</div>
+<p>秀丸マクロでは、範囲選択された文字列を直接文字変数に取り込むマクロ文は有りません。 画面上の任意の範囲の文字列を文字変数に取り込む<strong>gettext</strong>文と、 現在の選択範囲の座標値を示す<strong>seltopx</strong>～<strong>selendy</strong>キーワード（範囲選択関連キーワード）を併用します。 (秀丸エディタVer5.00以降は、座標系がカラム位置、エディタ的に計算した行番号になっている<strong>gettext2</strong>文と、 <strong>seltopcolumn</strong>、<strong>seltoplineno</strong>、<strong>selendcolumn</strong>、<strong>selendlineno</strong> キーワードが追加されています。)</p>
+<p>但し注意が必要なのは、seltopx～selendyキーワードに値が入っているといって、 その値どおり範囲選択されているとは限らないことです。<br />
+マクロヘルプの「範囲選択関連キーワード」の説明にもあるように、 範囲選択が解除された後も、以前の値を保持しているためです。<br />
+ということは、上記のコーディングで文字列型変数に取得する場合は、 その前に、現在本当に範囲選択されているかを確認する必要があります。</p>
+<p>gettext文は実行すると範囲選択を解除する仕様でしたが、秀丸エディタVer5.00 より第5引数が追加され 範囲選択を解除するかどうかの設定が可能になってます。(gettext2文も同じ仕様です。)</p>
+<ul>
+<li>第5引数に 0 を設定した場合は範囲選択を解除します。</li>
+<li>第5引数に 1 を設定した場合は範囲選択を保持します。</li>
+</ul>
+<p>第5引数を省略した場合は、0 を設定したと同じ状態になります。</p>
+<div class="macro">
+<pre><code>//範囲選択を解除する場合
+$s = gettext(seltopx,seltopy,selendx,selendy, 0);
+//範囲選択を解除しない場合
+$s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
+</div>
+<h3 id="SELECTING">【７】範囲選択されているかどうか判断するには（selectingキーワード）</h3>
+<p>秀丸マクロから、現在範囲選択されているかどうか判断するには、<strong>selecting</strong>キーワードを使います。</p>
+<p>（例） 範囲選択された場所を文字列変数に取得する</p>
+<div class="macro">
+<pre><code>if(selecting) {
+    $s = gettext(seltopx,seltopy,selendx,selendy);
+    message &quot;選択範囲は、&quot; + $s + &quot;です&quot;;
+} else {
+    message &quot;範囲選択されていません&quot;;
+}</code></pre>
+</div>
+<p>範囲選択中か示すキーワードは他にもあります。 状況に応じて使い分けてください。</p>
+<dl>
+<dt><strong>rectselecting</strong></dt>
+<dd>BOX範囲選択中かどうかを表します。範囲選択中の場合は１、そうでない場合は０です。
+</dd>
+<dt><strong>lineselecting</strong></dt>
+<dd>行選択開始コマンドによる選択中かどうかを表します。（Ver.8.00以降）
+</dd>
+<dt><strong>selectionlock</strong></dt>
+<dd>選択開始/BOX選択開始/行選択開始コマンドによる選択中かどうかを表します。（Ver.8.00以降）
+</dd>
+<dt><strong>mouseselecting</strong></dt>
+<dd>マウスによる選択中かどうかと、その選択方法を表します。（Ver.8.00以降） 0：マウスによる選択ではない<br />
+1：文字単位の選択<br />
+2：単語単位の選択<br />
+3：行単位（折り返しまで）の選択<br />
+4：行単位（改行まで）の選択<br />
+
+</dd>
+<dt><strong>multiselecting</strong></dt>
+<dd>複数選択中であるかどうかを表します。（Ver.8.40以降）
+</dd>
+</dl>
+<h3 id="CLIPBOARD">【８】文字列型変数に取り込むには：その２（クリップボード経由）</h3>
+<p>クリップボードを経由して行う方法もあります。大まかには、以下の流れになります。</p>
+<ol style="list-style-type: decimal">
+<li>あらかじめ範囲選択する</li>
+<li><strong>cut</strong>で切り取り、または<strong>copy</strong>でコピーする</li>
+<li><strong>beginclipboardread</strong>文で、クリップボードからの読み込み開始を宣言する</li>
+<li><strong>getclipboard</strong>文で、クリップボードから１行（改行文字で区切られた範囲）を読み込む。</li>
+</ol>
+<p>使い方の詳細は、秀丸マクロヘルプの「クリップボードと変数のやりとり」を参照してください。</p>
+<p>gettext文とクリップボード系文との利点と弱点を比べて、自分が行う処理に合ったものを使いましょう。</p>
+<ul>
+<li><p>クリップボードを使うということは、マクロで処理した文字列がクリップボードに残ってしまうことを意味します。 （クリップボード履歴を使用している時は、履歴に保存されてしまいます。）<br />
+gettext文はクリップボードを消費しません。</p></li>
+<li><p>BOX範囲選択された範囲を文字列変数に取り込む場合は、クリップボードを使うのが簡単です。</p></li>
+</ul>
+<h3 id="ASCII">【９】変数内の文字が何かを知るには（ascii関数）</h3>
+<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。</p>
+<p>秀丸エディタ Ver.8β6 より、ascii関数の仕様が変更され、１バイトだけの場合は、マルチバイト文字の上位バイト範囲内でも、 そのまま文字コードを返します。 ２バイト以上で、Shift_JIS範囲内の場合は、Shift_JISコードを返します。</p>
+<p>ascii関数で判定するため、midstr文などで切り出す場合は、２文字以上切り出すのが良いでしょう。</p>
+<p>実験マクロ</p>
+<div class="macro">
+<pre><code>debuginfo 1;
+$test = &quot;012３４５6７&quot;;
+##len = strlen($test);
+##cnt = 0;
+while(##cnt &amp;lt; ##len){
+   $$check = midstr($test, ##cnt, 1);
+   debuginfo &quot;check = &quot; + $$check + &quot; hex = &quot; + hex(ascii($$check)) + &quot;\n&quot;;
+   ##cnt = ##cnt  + 1;
+}
+endmacro;</code></pre>
+</div>
+<p>実行結果</p>
+<div class="macro">
+<pre><code>check = 0 hex = 30
+check = 1 hex = 31
+check = 2 hex = 32
+check = ・hex = 8200
+check = R hex = 52
+check = ・hex = 8200
+check = S hex = 53
+check = ・hex = 8200
+check = T hex = 54
+check = 6 hex = 36
+check = ・hex = 8200
+check = V hex = 56</code></pre>
+</div>
+<p>実行結果(Ver.8β6以降)</p>
+<div class="macro">
+<pre><code>check = 0 hex = 30
+check = 1 hex = 31
+check = 2 hex = 32
+check = ・hex = 82
+check = R hex = 52
+check = ・hex = 82
+check = S hex = 53
+check = ・hex = 82
+check = T hex = 54
+check = 6 hex = 36
+check = ・hex = 82
+check = V hex = 56</code></pre>
+</div>
+<p>実験マクロ　その２</p>
+<div class="macro">
+<pre><code>debuginfo 1;
+$test = &quot;012３４５6７&quot;;
+##len = strlen($test);
+##cnt = 0;
+while(##cnt &amp;lt; ##len){
+   $$check = midstr($test, ##cnt, 2);
+   debuginfo &quot;check = &quot; + $$check + &quot; hex = &quot; + hex(ascii($$check)) + &quot;\n&quot;;
+   ##cnt = ##cnt  + 1;
+}
+endmacro;</code></pre>
+</div>
+<p>実行結果</p>
+<div class="macro">
+<pre><code>check = 01 hex = 30
+check = 12 hex = 31
+check = 2・hex = 32
+check = ３ hex = 8252
+check = R・hex = 52
+check = ４ hex = 8253
+check = S・hex = 53
+check = ５ hex = 8254
+check = T6 hex = 54
+check = 6・hex = 36
+check = ７ hex = 8256
+check = V  hex = 56</code></pre>
+</div>
+<p>以下の内容は古いバージョンが対象になります。</p>
+<hr />
+<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。 また２バイト文字を引数に与えられていると、２バイトのコードが返る便利な関数ですが、逆にそれゆえの落とし穴もあります。<br />
+ascii関数を２バイト文字に対して適用した場合、２バイト分をまとめて16bit整数として返す、という仕様ですが、 以下のようにわざと２バイト文字の１バイト目(コード=0x??)を切り出した（１文字からなる）文字列に適用すると、 なんと0x??00という値が返ってきます！</p>
+<div class="macro">
+<pre><code>$a = midstr(&quot;あ&quot;, 0, 1); // ２バイト文字の１バイト目を切り出す\
+message str(ascii($a)); // == 33280 == 0x8200 が返る</code></pre>
+</div>
+<p>というわけで、２バイト文字の１バイト目かどうかを判断するのに</p>
+<div class="macro">
+<pre><code>if (ascii(midstr(\$s, \#i, 1)) &amp; 0x80) {
+    // ２バイト文字の１バイト目か、半角カタカナだった
+    
+}</code></pre>
+</div>
+<p>というようなかっこいい(笑)コードはＮＧです。<br />
+ascii文の仕様からすると、midstr文などで切り出す場合は、２文字切り出すのが良いです。 （１文字目が１バイト文字でも次の文字はascii文は無視してくれます。）<br />
+というわけで、以下の例のようにしましょう。</p>
+<div class="macro">
+<pre><code>if (ascii(midstr(\$s, \#i, 2)) &gt;  0xff) {
+    // ２バイト文字
+    
+}</code></pre>
+</div>
+<p>または</p>
+<div class="macro">
+<pre><code>if (ascii(midstr($s, #i, 2)) &amp;&amp; 0xff00 != 0) {
+    // ２バイト文字
+
+}</code></pre>
+</div>
+<h3 id="DOUBLE">【１０】文字列中の先頭以外の文字が１バイト文字か２バイト文字かを区別するには（midstr関数等への注意事項）</h3>
+<p>前項で、<strong>midstr</strong>関数を使って、なにげなく文字列変数の中から一部を切り出しましたが、実はこれらの文はmoveto文等とは違って、 切り出す範囲の先頭が、２バイト文字の２バイト目かどうかは判断してくれません。<br />
+何も考えずにmidstr等を使うと、切り出した結果の文字列の先頭が２バイト文字の２バイト目だった場合、 別の１バイト文字に化けたり、ゴミになったり（表示させると半角の中点になる）していまいます。</p>
+<p>秀丸エディタ ver.8より、文字列を、文字単位で扱う関数群が追加されています。(正確には、文字列をUTF-16LEで扱う関数群) wcsmidstr関数を使用し、文字単位で切り出しコードを確認すれば、２バイト文字の判定は可能です。</p>
+<p>また、切り出す範囲の先頭の１バイト分の文字コードだけを見て、そこが２バイト文字の２バイト目かどうかは、一意に決められません。<br />
+秀丸に限らず一般にShift_JISのコード体系では、「２バイト文字の２バイト目」になり得るコードの中には、 「２バイト文字の１バイト目」になり得るものが有るためです。</p>
+<p>（例） 以下の例では、２バイト文字の２バイト目から始まる２バイトを、別の２バイト文字と誤判断してしまいます。<br />
+※例示のため、機種依存文字を使用しています。ご容赦ください。m(_ _)m</p>
+<div class="macro">
+<pre><code>$s = &quot;これは①&quot;;
+message char(ascii(midstr($s, 6, 2))); // ①が表示される
+$s = &quot;1回一括②&quot;;
+message char(ascii(midstr($s, 6, 2))); // ㊦が表示される！！
+//（&quot;括&quot;==0x8a87、&quot;②&quot;==0x8741、&quot;㊦&quot;==0x8787）</code></pre>
+</div>
+<p>&quot;㊦&quot;は0x8787と、１バイト目と２バイト目が同じ値で、いかにも意地悪な例ではありますが、各バイト値だけでは判断できないことがわかると思います。</p>
+<p>では、文字列中の任意の位置の文字が１バイト文字か２バイト文字かを区別するには、どうすればよいのでしょうか。<br />
+実現方法はいくつか考えられますが、文字列の先頭から順番に確認していくのが基本です。<br />
+一例としては、<a href="HMM0074A.html">[HMM0074A] ●文字列の後方から文字列を検索</a> を参照してください。</p>
+<!-- h3 -->
+</div>
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

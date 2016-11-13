@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0073A] ●文字列をバイト単位ではなく文字単位で扱う - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0072A.html">←前へ</a> <a href="HMM0074A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0073a">[HMM0073A]</h1>
+<h2 id="HMM0073A_01">●文字列をバイト単位ではなく文字単位で扱う</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>「strlen」等の文字列操作関数はバイト単位となっていますが、文字単位で扱うことはできないでしょうか？ １バイト文字と２バイト文字が混在している時に、とても困ります。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>秀丸エディタ Ver.8以降は、文字列をunicode(正確にはUTF-16LE)として扱う関数群が追加されています。</p>
+<ul>
+<li>wcslen</li>
+<li>wcsleftstr</li>
+<li>wcsrightstr</li>
+<li>wcsmidstr</li>
+<li>wcsstrstr</li>
+<li>wcsstrrstr</li>
+</ul>
+<p>この関数群を使用すれば、半角、全角問わずに文字単位で、文字列を操作可能です。 ただし、UTF-16LEなので、コードポイントが、U+10000 から U+10FFFFの範囲は、 サロゲートペアを使って表現するため、1文字でも2文字扱いになります。</p>
+<p>Unicode(UTF-16LE)ベースで文字単位で扱うには、</p>
+<ul>
+<li>サロゲートペア</li>
+<li>結合文字列(基底文字 + 結合文字)</li>
+<li>異字体セレクタ(文字 + 異字体セレクタ(U+E0100 to U+E01EF))</li>
+</ul>
+<p>等があるので、全て考慮しようとするとかなり難しい事になります。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0072A.html">←前へ</a> <a href="HMM0074A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

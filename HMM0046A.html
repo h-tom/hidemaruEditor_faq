@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0046A] ●keypressed文による分岐のスケルトン - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0045A.html">←前へ</a> <a href="HMM0047A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0046a">[HMM0046A]</h1>
+<h2 id="HMM0046A_01">●keypressed文による分岐のスケルトン</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>keypressed文によって分岐させたいのですが、キーコードを探すのが面倒です。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>次にベースになるマクロを掲載しました。 それぞれのキープレスに対応した動作を記述するだけで、すぐに使えるマクロになります。 デフォルトではエスケープキーで終了し、リターンキーではビープ音が鳴りますが、自由に変更できます。 必要なキーだけを残すように編集してください。</p>
+<div class="macro">
+<pre><code>//------- サンプルマクロ -------//
+// 編集者注：長さを短く押さえるため一部省略してあります。
+disablebreak;
+title &quot; [Esc] 終了&quot;;
+while(1){
+    ##k=keypressed;
+
+    if(##k==0x1B){ break;//Esc
+    }else if(##k==0x0D){// ENTER
+        beep;
+    }else if(##k==0x25){// ←left
+    }else if(##k==0x26){// ↑UP
+    }else if(##k==0x27){// →right
+    }else if(##k==0x28){// ↓DOWN
+    }else if(##k==0x24){// Home
+    }else if(##k==0x23){// End
+    }else if(##k==0x21){// PgUp
+    }else if(##k==0x22){// PgDn
+    }else if(##k==0x09){// Tab
+    }else if(##k==0x11){// Ctrl
+    }else if(##k==0x10){// Shift
+    }else if(##k==0x08){// BackSpace
+    }else if(##k==0x20){// space
+    }else if(##k==0x2D){// Ins
+    }else if(##k==0x2E){// Del
+    }else if(##k==0x14){// CapsLock
+    }else if(##k==0x41){// a,A
+    // : :
+    }else if(##k==0x5A){// z,Z
+    }else if(##k==0xBD){// -\_
+    }else if(##k==0xBB){// =+
+    }else if(##k==0xDC){// \\ |
+    }else if(##k==0xDB){// \[{
+    }else if(##k==0xDD){// \]}
+    }else if(##k==0xBA){// ;:
+    }else if(##k==0xDE){// &#39;&quot;
+    }else if(##k==0xBC){// ,&amp;lt;
+    }else if(##k==0xBE){// .&amp;gt;
+    }else if(##k==0xBF){// /?
+    }else if(##k==0xC0){// \`\~
+    }else if(##k==0x70){// F-1
+    // : :
+    }else if(##k==0x78){// F-9
+    }else if(##k==0x79){// F-10//Ver.2.14以下は取得不能
+    }else if(##k==0x7A){// F-11
+    }else if(##k==0x7B){// F-12
+    }else if(##k==0x91){// Scroll Lock
+    }else if(##k==0x13){// Pause
+    }else if(##k==0x31){// keyBoard-1
+    // : :
+    }else if(##k==0x30){// keyBoard-0
+    }else if(##k==0x60){// tenkey-0
+    // : :
+    }else if(##k==0x69){// tenkey-9
+    }else if(##k==0x6E){// tenkey-.
+    }else if(##k==0x6B){// tenkey-+
+    }else if(##k==0x6D){// tenkey--
+    }else if(##k==0x6A){// tenkey-\*
+    }else if(##k==0x6F){// tenkey-/
+    }else if(##k==0x14){// tenkey-Num Lock
+    }else if(##k!=0)beep;
+}
+endmacro;
+// ---------------------------- //</code></pre>
+</div>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0045A.html">←前へ</a> <a href="HMM0047A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

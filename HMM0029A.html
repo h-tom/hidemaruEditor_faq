@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0029A] ●マクロファイルの存在確認 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0028A.html">←前へ</a> <a href="HMM0030A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0029a">[HMM0029A]</h1>
+<h2 id="HMM0029A_01">●マクロファイルの存在確認</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>マクロファイルがあるかどうかを判定できますか？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>さまざまな方法があります。 次の例は、引数に確認したいマクロのファイル名を指定すれば、あとはマクロファイル用フォルダを自力で探し、 存在する場合には１、存在しない場合は０を返すサブルーチン「isExistMac」です。</p>
+<div class="macro">
+<pre><code>//------- サンプルマクロ -------//
+call isExistMac &quot;test.mac&quot;;
+if( ##return != 0 ) message &quot;マクロがありました。&quot;;
+else message &quot;マクロはありません。&quot;;
+endmacro;
+
+isExistMac:
+    $$checkFile=$$1;
+    $$cF=macrodir+&quot;\\&quot;+$$checkFile;
+    ##existYN=existfile($$cF);
+return ##existYN;
+// ---------------------------- //</code></pre>
+</div>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0028A.html">←前へ</a> <a href="HMM0030A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

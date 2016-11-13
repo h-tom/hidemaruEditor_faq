@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第III部～秀丸マクロのいろはにほへと　マクロ内での「\」や特殊文字の使い方</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
+　マクロ内での「\」や特殊文字の使い方</h1>
+<hr />
+<h2 id="INDEX">●マクロ内での「\」や特殊文字の使い方</h2>
+<p>【０】<a href="#MAEGAKI">まえがき ～ 「\」や特殊文字を表記するために ～</a><br />
+【１】<a href="#YENMARK">「\」の意味</a><br />
+【２】<a href="#EXAMPLE">「\」の使用例</a><br />
+【３】<a href="#REGULAR">正規表現で使用する場合</a></p>
+<div class="marginleft">
+<h3 id="MAEGAKI">【０】まえがき ～ 「\」や特殊文字を表記するために ～</h3>
+<p>秀丸マクロで文字列を書きたいときには、&quot; &quot;（ダブルクォーテーションマーク：二重引用符） でくくってテキストファイル上に書きます。</p>
+<p>ということは、その二重引用符の間に、「二重引用符自体」とか「改行文字」とかを書きたいと思った場合に、 どうすればよいでしょうか？<br />
+秀丸マクロの場合、これらはＣ言語と同様の書式を用いることで書き表すことができます。<br />
+具体的には、このような特殊文字は、半角の「\」と、その後ろに特定の文字を組み合わせることによって書き表す、 という「きまり」になっています。</p>
+<p>逆にいうと、「\」の文字を書きたいときに、単に「\」と書くとよろしくない、ということになります。</p>
+<p>以下では、これらの特殊文字や、「\」自体を表記したい時の書き方を簡単にまとめてあります。</p>
+<h3 id="YENMARK">【１】「\」の意味</h3>
+<p>「\」を使う場合として、次のものが挙げられます。</p>
+<div class="table_border1">
+<table>
+<caption>エスケープシーケンスの例</caption>
+<colgroup>
+<col width="18%" />
+<col width="33%" />
+<col width="47%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>\t</strong></td>
+<td align="left">タブ</td>
+<td align="left">16進数の「09」、10進数の「9」</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>\n</strong></td>
+<td align="left">改行</td>
+<td align="left">16進数の「0A」、10進数の「10」</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>\&quot;</strong></td>
+<td align="left">「&quot;」自身</td>
+<td align="left">16進数の「22」、10進数の「34」</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>\\</strong></td>
+<td align="left">「\」自身</td>
+<td align="left">16進数の「5C」、10進数の「92」</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>\x</strong><em>hh</em></td>
+<td align="left">任意の文字コード hh の文字 (16進数)</td>
+<td align="left">例えば「\x41」で、16進数の「41」、 10進数の「65」。 これは文字でいうと「A」です</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>\u</strong><em>hhhh</em></td>
+<td align="left">任意のユニコードで指定する文字<br />
+(16進数4桁固定)</td>
+<td align="left">「<code>\u79C0</code>」で、「秀」という文字を示す。<br />
+16進数4桁までなので、コードポイントが、 0x10000を超える場合は、サロゲートペアで 表現する必要がある。<br />
+(<code>U+2000B</code>)は、<br />
+上位サロゲート <code>\uD840</code><br />
+下位サロゲート <code>\uDC0B</code><br />
+のように2文字文を使う表現になる。</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>\U</strong><em>hhhhhhhh</em></td>
+<td align="left">任意のユニコードで指定する文字<br />
+(16進数8桁固定)</td>
+<td align="left">「<code>\U000079C0</code>」で、「秀」という文字を示す。<br />
+(<code>U+2000B</code>)は、<code>\U0002000B</code> という 表現になる。(Ver.8.52)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>試しに、以下のマクロを実行してみてください。<br />
+@ と @ の間の表示に注目してみてください。</p>
+<div class="macro">
+<pre><code>//---- 「\」の扱いを調べるテストマクロ ---------------------
+$str[1] = &quot;\t&quot;;
+$str[2] = &quot;\n&quot;;
+$str[3] = &quot;\&quot;&quot;;
+$str[4] = &quot;\\&quot;;
+$str[5] = &quot;\x41&quot;;
+$str[6] = &quot;\u79C0&quot;;
+$str[7] = &quot;\uD840\uDC0B&quot;;
+$str[8] = &quot;\U0002000B&quot;;
+#i = 1;
+while( $str[#i] != &quot;&quot; ) {
+
+    message &quot;@&quot; + $str[#i] + &quot;@&quot;;
+    #i = #i + 1;
+
+}
+endmacro;
+//---- ここまで --------------------------------------------</code></pre>
+</div>
+<h3 id="EXAMPLE">【２】「\」の使用例</h3>
+<p>では、実際に「\」が出てくるマクロをいくつか書いてみましょう。</p>
+<p><strong>(a)ファイル「c:\test.txt」をオープンするマクロ</strong></p>
+<div class="macro">
+<pre><code>//---- ファイルをオープンするテストマクロ ------------------\
+openfile &quot;c:\\test.txt&quot;;
+endmacro;
+//---- ここまで --------------------------------------------</code></pre>
+</div>
+<p>ファイル名に「\」という文字を使いたい訳ですから、「\」自身の文字を表すために「\\」と表記します。</p>
+<p><strong>(b)改行を挿入するマクロ</strong></p>
+<div class="macro">
+<pre><code>//---- 改行を挿入するテストマクロ --------------------------
+insert &quot;改行する文章\n改行した後の文章&quot;;
+endmacro;
+//---- ここまで --------------------------------------------</code></pre>
+</div>
+<p>改行を表現したい時は、「\n」でしたね。</p>
+<p><strong>(c)正規表現による改行検索を行うマクロ</strong></p>
+<p>実は、正規表現による検索・置換をする場合には、\の使い方が一見変わっているように見えます。【３】の例をごらんください。</p>
+<h3 id="REGULAR">【３】正規表現で使用する場合</h3>
+<div class="macro">
+<pre><code>//---- 改行検索を行うテストマクロ -------------------
+searchdown &quot;\\n&quot;, regular;
+endmacro;
+//---- ここまで -------------------------------------</code></pre>
+</div>
+<p>この表記だと、二重引用符の中は、「改行文字」ではなく「\nという２文字の文字列」になっています。 「\\」が、\という文字自身を表していますので、そうなりますね。<br />
+でも、正規表現による検索・置換をする場合には、これでよいのです。というか、このように表記しなければいけません。</p>
+<p>なぜそうなるのかを説明するために、少し難しくなりますが秀丸の内部動作を説明します。</p>
+<div class="box_line">
+<p>秀丸は正規表現による検索・置換をするために、HMJRE.DLLというプログラムを利用しています。 秀丸はHMJRE.DLLに、検索文字列を渡します。 HMJRE.DLLは、渡された文字列を「解析」して、その中に「\nという２文字の文字列」が有った場合に、 それを「改行文字」だと「解釈」をします。<br />
+つまり、HMJRE.DLLに渡す文字列にも、マクロで表記するのと同様な「表記のきまり」があるということです。 だから、改行文字を検索させたい場合に、HMJRE.DLLに対しては「\nという２文字の文字列」を送ってあげる必要があって、 そのためには秀丸のマクロ文では「\nという２文字の文字列」を記述してあげればよいことになっています。</p>
+</div>
+<p>というわけで、searchdown 文の引数として「\nという２文字の文字列」を記述してあげればよいので、 &quot;\\n&quot;という書き方になるのです。</p>
+<p>上記のマクロを見て、「あれっ、改行って確か「\n」だから、「searchdown &quot;\n&quot;,regular;」じゃないの。 試しに動かしたら、ちゃんと検索したぞー」とおっしゃる方もおられると思います。<br />
+これは、HMJRE.DLLが一応「改行文字そのもの」を送られてきた場合にも対応しているから動作しています。 が、これは一般的な表記ではないので、複雑な文字列になると検索できない場合があります。 というわけで、&quot;\\n&quot;と書くようにしましょう。</p>
+<p>この表記法は、改行だけに限らず、\を使う表記すべてに当てはまります。 ということで、たとえばタブ文字を検索したい場合は</p>
+<div class="macro">
+<pre><code>searchdown &quot;\\t&quot;, regular;</code></pre>
+</div>
+<p>となりますし、\ という１文字を（正規表現中で）検索したいときには</p>
+<div class="macro">
+<pre><code>searchdown &quot;\\\\&quot;, regular;</code></pre>
+</div>
+<p>となるわけですねヾ(^^;</p>
+<p>＃ このように\を重ねて書かねばならないのはマクロ内だけです。正規表現による検索でもダイアログで普通に行う分には\は１個でよいです。<br />
+慣れてくると逆に混乱することがあるので、蛇足ですが(^^;)。</p>
+<p>では、正規表現のマクロ記述は何でも\を重ねて書けばよいかというと、ダブルクォーテーションマーク(&quot; )だけは異なります。</p>
+<div class="macro">
+<pre><code>searchdown &quot;\&quot;&quot;, regular;</code></pre>
+</div>
+<p>が正解です。ダブルクォーテーションマークは制御文字でなく普通の文字なので、\&quot; でダブルクォーテーションマーク１文字をHMJRE.DLLに渡せるからです。 あるいは、以下のようにして「\&quot;という２文字の文字列」をHMJRE.DLLに渡しても動作します。</p>
+<div class="macro">
+<pre><code>searchdown &quot;\\\&quot;&quot;, regular;</code></pre>
+</div>
+<p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。 表示される内容が、HMJRE.DLLに渡される文字列になるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

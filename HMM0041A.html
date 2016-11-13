@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0041A] ●文字列型変数の扱う文字列の限界 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0040B.html">←前へ</a> <a href="HMM0042A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0041a">[HMM0041A]</h1>
+<h2 id="HMM0041A_01">●文字列型変数の扱う文字列の限界</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>ヘルプには「文字列型変数の扱える文字列は，長さが8000バイト程度までのものなら自由な内容を記憶することができます。ただし，NULL文字を含 むことはできません。」とあります。もっと多量の文字列を扱いたい場合はどうするんですか？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>秀丸エディタVer.8.00より、文字変数の上限サイズが変更になっています。 文字変数全体で、最大1Mバイト(変数管理領域を含む)が、上限になります。 文字変数が１個なら、ほぼ1Mバイト使えます。 使用する文字変数が多くなれば、個別に使用できるサイズの上限は、各変数の使用状況によります。</p>
+<p>秀丸エディタVer.8.20β25 より、文字変数の上限サイズを、ユーザー側で設定可能になりました。 設定可能範囲は1M～64Mバイトになります。</p>
+<p>文字列を直接代入する場合等には、まだ4Kバイトの上限が存在します。 詳細は秀丸エディタマクロヘルプの <span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/030_HowToValiable.html" target="_blank">変数の使い方</a></span> を参照して下さい</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0040B.html">←前へ</a> <a href="HMM0042A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

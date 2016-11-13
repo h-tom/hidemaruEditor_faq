@@ -1,0 +1,345 @@
+body {
+  margin : 2em ;
+  line-height: 1.4em;
+}
+
+h1{
+  line-height: 1.0em;
+}
+
+h2 {
+  color : White;
+  background-color : Blue;
+}
+
+h3{
+  color : White;
+  background-color : #00BFFF ;
+}
+
+h4 {
+  color : White;
+  background-color : mediumaquamarine;
+}
+
+h5 {
+  color : White;
+  background-color : steelblue;
+}
+
+h6 {
+  color : White;
+  background-color : gray;
+}
+
+h2,h3,h4,h5,h6 {
+  text-indent : 2ex ;
+}
+
+h4,h5,h6 {
+  font-size :1em ;
+}
+
+sup{
+  margin-right : 0.5em;
+}
+
+.marginleft3 {
+  margin-left : 3em;
+}
+
+.marginleft {
+  padding-left : 2em;
+}
+
+.macro {
+  line-height: normal;
+  padding-left     : 5px;
+  background-color : #E0FFFF;
+  border-style     : solid ;
+  border-width     : 1px 3px 3px 1px ;
+  font-family      : monospace,sans-serif;
+  color            : Black ;
+}
+
+.attention0 {
+  color        : Black ;
+  border-style : solid ;
+  border-width : 2px 2px 2px 2px ;
+  padding      : 5px;
+}
+
+.attention1 {
+  font-weight  : bold;
+  color        : Black ;
+  border-style : solid ;
+  border-width : 2px 2px 2px 2px ;
+  padding      : 5px;
+}
+
+.attention_red {
+  font-weight : bold;
+  color       : Red ;
+  padding     : 5px;
+}
+
+.attention_black {
+  font-weight : bold;
+  color       : Black ;
+  padding     : 5px;
+}
+
+.attention_black2 {
+  font-weight : bold;
+  color       : Black ;
+  padding     : 5px;
+  margin-left : 3em;
+}
+
+.old_information
+{
+  background-color:#A9A9A9;
+  color           :#C0C0C0;
+}
+
+.externallink {
+  font-weight : bold;
+  padding     : 5px;
+  /*text-shadow : 1px 1px 1px black;*/
+}
+
+a[target="_blank"]:after {
+  content        : url(./external-link-red03-Shapes4FREE.png);
+  vertical-align : middle;
+  margin         : 0 2px;
+}
+
+/*
+.externallink>a:after {
+  content        : url(./external-link-red03-Shapes4FREE.png);
+  vertical-align : middle;
+  margin         : 0 2px;
+}
+
+a.uri:after {
+  content        : url(./external-link-red03-Shapes4FREE.png);
+  vertical-align : middle;
+  margin         : 0 2px;
+}
+*/
+
+.monospace {
+  font-family : monospace,sans-serif;
+}
+
+.font_ms code {
+  font-family: 'ＭＳ ゴシック',monospace;
+}
+
+/*div.table_border > table, div.table_border > table > thead > tr td , div.table_border > table > tbody > tr td{*/
+/*div.table_border  table, div.table_border th , div.table_border tr, div.table_border td{
+  border          : solid 1px #000000;
+  border-collapse : separate;
+  border-spacing  : 2px;
+}
+*/
+
+div.table_border  table{
+  border          : solid 1px #000000;
+  border-collapse : separate;
+  border-spacing  : 1px;
+}
+
+div.table_border  th{
+  border          : solid 1px #000000;
+}
+
+div.table_border  tr{
+  border          : solid 1px #000000;
+}
+
+div.table_border  td{
+  border          : solid 1px #000000;
+  padding         : 5px;
+}
+
+div.table_border1  table, div.table_border1 th , div.table_border1 tr, div.table_border1 td{
+  border          : solid 1px #000000;
+  border-collapse : separate;
+  border-spacing  : 2px;
+  /*padding         : 2px;*/
+}
+
+div.table_border1  td{
+  padding-left    : 3px;
+  padding-right   : 3px;
+}
+
+
+.table_no_border{
+  border          : none 0px #000000;
+}
+
+.box_line {
+  color        : Black ;
+  border-style : ridge ;
+  border-width : 2px 2px 2px 2px ;
+  padding      : 5px;
+}
+
+.box_line2 {
+  font-family  : monospace,sans-serif;
+  color        : Black ;
+  border-style : ridge ;
+  border-width : 2px 2px 2px 2px ;
+  padding      : 5px;
+}
+
+.font_red {
+  color       : Red ;
+  padding     : 5px;
+}
+
+.font_blue {
+  color       : blue ;
+  padding     : 5px;
+}
+
+.font_org {
+  color       : orange;
+  padding     : 5px;
+}
+
+.font_blue_bold {
+  font-weight : bold;
+  color       : blue ;
+  padding     : 5px;
+}
+
+.font_red_bold {
+  font-weight : bold;
+  color       : Red ;
+  padding     : 5px;
+}
+
+
+.font_large {
+  font-size   : x-large;
+}
+/*
+div.table_waku > table {
+  border      : ridge 4px #000000;
+}
+*/
+
+div.attention_p > p {
+  font-weight : bold;
+  color       : Black;
+  padding     : 2px;
+  margin-left : 3em;
+}
+
+.text-right {
+  text-align : right;
+}
+
+.rotate90{
+  transform         : rotate(90deg);
+  -ms-transform     : rotate(90deg);
+  -moz-transform    : rotate(90deg);
+  -webkit-transform : rotate(90deg);
+  -o-transform      : rotate(90deg);
+  display           : inline-block;
+}
+
+li {
+  margin-top    : 6px;
+  margin-bottom : 6px;
+}
+
+.cmdprompt {
+  padding-left     : 5px;
+  background-color : black;
+  color            : white ;
+  border-style     : solid ;
+  font-family      : monospace,sans-serif;
+}
+
+.link_navigate a{
+  margin-left  : 6px;
+  margin-right : 6px;
+}
+
+.macro  pre{
+    max-width     : 80em;
+    overflow      : auto;
+    margin-top    : 2px;
+    margin-bottom : 2px;
+}
+
+
+.box  pre{
+    padding-left  : 5px;
+    max-width     : 80em;
+    overflow      : auto;
+    margin-top    : 2px;
+    margin-bottom : 2px;
+}
+
+.BlockScroll{
+    overflow      : auto;
+}
+
+.hme0016c_01 {
+    width    : 300px;
+    height   : 200px;
+    overflow : auto;
+}
+
+.updated {
+  font-weight : bold;
+  text-shadow : 1px 1px 0 white, 2px 3px 2px deepskyblue;
+  font-family : monospace,sans-serif;
+  text-decoration:underline double;
+
+}
+.history_set {
+  color: yellow;
+  text-shadow : -1px -1px 1px black,
+                 1px -1px 1px black,
+                -1px  1px 1px black,
+                 1px  1px 1px black;
+  color: #000000\9;
+}
+
+.hr_noshade{
+    height          :2px;
+    border-width    :0;
+    color           :gray;
+    background-color:gray;
+}
+
+/* 640px*/
+@media screen and (max-width: 640px) {
+    h1,h2,h3,h4,h5,h6 {
+        font-size :1em ;
+    }
+    
+    img{
+        max-width: 100%;
+        height: auto;
+        width : auto;
+    }
+    
+    .marginleft {
+        padding-left : 0em;
+    }
+    
+    .hme0016c_01 {
+        max-width: 100%;
+        width    : auto;
+        height   : 200px;
+        overflow : auto;
+    }
+
+}

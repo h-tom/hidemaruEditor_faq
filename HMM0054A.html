@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0054A] ●16bit版秀丸のmovetolinenoのバグ - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0053A.html">←前へ</a> <a href="HMM0055A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0054a">[HMM0054A]</h1>
+<p>古い情報なので削除</p>
+<div class="old_information">
+<h2 id="HMM0054A_01">●16bit版秀丸のmovetolinenoのバグ</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>16bit版秀丸で、movetolineno文でテキストの最終行に飛ばすように指定しても、その１つ前の行に飛んでしまいます。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>これは16bit版秀丸の一部のバージョンにあったバグです。 秀丸エディタでは起きないのですが、秀丸エディタでも16bit版秀丸でも動作する汎用のマクロを作ろうとすると避けて通れません。(^^;)</p>
+<p>　このバグの回避方法の例を以下に示します。 　 1. 次行行頭への移動（例：movetolineno 0, lineno + 1;）の場合<br />
+以下の３行を組み合わせて代用できます。</p>
+<pre><code>&lt;div class=&quot;macro&quot;&gt;
+    golineend2;
+    down;\
+    golinetop2;
+&lt;/div&gt;
+
+前行行頭への移動等も同様にできます。</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>最終行にだけ飛べないんですから、いっそのこと最終行に改行を１つ挿入してマクロの最後で削除する、という手があります。</li>
+<li>「絶対に最終行には飛ばさない」という自信がある場合はそのまま使えます(^^;)</li>
+</ol>
+</dd>
+</dl>
+</div>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0053A.html">←前へ</a> <a href="HMM0055A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

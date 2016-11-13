@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0023A] ●サブルーチンからの戻り値(数値) - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0022A.html">←前へ</a> <a href="HMM0024A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0023a">[HMM0023A]</h1>
+<h2 id="HMM0023A_01">●サブルーチンからの戻り値(数値)</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>戻り値を数値で得たいのですが。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>サブルーチンからの戻り値は文字列型変数だけでなく、数値型でも得られます。 次の例は上の例とほぼ同じですが、戻り値を数値型で返してします。</p>
+<div class="macro">
+<pre><code>//------- サンプルマクロ -------//
+$a=&quot;123&quot;;
+$b=&quot;456&quot;;
+call calcStrToNum $a,$b;
+#ansNum=##return;
+endmacro;
+
+calcStrToNum:
+    $$s1=$$1;
+    $$s2=$$2;
+    ##wa=val($$s1)+val($$s2);
+    return ##wa;
+// ---------------------------- //</code></pre>
+</div>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0022A.html">←前へ</a> <a href="HMM0024A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

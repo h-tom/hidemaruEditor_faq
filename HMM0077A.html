@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0077A] ●マクロでの文字列の比較 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0076A.html">←前へ</a> <a href="HMM0078A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0077a">[HMM0077A]</h1>
+<h2 id="HMM0077A_01">●マクロでの文字列の比較</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>マクロのif文で文字列の比較はできますか? 単純に、if ($a &lt; $b)などと比較すると、時々比較結果が変に感じるのですが…。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>できます。</p>
+<p>ただし、比較のルールは文字コード順ではなく、辞書引き順となります。</p>
+<p>大小比較をする場合は注意が必要です。 辞書引き順のルールは以下のようになっているようです。</p>
+<p>(以下は、本Ｑ＆Ａ執筆者が独自に調査した結果を基に記述しています。このルールに基づかない結果になることがあるかもしれません)</p>
+<p>例に示す式はすべて真です。</p>
+<p><strong>(1-a)</strong></p>
+<p>文字種全体の関係は、記号 &lt; 英字 &lt; かな &lt; 漢字 となる。<br />
+英字同士の比較は大文字/小文字、全角/半角の区別なく、英字順に大きいと判断される。</p>
+<p>かな同士の比較は、ひらがな/カタカナ、全角/半角の区別なく、五十音順に大きいと判断される。濁点、半濁点はないものと見なす。</p>
+<p>例) &quot;ａ&quot; &lt; &quot;ア&quot;（半角カタカナ）<br />
+例) &quot;a&quot; &lt; &quot;B&quot;<br />
+例) &quot;アイ&quot;（半角カタカナ） &gt; &quot;アア&quot;<br />
+例) &quot;カク&quot; &lt; &quot;カ゛ケ&quot;（半角カタカナ）<br />
+例) &quot;０&quot; &lt; &quot;1&quot;</p>
+<p><strong>(1-b)</strong></p>
+<p>文字数の違う文字列同士の比較で、短い方の文字列の長さまでが(1-aのルールで) 一致している場合、長いほうが大きいと判断される。<br />
+※ 長さはバイト数ではなく文字数でカウントする。<br />
+例) &quot;ＡＢＣ&quot; &lt; &quot;abc1&quot;</p>
+<p>ここまでで決着がつかなかった場合に、次のルールを適用します。</p>
+<p><strong>(2)</strong></p>
+<p>英字の同一文字の大文字と小文字の比較では、大文字のほうが大きい。<br />
+かなの同一文字の比較では、次のような関係となる。</p>
+<p>濁点ナシ &lt; 濁点付き &lt; 半濁点付き</p>
+<p>半角カナ &lt; 全角カタカナ &lt; 全角ひらがな</p>
+<p>※ 濁点の有無のほうが優先順位が高い。</p>
+<p>例) &quot;ABC&quot; &gt; &quot;abc&quot;<br />
+例) &quot;アイ&quot;（半角カタカナ） &lt; &quot;アイ&quot;<br />
+例) &quot;カク&quot; &lt; &quot;カ゛ク&quot;（半角カタカナ）</p>
+<p>ここまでで2つの文字列に違いが見られない場合、2つの文字列は同じであるという結果になります。<br />
+例) &quot;バ&quot;==&quot;ハ゛&quot; 漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、 ご自身で確かめてみましょう。</p>
+<hr />
+<p><strong>（例１）</strong><br />
+次のマクロは、編集中のテキストのカーソル位置から、 英大文字で始まる単語を取得して1単語ずつダイアログボックスに表示させようとしたものです。</p>
+<p>ファイルの最後に達するまで繰り返します。</p>
+<div class="macro">
+<pre><code>gowordtop; 
+#x1 = x; 
+#y1 = y; 
+while( 1 ) { 
+    wordright; 
+    if( result == false ) { 
+        break;
+    } 
+    $str = gettext(#x1, #y1, x, y); 
+    $s1 = leftstr($str, 1); 
+    if( $s1 &gt;= &quot;A&quot; &amp;&amp; $s1 &lt;= &quot;Z&quot; ) { // *1 
+        message $str;
+    } 
+    #x1 = x; 
+    #y1 = y; 
+} </code></pre>
+</div>
+<p>英単語かどうかの判断に文字列の比較を使用しています (*1 の行)。<br />
+(&quot;A&quot;～&quot;Z&quot;で始まる単語を英単語であると判断) このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、 前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
+<p>正しく英大文字で始まる単語のみを表示するには、*1 の行を次のように変更します。</p>
+<div class="macro">
+<pre><code>if( ascii(\$s1) &amp;gt;= &#39;A&#39; &amp;&amp; ascii(\$s1) &amp;lt;= &#39;Z&#39; ) { // \*1</code></pre>
+</div>
+<p>比較対象を文字(列)のままではなく文字コードに変換して比較します。<br />
+※ AとZの囲みがシングルクォートに変わっていることに注意。</p>
+<hr />
+<p><strong>（例２）</strong><br />
+例１の例を含めて、秀丸の文字列比較（&lt;, ==, &gt;の演算子で行うもの）はWin32API の lstrcmp()を使っているので、 その通りのルールになっています。<br />
+そのため、比較結果が以下のようなちょっと凝った？ものになります。</p>
+<p>&quot;パ&quot;==&quot;ハ゛゛&quot;<br />
+&quot;⑳&quot;&lt;&quot;∞&quot; //（Shift_JIS, UNICODEコード順と逆）<br />
+&quot;℃&quot;==&quot;C゜&quot;<br />
+&quot;一&quot;==&quot;一〇〇〇〇&quot;<br />
+&quot;◎゛&quot;==&quot;●&quot;<br />
+&quot;㈱ヽ&quot;==&quot;㈱㈱&quot;<br />
+&quot;山ゞ&quot;==&quot;山山゛&quot;</p>
+<p>厳密に（単純に）同じ文字列か比較を行いたい場合は、以下のような方法があります。</p>
+<div class="macro">
+<pre><code>$a = input (&quot;１個め&quot;, &quot;&quot;); 
+$b = input (&quot;２個め&quot;, &quot;&quot;); 
+// 秀丸の比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ) 
+if ($a == $b) { 
+    message &quot;$a == $b&quot;;
+} else if ($a &gt; $b) { 
+    message &quot;$a &gt; $b&quot;;
+} else { 
+    message &quot;$a &lt; $b&quot;;
+} 
+// 厳密な比較例 
+if (($a == &quot;&quot;) &amp;&amp; ($b == &quot;&quot;)) { 
+
+    // 例外的に strstr(&quot;&quot;, &quot;&quot;) == -1 になります。 
+    message &quot;$a と $b は共にヌルストリングです。&quot;;
+} else if ((strlen($a) == strlen($b)) &amp;&amp; (strstr($a, $b) == 0)) { 
+    message &quot;本当に $a と $b は同じ文字列です。&quot;;
+} else { 
+    message &quot;$a と $b は違う文字列です。&quot;;
+} 
+endmacro; </code></pre>
+</div>
+<p>厳密な（単純な）大小関係を知りたい場合は、ascii関数を使って１文字ずつ比較する方法があります。</p>
+<dl>
+<dt>[解説]</dt>
+<dd>Win32API の lstrcmp() についての詳細は以下を参照してください。<br />
+<a href="https://msdn.microsoft.com/ja-jp/library/cc410902.aspx">lstrcmp 関数</a>
+</dd>
+</dl>
+<p>辞書引き順の詳細は、ＪＩＳの日本語文字列照合順番 X4061-1996で定義されています。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0076A.html">←前へ</a> <a href="HMM0078A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

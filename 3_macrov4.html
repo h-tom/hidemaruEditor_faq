@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.4.00 マクロ関連の変更履歴</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
+　秀丸エディタVer.4.00 マクロ関連の変更履歴</h1>
+<hr />
+<h2 id="V4">●秀丸エディタVer.4.00 マクロ関連の変更履歴</h2>
+【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 4.00</a><br />
+【２】<a href="#spec">仕様変更</a><br />
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 4.00</h3>
+<ul>
+<li>マクロヘルプ入門用のヘルプファイルを追加</li>
+<li>replaceallのinselect記録対応</li>
+<li>loadhilightで反映されないバグの修正</li>
+<li>マクロ getconfig, config の縦線系対応</li>
+<li>enabledraw;などができないバグ修正</li>
+<li>マクロgrep文のパラメタにfullpathを追加</li>
+<li>execmacroでメモリリークのバグ修正</li>
+<li>currentmacrobasenameが小文字にならないときがある</li>
+<li>disabledrawしてるときwindowwidthがおかしくなる</li>
+<li>getcofigとconfig &quot;x..&quot;で指定できるものにCurLineColorとCurLineColorExを追加</li>
+<li>findwindow失敗の対策</li>
+<li>run文で文字列が長すぎると落ちる</li>
+<li>movetilinenoでエラーメッセージが出ることがある場合の対処</li>
+<li>マクロヘルプに検索系文にnoregular, nocasesenseを追加</li>
+<li>replaceallのlinknextで固まってしまうバグ修正</li>
+<li>title文の内部構造作り直し</li>
+<li>loadhilight, savehilightでフルパス指定対応</li>
+<li>foundtopx,foundtopy,foundendx,foundendy を追加</li>
+<li>searchoptionとsetsearchにビット８～１０を追加</li>
+<li>grepfilebuffer, setgrepfile追加</li>
+<li>grepとlocalgrepでもnoregularに対応</li>
+<li>getsearchhist, getreplacehist, setsearchhist, setreplacehistを追加</li>
+<li>gettagsfileを追加</li>
+<li>searchdialog, replacedialog,追加</li>
+<li>find2追加</li>
+<li>searchoptionのビット１１</li>
+<li>マクロgetcofigとconfig &quot;x&quot;で指定できるものに以下のものを追加
+<ul>
+<li>AutoAdjustOrikaeshi</li>
+<li>BquoteItemized</li>
+<li>BquoteInclude</li>
+<li>AspDefaultScript</li>
+<li>Asp</li>
+<li>JspComment</li>
+<li>Php</li>
+<li>Xml</li>
+<li>ColorIfdef</li>
+</ul></li>
+<li><p>getconfigのFontSizeの返り値がマイナスだったのを修正<br />
+getconfigのFontCharSetはできるようにする（config &quot;x&quot;での設定はできないまま）</p></li>
+<li>menu文の位置補正の修正</li>
+<li>envchangedでフォントが変わってしまうバグ修正</li>
+<li>inputcharで砂時計を解除する修正</li>
+<li>setfilehist getfilehist setpathhist getpathhist を追加</li>
+<li>手前にあるウィンドウでも setactivehidemaru等、秀丸管理ができるようにする</li>
+<li>config &quot;xFontCharset:数字&quot;はやっぱりできるようにする</li>
+<li>config文でフォントの文字セットが変わるとエンコードの種類が切り替わるようにする</li>
+<li>V4.10β1からできなくなっていたsetfontchangemodeもできるようにする</li>
+<li>マクロヘルプにclosenewを記載</li>
+<li>alwaystopswitch追加</li>
+<li>envchangedでタブの状態がうまく反映されない問題修正</li>
+<li>　forceinselect, inselecting を追加</li>
+<li>暫定的にsearchoptionのビット１１が「選択した範囲のみ」だったのをやめにする</li>
+<li>setencode追加</li>
+<li>タブモードのときに showwindow 0;されている状態でsetactivehidemaruしても showwindow 0; が解除されないようにする</li>
+<li>showwindow 0;と後showwindow 1;してもタブに現れない問題修正</li>
+<li>copyurlを追加</li>
+<li>savekeyassign 追加</li>
+<li>windowstateで配列表記で他の秀丸にも対応</li>
+<li>windowstate2追加</li>
+<li>config &quot;xHilightList...&quot;をサポート</li>
+<li>openfileでワイルドカードを含む場合、ファイルを開いたのに新規ファイルとなってしまう問題修正</li>
+<li>openfileでワイルドカードを含む場合、開いているファイルの拡張子を自動的に追加しないようにする</li>
+<li>searchdownで、inselectを指定してないのに以前にinselect付きで検索した場合、引き継がれてしまう問題修正</li>
+<li><p>openfileで存在しないファイルを指定したとき、新規作成とならずに無題になる問題修正</p></li>
+</ul>
+<h3 id="spec">【２】仕様変更</h3>
+<ul>
+<li>config &quot;w数字&quot;をすると「自動でウィンドウ幅に合わせる」をoffにするように修正</li>
+<li>config文でオプションfやxで()を使って文字列を指定するとき、\でエスケープ可能にする<br />
+')'を文字列中に入れたいときは config &quot;x名前:(ＡＢ\)ＣＤ)&quot;<br />
+'\'を文字列中に入れたいときは config &quot;x名前:(ＡＢ\\ＣＤ)&quot;</li>
+<li>configcolorの「マークしていてさらに編集した行」は廃止<br />
+ヘルプのcolorcodeとconfigcolorを追加修正</li>
+<li>menu系の文の項目の上限を400個へ</li>
+</ul>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

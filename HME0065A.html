@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HME0065A] ●改行だけの行を削除したい - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HME0064A.html">←前へ</a> <a href="HME0066A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hme0065a">[HME0065A]</h1>
+<h2 id="HME0065A_01">●改行だけの行を削除したい</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>改行だけの空行を取り除きたいのですが、可能でしょうか？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>置換ダイアログを使用する場合は、「検索→置換」の「検索」エディットボックスに「^\n」、 「置換」エディットボックスに「」(空白にする)、 「正規表現」チェックボックスをＯＮにして全置換を実行します。</p>
+<p>マクロを使用する場合は、</p>
+<div class="macro">
+<pre><code>replaceall &quot;\^\\\\n&quot;, &quot;&quot;, regular;</code></pre>
+</div>
+<p>で出来ます。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HME0064A.html">←前へ</a> <a href="HME0066A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

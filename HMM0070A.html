@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0070A] ●入力チェック、変数チェックを簡単に行う方法 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0069A.html">←前へ</a> <a href="HMM0071A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0070a">[HMM0070A]</h1>
+<h2 id="HMM0070A_01">●入力チェック、変数チェックを簡単に行う方法</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>入力チェック、変数のチェックを行うとき ifの文が複雑になります。それをできるマクロの関数はありますか ?</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>チェック専用の関数はありませんが、入力チェックをするときに、色々な値がある場合には、 ifで strstr 関数を使用すると文が簡単になります。</p>
+<div class="macro">
+<pre><code>// a1.mac --------------------- 
+$wk1 = input(&quot;血液型を入力してください!&quot;,&quot;&quot;); 
+if( $wk1 == &quot;O&quot; || $wk1 == &quot;A&quot; || $wk1 == &quot;B&quot; || $wk1 == &quot;AB&quot; ){ 
+
+    message &quot;血液型 : &quot; + $wk1;
+
+} else {
+
+    message &quot;間違った血液型です !&quot;;
+
+}
+endmacro;
+// （ここまで）----------------------------------------------- </code></pre>
+</div>
+<p>|</p>
+<div class="macro">
+<pre><code>// a2.mac --------------------- 
+$wk1 = input(&quot;血液型を入力してください!&quot;,&quot;&quot;); 
+if( strstr(&quot;|O|A|B|AB|&quot;,&quot;|&quot;+$wk1+&quot;|&quot;) != -1 ){
+
+    message &quot;血液型 : &quot; + $wk1;
+
+} else { 
+
+    message &quot;間違った血液型です !&quot;;
+
+} 
+endmacro; 
+// （ここまで）----------------------------------------------- </code></pre>
+</div>
+<p>この a1.mac と a2.mac は同じ結果となります。&quot;|&quot; は、一般的には区切文字(区切記号)と呼ばれ、 入力文字としてありえない文字を使用すると文が見やすくなります。 全角文字(Shift_JIS の場合) を処理するときには、! - / などの 0x40 (16 進数)より小さな文字を区切文字にします。</p>
+<p>全角半角の文字が混在するときは完璧なチェック方法にはなりませんが、実用レベルには耐えるでしょう。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0069A.html">←前へ</a> <a href="HMM0071A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

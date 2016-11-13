@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.6.00 マクロ関連の変更履歴</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
+　秀丸エディタVer.6.00 マクロ関連の変更履歴</h1>
+<hr />
+<h2 id="V6">●秀丸エディタVer.6.00 マクロ関連の変更履歴</h2>
+【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 6.00</a><br />
+【２】<a href="#spec">仕様変更</a><br />
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.6.00</h3>
+<ul>
+<li>grepdialog2文を追加。</li>
+<li>grepdialog2文のresultはgrep文と同じになるようにする。</li>
+<li><p>新しい文</p>
+<ul>
+<li>setcompatiblemode</li>
+<li>fold, unfold, nextfoldable, prevfoldable, selectfoldable</li>
+<li>foldall, unfoldall</li>
+<li>rangeeditin, rangeeditout</li>
+<li>nextoutlineitem, prevoutlineitem</li>
+<li>showoutline, showoutlinebar, showfoldingbar</li>
+</ul></li>
+<li><p>新しい数値キーワード<br />
+foldable, folded, rangeedittop, rangeeditend, rangeeditmode, screentopy</p></li>
+<li>変更<br />
+- config &quot;x&quot;の追加 xOutlineBar, xRangeEdit, xFolding, xFoldingTwigBar
+<ul>
+<li>configcolor, getconfigcolor で新しい色</li>
+<li>loadhilight, savehilight で対象を指定</li>
+</ul></li>
+<li>input関数のUnicode対応</li>
+<li>setcompatiblemode で排他制御(同じファイルを開く場合)と「検索での表示」の指定。</li>
+<li>title でパラメタを拡張してステータスバー、見出しバー、タブモードのタブ名の指定可能にした。</li>
+<li>getfocus追加。(値=1:編集エリア，2:アウトライン解析の枠，3:検索ボックス，またはウィンドウハンドル)</li>
+<li>setfocus追加。</li>
+<li>nextfoldable, prevfoldable で失敗時にresultを返すようにする。</li>
+<li>iskeydownを拡張してキーのトグル状態を取得できるようにする。</li>
+<li>nextpage,prevpage でパラメタを指定して１ページを修正して加算する行数を指定できるようにする。</li>
+<li>loadhilightのresultで読み込まれた内容のフラグを返すようにする。</li>
+<li>getpathhist,setpathhist でヒストリに常駐の状態を取得/設定できるようにする。</li>
+<li>iconthistabを追加。</li>
+<li>マクロで複数行コメント/<em>～</em>/に対応</li>
+<li><p>anyclipboardが正しい値を返さない問題修正。</p></li>
+</ul>
+<h3 id="spec">【２】仕様変更</h3>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

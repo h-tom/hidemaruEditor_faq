@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0052A] ●秀丸エディタのレジストリ操作と16bit版秀丸の共通化 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0051A.html">←前へ</a> <a href="HMM0053A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0052a">[HMM0052A]</h1>
+<p>古い情報なので削除</p>
+<div class="old_information">
+<h2 id="HMM0052A_01">●秀丸エディタのレジストリ操作と16bit版秀丸の共通化</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>16bit版秀丸エディタではhidemaru.iniに設定が保存されていましたが、32bit版秀丸エディタではレジストリに保存されるようになりました。 どちらの秀丸エディタでも動作できる方法はありますか？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd>getinistr/getininum 等で、ファイル名を &quot;hidemaru.ini&quot;にすると、32bit版秀丸エディタではレジストリに対して読み書きをします。 32bit版秀丸エディタと16bit版秀丸エディタ両用のマクロを作る場合や、 レジストリについてよく分からない人(^^;)は、これらのマクロ命令を使うようにします。 秀丸マクロヘルプの getinistr/getininum のところに記述があります。
+</dd>
+</dl>
+</div>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0051A.html">←前へ</a> <a href="HMM0053A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

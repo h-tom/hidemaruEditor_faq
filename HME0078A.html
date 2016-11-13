@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HME0078A] ●各種設定を移行するためファイルに保存したい - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HME0077A.html">←前へ</a> <a href="HME0078B.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hme0078a">[HME0078A]</h1>
+<h2 id="HME0078A_01">●各種設定を移行するためファイルに保存したい</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>秀丸エディタの各種設定を、他のマシンでも同じように設定したいのですが、 ファイルに保存されるので移行や複製が可能な項目と、 レジストリに保存されるので同じ設定にしたくても１から設定しないといけない項目を教えてください。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>ファイルとして保存できる項目は、</p>
+<ul>
+<li>キー割り当てとマクロの登録内容</li>
+<li>強調表示</li>
+<li>上記を含む、全ての設定内容</li>
+</ul>
+<p>が、あります。</p>
+<ol style="list-style-type: decimal">
+<li><p>キー割り当てとマクロ登録の保存<br />
+「その他」→「キー割り当て」の [保存...] ボタンで行います。 ファイルは「設定ファイル用フォルダ」に保存されます。 (未設定の場合は、秀丸エディタをインストールしたフォルダ)</p>
+<p><img src="HME0078A_01.png" alt="キー割り当て" width="497" height="314" /><br />
+</p>
+<p>なお保存時の「マクロ登録の内容も補完しますか?」のメッセージ対し[はい] を選択すれば、 マクロの登録内容も保存することが出来ます。<br />
+<span class="attention_red">注意</span> 保存されるのは、登録内容だけです。マクロファイルは、別途バックアップする必要があります。</p></li>
+<li><p>強調表示<br />
+「その他」→「ファイルタイプ別の設定」の「デザイン」から、[保存/読込] ボタンで行います。 ファイルは「設定ファイル用フォルダ」に保存されます。 (未設定の場合は、秀丸エディタをインストールしたフォルダ)</p>
+<p><img src="HME0078A_02.png" alt="キー割り当て" width="654" height="443" /><br />
+</p>
+<p>秀丸エディタ本体の機能拡張にあわせ、強調表示ファイルには、 現在は以下の定義(設定)を保存/読込することが出来ます。</p>
+<ul>
+<li>カラー設定</li>
+<li>強調表示一覧</li>
+<li>複数行の定義</li>
+<li>ツリー定義</li>
+<li>#ifdef等の詳細</li>
+</ul></li>
+<li><p>上記を含めたほぼ全ての設定<br />
+秀丸エディタ本体メニューより、設定の保存/復元をおこないます。「その他」－「設定内容の保存/復元」</p>
+<p><img src="HME0078A_03.png" alt="設定内容の保存/復元" width="378" height="341" /><br />
+</p>
+<ul>
+<li>注意<br />
+レジストリの復元は、レジストリファイルのダブルクリックでも可能ですが、 秀丸エディタを終了させた状態で、実行して下さい。 (なるべく、「設定内容の保存/復元」から行いましょう)</li>
+</ul>
+<p>なお送金したかどうかは保存されませんので、暗証番号は、別途紙に書き留めるなどして保存しておいてください。 また各々の拡張子「key」「hilight」「hmereg」は、付いていなければ自動的に付加されます。</p>
+参考資料(外部リンク)<br />
+
+<ul>
+<li>秀丸エディタ ヘルプファイルサイト
+<ul>
+<li><span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemaru/html/050_Move.html" target="_blank">移行の手引き（Ver8.00対応版）</a></span></li>
+<li><span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemaru/html/050_Move_Ragbackup.html" target="_blank">設定内容の保存/復元（Ver8.00対応版）</a></span></li>
+</ul></li>
+<li>秀丸エディタ開発元の<span class="externallink"><a href="http://hide.maruo.co.jp/index.html" target="_blank">秀まるおのホームページ(サイトー企画)</a></span>にある引っ越し手順
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/moving/index.html#hidemaru" target="_blank">新しいパソコンへの設定内容の引っ越し手順</a></span></li>
+</ul></li>
+</ul></li>
+</ol>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HME0077A.html">←前へ</a> <a href="HME0078B.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

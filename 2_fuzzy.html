@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第II部～知っていると便利な秀丸の機能　あいまい検索</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第II部～知っていると便利な秀丸の機能<br />
+　あいまい検索</h1>
+<div class="marginleft">
+<h2 id="FUZZY">HMJRE.DLL使用時に指定できる「あいまい検索」について</h2>
+<p>正規表現DLLに、HMJRE.DLL を指定していると、「あいまい検索」が可能になります。</p>
+<p>あいまい検索を有効にすると、</p>
+<ul>
+<li>文字種等を無視</li>
+<li>違う文字(文字列)を同一視する</li>
+<li>特定文字を無視する</li>
+</ul>
+<p>という検索が可能になります。</p>
+<p>詳細については、HMJRE.DLLのヘルプ- <span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hmjre/html/0001_IDH_FUZZYDIALOG.html" target="_blank">あいまい検索の設定ダイアログボックス</a></span> を参照してください。</p>
+<p>以下の機能があります。</p>
+<p><img src="2_fuzzy_02.png" alt="あいまい検索の設定ダイアログボックス" width="399" height="416" /><br />
+</p>
+<ol style="list-style-type: decimal">
+<li>半角／全角を区別しない</li>
+<li>全角文字で、ひらがなとカタカナを区別しない</li>
+<li>大きい「あ」と小さい「ぁ」を区別しない</li>
+<li>濁音／半濁音を無視する</li>
+<li>かなの「ー」と英数字の「－」を同一視する</li>
+<li>空白/タブ文字を無視する</li>
+<li>Unicodeの特殊空白の同一視/特殊ハイフンの同一視</li>
+<li>UnicodeのIVS（異体字セレクタ）を無視する</li>
+<li>改行を無視する</li>
+<li>特定文字を無視する</li>
+<li>カスタム1～4</li>
+</ol>
+<ul>
+<li><p>1～4までは、文字種に関する設定になります。全部ONにすると 以下のようになります。</p>
+<p>ひらがなの「あ」を検索しても、カタカナや半角文字にもマッチする。</p>
+<pre><code>検索文字　　　：あ
+マッチする文字：あぁアァアァ</code></pre>
+<p>ひらがなの「は」を検索しても、カタカナ、半角文字、濁音、半濁音の有無を無視してマッチする。</p>
+<pre><code>検索文字　　　：は
+マッチする文字：はハばバぱパハパバ</code></pre></li>
+<li><p>5、7は、同一視する文字の指定です。</p></li>
+<li><p>6、8、9、10は無視する文字の設定です。 文字間の空白、タブ等を無視してマッチさせます。 特定の文字を無視する事も可能です。</p></li>
+<li><p>カスタム1～4で、同一視する文字列の指定も可能です。 別途ファイルを作成し、同じ行内で、タブまたは空白で区切られた文字列を同一視します。</p>
+<p>ファイルの例</p>
+<pre><code>秀丸  ひでまる  ｈｉｄｅｍａｒｕ</code></pre>
+<p>上記内容だと、「秀丸」、「ひでまる」、「ｈｉｄｅｍａｒｕ」という文字列 を同一視します。</p>
+<p>1～4までチェックしてあると、「hidemaru」、「ヒデマル」、「ヒデマル」、「ヒテマル」、「ヒテマル」、「ひてまる」 「ぴでまる」、「ぴてまる」、「びでまる」、「ピデマル」、「ピテマル」、「ビデマル」、 「ピデまる」、「ぴテマる」 等も同一視することになります。</p>
+実際に同一視指定ファイルを作成・有効にし、「秀丸」を検索した結果画面です。<br />
+<img src="2_fuzzy_01.png" alt="あいまい検索の結果" width="637" height="266" /><br />
+</li>
+</ul>
+<!-- h2 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

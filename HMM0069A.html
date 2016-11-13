@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0069A] ●マクロ処理中にダイアログボックスを出す方法 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0068A.html">←前へ</a> <a href="HMM0070A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0069a">[HMM0069A]</h1>
+<h2 id="HMM0069A_01">●マクロ処理中にダイアログボックスを出す方法</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>マクロ処理中にダイアログボックスを出して、「処理中です」と表示させたいのですが？。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>全ての場合についてできるわけではないですが、whileループかなんかで処理をするような場合については 「秀まるおのマクロサーバ」を使って以下の様な感じで何とかなるんじゃないでしょうか？ 以下の例では、&quot;0&quot;～&quot;9&quot;の文字を繰り返し1000個まで表示させます。 「中止」ボタンをクリックすると処理を中断します。</p>
+<div class="macro">
+<pre><code>// マクロサーバで常にダイアログを表示させるサンプル 
+run &quot;macserv.exe&quot;; 
+ddeinitiate &quot;HideMacroServer&quot;, &quot;AllService&quot;; 
+ddepoke &quot;newdialog&quot;, &quot;20,秀丸マクロ&quot;; 
+ddepoke &quot;newcontrol&quot;, &quot;text,,処理中です&quot;; 
+ddepoke &quot;newcontrol&quot;, &quot;defbutton,,中止&quot;; 
+ddepoke &quot;notify&quot;, &quot;10&quot;; 
+$item = &quot;&quot;; 
+ddestartadvice &quot;dlgresult&quot;, $item; 
+ddeexecute &quot;dialog lastactiveparent&quot;; 
+
+while( 1 ){ 
+
+    ddewaitadvice $item, 10; 
+    // 「中止」ボタンが押されたら終了する 
+    if( $item != &quot;&quot; ) break; 
+
+    // 元々のコード例：ここから 
+    // 終わったら break でループを抜ける 
+    #n = #n + 1; 
+    #m = #m + 1; 
+    if (#n &gt; 9) #n = 0; 
+    insert str(#n); 
+    if (#m &gt; 1000) break; 
+    // 元々のコード例：ここまで 
+
+} 
+ddeexecute &quot;enddialog&quot;; 
+ddestopadvice &quot;dlgresult&quot;; 
+ddeexecute &quot;exit&quot;; 
+endmacro; 
+// （ここまで）-----------------------------------------------</code></pre>
+</div>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0068A.html">←前へ</a> <a href="HMM0070A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

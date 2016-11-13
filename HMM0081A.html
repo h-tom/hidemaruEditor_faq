@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0081A] ●「DLLがロードされてないのにdllfunc関数が使われました」と表示される - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0080A.html">←前へ</a> <a href="HME0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0081a">[HMM0081A]</h1>
+<h2 id="HMM0081A_01">●「DLLがロードされてないのにdllfunc関数が使われました」と表示される</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>マクロを実行すると、「DLLがロードされてないのにdllfunc関数が使われました」 と表示されるのですが？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>原因としては 以下の内容が考えられます。</p>
+<ul>
+<li>loaddll文/関数で、dllの読み込みに失敗しているのに、dllfunc/dllfuncstrを呼び出している
+<ul>
+<li>DLLの読み込みに失敗する原因としては、DLLが適切な位置に配置されていない等が考えられます。 実行するマクロと同じ場所か、マクロフォルダか、秀丸エディタ本体と同じ場所に配置するかは、 マクロの説明書等に記載されているはずなので、確認してください。</li>
+<li>マクロとDLLが、同じ場所にあるにも関わらず、動作しない場合は、DLLのロード部分を確認見直してみてください。 単純にファイル名が間違っている場合もあります。</li>
+</ul></li>
+<li><p>loaddll文/loaddll関数の有効範囲の問題</p>
+<p>秀丸エディタではVer.3.02以降、外部DLLを使用できるようになりましたが、 以下の制限が存在します。</p>
+<ul>
+<li><p>dllfunc等の関数呼び出しは、loaddll文/loaddll関数 を実行した秀丸エディタのみ可能。 dllをロードした秀丸エディタ以外では、dllfunc等の関数呼び出しは失敗する。</p>
+<p>マクロヘルプの<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/200_Dll.html" target="_blank">DLL呼び出し機能</a></span> を参照の事。</p></li>
+</ul>
+<p>その為、ウィンドウの切り替えに失敗していたり、意図しないウィンドウの切り替えが発生してしまい、 DLLをロードしたウィンドウ以外でdllfunc等を呼び出すと、 <strong>「DLLがロードされてないのにdllfunc関数が使われました」</strong> と表示されてしまいます。</p>
+<p>動作確認用マクロ(意図的にウィンドウを切り替えて、エラーを発生させている。)</p>
+<div class="macro">
+<pre><code>//新しいファイルを2個開く
+newfile;
+#window1 = hidemaruhandle(0);
+newfile;
+#window2 = hidemaruhandle(0);
+
+//1番目の秀丸エディタ上で、hmjre.dllをロードする
+setactivehidemaru #window1;
+loaddll &quot;hmjre.dll&quot;;
+if(!result){
+    message &quot;hmjre.dllのロードに失敗しました。&quot;;
+    endmacro;
+}
+//関数の実行(問題なし)
+$version1 = hex(dllfunc(&quot;JreGetVersion&quot;) &amp; 0xFFFF);
+message $version1;
+
+//2番目の秀丸エディタに移動
+setactivehidemaru #window2;
+//関数の実行(ここでエラーになるはず。)
+// --&gt; DLLがロードされてないのにdllfunc関数が使われました
+$version2 = hex(dllfunc(&quot;JreGetVersion&quot;) &amp; 0xFFFF);
+message $version2;
+freedll;
+endmacro;</code></pre>
+</div></li>
+</ul>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0080A.html">←前へ</a> <a href="HME0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HME0083A] ●検索／置換の「選択した範囲内のみ」の動作 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HME0082A.html">←前へ</a> <a href="HME0084A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hme0083a">[HME0083A]</h1>
+<h2 id="HME0083A_01">●検索／置換の「選択した範囲内のみ」の動作</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>検索／置換の「選択した範囲内のみ」の動作がちょっと変な感じがしますが？。時々、ダイアログの「選択した範囲内のみ」チェックボックスがグレーにな って変更不可になったり、選択した範囲より少し外側まで検索／置換されたりするようです。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>現時点（秀丸エディタ ver.8.50）では、検索／置換の「選択した範囲内のみ」の機能は秀丸内部の構造上、 論理行（改行までを１行と数える）単位になっています。</p>
+<p>例えば、選択範囲の始まりが行頭でない場合、検索／置換の開始場所は選択範囲の始まりの場所の行の行頭になります。 また同様に、検索／置換の終わりは選択範囲の終わりの行の行末になります。 また、「選択した範囲内のみ」チェックボックスが選択できるのは、複数行を選択している場合だけです。</p>
+<p>単一の行の中を選択した場合は、選択した文字列が検索／置換ダイアログの検索文字列に取り込まれます。 （※文字列が長いと取り込まれません）</p>
+<dl>
+<dt>[補足]</dt>
+<dd>マクロの「inselect」オプションは、複数行の選択でなくても有効です。
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HME0082A.html">←前へ</a> <a href="HME0084A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

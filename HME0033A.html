@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HME0033A] ●印刷ができません - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HME0032A.html">←前へ</a> <a href="HME0034A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hme0033a">[HME0033A]</h1>
+<p>古い情報なので削除</p>
+<div class="old_information">
+<h2 id="HME0033A_01">●印刷ができません</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>「ファイル」→「印刷」で印刷をしようとすると、「プリンタのオープンに失敗しました」というエラーメッセージが出て印刷が出来ません。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>本来のプリンタ以外が割り当てられているためのようです。原因については、調査中とのことです。</p>
+<dl>
+<dt>[解説]</dt>
+<dd><p>ウィンドウズがインストールされているフォルダ内の「REGEDIT.EXE」(レジストリエディタ)を実行して、 「HKEY_CURRENT_USER\Software\Hidemaruo\hidemaru\Env」の「PPrinterName」が、 別のプリンタになっていないか確認して下さい。 別のプリンタになっていたら、「スタート→設定→プリンタ」で本来のプリンタに相当する名前を見つけて、 「PPrinterName」に設定して下さい。</p>
+<p>反則技ですが、印刷できるようになります。<br />
+レジストリをいじる場合は、十分注意して行ってください。</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HME0032A.html">←前へ</a> <a href="HME0034A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

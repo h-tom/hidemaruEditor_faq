@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0056A] ●複数のウィンドウ間を移動したい - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0055A.html">←前へ</a> <a href="HMM0057A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0056a">[HMM0056A]</h1>
+<h2 id="HMM0056A_01">●複数のウィンドウ間を移動したい</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>openfile文でファイルを開くと、その後の処理は今開いたファイルに対して行われますが、 元のファイルに戻るにはどうしたらよいのでしょうか？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>既に開かれている秀丸のウィンドウをアクティブにする(画面の一番手前に持ってくる)には、setactivehidemaru文を使います。</p>
+<div class="macro">
+<pre><code>//------- サンプルマクロ -------//\
+// 元のファイルに戻る\
+#hwnd = hidemaruhandle( 0 ); //元ウィンドウのハンドルを取得する
+openfile &quot;c:\\hidemaru\\install.txt&quot;; //別ファイルを開く
+
+    //ここに c:\\hidemaru\\install.txt 上での処理が入る。
+
+setactivehidemaru #hwnd; //元のウィンドウに戻る\
+endmacro;
+// ---------------------------- //</code></pre>
+</div>
+<p>※ hidemaruhandle()関数についてはマクロヘルプの「秀丸管理」の説明と 「<a href="HMM0058A.html">●setactivehidemaru文の引数</a>」を参照して下さい。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0055A.html">←前へ</a> <a href="HMM0057A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

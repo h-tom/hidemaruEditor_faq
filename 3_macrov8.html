@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.8 マクロ関連の変更履歴</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
+　秀丸エディタVer.8 マクロ関連の変更履歴</h1>
+<hr />
+<ul>
+<li><a href="#V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</a></li>
+<li><a href="#V810">秀丸エディタVer.8.10 マクロ関連の変更履歴</a></li>
+<li><a href="#V811">秀丸エディタVer.8.11 マクロ関連の変更履歴</a></li>
+<li><a href="#V812">秀丸エディタVer.8.12 マクロ関連の変更履歴</a></li>
+<li><a href="#V820">秀丸エディタVer.8.20 マクロ関連の変更履歴</a></li>
+<li><a href="#V830">秀丸エディタVer.8.30 マクロ関連の変更履歴</a></li>
+<li><a href="#V840">秀丸エディタVer.8.40 マクロ関連の変更履歴</a></li>
+<li><a href="#V850">秀丸エディタVer.8.50 マクロ関連の変更履歴</a></li>
+<li><a href="#V852">秀丸エディタVer.8.52 マクロ関連の変更履歴</a></li>
+<li><a href="#V854">秀丸エディタVer.8.54 マクロ関連の変更履歴</a></li>
+<li><a href="#V856">秀丸エディタVer.8.56 マクロ関連の変更履歴</a></li>
+<li><a href="#V858">秀丸エディタVer.8.58 マクロ関連の変更履歴</a></li>
+<li><a href="#V860">秀丸エディタVer.8.60 マクロ関連の変更履歴</a></li>
+</ul>
+<h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、 <span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemaru8/index.html" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a></span> を参照してください。</p>
+<p>【１】<a href="#LIST_V800">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.00</a></p>
+<p>【２】<a href="#SPEC_V800">仕様変更</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V800">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.00</h3>
+<ul>
+<li><p>追加キーワード</p>
+<pre><code>platform
+settingdir
+backupdir
+compfilehandle
+outlinehandle
+lineselecting
+selectionlock
+mouseselecting
+scrolllinkhandle
+xpixel
+ypixe
+formwidth
+formline(整形ラインの表示の有無)</code></pre></li>
+<li>追加関数
+<ul>
+<li><p>マクロ引数</p>
+<pre><code>getarg</code></pre></li>
+<li><p>静的変数関連</p>
+<pre><code>setstaticvariable
+getstaticvariable</code></pre></li>
+<li><p>整形関連</p>
+<pre><code>form
+unform
+showformline</code></pre></li>
+<li><p>レジストリ操作</p>
+<pre><code>getregbinary
+writeregbinary</code></pre></li>
+<li><p>カラーマーカー関連</p>
+<pre><code>colormarkerdialog
+deletecolormarker
+deletecolormarkerall</code></pre></li>
+<li><p>文字列操作関連</p>
+<pre><code>wcslen
+wcsleftstr
+wcsrightstr
+wcsmidstr
+wcsstrstr
+strrstr
+wcsstrrstr
+byteindex_to_charindex
+charindex_to_byteindex
+wideindex_to_charindex
+charindex_to_wideindex</code></pre></li>
+<li><p>DLL関連</p>
+<pre><code>dllfuncw
+dllfuncstrw
+loaddll(関数版)</code></pre></li>
+<li><p>検索関連</p>
+<pre><code>searchoption2
+findspecial</code></pre></li>
+<li><p>内容比較関連</p>
+<pre><code>prevcompfile
+nextresult
+prevresult</code></pre></li>
+<li><p>クリップボード関連</p>
+<pre><code>getclipboardinfo
+copyformed
+poppaste2
+cutline
+cutword</code></pre></li>
+<li><p>カーソル移動関連</p>
+<pre><code>backtab
+forwardtab
+moveto2
+gotagpair</code></pre></li>
+<li><p>ウィンドウ関連</p>
+<pre><code>fullscreen
+refreshoutline
+refreshtabstop</code></pre></li>
+<li><p>ブックマーク関連</p>
+<pre><code>loadbookmark
+savebookmark</code></pre></li>
+<li><p>その他</p>
+<pre><code>getresultex
+seterrormode
+deletefile
+quitall
+autocompstate
+deleteline2
+beginlinesel
+charcount
+showcharcount
+runex
+help4
+help5
+help6
+enablebreak
+disablehistory</code></pre></li>
+</ul></li>
+<li><p>自動起動マクロの追加</p>
+<pre><code>アクティブ切り替え後</code></pre></li>
+<li><p>COM関係追加</p>
+<pre><code>createobject
+getobject
+callmethod
+callmethod_returnstr
+callmethod_returnnum
+callmethod_returnobj
+getpropstr
+getpropnum
+getpropobj
+member
+setpropstr
+setpropnum
+setpropobj
+releaseobject
+getcollection
+sleep
+keepobject</code></pre></li>
+<li><p>ファイルマネージャー枠（HmExplorerPane.dll）関数</p>
+<pre><code>SetMode
+GetMode
+LoadProject
+SaveProject
+GetProject
+GetWindowHandle</code></pre></li>
+<li><p>アウトライン枠（HmExplorerPane.dll）関数</p>
+<pre><code>Output
+Push
+Pop
+GetWindowHandle</code></pre></li>
+</ul>
+<h3 id="SPEC_V800">【２】仕様変更 - 「秀丸エディタ」Ver.8.00</h3>
+<ul>
+<li><p>変更、パラメータ追加等</p>
+<pre><code>getcolormarker で行末
+colorcode で行末
+menu でセパレータ
+openbyshellでresult
+openfile で不足分のエンコード指定, wb ws 指定
+windowstate2 全画面表示かどうか
+print ダイアログを出す
+appendsave パラメータ対応
+split 新タイプ,左右
+savedesktop restoredesktop ファイル名指定
+updated 他の秀丸エディタからも取得
+loadkeyassign savekeyassign 設定ファイル用のフォルダ
+clearcliphist 指定項目削除
+setcompatiblemode 貼り付け後のカーソル位置
+scrolllinkでウィンドウ指定
+insert文で\x0d \x0aを正確解釈するパラメータ
+replaceall等の数値指定と合わせて、inselectも指定できるように
+execmacroでパラメータ渡し
+nextcompfileの追加パラメータ
+compfileの追加パラメータ
+grep文の追加パラメータ
+setsearchの追加パラメータ
+geteventparam(2)の戻り値
+fontmodeは、固定ピッチフォントでもTSV/CSVモードであればプロポーショナル扱いに
+文字列型変数のサイズを大きくする
+loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V810">秀丸エディタVer.8.10 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v810_1.html" target="_blank">DirectWrite対応</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v810_2.html" target="_blank">ダイアログのフォントとしてMeiryo UIが指定可能</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v810_3.html" target="_blank">開くダイアログのバリエーションを追加</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V810">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.10</a></p>
+<p>【２】<a href="#SPEC_V810">仕様変更 - 「秀丸エディタ」Ver.8.10</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V810">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.10</h3>
+<ul>
+<li><p>追加キーワード</p>
+<pre><code>formline(整形ラインの表示の有無)</code></pre></li>
+<li><p>その他</p>
+<pre><code>マクロ実行時、常駐秀丸のメニューから中断できるようにする。</code></pre></li>
+</ul>
+<h3 id="SPEC_V810">【２】仕様変更 - 「秀丸エディタ」Ver.8.10</h3>
+<ul>
+<li>変更、パラメータ追加等
+<ul>
+<li>saveconfig文で一時的な状態のアウトライン解析の枠も保存するようにする。</li>
+<li>setfilehistで空の文字列で最後のヒストリを消した場合、レジストリにゴミを書かないようにする。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V811">秀丸エディタVer.8.11 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V811">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.11</a></p>
+<p>【２】<a href="#SPEC_V811">仕様変更 - 「秀丸エディタ」Ver.8.11</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V811">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.11</h3>
+<ul>
+<li>その他
+<ul>
+<li>dllfuncのパラメータで、16KBの制限を無くす。</li>
+<li>openbyhidemaruで開かれた秀丸エディタにマクロの切り替えが移らなかったのを修正。</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V811">【２】仕様変更 - 「秀丸エディタ」Ver.8.11</h3>
+<ul>
+<li><p>変更、パラメータ追加等</p>
+<pre><code>searchdownしたときもprevposの直前の位置の対象にする。</code></pre></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V812">秀丸エディタVer.8.12 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V812">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.12</a></p>
+<p>【２】<a href="#SPEC_V812">仕様変更 - 「秀丸エディタ」Ver.8.12</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V812">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.12</h3>
+<ul>
+<li>その他
+<ul>
+<li>マクロの実行時のエラーが出たとき、逆コンパイルした内容を表示する。</li>
+<li>run文などでプログラム実行中にプログラム実行を中断した場合はマクロも終わらせる。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V820">秀丸エディタVer.8.20 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v820_1.html" target="_blank">外国語Windows対応</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V810">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.20</a></p>
+<p>【２】<a href="#SPEC_V820">仕様変更 - 「秀丸エディタ」Ver.8.20</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V820">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.20</h3>
+<ul>
+<li>追加
+<ul>
+<li>allowobjparam 文</li>
+<li>selopenx, selopeny キーワード</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>カーソル移動後タイマーのイベントマクロで、geteventparam(4)にて、どういうコマンドによってカーソル移動したかが分かるようにした。</li>
+<li>「setcompatiblemode 0x20000;」にて、マクロ内で検索系コマンドを実行しても、マクロが終了したら自動的に検索条件を元に戻せるようにした。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>マクロのfilter文およびfilter関数で、変換モジュールの名前の「.hmf」または「.hmf64」を省略して指定しても大丈夫なようにした。</li>
+<li>正規表現での置換の時に、(0,ToUpper)のような形で変換モジュールの関数呼び出し出来るようにした。</li>
+<li>「動作環境」で、マクロ変数の上限サイズを指定出来るようにした。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V830">秀丸エディタVer.8.30 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v830_1.html" target="_blank">IVSとUnicodeフォント</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v830_2.html" target="_blank">インデント用のガイドライン</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V830">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.30</a></p>
+<p>【２】<a href="#SPEC_V830">仕様変更 - 「秀丸エディタ」Ver.8.30</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V830">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.30</h3>
+<ul>
+<li>追加
+<ul>
+<li>HmExplorerPane.dll に GetUpdated関数追加。</li>
+<li>cutafter 文</li>
+<li>getautocompitem 関数</li>
+<li>selectcolumn 文</li>
+<li>lineupdated キーワード</li>
+</ul></li>
+<li><p>変更、パラメータ追加等</p>
+<ul>
+<li>undo命令のパラメータで数値の3を指定したら、「動作環境・編集・全置換のやり直し」で指定した方法でundoするようにした。</li>
+<li>nextoutlineitem,prevoutlineitemで、パラメータを指定して「自動的な選択/部分編集の対象」がOFFの見出しにもジャンプできるようにする。</li>
+<li>platform キーワードで持ち出しキットで動作中かどうかのビット追加。</li>
+<li>copyword にパラメタを指定して連続した単語を指定可能にする。</li>
+<li>filetype キーワードでプログラム実行中のウィンドウは&quot;executing&quot;を返すようにする。</li>
+<li>setcompatiblemode 0x80000;でマクロ実行後にもカーソル移動後と編集後の自動起動マクロを動かせるようにする。</li>
+<li>getsearchhist,setsearchhist で常駐の状態を取得/設定できるようにする。</li>
+<li>getsearchhist,getreplacehist で-1を指定することで最大数を取得できるようにする。</li>
+<li>setsearchhist,setreplacehist で第３パラメータに2を指定することで使用数を設定できるようにする。</li>
+<li>grep, grepdialog2 文で、エンコード指定と searchoption2 相当の値を数値でパラメーター指定できるようにする。</li>
+<li>ファイルを開いた直後、アクティブ切り替え直後の geteventparam で、タグジャンプによって開かれたかを判断できるようにする。</li>
+<li>autocomplete 文の第一パラメータで10以上も指定できるようにする。</li>
+<li>runex で標準出力のパラメータに8を指定してアウトプット枠に追加できるようにする。</li>
+<li>getautocompitem は範囲選択を解除しないようにする。</li>
+<li>getautocompitem でカーソル位置が移動しないようにする。</li>
+<li>selectcolumn はパラメータ省略時はカーソル位置のカラムを選択する。</li>
+<li>getcolormarkerで幅ゼロまたは終端の情報を取得できるようにするパラメータ追加。</li>
+<li>setencode の第３パラメータでBOMを指定できるようにする。</li>
+<li>localgrep で searchoption2 相当のフラグを数値指定できるようにする。</li>
+</ul></li>
+<li><p>その他</p>
+<ul>
+<li>BOX選択でも一時的なカラーマーカーとcolormarker文を適用可能にする。</li>
+<li>colormarker文などでレイヤーを持たせることができるようにする。</li>
+<li>マクロの変数が多いときの速度改善。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V840">秀丸エディタVer.8.40 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v840_1.html" target="_blank">複数選択対応</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v840_2.html" target="_blank">検索での色付け</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v840_3.html" target="_blank">高DPI対応</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v840_4.html" target="_blank">ASCII以外のフォント</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V840">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.40</a></p>
+<p>【２】<a href="#SPEC_V840">仕様変更 - 「秀丸エディタ」Ver.8.40</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V840">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.40</h3>
+<ul>
+<li><p>追加</p>
+<ul>
+<li>colormarkerallfound 文 検索でマッチする箇所を色付けする。</li>
+<li>selectcolormarker 文 カラーマーカーをつけた箇所を選択する。(複数あれば、複数選択となる。)</li>
+<li>invertselection 文 範囲選択箇所を反転する。(範囲選択した箇所と、それ以外の箇所を入れ替える。)</li>
+<li>複数選択関連
+<ul>
+<li>multiselecting キーワード 複数選択しているかどうか</li>
+<li>reservemultisel 文 選択範囲を複数選択の候補に設定する</li>
+<li>selectreservedmultisel 文 「reservemultisel 文」で「複数選択の候補」に設定した箇所を、複数選択状態にする。</li>
+<li>clearreservedmultisel 文 選択範囲を「複数選択の候補」から解除する。</li>
+<li>clearreservedmultiselall 文 すべての「複数選択の候補」を解除する。</li>
+<li>selectallfound 文 現在の検索条件にマッチする箇所を、すべて複数選択状態にする。</li>
+<li>tomultiselect 文 現在の範囲選択を複数選択に切り替える。(複数行選択していた場合は、改行を区切りにして複数選択になる)</li>
+</ul></li>
+</ul></li>
+<li><p>変更、パラメータ追加等</p>
+<ul>
+<li>beginlinesel 範囲選択が含まれる行すべてを行単位の選択にしてから、行選択モードに移る。</li>
+<li>copyline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてコピーする。</li>
+<li>cutline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてカットする。</li>
+<li>colormarker パラメータに開始位置と終了位置を指定可能にした。(範囲選択していなくても、指定した箇所にカラーマーカーをつける。)</li>
+<li><p>existfile 第二パラメータに2を指定すると、ファイルサイズを取得可能にした。</p>
+<pre><code>ファイルサイズは、マクロの数値範囲である2G(2147483647)が最大となる。
+存在しないファイルを指定した場合は、0(zero)が取得できる。</code></pre></li>
+<li>setcompatiblemode 0x00100000; で、複数選択対応。</li>
+<li>colormarker文で、スタイルに-1を指定もできるように修正。</li>
+<li>runex プログラム実行のパラメータにUTF-8を追加。</li>
+<li><p>run文のコマンドラインに%cや%lを書けるように修正。</p>
+<pre><code>%l:カーソル位置の行番号（先頭が1）
+%c:カーソル位置の桁位置（行頭が1）</code></pre></li>
+</ul></li>
+<li>その他
+<ul>
+<li>colormarkerallfound の デフォルトで(未指定時に)使用されるレイヤー名は、&quot;01#allfound&quot;というレイヤー名になる。 カラーマーカー関連の命令では、このレイヤー名を指定するか、&quot;findmarker&quot;というオプション指定することにより、操作可能。</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V840">【２】仕様変更 - 「秀丸エディタ」Ver.8.40</h3>
+<ul>
+<li>複数個所の同時選択＆同時編集対応。</li>
+<li>マクロファイル用のフォルダ、設定ファイル用のフォルダ設定で、環境変数を使用可能にした。</li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V850">秀丸エディタVer.8.50 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v850_1.html" target="_blank">スペルチェック対応</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v850_2.html" target="_blank">フォントの太さ指定</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V850">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.50</a></p>
+<p>【２】<a href="#SPEC_V850">仕様変更 - 「秀丸エディタ」Ver.8.50</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V850">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.50</h3>
+<ul>
+<li>追加
+<ul>
+<li>autospellcheckswitch 文 自動スペルチェックの切り替え。</li>
+<li>spellcheckdialog 文 スペルミスの修正 ダイアログの表示</li>
+<li>stophistoryswitch 文 ヒストリの記録を中断</li>
+<li>selectword2 文 単語選択(全部) (V6.50以降の動作)</li>
+<li>wordright2 文 単語右(V6.50以降の動作)</li>
+<li>wordrightsalnen2 文 単語右(サルネン風) (V6.50以降の動作)</li>
+<li>COMPFILE文をマクロヘルプに追記。</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>casechange文 パラメータで対象文字指定の対応。</li>
+<li>toupper, tolower関数で対象文字指定の対応。</li>
+<li>tolower, toupper文にパラメータ指定を追加。</li>
+<li>forwardtab,backtabでカーソル移動したかどうかでresultが設定されるように修正。</li>
+<li>saveall文にパラメータを指定できるようにして、無題ファイルを除外できるように修正。</li>
+<li>deletecolormarker文で、ユーザーデータを指定して範囲選択せずに直接消すパラメータの対応。</li>
+<li>nextresult, prevresultにパラメータ追加して、対象を指定できるように修正。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>マクロファイルのUTF-8(BOM付き)対応。</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V850">【２】仕様変更 - 「秀丸エディタ」Ver.8.50</h3>
+<ul>
+<li>「UPPER CASE」「lower case」「大文字&lt;-&gt;小文字の変換」コマンドはアクセント記号などが付いたものも対象にするように修正。</li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V852">秀丸エディタVer.8.52 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v852_1.html" target="_blank">grepの高速化</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V852">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.52</a></p>
+<p>【２】<a href="#SPEC2_V852">仕様変更 - 「秀丸エディタ」Ver.8.52</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V852">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.52</h3>
+<ul>
+<li>追加
+<ul>
+<li>マクロの文字列で8桁の16進数で4バイトのUnicodeを記述できるように対応。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V854">秀丸エディタVer.8.54 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v854_1.html" target="_blank">カラー絵文字対応</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V854">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.54</a></p>
+<p>【２】<a href="#SPEC_V854">仕様変更 - 「秀丸エディタ」Ver.8.54</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V854">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.54</h3>
+<ul>
+<li>追加
+<ul>
+<li>setfiletype 文 ファイルタイプ別の設定を識別するための拡張子を設定。</li>
+<li>setconfigstate 文 ファイルタイプ別の設定の状態を指定。</li>
+<li>quote 関数 正規表現のメタ文字をエスケープした文字列を返す。</li>
+<li>splitpos キーワード ウィンドウの分割されている場合、分割位置を表す。</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>split文で明示指定するパラメータ追加。</li>
+<li>nextpage、 prevpage でパラメータ指定して、「スクロールしてもカーソル位置を固定」モードに明示的にできるようにするように修正。</li>
+<li>config &quot;x&quot;で指定できるものにBlockquoteFix(指定桁数をインデントする)を追加。</li>
+<li>macrohelp文でパラメータでキーワードを指定して開くことができるように修正。</li>
+<li>insert文の第２パラメータに2を指定可能にして、自動アンインデントの対応。</li>
+<li>saveconfig文で「折りたたみ用の余白」の一時的な状態を解除されるように修正。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V856">秀丸エディタVer.8.56 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v856_1.html" target="_blank">なめらかスクロール</a></span></li>
+<li><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemarunew/v856_2.html" target="_blank">複数の範囲の検索</a></span></li>
+</ul>
+<p>【１】<a href="#LIST_V856">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.56</a></p>
+<p>【２】<a href="#SPEC_V856">仕様変更 - 「秀丸エディタ」Ver.8.56</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V856">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.56</h3>
+<ul>
+<li>追加
+<ul>
+<li>sprintf 関数 文字列書式に従った文字列を返す。</li>
+<li>settargetcolormarker 文 追加の条件の「指定の範囲/カラーマーカー内」が有効な場合、対象となる範囲を指定。</li>
+<li>targetcolormarker キーワード settargetcolormarkerで指定されている文字列を取得。</li>
+<li>writeinistrw, writeininumw, getinistrw, getininumw を追加。(iniファイル関連のUnicode対応版)</li>
+<li>DDE関連マクロのUnicode版を追加。</li>
+<li>colormarkersnapshot 文を追加。 現在のカラーマーカーの状態をやり直し可能にする。</li>
+<li>getresultex(15)で置換の確認ダイアログがどのようにして閉じられたかを得られるようにした。</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>searchdown等に incolormarker パラメータを追加</li>
+<li>searchoption2 で追加の条件で「指定の範囲/カラーマーカー内」が有効かどうかの判定を追加</li>
+<li>replaceallなどでaskオプション指定時、置換を実行した回数をresultに入れるように修正。</li>
+<li>searchdownなどの文で、数値として検索オプションを書く書き方で、2つ連続して書くと searchoption2相当も記述できるように修正。 例：searchdown &quot;a&quot;, #searchoption1, #searchoption2;</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V858">秀丸エディタVer.8.58 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V858">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.58</a></p>
+<p>【２】<a href="#SPEC_V858">仕様変更 - 「秀丸エディタ」Ver.8.58</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V858">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.58</h3>
+<ul>
+<li><p>追加</p></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>setcompatiblemode で「前のカーソル位置」を変更させないフラグを追加。</li>
+<li>saveas文とappendsave文にselectionオプションを追加</li>
+<li>appendsave文でファイルが無いときは自動的に作成されるように変更。</li>
+<li>appendsave文でselectionオプションを付けているとき通常の範囲選択でないときはエラーになるように修正。</li>
+<li>localgrep文でもoutputsingleとoutputsametabが働くように修正。</li>
+<li>setcompatiblemodeの「貼り付け後のカーソル位置」のフラグを、insertfileでも適用するように修正。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V860">秀丸エディタVer.8.60 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V860">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.60</a></p>
+<p>【２】<a href="#SPEC_V860">仕様変更 - 「秀丸エディタ」Ver.8.60</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V860">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.60</h3>
+<ul>
+<li>追加
+<ul>
+<li>beginrectmulti文 BOX範囲選択開始(複数選択化)</li>
+</ul></li>
+<li><p>変更、パラメータ追加等</p></li>
+<li>その他
+<ul>
+<li>configset文で文字列をうまく解釈できないことがあるバグ修正。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

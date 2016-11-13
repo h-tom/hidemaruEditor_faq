@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0076A] ●重複行の削除 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0075A.html">←前へ</a> <a href="HMM0077A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0076a">[HMM0076A]</h1>
+<h2 id="HMM0076A_01">●重複行の削除</h2>
+<div class="marginleft">
+<p><img src="q.png" alt="Q." width="32" height="29" /> : <strong>重複行の削除はできませんか？。</strong></p>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>下記のマクロで可能です。</p>
+<p><a href="http://hide.maruo.co.jp/lib/hmconv/index.html">秀まるおのホームページ(サイトー企画)－秀丸エディタの変換モジュールライブラリ</a>に、 uniqの機能を持つ変換モジュールが登録されているので、それを使う方法もあります。</p>
+<div class="macro">
+<pre><code>//------------------ uniq.mac -------------------------------------
+
+disabledraw;
+gofiletop;
+while(1){
+    selectline;
+    $$line = gettext(seltopx,seltopy,selendx,selendy);
+    if($$line == $$bline){
+        selectline;
+        delete;
+    }
+    else movetolineno 1,lineno + 1;
+    if(lineno == linecount2) break;
+    $$bline = $$line;
+}
+enabledraw;
+endmacro;</code></pre>
+</div>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0075A.html">←前へ</a> <a href="HMM0077A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>[HMM0058A] ●setactivehidemaru 文の引数 - 秀丸エディタＱ＆Ａ集</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><span class="link_navigate"> <a href="HMM0057A.html">←前へ</a> <a href="HMM0059A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<hr />
+<h1 id="hmm0058a">[HMM0058A]</h1>
+<h2 id="HMM0058A_01">●setactivehidemaru 文の引数</h2>
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dd><strong>setactivehidemaru文を使って編集ウィンドウを切り替えたいのですが、使い方がよく分かりません。</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dd><p>setactivehidemaru文には秀丸ウィンドウの「番号」か「ウィンドウハンドル」を指定します。</p>
+<dl>
+<dt>[解説]</dt>
+<dd><ol style="list-style-type: decimal">
+<li><p><strong>ウィンドウ番号</strong></p>
+<p>秀丸ウィンドウの「番号」とは、秀丸のウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
+<div class="macro">
+<pre><code>//------- サンプルマクロ1 -------//
+// &quot;c:\\hidemaru\\install.txt&quot; のウィンドウ番号を取得する
+$file = &quot;c:\\hidemaru\\install.txt&quot;;
+#h_order = findhidemaru($file);
+message $file + &quot; のウィンドウ番号は &quot; + str(#h\_order) + &quot; です。&quot;;
+if( #h_order != -1 ) setactivehidemaru #h_order; //切り替え
+endmacro;
+// ---------------------------- //</code></pre>
+</div>
+<p>※ ファイルが開かれていない場合は、ウィンドウ番号は -1 になります。</p></li>
+<li><p><strong>ウィンドウハンドル</strong></p>
+<ol style="list-style-type: decimal">
+<li>で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。 いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、 「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</li>
+</ol>
+<div class="macro">
+<pre><code>//------- サンプルマクロ2 -------//
+// &quot;c:\\hidemaru\\install.txt&quot; のウィンドウハンドルを取得する
+$file = &quot;c:\\hidemaru\\install.txt&quot;;
+#h\_wnd = hidemaruhandle(findhidemaru($file));
+message $file + &quot; のウィンドウハンドルは &quot; + str(#h_wnd) + &quot; です。&quot;;
+if( #h_wnd != 0 ) setactivehidemaru #h_wnd; //切り替え
+endmacro;
+// ---------------------------- //</code></pre>
+</div>
+<p>※ hidemaruhandle()関数の引数にはハンドルを取得したいウィンドウのウィンドウ番号を指定します。 ウィンドウが存在しない場合(ウィンドウ番号が-1 の場合)、hidemaruhandle() 関数は 0 を返します。</p></li>
+<li><p><strong>findhidemaru() 関数を使う場合の注意点</strong></p>
+<p>findhidemaru() 関数の引数にアクティブウィンドウ(ウィンドウ番号0)のファイル名を指定した場合も (ウィンドウが存在しない時と同様に) -1を返すため、 上記のサンプルマクロを c:\hidemaru\install.txt上で実行すると「c:\hidemaru\install.txt のウィンドウ番号は -1 (ウィンドウハンドルは 0)です。」と嘘(^^;を言われてしまいます。 (findhidemaru() 関数は自分自身を見つける事はできない。)</p>
+<p>例えばアクティブウィンドウのウィンドウハンドルを取得したい場合は、</p>
+<div class="macro">
+<pre><code>#hwnd_act = hidemaruhandle(findhidemaru(filename));</code></pre>
+</div>
+<p>※ filename には現在のウィンドウのファイル名が入る(「<a href="HMM0060A.html">●「キーワード」とは？</a>」を参照して下さい)。</p>
+<p>ではなく</p>
+<div class="macro">
+<pre><code>#hwnd_act = hidemaruhandle( 0 );</code></pre>
+</div>
+<p>と指定しなければ正しく動作しません。</p></li>
+<li><p>setactivehidemaru文の第2引数の使い方</p>
+２番目のパラメータを指定すると、自分自身のウィンドウの重なり位置を調節できます。 ウィンドウ番号かハンドルをを指定すると、指定したウィンドウの下に移動します。
+<ul>
+<li>-1を指定すると、一番下に移動します。 ２番目のパラメータは省略可能です。</li>
+</ul>
+<p>初期状態。アルファベット(a～d)がウィンドウハンドル(ウィンドウ識別番号)、数字がウィンドウ順番です。</p>
+<div class="BlockScroll">
+<pre>
+<span style="color:red">┏━━━━━━━┓</span>
+<span style="color:red">┃d             ┃</span>
+<span style="color:red">┣━━━━━━━┫</span>
+<span style="color:red">┃3 </span><span style="color:blue">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃c             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┣━━━━━━━┫</span>
+<span style="color:red">┃  </span><span style="color:blue">┃2 </span><span style="color:Fuchsia">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃  </span><span style="color:Fuchsia">┃b             ┃</span>
+<span style="color:red">┗━</span><span style="color:blue">┫  </span><span style="color:Fuchsia">┣━━━━━━━┫</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃1 </span><span style="color:Black">┏━━━━━┻━┓</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃  </span><span style="color:Black">┃a             ┃</span>
+    <span style="color:blue">┗━</span><span style="color:Fuchsia">┫  </span><span style="color:Black">┣━━━━━━━┫</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┃0             ┃</span>
+        <span style="color:Fuchsia">┗━</span><span style="color:Black">┫              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┗━━━━━━━┛</span>
+</pre>
+</div>
+<!-- BlockScroll -->
+<p>「次の秀丸エディタ」に切り替えるため、２番目のウィンドウをアクティブにする。(setactivehidemaru 1;) 単純に２番目のウィンドウ(b)が先頭に移動するだけなので、(a)と(b)が入れ替わるだけ。 再度２番目のウィンドウをアクティブにしても、(a)と(b)が入れ替わるだけで、(c)には移動しない。</p>
+<div class="BlockScroll">
+<table class="table_no_border">
+<caption>
+setactivehidemaru 1;実行時の動作
+</caption>
+<tbody class="table_no_border">
+<tr class="table_no_border">
+<td class="table_no_border">
+<pre>
+<span style="color:red">┏━━━━━━━┓</span>
+<span style="color:red">┃d             ┃</span>
+<span style="color:red">┣━━━━━━━┫</span>
+<span style="color:red">┃3 </span><span style="color:blue">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃c             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┣━━━━━━━┫</span>
+<span style="color:red">┃  </span><span style="color:blue">┃2 </span><span style="color:Fuchsia">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃  </span><span style="color:Fuchsia">┃b             ┃</span>
+<span style="color:red">┗━</span><span style="color:blue">┫  </span><span style="color:Fuchsia">┣━━━━━━━┫</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃0             ┣</span><span style="color:Black">━┓</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃              ┃</span><span style="color:Black"> a┃</span>
+    <span style="color:blue">┗━</span><span style="color:Fuchsia">┫              ┣</span><span style="color:Black">━┫</span>
+        <span style="color:Fuchsia">┃              ┃</span><span style="color:Black"> 1┃</span>
+        <span style="color:Fuchsia">┗━┳━━━━━┛</span><span style="color:Black">  ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┗━━━━━━━┛</span>
+</pre>
+</td>
+<td align="center" class="table_no_border">
+<br /> ←→
+</td>
+<td class="table_no_border">
+<pre>
+<span style="color:red">┏━━━━━━━┓</span>
+<span style="color:red">┃d             ┃</span>
+<span style="color:red">┣━━━━━━━┫</span>
+<span style="color:red">┃3 </span><span style="color:blue">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃c             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┣━━━━━━━┫</span>
+<span style="color:red">┃  </span><span style="color:blue">┃2 </span><span style="color:Fuchsia">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃  </span><span style="color:Fuchsia">┃b             ┃</span>
+<span style="color:red">┗━</span><span style="color:blue">┫  </span><span style="color:Fuchsia">┣━━━━━━━┫</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃1 </span><span style="color:Black">┏━━━━━┻━┓</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃  </span><span style="color:Black">┃a             ┃</span>
+    <span style="color:blue">┗━</span><span style="color:Fuchsia">┫  </span><span style="color:Black">┣━━━━━━━┫</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┃0             ┃</span>
+        <span style="color:Fuchsia">┗━</span><span style="color:Black">┫              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┗━━━━━━━┛</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- BlockScroll -->
+<p>「次の秀丸エディタ」で順次ウィンドウを切り替えるには、先頭のウィンドウを最後に移動する必要があります。 第二引数を指定し、先頭のウィンドウを最後に移動させる。</p>
+<div class="BlockScroll">
+<table class="table_no_border">
+<caption>
+setactivehidemaru 1,-1;実行時の動作
+</caption>
+<tbody class="table_no_border">
+<tr class="table_no_border">
+<td class="table_no_border">
+<pre>
+<span style="color:red">┏━━━━━━━┓</span>
+<span style="color:red">┃d             ┃</span>
+<span style="color:red">┣━━━━━━━┫</span>
+<span style="color:red">┃2 </span><span style="color:blue">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃c             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┣━━━━━━━┫</span>
+<span style="color:red">┃  </span><span style="color:blue">┃1             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┃  </span><span style="color:Fuchsia">┏━━━━━┻━┓</span>
+<span style="color:red">┗━</span><span style="color:blue">┫  </span><span style="color:Fuchsia">┃b             ┃</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┣━━━━━━━┫</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃0             ┣</span><span style="color:Black">━┓</span>
+    <span style="color:blue">┗━</span><span style="color:Fuchsia">┫              ┃</span><span style="color:Black"> a┃</span>
+        <span style="color:Fuchsia">┃              ┣</span><span style="color:Black">━┫</span>
+        <span style="color:Fuchsia">┃              ┃</span><span style="color:Black"> 3┃</span>
+        <span style="color:Fuchsia">┃              ┃</span><span style="color:Black">  ┃</span>
+        <span style="color:Fuchsia">┗━┳━━━━━┛</span><span style="color:Black">  ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┗━━━━━━━┛</span>
+</pre>
+</td>
+<td align="center" class="table_no_border">
+<br /> →
+</td>
+<td class="table_no_border">
+<pre>
+<span style="color:red">┏━━━━━━━┓</span>
+<span style="color:red">┃d             ┃</span>
+<span style="color:red">┣━━━━━━━┫</span>
+<span style="color:red">┃1 </span><span style="color:blue">┏━━━━━┻━┓</span>
+<span style="color:red">┃  </span><span style="color:blue">┃c             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┣━━━━━━━┫</span>
+<span style="color:red">┃  </span><span style="color:blue">┃0             ┃</span>
+<span style="color:red">┃  </span><span style="color:blue">┃              ┣</span><span style="color:Fuchsia">━┓</span>
+<span style="color:red">┗━</span><span style="color:blue">┫              ┃</span><span style="color:Fuchsia"> b┃</span>
+    <span style="color:blue">┃              ┣</span><span style="color:Fuchsia">━┫</span>
+    <span style="color:blue">┃              ┣</span><span style="color:Black">━┻━┓</span>
+    <span style="color:blue">┗━┳━┳━━━┛</span><span style="color:Black">     a┃</span>
+        <span style="color:Fuchsia">┃3 </span><span style="color:Black">┣━━━━━━━┫</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┃             2┃</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┃              ┃</span>
+        <span style="color:Fuchsia">┗━</span><span style="color:Black">┫              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┗━━━━━━━┛</span>
+</pre>
+</td>
+<td align="center" class="table_no_border">
+<br /> →
+</td>
+<td class="table_no_border">
+<pre>
+<span style="color:red">┏━━━━━━━┓</span>
+<span style="color:red">┃d             ┃</span>
+<span style="color:red">┣━━━━━━━┫</span>
+<span style="color:red">┃0             ┣</span><span style="color:blue">━┓</span>
+<span style="color:red">┃              ┃</span><span style="color:blue"> c┃</span>
+<span style="color:red">┃              ┣</span><span style="color:blue">━┫</span>
+<span style="color:red">┃              ┃</span><span style="color:blue"> 3┃</span>
+<span style="color:red">┃              ┣</span><span style="color:Fuchsia">━┻━┓</span>
+<span style="color:red">┗━┳━┳━━━┛</span><span style="color:Fuchsia">     b┃</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┣━━━━━━━┫</span>
+    <span style="color:blue">┃  </span><span style="color:Fuchsia">┃2 </span><span style="color:Black">┏━━━━━┻━┓</span>
+    <span style="color:blue">┗━</span><span style="color:Fuchsia">┫  </span><span style="color:Black">┃             a┃</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┣━━━━━━━┫</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┃             1┃</span>
+        <span style="color:Fuchsia">┃  </span><span style="color:Black">┃              ┃</span>
+        <span style="color:Fuchsia">┗━</span><span style="color:Black">┫              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┃              ┃</span>
+            <span style="color:Black">┗━━━━━━━┛</span>
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- BlockScroll --></li>
+</ol>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"> <a href="HMM0057A.html">←前へ</a> <a href="HMM0059A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+</body>
+</html>
