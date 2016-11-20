@@ -53,7 +53,7 @@
 </div>
 <p>と言ってしまえばそれまでですが、逆に言えば、こんぴゅーたに「何を探したいか」を<strong>適切に</strong>教えてやれば、 ちゃんと仕事をしてくれるはずです。</p>
 <p>この例の場合、探したいものは</p>
-<p><span class="box_line">「明日は」で始まり、途中に何か文があって、「でした。」で終わる</span></p>
+<div style="white-space: pre-line;"><span class="box_line">「明日は」で始まり、途中に何か文があって、「でした。」で終わる</span></div>
 <p>という <span class="font_red">文字の並び方のルール</span> として表現できますが、このようにルールとして与えてやれば、</p>
 <div class="attention_p">
 <p>ルール通りに物事を運ぶことにかけては右に出るものはない</p>
@@ -65,7 +65,7 @@
 </div>
 <p>です。</p>
 <p>ちょっと先走ってしまいますが、 言葉で表現した文字の並びのルールを正規表現を使って表現すると、</p>
-<p><span class="box_line2">^明日は.+でした。$</span></p>
+<div style="white-space: pre-line;"><span class="box_line2">^明日は.+でした。$</span></div>
 <p>となります。 上の正規表現には、&quot;明日は&quot; や &quot;でした。&quot; などのような<strong>探したい文字そのもの</strong> の他、 &quot;<code>^</code>&quot; や &quot;<code>.+</code>&quot; や &quot;<code>$</code>&quot; という<strong>記号</strong> が含まれています。 すぐ後の【１】基本編 で説明しますが、これらの記号は<strong>文字の並び方のルールを表現するための特別な意味</strong>を持っていて、 上の例でいうと「～で始まり」「何か文があって」「～で終わる」といった<strong>ルール</strong>に対応しています。 このように、正規表現は文字の並びのルールを言葉ではなく</p>
 <div class="attention_p">
 <p><span class="font_red">(普通の)文字</span> ＋ <span class="font_red">(文字の並びのルールを表現するための)記号</span></p>
@@ -83,8 +83,10 @@
 <div class="marginleft">
 <h4 id="メタキャラクタとエスケープシーケンス">[1-1] メタキャラクタとエスケープシーケンス</h4>
 <p>まず前章の例の真ん中辺りにあった「<strong><code>.+</code></strong>」ですが、これは言葉で表現した文字の並びのルールの 「<strong>何か文があって</strong>」という部分に対応しています。 この記号は「<strong><code>.</code>(ピリオド)</strong>」と 「<strong><code>+</code> (プラス)</strong>」との組み合わせで、 それぞれ</p>
-<p><span class="box_line2"><strong><code>.</code> (ピリオド)</strong> … <strong>任意の１文字</strong></span></p>
-<p><span class="box_line2"><strong><code>+</code> (プラス)</strong> … <strong>直前の文字の１回以上の繰り返し</strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line2"><strong><code>.</code> (ピリオド)</strong> … <strong>任意の１文字</strong></span></div>
+<p><br />
+</p>
+<div style="white-space: pre-line;"><span class="box_line2"><strong><code>+</code> (プラス)</strong> … <strong>直前の文字の１回以上の繰り返し</strong></span></div>
 <p>という意味を持っています。</p>
 <p>　ピリオドは、 MS-DOS のワイルドカード(懐かしい(笑))では「<strong><code>?</code></strong>」と表現していたもので、 <strong>どんな１文字</strong>にもマッチ<a href="#index-1">(*1)</a>します。 例えば &quot;<strong><code>あ.た</code></strong>&quot;というパターンは、 &quot;<strong>あんた</strong>&quot; にも &quot;<strong>あいた</strong>&quot; にも &quot;<strong>あした</strong>&quot;にも、 果ては</p>
 <div class="attention_p">
@@ -763,26 +765,26 @@ hidemaru0A5</code></pre>
 <div class="marginleft">
 <h5 id="ｃ言語のコメントを消す">・Ｃ言語のコメントを消す</h5>
 <p>&quot;<code>/*</code>&quot; と &quot;<code>*/</code>&quot; の間にある文字列のパターンは、以下のように表わすことができそうです。</p>
-<p><span class="box_line"><strong>「&quot;/&quot; 以外の文字」と「直前が &quot;*&quot; 以外の &quot;/&quot;」を組み合わせた文字列</strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>「&quot;/&quot; 以外の文字」と「直前が &quot;*&quot; 以外の &quot;/&quot;」を組み合わせた文字列</strong></span></div>
 <p>ここで、&quot;<code>/</code>&quot; の直前に &quot;<code>*</code>&quot; がないことを指定して実質的に「文字列の否定」をしていることに注意して下さい。</p>
 <p>　<span class="font_blue">ちなみに、</span>同じような表現と思われる</p>
-<p><span class="box_line"><strong>「&quot;*&quot; 以外の文字」と「直後が &quot;/&quot; 以外の &quot;*&quot;」を組み合わせた文字列</strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>「&quot;*&quot; 以外の文字」と「直後が &quot;/&quot; 以外の &quot;*&quot;」を組み合わせた文字列</strong></span></div>
 <p>ではうまく行きません。 理由は、&quot;<code>**/</code>&quot; の場合に &quot;<code>**</code>&quot; (直後が &quot;<code>/</code>&quot;以外の &quot;<code>*</code>&quot;) と &quot;<code>/</code>&quot; (&quot;<code>*</code>&quot; 以外の文字)という風にマッチしてしまうため、 例えば</p>
-<p><span class="box_line"><strong>/***/ /***/</strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>/***/ /***/</strong></span></div>
 <p>の &quot;/***/ /***/&quot; 全てにマッチしてしまうからです。</p>
 <p>　以上のことを考慮して、ちゃんとコメントにマッチする(と思われる)パターンを書いたものが以下です。</p>
-<p><span class="box_line"><strong>検索文字列：</strong> <code>/\*([^/]|[^*]/)*\*/</code></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列：</strong> <code>/\*([^/]|[^*]/)*\*/</code></span></div>
 <p>(&quot;<code>*</code>&quot; は <span class="font_red">メタキャラクタ</span>なので、 キャラクタクラス指定の中にある&quot;<code>*</code>&quot; 以外は &quot;<code>\</code>&quot; でエスケープしてあります。)</p>
 <p>　これで<span class="font_blue">一見</span>うまくいくように思えます。 が、実はこのパターンは以下のようなコメント(？)にマッチしません。</p>
-<p><span class="box_line"><strong><code>/*/ */</code></strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong><code>/*/ */</code></strong></span></div>
 <p>一般に、&quot;<code>/*</code>&quot; の直後に &quot;<code>/</code>&quot; がある場合はアウトです。 なぜかというと、 上のパターン(の &quot;<code>[^*]/</code>&quot; という部分)では &quot;<code>/</code>&quot;の<strong>直前に必ず１文字存在することを要求</strong>しているからです。 (&quot;<code>/*</code>&quot;は既に &quot;<code>/\*</code>&quot; がマッチしているので対象外です。)</p>
 <p>　というわけで、この特殊な場合も考慮したパターンを作る必要があります。 で、それは以下のようになります。</p>
-<p><span class="box_line"><strong>検索文字列(改良版)：</strong> <strong><code>/\*/?([^/]|[^*]/)*\*/</code></strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列(改良版)：</strong> <strong><code>/\*/?([^/]|[^*]/)*\*/</code></strong></span></div>
 <p>(&quot;<code>/?</code>&quot; という指定で、(もしあれば) &quot;<code>/*</code>&quot; の直後の &quot;<code>/</code>&quot;にマッチさせています。)</p>
 <dl>
 <dt>※</dt>
 <dd><p>ただし、この表現のままでは<span class="font_red">複数行に渡るコメントは正しく置換できません</span>。 これはこのパターンが不完全なのではなく、秀丸の正規表現検索の仕様によるものです (後述の<a href="#RETURNS">【５】秀丸上での複数行にまたがる検索について</a>を参照して下さい)。 任意の行数にまたがるコメントを削除することはその仕様のためにできないのですが、 例えば２行以下のものであれば以下のパターンを使えば可能です。</p>
-<p><span class="box_line"><strong>検索文字列(２行までのコメントにマッチ)：</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列(２行までのコメントにマッチ)：</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></div>
 <p>&quot;<code>[^/]</code>&quot; は「&quot;<code>/</code>&quot;以外の１文字」を表しているので、その中には &quot;<code>\n</code>&quot; も含まれています。 したがって、真ん中の括弧の中に入れた&quot;<code>\n</code>&quot;は正規表現としては不必要なものです。 しかし、この &quot;<code>\n</code>&quot;を加えることで秀丸の動作が変わり、複数行にまたがるコメントも検索できるようになります。</p>
 </dd>
 </dl>
@@ -818,7 +820,7 @@ hidemaru0A5</code></pre>
 </table>
 </div>
 <p>で、これを<span class="font_blue">素直に</span> 正規表現で表わすと</p>
-<p><span class="box_line"><strong>検索文字列：</strong> <strong><code>^(|.|[^P].|P[^:])[0-9]+$</code></strong></span></p>
+<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列：</strong> <strong><code>^(|.|[^P].|P[^:])[0-9]+$</code></strong></span></div>
 <p>となります。 ２番目と３番目、 特に２番目は &quot;<code>.</code>&quot;を使うことで４つの間違いにマッチしています。</p>
 <h5 id="一般の文字列の否定はどうするか">・一般の「文字列の否定」はどうするか？</h5>
 <p>　上の２例については<span class="font_blue">運良く(笑)</span> 解答が見つかりましたが、 では一般的に「<strong>文字列の否定</strong>」をするにはどうしたらよいのでしょうか？ もう少し正確な言い方をすれば、「<strong>部分的に～という文字列を含まない文字列にマッチするパターン</strong>」を作る一般的な方法はあるのでしょうか？ …と、ここで「一般論」を説明できれば</p>
@@ -862,32 +864,20 @@ hidemaru0A5</code></pre>
 <p>が実りある物になることを祈りつつ…。</p>
 <h3 id="REFERENCE">【４】 参考文献</h3>
 <p>　正規表現は sed や awk といった UNIX 関連のツールに対する書籍を買えば大抵説明されていますが、 今回参考にした本だけを参考文献として紹介します。￥ ＃他にも「これがいい！」という本がありましたら教えて下さいm(_ _)m。</p>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>AWKを256倍使うための本</strong></td>
-</tr>
-<tr class="even">
-<td align="left">(アスキー書籍編集部編　志村　拓・鷲北　賢・西村克信 共著)</td>
-</tr>
-<tr class="odd">
-<td align="left">正規表現に関してはホンの一部だけ説明されていますが、 例(？)が豊富でしかも笑えます。 今回の執筆＆改訂に多大なる影響を与えてくれました。</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left"><strong>『sed&amp;awkプログラミング』</strong></td>
-</tr>
-<tr class="even">
-<td align="left">(アスキー出版局編　Dale Dougherty 著　福崎俊博 訳)</td>
-</tr>
-<tr class="odd">
-<td align="left">いわゆる「教科書的」な構成で、読むのに結構根気がいるんですが、 一冊ぐらいはこういう本を読まないと…ね(←意味不明)。</td>
-</tr>
-</tbody>
-</table>
+<dl>
+<dt><strong>AWKを256倍使うための本</strong></dt>
+<dd>(アスキー書籍編集部編　志村　拓・鷲北　賢・西村克信 共著)<br />
+正規表現に関してはホンの一部だけ説明されていますが、 例(？)が豊富でしかも笑えます。 今回の執筆＆改訂に多大なる影響を与えてくれました。
+</dd>
+<dt><strong>『sed&amp;awkプログラミング』</strong></dt>
+<dd>(アスキー出版局編　Dale Dougherty 著　福崎俊博 訳)<br />
+いわゆる「教科書的」な構成で、読むのに結構根気がいるんですが、 一冊ぐらいはこういう本を読まないと…ね(←意味不明)。
+</dd>
+<dt><strong>『諸説 正規表現 第3版』</strong></dt>
+<dd>(オライリージャパン　Jeffrey E.F. Friedl　著、株式会社ロングテール／長尾 高弘　訳)<br />
+正規表現への理解を深める解説書。内容は難しいですが、とりあえず読んでおいて損はないです。
+</dd>
+</dl>
 <h3 id="RETURNS">【５】　(補足) 秀丸上での複数行にまたがる検索について</h3>
 <p>秀丸エディタの正規表現検索は以下の手順で行われています。</p>
 <ol style="list-style-type: decimal">
