@@ -33,28 +33,34 @@
 <p>(以下は、本Ｑ＆Ａ執筆者が独自に調査した結果を基に記述しています。このルールに基づかない結果になることがあるかもしれません)</p>
 <p>例に示す式はすべて真です。</p>
 <p><strong>(1-a)</strong></p>
-<p>文字種全体の関係は、記号 &lt; 英字 &lt; かな &lt; 漢字 となる。<br />
-英字同士の比較は大文字/小文字、全角/半角の区別なく、英字順に大きいと判断される。</p>
-<p>かな同士の比較は、ひらがな/カタカナ、全角/半角の区別なく、五十音順に大きいと判断される。濁点、半濁点はないものと見なす。</p>
-<p>例) &quot;ａ&quot; &lt; &quot;ア&quot;（半角カタカナ）<br />
-例) &quot;a&quot; &lt; &quot;B&quot;<br />
-例) &quot;アイ&quot;（半角カタカナ） &gt; &quot;アア&quot;<br />
-例) &quot;カク&quot; &lt; &quot;カ゛ケ&quot;（半角カタカナ）<br />
-例) &quot;０&quot; &lt; &quot;1&quot;</p>
+<div style="white-space: pre-line;">文字種全体の関係は、記号 &lt; 英字 &lt; かな &lt; 漢字 となる。
+英字同士の比較は大文字/小文字、全角/半角の区別なく、英字順に大きいと判断される。
+
+かな同士の比較は、ひらがな/カタカナ、全角/半角の区別なく、五十音順に大きいと判断される。濁点、半濁点はないものと見なす。
+
+例) &quot;ａ&quot; &lt; &quot;ア&quot;（半角カタカナ）
+例) &quot;a&quot; &lt; &quot;B&quot;
+例) &quot;アイ&quot;（半角カタカナ） &gt; &quot;アア&quot;
+例) &quot;カク&quot; &lt; &quot;カ゛ケ&quot;（半角カタカナ）
+例) &quot;０&quot; &lt; &quot;1&quot;</div>
 <p><strong>(1-b)</strong></p>
-<p>文字数の違う文字列同士の比較で、短い方の文字列の長さまでが(1-aのルールで) 一致している場合、長いほうが大きいと判断される。<br />
-※ 長さはバイト数ではなく文字数でカウントする。<br />
-例) &quot;ＡＢＣ&quot; &lt; &quot;abc1&quot;</p>
+<div style="white-space: pre-line;">文字数の違う文字列同士の比較で、短い方の文字列の長さまでが(1-aのルールで) 一致している場合、長いほうが大きいと判断される。
+※ 長さはバイト数ではなく文字数でカウントする。
+例) &quot;ＡＢＣ&quot; &lt; &quot;abc1&quot;</div>
 <p>ここまでで決着がつかなかった場合に、次のルールを適用します。</p>
 <p><strong>(2)</strong></p>
-<p>英字の同一文字の大文字と小文字の比較では、大文字のほうが大きい。<br />
-かなの同一文字の比較では、次のような関係となる。</p>
-<p>濁点ナシ &lt; 濁点付き &lt; 半濁点付き</p>
-<p>半角カナ &lt; 全角カタカナ &lt; 全角ひらがな</p>
-<p>※ 濁点の有無のほうが優先順位が高い。</p>
-<p>例) &quot;ABC&quot; &gt; &quot;abc&quot;<br />
-例) &quot;アイ&quot;（半角カタカナ） &lt; &quot;アイ&quot;<br />
-例) &quot;カク&quot; &lt; &quot;カ゛ク&quot;（半角カタカナ）</p>
+<div style="white-space: pre-line;">英字の同一文字の大文字と小文字の比較では、大文字のほうが大きい。
+かなの同一文字の比較では、次のような関係となる。
+
+濁点ナシ &lt; 濁点付き &lt; 半濁点付き
+
+半角カナ &lt; 全角カタカナ &lt; 全角ひらがな
+
+※ 濁点の有無のほうが優先順位が高い。
+
+例) &quot;ABC&quot; &gt; &quot;abc&quot;
+例) &quot;アイ&quot;（半角カタカナ） &lt; &quot;アイ&quot;
+例) &quot;カク&quot; &lt; &quot;カ゛ク&quot;（半角カタカナ）</div>
 <p>ここまでで2つの文字列に違いが見られない場合、2つの文字列は同じであるという結果になります。<br />
 例) &quot;バ&quot;==&quot;ハ゛&quot; 漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、 ご自身で確かめてみましょう。</p>
 <hr />
@@ -89,20 +95,20 @@ while( 1 ) {
 ※ AとZの囲みがシングルクォートに変わっていることに注意。</p>
 <hr />
 <p><strong>（例２）</strong><br />
-例１の例を含めて、秀丸の文字列比較（&lt;, ==, &gt;の演算子で行うもの）はWin32API の lstrcmp()を使っているので、 その通りのルールになっています。<br />
+例１の例を含めて、秀丸エディタの文字列比較（&lt;, ==, &gt;の演算子で行うもの）はWin32API の lstrcmp()を使っているので、 その通りのルールになっています。<br />
 そのため、比較結果が以下のようなちょっと凝った？ものになります。</p>
-<p>&quot;パ&quot;==&quot;ハ゛゛&quot;<br />
-&quot;⑳&quot;&lt;&quot;∞&quot; //（Shift_JIS, UNICODEコード順と逆）<br />
-&quot;℃&quot;==&quot;C゜&quot;<br />
-&quot;一&quot;==&quot;一〇〇〇〇&quot;<br />
-&quot;◎゛&quot;==&quot;●&quot;<br />
-&quot;㈱ヽ&quot;==&quot;㈱㈱&quot;<br />
-&quot;山ゞ&quot;==&quot;山山゛&quot;</p>
+<div style="white-space: pre-line;">&quot;パ&quot;==&quot;ハ゛゛&quot;
+&quot;⑳&quot;&lt;&quot;∞&quot; //（Shift_JIS, UNICODEコード順と逆）
+&quot;℃&quot;==&quot;C゜&quot;
+&quot;一&quot;==&quot;一〇〇〇〇&quot;
+&quot;◎゛&quot;==&quot;●&quot;
+&quot;㈱ヽ&quot;==&quot;㈱㈱&quot;
+&quot;山ゞ&quot;==&quot;山山゛&quot;</div>
 <p>厳密に（単純に）同じ文字列か比較を行いたい場合は、以下のような方法があります。</p>
 <div class="macro">
 <pre><code>$a = input (&quot;１個め&quot;, &quot;&quot;); 
 $b = input (&quot;２個め&quot;, &quot;&quot;); 
-// 秀丸の比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ) 
+// 秀丸エディタの比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ) 
 if ($a == $b) { 
     message &quot;$a == $b&quot;;
 } else if ($a &gt; $b) { 

@@ -27,12 +27,12 @@
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>setactivehidemaru文には秀丸ウィンドウの「番号」か「ウィンドウハンドル」を指定します。</p>
+<dd><p>setactivehidemaru文には秀丸エディタウィンドウの「番号」か「ウィンドウハンドル」を指定します。</p>
 <dl>
 <dt>[解説]</dt>
 <dd><ol style="list-style-type: decimal">
 <li><p><strong>ウィンドウ番号</strong></p>
-<p>秀丸ウィンドウの「番号」とは、秀丸のウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
+<p>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ1 -------//
 // &quot;c:\\hidemaru\\install.txt&quot; のウィンドウ番号を取得する
@@ -65,7 +65,7 @@ endmacro;
 <div class="macro">
 <pre><code>#hwnd_act = hidemaruhandle(findhidemaru(filename));</code></pre>
 </div>
-<p>※ filename には現在のウィンドウのファイル名が入る(「<a href="HMM0060A.html">●「キーワード」とは？</a>」を参照して下さい)。</p>
+<div style="white-space: pre-line;">※ filename には現在のウィンドウのファイル名が入る(「<a href="HMM0060A.html">●「キーワード」とは？</a>」を参照して下さい)。</div>
 <p>ではなく</p>
 <div class="macro">
 <pre><code>#hwnd_act = hidemaruhandle( 0 );</code></pre>

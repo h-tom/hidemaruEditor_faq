@@ -6,7 +6,7 @@
 </HEAD><BODY>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="秀丸Ｑ＆Ａ集第８版">
+		<param name="Name" value="秀丸エディタＱ＆Ａ集第８版">
 		<param name="Local" value="hmindex0.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -27,7 +27,7 @@
 			<param name="Local" value="s_syushi.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタの各ＯＳ毎の最新版">
+			<param name="Name" value="秀丸エディタ各ＯＳ毎の最新版">
 			<param name="Local" value="s_saisin.html">
 			</OBJECT>
 	</UL>
@@ -113,11 +113,11 @@
 			<param name="Local" value="3_sub.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸ウィンドウの管理 ">
+			<param name="Name" value="秀丸エディタウィンドウの管理 ">
 			<param name="Local" value="3_window.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸ウインドウの管理（タブ編）">
+			<param name="Name" value="秀丸エディタウインドウの管理（タブ編）">
 			<param name="Local" value="3_tabmode.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">

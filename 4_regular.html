@@ -19,15 +19,15 @@
 　正規表現について</h1>
 <hr />
 <h2 id="REGEXP">●正規表現について</h2>
-<p>　秀丸だけでなく、高度で自由度の高い検索をするには必須の「<strong>正規表現</strong>」。 ここでは実用上重要な例をとりあげながら、わかりやすく解説します。 今日からあなたの「検索」が変わります。<br />
+<p>　秀丸エディタだけでなく、高度で自由度の高い検索をするには必須の「<strong>正規表現</strong>」。 ここでは実用上重要な例をとりあげながら、わかりやすく解説します。 今日からあなたの「検索」が変わります。<br />
 　正規表現に関する話題は、 次の「【０】いんとろだくしょん」に続く 以下の５章から構成されています。</p>
 <p>【１】 <a href="#BASIC">基本編　～表記のルールと意味～</a><br />
 【２】 <a href="#HAIZIN">実践編　～正規表現による置換の実際～</a><br />
 【３】 <a href="#SUMMARY">まとめ</a><br />
 【４】 <a href="#REFERENCE">参考文献</a><br />
-【５】 <a href="#RETURNS">(補足) 秀丸上での複数行にまたがる検索について</a></p>
+【５】 <a href="#RETURNS">(補足) 秀丸エディタ上での複数行にまたがる検索について</a></p>
 <ul>
-<li>以下の内容は、秀丸ヘルプの<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemaru/html/190_CmdSearch_Regular.html" target="_blank">「検索系コマンド→検索→正規表現」</a></span>の内容についての補足です。 よってヘルプを参照しながら読まれる事を想定して書かれています。</li>
+<li>以下の内容は、秀丸エディタヘルプの<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemaru/html/190_CmdSearch_Regular.html" target="_blank">「検索系コマンド→検索→正規表現」</a></span>の内容についての補足です。 よってヘルプを参照しながら読まれる事を想定して書かれています。</li>
 <li>秀丸エディタは、Ver.3.19までは、正規表現エンジンに「JRE32.DLL」が使用されていましたが、 Ver.4.00以降は、「HMJRE.DLL」に変更されています。<br />
 以下の内容は、正規表現エンジンに「HMJRE.DLL」を使用する前提で書かれています。</li>
 </ul>
@@ -317,7 +317,7 @@ a{8,12}? --&gt; aaaaaaaa にマッチする</p>
 この行の末尾で [Enter] キーで改行されています。＃↓
 [EOF]</code></pre>
 </div>
-<p>この場合、見た目の行、 つまり２行目だけ(&quot;この文は&quot; から &quot;→&quot;まで)がマッチしそうな所ですが、 実際にやってみると<strong>２行目の先頭から３行目の行末(&quot;＃&quot;)まで</strong>がマッチします。 この例からもわかるように、正規表現で言う所の「<strong>行</strong>」とは秀丸の画面上での「見た目の行」のこと <span class="font_blue">ではなく</span>、</p>
+<p>この場合、見た目の行、 つまり２行目だけ(&quot;この文は&quot; から &quot;→&quot;まで)がマッチしそうな所ですが、 実際にやってみると<strong>２行目の先頭から３行目の行末(&quot;＃&quot;)まで</strong>がマッチします。 この例からもわかるように、正規表現で言う所の「<strong>行</strong>」とは秀丸エディタの画面上での「見た目の行」のこと <span class="font_blue">ではなく</span>、</p>
 <div class="attention_p">
 <p><span class="font_red">ファイルの先頭</span> または <span class="font_red">改行文字</span> (↓) から、 次の改行文字 または <span class="font_red">ファイルの末尾</span> ([EOF]) で区切られた部分</p>
 </div>
@@ -485,7 +485,7 @@ hidemaru0A5</code></pre>
 </table>
 <dl>
 <dt>※</dt>
-<dd>Ver.3.0 以降の秀丸では、&quot;<code>\f</code>&quot; が一般的な意味の「改ページ(\x0C)」ではなく、 「<a href="4_tagreg.html">タグ付き正規表現</a>」における区切り子として解釈されるようになったので、意味が異なります。 タグ付き正規表現のタグ指定は、グルーピンングで使用する括弧()での指定が可能なので、そちらを使ってください。 Ver.3.0 以降の秀丸で改ページコードを指定したい場合は、\x0C と記述する必要があります。
+<dd>Ver.3.0 以降の秀丸エディタでは、&quot;<code>\f</code>&quot; が一般的な意味の「改ページ(\x0C)」ではなく、 「<a href="4_tagreg.html">タグ付き正規表現</a>」における区切り子として解釈されるようになったので、意味が異なります。 タグ付き正規表現のタグ指定は、グルーピンングで使用する括弧()での指定が可能なので、そちらを使ってください。 Ver.3.0 以降の秀丸エディタで改ページコードを指定したい場合は、\x0C と記述する必要があります。
 </dd>
 </dl>
 <p>　例えば<strong>行の先頭がタブ文字で始まる行</strong>を検索するには &quot;<strong><code>^\t</code></strong>&quot;というパターンを指定します。 なお、&quot;<code>\&lt;</code>&quot; と &quot;<code>\&gt;</code>&quot;はその他の物とは異なり、 それぞれ英単語の先頭、末尾に一致します(行における &quot;<code>^</code>&quot;、&quot;<code>$</code>&quot; と同じ意味)。 例えば &quot;<code>\&lt;a</code>&quot; は <strong>&quot;a&quot;で始まる英単語</strong> を検索するので、</p>
@@ -739,7 +739,7 @@ hidemaru0A5</code></pre>
 <p><span class="box_line"><strong><code>&lt;!--(.|\n)*--&gt;|&lt;[^&gt;]*&gt;</code></strong></span></p>
 <dl>
 <dt>※</dt>
-<dd>ただし、この正規表現では <span class="font_red">約３行以上に渡るタグを正しく置換できません</span> (後述の<a href="#RETURNS">【５】秀丸上での複数行にまたがる検索について</a> を参照して下さい)。
+<dd>ただし、この正規表現では <span class="font_red">約３行以上に渡るタグを正しく置換できません</span> (後述の<a href="#RETURNS">【５】秀丸エディタ上での複数行にまたがる検索について</a> を参照して下さい)。
 </dd>
 </dl>
 <!-- h5 -->
@@ -783,9 +783,9 @@ hidemaru0A5</code></pre>
 <p>(&quot;<code>/?</code>&quot; という指定で、(もしあれば) &quot;<code>/*</code>&quot; の直後の &quot;<code>/</code>&quot;にマッチさせています。)</p>
 <dl>
 <dt>※</dt>
-<dd><p>ただし、この表現のままでは<span class="font_red">複数行に渡るコメントは正しく置換できません</span>。 これはこのパターンが不完全なのではなく、秀丸の正規表現検索の仕様によるものです (後述の<a href="#RETURNS">【５】秀丸上での複数行にまたがる検索について</a>を参照して下さい)。 任意の行数にまたがるコメントを削除することはその仕様のためにできないのですが、 例えば２行以下のものであれば以下のパターンを使えば可能です。</p>
+<dd><p>ただし、この表現のままでは<span class="font_red">複数行に渡るコメントは正しく置換できません</span>。 これはこのパターンが不完全なのではなく、秀丸エディタの正規表現検索の仕様によるものです (後述の<a href="#RETURNS">【５】秀丸エディタ上での複数行にまたがる検索について</a>を参照して下さい)。 任意の行数にまたがるコメントを削除することはその仕様のためにできないのですが、 例えば２行以下のものであれば以下のパターンを使えば可能です。</p>
 <div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列(２行までのコメントにマッチ)：</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></div>
-<p>&quot;<code>[^/]</code>&quot; は「&quot;<code>/</code>&quot;以外の１文字」を表しているので、その中には &quot;<code>\n</code>&quot; も含まれています。 したがって、真ん中の括弧の中に入れた&quot;<code>\n</code>&quot;は正規表現としては不必要なものです。 しかし、この &quot;<code>\n</code>&quot;を加えることで秀丸の動作が変わり、複数行にまたがるコメントも検索できるようになります。</p>
+<p>&quot;<code>[^/]</code>&quot; は「&quot;<code>/</code>&quot;以外の１文字」を表しているので、その中には &quot;<code>\n</code>&quot; も含まれています。 したがって、真ん中の括弧の中に入れた&quot;<code>\n</code>&quot;は正規表現としては不必要なものです。 しかし、この &quot;<code>\n</code>&quot;を加えることで秀丸エディタの動作が変わり、複数行にまたがるコメントも検索できるようになります。</p>
 </dd>
 </dl>
 <h5 id="間違ったヘッダを持つ行を探す">・間違ったヘッダを持つ行を探す</h5>
@@ -878,7 +878,7 @@ hidemaru0A5</code></pre>
 正規表現への理解を深める解説書。内容は難しいですが、とりあえず読んでおいて損はないです。
 </dd>
 </dl>
-<h3 id="RETURNS">【５】　(補足) 秀丸上での複数行にまたがる検索について</h3>
+<h3 id="RETURNS">【５】　(補足) 秀丸エディタ上での複数行にまたがる検索について</h3>
 <p>秀丸エディタの正規表現検索は以下の手順で行われています。</p>
 <ol style="list-style-type: decimal">
 <li>秀丸エディタの正規表現検索は外部ツールである <code>HMJRE.DLL</code> に、検索用正規表現文字列と、編集中のテキストの一部を渡す事で実行している。</li>

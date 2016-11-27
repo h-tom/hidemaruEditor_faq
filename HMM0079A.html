@@ -23,15 +23,15 @@
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
-<dd><p><strong>自作のマクロを16bit版秀丸でも動作するようにしたいのですが、数値型変数の互換性はありますか？。<br />
+<dd><p><strong>自作のマクロを16bit版秀丸エディタでも動作するようにしたいのですが、数値型変数の互換性はありますか？。<br />
 例えば、２バイト文字かどうか判定するために、code の値を 0xff と大小比較しても大丈夫でしょうか？。</strong></p>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>秀丸 ver.1.48 のマクロヘルプには</p>
-<p>数値型変数は４バイトの符号付きの値を記憶することができます。</p>
+<dd><p>秀丸エディタ ver.1.48 のマクロヘルプには</p>
+<div style="white-space: pre-line;">数値型変数は４バイトの符号付きの値を記憶することができます。</div>
 <p>とありますので、動作は変わりません。</p>
 <p>例えば以下のマクロを32bit版(ver.3.13)と16bit版(ver.1.48)で確認したところ、動作は全く同じです。</p>
 <pre><code>if ((code &amp; 0xff00) != 0) { 
