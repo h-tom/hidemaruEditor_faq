@@ -123,7 +123,7 @@
 「置換ダイアログボックス」の「置換の確認の種類」でも置換確認のダイアログを選択可能です。</p>
 <h4 id="SUPPLEMENTATION-3">[変換モジュールを使った置換]</h4>
 <p>秀丸エディタ Ver.8.13より、置換時、検索結果に対し、変換モジュールの機能を実行できるようになりました。</p>
-<p>これで何ができるかというと、検索でマッチした箇所を、大文字/小文字/全角/半角へ変換する事が可能になります。 (検索にマッチした箇所に、変換モジュールが持つ機能を実行する。)</p>
+<p>これで何ができるかというと、検索でマッチした箇所を、大文字/小文字/全角/半角へ変換する事が可能になります。 (検索でマッチした箇所に、変換モジュールが持つ各種変換を実行する事ができる。)</p>
 <p>この機能を使用する場合は、<strong>「<span class="font_blue">正規表現</span>」</strong> を有効にする必要があります。</p>
 <p>標準添付されている変換モジュールの機能は以下になります。</p>
 <div class="table_border">
@@ -223,7 +223,16 @@
 置換：EDITOR</code></pre>
 <p>のように2回の置換を行う必要があるが、変換モジュールの機能を使えば一回の置換で可能。</p>
 <pre><code>検索：(hidemaru|editor)
-置換：\(0,ToUpper)</code></pre>
+置換：\(0,ToUpper)
+
+実行前：hidemaru editor
+実行後：HIDEMARU EDITOR</code></pre>
+<p>変換モジュールの機能を組み合わせることも可能で、大文字に変換して、さらに全角へ変換という事もできます。</p>
+<pre><code>検索：(hidemaru|editor)
+置換：\((0,ToUpper),ToZenkakuAlnum)
+
+実行前：hidemaru editor
+実行後：ＨＩＤＥＭＡＲＵ ＥＤＩＴＯＲ</code></pre>
 </dd>
 </dl>
 <p>詳細はヘルプ<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" target="_blank">置換の時の、変換モジュールによる変換の指定（Ver8.52対応版）</a></span> を参照してください。</p>
