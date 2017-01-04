@@ -90,6 +90,10 @@
 			<param name="Name" value="変換モジュール">
 			<param name="Local" value="2_convert.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ファイルマネージャ枠">
+			<param name="Local" value="2_filemanager.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">
@@ -175,6 +179,16 @@
 		<param name="Name" value="第V部～マクロから呼び出すＤＬＬの作り方 ">
 		<param name="Local" value="make_dll.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="第VI部～秀丸エディタ拡張モジュール">
+		<param name="Local" value="hmindex6.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="秀丸パブリッシャーについて">
+			<param name="Local" value="2_convert.html">
+			</OBJECT>
+	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="あとがき">
 		<param name="Local" value="atogaki.html">

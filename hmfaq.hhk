@@ -56,6 +56,8 @@
 		<param name="Name" value="DLL">
 		<param name="Name" value="第V部～マクロから呼び出すＤＬＬの作り方">
 		<param name="Local" value="make_dll.html">
+		<param name="Name" value="[HMM0081A] ●「DLLがロードされてないのにdllfunc関数が使われました」と表示される - 秀丸エディタＱ＆Ａ集">
+		<param name="Local" value="HMM0081A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EOF">
@@ -612,6 +614,8 @@
 		<param name="Local" value="HME0033A.html">
 		<param name="Name" value="[HME0034A]●印刷で行末が揃わない">
 		<param name="Local" value="HME0034A.html">
+		<param name="Name" value="秀丸パブリッシャーについて">
+		<param name="Local" value="6_publisher.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="印刷・ファイル操作・その他">
@@ -1015,6 +1019,11 @@
 		<param name="Name" value="著作権・配布規定">
 		<param name="Name" value="著作権・配布規定">
 		<param name="Local" value="release.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="変換モジュール">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　変換モジュール">
+		<param name="Local" value="2_convert.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="特定のファイルを開く">
