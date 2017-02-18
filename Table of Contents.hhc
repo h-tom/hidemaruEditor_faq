@@ -94,6 +94,10 @@
 			<param name="Name" value="ファイルマネージャ枠">
 			<param name="Local" value="2_filemanager.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="アウトライン解析の枠">
+			<param name="Local" value="2_outline.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">

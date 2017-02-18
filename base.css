@@ -319,6 +319,23 @@ li {
     background-color:gray;
 }
 
+div.mark_dt > dl > dt {
+    margin-left   : 0.5em;
+    font-weight   : bold;
+    /*color       : white;*/
+    background-color : thistle;
+}
+
+.outline_marker1{
+    background-color: #c0c0c0;
+    border          : #000000 solid 1px;
+}
+
+.outline_marker2{
+    background-color: #c0c0c0;
+    border          : #c0c0c0 solid 1px;
+}
+
 /* 640px*/
 @media screen and (max-width: 640px) {
     h1,h2,h3,h4,h5,h6 {

@@ -22,7 +22,8 @@
 <p>【０】<a href="#MAEGAKI">まえがき ～ 「\」や特殊文字を表記するために ～</a><br />
 【１】<a href="#YENMARK">「\」の意味</a><br />
 【２】<a href="#EXAMPLE">「\」の使用例</a><br />
-【３】<a href="#REGULAR">正規表現で使用する場合</a></p>
+【３】<a href="#REGULAR">正規表現で使用する場合</a><br />
+【４】<a href="#STRINGLITERAL">Ver.8.66以降の場合</a></p>
 <div class="marginleft">
 <h3 id="MAEGAKI">【０】まえがき ～ 「\」や特殊文字を表記するために ～</h3>
 <p>秀丸マクロで文字列を書きたいときには、&quot; &quot;（ダブルクォーテーションマーク：二重引用符） でくくってテキストファイル上に書きます。</p>
@@ -31,59 +32,60 @@
 具体的には、このような特殊文字は、半角の「\」と、その後ろに特定の文字を組み合わせることによって書き表す、 という「きまり」になっています。</p>
 <p>逆にいうと、「\」の文字を書きたいときに、単に「\」と書くとよろしくない、ということになります。</p>
 <p>以下では、これらの特殊文字や、「\」自体を表記したい時の書き方を簡単にまとめてあります。</p>
+<p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルや、C#の逐語的リテラル文字列 記法が使用出来るようになりました。 この記法を使用すれば、「\」によるエスケープを行わずに、記述した文字列をそのまま、変数に入力できます。</p>
 <h3 id="YENMARK">【１】「\」の意味</h3>
 <p>「\」を使う場合として、次のものが挙げられます。</p>
 <div class="table_border1">
 <table>
 <caption>エスケープシーケンスの例</caption>
 <colgroup>
-<col width="18%" />
-<col width="33%" />
-<col width="47%" />
+<col style="width: 18%" />
+<col style="width: 33%" />
+<col style="width: 47%" />
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><strong>\t</strong></td>
-<td align="left">タブ</td>
-<td align="left">16進数の「09」、10進数の「9」</td>
+<td style="text-align: left;"><strong>\t</strong></td>
+<td style="text-align: left;">タブ</td>
+<td style="text-align: left;">16進数の「09」、10進数の「9」</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>\n</strong></td>
-<td align="left">改行</td>
-<td align="left">16進数の「0A」、10進数の「10」</td>
+<td style="text-align: left;"><strong>\n</strong></td>
+<td style="text-align: left;">改行</td>
+<td style="text-align: left;">16進数の「0A」、10進数の「10」</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>\&quot;</strong></td>
-<td align="left">「&quot;」自身</td>
-<td align="left">16進数の「22」、10進数の「34」</td>
+<td style="text-align: left;"><strong>\&quot;</strong></td>
+<td style="text-align: left;">「&quot;」自身</td>
+<td style="text-align: left;">16進数の「22」、10進数の「34」</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>\\</strong></td>
-<td align="left">「\」自身</td>
-<td align="left">16進数の「5C」、10進数の「92」</td>
+<td style="text-align: left;"><strong>\\</strong></td>
+<td style="text-align: left;">「\」自身</td>
+<td style="text-align: left;">16進数の「5C」、10進数の「92」</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>\x</strong><em>hh</em></td>
-<td align="left">任意の文字コード hh の文字 (16進数)</td>
-<td align="left">例えば「\x41」で、16進数の「41」、 10進数の「65」。 これは文字でいうと「A」です</td>
+<td style="text-align: left;"><strong>\x</strong><em>hh</em></td>
+<td style="text-align: left;">任意の文字コード hh の文字 (16進数)</td>
+<td style="text-align: left;">例えば「\x41」で、16進数の「41」、 10進数の「65」。 これは文字でいうと「A」です</td>
 </tr>
 <tr class="even">
-<td align="left"><strong>\u</strong><em>hhhh</em></td>
-<td align="left">任意のユニコードで指定する文字<br />
+<td style="text-align: left;"><strong>\u</strong><em>hhhh</em></td>
+<td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数4桁固定)</td>
-<td align="left">「<code>\u79C0</code>」で、「秀」という文字を示す。<br />
+<td style="text-align: left;">「<code>\u79C0</code>」で、「秀」という文字を示す。<br />
 16進数4桁までなので、コードポイントが、 0x10000を超える場合は、サロゲートペアで 表現する必要がある。<br />
-(<code>U+2000B</code>)は、<br />
+&#131083;(<code>U+2000B</code>)は、<br />
 上位サロゲート <code>\uD840</code><br />
 下位サロゲート <code>\uDC0B</code><br />
 のように2文字文を使う表現になる。</td>
 </tr>
 <tr class="odd">
-<td align="left"><strong>\U</strong><em>hhhhhhhh</em></td>
-<td align="left">任意のユニコードで指定する文字<br />
+<td style="text-align: left;"><strong>\U</strong><em>hhhhhhhh</em></td>
+<td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数8桁固定)</td>
-<td align="left">「<code>\U000079C0</code>」で、「秀」という文字を示す。<br />
-(<code>U+2000B</code>)は、<code>\U0002000B</code> という 表現になる。(Ver.8.52)</td>
+<td style="text-align: left;">「<code>\U000079C0</code>」で、「秀」という文字を示す。<br />
+&#131083;(<code>U+2000B</code>)は、<code>\U0002000B</code> という 表現になる。(Ver.8.52)</td>
 </tr>
 </tbody>
 </table>
@@ -144,9 +146,9 @@ endmacro;
 <p>秀丸エディタは正規表現による検索・置換をするために、HMJRE.DLLというプログラムを利用しています。 秀丸エディタはHMJRE.DLLに、検索文字列を渡します。 HMJRE.DLLは、渡された文字列を「解析」して、その中に「\nという２文字の文字列」が有った場合に、 それを「改行文字」だと「解釈」をします。<br />
 つまり、HMJRE.DLLに渡す文字列にも、マクロで表記するのと同様な「表記のきまり」があるということです。 だから、改行文字を検索させたい場合に、HMJRE.DLLに対しては「\nという２文字の文字列」を送ってあげる必要があって、 そのためには秀丸エディタのマクロ文では「\nという２文字の文字列」を記述してあげればよいことになっています。</p>
 </div>
-<p>というわけで、searchdown 文の引数として「\nという２文字の文字列」を記述してあげればよいので、 &quot;\\n&quot;という書き方になるのです。</p>
-<p>上記のマクロを見て、「あれっ、改行って確か「\n」だから、「searchdown &quot;\n&quot;,regular;」じゃないの。 試しに動かしたら、ちゃんと検索したぞー」とおっしゃる方もおられると思います。<br />
-これは、HMJRE.DLLが一応「改行文字そのもの」を送られてきた場合にも対応しているから動作しています。 が、これは一般的な表記ではないので、複雑な文字列になると検索できない場合があります。 というわけで、&quot;\\n&quot;と書くようにしましょう。</p>
+<p>というわけで、searchdown 文の引数として「\nという２文字の文字列」を記述してあげればよいので、 <code>&quot;\\\\n&quot;</code>という書き方になるのです。</p>
+<p>上記のマクロを見て、「あれっ、改行って確か「\n」だから、「<code>searchdown &quot;\\n&quot;,regular;</code>」じゃないの。 試しに動かしたら、ちゃんと検索したぞー」とおっしゃる方もおられると思います。<br />
+これは、HMJRE.DLLが一応「改行文字そのもの」を送られてきた場合にも対応しているから動作しています。 が、これは一般的な表記ではないので、複雑な文字列になると検索できない場合があります。 というわけで、<code>&quot;\\\\n&quot;</code>と書くようにしましょう。</p>
 <p>この表記法は、改行だけに限らず、\を使う表記すべてに当てはまります。 ということで、たとえばタブ文字を検索したい場合は</p>
 <div class="macro">
 <pre><code>searchdown &quot;\\t&quot;, regular;</code></pre>
@@ -162,11 +164,110 @@ endmacro;
 <div class="macro">
 <pre><code>searchdown &quot;\&quot;&quot;, regular;</code></pre>
 </div>
-<p>が正解です。ダブルクォーテーションマークは制御文字でなく普通の文字なので、\&quot; でダブルクォーテーションマーク１文字をHMJRE.DLLに渡せるからです。 あるいは、以下のようにして「\&quot;という２文字の文字列」をHMJRE.DLLに渡しても動作します。</p>
+<p>が正解です。ダブルクォーテーションマークは制御文字でなく普通の文字なので、\&quot; でダブルクォーテーションマーク１文字をHMJRE.DLLに渡せるからです。 あるいは、以下のようにして「\“という２文字の文字列」をHMJRE.DLLに渡しても動作します。</p>
 <div class="macro">
 <pre><code>searchdown &quot;\\\&quot;&quot;, regular;</code></pre>
 </div>
 <p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。 表示される内容が、HMJRE.DLLに渡される文字列になるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
+<h3 id="ver.8.66以降の場合">【４】<span id="STRINGLITERAL">Ver.8.66以降の場合</span></h3>
+<p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルや、C#の逐語的リテラル文字列 の記法が使用出来るようになりました。 この記法を使えば、文字列を見やすく記述可能になります。</p>
+<div class="mark_dt">
+<dl>
+<dt>Raw文字列リテラル</dt>
+<dd><p>Raw文字列リテラルは、「R」から始め、以降「&quot;」と「Keyword」と「(」と続き、ここまでが先頭を示す文字列になります。 その後に文字列を記述し、「)」、「Keyword」、「&quot;」の文字列で終端を示します。</p>
+<div class="table_border1">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">通常</td>
+<td style="text-align: left;">&quot;文字列&quot;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Raw文字列リテラル</td>
+<td style="text-align: left;">R&quot;Keyword(文字列)Keyword&quot;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>「Keyword」は、前後に同じ文字列を使用する必要があります。</li>
+<li>「Keyword」は、0文字以上なので省略も可能です。省略する場合は、前後の「Keyword」を省略します。</li>
+<li>文字列中に括弧「( )」を使う場合には、「Keyword」を付けておくと、先頭と終端の括弧と区別できます。</li>
+</ul>
+<p>簡単な記述例</p>
+<div class="macro">
+<pre><code>message R&quot;hidemaru(&quot;Raw文字列リテラル&quot;の記述例です。)hidemaru&quot;;
+//        &quot;hidemaru&quot;が「Keyword」になっている。
+
+message R&quot;(&quot;Raw文字列リテラル&quot;の記述例です。)&quot;;
+//      「Keyword」は省略可能
+
+message R&quot;hidemaru(&quot;Raw文字列リテラル(Raw String Literal)&quot;の記述例です。)hidemaru&quot;;
+//      文字列中に括弧を使用する場合は、「Keyword」を付けておくといいです。
+
+message R&quot;(&quot;Raw文字列
+リテラル&quot;の記述例です。)&quot;;
+//      改行もそのまま改行と認識される。
+
+message R&quot;(&quot;Raw文字列
+リテラル&quot;の記述例です。
+&quot;\&quot;マークやダブルクォートもそのまま表示されます。
+&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;)&quot;;
+
+message R&quot;(&quot;Raw文字列
+リテラル&quot;の記述例です。
+    インデントもそのまま文字列扱いされます。)&quot;;</code></pre>
+</div>
+<p><br />
+</p>
+</dd>
+<dt>逐語的リテラル文字列</dt>
+<dd><p>逐語的リテラル文字列は、「@&quot;」から始まり、文字列を記述し、「&quot;」で終わります。</p>
+<div class="table_border1">
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">通常</td>
+<td style="text-align: left;">&quot;文字列&quot;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">逐語的リテラル文字列</td>
+<td style="text-align: left;">@&quot;文字列&quot;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>文字列中に「&quot;」を記述する場合は「&quot;&quot;」とする必要があります。</li>
+</ul>
+<p>簡単な記述例</p>
+<div class="macro">
+<pre><code>message @&quot;&quot;&quot;Raw文字列リテラル&quot;&quot;の記述例です。&quot;;
+
+message @&quot;&quot;&quot;Raw文字列
+リテラル&quot;&quot;の記述例です。&quot;;
+//      改行もそのまま改行と認識される。
+
+message @&quot;&quot;&quot;Raw文字列
+リテラル&quot;&quot;の記述例です。
+&quot;&quot;\&quot;&quot;マークはそのまま表示されます。
+&quot;&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;&quot;&quot;;
+
+message @&quot;&quot;&quot;Raw文字列
+リテラル&quot;&quot;の記述例です。
+    インデントもそのまま文字列扱いされます。&quot;;</code></pre>
+</div>
+<p><br />
+<!-- mark_dt --></p>
+</dd>
+</dl>
+</div>
+<hr />
+<p>例として「message文」を使いましたが、文字列を指定する箇所なら何処でもこの記法が使えます。 正規表現パターンを指定する場合にも使用できるので、見やすくなります。</p>
+<p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>
+<div class="macro">
+<pre><code>openfile @&quot;C:\Program Files\Hidemaru\HIDEMARU.TXT&quot;;</code></pre>
+</div>
 <!-- h3 -->
 </div>
 <hr />

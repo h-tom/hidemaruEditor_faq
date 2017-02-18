@@ -36,6 +36,7 @@
 <li><a href="#V862">秀丸エディタVer.8.62 マクロ関連の変更履歴</a></li>
 <li><a href="#V866">秀丸エディタVer.8.66 マクロ関連の変更履歴</a></li>
 <li><a href="#V867">秀丸エディタVer.8.67 マクロ関連の変更履歴</a></li>
+<li><a href="#V869">秀丸エディタVer.8.69 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、 <span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemaru8/index.html" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a></span> を参照してください。</p>
@@ -313,7 +314,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>nextoutlineitem,prevoutlineitemで、パラメータを指定して「自動的な選択/部分編集の対象」がOFFの見出しにもジャンプできるようにする。</li>
 <li>platform キーワードで持ち出しキットで動作中かどうかのビット追加。</li>
 <li>copyword にパラメタを指定して連続した単語を指定可能にする。</li>
-<li>filetype キーワードでプログラム実行中のウィンドウは&quot;executing&quot;を返すようにする。</li>
+<li>filetype キーワードでプログラム実行中のウィンドウは“executing”を返すようにする。</li>
 <li>setcompatiblemode 0x80000;でマクロ実行後にもカーソル移動後と編集後の自動起動マクロを動かせるようにする。</li>
 <li>getsearchhist,setsearchhist で常駐の状態を取得/設定できるようにする。</li>
 <li>getsearchhist,getreplacehist で-1を指定することで最大数を取得できるようにする。</li>
@@ -386,7 +387,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li>その他
 <ul>
-<li>colormarkerallfound の デフォルトで(未指定時に)使用されるレイヤー名は、&quot;01#allfound&quot;というレイヤー名になる。 カラーマーカー関連の命令では、このレイヤー名を指定するか、&quot;findmarker&quot;というオプション指定することにより、操作可能。</li>
+<li>colormarkerallfound の デフォルトで(未指定時に)使用されるレイヤー名は、“01#allfound”というレイヤー名になる。 カラーマーカー関連の命令では、このレイヤー名を指定するか、“findmarker”というオプション指定することにより、操作可能。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V840">【２】仕様変更 - 「秀丸エディタ」Ver.8.40</h3>
@@ -477,7 +478,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>split文で明示指定するパラメータ追加。</li>
 <li>nextpage、 prevpage でパラメータ指定して、「スクロールしてもカーソル位置を固定」モードに明示的にできるようにするように修正。</li>
-<li>config &quot;x&quot;で指定できるものにBlockquoteFix(指定桁数をインデントする)を追加。</li>
+<li>config “x”で指定できるものにBlockquoteFix(指定桁数をインデントする)を追加。</li>
 <li>macrohelp文でパラメータでキーワードを指定して開くことができるように修正。</li>
 <li>insert文の第２パラメータに2を指定可能にして、自動アンインデントの対応。</li>
 <li>saveconfig文で「折りたたみ用の余白」の一時的な状態を解除されるように修正。</li>
@@ -591,7 +592,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>Hidemaru_EvalMacro関数 指定したテキストのマクロを実行。</li>
 <li>Hidemaru_GetDllFuncCalledType関数 dllfunc等が呼ばれているとき、どのような呼ばれ方をしているかを取得。</li>
 </ul></li>
-<li>マクロの文字列でR&quot;(文字列)&quot;またはR&quot;xxx(文字列)xxx&quot;といったエスケープなしの書き方に対応。</li>
+<li>マクロの文字列でR“(文字列)”またはR“xxx(文字列)xxx”といったエスケープなしの書き方に対応。</li>
 <li>eval文追加。</li>
 <li>multiselectcountキーワード追加。 複数選択時、選択されている個数を表します。</li>
 <li>setcompatiblemode関数追加。setcompatiblemode文と同じ、戻り値として直前の値を返す。</li>
@@ -629,6 +630,22 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>32bitの浮動小数点数版でHidemaru_GetDllFuncCalledTypeが正しくないバグ修正。</li>
 <li>64bitの浮動小数点数版でDLLの呼び出しがうまくできていないバグ修正。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V869">秀丸エディタVer.8.69 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V869">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.69</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V869">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.69</h3>
+<ul>
+<li>その他
+<ul>
+<li>seltopx[n]など複数選択のとき、タブ文字の計算がずれるバグ修正。</li>
+<li>UTF-8のマクロファイルで$a=hex(‘あ’);などを実行するとエラーになるバグ修正。</li>
+<li>getautocompitemのバグ修正。</li>
+<li>getconfig(“AutocompFlag2”)の誤り修正。</li>
 </ul></li>
 </ul>
 <!-- h3 -->

@@ -100,7 +100,7 @@
 <p>テンプレート名が表示されている箇所の横にある、&quot;...&quot; ボタンを押して、テンプレートの一覧画面を表示させます。 <img src="6_publisher_06.png" alt="テンプレート一覧表示ボタン" width="602" height="99" /><br />
 </p>
 <p>この画面で、テンプレート新規作成、コピー、削除等が可能です。 今回は<strong>&quot;_標準印刷&quot;</strong>をコピーして、<span class="attention_red">&quot;テスト用&quot;</span>という名前でテスト用のテンプレートを作り、編集していきます。</p>
-<p><img src="6_publisher_07.png" alt="テンプレート一覧ダイアログ" width="406" height="326" /><br />
+<p><img src="6_publisher_07.png" alt="テンプレート一覧ダイアログ" width="406" height="179" /><br />
 </p>
 <p>テンプレートは、用紙の上から順番に</p>
 <ul>
@@ -115,10 +115,10 @@
 <p>「レイアウト編集」ボタンを押すと、編集画面が開きます。 初期状態では、マージンいっぱいまで、本文BOX が配置されているだけです。</p>
 <ol style="list-style-type: decimal">
 <li><p>他のBOXを配置するために、本文ボックスの高さを適当に変えて、BOXを配置する場所を作ります。 BOXは、重ねる事が可能なので、ずらさないと印刷時に重なってします。<br />
-<img src="6_publisher_08.png" alt="レイアウト-本文BOX" width="572" height="327" /><br />
+<img src="6_publisher_08.png" alt="レイアウト-本文BOX" width="442" height="327" /><br />
 </p></li>
 <li><p>ファイル名表示用のBOXを追加します。 編集画面のツールバー、または余白部分の右クリックメニューから「BOXの新規追加」を選択し、 「BOXを新規に追加する」を選択し「OK」を押すと、レイアウト編集画面にBOXが追加されます。</p>
-<p><img src="6_publisher_09.png" alt="レイアウト-BOXの追加" width="554" height="317" /><br />
+<p><img src="6_publisher_09.png" alt="レイアウト-BOXの追加" width="442" height="317" /><br />
 </p>
 <p><img src="6_publisher_10.png" alt="レイアウト-BOXの追加ダイアログ" width="208" height="120" /><br />
 </p>
@@ -202,8 +202,10 @@
 <pre><code>印刷 → 印刷ダイアログ開く → 一時的なつもりでフォントを変更  → 印刷実行</code></pre>
 <p>という作業を行うと、変更内容はテンプレートに保存されます。</p>
 <p>設定変更を行っても、テンプレートに保存しないようにするには、 「テンプレート上書き禁止」をチェックしてください。</p>
-<p><img src="6_publisher_15.png" alt="テンプレート上書き禁止" width="602" height="64" /><br />
-</p></li>
+<img src="6_publisher_15.png" alt="テンプレート上書き禁止" width="602" height="64" /><br />
+</li>
+<li><p>現状、BOXではUnicode特有の文字を指定できません。Shift_JISに含まれる文字のみ表示可能です。</p>
+<p>ただし、「属性」をファイル名にした場合(フルパスも含む)は、 ファイル名にUnicode特有の文字があっても正常に表示されます。</p></li>
 </ul>
 <!-- #3 -->
 </div>
