@@ -1239,6 +1239,11 @@
 		<param name="Local" value="HMM0019A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="アウトプット枠">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　アウトプット枠">
+		<param name="Local" value="2_output.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アウトライン">
 		<param name="Name" value="第II部～知っていると便利な秀丸の機能　アウトライン解析の枠">
 		<param name="Local" value="2_outline.html">
@@ -1264,11 +1269,6 @@
 		<param name="Name" value="ウィンドウを見えなくしたい">
 		<param name="Name" value="[HMM0059A]●ウィンドウを見えなくしたい">
 		<param name="Local" value="HMM0059A.html">
-		</OBJECT>
-	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="ファイルマネージャ枠">
-		<param name="Name" value="第II部～知っていると便利な秀丸の機能　ファイルマネージャ枠">
-		<param name="Local" value="2_filemanager.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ウィンドウを閉じる">
@@ -1429,6 +1429,11 @@
 		<param name="Name" value="ファイルの存在確認">
 		<param name="Name" value="[HMM0030A]●ファイルの存在確認">
 		<param name="Local" value="HMM0030A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ファイルマネージャ枠">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　ファイルマネージャ枠">
+		<param name="Local" value="2_filemanager.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="フォルダの存在確認">
