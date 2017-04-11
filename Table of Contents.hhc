@@ -102,6 +102,10 @@
 			<param name="Name" value="アウトプット枠">
 			<param name="Local" value="2_output.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="文字数の計算">
+			<param name="Local" value="2_wordcount.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">
@@ -139,6 +143,10 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="ビット操作を極める">
 			<param name="Local" value="3_bit.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="自動起動マクロ">
+			<param name="Local" value="3_autostartmacro.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴 ">

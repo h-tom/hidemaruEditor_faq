@@ -85,6 +85,11 @@
 		<param name="Local" value="HME0044A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="文字数">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　文字数の計算">
+		<param name="Local" value="2_wordcount.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="findwindow">
 		<param name="Name" value="[HMM0031A]●findwindow()の秀丸ファイル名指定時の注意事項">
 		<param name="Local" value="HMM0031A.html">
@@ -1994,6 +1999,11 @@
 		<param name="Name" value="著作権・配布規定">
 		<param name="Name" value="著作権・配布規定">
 		<param name="Local" value="release.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="自動起動マクロ">
+		<param name="Name" value="第III部～秀丸マクロのいろはにほへと　自動起動マクロ">
+		<param name="Local" value="3_autostartmacro.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="特定のファイルを開く">

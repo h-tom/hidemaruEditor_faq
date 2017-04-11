@@ -14,14 +14,17 @@ Title=GŠÛƒGƒfƒBƒ^‚p•‚`W(‘æ‚W”Å)
 [FILES]
 2_convert.html
 2_custom.html
+2_filemanager.html
 2_find.html
 2_fuzzy.html
 2_grep.html
 2_mark.html
-2_replace.html
-3_bit.html
-2_filemanager.html
 2_outline.html
+2_output.html
+2_replace.html
+2_wordcount.html
+3_autostartmacro.html
+3_bit.html
 3_macro.html
 3_macrov3.html
 3_macrov4.html
@@ -261,7 +264,6 @@ torikime.html
 updated.html
 yokuaru.html
 youryou.html
-2_output.html
 
 [INFOTYPES]
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第II部～知っていると便利な秀丸の機能　文字数の計算</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第II部～知っていると便利な秀丸の機能<br />
+　文字数の計算</h1>
+<hr />
+<h2 id="WORDCOUNT">●文字数の計算</h2>
+<p>秀丸エディタ Ver.6.00以降では、「文字数計算」が可能です。</p>
+<p>文書全体の文字数、選択範囲の文字数、全体の行数、選択範囲の行数の表示が可能です。 (全体の行数、選択範囲の行数はステータスバーの表示のみ)</p>
+<p>メニューの「その他－コマンド一覧」を選択し、「その他－文字数計算」を選んでください。</p>
+<ul>
+<li><p>文書全体の文字数を表示例</p>
+<p><img src="2_wordcount_01.png" alt="文字数計算-文書全体の文字数" width="371" height="326" /><br />
+</p></li>
+<li><a href="#EXPLANATION">解説</a></li>
+<li><p><a href="#SUPPLEMENTATION">補足</a></p></li>
+</ul>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="EXPLANATION">[解説]</h3>
+<p>「文字数の計算」ですが、ダイアログで表示する方法の他に、<span class="attention_red">ステータスバーに表示する事も可能</span>です。 頻繁に使用するなら、ステータスバーに表示するように設定した方が良いでしょう。</p>
+<p>ステータスバーの設定は「<strong>その他-動作環境</strong>」から動作環境のダイアログを表示させ、「<strong>ウィンドウ</strong>」を選択します。 「<strong>ウィンドウ下部</strong>」にステータスバーの設定があります。 表示する項目数によっては狭くて見にくい場合もあるので、「<strong>ファンクションキーとステータスバーを合体</strong>」のチェックは、 外した方がよいでしょう。</p>
+<p><img src="2_wordcount_05.png" alt="動作環境-ウィンドウ" width="605" height="433" /><br />
+</p>
+<p>「<strong>ステータスバー</strong>」の「<strong>詳細</strong>」を押すと表示する項目の設定画面が表示されるので、表示したい項目を選択します。 (行数計算は、秀丸エディタ本体の設定によります。)</p>
+<p>「<strong>ファンクションキーとステータスバーを合体</strong>」のチェック状態によって、操作するタブが違うので、注意してください。</p>
+<ul>
+<li>チェックが<strong>OFF</strong>の場合「<span class="attention_red">通常</span>」のタブ</li>
+<li>チェックが<strong>ON</strong>の場合「<span class="attention_red">ファンクションキーと合体時</span>」のタブ</li>
+</ul>
+<p><img src="2_wordcount_06.png" alt="文字数計算-結合文字" width="475" height="383" /><br />
+</p>
+<p>「計算方法」を押すと、文字数計算のダイアログが開き、文字数の計算方法が設定できます。すべて共通なので、一回設定すればいいです。</p>
+<p><img src="2_wordcount_02.png" alt="文字数計算-文字数計算の設定" width="343" height="272" /><br />
+</p>
+<p>ステータスバーには、以下のように表示されます。(「ファンクションキーとステータスバーを合体」はOFF状態)</p>
+<p><img src="2_wordcount_09.png" alt="文字数計算-ステータスバーの表示状態" width="746" height="279" /><br />
+</p>
+<h3 id="SUPPLEMENTATION">[補足]</h3>
+<p>Unicodeの場合、結合文字があると秀丸エディタの設定しだいで、見た目と文字数が一致しない場合があります。 以下の例では、見た目は1文字ですが、文字数は<span class="attention_red">2</span>になっています。(全角文字も1文字で計算するように設定)</p>
+<p><img src="2_wordcount_03.png" alt="文字数計算-結合文字" width="357" height="303" /><br />
+</p>
+<p>これは、<code>&quot;ボ&quot;</code>は、Unicodeの結合文字列で構成されているためです。 1文字に見えますが、<code>&quot;ホ&quot;(U+30d8)</code> + <code>&quot;&#12441;&quot;(U+3099)</code> の2文字で構成されているため、文字数としては<span class="attention_red">2</span>として計算されます。</p>
+<p>結合文字の表示方法は、「動作環境－編集－高度な編集2」で設定できます。</p>
+<p><img src="2_wordcount_04.png" alt="文字数計算-結合文字" width="605" height="433" /><br />
+</p>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>
