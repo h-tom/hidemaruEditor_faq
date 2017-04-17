@@ -18,7 +18,7 @@
 <h1 id="TOP">第II部～知っていると便利な秀丸の機能　grep/タグジャンプ</h1>
 <hr />
 <h2 id="grep">●grep/タグジャンプ</h2>
-<p>現在編集しているファイルの内容や、あるフォルダに置かれている複数のファイルから、 特定の文字列を含んだ行を全て調べる事ができます(<strong>grep(&quot;ぐれっぷ&quot;と読む(^^;)機能</strong>)。<br />
+<p>現在編集しているファイルの内容や、あるフォルダに置かれている複数のファイルから、 特定の文字列を含んだ行を全て調べる事ができます(<strong>grep(“ぐれっぷ”と読む(^^;)機能</strong>)。<br />
 また、調べた結果の出力ファイルを使って、文字列の見つかった行(ファイル)へ直接移動する事ができます(<strong>タグジャンプ機能</strong>)。</p>
 <ul>
 <li><a href="#process">[手順]</a></li>
@@ -34,21 +34,23 @@
 <div class="marginleft">
 <h3 id="process">[手順]</h3>
 <p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>*.txt</strong> という拡張子を持つファイルから、「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>メニューバーの「<strong>検索→grepの実行</strong>」を選択して下さい。</p>
 <p><img src="2_grep_01.png" alt="grepダイアログ" width="461" height="338" /><br />
 </p></li>
 <li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p></li>
 <li><p>その下にある「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、検索対象となるファイル名を記入します(今の例だと「<strong>*.txt</strong>」)。<br />
-※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印ボタンをクリックして&quot;<strong>(現在の内容)</strong>&quot;を選択して下さい。<br />
-※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。 また、複数のファイル名を入力したい時は、ファイル名を<span class="monospace">&quot;;&quot;</span>(半角のセミコロン)で区切って下さい (<span class="monospace">ex.&quot;<strong>*.txt;file_?.man;a.doc</strong>&quot;</span>)。</p></li>
-<li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。 「...」ボタンを押すと、フォルダ参照ダイアログが開き、フォルダを選択可能です。</p></li>
+※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <span class="rotate90"><strong>&gt;</strong></span> をクリックして“<strong>(現在の内容)</strong>”を選択して下さい。<br />
+　<img src="2_grep_06.png" alt="現在の内容" width="356" height="54" /><br />
+</p>
+<p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。 また、複数のファイル名を入力したい時は、ファイル名を<span class="monospace">“;”</span>(半角のセミコロン)で区切って下さい (<span class="monospace">ex.“<strong>*.txt;file_?.man;a.doc</strong>”</span>)。</p></li>
+<li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。 「…」ボタンを押すと、フォルダ参照ダイアログが開き、フォルダを選択可能です。</p></li>
 <li>右側にあるチェックボックスの内、該当する物にチェックをします。
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。この項目がＯＦＦの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(&quot;_&quot;)のみで構成された文字(列)</strong>を指します。</p></li>
+この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(“_”)のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。この項目をＯＮにすると、上記二つのオプション指定は無効になります。<br />
 「<strong>正規表現</strong>」については「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。</p></li>
@@ -85,14 +87,14 @@ grep結果の出力先を指定します。
 <ul>
 <li><p><strong>「ファイル名一覧だけ作成」が「ＯＦＦ」の時の動作</strong><br />
 この項目がＯＦＦの時は、検索文字列が見つかった全てのファイル名と行を結果として書き出します。</p>
-<p>[実行結果の例(&quot;file?.txt&quot;について&quot;２&quot;を検索)]<br />
+<p>[実行結果の例(“file?.txt”について“２”を検索)]<br />
 file1.txt(2): ファイル１の２行目<br />
 file1.txt(20): ファイル１の２０行目<br />
 file2.txt(1): ファイル２の１行目<br />
 file2.txt(2): ファイル２の２行目<br />
 (以下略)</p></li>
 <li><p><strong>「ファイル名一覧だけ作成」が「ＯＮ」の時の動作</strong><br />
-この項目がＯＮの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例(&quot;file?.txt&quot;について&quot;２&quot;を検索)]<br />
+この項目がＯＮの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例(“file?.txt”について“２”を検索)]<br />
 file1.txt(2)<br />
 file2.txt(1)<br />
 file3.txt(2)<br />
@@ -139,12 +141,12 @@ exeファイルなどテキストではないファイルを、除外します。</p>
 <p>記述方法は2つあり、記述方法が異なるので注意。(混在は不可)</p>
 <ul>
 <li><p>拡張子を指定する記述方法<br />
-<span class="monospace">&quot;.&quot;</span>(ドット)を含まない拡張子を指定します。実行ファイルの場合、 <span class="monospace">&quot;.exe&quot;</span> ではなく <span class="monospace">&quot;exe&quot;</span> と指定する。</p>
-<p>複数の拡張子を指定する場合は &quot; &quot;(スペース)で区切る。<br />
+<span class="monospace">“.”</span>(ドット)を含まない拡張子を指定します。実行ファイルの場合、 <span class="monospace">“.exe”</span> ではなく <span class="monospace">“exe”</span> と指定する。</p>
+<p>複数の拡張子を指定する場合は &quot; “(スペース)で区切る。<br />
 実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace"> exe dll</span></p></li>
 <li><p>ワイルドカードを含む文字列を指定する記述方法<br />
-&quot;*&quot;(アスタリクス)、&quot;?&quot;(クエスチョンマーク)を含む場合です。単独の場合はそのまま記述してください。&quot;*.exe&quot;等。</p>
-<p>複数指定する場合は &quot;;&quot;(セミコロン)で区切る。<br />
+“*”(アスタリクス)、“?”(クエスチョンマーク)を含む場合です。単独の場合はそのまま記述してください。“*.exe”等。</p>
+<p>複数指定する場合は “;”(セミコロン)で区切る。<br />
 実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace"> *.exe;*.dll</span></p></li>
 </ul></li>
 </ul></li>
@@ -167,12 +169,12 @@ Windowsが登場しファイル名の制限が緩和されましたが、MS-DOSとの互換性を考慮し、 MS
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
 </div>
-<p>上記のようなファイルがあり、チェックなしの状態で、検索するファイルに <strong>&quot;*1.txt&quot;</strong> を指定すると、</p>
+<p>上記のようなファイルがあり、チェックなしの状態で、検索するファイルに <strong>“*1.txt”</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.txt(1): 短縮名ファイルのテスト:file1.txt
 file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
 </div>
-<p>という結果になり、本来対象にならないはずの「file3_longname.txt」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE3_~1.TXT」が &quot;*1.txt&quot; にマッチするからです。</p>
+<p>という結果になり、本来対象にならないはずの「file3_longname.txt」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE3_~1.TXT」が “*1.txt” にマッチするからです。</p>
 <p>拡張子部分も同様で、4文字以上の拡張子を付けると、OSが自動的にMS-DOS規格のファイル名を作成します。</p>
 <div class="cmdprompt">
 <pre><code>2016/05/19  22:57                37 FILE1~1.HTM  file1.html
@@ -180,14 +182,14 @@ file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
 </div>
-<p>チェックなしの状態で、検索するファイルに <strong>&quot;*.htm&quot;</strong> を指定すると、</p>
+<p>チェックなしの状態で、検索するファイルに <strong>“*.htm”</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.html(1): 短縮名ファイルのテスト：file1.html
 file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </div>
-<p>という結果になり、本来対象にならないはずの「file1.html」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE1~1.HTM」が &quot;*.htm&quot; にマッチするからです。</p>
+<p>という結果になり、本来対象にならないはずの「file1.html」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE1~1.HTM」が “*.htm” にマッチするからです。</p>
 <p>この動作はOSの仕様で、ワイルドカードを使用したファイル検索を行うと、元の名前だけでなく、8.3形式の名前に対してもチェックを行い、 どちらかにマッチした場合は、マッチしたと判定するためです。)</p>
-<p>&quot;<span class="font_blue">拡張子と短縮ファイル名を厳密にチェックする。</span>&quot;にチェックを入れておくと、 上記のような事は起こらなくなります。</p></li>
+<p>“<span class="font_blue">拡張子と短縮ファイル名を厳密にチェックする。</span>”にチェックを入れておくと、 上記のような事は起こらなくなります。</p></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -195,9 +197,9 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <p><img src="2_grep_05.png" alt="動作環境－grepの動作－文字数制限の設定" width="455" height="344" /><br />
 </p>
 <p>処理の都合上、マッチした行が長いと全部を表示しない場合や、正規表現の対象となる一行の文字数の上限があります。 その制限に関する設定を行います。</p>
-<p>通常使用しているファイルで、1行の文字数が多くなければ、&quot;<strong>小さい</strong>&quot;や&quot;<strong>大きい</strong>&quot;で問題ないでしょう。 どんなファイルでも必ずマッチさせたい場合は、&quot;<strong>制限なし</strong>&quot;を選択します。 (自身の使用環境により、適切と思われる設定を行ってください。)</p>
+<p>通常使用しているファイルで、1行の文字数が多くなければ、“<strong>小さい</strong>”や“<strong>大きい</strong>”で問題ないでしょう。 どんなファイルでも必ずマッチさせたい場合は、“<strong>制限なし</strong>”を選択します。 (自身の使用環境により、適切と思われる設定を行ってください。)</p>
 <ul>
-<li>&quot;<span class="font_blue">制限を超えたとき確認メッセージを表示</span>&quot;にチェックを入れておくと、「制限なし」以外のとき、 制限にかかった場合は警告を表示します。</li>
+<li>“<span class="font_blue">制限を超えたとき確認メッセージを表示</span>”にチェックを入れておくと、「制限なし」以外のとき、 制限にかかった場合は警告を表示します。</li>
 </ul>
 <!-- H3 -->
 </div>

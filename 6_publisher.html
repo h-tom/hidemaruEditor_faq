@@ -68,12 +68,19 @@
 </p></li>
 <li><p>「設定の一覧」にある「本文BOX」を選択し、余白やフォント、フォントサイズ、カラー印刷など設定。<br />
 行番号や、ファイル名の印刷なども「本文BOX」の設定で可能です。</p>
-<p><img src="6_publisher_05.png" alt="本文BOX" width="577" height="261" /><br />
-</p></li>
+<img src="6_publisher_05.png" alt="本文BOX" width="577" height="261" /><br />
+
+<ul>
+<li>「カラー印刷」にチェックを入れると、「フォント修飾再現」は選択できなくなります。 (強制的にON状態になる)</li>
+<li>「背景色は白にする」は、カラー印刷じゃない場合も設定できますが、「カラー印刷」が有効でないと意味がないです。</li>
+<li>「フォント修飾再現」は、「ファイルタイプ別設定-デザイン」で設定したスタイルを印刷時にも適用するかどうかです。</li>
+<li>「編集記号の印刷」は、通常印刷されない、タブ文字、改行文字、全角空白、半角空白を印刷します。<br />
+実際に印刷されるのは、「ファイルタイプ別の設定」で表示するように設定してある「編集記号」だけです。 つまり、印刷するファイルの設定に影響されます。画面に表示されない編集記号は、チェックを入れても印刷されません。</li>
+</ul></li>
 </ul>
 <p><span class="attention_red">注意</span></p>
 <ul>
-<li><p>「余白」等で数値を入力可能な箇所がありますが、キーボードから直接数値を入力して「Enter」を押すと、 印刷が始まってしまいます。(IMEのOFFの場合。)</p>
+<li><p>「余白」等で数値を入力可能な箇所がありますが、キーボードから直接数値を入力して「Enter」を押すと、 印刷が始まってしまいます。(IMEがOFFの場合。)</p>
 <p>これは、デフォルトのボタンが「印刷」に設定されているからです。 項目を移動するつもりで「Enter」を押してしまうと、印刷が始まってしまうので注意してください。</p></li>
 </ul>
 <h3 id="TEMPLATE">【3】印刷フォーマットを指定して印刷したい</h3>
@@ -97,9 +104,9 @@
 </ul>
 <h4 id="TEMPLATE-2">テンプレートの編集</h4>
 <p>では、テンプレートを実際に作成・編集してみましょう。</p>
-<p>テンプレート名が表示されている箇所の横にある、&quot;...&quot; ボタンを押して、テンプレートの一覧画面を表示させます。 <img src="6_publisher_06.png" alt="テンプレート一覧表示ボタン" width="602" height="99" /><br />
+<p>テンプレート名が表示されている箇所の横にある、“…” ボタンを押して、テンプレートの一覧画面を表示させます。 <img src="6_publisher_06.png" alt="テンプレート一覧表示ボタン" width="602" height="99" /><br />
 </p>
-<p>この画面で、テンプレート新規作成、コピー、削除等が可能です。 今回は<strong>&quot;_標準印刷&quot;</strong>をコピーして、<span class="attention_red">&quot;テスト用&quot;</span>という名前でテスト用のテンプレートを作り、編集していきます。</p>
+<p>この画面で、テンプレート新規作成、コピー、削除等が可能です。 今回は<strong>“_標準印刷”</strong>をコピーして、<span class="attention_red">“テスト用”</span>という名前でテスト用のテンプレートを作り、編集していきます。</p>
 <p><img src="6_publisher_07.png" alt="テンプレート一覧ダイアログ" width="406" height="179" /><br />
 </p>
 <p>テンプレートは、用紙の上から順番に</p>
@@ -113,7 +120,7 @@
 <p>という構成で作成します。</p>
 <p>まずは、用紙と、余白を設定してください。 (「設定の一覧」にある「本文BOX」の余白の設定とそこに表示されている、高さと幅を記録しておいてください。)</p>
 <p>「レイアウト編集」ボタンを押すと、編集画面が開きます。 初期状態では、マージンいっぱいまで、本文BOX が配置されているだけです。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>他のBOXを配置するために、本文ボックスの高さを適当に変えて、BOXを配置する場所を作ります。 BOXは、重ねる事が可能なので、ずらさないと印刷時に重なってします。<br />
 <img src="6_publisher_08.png" alt="レイアウト-本文BOX" width="442" height="327" /><br />
 </p></li>
@@ -131,15 +138,15 @@
 <li><p>同様に、ファイルの作成日時、印刷日時、ページ番号用のBOXを追加していきます。</p>
 <p>「テキスト」の「属性」をそれぞれ「タイムスタンプ」、「時間」、「ページ番号」に設定してください。</p></li>
 <li><p>ここでレイアウト編集画面を閉じ、プレビューで確認を行います。</p>
-<p>&quot;ファイルの作成日時&quot;と&quot;印刷日時&quot;を追加しましたが、ぱっと見でどちらが何の日時なのかわかりません。<br />
+<p>“ファイルの作成日時”と“印刷日時”を追加しましたが、ぱっと見でどちらが何の日時なのかわかりません。<br />
 <img src="6_publisher_12.png" alt="プレビュー1" width="426" height="303" /><br />
 </p>
-<p>そこで、各日時の前に&quot;<strong>ファイル作成日：</strong>&quot;と&quot;<strong>印刷日時：</strong>&quot;という文字を<span class="attention_red">追加</span>します。<br />
+<p>そこで、各日時の前に“<strong>ファイル作成日：</strong>”と“<strong>印刷日時：</strong>”という文字を<span class="attention_red">追加</span>します。<br />
 <img src="6_publisher_13.png" alt="プレビュー2" width="546" height="303" /><br />
 </p>
 <p>追加する方法は、いくつかあります。</p>
 <ul>
-<li>&quot;ファイルの作成日時&quot;と&quot;印刷日時&quot;を表示しているBOXの前に、新たにBOXを追加して、各文字を入力する。</li>
+<li>“ファイルの作成日時”と“印刷日時”を表示しているBOXの前に、新たにBOXを追加して、各文字を入力する。</li>
 <li><p>BOXのプロパティにある、テキストの「属性」はそのままで、「書式」を変更する。</p>
 <pre><code>変更前の属性　YYYY年MM月DD日（W曜日）hh:mm:ss
 変更後の属性　ファイル作成日：YYYY年MM月DD日（W曜日）hh:mm:ss</code></pre></li>
@@ -155,34 +162,34 @@
 <table>
 <thead>
 <tr class="header">
-<th align="left">属性名</th>
-<th align="left">設定されるテキスト</th>
+<th style="text-align: left;">属性名</th>
+<th style="text-align: left;">設定されるテキスト</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ファイル名（フルパス）</td>
-<td align="left">filename</td>
+<td style="text-align: left;">ファイル名（フルパス）</td>
+<td style="text-align: left;">filename</td>
 </tr>
 <tr class="even">
-<td align="left">ファイル名</td>
-<td align="left">basename</td>
+<td style="text-align: left;">ファイル名</td>
+<td style="text-align: left;">basename</td>
 </tr>
 <tr class="odd">
-<td align="left">ディレクトリ名</td>
-<td align="left">directory</td>
+<td style="text-align: left;">ディレクトリ名</td>
+<td style="text-align: left;">directory</td>
 </tr>
 <tr class="even">
-<td align="left">ページ番号</td>
-<td align="left">pagenum</td>
+<td style="text-align: left;">ページ番号</td>
+<td style="text-align: left;">pagenum</td>
 </tr>
 <tr class="odd">
-<td align="left">時間</td>
-<td align="left">date</td>
+<td style="text-align: left;">時間</td>
+<td style="text-align: left;">date</td>
 </tr>
 <tr class="even">
-<td align="left">タイムスタンプ</td>
-<td align="left">timestamp</td>
+<td style="text-align: left;">タイムスタンプ</td>
+<td style="text-align: left;">timestamp</td>
 </tr>
 </tbody>
 </table>
