@@ -507,7 +507,11 @@ int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
 <dl>
 <dt><a name="index-3">(*3)</a></dt>
 <dd><p>文字列型の場合は <code>IsBadStringPtr()</code> API、ワイド文字列型の場合は <code>IsBadStringPtrW()</code> API で ポインタの値が正当なものかどうか<strong>だけ</strong>はチェックできます。 ポインタが指す先の文字列の内容、 または整数型の場合に値が不正かどうかの判断は 貴方(DLL関数)自身でやるしかないです。</p>
-<p><code>IsBadxxxxxPtr</code> APIに関しては、Windows Vista以降非推奨とのこと。 詳細は、<span class="externallink"><a href="http://www.oki-osk.jp/esc/cyg/cygwin-26.html" target="_blank">Life with Cygwin</a></span>を参照してください。</p>
+<p><code>IsBadxxxxxPtr</code> APIに関しては、<span class="attention_red">Windows Vista以降非推奨</span>とのこと。 詳細は、以下を参照してください。</p>
+<ul>
+<li><span class="externallink"><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa366714(v=vs.85).aspx" target="_blank">IsBadStringPtr function</a></span></li>
+<li><span class="externallink"><a href="http://www.oki-osk.jp/esc/cyg/cygwin-26.html" target="_blank">Life with Cygwin</a></span></li>
+</ul>
 </dd>
 </dl>
 <h3 id="dialog">【６】 「ファイルを開く」ダイアログを出してみる</h3>
