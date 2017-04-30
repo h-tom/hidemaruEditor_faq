@@ -441,7 +441,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0055A">
-		<param name="Name" value="●複数マシンに同じ「キー割り当て」をしたい">
+		<param name="Name" value="●複数パソコンに同じ「キー割り当て」をしたい">
 		<param name="Local" value="HME0055A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -581,7 +581,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0078B">
-		<param name="Name" value="●設定を他のマシンに移行したい">
+		<param name="Name" value="●設定を他のパソコンに移行したい">
 		<param name="Local" value="HME0078B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1322,7 +1322,7 @@
 		<param name="Name" value="キー割り当て">
 		<param name="Name" value="[HMM0009A]●マクロを「キー割り当て」して使いたい">
 		<param name="Local" value="HMM0009A.html">
-		<param name="Name" value="[HME0055A]●複数マシンに同じ「キー割り当て」をしたい">
+		<param name="Name" value="[HME0055A]●複数パソコンに同じ「キー割り当て」をしたい">
 		<param name="Local" value="HME0055A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1945,7 +1945,7 @@
 		<param name="Name" value="設定を移行">
 		<param name="Name" value="[HME0078A]●各種設定を移行するためファイルに保存したい">
 		<param name="Local" value="HME0078A.html">
-		<param name="Name" value="[HME0078B]●設定を他のマシンに移行したい">
+		<param name="Name" value="[HME0078B]●設定を他のパソコンに移行したい">
 		<param name="Local" value="HME0078B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">

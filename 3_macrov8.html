@@ -37,6 +37,7 @@
 <li><a href="#V866">秀丸エディタVer.8.66 マクロ関連の変更履歴</a></li>
 <li><a href="#V867">秀丸エディタVer.8.67 マクロ関連の変更履歴</a></li>
 <li><a href="#V869">秀丸エディタVer.8.69 マクロ関連の変更履歴</a></li>
+<li><a href="#V871">秀丸エディタVer.8.71 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、 <span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemaru8/index.html" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a></span> を参照してください。</p>
@@ -646,6 +647,32 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>UTF-8のマクロファイルで$a=hex(‘あ’);などを実行するとエラーになるバグ修正。</li>
 <li>getautocompitemのバグ修正。</li>
 <li>getconfig(“AutocompFlag2”)の誤り修正。</li>
+</ul></li>
+</ul>
+<!-- h3 -->
+</div>
+<h2 id="V871">秀丸エディタVer.8.71 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V871">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.71</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V871">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.71</h3>
+<ul>
+<li>追加
+<ul>
+<li>message関数追加。</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>message文でタイトルやフラグのパラメータを指定できるように修正。</li>
+<li>geteventparamで破棄して終了による終了かどうかを知ることができるように修正。</li>
+<li>getcolormarkerで何番目のカラーマーカーか取得できる修正。</li>
+<li>multiselectcountで複数選択の数を取得するとき一時的な選択状態は変化させないように修正。</li>
+<li>multiselectcountでBOX選択1つのときに落ちるバグ修正と、BOX選択の維持の修正。</li>
+<li>標準の変換モジュールをマクロのfilterで使うとき、マクロファイルがUnicodeの場合に文字列をうまく解釈できない場合があるバグ修正。</li>
+<li>wordleft2, wordright2, wordrightsalnen2でresultは変化するように修正。</li>
+<li>ascii関数で第２パラメータを指定して変換できない文字で0を返す動作を追加。</li>
+<li>savebacktagjump文追加。</li>
+<li>spellcheckdialog文で、操作結果をgetresultexで取得できるように修正。</li>
 </ul></li>
 </ul>
 <!-- h3 -->
