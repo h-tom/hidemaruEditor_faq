@@ -101,12 +101,12 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <h4 id="登録数の制限突破への原理">●登録数の制限突破への原理</h4>
 <p>　あうん？　「登録の制限」があるだけで……、んで、「実行できないわけではない」……。 なんだか、わかったようでわからないような…。これじゃ、まるで怪しげな結婚詐欺師。 持って回った言い回しになってスイマセンです。 要は「登録できるマクロは８０個までだが、８０個のマクロしか実行できないわけではない」という事です。</p>
 <p>　最大のポイントは「登録できるマクロ数には８０という制限があるが、キー割り当てには制限がない」という仕様に注目するところです。 実際のマクロ作成では、次のようなステップで目的を実現します。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><strong>複数のキー割り当てから一つのマクロを呼び出す</strong><br />
-　「キー割り当て」によって指定できるマクロは、登録されたマクロに限られます。 逆に言えば、複数の「キー割り当て」に対して、一つのマクロを重複して指定することは許容されているわけです。 　例えば、Ctrl+A,Ctrl+Shift+A,Alt+Aの３つのキー割り当てに対して、すべてaaa.macというマクロを重複して指定します。</li>
+　「キー割り当て」によって指定できるマクロは、登録されたマクロに限られます。 逆に言えば、複数の「キー割り当て」に対して、一つのマクロを重複して指定することは許容されているわけです。 　例えば、[Ctrl+A],[Ctrl+Shift+A],[Alt+A]の３つのキー割り当てに対して、すべてaaa.macというマクロを重複して指定します。</li>
 <li><p><strong>押されているキーの状態を判別する</strong><br />
 　でも、1.まででは複数のキー入力によって一つのマクロを実行することしかできません。 そこで、呼び出されたマクロ（この例ではaaa.mac）では、押されているキーの状態を読みとります。 Ctrlキーは押されているのか、Shiftキーはどうか、アルファベットキーはどうなのか、などをiskeydown関数を用いて調べます。</p>
-　例えば、ここでは、Ctrl+A,Ctrl+Shift+A,Alt+Aのキー状態を判別します。</li>
+　例えば、ここでは、[Ctrl+A],[Ctrl+Shift+A],[Alt+A]のキー状態を判別します。</li>
 <li><p><strong>キーの状態に応じたマクロを呼び出して実行させる</strong><br />
 　2.で得られたキーの状態に応じたマクロを呼び出せば、キーボードからさまざまなマクロを実質的に無限に実行できるようになります。</p>
 <p>（もっともこの場合、どのキーにどんなマクロを割り当てたかを覚えておく必要があります。）</p></li>
@@ -128,7 +128,7 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>では、この制限を回避し、無制限にショートカットキーにマクロを割り当てるマクロを紹介します。 「キー割り当ては50個で十分」という方も、備えあれば憂いなし、将来の不安を取り除くためにも、1度お試しください。</p>
 <p>　手順は以下の通りです。 ここでは例として、マクロ「ASCII.mac」をAlt＋Ctrl＋Shift＋A（Alt／Ctrl／Shiftキーを同時に押しながらAキーを押す）に割り付けたい場合を想定します。 また、便宜上、Alt／Ctrl／Shiftを特殊キー、A～Zと0～9を一般キーと呼ぶことにします。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>マクロ登録</p>
 <p>　まず、以下の「moreMac.mac」を作成して、50番未満のマクロ登録位置に登録します。 例として、「マクロ：1」の位置に登録名を「マクロ登録数の拡大」として登録してみます。</p>
 <div class="macro">
@@ -167,7 +167,7 @@ endmacroall;</code></pre>
 </div>
 <p>　たとえば先の例では特殊キーは「Alt＋Ctrl＋Shift」を押すことになっていましたから、moreMac.mac内の</p>
 <div class="macro">
-<pre><code>if(\#p== 7){// \[Alt + Ctrl + Shift\]</code></pre>
+<pre><code>if(\#p== 7){// [Alt + Ctrl + Shift]</code></pre>
 </div>
 <p>の後に挿入します。</p>
 <p><strong>（イ）キーコードの指定（#c == XXの部分）</strong></p>
@@ -177,57 +177,57 @@ endmacroall;</code></pre>
 <caption>表1　主なキーコード一覧（10進数表記）</caption>
 <thead>
 <tr class="header">
-<th align="center">キー</th>
-<th align="left">キーコード</th>
+<th style="text-align: center;">キー</th>
+<th style="text-align: left;">キーコード</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">Shift</td>
-<td align="left">16</td>
+<td style="text-align: center;">Shift</td>
+<td style="text-align: left;">16</td>
 </tr>
 <tr class="even">
-<td align="center">Ctrl</td>
-<td align="left">17</td>
+<td style="text-align: center;">Ctrl</td>
+<td style="text-align: left;">17</td>
 </tr>
 <tr class="odd">
-<td align="center">Alt</td>
-<td align="left">18</td>
+<td style="text-align: center;">Alt</td>
+<td style="text-align: left;">18</td>
 </tr>
 <tr class="even">
-<td align="center">左</td>
-<td align="left">37</td>
+<td style="text-align: center;">左</td>
+<td style="text-align: left;">37</td>
 </tr>
 <tr class="odd">
-<td align="center">上</td>
-<td align="left">38</td>
+<td style="text-align: center;">上</td>
+<td style="text-align: left;">38</td>
 </tr>
 <tr class="even">
-<td align="center">右</td>
-<td align="left">39</td>
+<td style="text-align: center;">右</td>
+<td style="text-align: left;">39</td>
 </tr>
 <tr class="odd">
-<td align="center">下</td>
-<td align="left">40</td>
+<td style="text-align: center;">下</td>
+<td style="text-align: left;">40</td>
 </tr>
 <tr class="even">
-<td align="center">0～9</td>
-<td align="left">48～57</td>
+<td style="text-align: center;">0～9</td>
+<td style="text-align: left;">48～57</td>
 </tr>
 <tr class="odd">
-<td align="center">A～Z</td>
-<td align="left">65～90</td>
+<td style="text-align: center;">A～Z</td>
+<td style="text-align: left;">65～90</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><strong>（ウ）実行させるマクロファイルの指定（execmacro&quot;NNNN.mac&quot;の部分）</strong></p>
-<p>　「Alt＋Ctrl＋Shift＋A」で実行させたいマクロの名前を指定します。例では「ASCII.mac」ですから、</p>
+<p><strong>（ウ）実行させるマクロファイルの指定（execmacro“NNNN.mac”の部分）</strong></p>
+<p>　[Alt＋Ctrl＋Shift＋A]で実行させたいマクロの名前を指定します。例では「ASCII.mac」ですから、</p>
 <pre><code>if(\#c == 65)execmacro &quot;ASCII.mac&quot;;</code></pre>
-<p>画面H7　「Alt＋Ctrl＋Shift＋A」で実行させたいマクロの名前を「ASCII.mac」と指定した。</p>
+<p>画面H7　[Alt＋Ctrl＋Shift＋A]で実行させたいマクロの名前を「ASCII.mac」と指定した。</p>
 </div></li>
 <li><p>登録したマクロの実行**</p>
-<p>　これで、「Alt＋Ctrl＋Shift＋A」キーにより「ASCII.mac」が実行されます。 「Alt＋Ctrl＋Shift＋Aが押された時点で実際にはmoreMac.macが起動し、 そのマクロから、同じキー操作に割り当てられている「ASCII.mac」が実行されるわけです。</p></li>
+<p>　これで、[Alt＋Ctrl＋Shift＋A]キーにより「ASCII.mac」が実行されます。 [Alt＋Ctrl＋Shift＋A]が押された時点で実際にはmoreMac.macが起動し、 そのマクロから、同じキー操作に割り当てられている「ASCII.mac」が実行されるわけです。</p></li>
 <li><p>続々とマクロを登録していこう**</p>
 <p>　今後は、マクロを新規にキー割り当てしたくなった時点で、(2)～(4)の処理を繰り返せば、 あらゆる「特殊キー＋一般キー」に対して事実上無制限にマクロを登録できます。 あらかじめ、現在マクロが登録されていない特殊キーと一般キーの組み合わせに対して片っ端から「moreMac.mac」を割り付けておくと、 今は面倒でも、後々はmoreMac.macのスクリプト変更だけでキー割付が実現するので楽でしょう （ただし、単独のShiftキーと一般キーとの組み合わせに割り付けることは避けましょう。文字入力が不便になります）。</p>
 <p>画面H8　moreMac.macに、実際にいくつかのマクロを割り当てた。 登録マクロ数が増えると、このmoreMac.macはどんどん長いマクロになっていく。ちなみに、(4)-（ア）で指定する</p>

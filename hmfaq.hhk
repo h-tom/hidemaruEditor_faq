@@ -2119,5 +2119,10 @@
 		<param name="Name" value="編集場所について">
 		<param name="Local" value="hidpatio.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="複数選択">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　複数選択">
+		<param name="Local" value="2_multiselect.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>
