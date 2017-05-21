@@ -1296,6 +1296,13 @@
 		<param name="Local" value="HME0013C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="カラーマーカー">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　カラーマーカー">
+		<param name="Local" value="2_colormarker.html">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　検索　「追加の条件」について">
+		<param name="Local" value="2_find.html#SUPPLEMENTATION-1">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="カラー">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
 		<param name="Local" value="HME0092A.html">
