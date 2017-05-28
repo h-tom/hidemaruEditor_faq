@@ -22,32 +22,33 @@
 <p>　秀丸エディタに限らず、Windowsのアプリケーションの多くで、「<span class="font_red_bold">起動オプション</span>」を使うことができます。 これによって、そのアプリケーションをどんな状態で起動させるかや、起動してすぐに実行したい処理などを指示することができます。 起動オプションをうまく使うと、単にアプリケーションを起動するだけとはひとあじ違う使い方ができるわけで、 こんなイイものを使わない手はないでしょう。(^_^)</p>
 <p>　秀丸エディタの場合は、例えば</p>
 <table>
+<caption>秀丸エディタ 起動オプションの例</caption>
 <colgroup>
-<col width="22%" />
-<col width="77%" />
+<col style="width: 22%" />
+<col style="width: 77%" />
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left">/b</td>
-<td align="left">秀丸エディタを閲覧モードで起動します。</td>
+<td style="text-align: left;">/b</td>
+<td style="text-align: left;">秀丸エディタを閲覧モードで起動します。</td>
 </tr>
 <tr class="even">
-<td align="left">/j行番号,桁番号</td>
-<td align="left">ファイルを開いてから，指定された行にカーソルを移動します。</td>
+<td style="text-align: left;">/j行番号,桁番号</td>
+<td style="text-align: left;">ファイルを開いてから，指定された行にカーソルを移動します。</td>
 </tr>
 <tr class="odd">
-<td align="left">/xマクロ名</td>
-<td align="left">秀丸エディタ起動と同時にマクロを実行します。</td>
+<td style="text-align: left;">/xマクロ名</td>
+<td style="text-align: left;">秀丸エディタ起動と同時にマクロを実行します。</td>
 </tr>
 <tr class="even">
-<td align="left">/fe /fj など</td>
-<td align="left">オープンするファイルの文字コードを指定します。</td>
+<td style="text-align: left;">/fe /fj など</td>
+<td style="text-align: left;">オープンするファイルの文字コードを指定します。</td>
 </tr>
 </tbody>
 </table>
 <p>のような起動オプションを利用することができます。 （詳しくは秀丸エディタヘルプの <span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemaru/html/230_Option.html" target="_blank">秀丸エディタ起動時のオプション</a></span> に解説されていますので、そちらをご覧ください。）</p>
 <p>　この起動オプションは、「<strong>コマンドライン</strong>」で利用することができます。 コマンドラインというのは、起動したいアプリケーション名とその起動オプション・開きたいファイル名を『<strong>文字で</strong>』記述することで、 そのアプリケーションを起動することができるモノを指します（←ちょっといい加減な説明(^^;)）。<br />
-　例えば、スタートメニューの「ファイル名を指定して実行(R)...」がそれに当たります。</p>
+　例えば、スタートメニューの「ファイル名を指定して実行(R)…」がそれに当たります。</p>
 <p><img src="4_cmdline_01.png" alt="ファイル名を指定して実行" width="399" height="206" /><br />
 </p>
 <p>また、Windowsでは「<strong>コマンドプロンプト</strong>」でも同様に Windowsアプリケーションを起動させることができたりします。</p>
@@ -64,7 +65,7 @@
 <p>　ここでは例題として、デスクトップ上に「秀丸エディタを閲覧モードで開く」ショートカットを作成して、 そこにファイルをドラッグ＆ドロップすると、そのファイルが閲覧モードで開くようにしてみましょう。</p>
 <p>　試しに、秀丸エディタのショートカットを作成して、そのプロパティの「リンク先」の最後に</p>
 <pre><code>...\Hidemaru.exe /b</code></pre>
-<p>というふうに 半角スペースと&quot;/b&quot; を追加してみてください。</p>
+<p>というふうに 半角スペースと“/b” を追加してみてください。</p>
 <p><img src="4_cmdline_02.png" alt="ショートカットの設定ダイアログ" width="421" height="580" /><br />
 </p>
 <div class="box_line">
@@ -75,9 +76,9 @@
 </dl>
 </div>
 <p>　できたショートカットをダブルクリックすると、新規作成の秀丸エディタが閲覧モードで起動します。 何にもない画面を閲覧モードで開いてもちっとも嬉しくありませんが(^^;)、とりあえずちゃんと起動オプションは効いているようです。</p>
-<p>今回は&quot;/b&quot;を指定し、閲覧モードで開くようにしましたが、grepを起動するようにしたり、「デスクトップ復元」を行うようにすることも可能です。</p>
+<p>今回は“/b”を指定し、閲覧モードで開くようにしましたが、grepを起動するようにしたり、「デスクトップ復元」を行うようにすることも可能です。</p>
 <h3 id="REG">■２．「アプリケーションとの関連付け」の場合</h3>
-<p>　残念ながら、Windows Vista以降、&quot;開く&quot;アプリケーションの変更はできますが、 右クリックメニューに、ユーザー独自の「閲覧モードで開く」等の追加が、簡単にはできなくなっています。 (レジストリエディタで直接レジストリを編集すれば可能です。)</p>
+<p>　残念ながら、Windows Vista以降、“開く”アプリケーションの変更はできますが、 右クリックメニューに、ユーザー独自の「閲覧モードで開く」等の追加が、簡単にはできなくなっています。 (レジストリエディタで直接レジストリを編集すれば可能です。)</p>
 <p>起動オプションを指定したい場合には、ショートカットで指定するか、ファイルの種類によって切り換えることはできませんが、 「送る」を使うのが簡単です。</p>
 <h3 id="info">■３．注意点など</h3>
 <!-- #h3 -->
@@ -94,22 +95,22 @@
 <pre><code>「C:\Program」と「Files\Hidemaru\Hidemaru.exe」</code></pre>
 </div>
 <p>になり、<code>hidemaru.exe</code> を起動する事が出来ません。(<code>C:\Program</code> が見つかりませんと言われる。)</p>
-<p>その為、半角スペースを含む場合には、全体を「&quot;」(ダブルクオート)で囲みます。</p>
+<p>その為、半角スペースを含む場合には、全体を「“」(ダブルクオート)で囲みます。</p>
 <div class="box_line2">
 <pre><code>&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;</code></pre>
 </div>
-<p>秀丸エディタのショートカットで、リンク先のパスが「&quot;」(ダブルクオート)で囲まれているのは、このためです。</p>
-<p>秀丸エディタでファイルを指定して開く場合も同じで、対象のファイルパスに半角スペースを含む場合は、全体を「&quot;」(ダブルクオート)で囲みます。</p>
+<p>秀丸エディタのショートカットで、リンク先のパスが「“」(ダブルクオート)で囲まれているのは、このためです。</p>
+<p>秀丸エディタでファイルを指定して開く場合も同じで、対象のファイルパスに半角スペースを含む場合は、全体を「“」(ダブルクオート)で囲みます。</p>
 <div class="box_line2">
 <pre><code>例)秀丸エディタで同じフォルダにあるファイルを開く場合
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot;</code></pre>
 </div>
-<p>秀丸エディタは柔軟にファイル判定するらしく、ファイル名を「&quot;」で囲まなくても、ファイルを開いてくれますが、 なるべく囲むようにしてください。</p>
+<p>秀丸エディタは柔軟にファイル判定するらしく、ファイル名を「“」で囲まなくても、ファイルを開いてくれますが、 なるべく囲むようにしてください。</p>
 <div class="box_line2">
 <pre><code>//この状態でも問題なくファイルを開いてくれる。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; C:\Program Files\Hidemaru\hidemaru.txt</code></pre>
 </div>
-<p>上記のように、柔軟に判定してくれるのありがたいのですが、以下のようにファイルを2個開きたい場合は、 &quot;空白を含むパス&quot;と優先して認識するようで、ファイルが開けません。</p>
+<p>上記のように、柔軟に判定してくれるのありがたいのですが、以下のようにファイルを2個開きたい場合は、 “空白を含むパス”と優先して認識するようで、ファイルが開けません。</p>
 <div class="box_line2">
 <pre><code>//カレントフォルダにファイルが2個あって開きたい場合
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; file1.txt file2.txt
@@ -118,7 +119,7 @@
 </div>
 <p>ファイルを複数開くには、以下の方法があります。</p>
 <ul>
-<li><p>方法1 ファイル名を「&quot;」(ダブルクォートで囲む)</p>
+<li><p>方法1 ファイル名を「“」(ダブルクォートで囲む)</p>
 <pre><code>&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; &quot;file1.txt&quot; &quot;file2.txt&quot;</code></pre></li>
 <li><p>方法2 ファイル名をフルパスで指定する。(ダブルクォートが無くてもファイルの区切りが認識可能)</p>
 <pre><code>&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; C:\TEMP\file1.txt C:\TEMP\file2.txt</code></pre></li>
@@ -129,9 +130,9 @@
 <pre><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; /x test.mac</code></pre>
 </div>
-<p>この記述だと、&quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; は開きますが、test.mac は &quot;無題&quot;の秀丸エディタが開き、 そこで実行されます。<br />
-(&quot;/x test.mac&quot; の後に無題の秀丸エディタを指定している状態)</p>
-&quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; は開き、そのファイル上で、test.mac を実行するには以下の記述になります。<br />
+<p>この記述だと、“C:\Program Files\Hidemaru\hidemaru.txt” は開きますが、test.mac は “無題”の秀丸エディタが開き、 そこで実行されます。<br />
+(“/x test.mac” の後に無題の秀丸エディタを指定している状態)</p>
+“C:\Program Files\Hidemaru\hidemaru.txt” は開き、そのファイル上で、test.mac を実行するには以下の記述になります。<br />
 (<strong>ファイルを指定する場合、起動オプションは、ファイルより前に指定しなければならない</strong>。)
 <div class="box_line2">
 <pre><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい
@@ -143,8 +144,8 @@
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x test.mac  &quot;file1.txt&quot; &quot;file2.txt&quot;
 file1.txt を開き、 test.mac を実行するが、file2.txt は開かない。</code></pre>
 </div>
-<!-- #h3 -->
 </div>
+<!-- #h3 -->
 <h3 id="CMD">■４．コマンドプロンプトでの応用</h3>
 <p>コマンドプロンプトを使うと、複数のファイルにマクロを実行す事も可能です。 (マクロはチョットした注意点があります。)</p>
 <p>以下は、ワイルドカードで指定したファイルに対し、マクロを実行するバッチファイルです。</p>

@@ -99,7 +99,7 @@ dllwrap --driver-flag=&#39;-shared&#39; -mno-cygwin -mwindows --def foo.def -o f
 <li><p>呼出し規約は <strong><code>__cdecl</code></strong> (通常のＣ関数) のみ</p></li>
 </ul>
 <dl>
-<dt><a name="numerical">※(数値)</a></dt>
+<dt><a id="numerical">※(数値)</a></dt>
 <dd><p>浮動小数点数版秀丸エディタの場合は <strong><code>int</code></strong> ではなく <strong><code>double</code></strong> になります。 浮動小数点数版秀丸エディタについては<a href="#double">【11】 補足～浮動小数点数版秀丸エディタ用のDLLについて</a>をご覧ください。</p>
 <p>64bit版秀丸エディタの場合は、<strong><code>int</code></strong>ではなく、<strong><code>__int64</code></strong>になります。(INT_PTRを使う方法もあります。)</p>
 </dd>
@@ -263,7 +263,7 @@ LPCSTR hello(void)
 </div>
 <p>という事だと思います<a href="#index-1">(*1)</a>。 この件については、上記の例のようなコードでは確かにまずいのですが、<code>DllMain()</code> 関数を使えば、 メモリリークの心配をしなくてもよい方法で動的にヒープ領域に確保したメモリへのポインタを返すことができます。 これについては次章で見ることにしましょう。</p>
 <dl>
-<dt><a name="index-1">(*1)</a></dt>
+<dt><a id="index-1">(*1)</a></dt>
 <dd>あと考えられる事としては、 静的に確保した配列だと他のプロセスが同じDLLを呼び出した時にまずくないか？ という事だと思いますが、DLL中で確保した静的変数はプロセス毎に コピーが作られるのでその心配は無用です。 ただし、秀丸マクロからだけでなく 一般にマルチスレッドなプロセスでも使用されるDLLを作る場合は、 スレッドセーフなDLLにするために静的変数の使用には注意が必要です (スレッドローカル変数領域(TLS)を利用する等)。
 </dd>
 </dl>
@@ -488,7 +488,7 @@ int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
 </div>
 <p>のような方法などがあり得ると思います。 いずれにしても<code>va_is_end(args)</code> のようなパラメータ指定の終了を判定するマクロは用意されていない<a href="#index-2">(*2)</a>ので、 何らかの形で引数が何個あるかの情報をDLL関数に伝える必要があります。</p>
 <dl>
-<dt><a name="index-2">(*2)</a></dt>
+<dt><a id="index-2">(*2)</a></dt>
 <dd>別にライブラリの作者が手抜きをしているわけではなくて、 一般的なスタックの構造では そもそもパラメータ指定の終了位置を判定できないからです。
 </dd>
 </dl>
@@ -505,7 +505,7 @@ int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
 <p>某田○DLLもつい最近まで 文字列引数の正当性チェックを殆どしてなかったことはナイショです(笑)。</p>
 </div>
 <dl>
-<dt><a name="index-3">(*3)</a></dt>
+<dt><a id="index-3">(*3)</a></dt>
 <dd><p>文字列型の場合は <code>IsBadStringPtr()</code> API、ワイド文字列型の場合は <code>IsBadStringPtrW()</code> API で ポインタの値が正当なものかどうか<strong>だけ</strong>はチェックできます。 ポインタが指す先の文字列の内容、 または整数型の場合に値が不正かどうかの判断は 貴方(DLL関数)自身でやるしかないです。</p>
 <p><code>IsBadxxxxxPtr</code> APIに関しては、<span class="attention_red">Windows Vista以降非推奨</span>とのこと。 詳細は、以下を参照してください。</p>
 <ul>
@@ -658,7 +658,7 @@ int show_window(LPCSTR title)
 </div>
 <p>このサンプルで行っていることは、 ユーザー定義のウィンドウクラスの登録をする場所が <code>DllMain()</code>関数である事を除けば ほぼ普通のアプリケーションが <code>WinMain()</code> 関数等で行っているウィンドウ表示のコードそのままです。 なお、今回のウィンドウにはメニューもアイコンもつけなかったので必要なかったのですが、 それら(一般にはリソース)が必要な場合は別途作成し<a href="#index-4">(*4)</a>、DLL作成時にリンクする必要があるので、 各処理系のマニュアルを参照して必要な処理を行ってください。</p>
 <dl>
-<dt><a name="index-4">(*4)</a></dt>
+<dt><a id="index-4">(*4)</a></dt>
 <dd>gcc の場合は binutils の <code>windres</code> を使います。
 </dd>
 </dl>
@@ -668,7 +668,7 @@ int show_window(LPCSTR title)
 </div>
 <p>とだけ述べておきます<a href="#index-5">(*5)</a>。</p>
 <dl>
-<dt><a name="index-5">(*5)</a></dt>
+<dt><a id="index-5">(*5)</a></dt>
 <dd>上のサンプルコードのように単純なメッセージループしか持たないプロセスなら 問題はないですが、 メッセージループの中で特殊な処理を行っているようなプロセスの場合だと、 その特殊な処理が行われなくなるため問題が発生する場合があります。
 </dd>
 </dl>
@@ -908,7 +908,7 @@ int main(int argc, char** argv)
 <p>このテストプログラムが行っていることは、 <code>hello_world.dll</code>を動的にロードして、 <code>&quot;hello&quot;</code> という名前の関数へのポインタを取得し、そのポインタを介してDLL関数を呼び出し、 その結果をコンソールに表示する、という処理です。 このDLL関数を呼び出す部分にブレークポイントを置けば、 あとはデバッガでDLL関数の内容を追っていけると思います。</p>
 <p>次に、テストプログラムを書くのが面倒なほどの複雑な処理をマクロでしている場合は、 実際にマクロを動かしてDLLを使っている秀丸エディタ自体をデバッグする必要があります。 この場合はマクロを動かす秀丸エディタ(プロセス)にアタッチして、デバッガ側でDLL関数の内部にブレークポイントを置いたあとに アタッチした秀丸エディタでマクロを実行します<a href="#index-6">(*6)</a>。</p>
 <dl>
-<dt><a name="index-6">(*6)</a></dt>
+<dt><a id="index-6">(*6)</a></dt>
 <dd>Cygwin/MinGW gdb では上で書いたように単純にプロセスにアタッチしても うまく行きません(涙)。 動的にロードされたDLLがリロケートされた場合に gdb が追いついてないみたいですが、 gcc もしくは gdb の設定を変更すれば何とかなるかもしれません (が僕には分からないですm(_ _)m)。
 </dd>
 </dl>

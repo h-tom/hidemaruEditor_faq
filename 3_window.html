@@ -46,9 +46,9 @@ openfile &quot;\&quot;C:\\My Documents\\memo.txt\&quot;&quot;;</code></pre>
 <pre><code>// メモファイルを開く
 openfile &quot;C:\\foodir\\memo.txt&quot;;
 if (result == false)            {`\
-// ファイルが開けなかった場合
-message &quot;メモファイルが開けません&quot;;
-endmacro;
+&#160;&#160;&#160;&#160;// ファイルが開けなかった場合
+&#160;&#160;&#160;&#160;message &quot;メモファイルが開けません&quot;;
+&#160;&#160;&#160;&#160;endmacro;
 }
 // ここに来た時点でマクロの実行は &quot;memo.txt&quot; に移っている
 // &quot;memo.txt&quot; の終わりに移動
@@ -56,7 +56,7 @@ gofileend;`</code></pre>
 </div>
 <p>ファイルがなかったり名前が間違っていたりその他の理由でファイルが開けなかった場合、 <code>openfile</code> コマンドのあとの <code>result</code> キーワードは <code>false(== 0)</code> になっている (成功した場合は <code>true (== 1)</code>になる)ので、 それを利用してここで示したようにきちんとエラー処理を行いましょう。</p>
 <h4 id="ファイルを開くダイアログを表示してファイルを開く">[1-2] 「ファイルを開く」ダイアログを表示してファイルを開く</h4>
-<p><code>openfile</code> コマンドに完全なファイル名を指定する代わりに<strong>ワイルドカード文字(&quot;*&quot; や &quot;?&quot;)を含んだファイル名</strong>を指定すると、 それに<strong>マッチするファイルのみを表示した「ファイルを開く」ダイアログを出して、ユーザーが開くファイルを選択</strong>できるようになります。 例えば、C:\foodir 中のテキストファイルのどれかを開くためのダイアログを出すには以下のように<code>openfile</code> コマンドを使います。</p>
+<p><code>openfile</code> コマンドに完全なファイル名を指定する代わりに<strong>ワイルドカード文字(“*” や “?”)を含んだファイル名</strong>を指定すると、 それに<strong>マッチするファイルのみを表示した「ファイルを開く」ダイアログを出して、ユーザーが開くファイルを選択</strong>できるようになります。 例えば、C:\foodir 中のテキストファイルのどれかを開くためのダイアログを出すには以下のように<code>openfile</code> コマンドを使います。</p>
 <div class="macro">
 <pre><code>// 「ファイルを開く」ダイアログを出してファイルを開く
 openfile &quot;C:\\foodir\\*.txt&quot;;</code></pre>
@@ -137,18 +137,19 @@ insert $s;     // 元のファイルに挿入…あれ？</code></pre>
 <p><strong>ウィンドウ番号</strong>とは<strong>秀丸エディタウィンドウを画面手前から順番に０から数えたもの</strong>で、 同じウィンドウでも、<strong>画面上の位置関係が変わるとそれに従ってウィンドウ番号も変化</strong>します。</p>
 <p>例えば以下の左図のような配置では、Ａ、Ｂ、Ｃの３つのウィンドウにはそれぞれ０、１、２のウィンドウ番号が割り振られます。 ここで、右図のようにウィンドウＣを一番手前に持ってくると、 ウィンドウ番号の割り振りがそれぞれＡのウィンドウ番号＝１、Ｂ＝２、Ｃ＝０ に変化します。</p>
 <table>
+<caption>ウィンドウ番号</caption>
 <colgroup>
-<col width="41%" />
-<col width="16%" />
-<col width="41%" />
+<col style="width: 41%" />
+<col style="width: 16%" />
+<col style="width: 41%" />
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><img src="window1.jpg" alt="w1" width="279" height="289" /></td>
-<td align="center">ウィンドウＣを<br />
+<td style="text-align: left;"><img src="window1.jpg" alt="w1" width="279" height="289" /></td>
+<td style="text-align: center;">ウィンドウＣを<br />
 →<br />
 一番手前にする</td>
-<td align="center"><img src="window2.jpg" alt="w2" width="279" height="289" /></td>
+<td style="text-align: center;"><img src="window2.jpg" alt="w2" width="279" height="289" /></td>
 </tr>
 </tbody>
 </table>
@@ -179,14 +180,14 @@ message &quot;ウィンドウ番号 = &quot; + str(#H_ORDER);</code></pre>
 // まずウィンドウ番号を取得
 #H_ORDER = findhidemaru(&quot;c:\\hidemaru\\install.txt&quot;);
 if (#H_ORDER != -1) {
-// 有効なウィンドウ番号だった
-#H_HANDLE = hidemaruhandle(#H_ORDER);
+&#160;&#160;&#160;&#160;// 有効なウィンドウ番号だった
+&#160;&#160;&#160;&#160;#H_HANDLE = hidemaruhandle(#H_ORDER);
 } else {
-// 無効なウィンドウ番号だった
-if (filename == &quot;c:\\hidemaru\\install.txt&quot;) {
-// 現在マクロを実行中のウィンドウで開いていた場合
-#H_HANDLE = hidemaruhandle(0); // マクロを実行中のウィンドウのウィンドウ番号は必ず０
-}
+&#160;&#160;&#160;&#160;// 無効なウィンドウ番号だった
+&#160;&#160;&#160;&#160;if (filename == &quot;c:\\hidemaru\\install.txt&quot;) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// 現在マクロを実行中のウィンドウで開いていた場合
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#H_HANDLE = hidemaruhandle(0); // マクロを実行中のウィンドウのウィンドウ番号は必ず０
+&#160;&#160;&#160;&#160;}
 }
 message &quot;ウィンドウハンドル = &quot; + str(#H_HANDLE);</code></pre>
 </div>
@@ -208,17 +209,17 @@ setactivehidemaru #HWND; // 元のウィンドウに戻る
 // 以下の文は元のウィンドウで実行される
 gofiletop; // ファイルの先頭にカーソルを移動
 while (code != eof) { // ファイルの終わりまでループ
-copyline; // 行のコピー
-setactivehidemaru #HWND_NEW; // コピー先ウィンドウに移動
+&#160;&#160;&#160;&#160;copyline; // 行のコピー
+&#160;&#160;&#160;&#160;setactivehidemaru #HWND_NEW; // コピー先ウィンドウに移動
 
-// 以下新規ウィンドウで実行
-paste; // コピーした行を貼り付ける
-gofileend; // ウィンドウの終わりにカーソルを移動
-setactivehidemaru #HWND; // コピー元ウィンドウに移動
+&#160;&#160;&#160;&#160;// 以下新規ウィンドウで実行
+&#160;&#160;&#160;&#160;paste; // コピーした行を貼り付ける
+&#160;&#160;&#160;&#160;gofileend; // ウィンドウの終わりにカーソルを移動
+&#160;&#160;&#160;&#160;setactivehidemaru #HWND; // コピー元ウィンドウに移動
 
-// 以下元のウィンドウで実行
-movetolineno 1, lineno + 1; // １行下がる
-if (result == false) break; // 最後の行が改行で終わっていない場合への対処
+&#160;&#160;&#160;&#160;// 以下元のウィンドウで実行
+&#160;&#160;&#160;&#160;movetolineno 1, lineno + 1; // １行下がる
+&#160;&#160;&#160;&#160;if (result == false) break; // 最後の行が改行で終わっていない場合への対処
 }
 setactivehidemaru #HWND_NEW; // コピー先ウィンドウを手前にして終了</code></pre>
 </div>
@@ -235,17 +236,17 @@ setactivehidemaru 1; // 元のウィンドウに戻る
 // 以下の文は元のウィンドウで実行される
 gofiletop;
 while (code != eof) {
-copyline;
-setactivehidemaru 1; // コピー先ウィンドウに移動
+&#160;&#160;&#160;&#160;copyline;
+&#160;&#160;&#160;&#160;setactivehidemaru 1; // コピー先ウィンドウに移動
     
-// 以下新規ウィンドウで実行
-paste;
-gofileend;
-setactivehidemaru 1; // コピー元ウィンドウに移動
+&#160;&#160;&#160;&#160;// 以下新規ウィンドウで実行
+&#160;&#160;&#160;&#160;paste;
+&#160;&#160;&#160;&#160;gofileend;
+&#160;&#160;&#160;&#160;setactivehidemaru 1; // コピー元ウィンドウに移動
     
-// 以下元のウィンドウで実行
-movetolineno 1, lineno + 1;
-if (result == false) break;
+&#160;&#160;&#160;&#160;// 以下元のウィンドウで実行
+&#160;&#160;&#160;&#160;movetolineno 1, lineno + 1;
+&#160;&#160;&#160;&#160;if (result == false) break;
 }
 setactivehidemaru 1; // コピー先ウィンドウを手前にして終了</code></pre>
 </div>
@@ -262,17 +263,17 @@ prevhidemaru; // 新規ウィンドウを一番後ろに回す
 // 以下の文は元のウィンドウで実行される
 gofiletop;
 while (code != eof){
-copyline;
-nexthidemaru; // 新規ウィンドウを一番手前に戻す
+&#160;&#160;&#160;&#160;copyline;
+&#160;&#160;&#160;&#160;nexthidemaru; // 新規ウィンドウを一番手前に戻す
 
-// 以下新規ウィンドウで実行
-paste;
-gofileend;
-prevhidemaru; // 新規ウィンドウを一番後ろに回す
+&#160;&#160;&#160;&#160;// 以下新規ウィンドウで実行
+&#160;&#160;&#160;&#160;paste;
+&#160;&#160;&#160;&#160;gofileend;
+&#160;&#160;&#160;&#160;prevhidemaru; // 新規ウィンドウを一番後ろに回す
 
-// 以下元のウィンドウで実行
-movetolineno 1, lineno + 1;
-if (result == false) break;
+&#160;&#160;&#160;&#160;// 以下元のウィンドウで実行
+&#160;&#160;&#160;&#160;movetolineno 1, lineno + 1;
+&#160;&#160;&#160;&#160;if (result == false) break;
 }
 nexthidemaru; // 新規ウィンドウを一番手前に戻して終了</code></pre>
 </div>
@@ -320,27 +321,27 @@ $MacroName = &quot;test.mac&quot;;
 gofiletop;
 // ファイル名取得・マクロ実行ループ`\
 while(code != eof) {
-beginsel;
-searchdown &quot;\\n|\\(&quot;,regular;
-$file=gettext(seltopx, seltopy, selendx, selendy);
-// 存在確認
-if (!existfile($file)) {
-message &quot;以下のファイルが見つかりませんでした。処理を中断します。\n\n&quot; + $file;
-break;
-}
-// 秀丸起動
-openfile $file;
-#hid2 = hidemaruhandle(0);
-// マクロ実行
-execmacro $MacroName;
-// テンポラリ画面を閉じる
-setactivehidemaru #hid;
-closehidemaru #hid2;
-// 最終行だったら終わり
-golineend2;
-if (code == eof) break;
-down;
-golinetop2;
+&#160;&#160;&#160;&#160;beginsel;
+&#160;&#160;&#160;&#160;searchdown &quot;\\n|\\(&quot;,regular;
+&#160;&#160;&#160;&#160;$file=gettext(seltopx, seltopy, selendx, selendy);
+&#160;&#160;&#160;&#160;// 存在確認
+&#160;&#160;&#160;&#160;if (!existfile($file)) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;message &quot;以下のファイルが見つかりませんでした。処理を中断します。\n\n&quot; + $file;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;// 秀丸起動
+&#160;&#160;&#160;&#160;openfile $file;
+&#160;&#160;&#160;&#160;#hid2 = hidemaruhandle(0);
+&#160;&#160;&#160;&#160;// マクロ実行
+&#160;&#160;&#160;&#160;execmacro $MacroName;
+&#160;&#160;&#160;&#160;// テンポラリ画面を閉じる
+&#160;&#160;&#160;&#160;setactivehidemaru #hid;
+&#160;&#160;&#160;&#160;closehidemaru #hid2;
+&#160;&#160;&#160;&#160;// 最終行だったら終わり
+&#160;&#160;&#160;&#160;golineend2;
+&#160;&#160;&#160;&#160;if (code == eof) break;
+&#160;&#160;&#160;&#160;down;
+&#160;&#160;&#160;&#160;golinetop2;
 }
 endmacro;</code></pre>
 </div>
@@ -357,33 +358,33 @@ endmacro;</code></pre>
 $file = &quot;C:\\foodir\\memo.txt&quot;; // ファイル名
 #H_ORDER = findhidemaru($file); // まずウィンドウ番号を取得
 if (#H_ORDER != -1) { // ウィンドウが見つかった
-#HWND = hidemaruhandle(#H_ORDER); // ウィンドウハンドルを取得
-setactivehidemaru #HWND; // そのウィンドウを手前にする
+&#160;&#160;&#160;&#160;#HWND = hidemaruhandle(#H_ORDER); // ウィンドウハンドルを取得
+&#160;&#160;&#160;&#160;setactivehidemaru #HWND; // そのウィンドウを手前にする
 } else { // まだ開かれていないか、自分で開いているか
-if ($file != filename) { // まだ開かれていなかった
-openfile $file; // 新しく開く
-if (result == false) {
-message $file + &quot;が開けません&quot;;
-endmacro;
-}
-}
-// ここに来るのはファイルを開いているのが自分自身か、
-// もしくは新しく開いて成功したかどちらか
-#HWND = hidemaruhandle(0); // いずれにしてもそのウィンドウは一番手前に来ているはず
+&#160;&#160;&#160;&#160;if ($file != filename) { // まだ開かれていなかった
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;openfile $file; // 新しく開く
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (result == false) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;message $file + &quot;が開けません&quot;;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;endmacro;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;// ここに来るのはファイルを開いているのが自分自身か、
+&#160;&#160;&#160;&#160;// もしくは新しく開いて成功したかどちらか
+&#160;&#160;&#160;&#160;#HWND = hidemaruhandle(0); // いずれにしてもそのウィンドウは一番手前に来ているはず
 }
 // この時点で #HWND に $file のウィンドウハンドルが入っていて
 // なおかつそのウィンドウが一番手前に来ているはず</code></pre>
 </div>
 <h4 id="作業ウィンドウを見えない状態で開く">[3-2] 作業ウィンドウを見えない状態で開く</h4>
-<p>さて次のサンプルは、第１章の最後の例でもありましたが、 <strong>マクロ中で一時的に使うための作業ウィンドウを開く</strong>処理です。 ところで、作業ウィンドウはマクロの実行中にだけ必要なもので、なおかつ作業の様子はなるべく見られたくないですから、 できればウィンドウが見えない状態で開ければ一番いいわけです。 で、まさにそういう(いわゆる「ステルス状態」の)ウィンドウを開くための起動オプション(&quot;/h&quot;)が用意されているので、 ここでもそれを使うことにしましょう。</p>
+<p>さて次のサンプルは、第１章の最後の例でもありましたが、 <strong>マクロ中で一時的に使うための作業ウィンドウを開く</strong>処理です。 ところで、作業ウィンドウはマクロの実行中にだけ必要なもので、なおかつ作業の様子はなるべく見られたくないですから、 できればウィンドウが見えない状態で開ければ一番いいわけです。 で、まさにそういう(いわゆる「ステルス状態」の)ウィンドウを開くための起動オプション(“/h”)が用意されているので、 ここでもそれを使うことにしましょう。</p>
 <div class="macro">
 <pre><code>// ウィンドウを見えない状態で開くサンプルマクロ
 
 // 以下の処理が必要な理由は第１章を参照
 #modify_org = false; // 元のウィンドウをいじったかどうかのフラグ
 if (filename == &quot;&quot; &amp;&amp; modified == false) { // 元のウィンドウが新規ウィンドウの場合
-insert &quot;\n&quot;; // 下の openfile が失敗しない様に一時的に更新しておく
-#modify_org = true; // あとで元に戻す
+&#160;&#160;&#160;&#160;insert &quot;\n&quot;; // 下の openfile が失敗しない様に一時的に更新しておく
+&#160;&#160;&#160;&#160;#modify_org = true; // あとで元に戻す
 }
 
 #hwnd_org = hidemaruhandle(0); // 元のウィンドウのウィンドウハンドルを取得しておく

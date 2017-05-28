@@ -30,7 +30,7 @@
 <dd><p>setactivehidemaru文には秀丸エディタウィンドウの「番号」か「ウィンドウハンドル」を指定します。</p>
 <dl>
 <dt>[解説]</dt>
-<dd><ol style="list-style-type: decimal">
+<dd><ol type="1">
 <li><p><strong>ウィンドウ番号</strong></p>
 <p>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
 <div class="macro">
@@ -45,7 +45,7 @@ endmacro;
 </div>
 <p>※ ファイルが開かれていない場合は、ウィンドウ番号は -1 になります。</p></li>
 <li><p><strong>ウィンドウハンドル</strong></p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。 いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、 「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</li>
 </ol>
 <div class="macro">
@@ -126,7 +126,7 @@ setactivehidemaru 1;実行時の動作
             <span style="color:Black">┗━━━━━━━┛</span>
 </pre>
 </td>
-<td align="center" class="table_no_border">
+<td style="text-align: center;" class="table_no_border">
 <br /> ←→
 </td>
 <td class="table_no_border">
@@ -185,7 +185,7 @@ setactivehidemaru 1,-1;実行時の動作
             <span style="color:Black">┗━━━━━━━┛</span>
 </pre>
 </td>
-<td align="center" class="table_no_border">
+<td style="text-align: center;" class="table_no_border">
 <br /> →
 </td>
 <td class="table_no_border">
@@ -211,7 +211,7 @@ setactivehidemaru 1,-1;実行時の動作
             <span style="color:Black">┗━━━━━━━┛</span>
 </pre>
 </td>
-<td align="center" class="table_no_border">
+<td style="text-align: center;" class="table_no_border">
 <br /> →
 </td>
 <td class="table_no_border">

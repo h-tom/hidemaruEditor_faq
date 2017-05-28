@@ -29,33 +29,33 @@
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><ul>
 <li><p>Shift_JISの場合<br />
-正規表現で「[亜-黑]」を検索して下さい。この指定で、「亜」から「黑」の間の文字コードをもつ文字が検索できます。 つまり、すべての漢字が検索できるわけです。</p>
+正規表現で「[亜-&#40657;]」を検索して下さい。この指定で、「亜」から「&#40657;」の間の文字コードをもつ文字が検索できます。 つまり、すべての漢字が検索できるわけです。</p>
 <dl>
 <dt>[解説]</dt>
 <dd><p>なお、最後の漢字は区点コードで次のようになっているようです。</p>
 <table>
 <tbody>
 <tr class="odd">
-<td align="left">体系</td>
-<td align="left">最後の漢字（区点コード、</td>
-<td align="left">漢字）</td>
+<td style="text-align: left;">体系</td>
+<td style="text-align: left;">最後の漢字（区点コード、</td>
+<td style="text-align: left;">漢字）</td>
 </tr>
 <tr class="even">
-<td align="left">新ＪＩＳのための変更</td>
-<td align="left">8406</td>
-<td align="left">煕</td>
+<td style="text-align: left;">新ＪＩＳのための変更</td>
+<td style="text-align: left;">8406</td>
+<td style="text-align: left;">煕</td>
 </tr>
 <tr class="odd">
-<td align="left">９８拡張漢字</td>
-<td align="left">9278</td>
-<td align="left">黑</td>
+<td style="text-align: left;">９８拡張漢字</td>
+<td style="text-align: left;">9278</td>
+<td style="text-align: left;">&#40657;</td>
 </tr>
 </tbody>
 </table>
 </dd>
 </dl></li>
 <li><p>unicodeの場合<br />
-Unicodeを使用している場合は、「[亜-黑]」では、全ての漢字を検索することはできません。 Unicodeで漢字のみを示す正規表現は、かなり長くなります。</p>
+Unicodeを使用している場合は、「[亜-&#40657;]」では、全ての漢字を検索することはできません。 Unicodeで漢字のみを示す正規表現は、かなり長くなります。</p>
 <div class="macro">
 <pre><code>[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DB5\u4E00-\u9FC3\uF900-\uFA2D\uFA30-\uFA6A\uFA70-\uFAD9]</code></pre>
 </div>
