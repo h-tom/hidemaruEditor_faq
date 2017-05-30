@@ -326,6 +326,15 @@ div.mark_dt > dl > dt {
     background-color : thistle;
 }
 
+div.mark_dt2 > dl > dt {
+    margin-top    : 1em;
+    margin-left   : 0.5em;
+    font-weight   : bold;
+    /*color       : white;*/
+    background-color : thistle;
+}
+
+
 .outline_marker1{
     background-color: #c0c0c0;
     border          : #000000 solid 1px;
