@@ -27,7 +27,9 @@
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>全ての場合についてできるわけではないですが、whileループかなんかで処理をするような場合については 「秀まるおのマクロサーバ」を使って以下の様な感じで何とかなるんじゃないでしょうか？ 以下の例では、&quot;0&quot;～&quot;9&quot;の文字を繰り返し1000個まで表示させます。 「中止」ボタンをクリックすると処理を中断します。</p>
+<dd><p>全ての場合についてできるわけではないですが、whileループかなんかで処理をするような場合については 「秀まるおのマクロサーバ」や「田楽DLL」を使って以下の様な感じで何とかなるんじゃないでしょうか？</p>
+<p>以下の例では、“0”～“9”の文字を繰り返し1000個まで表示させます。 「中止」ボタンをクリックすると処理を中断します。</p>
+「秀まるおのマクロサーバ」を使った場合
 <div class="macro">
 <pre><code>// マクロサーバで常にダイアログを表示させるサンプル 
 run &quot;macserv.exe&quot;; 
@@ -59,6 +61,45 @@ while( 1 ){
 ddeexecute &quot;enddialog&quot;; 
 ddestopadvice &quot;dlgresult&quot;; 
 ddeexecute &quot;exit&quot;; 
+endmacro; 
+// （ここまで）-----------------------------------------------</code></pre>
+</div>
+<p>「田楽DLL」を使った場合</p>
+<div class="macro">
+<pre><code>// 田楽DLLで常にダイアログを表示させるサンプル 
+loaddll &quot;dengakudll.dll&quot;;
+if(!result){
+    message &quot;DLLのロードに失敗しました。&quot;;
+    endmacro;
+}
+if(dllfunc(&quot;NEWDIALOG&quot;, &quot;秀丸マクロ&quot;, 20) == 0 ||
+    dllfunc(&quot;NEWCONTROL&quot;,&quot;text&quot;, &quot;&quot;, &quot;処理中です&quot;) == 0 ||
+    dllfunc(&quot;NEWCONTROL&quot;,&quot;defbutton&quot;, &quot;btn1&quot;, &quot;中止&quot;) == 0 ||
+    dllfunc(&quot;SETCTRLNOTIFY&quot;,&quot;btn1&quot;, &quot;10&quot;) == 0){
+    message &quot;ダイアログ作成エラー！&quot;;freedll;endmacro;
+}
+if (!dllfunc(&quot;SHOWDIALOG&quot;,hidemaruhandle(0),1)){
+    freedll;
+    message &quot;ダイアログの表示に失敗しました。&quot;;
+    endmacro;
+}
+
+$item = &quot;&quot;;
+// 「中止」ボタンが押されたら終了する 
+while (strlen($item) == 0){
+    $item = dllfuncstr(&quot;WAITCTRLNOTIFY&quot;,10);
+    if( $item != &quot;&quot; ) break; 
+    // 元々のコード例：ここから 
+    // 終わったら break でループを抜ける 
+    #n = #n + 1; 
+    #m = #m + 1; 
+    if (#n &gt; 9) #n = 0; 
+    insert str(#n); 
+    if (#m &gt; 1000) break; 
+    // 元々のコード例：ここまで 
+}
+#ret = dllfunc(&quot;ENDDIALOG&quot;);
+freedll;
 endmacro; 
 // （ここまで）-----------------------------------------------</code></pre>
 </div>
