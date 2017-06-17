@@ -30,9 +30,18 @@
 <dd><p>置換ダイアログを使用する場合は、「検索→置換」の「検索」エディットボックスに「^\n」、 「置換」エディットボックスに「」(空白にする)、 「正規表現」チェックボックスをＯＮにして全置換を実行します。</p>
 <p>マクロを使用する場合は、</p>
 <div class="macro">
-<pre><code>replaceall &quot;\^\\\\n&quot;, &quot;&quot;, regular;</code></pre>
+<pre><code>replaceall &quot;^\\n&quot;, &quot;&quot;, regular;</code></pre>
 </div>
 <p>で出来ます。</p>
+<p>秀丸エディタ Ver.8.66以降の場合は、</p>
+<div class="macro">
+<pre><code>replaceall R&quot;(^\n)&quot;, &quot;&quot;, regular;</code></pre>
+</div>
+や、
+<div class="macro">
+<pre><code>replaceall @&quot;^\n&quot;, &quot;&quot;, regular;</code></pre>
+</div>
+<p>という表記も可能です。</p>
 </dd>
 </dl>
 </div>
