@@ -2131,5 +2131,15 @@
 		<param name="Name" value="第II部～知っていると便利な秀丸の機能　複数選択">
 		<param name="Local" value="2_multiselect.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="単語補完">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　単語補完">
+		<param name="Local" value="2_wordcomplete.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="もしかして">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　単語補完">
+		<param name="Local" value="2_wordcomplete.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>

@@ -114,6 +114,10 @@
 			<param name="Name" value="カラーマーカー">
 			<param name="Local" value="2_colormarker.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="単語補完">
+			<param name="Local" value="2_wordcomplete.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">
