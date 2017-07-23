@@ -37,7 +37,7 @@
 <div class="marginleft">
 <h3 id="EXPLANATION">[解説]</h3>
 <p>編集中のファイルにある「<strong>Love</strong>」という文字列を探したいとします。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、 <span class="font_blue">「検索」</span>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
 <p><img src="2_find_101.png" alt="検索ダイアログ" width="433" height="244" /><br />
 </p></li>
@@ -46,7 +46,7 @@
 <li><p><strong><span class="font_blue">「大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。この項目がＯＦＦの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(&quot;_&quot;)のみで構成された文字(列)</strong>を指します。</p></li>
+この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(“_”)のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
 「<strong>正規表現</strong>」については「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
@@ -126,6 +126,23 @@
 <li>「複数選択予約」された範囲</li>
 </ul></li>
 </ul>
+<p>追加の条件で「一時的なカラーマーカー」の範囲を使った例です。</p>
+<ol type="1">
+<li>まず、適当な範囲を箱形選択します。<br />
+<img src="2_find_31.png" alt="箱形選択状態" width="581" height="220" /><br />
+</li>
+<li>選択範囲にカラーマーカをつけます<br />
+<img src="2_find_32.png" alt="カラーマーカー追加" width="580" height="220" /><br />
+</li>
+<li><p>以下の条件で「すべて検索 - 色付け 」を行います。</p>
+<ul>
+<li>検索文字に「秀丸エディタ」を設定</li>
+<li>追加の条件に「一時的なカラーマーカー」を指定</li>
+</ul>
+<p>マッチ範囲の先頭と末尾が、カラーマーカーの範囲内に入っている箇所のみ、マッチしています。</p>
+<p><img src="2_find_33.png" alt="検索" width="617" height="230" /><br />
+</p></li>
+</ol>
 <h4 id="SUPPLEMENTATION-2">検索文字列の取り込みについて</h4>
 <p>検索ダイアログを開くとき、<strong>範囲選択していない場合</strong>は、 カーソル位置から後の単語部分を「検索内容」として取り込みます。</p>
 <p>ファイルの先頭部分にカーソルがある時に、検索ダイアログを開いた場合<br />
@@ -171,11 +188,10 @@
 <img src="2_find_20.png" alt="ヒストリーに常駐その２" width="290" height="159" /><br />
 </p>
 <p>「ヒストリーに常駐」は検索だけではなく、置換やgrepでも設定可能です。</p>
+</div>
 <!-- h4 -->
 </div>
-<!-- h3 -->
-</div>
-<hr />
+<h2 id="section"><!-- h3 --></h2>
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>
