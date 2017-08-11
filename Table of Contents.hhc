@@ -216,6 +216,10 @@
 			<param name="Name" value="秀丸パブリッシャーについて">
 			<param name="Local" value="6_publisher.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="秀丸スペルチェックアドイン">
+			<param name="Local" value="6_spellcheck.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="あとがき">

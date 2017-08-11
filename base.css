@@ -345,6 +345,22 @@ div.mark_dt2 > dl > dt {
     border          : #c0c0c0 solid 1px;
 }
 
+div.img_border > img{
+    border          : aquamarine solid 3px;
+}
+
+.ul_red {
+	/*text-decoration:underline solid red; */
+	border-bottom:solid 2px red;
+}
+
+.marker_yellow {
+	background: linear-gradient(transparent 70%, yellow 70%);
+}
+
+.ul_red_w {
+	text-decoration:underline wavy red;
+}
 /* 640px*/
 @media screen and (max-width: 640px) {
     h1,h2,h3,h4,h5,h6 {

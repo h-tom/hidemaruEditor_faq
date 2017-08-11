@@ -38,7 +38,7 @@
 <h3 id="EXPLANATION">[解説]</h3>
 <p>編集中のファイルにある「<strong>Love</strong>」という文字列を探したいとします。</p>
 <ol type="1">
-<li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、 <span class="font_blue">「検索」</span>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
+<li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、 <strong><span class="font_blue">「検索」</span></strong>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
 <p><img src="2_find_101.png" alt="検索ダイアログ" width="433" height="244" /><br />
 </p></li>
 <li>次に、適宜オプションを指定します。ここで、各オプションの意味は以下の通りです。
@@ -72,7 +72,7 @@
 <li><p><strong>「<span class="font_blue">検索したら閉じる</span>」チェックボックス</strong><br />
 検索を実行すると検索ダイアログを閉じます。</p></li>
 </ul></li>
-<li>最後に検索を行う<span class="font_blue">方向</span>を指定する事で検索が実行されます。
+<li>最後に検索を行う<strong><span class="font_blue">方向</span></strong>を指定する事で検索が実行されます。
 <ul>
 <li>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上を検索します。)</li>
 <li>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下を検索します。)</li>
@@ -125,8 +125,11 @@
 <li>「すべて検索 - 色付け」された範囲</li>
 <li>「複数選択予約」された範囲</li>
 </ul></li>
+<li><p><strong>「選択した範囲内のみ」</strong> と 「追加の条件」は併用可能です。</p></li>
 </ul>
 <p>追加の条件で「一時的なカラーマーカー」の範囲を使った例です。</p>
+<ul>
+<li><p>例その１</p>
 <ol type="1">
 <li>まず、適当な範囲を箱形選択します。<br />
 <img src="2_find_31.png" alt="箱形選択状態" width="581" height="220" /><br />
@@ -142,7 +145,24 @@
 <p>マッチ範囲の先頭と末尾が、カラーマーカーの範囲内に入っている箇所のみ、マッチしています。</p>
 <p><img src="2_find_33.png" alt="検索" width="617" height="230" /><br />
 </p></li>
-</ol>
+</ol></li>
+<li>例その２
+<ol type="1">
+<li><p>カラーマーカーはまとまっていなくても問題ありません。 バラバラにマーキングを行います。</p>
+<img src="2_find_34.png" alt="バラバラにマーキング" width="591" height="246" /><br />
+</li>
+<li><p>以下の条件で「すべて検索 - 色付け 」を行います。</p>
+<ul>
+<li>正規表現を有効にする</li>
+<li>検索文字に「b+」を設定</li>
+<li>追加の条件に「一時的なカラーマーカー」を指定</li>
+</ul>
+<p>マッチ範囲の先頭と末尾が、カラーマーカーの範囲内に入っている箇所のみ、マッチしています。</p>
+<p>正規表現の“+”を指定した場合、検索エンジンにより結果が変わります。 画像はhmjre.dllの場合ですが、他の検索エンジンを使用した場合、4行目、10行目はマッチしません。</p>
+<p><img src="2_find_35.png" alt="検索" width="586" height="260" /><br />
+</p></li>
+</ol></li>
+</ul>
 <h4 id="SUPPLEMENTATION-2">検索文字列の取り込みについて</h4>
 <p>検索ダイアログを開くとき、<strong>範囲選択していない場合</strong>は、 カーソル位置から後の単語部分を「検索内容」として取り込みます。</p>
 <p>ファイルの先頭部分にカーソルがある時に、検索ダイアログを開いた場合<br />
