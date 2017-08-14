@@ -836,7 +836,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0032A">
-		<param name="Name" value="●「検索での表示」を設定">
+		<param name="Name" value="●「検索での表示」の設定による動作の違い">
 		<param name="Local" value="HMM0032A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1750,7 +1750,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索での表示">
-		<param name="Name" value="[HMM0032A]●「検索での表示」を設定">
+		<param name="Name" value="[HMM0032A]●「検索での表示」の設定による動作の違い">
 		<param name="Local" value="HMM0032A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">

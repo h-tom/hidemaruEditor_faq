@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>[HMM0032A] ●「検索での表示」を設定 - 秀丸エディタＱ＆Ａ集</title>
+  <title>[HMM0032A] ●「検索での表示」の設定による動作の違い{ - 秀丸エディタＱ＆Ａ集</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
@@ -17,7 +17,7 @@
 <p><span class="link_navigate"> <a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
 <hr />
 <h1 id="hmm0032a">[HMM0032A]</h1>
-<h2 id="HMM0032A_01">●「検索での表示」を設定</h2>
+<h2 id="HMM0032A_01">●「検索での表示」の設定による動作の違い</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
@@ -27,8 +27,24 @@
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>「その他-動作環境-検索-検索での表示」を［点滅］ではなく、［範囲選択］にしないとうまくいきません。</p>
-<p>「setcompatiblemode文」を使えば、マクロ実行時に一時的に設定を変更できます。</p>
+<dd><p>たとえば、</p>
+<div class="macro">
+<pre><code>秀丸エディタ</code></pre>
+</div>
+<p>という内容で、“秀丸”を検索し削除する為に、</p>
+<div class="macro">
+<pre><code>gofiletop;
+searchdown2 &quot;秀丸&quot;;
+if(result){
+    message &quot;削除します&quot;;
+    delete;
+}
+endmacro;</code></pre>
+</div>
+<p>というマクロを作った場合、削除されるのが“秀丸”ではなく、 “秀”という一文字しか削除できないという状況の対処方法です。</p>
+<p>「その他-動作環境-検索-検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、検索にマッチした箇所を削除できません。 ［<strong>範囲選択</strong>］にする必要があります。。</p>
+<p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。 その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている。)</p>
+<p>「setcompatiblemode文」を使えば、マクロ実行時に「検索での表示」の設定を、一時的に変更できます。</p>
 <div class="macro">
 <pre><code>setcompatiblemode 0x00000200；</code></pre>
 </div>
@@ -49,6 +65,17 @@
 </tr>
 </tbody>
 </table>
+<p>以下のようにマクロを変更すれば、設定を変更しなくても、“秀丸”という文字を削除できます。</p>
+<div class="macro">
+<pre><code>setcompatiblemode 0x00000200；
+gofiletop;
+searchdown2 &quot;秀丸&quot;;
+if(result){
+    message &quot;削除します&quot;;
+    delete;
+}
+endmacro;</code></pre>
+</div>
 </dd>
 </dl>
 </div>
