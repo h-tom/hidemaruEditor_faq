@@ -53,6 +53,11 @@
 		<param name="Local" value="3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="COM">
+		<param name="Name" value="COMƒIƒuƒWƒFƒNƒg‘€ìŠÖ˜A">
+		<param name="Local" value="3_com_object.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="config hwh">
 		<param name="Name" value="[HMM0040A]œconfig hwh">
 		<param name="Local" value="HMM0040A.html">

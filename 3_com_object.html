@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="Shift_JIS">
+  <meta name="generator" content="pandoc">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>第III部～秀丸マクロのいろはにほへと　COMオブジェクト操作関連</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="base.css">
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
+　COMオブジェクト操作関連</h1>
+<hr />
+<h2 id="INDEX">●COMオブジェクト操作関連</h2>
+<p>【０】<a href="#ABOUT">COMオブジェクトとは</a><br />
+【１】<a href="#SETTING">使用前の準備{</a><br />
+【２】<a href="#MACRO">秀丸マクロからCOMオブジェクトを使ってみる</a><br />
+【３】<a href="#OTHERS">その他</a></p>
+<div class="marginleft">
+<h3 id="ABOUT">【０】COMオブジェクトとは</h3>
+<p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの再利用を目的とした技術で、アプリケーションソフトウェア間での通信や、 OSとアプリケーションソフトウェアとのAPIに用いられています。</p>
+<p>ただし、現状(2017/08/15)では、「.NET Freamework」が主流であり、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>秀丸マクロで出来ないことでも、COMを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
+<p>ここでは、OSに標準搭載されている、「Windows Script Host」等を使って説明を行います。</p>
+<h3 id="SETTING">【１】使用前の準備</h3>
+<p>まず、使用するCOMオブジェクトの情報を収集します。</p>
+<p>今回は3つのCOMオブジェクトを使用し説明を行います。</p>
+<ol type="1">
+<li><p>「Windows Script Host」の各種オブジェクト<br />
+「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2017/08/15)ではダウンロード出来なくなっています。</p>
+<p>その為、Microsoftのwebサイトを参照します。</p>
+<p>トップページは<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc392483.aspx" target="_blank">Microsoft Windows スクリプト テクノロジ</a></span>になります。 今回使用する<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc364455.aspx" target="_blank">Windows Script Host</a></span>を選び、 <span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc364460.aspx" target="_blank">リファレンス</a></span>から、 <span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc364453.aspx" target="_blank">オブジェクト</a></span>を選びます。</p>
+<p>このページにあるオブジェクトを使用します。</p></li>
+<li><p>FileSystemObject オブジェクト<br />
+トップページの<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc392483.aspx" target="_blank">Microsoft Windows スクリプト テクノロジ</a></span>にある、 <span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc428203.aspx" target="_blank">Script ランタイム</a></span>－ <span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc409798.aspx" target="_blank">FileSystemObject</a></span>にあります。</p></li>
+<li><p>Shell オブジェクト<br />
+<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb774094(v=vs.85).aspx" target="_blank">Shell object (Windows)</a></span></p></li>
+</ol>
+<p>各オブジェクトのリンク先には、使用できるプロパティ、メソッドの説明があります。 この情報を元に、秀丸マクロを作成していくことになります。 (逆に言うと、このような情報がない場合には、マクロの作成は出来ません。)</p>
+<p>Office製品の場合には、各製品の「VBA リファレンス」が参考になります。 ただし、秀丸マクロは文字と整数しか扱えないので、そのままでは使えない場合もあります。</p>
+<p>秀丸マクロ側は<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/230_Com.html" target="_blank">「COMの呼び出し」</a></span>にある、 関数/文 を使うことになります。</p>
+<p>プロパティの呼び出し/設定、メソッドで戻り値が、数値、文字、オブジェクト場合で命令が異なるので、 少し複雑です。また命令が異なるので、使用するCOMオブジェクトの情報がないと、何を使っていいのか、 判断に困まります。</p>
+<h3 id="MACRO">【２】秀丸マクロからCOMオブジェクトを使ってみる</h3>
+<p>WshShell オブジェクト にある、“Popup”メソッドを使ってみます。</p>
+<p>秀丸マクロの message文 と同じメッセージを表示する命令ですが、タイムアウト時間を設定でき自動で閉じることが出来ます。</p>
+<p>Popupメソッドの引数、戻り値は以下になります。</p>
+<div class="macro">
+<pre><code>intButton = object.Popup(strText,[nSecondsToWait],[strTitle],[nType]) </code></pre>
+</div>
+<ul>
+<li><p>引数</p>
+<dl>
+<dt>object</dt>
+<dd>WshShell オブジェクトを指定します。
+</dd>
+<dt>strText</dt>
+<dd>表示するメッセージ
+</dd>
+<dt>nSecondsToWait</dt>
+<dd>タイムアウト時間。0(zero)だと通常のメッセージBOXと同じで、ユーザーの操作を待ち続ける。
+</dd>
+<dt>strTitle</dt>
+<dd>タイトルバーに表示する内容
+</dd>
+<dt>nType</dt>
+<dd>表示するボタンとアイコンを示す値
+</dd>
+</dl></li>
+<li><p>戻り値</p>
+<dl>
+<dt>intButton</dt>
+<dd>選択されたボタンを示す値
+</dd>
+</dl></li>
+</ul>
+<p>WSH(VBScript)の場合は以下になります。</p>
+<div class="macro">
+<pre><code>&#39;オブジェクトの生成
+Set WshShell = WScript.CreateObject(&quot;WScript.Shell&quot;)
+&#39;メソッドの呼び出し、7秒待機する。
+BtnCode = WshShell.Popup(&quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32)
+&#39;結果の表示
+Wscript.echo BtnCode
+&#39;オブジェクトの解放
+Set WshShell = Nothing</code></pre>
+</div>
+<p>これを秀丸マクロに変換していきます。</p>
+<p>まず、WshShell オブジェクトを生成するため、<strong>createobject</strong> 関数を使います。</p>
+<p>WSH(VBScript)で実行する場合と違い、秀丸マクロではCOM関連の実行時エラーが出ないので、 メソッドの実行やプロパティアクセス結果のチェックを行う必要があります。 createobject関数は戻り値で判断できますが、基本的には getresultex関数 を使い、成功/失敗を判断します。 (getresultex(10) で、COM関連命令が成功したか、失敗したかを返す)</p>
+<div class="macro">
+<pre><code>#WshShell = createobject(&quot;WScript.Shell&quot;)
+if(#WshShell == 0){ //if(getresultex(10) == false){ 
+    message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
+    endmacro;
+}</code></pre>
+</div>
+<p>次に“Popupメソッド”を呼び出します。Popupメソッドは、戻り値が数値なので、 “callmethod_returnnum関数”を使い呼び出します。</p>
+<div class="macro">
+<pre><code>#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+if(getresultex(10) == false){ 
+    message &quot;Popupメソッドの呼び出しに失敗しました。&quot;;
+    endmacro;
+}</code></pre>
+</div>
+<p>あとは、結果の表示だけなので、最終的には以下のようなマクロになります。</p>
+<div class="macro">
+<pre><code>//オブジェクトの生成
+#WshShell = createobject(&quot;WScript.Shell&quot;);
+if(#WshShell == 0){ //if(getresultex(10) == false){ 
+    message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
+    endmacro;
+}
+// メソッドの呼び出し、7秒待機する。
+#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+if(getresultex(10) == false){ 
+    message &quot;Popupメソッドの呼び出しに失敗しました。&quot;;
+    endmacro;
+}
+//結果の表示
+message str(#BtnCode);
+//オブジェクトの解放
+releaseobject #WshShell;
+endmacro;</code></pre>
+</div>
+<p>エラー検出処理が入っているので、WSH(VBScript)と比較するとマクロが冗長になってしまいますが、 エラー検出をしないと、正常動作しない場合に、どこでエラーになっているのか追いかけるのが大変です。 面倒ですが、ある程度動作確認が出来るまでは、各メソッドの呼び出しやプロパティアクセス毎に、 チェックする事をお勧めします。</p>
+<p>また、WSH(VBScript、JScript)をつかって、事前に秀丸マクロで実行したい処理を実行してみるのも良いです。 そもそも、処理方法自体が間違っているのか、秀丸マクロにする時点で間違っているのか、判断の材料になります。</p>
+<p>次に、“Shell”オブジェクトと、“FileSystemObject”オブジェクトを使ってファイルの一覧を新規秀丸エディタに出力します。 “Shell”オブジェクトでフォルダを選択し、“FileSystemObject”オブジェクトでファイル一覧を取得します。 ファイル一覧(コレクション)にアクセスするために、“getcollection”を使っています。</p>
+<p>このマクロでは、色々なオブジェクトのプロパティ、メソッドを使っていることから、 戻り値の型に従い、getpropobj、getpropstr、callmethod_returnobj、callmethod_returnstr等を使い分けています。 説明に従い適切な命令を使う必要がありますが、どうしてもわからない場合は、 <strong>“member文”, “member関数”</strong>を使う方法もあります。(プロパティは取得する場合のみで、セットすることは出来ない)</p>
+<div class="macro">
+<pre><code>// ファイル一覧の取得
+newfile;
+
+//shellオブジェクトの作成
+//Set WshShell = Wscript.CreateObject(&quot;Shell.Application&quot;)
+//Set getfolder = WshShell.BrowseForFolder(0,&quot;フォルダを選んでください&quot;, &amp;h10)
+//If (getfolder Is Nothing) Then
+//    WScript.Quit
+//End If
+//Searchfolder = getfolder.Items.Item.path
+
+//shellオブジェクトの作成
+#shell = createobject(&quot;Shell.Application&quot;);
+if(#shell == 0){
+    message &quot;Shellのオブジェクト作成に失敗&quot;;
+    endmacro;
+}
+insert &quot;shellオブジェクトの作成\n&quot;;
+insert &quot;フォルダ選択ダイアログの表示\n&quot;;
+#getfolder = callmethod_returnobj(#shell, &quot;BrowseForFolder&quot;, 0,&quot;フォルダを選んでください&quot;,0x10);
+if(#getfolder == 0){
+    message &quot;BrowseForFolderが失敗&quot;;
+    endmacro;
+}
+#folderitems = callmethod_returnobj(#getfolder, &quot;Items&quot;);
+if(#folderitems == 0){
+    message &quot;#folderitemsが失敗&quot;;
+    endmacro;
+}
+#folderitem = callmethod_returnobj(#folderitems, &quot;Item&quot;);
+if(#folderitem == 0){
+    message &quot;#folderitemが失敗&quot;;
+    endmacro;
+}
+$Searchfolder = getpropstr(#folderitem, &quot;path&quot;);
+if(getresultex(10) == false){ 
+    message &quot;pathプロパティが失敗&quot;;
+    endmacro;
+}
+insert &quot;読み込む場所：&quot; + $Searchfolder + &quot;\n&quot;;
+releaseobject #shell;
+
+message &quot;出力するファイルの拡張子を入力してください。\n&quot; + 
+        &quot;一度に複数の拡張子を指定する場合は\&quot;;\&quot;で区切ってください。\n&quot; + 
+        &quot;\&quot;.\&quot;は入力しないでください。例)txt;log)\nキャンセルで入力を終了します。&quot;;
+$chk_ext = &quot;&quot;;
+while(1){
+    $ext = input(&quot;拡張子を入力してください。キャンセルで終了&quot;);
+    if(!result) break;
+    if($ext == &quot;&quot;)break;
+    $chk_ext = $chk_ext + tolower($ext) + &quot;;&quot;;
+}
+if(strlen($chk_ext) &gt; 0){
+    insert &quot;表示するファイルの種類:&quot; + $chk_ext + &quot;\n&quot;;
+    $chk_ext = &quot;;&quot; + $chk_ext;
+}else{
+    insert &quot;表示するファイルの種類:全て\n&quot;;
+}
+
+//Set WshFso = Wscript.CreateObject(&quot;Scripting.FileSystemObject&quot;)
+//&#39;フォルダオブジェクトの取得
+//Set SFolder = WshFso.GetFolder(Searchfolder)
+//&#39;ファイルコレクションを取得
+//Set SFiles = SFolder.Files
+//for each Checkfile in SFile
+//    get_ext = WshFso.GetExtensionName(Checkfile.Path)
+//next
+/
+//ファイル一覧の取得
+#WshFso = createobject(&quot;Scripting.FileSystemObject&quot;);
+if(#WshFso == 0){ 
+    message &quot;#folderitemが失敗&quot;;
+    endmacro;
+}
+
+#Folder = callmethod_returnobj(#WshFso, &quot;GetFolder&quot;, $Searchfolder);
+if(#Folder == 0){ 
+    message &quot;Folderオブジェクトの取得に失敗&quot;;
+    endmacro;
+}
+#Files  = getpropobj(#Folder,&quot;Files&quot;);
+if(getresultex(10) == false){ 
+    message &quot;Filesコレクションの取得に失敗&quot;;
+    endmacro;
+}
+insert &quot;ファイルの一覧\n&quot;;
+while(1){
+    //filesコレクションから呼び出し
+    #File = getcollection(#Files);
+    if(#File == 0) break;
+    //ファイルオブジェクトから、パスプロパティを読み出し
+    $get_filepath = getpropstr(#File, &quot;Path&quot;);
+    if(getresultex(10) == true){ 
+        //拡張子を取得
+        $get_ext = callmethod_returnstr(#WshFso, &quot;GetExtensionName&quot;, $get_filepath);
+        if(getresultex(10) == true){ 
+            if(strlen($chk_ext) &gt; 0){
+                $get_ext = tolower($get_ext);
+                if(strstr($chk_ext, &quot;;&quot; + $get_ext + &quot;;&quot;) &gt; -1){
+                    insert $get_filepath + &quot;\n&quot;;
+                }
+            }else{
+                insert $get_filepath + &quot;\n&quot;;
+            }
+        }
+    }
+}
+#File = getcollection(#Files, 3);
+releaseobject #Files;
+releaseobject #Folder;
+releaseobject #WshFso;
+
+endmacro;</code></pre>
+</div>
+<h3 id="OTHERS">【３】その他</h3>
+<p>「.NET Freamework」のクラスも、COMから使える物もあります。</p>
+<p>以下のコレクションクラスが使えることが確認されています。</p>
+<ul>
+<li>ArrayList(System.Collections.ArrayList)<br />
+動的配列</li>
+<li>Hashtable(System.Collections.Hashtable)<br />
+連想配列</li>
+<li>SortedList(System.Collections.SortedList)<br />
+キーによってソートされる連想配列</li>
+<li>Queue(System.Collections.Queue)<br />
+先入れ先出しリスト</li>
+<li>Stack(System.Collections.Stack)<br />
+後入れ先出しリスト</li>
+</ul>
+<p>詳細は、以下のページから各クラスのページを参照してください。<br />
+<a href="https://msdn.microsoft.com/ja-jp/library/system.collections(v=vs.110).aspx">System.Collections 名前空間</a></p>
+<p>“ArrayList”は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
+<p>連想配列は、WSHでも可能で、<a href="https://msdn.microsoft.com/ja-jp/library/cc428065.aspx">Dictionary オブジェクト</a> を使います。</p>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

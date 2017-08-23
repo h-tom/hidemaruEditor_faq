@@ -161,6 +161,10 @@
 			<param name="Local" value="3_autostartmacro.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="COMオブジェクト操作関連">
+			<param name="Local" value="3_com_object.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴 ">
 			<param name="Local" value="3_macrov3.html">
 			</OBJECT>

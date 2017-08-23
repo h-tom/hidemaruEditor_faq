@@ -226,6 +226,18 @@
 <td style="text-align: left;"><strong><code>\</code></strong></td>
 <td style="text-align: left;"><strong>エスケープキャラクタ</strong></td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>(?\tag-number)</code></strong></td>
+<td style="text-align: left;">ヒットした扱いにするタグ指定</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong><code>(?#expression)</code></strong></td>
+<td style="text-align: left;">正規表現パターンに埋め込むコメント。検索では無視される。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong><code>\Q～\E</code></strong></td>
+<td style="text-align: left;"><code>\Q</code>から<code>\E</code>の間(<code>\E</code>がない場合は最後まで)のメタ文字を、通常の文字として扱う。</td>
+</tr>
 </tbody>
 </table>
 <dl>
@@ -355,7 +367,7 @@ a{8,12}? &#8211;&gt; aaaaaaaa にマッチする</p>
 <p>はどちらも</p>
 <p><span class="box_line">C++ 言語では // から行末までをコメントとみまします。↓</span></p>
 <p>という行の “<code>//</code>” からそれ以降の文字にマッチしますが、 “<code>$</code>”で行末を指定した場合はマッチの範囲に <strong>改行文字(“↓”)を含みません</strong>。 一方 “<code>\n</code>” の方は<strong>改行文字もマッチの範囲に含まれます</strong>。 このマッチの仕方の違いをうまく利用した置換の例については、 このQ&amp;A集の - 「<a href="HME0061A.html">●空白行を削除したい</a>」 - 「<a href="HME0062A.html">●空白行を改行だけの行にしたい</a>」 の２つの例を見てください。 逆に、これら２つを組み合わせて使う場合、意図した結果が得られないことがありますが、 その例と解説については<a href="#RETURNS">第５章</a>をご覧ください。</p>
-<h5 id="後方一致指定後方f不一致指定前方一致指定前方不一致指定">・後方一致指定/後方f不一致指定/前方一致指定/前方不一致指定</h5>
+<h5 id="後方一致指定後方不一致指定前方一致指定前方不一致指定">・後方一致指定/後方不一致指定/前方一致指定/前方不一致指定</h5>
 <p>これは<strong>“^”</strong>、<strong>“$”</strong>と同じく位置マッチする正規表現です。幅を持ちません。</p>
 <dl>
 <dt>後方一致指定(肯定先読み)</dt>
@@ -492,6 +504,9 @@ hidemaru0A5</code></pre>
 <p><span class="box_line">This is a pen. That is the present of my father.</span></p>
 <p>の１文目の “a” にはマッチしますが、 ２文目の “That” や “father” の中の“a” にはマッチしません。</p>
 <p>　最後の “\&lt;char&gt;”は、最初から特殊な意味を持っているメタキャラクタの特殊な意味を消すために使います。 例えば “<strong><code>*</code></strong>”(アスタリスク)を検索したい時には “<strong><code>\*</code></strong>” と指定します。 あとよく出てくる話ですが、 “<strong><code>\</code></strong>” 自身もメタキャラクタなので、“<strong><code>\</code></strong>” そのものを検索したい時は “<strong><code>\\</code></strong>” と指定します。</p>
+<p>また、<code>\Q</code>と<code>\E</code>を使う方法もあります。<code>\Q</code>と<code>\E</code>の間の文字は、メタキャラクタとしてではなく、通常の文字として扱います。 (メタキャラクタの場合、その意味を打ち消す)<br />
+“*”という文字を検索したい場合は、<code>\Q*\E</code>と記述します。“*”は繰り返しのメタキャラクタではなく、“*”という文字になります。<br />
+“”という文字を検索したい場合は、<code>\Q\t\n\E</code>と記述します。“\t”はタブではなく、“\t”という文字、“\n”は改行ではなく、“\n”という文字になります。</p>
 <!-- h5 -->
 </div>
 <h4 id="キャラクタクラスとグルーピングその他">[1-2] キャラクタクラスとグルーピングその他</h4>
