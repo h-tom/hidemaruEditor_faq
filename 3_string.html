@@ -21,7 +21,7 @@
 <h2 id="EDIT">●秀丸マクロで文字列を編集する</h2>
 <p>ここでは、秀丸マクロで文字列を編集するときによく使うコマンドの基本的な解説と、 実際にコマンドを使う上でいくつか注意すべき点をまとめました。<br />
 秀丸マクロで文字列を編集するには、大きく分けて、秀丸エディタウィンドウ上でカーソル移動したり範囲選択したり、 直接文字列を挿入したりして処理する方法と、文字列変数に取り込んで変数の中で処理する方法があります。 それらの処理を行うにあたって、範囲選択の方法や、文字列変数に取り込む方法、２バイト文字の扱いなどについて主に説明します。</p>
-<p>【１】<a href="#RETURN">改行を挿入するには（insertreturn; とinsert &quot;\n&quot;;）</a><br />
+<p>【１】<a href="#RETURN">改行を挿入するには（insertreturn; とinsert “\n”;）</a><br />
 【２】<a href="#CODE">カーソル位置の文字が何かを知るには（code, unicodeキーワード）</a><br />
 【３】<a href="#MOVETO">任意の座標にある文字が何かを判断するには（moveto,カーソル移動系コマンド）</a><br />
 【４】<a href="#BEGINSEL">範囲選択するには</a><br />
@@ -33,7 +33,7 @@
 【１０】<a href="#DOUBLE">文字列中の先頭以外の文字が１バイト文字か２バイト文字かを区別するには（midstr文等への注意事項）</a></p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="RETURN">【１】改行を挿入するには（insertreturn; とinsert &quot;\n&quot;;）</h3>
+<h3 id="RETURN">【１】改行を挿入するには（insertreturn; とinsert “\n”;）</h3>
 <p>秀丸マクロで改行を挿入するには、どうすればよいでしょうか？。</p>
 <p>その名もずばり、<strong>insertreturn</strong>という命令があります。<br />
 insertreturn文は、「改行キーを押したのと全く同じ働き」をします。<br />
@@ -155,7 +155,19 @@ if (code == ascii(&quot;\\r&quot;)) { // これもなぜか ascii(&quot;\\r&quot;) == 
 <p>選択モードを終了しても範囲選択状態でカーソル移動コマンドを使うと、移動した場所まで範囲選択状態になります。 (範囲選択が広がってしまう。)</p>
 <p>確認用マクロ</p>
 <div class="macro">
-<pre><code>//範囲選択開始
+<pre><code>//新規ファイル作成
+newfile;
+//ファイルに内容を追加
+gofiletop;
+#cnt = 1;
+while(5 &gt; #cnt){
+    insert &quot;123456789&quot;;
+    insertreturn;
+    #cnt = #cnt + 1;
+}
+//ファイルの先頭に移動
+gofiletop;
+//範囲選択開始
 beginsel;
 moveto x + 3, y;
 //範囲選択モード解除
@@ -166,7 +178,7 @@ moveto x + 3, y + 3;
 message &quot;カーソル移動&quot;;
 endmacro;</code></pre>
 </div>
-<p><img src="3_string_501.png" alt="範囲選択終了時" width="310" height="200" /> <img src="3_string_502.png" alt="カーソル移動終了時" width="310" height="199" /><br />
+<p><img src="3_string_501.png" alt="範囲選択終了時" width="350" height="193" /> <img src="3_string_502.png" alt="カーソル移動終了時" width="350" height="193" /><br />
 </p>
 <p>動作的にはおかしいが、現状（2016/05/11）においては仕様ということです。 範囲選択状態から、検索を使用し、見つけた位置まで範囲選択を伸ばす事も可能になっているので、 カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto、movetolineno goline～のコマンドです。)</p>
@@ -231,7 +243,7 @@ $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
 </dl>
 <h3 id="CLIPBOARD">【８】文字列型変数に取り込むには：その２（クリップボード経由）</h3>
 <p>クリップボードを経由して行う方法もあります。大まかには、以下の流れになります。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>あらかじめ範囲選択する</li>
 <li><strong>cut</strong>で切り取り、または<strong>copy</strong>でコピーする</li>
 <li><strong>beginclipboardread</strong>文で、クリップボードからの読み込み開始を宣言する</li>
@@ -365,7 +377,7 @@ $s = &quot;1回一括②&quot;;
 message char(ascii(midstr($s, 6, 2))); // ㊦が表示される！！
 //（&quot;括&quot;==0x8a87、&quot;②&quot;==0x8741、&quot;㊦&quot;==0x8787）</code></pre>
 </div>
-<p>&quot;㊦&quot;は0x8787と、１バイト目と２バイト目が同じ値で、いかにも意地悪な例ではありますが、各バイト値だけでは判断できないことがわかると思います。</p>
+<p>“㊦”は0x8787と、１バイト目と２バイト目が同じ値で、いかにも意地悪な例ではありますが、各バイト値だけでは判断できないことがわかると思います。</p>
 <p>では、文字列中の任意の位置の文字が１バイト文字か２バイト文字かを区別するには、どうすればよいのでしょうか。<br />
 実現方法はいくつか考えられますが、文字列の先頭から順番に確認していくのが基本です。<br />
 一例としては、<a href="HMM0074A.html">[HMM0074A] ●文字列の後方から文字列を検索</a> を参照してください。</p>
