@@ -20,14 +20,14 @@
 <hr />
 <h2 id="INDEX">●COMオブジェクト操作関連</h2>
 <p>【０】<a href="#ABOUT">COMオブジェクトとは</a><br />
-【１】<a href="#SETTING">使用前の準備{</a><br />
+【１】<a href="#SETTING">使用前の準備</a><br />
 【２】<a href="#MACRO">秀丸マクロからCOMオブジェクトを使ってみる</a><br />
 【３】<a href="#OTHERS">その他</a></p>
 <div class="marginleft">
 <h3 id="ABOUT">【０】COMオブジェクトとは</h3>
 <p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの再利用を目的とした技術で、アプリケーションソフトウェア間での通信や、 OSとアプリケーションソフトウェアとのAPIに用いられています。</p>
-<p>ただし、現状(2017/08/15)では、「.NET Freamework」が主流であり、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
-<p>秀丸マクロで出来ないことでも、COMを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
+<p>ただし、現状(2017/08/15現在)では、「.NET Freamework」が主流であり、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
 <p>ここでは、OSに標準搭載されている、「Windows Script Host」等を使って説明を行います。</p>
 <h3 id="SETTING">【１】使用前の準備</h3>
 <p>まず、使用するCOMオブジェクトの情報を収集します。</p>
@@ -249,6 +249,8 @@ releaseobject #WshFso;
 endmacro;</code></pre>
 </div>
 <h3 id="OTHERS">【３】その他</h3>
+<div class="marginleft">
+<h4 id="net-freameworkのクラス">「.NET Freamework」のクラス</h4>
 <p>「.NET Freamework」のクラスも、COMから使える物もあります。</p>
 <p>以下のコレクションクラスが使えることが確認されています。</p>
 <ul>
@@ -264,9 +266,45 @@ endmacro;</code></pre>
 後入れ先出しリスト</li>
 </ul>
 <p>詳細は、以下のページから各クラスのページを参照してください。<br />
-<a href="https://msdn.microsoft.com/ja-jp/library/system.collections(v=vs.110).aspx">System.Collections 名前空間</a></p>
+<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/system.collections(v=vs.110).aspx" target="_blank">System.Collections 名前空間</a></span></p>
 <p>“ArrayList”は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
-<p>連想配列は、WSHでも可能で、<a href="https://msdn.microsoft.com/ja-jp/library/cc428065.aspx">Dictionary オブジェクト</a> を使います。</p>
+<p>連想配列は、WSHでも可能で、<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc428065.aspx" target="_blank">Dictionary オブジェクト</a></span> を使います。</p>
+<h4 id="comオブジェクトの有効範囲">COMオブジェクトの有効範囲</h4>
+<p>createobject文を実行した秀丸エディタ上のみ有効です。</p>
+<p>次のマクロでは、2回目の“Popup”メソッドは、新規秀丸エディタを開いて呼び出しているため、失敗します。 (新規秀丸エディタ上で、createobjectを実行していないので、“WScript.Shell” オブジェクトは存在してない。)</p>
+<div class="macro">
+<pre><code>//オブジェクトの生成
+#WshShell = createobject(&quot;WScript.Shell&quot;);
+if(#WshShell == 0){ //if(getresultex(10) == false){ 
+    message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
+    endmacro;
+}
+// メソッドの呼び出し、7秒待機する。
+#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+if(getresultex(10) == false){ 
+    message &quot;Popupメソッドの呼び出しに失敗しました。(1)&quot;;
+    endmacro;
+}
+//結果の表示
+message str(#BtnCode);
+
+//新規秀丸エディタを開く
+newfile;
+// メソッドの呼び出し この行は失敗する。
+#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+if(getresultex(10) == false){ 
+    #err = getresultex(11);
+    message &quot;Popupメソッドの呼び出しに失敗しました。(2)\n0x&quot; + hex(#err);
+    endmacro;
+}
+
+//オブジェクトの解放
+releaseobject #WshShell;
+endmacro;</code></pre>
+</div>
+<p>DLLの場合と違い、呼び出しに失敗してもマクロの実行は止まらない為、異常には気がつきにくいです。 (メソッドの呼び出し、プロパティアクセス後は、エラーチェックをした方が良いです。)</p>
+<!-- h4 -->
+</div>
 <!-- h3 -->
 </div>
 <hr />
