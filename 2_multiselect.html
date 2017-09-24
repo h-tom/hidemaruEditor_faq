@@ -74,9 +74,19 @@
 </li>
 <li><p>キーボードで複数選択を行う場合、「複数選択予約」、「複数選択予約を選択」、「複数選択予約を消去、 「複数選択予約を全て消去」を何かのキーに割り当てておくと便利です。</p></li>
 </ul>
-<!-- h3 -->
+<!-- h4 -->
+<div class="marginleft">
+<h4 id="SUPPLEMENTATION-1">マクロ関連</h4>
+<p>複数選択状態で、マクロを実行する場合は注意が必要です。</p>
+<p>デフォルト状態では、各種命令は「複数選択」に対応していません。 たとえば、複数選択状態で <code>&quot;copy&quot;</code>、<code>&quot;delete&quot;</code> を実行しても、複数選択した箇所ではなく、 カーソルのある箇所だけ実行されます。</p>
+<p>各種命令を「複数選択」に対応させるには、「<span class="font_red">setcompatiblemode</span>文」を使います。</p>
+<p>setcompatiblemode 文のフラグには、</p>
+<pre><code>0x00100000 各種の文を複数選択に対応した動作にします。</code></pre>
+<p>があるので、このフラグをセットします。</p>
 </div>
-<hr />
+<!-- h4 -->
+</div>
+<h2 id="section"><!-- h3 --></h2>
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

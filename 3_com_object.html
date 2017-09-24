@@ -270,7 +270,7 @@ endmacro;</code></pre>
 <p>“ArrayList”は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
 <p>連想配列は、WSHでも可能で、<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc428065.aspx" target="_blank">Dictionary オブジェクト</a></span> を使います。</p>
 <h4 id="comオブジェクトの有効範囲">COMオブジェクトの有効範囲</h4>
-<p>createobject文を実行した秀丸エディタ上のみ有効です。</p>
+<p>createobject文を実行した秀丸エディタ上のみ有効です。秀丸エディタを切り替えた場合は、無効です。 (DLLのロードと同じ。)</p>
 <p>次のマクロでは、2回目の“Popup”メソッドは、新規秀丸エディタを開いて呼び出しているため、失敗します。 (新規秀丸エディタ上で、createobjectを実行していないので、“WScript.Shell” オブジェクトは存在してない。)</p>
 <div class="macro">
 <pre><code>//オブジェクトの生成

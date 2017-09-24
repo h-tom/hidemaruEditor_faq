@@ -33,6 +33,7 @@
 <li><a href="#SUPPLEMENTATION-1">64bit対応について</a></li>
 <li><a href="#SUPPLEMENTATION-2">「32bit変換モジュールを動作可能にする」について</a></li>
 <li><a href="#SUPPLEMENTATION-3">「置換」で使うには</a></li>
+<li><a href="#SUPPLEMENTATION-4">変換モジュールを作るには</a></li>
 </ul></li>
 </ul>
 <!-- h3 -->
@@ -130,6 +131,14 @@ filter &quot;&quot; , &quot;Sort&quot; , &quot;000100010001000\&quot;00&quot;;
 endmacro;</code></pre>
 </div>
 <p>このマクロファイルを、「<a href="3_macro.html">秀丸マクロのいろはにほへと</a>」の「<a href="3_macro.html#REGIST">【４】マクロ登録</a>」、 「<a href="3_macro.html#SHORTCUT">【５】ショートカットキーへの登録</a>」を参考に、マクロを登録し、キーに割り当ててください。</p>
+<p>複数選択状態で、マクロを実行する場合は注意が必要です。</p>
+<p>デフォルト状態では、filter文は「複数選択」に対応していません。 たとえば、複数選択状態で実行しても、複数選択した箇所ではなく、 カーソルのある箇所だけ実行されます。</p>
+<p>各種命令を「複数選択」に対応させるには、「<span class="font_red">setcompatiblemode</span>文」を使います。</p>
+<p>setcompatiblemode 文のフラグには、</p>
+<div class="macro">
+<pre><code>0x00100000 各種の文を複数選択に対応した動作にします。</code></pre>
+</div>
+<p>があるので、setcompatiblemode文 に このフラグをセットし、マクロに追加しておけば、 複数選択に対応させることが可能です。</p>
 </div>
 <!-- h5 -->
 <h4 id="EXPLANATION-3">変換モジュールを置く場所について</h4>
@@ -178,6 +187,9 @@ endmacro;</code></pre>
 <p>これで何ができるかというと、検索でマッチした箇所を、大文字/小文字/全角/半角へ変換する事が可能になります。 (検索にマッチした箇所に、変換モジュールが持つ機能を実行する。)</p>
 <p>詳細は、「<a href="hmindex2.html">知っていると便利な秀丸の機能</a>」の「<a href="2_replace.html">●置換</a>」にある、 <a href="2_replace.html#SUPPLEMENTATION-3">[変換モジュールを使った置換]</a>を参照してください。</p>
 <p>ただし、使用する変換モジュールが秀丸エディタ本体と同じ場所にない場合、 マクロと同じくモジュール名にフルパスを指定する必要があります。</p>
+<h4 id="SUPPLEMENTATION-4">変換モジュールを作るには</h4>
+<p>変換モジュールはDLLなので、自分で作ることも可能です。</p>
+<p><span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemaru.html" target="_blank">秀丸エディタ</a></span>のダウンロードに、 「変換モジュール開発キットおよびサンプル変換モジュール」があるので、</p>
 </div>
 <!-- h4 -->
 </div>

@@ -1410,6 +1410,11 @@
 		<param name="Local" value="byebye.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="デバッグ">
+		<param name="Name" value="マクロのデバッグについて">
+		<param name="Local" value="3_debug.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ハイパーリンク">
 		<param name="Name" value="[HME0081A]●秀丸でハイパーリンク">
 		<param name="Local" value="HME0081A.html">
