@@ -131,7 +131,7 @@ DEBUGOUT:
     //両方見つからない場合は終了
     if(##debugger1 == 0 &amp;&amp; ##debugger2 == 0) return;
     //秀丸エディタ・デバッグ出力モニターの場合は、最後に改行を追加
-    if(##debugger1 != 0 &amp;&amp; rightstr($$debug_message, 1) != &quot;\n&quot;) $$debug_message = $$debug_message + &quot;\n&quot;;
+    if(##debugger1 != 0 &amp;&amp; rightstr($$debug_message, 1) != &quot;\x0a&quot;) $$debug_message = $$debug_message + &quot;\x0a&quot;;
     //デバッガに出力
     debuginfo $$debug_message;
 return;</code></pre>
