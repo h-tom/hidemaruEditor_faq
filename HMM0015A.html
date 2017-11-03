@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>[HMM0015A] ●拡張子の認識 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><span class="link_navigate"> <a href="HMM0014A.html">←前へ</a> <a href="HMM0016A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
 <hr />
 <h1 id="hmm0015a">[HMM0015A]</h1>
@@ -28,13 +32,13 @@
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>大きく分けて、次の 2 つの方法があります。</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li><p>キーワード filetype を使う。</p>
 <p>filetype キーワードを利用することにより、<code>「.」</code>+拡張子を取得できます。</p>
 <p>なお、「新規」、「grepの結果」、プログラムの標準出力による「実行結果」の場合、 各々「new」「grep」「exeresult」という決まった文字列を返します。</p>
 <dl>
 <dt>[補足]</dt>
-<dd><p>秀丸エディタの起動オプションで、&quot;/c&quot;オプションを指定した場合や、setfiletype文を使った場合は、 実ファイルの拡張子と、filetypeで取得できる拡張子が一致しません。 これは、設定を強制的に変更している為の仕様になります。 (<span class="externallink"><a href="http://hidemaruo.dip.jp:81/turukame/turukame_3/x0701567.html#1568" target="_blank">turukame.3:01568</a></span>を参照)</p>
+<dd><p>秀丸エディタの起動オプションで、“/c”オプションを指定した場合や、setfiletype文を使った場合は、 実ファイルの拡張子と、filetypeで取得できる拡張子が一致しません。 これは、設定を強制的に変更している為の仕様になります。 (<span class="externallink"><a href="http://hidemaruo.dip.jp:81/turukame/turukame_3/x0701567.html#1568" target="_blank">turukame.3:01568</a></span>を参照)</p>
 <p>つまり、filetypeキーワードでは、編集しているファイルの拡張子を正確に取得できない場合があるということになります。</p>
 <p>設定の種類を取得したい場合は filetypeキーワードを、 実ファイルの確実な拡張子が必要な場合は、 basename 等、ファイル名を取得するキーワードから取得してください。</p>
 </dd>
@@ -45,8 +49,8 @@
 <ul>
 <li><p>hmjre.dll を使用し、正規表現検索を使う。(dllfuncを使う。)</p>
 <p>例) 「.+(.[^.]+)」を検索し、タグの位置(括弧内の範囲)を切り出す。</p></li>
-<li><p>COM呼び出し機能を使用し、&quot;Scripting.FileSystemObject&quot;の&quot;GetExtensionName&quot;メソッドを使う。</p>
-<p>&quot;GetExtensionName&quot;メソッドは、filetypeキーワードと違い、<code>&quot;.&quot;</code>(ドット)を含まない文字列を返します。 また、小文字に正規化はされていないので、注意が必要です。</p></li>
+<li><p>COM呼び出し機能を使用し、“Scripting.FileSystemObject”の“GetExtensionName”メソッドを使う。</p>
+<p>“GetExtensionName”メソッドは、filetypeキーワードと違い、<code>&quot;.&quot;</code>(ドット)を含まない文字列を返します。 また、小文字に正規化はされていないので、注意が必要です。</p></li>
 </ul></li>
 </ol>
 </dd>

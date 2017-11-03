@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第II部～知っていると便利な秀丸の機能　置換</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第II部～知っていると便利な秀丸の機能<br />
-　置換</h1>
+<h1 id="TOP">第II部～知っていると便利な秀丸の機能<br />　置換</h1>
 <hr />
 <h2 id="REPLACE">●置換</h2>
 <p>編集中のファイルにいっぱいある、特定の文字(列)を別の文字(列)に置き換えたい時には、秀丸エディタの「<strong>置換</strong>」機能を使えば簡単にできます。<br />
@@ -96,8 +99,8 @@
 <img src="2_replace_08.png" alt="置換メニュー" width="407" height="288" /><br />
 </p></li>
 <li><p>「置換」ダイアログのタイトルバー部分にある「▼」マークを押すと、メニューが表示されます。 「<strong>検索文字列の追加取得</strong>」、「<strong>検索の動作環境</strong>」を開いたり、「<strong>検索ダイアログ</strong>」に切り替える事も可能です。</p>
-<img src="2_replace_03.png" alt="置換ダイアログのメニューその２" width="433" height="412" /><br />
-</li>
+<p><img src="2_replace_03.png" alt="置換ダイアログのメニューその２" width="433" height="412" /><br />
+</p></li>
 </ul>
 <!-- h4 -->
 <div class="marginleft">
@@ -115,13 +118,16 @@
 <p>以前だと、「<span class="font_blue">一周する</span>」がオフの状態で、上検索または下検索を行い、 ファイルの上限か下限に達して、検索出来なくなると確認ダイアログが消えましたが、 現状では「キャンセル」しないと表示されたままになります。 (移動できない方向の検索ボタンは無効化された状態になる。)</p>
 <p>従来のダイアログでの表示例<br />
 <img src="2_replace_07.png" alt="確認ダイアログ従来タイプその2" width="453" height="59" /><br />
-これは、例えば「下検索」実行時に、ファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。 以前のように、マッチしなくなった場合、ダイアログを消すよう変更する事も可能です。</p>
+</p>
+<p>これは、例えば「下検索」実行時に、ファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。 以前のように、マッチしなくなった場合、ダイアログを消すよう変更する事も可能です。</p>
 <h4 id="SUPPLEMENTATION-2">[置換に関する設定]</h4>
 <p>各機能に関しては、「ヘルプ」を参照の事。</p>
 <p><img src="2_replace_setting01.png" alt="動作環境-検索" width="605" height="433" /><br />
-「置換の動作」で「置換の確認の種類」で置換確認のダイアログを選択可能です。</p>
+</p>
+<p>「置換の動作」で「置換の確認の種類」で置換確認のダイアログを選択可能です。</p>
 <p><img src="2_replace_setting02.png" alt="動作環境-検索-検索ダイアログ" width="605" height="433" /><br />
-「置換ダイアログボックス」の「置換の確認の種類」でも置換確認のダイアログを選択可能です。</p>
+</p>
+<p>「置換ダイアログボックス」の「置換の確認の種類」でも置換確認のダイアログを選択可能です。</p>
 <h4 id="SUPPLEMENTATION-3">[変換モジュールを使った置換]</h4>
 <p>秀丸エディタ Ver.8.13より、置換時、検索結果に対し、変換モジュールの機能を実行できるようになりました。</p>
 <p>これで何ができるかというと、検索でマッチした箇所を、大文字/小文字/全角/半角へ変換する事が可能になります。 (検索でマッチした箇所に、変換モジュールが持つ各種変換を実行する事ができる。)</p>

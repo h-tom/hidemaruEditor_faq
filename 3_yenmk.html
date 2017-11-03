@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　マクロ内での「\」や特殊文字の使い方</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
-　マクロ内での「\」や特殊文字の使い方</h1>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />　マクロ内での「\」や特殊文字の使い方</h1>
 <hr />
 <h2 id="INDEX">●マクロ内での「\」や特殊文字の使い方</h2>
 <p>【０】<a href="#MAEGAKI">まえがき ～ 「\」や特殊文字を表記するために ～</a><br />
@@ -65,12 +68,12 @@
 <td style="text-align: left;">16進数の「5C」、10進数の「92」</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>\x</strong><em>hh</em></td>
+<td style="text-align: left;"><strong>\x</strong>_hh_</td>
 <td style="text-align: left;">任意の文字コード hh の文字 (16進数)</td>
 <td style="text-align: left;">例えば「\x41」で、16進数の「41」、 10進数の「65」。 これは文字でいうと「A」です</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>\u</strong><em>hhhh</em></td>
+<td style="text-align: left;"><strong>\u</strong>_hhhh_</td>
 <td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数4桁固定)</td>
 <td style="text-align: left;">「<code>\u79C0</code>」で、「秀」という文字を示す。<br />
@@ -81,7 +84,7 @@
 のように2文字文を使う表現になる。</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>\U</strong><em>hhhhhhhh</em></td>
+<td style="text-align: left;"><strong>\U</strong>_hhhhhhhh_</td>
 <td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数8桁固定)</td>
 <td style="text-align: left;">「<code>\U000079C0</code>」で、「秀」という文字を示す。<br />
@@ -159,7 +162,8 @@ endmacro;
 </div>
 <p>となるわけですねヾ(^^;</p>
 <p>＃ このように\を重ねて書かねばならないのはマクロ内だけです。正規表現による検索でもダイアログで普通に行う分には\は１個でよいです。<br />
-慣れてくると逆に混乱することがあるので、蛇足ですが(^^;)。</p>
+</p>
+<p>慣れてくると逆に混乱することがあるので、蛇足ですが(^^;)。</p>
 <p>では、正規表現のマクロ記述は何でも\を重ねて書けばよいかというと、ダブルクォーテーションマーク(&quot; )だけは異なります。</p>
 <div class="macro">
 <pre><code>searchdown &quot;\&quot;&quot;, regular;</code></pre>
@@ -258,10 +262,11 @@ message @&quot;&quot;&quot;Raw文字列
     インデントもそのまま文字列扱いされます。&quot;;</code></pre>
 </div>
 <p><br />
-<!-- mark_dt --></p>
+</p>
 </dd>
 </dl>
 </div>
+<!-- mark_dt -->
 <hr />
 <p>例として「message文」を使いましたが、文字列を指定する箇所なら何処でもこの記法が使えます。 正規表現パターンを指定する場合にも使用できるので、見やすくなります。</p>
 <p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>

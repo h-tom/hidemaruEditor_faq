@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　マクロ登録数の制限突破大作戦</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
-　マクロ登録数の制限突破大作戦</h1>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />　マクロ登録数の制限突破大作戦</h1>
 <hr />
 <h2 id="マクロ登録数の制限突破大作戦">●マクロ登録数の制限突破大作戦</h2>
 <p>秀丸エディタのマクロが充実していることは定評になっていますが、マクロの登録数は80個まで、 そのうちキー割り当ても出来るのは50個までという制限があります。(<strong>Ver.4.10β9</strong> より制限がなくなり、80個すべて割り当て可能です。)<br />
@@ -115,7 +118,7 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <p>　秀丸エディタでマクロ登録数の制限を克服するための原理の説明は以上でおしまいです。 実際にどのようなマクロをこれを実現するか、２つの例を紹介することにします。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="作例">●作例１</h5>
+<p>#####●作例１</p>
 <p>　では、まず、上述の原理をもっとも忠実に再現した、シンプルなマクロを紹介しましょう。 （月刊アスキー97年3月号「パソコン早わかり研究会」より引用）</p>
 <p>●マクロ登録数の限界を破る</p>
 <dl>
@@ -236,7 +239,7 @@ endmacroall;</code></pre>
 </ol>
 </dd>
 </dl>
-<h5 id="作例-1">●作例２</h5>
+<p>#####●作例２</p>
 <p>　作例１のマクロでは、マクロファイルそのものを編集しなければいけません。 これは秀丸マクロに慣れていないユーザにとっては難儀ですし、マクロが動作しなくなるなどの危険性も伴います。 そこで、原理的には同じですが、さらに高度でぐっとハイセンスなマクロにしあげた例をご紹介します。 安全でユーザビリティに優れています。（秀丸マクロ集REDライク Ver1.11に同梱。編集上の都合により一部変更）</p>
 <p><strong>●KEY_ASIN.MAC</strong></p>
 <p>KEY_ASIN.MACと初期値ファイル（HIDERED.INI）です。<br />
@@ -402,8 +405,8 @@ L1000:
     endmacro;
 //---------------------- マクロここまで --------------------</code></pre>
 </div>
-<br />
-
+<p><br />
+</p>
 <div class="macro">
 <pre><code>;------------------ 初期値ファイルここから ----------------
 [Key_Asin]

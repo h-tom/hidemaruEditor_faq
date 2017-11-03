@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.5.00 マクロ関連の変更履歴</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
-　秀丸エディタVer.5.00 マクロ関連の変更履歴</h1>
-<hr />
+<h2 id="TOP"># 第III部～秀丸マクロのいろはにほへと<br />　秀丸エディタVer.5.00 マクロ関連の変更履歴</h2>
 <h2 id="V5">●秀丸エディタVer.5.00 マクロ関連の変更履歴</h2>
-【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 5.00</a><br />
+<p>【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 5.00</a><br />
 【２】<a href="#spec">仕様変更</a><br />
+</p>
 <!-- h3 -->
 <div class="marginleft">
 <h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.5.00</h3>
@@ -35,17 +38,17 @@
 <li>gettext2, columntox, linenotoy, xtocolumn, ytolineno</li>
 <li>seltopcolumn, seltoplineno, selendcolumn, selendlineno</li>
 </ul></li>
-<li>config &quot;x...&quot;で指定できるものに xImeColorCurLine を追加</li>
-<li>config &quot;x...&quot;で指定できるものに xTategaki とxDangumiを追加</li>
-<li>config &quot;x...&quot;で指定できるものに xLastColor, xStripe, xClistFont, xClistFontSize を追加</li>
+<li>config “x…”で指定できるものに xImeColorCurLine を追加</li>
+<li>config “x…”で指定できるものに xTategaki とxDangumiを追加</li>
+<li>config “x…”で指定できるものに xLastColor, xStripe, xClistFont, xClistFontSize を追加</li>
 <li>searchdown等のオプションに hilight nohilight を追加</li>
-<li>config &quot;x...&quot;で指定できるものに xCharSpace を追加</li>
+<li>config “x…”で指定できるものに xCharSpace を追加</li>
 <li>foundhilightingキーワード追加</li>
 <li>nexttab/prevtabでマクロの実行が移らなかったのを修正</li>
 <li>1 * -1 がエラーになる問題修正</li>
 <li>disableerrormsgが有効のとき、「文字コード変換できない文字が含まれています。かまわずに保存しますか？」 のメッセージは出さないようにして、常にかまわず保存してしまうようにする</li>
 <li>Unicodeの文字列対応<br />
-文字列型変数の中で&quot;000&quot;として、0000の部分に16進数4桁でUnicodeを記述</li>
+文字列型変数の中で“</li>
 <li>Unicode対応の修正<br />
 insert, insertfix, overwrite,leftstr, rightstr, midstr,strlen, strstr, message,gettext, gettext2, setclipboard, addclipboard, getclipboard</li>
 <li>Unicode非対応の修正<br />
@@ -68,11 +71,11 @@ tabgrouptotal,tabgrouporder,gettabhandle(),getcurrenttab(),foundbuffer,foundopti
 <li>golineend3 追加。「行末に移動（その２）」相当。</li>
 <li>unicharの追加、unicodeの引数版の追加。</li>
 <li>setencode 26;でバイナリモードにも変更可能にする。</li>
-<li>menu文,input関数も&quot;&quot;によるUnicodeの文字の表示を可能にする。</li>
+<li>menu文,input関数も“”によるUnicodeの文字の表示を可能にする。</li>
 <li>configset文追加。</li>
 <li>currentconfigsetキーワード追加。</li>
 <li>openfile, loadfileなどのオプションにnoaddhistを追加。</li>
-<li>openfile &quot;&quot;;で新規作成されない場合がある問題修正。</li>
+<li>openfile “”;で新規作成されない場合がある問題修正。</li>
 <li>fontmodeキーワード追加</li>
 <li>menuarrayなどの縦書きモード対応</li>
 </ul>
@@ -92,7 +95,7 @@ tabgrouptotal,tabgrouporder,gettabhandle(),getcurrenttab(),foundbuffer,foundopti
 <li>getclipboardでフォントが日本語のときUnicodeから日本語への変換をするようにする</li>
 <li>loadhilightをした後に、強調表示一覧の枠を更新するようにする</li>
 <li>検索文字列に強調関係の仕様変更。既存のマクロでは、検索文字列の強調に影響を与えないようにする</li>
-<li>getconfig(&quot;Tategaki&quot;)では、一時的な状態の縦書きを取得するようにする</li>
+<li>getconfig(“Tategaki”)では、一時的な状態の縦書きを取得するようにする</li>
 <li>colorcodeの仕様変更<br />
 検索文字列の強調は 27 ではなく、0x00010000 のビットにして、他の強調と重なり合っていても、colorcodeの値は維持するようにする。</li>
 <li>filter文は動作環境で変換モジュールを追加していなくてもできるようにする。</li>

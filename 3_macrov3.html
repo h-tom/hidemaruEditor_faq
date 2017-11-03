@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.3.00 マクロ関連の変更履歴</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
-　秀丸エディタVer.3.00 マクロ関連の変更履歴</h1>
-<hr />
+<h2 id="TOP"># 第III部～秀丸マクロのいろはにほへと<br />　秀丸エディタVer.3.00 マクロ関連の変更履歴</h2>
 <h2 id="V3">●秀丸エディタVer.3.00 マクロ関連の変更履歴</h2>
 <p>秀丸 ver.3.00になって、機能強化に伴いマクロ文が追加されたり、仕様変更が行われました。また、いくつかのバグ修正も行われています。<br />
 そのため、裏を返せば ver.2.xとの間でマクロに一部非互換が発生しています。<br />
@@ -44,10 +46,10 @@
 <li>その他、マクロのバグが修正された。</li>
 </ul>
 <h3 id="GOKAKKO">【２】gokakko, goleftkakko, gorightkakko の仕様変更</h3>
-<p>gokakko 対応する括弧に移動 goleftkakko '{'に移動 gorightkakko '}'に移動</p>
+<p>gokakko 対応する括弧に移動 goleftkakko ‘{’に移動 gorightkakko’}’に移動</p>
 <p>これらの 3 個のマクロ、コマンドは Ver. 3.00 から仕様が変更されました。<br />
 「ファイルタイプ別の設定」で「コメント/文字定数のカラー表示」を指定しない場合には従来の移動と同じです。 また、これを指定した場合には、</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>gokakko は、「コメント/文字定数」の中にある括弧では移動しません。</li>
 <li>goleftkakko, gorightkakko は、「コメント/文字定数」の中にある括弧 { } を無視して移動します。</li>
 </ol>
@@ -82,9 +84,8 @@ message str(#kk);
 
 endmacro;</code></pre>
 </div>
-<br />
-<br />
-
+<p><br />
+</p>
 <div class="macro">
 <pre><code>// c2.mac
 \#i = hidemaruhandle(0);

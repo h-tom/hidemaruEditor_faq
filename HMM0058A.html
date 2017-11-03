@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>[HMM0058A] ●setactivehidemaru 文の引数 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><span class="link_navigate"> <a href="HMM0057A.html">←前へ</a> <a href="HMM0059A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
 <hr />
 <h1 id="hmm0058a">[HMM0058A]</h1>
@@ -31,19 +35,24 @@
 <dl>
 <dt>[解説]</dt>
 <dd><ol type="1">
-<li><p><strong>ウィンドウ番号</strong></p>
-<p>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
-<div class="macro">
-<pre><code>//------- サンプルマクロ1 -------//
-// &quot;c:\\hidemaru\\install.txt&quot; のウィンドウ番号を取得する
-$file = &quot;c:\\hidemaru\\install.txt&quot;;
-#h_order = findhidemaru($file);
-message $file + &quot; のウィンドウ番号は &quot; + str(#h\_order) + &quot; です。&quot;;
-if( #h_order != -1 ) setactivehidemaru #h_order; //切り替え
-endmacro;
-// ---------------------------- //</code></pre>
-</div>
-<p>※ ファイルが開かれていない場合は、ウィンドウ番号は -1 になります。</p></li>
+<li><strong>ウィンドウ番号</strong></li>
+</ol>
+<pre><code>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。
+ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。
+
+&lt;div class=&quot;macro&quot;&gt;
+    //------- サンプルマクロ1 -------//
+    // &quot;c:\\hidemaru\\install.txt&quot; のウィンドウ番号を取得する
+    $file = &quot;c:\\hidemaru\\install.txt&quot;;
+    #h_order = findhidemaru($file);
+    message $file + &quot; のウィンドウ番号は &quot; + str(#h\_order) + &quot; です。&quot;;
+    if( #h_order != -1 ) setactivehidemaru #h_order; //切り替え
+    endmacro;
+    // ---------------------------- //
+&lt;/div&gt;
+
+※ ファイルが開かれていない場合は、ウィンドウ番号は -1 になります。</code></pre>
+<ol start="2" type="1">
 <li><p><strong>ウィンドウハンドル</strong></p>
 <ol type="1">
 <li>で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。 いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、 「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</li>
@@ -65,7 +74,7 @@ endmacro;
 <div class="macro">
 <pre><code>#hwnd_act = hidemaruhandle(findhidemaru(filename));</code></pre>
 </div>
-<div style="white-space: pre-line;">※ filename には現在のウィンドウのファイル名が入る(「<a href="HMM0060A.html">●「キーワード」とは？</a>」を参照して下さい)。</div>
+<div class="line-block">※ filename には現在のウィンドウのファイル名が入る(「<a href="HMM0060A.html">●「キーワード」とは？</a>」を参照して下さい)。</div>
 <p>ではなく</p>
 <div class="macro">
 <pre><code>#hwnd_act = hidemaruhandle( 0 );</code></pre>

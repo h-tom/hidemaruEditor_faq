@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理(タブモード編)</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />
-　秀丸エディタウィンドウの管理(タブモード編)</h1>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />　秀丸エディタウィンドウの管理(タブモード編)</h1>
 <hr />
 <h2 id="INDEX">●秀丸エディタウィンドウの管理(タブモード編)</h2>
 <p>秀丸エディタ Ver.4.10以降から、「タブモード」が追加されています。 タブを含むウィンドウを複数表示する事も可能です。(タブグループ)</p>
@@ -36,8 +39,9 @@
 <dd>タブに関する各種コマンドを使う場合は、必ず「タブモード」になっている事を確認してから使用する事。 ウィンドウモードで、タブ関連のコマンドを使用しても期待する動作にならない場合があります。
 </dd>
 </dl>
-【１】<a href="#TABGROUP">タブグループ</a><br />
+<p>【１】<a href="#TABGROUP">タブグループ</a><br />
 【２】<a href="#TAB">タブ</a><br />
+</p>
 <!-- h3 -->
 <div class="marginleft">
 <h3 id="TABGROUP">【１】タブグループ</h3>
@@ -98,7 +102,7 @@ openfile &quot;/i \&quot;C:\\My Documents\\memo.txt\&quot;&quot;;</code></pre>
 <p>例として「次のタブグループ」、「次のタブグループ」に移動するマクロを作成します。 条件として、最小化しているタブグループには、移動しません。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="TABGROUP_MACRO1">「次のタブグループ」へ移動するマクロ</h5>
+<p>#####「次のタブグループ」へ移動するマクロ{#TABGROUP_MACRO1}</p>
 <div class="macro">
 <pre><code>//「次のタブグループ」
 //タブモードでなければ、次の秀丸エディタへ
@@ -142,7 +146,7 @@ endmacro;</code></pre>
 <p>を指定します。</p></li>
 <li><p>ウィンドウハンドルから表示状態をチェックし、最小化していなければ、 <code>setactivehidemaru</code> でアクティブなウィンドウ(タブグループ)を切り替えます。 (タブグループの切り替えに、<code>nexthidemaru</code>、<code>prevhidemaru</code> を使わないのは、 「タブの切り替え」になってしまうからです。)</p></li>
 </ul>
-<h5 id="TABGROUP_MACRO2">「前のタブグループ」へ移動するマクロ</h5>
+<p>#####「前のタブグループ」へ移動するマクロ{#TABGROUP_MACRO2}</p>
 <div class="macro">
 <pre><code>//「前のタブグループ」
 //タブモードでなければ、前の秀丸エディタへ

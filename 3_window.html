@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="第iii部秀丸マクロのいろはにほへと-秀丸エディタウィンドウの管理">第III部～秀丸マクロのいろはにほへと<br />
-　秀丸エディタウィンドウの管理</h1>
+<h1 id="第iii部秀丸マクロのいろはにほへと-秀丸エディタウィンドウの管理">第III部～秀丸マクロのいろはにほへと<br />　秀丸エディタウィンドウの管理</h1>
 <hr />
 <h2 id="秀丸エディタウィンドウの管理">●秀丸エディタウィンドウの管理</h2>
 <p>秀丸マクロは現在編集中の文書に対する処理の他に、別のファイルやウィンドウを開いてそのファイルを処理したり、 さらに変更内容を保存してファイルを閉じる、といったことができるようになっています。 このような複数の秀丸エディタウィンドウにまたがった処理を行うために、秀丸マクロには専用のコマンド群が用意されていますが、 ここでは、それらのコマンドの基本的な解説と、実際にコマンドを使う上でいくつか注意すべき点をまとめました。</p>
@@ -133,8 +136,7 @@ insert $s;     // 元のファイルに挿入…あれ？</code></pre>
 <h4 id="他のウィンドウを指定する">[2-1] 他のウィンドウを指定する</h4>
 <p><strong>現在開かれているウィンドウをマクロ中で指定する</strong>のに、以下のような２通りの方法が用意されています。</p>
 <div class="marginleft">
-<h5 id="ウィンドウ番号ウィンドウの並び順による指定">ウィンドウ番号(ウィンドウの並び順)による指定</h5>
-<p><strong>ウィンドウ番号</strong>とは<strong>秀丸エディタウィンドウを画面手前から順番に０から数えたもの</strong>で、 同じウィンドウでも、<strong>画面上の位置関係が変わるとそれに従ってウィンドウ番号も変化</strong>します。</p>
+<p>#####ウィンドウ番号(ウィンドウの並び順)による指定 <strong>ウィンドウ番号</strong>とは<strong>秀丸エディタウィンドウを画面手前から順番に０から数えたもの</strong>で、 同じウィンドウでも、<strong>画面上の位置関係が変わるとそれに従ってウィンドウ番号も変化</strong>します。</p>
 <p>例えば以下の左図のような配置では、Ａ、Ｂ、Ｃの３つのウィンドウにはそれぞれ０、１、２のウィンドウ番号が割り振られます。 ここで、右図のようにウィンドウＣを一番手前に持ってくると、 ウィンドウ番号の割り振りがそれぞれＡのウィンドウ番号＝１、Ｂ＝２、Ｃ＝０ に変化します。</p>
 <table>
 <caption>ウィンドウ番号</caption>
@@ -154,8 +156,8 @@ insert $s;     // 元のファイルに挿入…あれ？</code></pre>
 </tbody>
 </table>
 <p>また、前章の例のようにマクロ中で他のウィンドウを開いた場合を考えると、 ウィンドウを開く前は<strong>マクロを実行しているウィンドウが一番手前にある</strong>はずなので、 そのウィンドウのウィンドウ番号は０です。次に、<code>openfile</code> や <code>newfile</code> で新しいウィンドウを開くと、 そのウィンドウが一番手前に来ますからウィンドウ番号は０、また元のウィンドウはその後に回るのでウィンドウ番号は１に変わります。 ちなみに、<strong>マクロの実行は新しく開いたウィンドウに自動的に変わっていた</strong>ので、 <strong>マクロを実行しているウィンドウのウィンドウ番号は常に０</strong>になっています。 なお、この性質は後から解説する<strong>ウィンドウ間を移動するコマンドでウィンドウを移動した場合も成り立ちます</strong>。</p>
-さて、あるファイルが開かれているかどうか、また開かれていた時にそのウィンドウ番号を取得するには以下の関数を使います。<br />
-
+<p>さて、あるファイルが開かれているかどうか、また開かれていた時にそのウィンドウ番号を取得するには以下の関数を使います。<br />
+</p>
 <div class="macro">
 <pre><code>findhidemaru(filename)</code></pre>
 </div>
@@ -166,8 +168,7 @@ insert $s;     // 元のファイルに挿入…あれ？</code></pre>
 #H_ORDER = findhidemaru(&quot;c:\\hidemaru\\install.txt&quot;);
 message &quot;ウィンドウ番号 = &quot; + str(#H_ORDER);</code></pre>
 </div>
-<h5 id="ウィンドウハンドル各ウィンドウに固有の数値による指定">ウィンドウハンドル(各ウィンドウに固有の数値)による指定</h5>
-<p><strong>ウィンドウハンドル</strong>とは、<strong>ＯＳが個々のウィンドウを識別するためにウィンドウに付与する整数値</strong>です。 これは秀丸エディタウィンドウだけでなく全てのウィンドウに割り振られていますが、 この値は<strong>ウィンドウが開かれた時から閉じられるまで同じ値を取ります</strong>。</p>
+<p>#####ウィンドウハンドル(各ウィンドウに固有の数値)による指定 <strong>ウィンドウハンドル</strong>とは、<strong>ＯＳが個々のウィンドウを識別するためにウィンドウに付与する整数値</strong>です。 これは秀丸エディタウィンドウだけでなく全てのウィンドウに割り振られていますが、 この値は<strong>ウィンドウが開かれた時から閉じられるまで同じ値を取ります</strong>。</p>
 <p>※ 同じファイルでも、ウィンドウを一度閉じてからまた開いた場合はウィンドウハンドルは一般に異なる値になります。</p>
 <p>前述したウィンドウ番号はウィンドウの配置を変えるとそれにしたがって同じウィンドウでも番号が変化していたので、 ウィンドウを指定する時には現在のウィンドウの配置がどうなっているかを常に意識する必要があります。 一方、ウィンドウハンドルを使えば、<strong>ウィンドウの位置関係によらずに常に同じ値でウィンドウを指定することができます</strong>。</p>
 <p>さて、ウィンドウハンドルを取得するには以下の関数を使います。</p>

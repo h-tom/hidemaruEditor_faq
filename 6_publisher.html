@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第VI部～秀丸エディタ拡張モジュール　秀丸パブリッシャーについて</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第VI部～秀丸エディタ拡張モジュール<br />
-　秀丸パブリッシャーについて</h1>
+<h1 id="TOP">第VI部～秀丸エディタ拡張モジュール<br /> 　秀丸パブリッシャーについて</h1>
 <hr />
 <h2 id="秀丸パブリッシャーとは">●秀丸パブリッシャーとは?</h2>
 <p>　秀丸エディタにもデフォルトで印刷機能がついていますが、あまり機能は多くありません。 秀丸パブリッシャーを使う事で、</p>
@@ -68,8 +71,8 @@
 </p></li>
 <li><p>「設定の一覧」にある「本文BOX」を選択し、余白やフォント、フォントサイズ、カラー印刷など設定。<br />
 行番号や、ファイル名の印刷なども「本文BOX」の設定で可能です。</p>
-<img src="6_publisher_05.png" alt="本文BOX" width="577" height="261" /><br />
-
+<p><img src="6_publisher_05.png" alt="本文BOX" width="577" height="261" /><br />
+</p>
 <ul>
 <li>「カラー印刷」にチェックを入れると、「フォント修飾再現」は選択できなくなります。 (強制的にON状態になる)</li>
 <li>「背景色は白にする」は、カラー印刷じゃない場合も設定できますが、「カラー印刷」が有効でないと意味がないです。</li>
@@ -210,16 +213,18 @@
 <pre><code>印刷 → 印刷ダイアログ開く → 一時的なつもりでフォントを変更  → 印刷実行</code></pre>
 <p>という作業を行うと、変更内容はテンプレートに保存されます。</p>
 <p>設定変更を行っても、テンプレートに保存しないようにするには、 「テンプレート上書き禁止」をチェックしてください。</p>
-<img src="6_publisher_15.png" alt="テンプレート上書き禁止" width="602" height="64" /><br />
-</li>
+<p><img src="6_publisher_15.png" alt="テンプレート上書き禁止" width="602" height="64" /><br />
+</p></li>
 <li><p>現状、BOXではUnicode特有の文字を指定できません。Shift_JISに含まれる文字のみ表示可能です。</p>
 <p>ただし、「属性」をファイル名にした場合(フルパスも含む)は、 ファイル名にUnicode特有の文字があっても正常に表示されます。</p></li>
 <li><p>テンプレートの保存場所は、「秀丸パブリッシャー」のダイアログから確認できます。</p>
 <p>「印刷」を実行し、秀丸パブリッシャーのダイアログを表示させます。 アイアログ左上のアイコン部分をクリックすると、メニューが表示されるので「設定」を選択します。</p>
 <p><img src="6_publisher_16.png" alt="設定メニュー" width="408" height="202" /><br />
-「印刷テンプレートの設定」ダイアログが表示され、テンプレートを保存してあるフォルダが表示されます。</p>
+</p>
+<p>「印刷テンプレートの設定」ダイアログが表示され、テンプレートを保存してあるフォルダが表示されます。</p>
 <p><img src="6_publisher_17.png" alt="印刷テンプレートの設定ダイアログ" width="396" height="263" /><br />
-テンプレートをバックアップする場合は、このフォルダを保存するようにしてください。</p></li>
+</p>
+<p>テンプレートをバックアップする場合は、このフォルダを保存するようにしてください。</p></li>
 </ul>
 </div>
 <!-- #3 -->

@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>[HMM0018A] ●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><span class="link_navigate"> <a href="HMM0017A.html">←前へ</a> <a href="HMM0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
 <hr />
 <h1 id="hmm0018a">[HMM0018A]</h1>
@@ -27,7 +31,7 @@
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。 従って「openfile&quot;/(100,200,300,400)&quot;;」は正しい書き方ですが、 「openfile &quot;/(#XX,#YY,#CX,#CY)&quot;;」は誤りです。 数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。 次にその例を示します。</p>
+<dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。 従って「openfile“/(100,200,300,400)”;」は正しい書き方ですが、 「openfile “/(#XX,#YY,#CX,#CY)”;」は誤りです。 数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。 次にその例を示します。</p>
 <div class="macro">
 <pre><code>openfile &quot;/(&quot;+str(#XX)+&quot;,&quot;+str(#YY)+&quot;,&quot;+str(#CX)+&quot;,&quot;+str(#CY)+&quot;)&quot;;</code></pre>
 </div>

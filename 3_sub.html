@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第III部～秀丸マクロのいろはにほへと　サブルーチンについて</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="sub01">第III部～秀丸マクロのいろはにほへと<br />
-　サブルーチンについて</h1>
+<h1 id="sub01">第III部～秀丸マクロのいろはにほへと<br />　サブルーチンについて</h1>
 <hr />
 <h2 id="sub02">●サブルーチンについて</h2>
 <p>　どんな言語でプログラムするとしても、「サブルーチン」はたいへん重要な役割をはたします。 秀丸マクロでも、効率的なマクロや、サイズの大きなマクロを書こうとすると、やはりサブルーチンのお世話になります。 ここでは、秀丸マクロのサブルーチンについて、その使い方と特徴をまとめます。 この章は次の３部から成り立っています。各自の必要に応じた部分を読んでください。</p>
@@ -294,7 +297,8 @@ call　KEISAN;        //1個の全角空白  &lt;&lt;--[×]</code></pre>
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>秀丸マクロのサブルーチンでは「一番最初に現れる call 文より前に return文を置くことはできない」という規則があります。 これまで「ラベル」は名札みたいなものだと説明したように、ラベルそのものは何の動作もしません。 したがってラベルがあってもプログラムは、「あ、ここにラベルがあるな。位置だけ覚えておこう」と了承するだけで次の行へ処理を移します。 一方、return文は「呼び出し元へ戻る」動作をします。 ところが、対となるラベルが一度もcall文で呼び出されていない場合には、呼び出し元が記憶されていないわけですから、エラーとなります。<br />
-　下図のような場合です。SUB_001サブルーチンが呼び出されないのに、return文に到達してしまうケースです。 return文は呼び出し元へ戻ろうとしますが、この時点では、「call SUB_001」が実行されていないので、 return文はどこへ戻って良いかわからないわけです。</p>
+</p>
+<p>　下図のような場合です。SUB_001サブルーチンが呼び出されないのに、return文に到達してしまうケースです。 return文は呼び出し元へ戻ろうとしますが、この時点では、「call SUB_001」が実行されていないので、 return文はどこへ戻って良いかわからないわけです。</p>
 <div class="font_ms">
 <pre><code>　■マクロプログラム　■プログラムの流れ（矢印）
 　　　　　…↓
@@ -352,7 +356,8 @@ endmacro;
 return;</code></pre>
 </div>
 <p>　ただし、特定の漢字や特定のバイト数であるとダメになります。 ちなみに上の「愛情」というラベルを「愛情表現」にするとアウトです。 サブルーチン名にどうしても漢字や全角文字を使いたい人は「ダメモト」でトライするのも楽しいかもしれません。<br />
-　もっとも「半角英数文字が基本」であることは基本原則として忘れないでください。 間違っても「&quot;愛情表現&quot;が上手に使えないのですが」なんて質問を会議室にアップしてはいけません(^^;</p>
+</p>
+<p>　もっとも「半角英数文字が基本」であることは基本原則として忘れないでください。 間違っても「“愛情表現”が上手に使えないのですが」なんて質問を会議室にアップしてはいけません(^^;</p>
 </div>
 </dd>
 </dl>
@@ -393,7 +398,8 @@ return;</code></pre>
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>ローカル変数は宣言されたサブルーチンの中だけで有効と説明しました。 サブルーチンからさらに別のサブルーチンが呼び出された場合、 呼び出されたサブルーチンのローカル変数が呼び出し元に戻った時点で初期化されますが、 呼び出し元のサブルーチンのローカル変数はそのサブルーチン内では維持されます。<br />
-　次の例で、dlg_2 と dlg_4 でローカル変数 $$str2 が維持されている点に注目してください。</p>
+</p>
+<p>　次の例で、dlg_2 と dlg_4 でローカル変数 $$str2 が維持されている点に注目してください。</p>
 <div class="macro">
 <pre><code>// subsub.mac
 $str1 = &quot;A&quot;;
@@ -675,11 +681,8 @@ return;</code></pre>
 <p>あくまでも、サブルーチンの作成例です。 各種変換は、変換モジュールを使用すれば、以下のサブルーチンを使用しなくても可能です。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="EXAMPLE02">[半角大文字→小文字の変換]</h5>
+<p>#####[半角大文字→小文字の変換]{#EXAMPLE02} 用途 : 文字列中の半角アルファベットの大文字を小文字に変換する。</p>
 <dl>
-<dt>用途</dt>
-<dd>文字列中の半角アルファベットの大文字を小文字に変換する。
-</dd>
 <dt>引数</dt>
 <dd><dl>
 <dt>$$1</dt>
@@ -706,11 +709,8 @@ return;</code></pre>
     }
     return $$str;</code></pre>
 </div>
-<h5 id="EXAMPLE03">[半角小文字→大文字の変換]</h5>
+<p>#####[半角小文字→大文字の変換]{#EXAMPLE03} 用途 : 文字列中の半角アルファベットの小文字を大文字に変換する。</p>
 <dl>
-<dt>用途</dt>
-<dd>文字列中の半角アルファベットの小文字を大文字に変換する。
-</dd>
 <dt>引数</dt>
 <dd><dl>
 <dt>$$1</dt>
@@ -737,11 +737,8 @@ return;</code></pre>
     }
     return $$str;</code></pre>
 </div>
-<h5 id="EXAMPLE04">[全角→半角変換]</h5>
+<p>#####[全角→半角変換]{#EXAMPLE04} 用途 : 文字列中の全角ひらがな＆カタカナを半角カタカナに変換する。</p>
 <dl>
-<dt>用途</dt>
-<dd>文字列中の全角ひらがな＆カタカナを半角カタカナに変換する。
-</dd>
 <dt>引数</dt>
 <dd><dl>
 <dt>$$1</dt>
@@ -771,11 +768,8 @@ return;</code></pre>
     closehidemaruforced ##s_hwnd;
     return $$tmp;</code></pre>
 </div>
-<h5 id="EXAMPLE05">[半角カタカナ＆全角ひらがな(カタカナ)→全角カタカナ(ひらがな)変換]</h5>
+<p>#####[半角カタカナ＆全角ひらがな(カタカナ)→全角カタカナ(ひらがな)変換]{#EXAMPLE05} 用途 : 文字列中の半角カタカナと全角ひらがな(カタカナ)を全角カタカナ(ひらがな)に変換する。</p>
 <dl>
-<dt>用途</dt>
-<dd>文字列中の半角カタカナと全角ひらがな(カタカナ)を全角カタカナ(ひらがな)に変換する。
-</dd>
 <dt>引数</dt>
 <dd><dl>
 <dt>$$1</dt>
@@ -818,13 +812,8 @@ return;</code></pre>
 <h4 id="EXAMPLE06">●日付・曜日の各種フォーマットへの変換</h4>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="EXAMPLE07">[現在の日付を別々にグローバル変数にセットする]</h5>
+<p>#####[現在の日付を別々にグローバル変数にセットする]{#EXAMPLE07} 用途 : 現在の日付情報を $YEAR, $MONTH, $DATE, $WEEK にセットする。 引数 : $$1:　YY/MM/DD 形式の日付 (date キーワードで取得)</p>
 <dl>
-<dt>用途</dt>
-<dd>現在の日付情報を $YEAR, $MONTH, $DATE, $WEEK にセットする。 引数
-</dd>
-<dd>$$1:　YY/MM/DD 形式の日付 (date キーワードで取得)
-</dd>
 <dt>戻り値</dt>
 <dd>なし($YEAR,$MONTH,$DATE,$WEEKに現在の日付がセットされている)
 </dd>
@@ -841,11 +830,8 @@ return;</code></pre>
 <p>(補足)<br />
 ver.3.02から、年・月・日をそれぞれ返す year, month, day などのキーワードが追加されました。但し、これらのキーワードは、マクロの実行開始時または refreshdatetime 文実行時の時刻を返します。<br />
 詳しくは、秀丸マクロヘルプの「内部的な値を表現するキーワード」-「日付と時刻関連」を参照してください。</p>
-<h5 id="EXAMPLE08">[日付→和曜日変換]</h5>
+<p>#####[日付→和曜日変換]{#EXAMPLE08} 用途 : 指定された日付(YY/MM/DD)の曜日を調べて「日～土」を返す。</p>
 <dl>
-<dt>用途</dt>
-<dd>指定された日付(YY/MM/DD)の曜日を調べて「日～土」を返す。
-</dd>
 <dt>引数</dt>
 <dd><dl>
 <dt>$$1</dt>
@@ -856,7 +842,7 @@ ver.3.02から、年・月・日をそれぞれ返す year, month, day などのキーワードが追加さ
 <dt>戻り値</dt>
 <dd><dl>
 <dt>$$return</dt>
-<dd>得られた曜日(&quot;月&quot;等の漢字１文字)
+<dd>得られた曜日(“月”等の漢字１文字)
 </dd>
 </dl>
 </dd>
@@ -890,24 +876,7 @@ ver.3.02から、年・月・日をそれぞれ返す year, month, day などのキーワードが追加さ
 <p>(補足)<br />
 ver.3.02から、dayofweek キーワードが追加されました。但し、これらのキーワードは、マクロの実行開始時または refreshdatetime 文実行時の時刻を返します。<br />
 詳しくは、秀丸マクロヘルプの「内部的な値を表現するキーワード」-「日付と時刻関連」を参照してください。</p>
-<h5 id="EXAMPLE09">[日付→英曜日変換]</h5>
-<dl>
-<dt>用途</dt>
-<dd>指定された日付(YY/MM/DD)の曜日を調べて「Sun～Satur」を返す。 引数
-</dd>
-<dd><dl>
-<dt>$$1</dt>
-<dd>YY/MM/DD 形式の日付 戻り値
-</dd>
-</dl>
-</dd>
-<dd><dl>
-<dt>$$return</dt>
-<dd>得られた曜日(&quot;Sun&quot;等の文字列)
-</dd>
-</dl>
-</dd>
-</dl>
+<p>#####[日付→英曜日変換]{#EXAMPLE09} 用途 : 指定された日付(YY/MM/DD)の曜日を調べて「Sun～Satur」を返す。 引数 : $$1 : YY/MM/DD 形式の日付 戻り値 : $$return : 得られた曜日(“Sun”等の文字列)</p>
 <div class="macro">
 <pre><code>DateToDay_ENG:
     if( !#DEFINED ){
@@ -946,19 +915,8 @@ ver.3.02から、dayofweek キーワードが追加されました。但し、これらのキーワードは、
 <h4 id="EXAMPLE10">●その他</h4>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="EXAMPLE11">[指定されたセパレータで区切られた文字列を配列に格納する]</h5>
+<p>#####[指定されたセパレータで区切られた文字列を配列に格納する]{#EXAMPLE11} 用途 : CSV フォーマットや ini ファイルのデータを切り分ける 引数 : $$1 : データ文字列($$2 で区切られた文字列) $$2 : データ区切り子</p>
 <dl>
-<dt>用途</dt>
-<dd>CSV フォーマットや ini ファイルのデータを切り分ける 引数
-</dd>
-<dd><dl>
-<dt>$$1</dt>
-<dd>データ文字列($$2 で区切られた文字列) $$2
-</dd>
-<dd>データ区切り子
-</dd>
-</dl>
-</dd>
 <dt>戻り値</dt>
 <dd><dl>
 <dt>##return</dt>
@@ -987,11 +945,8 @@ ver.3.02から、dayofweek キーワードが追加されました。但し、これらのキーワードは、
     }
     return ##a;</code></pre>
 </div>
-<h5 id="EXAMPLE12">[範囲選択領域内の置換]</h5>
+<p>#####[範囲選択領域内の置換]{#EXAMPLE12} 用途 : 範囲選択した領域内で置換を実行する</p>
 <dl>
-<dt>用途</dt>
-<dd>範囲選択した領域内で置換を実行する
-</dd>
 <dt>引数</dt>
 <dd><dl>
 <dt>$$1</dt>

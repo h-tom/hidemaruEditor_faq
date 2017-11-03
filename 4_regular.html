@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
-  <meta charset="Shift_JIS">
-  <meta name="generator" content="pandoc">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>第IV部～テキスト編集を極める！！　正規表現について</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      .smallcaps{font-variant: small-caps;}
+      .line-block{white-space: pre-line;}
+      .column{display: inline-block;}
+  </style>
   <link rel="stylesheet" href="base.css">
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第IV部～テキスト編集を極める！！<br />
-　正規表現について</h1>
+<h1 id="TOP">第IV部～テキスト編集を極める！！<br />　正規表現について</h1>
 <hr />
 <h2 id="REGEXP">●正規表現について</h2>
 <p>　秀丸エディタだけでなく、高度で自由度の高い検索をするには必須の「<strong>正規表現</strong>」。 ここでは実用上重要な例をとりあげながら、わかりやすく解説します。 今日からあなたの「検索」が変わります。<br />
@@ -36,12 +39,10 @@
 <h3 id="REGEXP-0">【０】 いんとろだくしょん</h3>
 <p>いきなりですがここでクイズです。</p>
 <div class="box_line">
-<dl>
-<dt>Q.</dt>
-<dd>文書から「明日は…でした。」という日本語として 変な文を全て抜き出すにはどうしたらよいでしょうか？<br />
-但し、簡単のために現在のファイルは「１行につき１文」というルールで 作成されているとします。
-</dd>
-</dl>
+<ol start="17" type="A">
+<li>: 文書から「明日は…でした。」という日本語として 変な文を全て抜き出すにはどうしたらよいでしょうか？<br />
+但し、簡単のために現在のファイルは「１行につき１文」というルールで 作成されているとします。</li>
+</ol>
 </div>
 <p>　文書に検索を行って、ヒットしたものを全て抜き出す作業に <a href="2_grep.html"><strong>grep機能</strong></a> を使うのは前提として、 ここで問題なのは<strong>どういう検索を行えばよいか</strong> という事です。 単に “明日は” や “でした。” を検索すると、正しい文までヒットしてしまうのは言うまでもないでしょう。 とりあえずそれらで検索した後、 該当部分だけ抜き出せばいいというのも、</p>
 <div class="attention_p">
@@ -53,7 +54,7 @@
 </div>
 <p>と言ってしまえばそれまでですが、逆に言えば、こんぴゅーたに「何を探したいか」を<strong>適切に</strong>教えてやれば、 ちゃんと仕事をしてくれるはずです。</p>
 <p>この例の場合、探したいものは</p>
-<div style="white-space: pre-line;"><span class="box_line">「明日は」で始まり、途中に何か文があって、「でした。」で終わる</span></div>
+<div class="line-block"><span class="box_line">「明日は」で始まり、途中に何か文があって、「でした。」で終わる</span></div>
 <p>という <span class="font_red">文字の並び方のルール</span> として表現できますが、このようにルールとして与えてやれば、</p>
 <div class="attention_p">
 <p>ルール通りに物事を運ぶことにかけては右に出るものはない</p>
@@ -65,7 +66,7 @@
 </div>
 <p>です。</p>
 <p>ちょっと先走ってしまいますが、 言葉で表現した文字の並びのルールを正規表現を使って表現すると、</p>
-<div style="white-space: pre-line;"><span class="box_line2">^明日は.+でした。$</span></div>
+<div class="line-block"><span class="box_line2">^明日は.+でした。$</span></div>
 <p>となります。 上の正規表現には、“明日は” や “でした。” などのような<strong>探したい文字そのもの</strong> の他、 “<code>^</code>” や “<code>.+</code>” や “<code>$</code>” という<strong>記号</strong> が含まれています。 すぐ後の【１】基本編 で説明しますが、これらの記号は<strong>文字の並び方のルールを表現するための特別な意味</strong>を持っていて、 上の例でいうと「～で始まり」「何か文があって」「～で終わる」といった<strong>ルール</strong>に対応しています。 このように、正規表現は文字の並びのルールを言葉ではなく</p>
 <div class="attention_p">
 <p><span class="font_red">(普通の)文字</span> ＋ <span class="font_red">(文字の並びのルールを表現するための)記号</span></p>
@@ -83,10 +84,10 @@
 <div class="marginleft">
 <h4 id="メタキャラクタとエスケープシーケンス">[1-1] メタキャラクタとエスケープシーケンス</h4>
 <p>まず前章の例の真ん中辺りにあった「<strong><code>.+</code></strong>」ですが、これは言葉で表現した文字の並びのルールの 「<strong>何か文があって</strong>」という部分に対応しています。 この記号は「<strong><code>.</code>(ピリオド)</strong>」と 「<strong><code>+</code> (プラス)</strong>」との組み合わせで、 それぞれ</p>
-<div style="white-space: pre-line;"><span class="box_line2"><strong><code>.</code> (ピリオド)</strong> … <strong>任意の１文字</strong></span></div>
+<div class="line-block"><span class="box_line2"><strong><code>.</code> (ピリオド)</strong> … <strong>任意の１文字</strong></span></div>
 <p><br />
 </p>
-<div style="white-space: pre-line;"><span class="box_line2"><strong><code>+</code> (プラス)</strong> … <strong>直前の文字の１回以上の繰り返し</strong></span></div>
+<div class="line-block"><span class="box_line2"><strong><code>+</code> (プラス)</strong> … <strong>直前の文字の１回以上の繰り返し</strong></span></div>
 <p>という意味を持っています。</p>
 <p>　ピリオドは、 MS-DOS のワイルドカード(懐かしい(笑))では「<strong><code>?</code></strong>」と表現していたもので、 <strong>どんな１文字</strong>にもマッチ<a href="#index-1">(*1)</a>します。 例えば “<strong><code>あ.た</code></strong>”というパターンは、 “<strong>あんた</strong>” にも “<strong>あいた</strong>” にも “<strong>あした</strong>”にも、 果ては</p>
 <div class="attention_p">
@@ -248,7 +249,7 @@
 <p>これら以外にも、特定の場所に現れた場合に限って特殊な意味を持つ記号(キャラクタクラス指定の中の “<code>-</code>” 等)もあります。 ちなみに、これら以外の普通に記号と呼ばれている “<code>@</code>” 等は、正規表現では「普通の文字」として扱われます。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="量指定メタキャラクタと最長一致最短一致">・量指定メタキャラクタと「最長一致」/「最短一致」</h5>
+<p>#####・量指定メタキャラクタと「最長一致」/「最短一致」</p>
 <p>　先程説明した “<strong><code>+</code></strong>” とよく似た使い方をするメタキャラクタいくつかあります。</p>
 <p>　まずアスタリスク “<strong><code>*</code></strong>” は「<strong>０個以上の繰り返し</strong>」となっていますが、 これは “<strong>痛て*</strong>”というパターンを例に取ると、 “<strong>痛て+</strong>” と同じ物を全て含む他に、</p>
 <div class="attention_p">
@@ -284,7 +285,8 @@
 <dd><p>n個の繰り返し<br />
 a{5} &#8211;&gt; aaaaa にマッチする</p>
 <p><img src="4_regular_01.png" alt="繰り返し5個" width="448" height="432" /><br />
-5個以上の箇所にもマッチしていますが、以下の</p>
+</p>
+<p>5個以上の箇所にもマッチしていますが、以下の</p>
 <ul>
 <li>10個 = 5個 × 2</li>
 <li>15個 = 5個 × 3</li>
@@ -296,13 +298,15 @@ a{5} &#8211;&gt; aaaaa にマッチする</p>
 <dd><p>n個以上の繰り返し<br />
 a{7,} &#8211;&gt; aaaaaaa や aaaaaaaaaaaaaaa にマッチする</p>
 <p><img src="4_regular_02.png" alt="繰り返し7個以上" width="448" height="432" /><br />
-7個以上すべての箇所にマッチしています。</p>
+</p>
+<p>7個以上すべての箇所にマッチしています。</p>
 </dd>
 <dt><strong>“<code>{n,m}</code>”</strong></dt>
 <dd><p>n ～ m 個の繰り返し<br />
 a{8,12} &#8211;&gt; aaaaaaaa から aaaaaaaaaaaa にマッチする</p>
 <p><img src="4_regular_03.png" alt="繰り返し8～12個" width="448" height="432" /><br />
-8～12個の箇所にマッチしています。 20個の部分は、12個 と 8個の箇所にマッチしています。</p>
+</p>
+<p>8～12個の箇所にマッチしています。 20個の部分は、12個 と 8個の箇所にマッチしています。</p>
 </dd>
 </dl>
 <p><strong>“<code>{n,}</code>”</strong>、<strong>“<code>{n,m}</code>”</strong> は、<span class="font_red">最長一致のルール</span>が適用されるので、最長部分がマッチします。 最短一致にする場合は、“<strong><code>*</code></strong>”、“<strong><code>+</code></strong>”と同じく“?”を追加します。</p>
@@ -312,17 +316,18 @@ a{8,12} &#8211;&gt; aaaaaaaa から aaaaaaaaaaaa にマッチする</p>
 <dd><p>n個以上の繰り返し(最短一致)<br />
 a{7,}? &#8211;&gt; aaaaaaa にマッチする</p>
 <p><img src="4_regular_04.png" alt="繰り返し7個以上(最短一致)" width="448" height="432" /><br />
-14個以上は、7個 × 2個の箇所にマッチしています。</p>
+</p>
+<p>14個以上は、7個 × 2個の箇所にマッチしています。</p>
 </dd>
 <dt><strong>“<code>{n,m}?</code>”</strong></dt>
 <dd><p>n ～ m 個の繰り返し(最短一致)<br />
 a{8,12}? &#8211;&gt; aaaaaaaa にマッチする</p>
 <p><img src="4_regular_05.png" alt="繰り返し8～12個(最短一致)" width="448" height="432" /><br />
-16個以上は、8個 × 2個の箇所にマッチしています。</p>
+</p>
+<p>16個以上は、8個 × 2個の箇所にマッチしています。</p>
 </dd>
 </dl>
-<h5 id="行の区切りを表わすメタキャラクタ">・行の区切りを表わすメタキャラクタ</h5>
-<p>　“<strong><code>^</code></strong>” と “<strong><code>$</code></strong>” は 【０】の例にも出てきていますが、 それぞれ「<strong>行頭</strong>」及び「<strong>行末</strong>」にマッチする、となっています。 では、以下のような場合について、 “<strong><code>^.+$</code></strong>”という(任意の空でない１行にマッチする)パターンで検索してみたら、 どういう結果になるでしょうか？</p>
+<p>#####・行の区切りを表わすメタキャラクタ 　“<strong><code>^</code></strong>” と “<strong><code>$</code></strong>” は 【０】の例にも出てきていますが、 それぞれ「<strong>行頭</strong>」及び「<strong>行末</strong>」にマッチする、となっています。 では、以下のような場合について、 “<strong><code>^.+$</code></strong>”という(任意の空でない１行にマッチする)パターンで検索してみたら、 どういう結果になるでしょうか？</p>
 <div class="box_line">
 <pre><code>↓
 この文はこの行の右端で折り返されています。 ここのことです→
@@ -361,13 +366,15 @@ a{8,12}? &#8211;&gt; aaaaaaaa にマッチする</p>
 </dl>
 <p>　なお、“<strong><code>^</code></strong>” (“<strong><code>$</code></strong>”) は、 上記のように<span class="font_red">パターンの先頭(末尾)にある時にのみ</span>上のような特殊な意味を持ちます。 つまり “<strong><code>ab^cd$efg</code></strong>”というパターンの中の “<strong><code>^</code></strong>” や “<strong><code>$</code></strong>” は、 <strong>単にその文字(ハットやドル)そのもの</strong> を表現しています。</p>
 <p>　ここでちょっと脱線ですが、“<strong><code>$</code></strong>” と <strong>似て非なる物</strong> として“<strong><code>\n</code></strong>” (<strong>改行文字</strong>) があります (後述の「<span class="font_red">エスケープシーケンス</span>」を参照)。 直前の話からすると、正規表現では「<strong>行末 ＝ 改行文字</strong>」なわけで、 何でこんな余計なものがあるのか疑問に思う人がいると思いますが、その理由は２つあります。<br />
-　１つめは、<strong>“<code>$</code>” は ファイルの末尾 “<code>[EOF]</code>” も含む</strong>ということです (“<code>\n</code>” はあくまでも「改行文字そのもの」を表す)。 というわけで、最後の行が(“↓” ではなく) “<code>[EOF]</code>” で 終わっている場合も“<code>$</code>” を使えば正しく処理できます。<br />
-　２つめの理由は、置換を行う時に <strong>改行文字も含めて置換したい場合</strong> があるからです。 次の２つのパターン</p>
+</p>
+<p>　１つめは、<strong>“<code>$</code>” は ファイルの末尾 “<code>[EOF]</code>” も含む</strong>ということです (“<code>\n</code>” はあくまでも「改行文字そのもの」を表す)。 というわけで、最後の行が(“↓” ではなく) “<code>[EOF]</code>” で 終わっている場合も“<code>$</code>” を使えば正しく処理できます。<br />
+</p>
+<p>　２つめの理由は、置換を行う時に <strong>改行文字も含めて置換したい場合</strong> があるからです。 次の２つのパターン</p>
 <p><span class="box_line"><strong><code>//.*$</code></strong></span>　と　<span class="box_line2"><strong><code>//.*\n</code></strong></span></p>
 <p>はどちらも</p>
 <p><span class="box_line">C++ 言語では // から行末までをコメントとみまします。↓</span></p>
 <p>という行の “<code>//</code>” からそれ以降の文字にマッチしますが、 “<code>$</code>”で行末を指定した場合はマッチの範囲に <strong>改行文字(“↓”)を含みません</strong>。 一方 “<code>\n</code>” の方は<strong>改行文字もマッチの範囲に含まれます</strong>。 このマッチの仕方の違いをうまく利用した置換の例については、 このQ&amp;A集の - 「<a href="HME0061A.html">●空白行を削除したい</a>」 - 「<a href="HME0062A.html">●空白行を改行だけの行にしたい</a>」 の２つの例を見てください。 逆に、これら２つを組み合わせて使う場合、意図した結果が得られないことがありますが、 その例と解説については<a href="#RETURNS">第５章</a>をご覧ください。</p>
-<h5 id="後方一致指定後方不一致指定前方一致指定前方不一致指定">・後方一致指定/後方不一致指定/前方一致指定/前方不一致指定</h5>
+<p>#####・後方一致指定/後方不一致指定/前方一致指定/前方不一致指定</p>
 <p>これは<strong>“^”</strong>、<strong>“$”</strong>と同じく位置マッチする正規表現です。幅を持ちません。</p>
 <dl>
 <dt>後方一致指定(肯定先読み)</dt>
@@ -429,8 +436,7 @@ hidemaru005</code></pre>
 hidemaru0A5</code></pre>
 </div>
 <p>に、マッチします。</p>
-<h5 id="エスケープキャラクタとエスケープシーケンス">・エスケープキャラクタとエスケープシーケンス</h5>
-<p>　メタキャラクタの表の最後にある “<strong>\</strong>” (<span class="font_red">エスケープキャラクタ</span>)は 今までのメタキャラクタよりもっと特殊で、 それ自体では意味を持たず、<strong>その直後の文字とペアになって一つの特殊文字</strong> を表現します。 例えば前述の “\n”(改行文字) はその一つです。 このように “\”で作られる特殊文字の事を <span class="font_red">エスケープシーケンス</span>と呼びますが、 それらを下の表にまとめてみました。</p>
+<p>#####・エスケープキャラクタとエスケープシーケンス 　メタキャラクタの表の最後にある “<strong>\</strong>” (<span class="font_red">エスケープキャラクタ</span>)は 今までのメタキャラクタよりもっと特殊で、 それ自体では意味を持たず、<strong>その直後の文字とペアになって一つの特殊文字</strong> を表現します。 例えば前述の “\n”(改行文字) はその一つです。 このように “\”で作られる特殊文字の事を <span class="font_red">エスケープシーケンス</span>と呼びますが、 それらを下の表にまとめてみました。</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -512,8 +518,7 @@ hidemaru0A5</code></pre>
 <h4 id="キャラクタクラスとグルーピングその他">[1-2] キャラクタクラスとグルーピングその他</h4>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="キャラクタクラス">・キャラクタクラス</h5>
-<p>　前節で説明したメタキャラクタのうち、“<code>.</code>” (任意の１文字にマッチ)は非常に<strong>使える</strong>表現で、 これがなければ正規表現は</p>
+<p>#####・キャラクタクラス 　前節で説明したメタキャラクタのうち、“<code>.</code>” (任意の１文字にマッチ)は非常に<strong>使える</strong>表現で、 これがなければ正規表現は</p>
 <div class="attention_p">
 <p>全く使い物にならないと言っても過言ではない</p>
 </div>
@@ -523,11 +528,9 @@ hidemaru0A5</code></pre>
 </div>
 <p>場面にもしばしば出会います。 例として以下のクイズを考えてみましょう。</p>
 <div class="box_line">
-<dl>
-<dt>Q.</dt>
-<dd>日本語の文書に混じった英単語(半角のアルファベットのみ)だけを 探すには、どのような正規表現をかけばいいでしょうか？
-</dd>
-</dl>
+<ol start="17" type="A">
+<li>: 日本語の文書に混じった英単語(半角のアルファベットのみ)だけを 探すには、どのような正規表現をかけばいいでしょうか？</li>
+</ol>
 </div>
 <p>　ここで、「<strong>英単語</strong>」とは 「<strong>半角の a ～ z, A ～ Zのみからなる文字の並び</strong>」なわけですから、 もし「<strong>任意の半角アルファベット１文字にマッチするメタキャラクタ</strong>」があれば、 前節で説明したメタキャラクタ “<code>+</code>” と</p>
 <div class="attention_p">
@@ -634,9 +637,8 @@ hidemaru0A5</code></pre>
 </tr>
 </tbody>
 </table>
-<h5 id="group">・グルーピング</h5>
-　これまで説明したルールでかなり柔軟な検索指定ができるわけですが、 例えば「<strong>うひうひうひうひ…</strong>」という<br />
-
+<p>#####・グルーピング{#group} 　これまで説明したルールでかなり柔軟な検索指定ができるわけですが、 例えば「<strong>うひうひうひうひ…</strong>」という<br />
+</p>
 <div class="attention_p">
 <p>オヤジのイヤラシイ笑い</p>
 </div>
@@ -660,7 +662,7 @@ hidemaru0A5</code></pre>
 <p>もはや正気の沙汰ではない笑い</p>
 </div>
 <p>にもマッチするようになります(笑)…って笑ってる場合じゃないですね。 ちゃんと説明すると、“<code>うひ+</code>” というパターンに対して、前から順に「うひ」「うひひ」「うひ」「うひひひひひ」がマッチしています。 で、括弧の中のパターンにマッチするものが(１個以上)並んでいるわけですから、 この文全体が “<code>(うひ+)+</code>” というパターンにマッチするわけです。</p>
-<h5 id="パターンの論理和">・パターンの論理和</h5>
+<p>#####・パターンの論理和</p>
 <p>　さて、今度は「“<strong>今日</strong>” または “<strong>明日</strong>”」のように</p>
 <div class="attention_p">
 <p>パターンもヘッタクレもない、単なるワガママのような検索条件</p>
@@ -674,7 +676,7 @@ hidemaru0A5</code></pre>
 <p>という指定や、さらに</p>
 <p><span class="box_line"><strong><code>(一昨|[昨今明])日</code></strong></span></p>
 <p>という指定もできます。</p>
-<h5 id="パターンの論理積">・パターンの論理積</h5>
+<p>#####・パターンの論理積</p>
 <p>　さて、今度は以下のような内容から、複数のキーワードが含まれる行を抽出します。</p>
 <pre><code>オレンジ、アップル、パイナップル
 アップル、オレンジ、パイナップル
@@ -722,7 +724,7 @@ hidemaru0A5</code></pre>
 <p>ここで、“<strong>&lt;PRE&gt;</strong>” や “<strong>&lt;/FONT&gt;</strong>” が 「タグ」の例です。 通常の置換では、何種類もあるこれらのタグをいちいち指定して何回も置換を繰り返すことになりますが、 正規表現を使えばこれらのタグを「１回の置換」で削除することができます。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="失敗例">・失敗例</h5>
+<p>#####・失敗例</p>
 <p>　要するに「タグ」とは “<strong>&lt;</strong>” と “<strong>&gt;</strong>”で囲まれたものなわけで、 正規表現で表すと</p>
 <p><span class="box_line"><strong><code>&lt;.*&gt;</code></strong></span></p>
 <p>でよさそうです。 というわけで、<span class="font_blue">取りあえず</span></p>
@@ -739,10 +741,10 @@ hidemaru0A5</code></pre>
 これ以後は改行が無視されます。↓</code></pre>
 </div>
 <p><span class="font_blue">ありゃりゃ(笑)。</span> １、３、５行目の結果は問題ないですが、<strong>２行目</strong>と<strong>４行目</strong>の結果は？？？です。</p>
-<h5 id="考察">・考察</h5>
-<p>　ここで何が起こったのかを理解するために、正規表現の「<span class="font_red">最長一致のルール</span>」を 思い出しましょう。 これは「<strong>正規表現による検索では<span class="font_red">与えられたパターンに一致する最長の文字列</span>がマッチする</strong>」というルールでした。<br />
+<p>#####・考察 　ここで何が起こったのかを理解するために、正規表現の「<span class="font_red">最長一致のルール</span>」を 思い出しましょう。 これは「<strong>正規表現による検索では<span class="font_red">与えられたパターンに一致する最長の文字列</span>がマッチする</strong>」というルールでした。<br />
 　上の例では、 ２行目は “<strong>&lt;FONT SIZE=5&gt;</strong>” の始めの “<strong>&lt;</strong>”から、 “<strong>&lt;/FONT&gt;</strong>” の終わりの “<strong>&gt;</strong>”までがマッチしていることに 気がつきます(４行目についても同様)。 前章で説明したように “<strong><code>.</code></strong>” は 「<strong>(改行を除く)<span class="font_red">任意の文字</span></strong>」にマッチしますから、 確かに処理としては正しいことをしています(間違うのはいつも人間 :-P)。<br />
-　では、正しく「タグ」だけを指定するにはどうしたらよいのでしょうか？ この場合は「タグ」の性質をよく考えれば比較的簡単に答がわかります。 「タグ」とは要するに 「“<strong>&lt;</strong>” で始まり、<span class="font_red">最初に現れた</span>“<strong>&gt;</strong>” で終わる」ものなので、 「<span class="font_red">任意</span>」という部分を「“<strong>&gt;</strong>” を<span class="font_red">除いた</span>任意の」という表現に置き換えてやればよいわけです。 これを正規表現で表現したものが以下です。</p>
+</p>
+<p>　では、正しく「タグ」だけを指定するにはどうしたらよいのでしょうか？ この場合は「タグ」の性質をよく考えれば比較的簡単に答がわかります。 「タグ」とは要するに 「“<strong>&lt;</strong>” で始まり、<span class="font_red">最初に現れた</span>“<strong>&gt;</strong>” で終わる」ものなので、 「<span class="font_red">任意</span>」という部分を「“<strong>&gt;</strong>” を<span class="font_red">除いた</span>任意の」という表現に置き換えてやればよいわけです。 これを正規表現で表現したものが以下です。</p>
 <div class="box_line">
 <p><strong>検索文字列(改良版)：</strong> <strong>&lt;[^&gt;]*&gt;</strong></p>
 </div>
@@ -755,8 +757,8 @@ hidemaru0A5</code></pre>
 これ以後は改行が無視されます。↓</code></pre>
 </div>
 <p>…どうやらうまくいったようです。</p>
-上の例で見たように、“<code>.</code>” という表現は便利で正規表現には無くてはならないものなんですが、 「置換」の場合は<br />
-
+<p>上の例で見たように、“<code>.</code>” という表現は便利で正規表現には無くてはならないものなんですが、 「置換」の場合は<br />
+</p>
 <div class="attention_p">
 <p>使い方をよく考えないと思わぬ結果を引き起こす</p>
 </div>
@@ -773,8 +775,7 @@ hidemaru0A5</code></pre>
 中央揃え指定子↓
 これ以後は改行が無視されます。↓</code></pre>
 </div>
-<h5 id="補足タグの消去の方法実践編">・補足(タグの消去の方法…実践編)</h5>
-<p>　上の例では<strong>複数行にまたがるタグや、コメントタグの中に書かれたタグ</strong>のことを考慮していませんでした。 それらも考慮した、タグをほぼ完全に消去するパターンを以下に示しておきます。</p>
+<p>#####・補足(タグの消去の方法…実践編) 　上の例では<strong>複数行にまたがるタグや、コメントタグの中に書かれたタグ</strong>のことを考慮していませんでした。 それらも考慮した、タグをほぼ完全に消去するパターンを以下に示しておきます。</p>
 <p><span class="box_line"><strong><code>&lt;!--(.|\n)*--&gt;|&lt;[^&gt;]*&gt;</code></strong></span></p>
 <dl>
 <dt>※</dt>
@@ -802,33 +803,32 @@ hidemaru0A5</code></pre>
 <p>ちゃんと消すことができます。 では、以下の２つの例で<strong>「知恵のしぼり方」</strong>をご覧ください。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="ｃ言語のコメントを消す">・Ｃ言語のコメントを消す</h5>
+<p>#####・Ｃ言語のコメントを消す</p>
 <p>“<code>/*</code>” と “<code>*/</code>” の間にある文字列のパターンは、以下のように表わすことができそうです。</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>「“/” 以外の文字」と「直前が “*” 以外の “/”」を組み合わせた文字列</strong></span></div>
+<div class="line-block"><span class="box_line"><strong>「“/” 以外の文字」と「直前が “*” 以外の “/”」を組み合わせた文字列</strong></span></div>
 <p>ここで、“<code>/</code>” の直前に “<code>*</code>” がないことを指定して実質的に「文字列の否定」をしていることに注意して下さい。</p>
 <p>　<span class="font_blue">ちなみに、</span>同じような表現と思われる</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>「“*” 以外の文字」と「直後が “/” 以外の “*”」を組み合わせた文字列</strong></span></div>
+<div class="line-block"><span class="box_line"><strong>「“*” 以外の文字」と「直後が “/” 以外の “*”」を組み合わせた文字列</strong></span></div>
 <p>ではうまく行きません。 理由は、“<code>**/</code>” の場合に “<code>**</code>” (直後が “<code>/</code>”以外の “<code>*</code>”) と “<code>/</code>” (“<code>*</code>” 以外の文字)という風にマッチしてしまうため、 例えば</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>/***/ /***/</strong></span></div>
+<div class="line-block"><span class="box_line"><strong>/***/ /***/</strong></span></div>
 <p>の “/***/ /***/” 全てにマッチしてしまうからです。</p>
 <p>　以上のことを考慮して、ちゃんとコメントにマッチする(と思われる)パターンを書いたものが以下です。</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列：</strong> <code>/\*([^/]|[^*]/)*\*/</code></span></div>
+<div class="line-block"><span class="box_line"><strong>検索文字列：</strong> <code>/\*([^/]|[^*]/)*\*/</code></span></div>
 <p>(“<code>*</code>” は <span class="font_red">メタキャラクタ</span>なので、 キャラクタクラス指定の中にある“<code>*</code>” 以外は “<code>\</code>” でエスケープしてあります。)</p>
 <p>　これで<span class="font_blue">一見</span>うまくいくように思えます。 が、実はこのパターンは以下のようなコメント(？)にマッチしません。</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong><code>/*/ */</code></strong></span></div>
+<div class="line-block"><span class="box_line"><strong><code>/*/ */</code></strong></span></div>
 <p>一般に、“<code>/*</code>” の直後に “<code>/</code>” がある場合はアウトです。 なぜかというと、 上のパターン(の “<code>[^*]/</code>” という部分)では “<code>/</code>”の<strong>直前に必ず１文字存在することを要求</strong>しているからです。 (“<code>/*</code>”は既に “<code>/\*</code>” がマッチしているので対象外です。)</p>
 <p>　というわけで、この特殊な場合も考慮したパターンを作る必要があります。 で、それは以下のようになります。</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列(改良版)：</strong> <strong><code>/\*/?([^/]|[^*]/)*\*/</code></strong></span></div>
+<div class="line-block"><span class="box_line"><strong>検索文字列(改良版)：</strong> <strong><code>/\*/?([^/]|[^*]/)*\*/</code></strong></span></div>
 <p>(“<code>/?</code>” という指定で、(もしあれば) “<code>/*</code>” の直後の “<code>/</code>”にマッチさせています。)</p>
 <dl>
 <dt>※</dt>
 <dd><p>ただし、この表現のままでは<span class="font_red">複数行に渡るコメントは正しく置換できません</span>。 これはこのパターンが不完全なのではなく、秀丸エディタの正規表現検索の仕様によるものです (後述の<a href="#RETURNS">【５】秀丸エディタ上での複数行にまたがる検索について</a>を参照して下さい)。 任意の行数にまたがるコメントを削除することはその仕様のためにできないのですが、 例えば２行以下のものであれば以下のパターンを使えば可能です。</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列(２行までのコメントにマッチ)：</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></div>
+<div class="line-block"><span class="box_line"><strong>検索文字列(２行までのコメントにマッチ)：</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></div>
 <p>“<code>[^/]</code>” は「“<code>/</code>”以外の１文字」を表しているので、その中には “<code>\n</code>” も含まれています。 したがって、真ん中の括弧の中に入れた“<code>\n</code>”は正規表現としては不必要なものです。 しかし、この “<code>\n</code>”を加えることで秀丸エディタの動作が変わり、複数行にまたがるコメントも検索できるようになります。</p>
 </dd>
 </dl>
-<h5 id="間違ったヘッダを持つ行を探す">・間違ったヘッダを持つ行を探す</h5>
-<p>　行の先頭から “<strong>P:XXXX</strong>”(“<strong>XXXX</strong>” には半角の数字が入る)となっているはずが、 “<strong>P</strong>” が “<strong>p</strong>”になっていたり忘れているような場合や、 “<strong>:</strong>” が “<strong>;</strong>”になっていたり忘れているような行を、 探すことを考えます。<br />
+<p>#####・間違ったヘッダを持つ行を探す 　行の先頭から “<strong>P:XXXX</strong>”(“<strong>XXXX</strong>” には半角の数字が入る)となっているはずが、 “<strong>P</strong>” が “<strong>p</strong>”になっていたり忘れているような場合や、 “<strong>:</strong>” が “<strong>;</strong>”になっていたり忘れているような行を、 探すことを考えます。<br />
 　この場合、「行の先頭が “<strong>P:</strong>” ではない」という「<strong>文字列の否定</strong>」ができれば話は簡単なのですが、</p>
 <div class="attention_p">
 <p>そうは問屋が卸さない</p>
@@ -859,9 +859,9 @@ hidemaru0A5</code></pre>
 </table>
 </div>
 <p>で、これを<span class="font_blue">素直に</span> 正規表現で表わすと</p>
-<div style="white-space: pre-line;"><span class="box_line"><strong>検索文字列：</strong> <strong><code>^(|.|[^P].|P[^:])[0-9]+$</code></strong></span></div>
+<div class="line-block"><span class="box_line"><strong>検索文字列：</strong> <strong><code>^(|.|[^P].|P[^:])[0-9]+$</code></strong></span></div>
 <p>となります。 ２番目と３番目、 特に２番目は “<code>.</code>”を使うことで４つの間違いにマッチしています。</p>
-<h5 id="一般の文字列の否定はどうするか">・一般の「文字列の否定」はどうするか？</h5>
+<p>#####・一般の「文字列の否定」はどうするか？</p>
 <p>　上の２例については<span class="font_blue">運良く(笑)</span> 解答が見つかりましたが、 では一般的に「<strong>文字列の否定</strong>」をするにはどうしたらよいのでしょうか？ もう少し正確な言い方をすれば、「<strong>部分的に～という文字列を含まない文字列にマッチするパターン</strong>」を作る一般的な方法はあるのでしょうか？ …と、ここで「一般論」を説明できれば</p>
 <div class="attention_p">
 <p>何て素晴らしい解説なんだ</p>
@@ -892,9 +892,10 @@ hidemaru0A5</code></pre>
 <p>　というわけで多少駆け足で説明してきましたが、正規表現を使う事に対する大体の感覚は掴めてもらえたと思います。 あとは、実際に自分で色々な場合についてパターンを書いてみることをお勧めします。</p>
 <p>　その時に以下のことを念頭においてパターンを考えてみて下さい。</p>
 <ul>
-<li>探したい物を理路整然とした 「<span class="font_red">言葉</span>」で表現できるか？</li>
-<li>その「言葉」の各パートに対応したパターンは何か？</li>
-<li>(置換の場合は特に)そのパターンは <span class="font_red">必要十分(最小限)</span>なものか？ ＃試しに「検索」のみでやってみるのもいいかも。</li>
+<li><pre><code>探したい物を理路整然とした 「&lt;span class=&quot;font_red&quot;&gt;言葉&lt;/span&gt;」で表現できるか？ </code></pre></li>
+<li><pre><code>その「言葉」の各パートに対応したパターンは何か？ </code></pre></li>
+<li><pre><code>(置換の場合は特に)そのパターンは &lt;span class=&quot;font_red&quot;&gt;必要十分(最小限)&lt;/span&gt;なものか？
+＃試しに「検索」のみでやってみるのもいいかも。 </code></pre></li>
 </ul>
 <p>最後に、貴方の</p>
 <div class="attention_p">
