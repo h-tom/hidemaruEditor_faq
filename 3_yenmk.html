@@ -42,9 +42,9 @@
 <table>
 <caption>エスケープシーケンスの例</caption>
 <colgroup>
-<col style="width: 18%" />
+<col style="width: 19%" />
 <col style="width: 33%" />
-<col style="width: 47%" />
+<col style="width: 46%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -68,12 +68,12 @@
 <td style="text-align: left;">16進数の「5C」、10進数の「92」</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>\x</strong>_hh_</td>
+<td style="text-align: left;"><strong>\x</strong><em>hh</em></td>
 <td style="text-align: left;">任意の文字コード hh の文字 (16進数)</td>
 <td style="text-align: left;">例えば「\x41」で、16進数の「41」、 10進数の「65」。 これは文字でいうと「A」です</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong>\u</strong>_hhhh_</td>
+<td style="text-align: left;"><strong>\u</strong><em>hhhh</em></td>
 <td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数4桁固定)</td>
 <td style="text-align: left;">「<code>\u79C0</code>」で、「秀」という文字を示す。<br />
@@ -84,7 +84,7 @@
 のように2文字文を使う表現になる。</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>\U</strong>_hhhhhhhh_</td>
+<td style="text-align: left;"><strong>\U</strong><em>hhhhhhhh</em></td>
 <td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数8桁固定)</td>
 <td style="text-align: left;">「<code>\U000079C0</code>」で、「秀」という文字を示す。<br />
@@ -266,7 +266,6 @@ message @&quot;&quot;&quot;Raw文字列
 </dd>
 </dl>
 </div>
-<!-- mark_dt -->
 <hr />
 <p>例として「message文」を使いましたが、文字列を指定する箇所なら何処でもこの記法が使えます。 正規表現パターンを指定する場合にも使用できるので、見やすくなります。</p>
 <p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>
