@@ -361,6 +361,11 @@ div.img_border > img{
 .ul_red_w {
 	text-decoration:underline wavy red;
 }
+
+.mobile_view{
+    display:none;
+}
+
 /* 640px*/
 @media screen and (max-width: 640px) {
     h1,h2,h3,h4,h5,h6 {
@@ -383,5 +388,9 @@ div.img_border > img{
         height   : 200px;
         overflow : auto;
     }
-
+    
+    .mobile_view{
+        font-size :x-small;
+        display   :inline;
+    }
 }
