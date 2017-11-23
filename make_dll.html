@@ -211,7 +211,7 @@ message dllfuncstr(&quot;hello&quot;); // hello() の呼出し
 freedll; // DLLのアンロード</code></pre>
 </div>
 <p>DLLの作成方法その他に間違いがなければ、 以下のような“<code>hello world!</code>” というテキストが入った メッセージボックスが表示されるはずです。</p>
-<p><img src="hello_world.jpg" alt="MsgBox" width="138" height="115" /><br />
+<p><img src="make_dll_01.png" alt="MsgBox" width="167" height="160" /><br />
 </p>
 <p>この例は確かに単純ですが、一つ重要なことがあります。 この関数のように文字列、したがって <code>LPCSTR (= const char*)</code>を返す場合、 その文字列はDLL内部で静的に(またはヒープ領域に)確保したものでなければならない、ということです。 この注意はもちろんDLL関数に限ったことではありませんが、 C またはC++ でプログラムを書いていれば</p>
 <div class="attention_p">
@@ -573,7 +573,7 @@ message dllfuncstr(&quot;getfilename&quot;,hidemaruhandle(0),hidemarudir,&quot;f
 freedll;</code></pre>
 </div>
 <p>このマクロを実行すると、(ダイアログの細かい形はＯＳのバージョンで違いますが) 以下のようないつもの「ファイルを開く」ダイアログが表示されるはずです。</p>
-<p><img src="getfilename.png" alt="ファイルオープンダイアログ" width="650" height="471" /><br />
+<p><img src="make_dll_02.png" alt="ファイルオープンダイアログ" width="650" height="471" /><br />
 </p>
 <p>「色の選択」等の他のコモンダイアログを表示する API も 概ね上の<code>GetOpenFileName()</code> と同じように モーダルダイアログを表示するだけなので、 特に何も考えずに APIを呼び出すだけでダイアログを出すことができます。</p>
 <h3 id="window">【７】 ウィンドウを表示してみる</h3>
@@ -949,8 +949,10 @@ int main(int argc, char** argv)
 <ul>
 <li>引数または戻り値の数値は <code>int</code> ではなく <code>double</code> にする</li>
 <li><p>浮動小数点数版秀丸エディタ用のDLLであることを示すため、</p>
-<pre><code>`void FLOATMACRO(void) { }`
+<div class="macro">
+<pre><code>void FLOATMACRO(void) { }
 (C++ の場合は `extern &quot;C&quot;` を宣言の前につける)</code></pre>
+</div>
 <p>という関数をエクスポートする必要がある</p></li>
 </ul>
 <p>なお、浮動小数点数版秀丸エディタ用のDLLは整数版秀丸エディタでは使えませんが、 整数版秀丸エディタ用のDLLは浮動小数点数版秀丸エディタでも利用することができます。</p>
