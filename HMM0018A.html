@@ -31,7 +31,7 @@
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。 従って「openfile“/(100,200,300,400)”;」は正しい書き方ですが、 「openfile “/(#XX,#YY,#CX,#CY)”;」は誤りです。 数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。 次にその例を示します。</p>
+<dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。 従って「<code>openfile&quot;/(100,200,300,400)&quot;;</code>」は正しい書き方ですが、 「<code>openfile &quot;/(#XX,#YY,#CX,#CY)&quot;;</code>」は誤りです。 数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。 次にその例を示します。</p>
 <div class="macro">
 <pre><code>openfile &quot;/(&quot;+str(#XX)+&quot;,&quot;+str(#YY)+&quot;,&quot;+str(#CX)+&quot;,&quot;+str(#CY)+&quot;)&quot;;</code></pre>
 </div>

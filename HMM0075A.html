@@ -58,7 +58,7 @@ $space = $space + leftstr($space80, #sp2);</code></pre>
 </div>
 <p>通常版も浮動小数点数版も同様に動作させるための方法は、意図している動作とロジックの関係で、 必ずしも一概にはいえませんが、この例の場合、while文を</p>
 <div class="macro">
-<pre><code>while (\#sp1 &gt;= 1) {</code></pre>
+<pre><code>while (#sp1 &gt;= 1) {</code></pre>
 </div>
 <p>と変更することで、通常版も浮動小数点数版でも同様に動作するようになります。</p>
 <p>あるいは、常に整数の商を得るため、</p>

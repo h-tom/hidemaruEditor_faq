@@ -297,8 +297,7 @@ call　KEISAN;        //1個の全角空白  &lt;&lt;--[×]</code></pre>
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>秀丸マクロのサブルーチンでは「一番最初に現れる call 文より前に return文を置くことはできない」という規則があります。 これまで「ラベル」は名札みたいなものだと説明したように、ラベルそのものは何の動作もしません。 したがってラベルがあってもプログラムは、「あ、ここにラベルがあるな。位置だけ覚えておこう」と了承するだけで次の行へ処理を移します。 一方、return文は「呼び出し元へ戻る」動作をします。 ところが、対となるラベルが一度もcall文で呼び出されていない場合には、呼び出し元が記憶されていないわけですから、エラーとなります。<br />
-</p>
-<p>　下図のような場合です。SUB_001サブルーチンが呼び出されないのに、return文に到達してしまうケースです。 return文は呼び出し元へ戻ろうとしますが、この時点では、「call SUB_001」が実行されていないので、 return文はどこへ戻って良いかわからないわけです。</p>
+　下図のような場合です。SUB_001サブルーチンが呼び出されないのに、return文に到達してしまうケースです。 return文は呼び出し元へ戻ろうとしますが、この時点では、「call SUB_001」が実行されていないので、 return文はどこへ戻って良いかわからないわけです。</p>
 <div class="font_ms">
 <pre><code>　■マクロプログラム　■プログラムの流れ（矢印）
 　　　　　…↓
@@ -334,7 +333,7 @@ return;</code></pre>
 <p>また、「全角ひらがな」も(一応)使えてしまいます。</p>
 <div class="macro">
 <pre><code>// sub_test22.mac
-call あいしている\
+call あいしている;
 endmacro;
 
 あいしている:
@@ -376,14 +375,14 @@ return;</code></pre>
 <div class="macro">
 <pre><code>// sub_rolac.mac
 $str1 = &quot;A&quot;;
-message $str1+$$str2;// dlg_1=&gt;[A]
+message $str1 + $$str2;// dlg_1=&gt;[A]
 call sub1;
-message $str1+$$str2;// dlg_3=&gt;[A]
+message $str1 + $$str2;// dlg_3=&gt;[A]
 endmacro;
 
 sub1:
     $$str2 = &quot;B&quot;;
-    message $str1+$$str2;// dlg_2=&gt;[AB]
+    message $str1 + $$str2;// dlg_2=&gt;[AB]
 return;</code></pre>
 </div>
 </dd>
@@ -403,21 +402,21 @@ return;</code></pre>
 <div class="macro">
 <pre><code>// subsub.mac
 $str1 = &quot;A&quot;;
-message $str1+$$str2+$$str3;// dlg_1=&gt;[A]
+message $str1 + $$str2 + $$str3;// dlg_1=&gt;[A]
 call sub1;
-message $str1+$$str2+$$str3;// dlg_5=&gt;[A]
+message $str1 + $$str2 + $$str3;// dlg_5=&gt;[A]
 endmacro;
 
 sub1:
     $$str2 = &quot;B&quot;;
-    message $str1+$$str2+$$str3;// dlg_2=&gt;[AB]
+    message $str1 + $$str2 + $$str3;// dlg_2=&gt;[AB]
     call sub2;
-    message $str1+$$str2+$$str3;// dlg_4=&gt;[AB]
+    message $str1 + $$str2 + $$str3;// dlg_4=&gt;[AB]
 return;
 
 sub2:
     $$str3 = &quot;C&quot;;
-    message $str1+$$str2+$$str3;// dlg_3=&gt;[AC]
+    message $str1 + $$str2 + $$str3;// dlg_3=&gt;[AC]
 return;</code></pre>
 </div>
 </dd>
@@ -439,7 +438,7 @@ call mess &quot;tarou&quot;;
 endmacro;
 
 mess:
-    message &quot;Hello ! &quot;+$$1;
+    message &quot;Hello ! &quot; + $$1;
 return;</code></pre>
 </div>
 </dd>
@@ -460,9 +459,9 @@ call mess &quot;hanako&quot;,123,&quot;hidiemaru&quot;;
 endmacro;
 
 mess:
-    message &quot;Hello ! &quot;+$$1;
-    message &quot;Number is &quot;+str(##2);
-    message &quot;I am &quot;+$$3;
+    message &quot;Hello ! &quot; + $$1;
+    message &quot;Number is &quot; + str(##2);
+    message &quot;I am &quot; + $$3;
 return;</code></pre>
 </div>
 </dd>
@@ -483,11 +482,11 @@ return;</code></pre>
 endmacro;
 
 test:
-    ##ukenum1=##1;
-    $$ukestr1=$$2;
-    $$ukestr2=$$3;
-    ##ukenum2=##4;
-    $$ukestr3=$$5;
+    ##ukenum1 = ##1;
+    $$ukestr1 = $$2;
+    $$ukestr2 = $$3;
+    ##ukenum2 = ##4;
+    $$ukestr3 = $$5;
     //サブルーチン本体
     // ...
     // ...
@@ -526,10 +525,10 @@ return;</code></pre>
 <div class="macro">
 <pre><code>// subret1.mac
 $str1 = &quot;A&quot;;
-message $str1+$str2;// dlg_1=&gt;[A]
+message $str1 + $str2;// dlg_1=&gt;[A]
 call sub1;
-$str2=$$return;
-message $str1+$str2;// dlg_5=&gt;[Axxx]
+$str2 = $$return;
+message $str1 + $str2;// dlg_5=&gt;[Axxx]
 endmacro;
 
 sub1:
@@ -550,7 +549,7 @@ endmacro;
 calc2Num:
     ##n1 = ##1;
     ##n2 = ##2;
-    ##wa = ##n1+##n2;
+    ##wa = ##n1 + ##n2;
 return ##wa;</code></pre>
 </div>
 </dd>
@@ -577,7 +576,7 @@ endmacro;
 calc2Num:
     ##n1 = ##1;
     ##n2 = ##2;
-    ##wa = ##n1+##n2;
+    ##wa = ##n1 + ##n2;
     $$wa = str(##wa);
 return $$wa;</code></pre>
 </div>
@@ -598,13 +597,13 @@ return $$wa;</code></pre>
 #a = 12;
 #b = 34;
 call calc2Num #a,#b;
-message &quot;合計&quot;+$$return+&quot;円&quot;;// dlg =&gt;[合計46円]
+message &quot;合計&quot; + $$return + &quot;円&quot;;// dlg =&gt;[合計46円]
 endmacro;
 
 calc2Num:
     ##n1 = ##1;
     ##n2 = ##2;
-    ##wa = ##n1+##n2;
+    ##wa = ##n1 + ##n2;
     $$wa = str(##wa);
 return $$wa;</code></pre>
 </div>
@@ -625,7 +624,7 @@ return $$wa;</code></pre>
 #a = 12;
 #b = 34;
 call calc2Num #a,#b;
-message &quot;和&quot;+str(#wa)+&quot; 差&quot;+str(#sa);// dlg =&gt;[和46 差-22]
+message &quot;和&quot; + str(#wa) + &quot; 差&quot; + str(#sa);// dlg =&gt;[和46 差-22]
 endmacro;
 
 calc2Num:

@@ -47,18 +47,18 @@ insertreturn•¶‚ÍAu‰üsƒL[‚ğ‰Ÿ‚µ‚½‚Ì‚Æ‘S‚­“¯‚¶“­‚«v‚ğ‚µ‚Ü‚·B<br />
 <strong>insert</strong>•¶‚Å‰üs•¶š‚ğ‘}“ü‚·‚é‚Ì‚ªŠÈ’P‚Å‚·B</p>
 <p>i—áj ‰üs‚ğ‘}“ü‚·‚é‚É‚Í</p>
 <div class="macro">
-<pre><code>insert &quot;\\n&quot;;</code></pre>
+<pre><code>insert &quot;\n&quot;;</code></pre>
 </div>
 <p>@‚Ü‚½‚Í</p>
 <div class="macro">
-<pre><code>insert &quot;\\x0a&quot;;</code></pre>
+<pre><code>insert &quot;\x0a&quot;;</code></pre>
 </div>
 <p>‚Ü‚½‚ÍAã‘‚«ƒ‚[ƒh‚ÌAˆê’UA‘}“üƒ‚[ƒh‚É•Ï‚¦‚ÄAinsertreturn‚µ‚Ä‚Ü‚½ã‘‚«ƒ‚[ƒh‚É–ß‚µ‚Ä‚ ‚°‚é•û–@‚à‚ ‚è‚Ü‚·B<br />
 ‚±‚Ìê‡AƒCƒ“ƒfƒ“ƒg‚Ìİ’è‚É]‚Á‚½“®ì‚ğs‚¢‚Ü‚·B</p>
 <div class="macro">
 <pre><code>if(overwrite){
-    overwriteswitch;\
-    insertreturn;\
+    overwriteswitch;
+    insertreturn;
     overwriteswitch;
 } else {
     insertreturn;
@@ -101,10 +101,9 @@ codeƒL[ƒ[ƒh‚ÍAƒJ[ƒ\ƒ‹ˆÊ’u‚Ì•¶šƒR[ƒh‚ğ•\‚µ‚Ü‚·B<br />
 <p>ˆÈ‰º‚Ì‘‚«•û‚Å‚Í‰üs•¶š‚Æ”»’è‚Å‚«‚Ü‚¹‚ñBinsert•¶‚Å‰üs‚ğ‘}“ü‚·‚éê‡‚Æ‚Ìˆá‚¢‚É’ˆÓ‚µ‚Ü‚µ‚å‚¤B</p>
 <div class="macro">
 <pre><code>if (code == 0x0a) {
-if (code == &#39;\\n&#39;) {
-if (code == ascii(&quot;\\n&quot;)) {
-if (code == ascii(&quot;\\r&quot;)) { // ‚±‚ê‚à‚È‚º‚© ascii(&quot;\\r&quot;) == 10
-‚Æ‚È‚è‘Ê–Ú</code></pre>
+if (code == &#39;\n&#39;) {
+if (code == ascii(&quot;\n&quot;)) {
+if (code == ascii(&quot;\r&quot;)) { // ‚±‚ê‚à‚È‚º‚© ascii(&quot;\r&quot;) == 10 ‚Æ‚È‚è‘Ê–Ú</code></pre>
 </div>
 <p>¦GŠÛƒ}ƒNƒ‚Å‚ÍA\r‚à 0x0a ‚Æ‚µ‚Äˆ—‚³‚ê‚Ü‚·B</p>
 <p>i—áj •¶––‚ğ”»’è‚·‚é<br />
@@ -344,7 +343,7 @@ message str(ascii($a)); // == 33280 == 0x8200 ‚ª•Ô‚é</code></pre>
 </div>
 <p>‚Æ‚¢‚¤‚í‚¯‚ÅA‚QƒoƒCƒg•¶š‚Ì‚PƒoƒCƒg–Ú‚©‚Ç‚¤‚©‚ğ”»’f‚·‚é‚Ì‚É</p>
 <div class="macro">
-<pre><code>if (ascii(midstr(\$s, \#i, 1)) &amp; 0x80) {
+<pre><code>if (ascii(midstr($s, #i, 1)) &amp; 0x80) {
     // ‚QƒoƒCƒg•¶š‚Ì‚PƒoƒCƒg–Ú‚©A”¼ŠpƒJƒ^ƒJƒi‚¾‚Á‚½
     
 }</code></pre>
@@ -353,7 +352,7 @@ message str(ascii($a)); // == 33280 == 0x8200 ‚ª•Ô‚é</code></pre>
 ascii•¶‚Ìd—l‚©‚ç‚·‚é‚ÆAmidstr•¶‚È‚Ç‚ÅØ‚èo‚·ê‡‚ÍA‚Q•¶šØ‚èo‚·‚Ì‚ª—Ç‚¢‚Å‚·B i‚P•¶š–Ú‚ª‚PƒoƒCƒg•¶š‚Å‚àŸ‚Ì•¶š‚Íascii•¶‚Í–³‹‚µ‚Ä‚­‚ê‚Ü‚·Bj<br />
 ‚Æ‚¢‚¤‚í‚¯‚ÅAˆÈ‰º‚Ì—á‚Ì‚æ‚¤‚É‚µ‚Ü‚µ‚å‚¤B</p>
 <div class="macro">
-<pre><code>if (ascii(midstr(\$s, \#i, 2)) &gt;  0xff) {
+<pre><code>if (ascii(midstr($s, #i, 2)) &gt;  0xff) {
     // ‚QƒoƒCƒg•¶š
     
 }</code></pre>
@@ -362,7 +361,7 @@ ascii•¶‚Ìd—l‚©‚ç‚·‚é‚ÆAmidstr•¶‚È‚Ç‚ÅØ‚èo‚·ê‡‚ÍA‚Q•¶šØ‚èo‚·‚Ì‚ª—Ç‚¢‚Å‚
 <div class="macro">
 <pre><code>if (ascii(midstr($s, #i, 2)) &amp;&amp; 0xff00 != 0) {
     // ‚QƒoƒCƒg•¶š
-
+    
 }</code></pre>
 </div>
 <h3 id="DOUBLE">y‚P‚Oz•¶š—ñ’†‚Ìæ“ªˆÈŠO‚Ì•¶š‚ª‚PƒoƒCƒg•¶š‚©‚QƒoƒCƒg•¶š‚©‚ğ‹æ•Ê‚·‚é‚É‚ÍimidstrŠÖ”“™‚Ö‚Ì’ˆÓ–€j</h3>

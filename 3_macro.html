@@ -156,7 +156,7 @@
 <p>保存時のファイル名は QA_SMPL1.MAC としてください。</p>
 <div class="macro">
 <pre><code>//---ここから
-//QA\_SMPL1.MAC
+//QA_SMPL1.MAC
 insert date + &quot; &quot; + time;
 endmacro;
 //---ここまで</code></pre>
@@ -167,9 +167,9 @@ endmacro;
 「自分の名前」のところは任意の文字列（ただし「vや「“」を含まない）に置き換えることができます。</p>
 <div class="macro">
 <pre><code>//---ここから
-//QA\_SMPL2.MAC
+//QA_SMPL2.MAC
 gofileend;
-insert &quot;\\n&quot; + &quot;自分の名前&quot; + &quot;\\n&quot;;
+insert &quot;\n&quot; + &quot;自分の名前&quot; + &quot;\n&quot;;
 endmacro;
 //---ここまで</code></pre>
 </div>
@@ -178,9 +178,9 @@ endmacro;
 <p>保存時のファイル名は QA_SMPL3.MAC としてください。</p>
 <div class="macro">
 <pre><code>//---ここから
-//QA\_SMPL3.MAC
+//QA_SMPL3.MAC
 gofileend;
-replaceup &quot;\^\\\\n\\\\n+&quot;, &quot;\\n&quot;, regular;
+replaceup &quot;^\\n\\n+&quot;, &quot;\n&quot;, regular;
 while (result) findup;
 endmacro;
 //---ここまで</code></pre>
@@ -191,8 +191,8 @@ endmacro;
 <p>保存時のファイル名は QA_SMPL4.MAC としてください。</p>
 <div class="macro">
 <pre><code>//---ここから
-//QA\_SMPL4.MAC
-replaceall &quot;\^\[ 　\\t\]+\$&quot;,&quot;&quot;, regular;
+//QA_SMPL4.MAC
+replaceall &quot;^[ 　\t]+$&quot;,&quot;&quot;, regular;
 endmacro;
 //---ここまで</code></pre>
 </div>

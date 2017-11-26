@@ -40,23 +40,21 @@
 <div class="macro">
 <pre><code>//------- サンプルマクロ1 -------//
 // &quot;c:\\hidemaru\\install.txt&quot; のウィンドウ番号を取得する
-$file = &quot;c:\\hidemaru\\install.txt&quot;;
+$file    = &quot;c:\\hidemaru\\install.txt&quot;;
 #h_order = findhidemaru($file);
-message $file + &quot; のウィンドウ番号は &quot; + str(#h\_order) + &quot; です。&quot;;
+message $file + &quot; のウィンドウ番号は &quot; + str(#h_order) + &quot; です。&quot;;
 if( #h_order != -1 ) setactivehidemaru #h_order; //切り替え
 endmacro;
 // ---------------------------- //</code></pre>
 </div>
 <p>※ ファイルが開かれていない場合は、ウィンドウ番号は -1 になります。</p></li>
 <li><p><strong>ウィンドウハンドル</strong></p>
-<ol type="1">
-<li>で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。 いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、 「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</li>
-</ol>
+<p>1.で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。 いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、 「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ2 -------//
 // &quot;c:\\hidemaru\\install.txt&quot; のウィンドウハンドルを取得する
-$file = &quot;c:\\hidemaru\\install.txt&quot;;
-#h\_wnd = hidemaruhandle(findhidemaru($file));
+$file  = &quot;c:\\hidemaru\\install.txt&quot;;
+#h_wnd = hidemaruhandle(findhidemaru($file));
 message $file + &quot; のウィンドウハンドルは &quot; + str(#h_wnd) + &quot; です。&quot;;
 if( #h_wnd != 0 ) setactivehidemaru #h_wnd; //切り替え
 endmacro;

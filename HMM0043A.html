@@ -34,20 +34,20 @@
 <dd><p>(無題)および(無題)(更新)がタイトルバーに表示されている秀丸エディタから、 一時処理ファイルを開くような作業をする場合（openfile系コマンド等）、 通常、(無題)秀丸エディタにファイルが優先的に読み込まれてしまいます。 通常の編集作業では問題ないのですが、マクロで自動処理をする場合、 トラブルの原因になるケースもあります。</p>
 <p>そこで、(無題)状態をキープしたい時は、changenameにより「ファイル名」を与えておいて、 終了時に再度(無題)に戻すことで回避できます。 ただし、なぜかちょっとした追加処理が必要だったりします。次にその例を示します。</p>
 <div class="macro">
-<pre><code>//(1)前処理\
+<pre><code>//(1)前処理
 #hwndOrg = hidemaruhandle( 0 );
 if(filename==&quot;&quot;){
     changename &quot;xxxxxx.tmp&quot;;
     #changeFileName=1;
 }
 
-//ここからマクロ本体\
+//ここからマクロ本体
 openfile &quot;00temp$$.$$$&quot;; // 一時処理ファイルを開く
 #hwndTmp = hidemaruhandle( 0 );
 
-//(2)終了処理\
+//(2)終了処理
 setactivehidemaru #hwndOrg;
-closehidemaruforced \#hwndTmp;
+closehidemaruforced #hwndTmp;
 if(#changeFileName){
     changename &quot;&quot;;
     insertfix &quot;a&quot;;

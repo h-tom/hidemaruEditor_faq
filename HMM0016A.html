@@ -33,12 +33,14 @@
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>オプションを指定する場合には、『半角空白』が必要な場合もあるので、不正動作時にはチェックしてみてください。 次に２つの例を示します。</p>
 <div class="monospace">
-<div class="line-block">不可例１：openfile “/(100,100,500,500)”+$fileName;
-修正例１：openfile “/(100,100,500,500)”+$fileName;</div>
+<div class="line-block">不可例１：<code>openfile &quot;/(100,100,500,500)&quot; + $fileName;</code>
+修正例１：<code>openfile &quot;/(100,100,500,500) &quot; + $fileName;</code></div>
 </div>
+<p><br />
+</p>
 <div class="monospace">
-<div class="line-block">不可例２：openfile “/h”+$fileName;
-修正例２：openfile “/h”+$fileName;</div>
+<div class="line-block">不可例２：<code>openfile &quot;/h&quot; + $fileName;</code>
+修正例２：<code>openfile &quot;/h &quot; + $fileName;</code></div>
 </div>
 </dd>
 </dl>

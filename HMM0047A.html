@@ -33,15 +33,24 @@
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
 <dd><p>これもさまざまな方法があります。 次の例は、既に開かれているファイル名を調査するタイプのマクロで、常に「MEMO.txt」という文書を編集できる状態にします。</p>
 <div class="macro">
-<pre><code>//------- サンプルマクロ -------//\
+<pre><code>//------- サンプルマクロ -------//
 
-$openFileName=&quot;c:\\hmmac\\MEMO.txt&quot;;
-if($openFileName!=filename){
+$openFileName = &quot;c:\\hmmac\\MEMO.txt&quot;;
+if(tolower($openFileName) != filename){
     #findWind = findhidemaru($openFileName);
-    if(#findWind&gt;0)setactivehidemaru #findWind;
+    if(#findWind &gt; 0)setactivehidemaru #findWind;
     else openfile $openFileName;
 }
-endmacro;\
+endmacro;
+// ---------------------------- //</code></pre>
+</div>
+<p>秀丸エディタ Ver.8.66以降の場合、「setcompatiblemode」を使う方法もあります。</p>
+<div class="macro">
+<pre><code>//------- サンプルマクロ -------//
+setcompatiblemode ((compatiblemode &amp; 0xFFFFFF0F) | 0x00000030);
+$openFileName = &quot;c:\\hmmac\\MEMO.txt&quot;;
+if(tolower($openFileName) != filename) openfile $openFileName;
+endmacro;
 // ---------------------------- //</code></pre>
 </div>
 </dd>

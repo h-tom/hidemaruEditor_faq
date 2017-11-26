@@ -166,15 +166,15 @@ endmacroall;</code></pre>
 <p><strong>（ア）特殊キー状態に対応したブロックへの挿入</strong></p>
 <p>　マクロを割り当てたキーの特殊キーの状態に対応するmoreMac.macのブロック部分に存在する、次の1行を挿入してください。</p>
 <div class="macro">
-<pre><code>if(\#c == XX )execmacro &quot;NNNN.mac&quot;;</code></pre>
+<pre><code>if(#c == XX )execmacro &quot;NNNN.mac&quot;;</code></pre>
 </div>
 <p>　たとえば先の例では特殊キーは「Alt＋Ctrl＋Shift」を押すことになっていましたから、moreMac.mac内の</p>
 <div class="macro">
-<pre><code>if(\#p== 7){// [Alt + Ctrl + Shift]</code></pre>
+<pre><code>if(#p == 7){// [Alt + Ctrl + Shift]</code></pre>
 </div>
 <p>の後に挿入します。</p>
 <p><strong>（イ）キーコードの指定（#c == XXの部分）</strong></p>
-<p>　そこで、特殊キーと組み合わせて押す一般キー（A～Z、0～9）を、そのキーコードに変更します。 キーコードについては、表1の主なコード表を参照してください。 例では「A」キーですから、「#c== XX」の部分を「#c == 65」と書き換えます。</p>
+<p>　そこで、特殊キーと組み合わせて押す一般キー（A～Z、0～9）を、そのキーコードに変更します。 キーコードについては、表1の主なコード表を参照してください。 例では「A」キーですから、「#c == XX」の部分を「#c == 65」と書き換えます。</p>
 <div class="table_border">
 <table>
 <caption>表1　主なキーコード一覧（10進数表記）</caption>
@@ -226,7 +226,7 @@ endmacroall;</code></pre>
 </div>
 <p><strong>（ウ）実行させるマクロファイルの指定（execmacro“NNNN.mac”の部分）</strong></p>
 <p>　[Alt＋Ctrl＋Shift＋A]で実行させたいマクロの名前を指定します。例では「ASCII.mac」ですから、</p>
-<pre><code>if(\#c == 65)execmacro &quot;ASCII.mac&quot;;</code></pre>
+<pre><code>if(#c == 65)execmacro &quot;ASCII.mac&quot;;</code></pre>
 <p>画面H7　[Alt＋Ctrl＋Shift＋A]で実行させたいマクロの名前を「ASCII.mac」と指定した。</p>
 </div></li>
 <li><p>登録したマクロの実行**</p>
@@ -234,7 +234,7 @@ endmacroall;</code></pre>
 <li><p>続々とマクロを登録していこう**</p>
 <p>　今後は、マクロを新規にキー割り当てしたくなった時点で、(2)～(4)の処理を繰り返せば、 あらゆる「特殊キー＋一般キー」に対して事実上無制限にマクロを登録できます。 あらかじめ、現在マクロが登録されていない特殊キーと一般キーの組み合わせに対して片っ端から「moreMac.mac」を割り付けておくと、 今は面倒でも、後々はmoreMac.macのスクリプト変更だけでキー割付が実現するので楽でしょう （ただし、単独のShiftキーと一般キーとの組み合わせに割り付けることは避けましょう。文字入力が不便になります）。</p>
 <p>画面H8　moreMac.macに、実際にいくつかのマクロを割り当てた。 登録マクロ数が増えると、このmoreMac.macはどんどん長いマクロになっていく。ちなみに、(4)-（ア）で指定する</p>
-<pre><code>if(\#c == XX )execmacro &quot;NNNN.mac&quot;;</code></pre>
+<pre><code>if(#c == XX )execmacro &quot;NNNN.mac&quot;;</code></pre>
 <p>は、「XX」の値さえ違えばいくらでも並べて書いていける（念のため）。</p></li>
 </ol>
 </dd>

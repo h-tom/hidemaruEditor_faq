@@ -94,7 +94,7 @@ while( 1 ) {
 (“A”～“Z”で始まる単語を英単語であると判断) このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、 前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
 <p>正しく英大文字で始まる単語のみを表示するには、*1 の行を次のように変更します。</p>
 <div class="macro">
-<pre><code>if( ascii(\$s1) &amp;gt;= &#39;A&#39; &amp;&amp; ascii(\$s1) &amp;lt;= &#39;Z&#39; ) { // \*1</code></pre>
+<pre><code>if( ascii($s1) &gt;= &#39;A&#39; &amp;&amp; ascii($s1) &lt;= &#39;Z&#39; ) { // *1</code></pre>
 </div>
 <p>比較対象を文字(列)のままではなく文字コードに変換して比較します。<br />
 ※ AとZの囲みがシングルクォートに変わっていることに注意。</p>
@@ -137,7 +137,7 @@ endmacro; </code></pre>
 <dl>
 <dt>[解説]</dt>
 <dd>Win32API の lstrcmp() についての詳細は以下を参照してください。<br />
-<a href="https://msdn.microsoft.com/ja-jp/library/cc410902.aspx">lstrcmp 関数</a>
+<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc410902.aspx" target="_blank">lstrcmp 関数</a></span>
 </dd>
 </dl>
 <p>辞書引き順の詳細は、ＪＩＳの日本語文字列照合順番 X4061-1996で定義されています。</p>
