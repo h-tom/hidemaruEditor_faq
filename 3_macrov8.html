@@ -43,6 +43,7 @@
 <li><a href="#V871">秀丸エディタVer.8.71 マクロ関連の変更履歴</a></li>
 <li><a href="#V873">秀丸エディタVer.8.73 マクロ関連の変更履歴</a></li>
 <li><a href="#V875">秀丸エディタVer.8.75 マクロ関連の変更履歴</a></li>
+<li><a href="#V877">秀丸エディタVer.8.77 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、 <span class="externallink"><a href="http://hide.maruo.co.jp/software/hidemaru8/index.html" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a></span> を参照してください。</p>
@@ -715,6 +716,29 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>run文で引数の文字数が多くて切れるようなケースではエラーとなるように修正。</li>
 <li>colormarkerallfound文で見出しバーが無いとき画面全体がちらつく問題修正。</li>
+</ul></li>
+</ul>
+</div>
+<h2 id="V877">秀丸エディタVer.8.77 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V877">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.77</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V877">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.77</h3>
+<ul>
+<li>追加
+<ul>
+<li>アウトプット枠のHmOutputPane.dllの関数にSetBaseDirを追加。</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>run文で引数も含めて約8KB分のコマンドラインを使えるように修正。</li>
+<li>debuginfo 2;とするとdebuginfoでの文字列の出力はアウトプット枠にも出力するように修正。</li>
+<li>setdlldetachfuncで指定して呼ばれる関数に、どのような理由で呼ばれたかを表すパラメータを追加。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>showvarsで配列の角括弧の後半が無い問題修正。</li>
+<li>マクロの文の記述に半角括弧を使った場合のエラーメッセージがおかしい点を修正。</li>
 </ul></li>
 </ul>
 </div>

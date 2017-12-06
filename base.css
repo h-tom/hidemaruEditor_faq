@@ -366,6 +366,11 @@ div.img_border > img{
     display:none;
 }
 
+.dt_hyouki> dl > dt {
+    margin-top  : 0.5em;
+    font-weight  : bold;
+}
+
 /* 640px*/
 @media screen and (max-width: 640px) {
     h1,h2,h3,h4,h5,h6 {
