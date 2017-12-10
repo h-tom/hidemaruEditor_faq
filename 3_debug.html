@@ -40,7 +40,8 @@
 <p>“デバッガに出力”する機能だけではなく、デバッガへの出力をON/OFFする機能も持ちます。</p>
 <ul>
 <li>引数として数値の 「0」を指定した場合は、デバッガへの出力をOFFします。(マクロ実行直後はOFF状態)</li>
-<li>引数として数値の 「0」以外を指定した場合は、デバッガへの出力をONします。</li>
+<li>引数として数値の 「0」以外を指定した場合は、デバッガへの出力をONします。<br />
+Ver.8.77から、引数として数値の 「2」を指定した場合、デバッガだけではなく、 アウトプット枠にもメッセージを出力します。 アウトプット枠が表示されていない場合は、アウトプット枠も表示されます。</li>
 </ul></li>
 <li><p><span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/090_MessageStatement_showvars.html" target="_blank">showvars</a></span><br />
 現在のマクロで定義されている変数とその内容の一覧を出力する。</p>
@@ -161,7 +162,9 @@ return;</code></pre>
 <p>エラーメッセージを保存する事も出来るので、結構便利です。</p>
 <h4 id="DEBUG-3">アウトプット枠に出力</h4>
 <p>各種情報をアウトプット枠に出力します。</p>
-<p>ただし、DLL関数を使うことになるので、DLLの有効範囲の問題があります。 関数を呼び出すときにロードした秀丸エディタに切り替えないと、DLL関数の実行に失敗します。 その為、秀丸エディタを切り替えるので、少しうっとうしいかもしれません。</p>
+<p>秀丸エディタ Ver.8.77以降、debuginfo 文で、アウトプット枠にメッセージを出力できます。</p>
+<p>ただし、debuginfo は出力するアウトプット枠の制御できません。 マクロを実行しているアクティブなウィンドウのアウトプット枠に出力されます。</p>
+<p>タブモードの場合は、アウトプット枠はウィンドウに1個なので、問題はありませんが、 複数のタブグループがある場合や、非タブモードの場合は、ウィンドウ/タブグループが切り替わると、 メッセージの出力先も切り替わってしまうため、初期化を実行したウィンドウ/タブグループに出力するようにしています。</p>
 <p>また、秀丸エディタ本体がクラッシュするような不具合があると、出力した内容も全て消えてしまいます。</p>
 <p>「アウトプット枠に出力する」マクロの例です。</p>
 <ul>
@@ -172,21 +175,30 @@ return;</code></pre>
 <pre><code>//初期化処理
 call DBOUT_INIT;
 //実際に出力する
-call DBOUT &quot;デバッグ出力1!!:&quot; + time;
+call DBOUT &quot;デバッグ出力1!!:&quot; + time + &quot;\n&quot;;
 newfile;
-call DBOUT &quot;デバッグ出力2!!:&quot; + time;
+call DBOUT &quot;デバッグ出力2!!:&quot; + time + &quot;\n&quot;;
+settabgroup -1;
+call DBOUT &quot;デバッグ出力3!!:&quot; + time + &quot;\n&quot;;
 endmacro;
 
 //----------------------//
 //  デバック出力
 //----------------------//
 DBOUT:
-    if(#Debug_OutputFlg == 1 &amp;&amp; #Debug_OutputPanel &gt; 0 &amp;&amp; #Debug_LoadHidemaru &gt; 0){
+    if(#Debug_OutputFlg == 1 ){
         ##main = hidemaruhandle(0);
         ##focus = getfocus;
-        if(##main != #Debug_LoadHidemaru) setactivehidemaru #Debug_LoadHidemaru;
-        ##n = dllfunc(#Debug_OutputPanel, &quot;Output&quot;, hidemaruhandle(0), $$1 + &quot;\n&quot;);
-        if(##main != #Debug_LoadHidemaru) setactivehidemaru ##main;
+        if(#Debug_TabMode == 0 &amp;&amp; ##main != #Debug_Hidemaru){
+            //非タブモードの場合、ウィンドウ毎にアウトプット枠が存在するので、同じウィンドウに出力する。
+            setactivehidemaru #Debug_Hidemaru;
+        }else if(#Debug_TabMode == 1 &amp;&amp; #Debug_TabGroup != tabgroup){
+            //タブモードで、グループIDが初期化時と違っていたら、同じタブに出力する。
+            setactivehidemaru getcurrenttab(false, #Debug_TabGroup);
+        }
+        debuginfo $$1;
+        //元に戻す
+        if(##main != hidemaruhandle(0)) setactivehidemaru ##main;
         if(getfocus != ##focus) setfocus ##focus;
     }
 return;
@@ -195,22 +207,21 @@ return;
 //  デバック初期化
 //----------------------//
 DBOUT_INIT:
-    #Debug_OutputPanel = loaddll(&quot;HmOutputPane.dll&quot;);
-    if(#Debug_OutputPanel == 0){
+    #Debug_TabMode  = tabmode;
+    #Debug_TabGroup = tabgroup;
+    #Debug_Hidemaru = hidemaruhandle(0);
+    debuginfo 2;
+    debuginfo &quot;&quot;;
+    //アウトプット枠をクリアする場合は有効にする。
+    //ここから
+    ##Debug_OutputPanel = loaddll(&quot;HmOutputPane.dll&quot;);
+    if(##Debug_OutputPanel == 0){
         #Debug_OutputFlg = 0;
         return;
     }
-    //非表示の場合は表示する。
-    ##outputhandle = dllfunc(#Debug_OutputPanel, &quot;GetWindowHandle&quot;, hidemaruhandle(0));
-    if(##outputhandle == 0){
-        //空文字を出力して、アウトプット枠を表示させる。
-        ##n = dllfunc(#Debug_OutputPanel, &quot;Output&quot;, hidemaruhandle(0), &quot;&quot;);
-        setfocus 1;
-        ##outputhandle = dllfunc(#Debug_OutputPanel, &quot;GetWindowHandle&quot;, hidemaruhandle(0));
-    }
-    #Debug_LoadHidemaru = hidemaruhandle(0);
-    //クリアする場合は有効にする。
-    //##ret = sendmessage(##outputhandle, 0x111, 1009, 0);//1009=クリア
+    ##outputhandle = dllfunc(##Debug_OutputPanel, &quot;GetWindowHandle&quot;, hidemaruhandle(0));
+    ##ret = sendmessage(##outputhandle, 0x111, 1009, 0);//1009=クリア
+    //ここまで
     #Debug_OutputFlg = 1;
 return;</code></pre>
 </div>
