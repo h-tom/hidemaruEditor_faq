@@ -4,7 +4,7 @@
   <meta charset="Shift_JIS" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　COMオブジェクト操作関連</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
@@ -19,7 +19,7 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
-<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br />　COMオブジェクト操作関連</h1>
+<h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　COMオブジェクト操作関連</h1>
 <hr />
 <h2 id="INDEX">●COMオブジェクト操作関連</h2>
 <p>【０】<a href="#ABOUT">COMオブジェクトとは</a><br />
@@ -29,12 +29,12 @@
 <div class="marginleft">
 <h3 id="ABOUT">【０】COMオブジェクトとは</h3>
 <p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの再利用を目的とした技術で、アプリケーションソフトウェア間での通信や、 OSとアプリケーションソフトウェアとのAPIに用いられています。</p>
-<p>ただし、現状(2017/12/08現在)では、「.NET Freamework」が主流であり、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>ただし、現状(2017/12/08現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
 <p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
 <p>ここでは、OSに標準搭載されている、「Windows Script Host」等を使って説明を行います。</p>
 <h3 id="SETTING">【１】使用前の準備</h3>
 <p>まず、使用するCOMオブジェクトの情報を収集します。</p>
-<p>今回は3つのCOMオブジェクトを使用し説明を行います。</p>
+<p>今回は以下のCOMオブジェクトを使用し説明を行います。</p>
 <ol type="1">
 <li><p>「Windows Script Host」の各種オブジェクト<br />
 「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2017/08/15)ではダウンロード出来なくなっています。</p>
@@ -51,6 +51,8 @@
 <p>秀丸マクロ側は<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/230_Com.html" target="_blank">「COMの呼び出し」</a></span>にある、 関数/文 を使うことになります。</p>
 <p>プロパティの呼び出し/設定、メソッドで戻り値が、数値、文字、オブジェクト場合で命令が異なるので、 少し複雑です。また命令が異なるので、使用するCOMオブジェクトの情報がないと、何を使っていいのか、 判断に困まります。</p>
 <h3 id="MACRO">【２】秀丸マクロからCOMオブジェクトを使ってみる</h3>
+<div class="marginleft">
+<h4 id="MACRO-1">【２．１】「Windows Script Host」の WshShell オブジェクトを使ってみる</h4>
 <p>WshShell オブジェクト にある、“Popup”メソッドを使ってみます。</p>
 <p>秀丸マクロの message文 と同じメッセージを表示する命令ですが、タイムアウト時間を設定でき自動で閉じることが出来ます。<br />
 (秀丸エディタ Ver.8.75以降では、message文が拡張され、タイムアウトする事も可能になっています。)</p>
@@ -65,22 +67,22 @@
 <dd>WshShell オブジェクトを指定します。
 </dd>
 <dt>strText</dt>
-<dd>表示するメッセージ
+<dd>表示するメッセージ(文字列)
 </dd>
 <dt>nSecondsToWait</dt>
-<dd>タイムアウト時間。0(zero)だと通常のメッセージBOXと同じで、ユーザーの操作を待ち続ける。
+<dd>タイムアウト時間。0(zero)だと通常のメッセージBOXと同じで、ユーザーの操作を待ち続ける。(数値)
 </dd>
 <dt>strTitle</dt>
-<dd>タイトルバーに表示する内容
+<dd>タイトルバーに表示する内容(文字列)
 </dd>
 <dt>nType</dt>
-<dd>表示するボタンとアイコンを示す値
+<dd>表示するボタンとアイコンを示す数値(数値)
 </dd>
 </dl></li>
 <li><p>戻り値</p>
 <dl>
 <dt>intButton</dt>
-<dd>選択されたボタンを示す値
+<dd>選択されたボタンを示す数値(数値)
 </dd>
 </dl></li>
 </ul>
@@ -105,7 +107,22 @@ if(#WshShell == 0){ //if(getresultex(10) == false){
     endmacro;
 }</code></pre>
 </div>
-<p>次に“Popupメソッド”を呼び出します。Popupメソッドは、戻り値が数値なので、 “callmethod_returnnum関数”を使い呼び出します。</p>
+<p>次に“Popupメソッド”を呼び出します。</p>
+<p>呼び出すメソッドの戻り値が、</p>
+<ul>
+<li>数値の場合は、“<strong>callmethod_returnnum</strong>関数”</li>
+<li>文字列の場合は、“<strong>callmethod_returnstr</strong>関数”</li>
+<li>オブジェクトの場合は、“<strong>callmethod_returnobj</strong>関数”</li>
+<li>ない場合は、“<strong>callmethod</strong>文”</li>
+</ul>
+<p>を使います。</p>
+<p>プロパティの場合は、取得する/設定する内容により命令を使い分けます。</p>
+<ul>
+<li>数値の場合は、“<strong>getpropnum</strong>関数”、“<strong>setpropnum</strong>文”</li>
+<li>文字列の場合は、“<strong>getpropstr</strong>関数”、“<strong>setpropstr</strong>文”</li>
+<li>オブジェクトの場合は、“<strong>getpropobj</strong>関数”、“<strong>setpropobj</strong>文”</li>
+</ul>
+<p><strong>Popup</strong>は<span class="attention_red">メソッド</span>で、戻り値が<span class="attention_red">数値</span>なので、“<span class="attention_red">callmethod_returnnum関数</span>”を使います。</p>
 <div class="macro">
 <pre><code>#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
 if(getresultex(10) == false){ 
@@ -135,8 +152,10 @@ endmacro;</code></pre>
 </div>
 <p>エラー検出処理が入っているので、WSH(VBScript)と比較するとマクロが冗長になってしまいますが、 エラー検出をしないと、正常動作しない場合に、どこでエラーになっているのか追いかけるのが大変です。 面倒ですが、ある程度動作確認が出来るまでは、各メソッドの呼び出しやプロパティアクセス毎に、 チェックする事をお勧めします。</p>
 <p>また、WSH(VBScript、JScript)をつかって、事前に秀丸マクロで実行したい処理を実行してみるのも良いです。 そもそも、処理方法自体が間違っているのか、秀丸マクロにする時点で間違っているのか、判断の材料になります。</p>
+<h4 id="MACRO-2">【２．２】“Shell”オブジェクトと、“FileSystemObject”オブジェクトを使ってみる</h4>
 <p>次に、“Shell”オブジェクトと、“FileSystemObject”オブジェクトを使ってファイルの一覧を新規秀丸エディタに出力します。 “Shell”オブジェクトでフォルダを選択し、“FileSystemObject”オブジェクトでファイル一覧を取得します。 ファイル一覧(コレクション)にアクセスするために、“getcollection”を使っています。</p>
-<p>このマクロでは、色々なオブジェクトのプロパティ、メソッドを使っていることから、 戻り値の型に従い、getpropobj、getpropstr、callmethod_returnobj、callmethod_returnstr等を使い分けています。 説明に従い適切な命令を使う必要がありますが、どうしてもわからない場合は、 <strong>“member文”, “member関数”</strong>を使う方法もあります。(プロパティは取得する場合のみで、セットすることは出来ない)</p>
+<p>このマクロでは、色々なオブジェクトのプロパティ、メソッドを使っていることから、 戻り値の型に従い、getpropobj、getpropstr、callmethod_returnobj、callmethod_returnstr等を使い分けています。</p>
+<p>各メソッド、プロパティの説明に従い適切な命令を使う必要がありますが、どうしてもわからない場合は、 <strong>“member文”, “member関数”</strong>を使う方法もあります。(プロパティは取得する場合のみで、セットすることは出来ない)</p>
 <div class="macro">
 <pre><code>// ファイル一覧の取得
 newfile;
@@ -252,9 +271,87 @@ releaseobject #WshFso;
 
 endmacro;</code></pre>
 </div>
+<h4 id="MACRO-3">【２．３】COM関連の特殊な命令</h4>
+<dl>
+<dt>allowobjparam 文</dt>
+<dd><p>秀丸エディタマクロで使用できるのは、数値・文字列だけですが、メソッド・プロパティの戻り値がバイナリデータの場合や、 引数にオブジェクト・バイナリデータを指定する場合もあります。</p>
+<p>そのような場合に、allowobjparam 文を使用します。</p>
+<p>引数に「1」を指定すると、数値をオブジェクトとして解釈する事を許可します。<br />
+引数に「2」を指定すると、文字列をバイト配列(バイナリデータ)として解釈する事を許可します。<br />
+引数に「0」を指定すると、「1」、「２」の許可を無効化します。<br />
+第二引数以降を指定すると、呼び出すメソッド等のパラメータに対し、対象を個別に指定することが出来ます。</p>
+<div class="mark_dt">
+<dl>
+<dt>オブジェクトを引数に渡す場合</dt>
+<dd><p>COMのメソッドやプロパティには、引数にオブジェクトを指定する場合があります。</p>
+<div class="macro">
+<pre><code>//ArrayList オブジェクト生成
+#array = createobject(&quot;System.Collections.ArrayList&quot;);
+//GetArrayListDataTypeメソッドは、
+//第一引数にArrayList オブジェクト
+//第二引数に、数値
+//を指定する必要がある。
+callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
+</div>
+<p>第一引数に「#array」を指定して、オブジェクトを指定しているように見えますが、上記マクロは正常に動作しません。</p>
+<p>createobject、callmethod_returnobj、getpropobj で、戻り値を数値変数で受け取っていますが、 これは、「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。</p>
+<p>つまり、以下の“GetArrayListDataType”メソッド呼び出しは、第一引数に「オブジェクト」を要求しているのに、 「数値」を渡している事になり、失敗します。</p>
+<div class="macro">
+<pre><code>callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
+</div>
+<p>引数に「オブジェクト」を渡したい場合は、allowobjparam 文 を使い、オブジェクトそのものを渡すように指示します。</p>
+<p>使い方は2通りありますが、後者の方法を推奨します。</p>
+<ul>
+<li><p>使い方その1</p>
+<p>allowobjparam 文の引数として、「1」を指定します。</p>
+<div class="macro">
+<pre><code>allowobjparam 1;
+callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
+allowobjparam 0;</code></pre>
+</div>
+<p>この場合、callmethod_returnstr 文が失敗した場合、パラメータの数値部分を、 オブジェクトとして再度実行します。</p></li>
+<li><p>使い方その2</p>
+<p>対象となるパラメータを指定します。</p>
+<p>allowobjparam 文で、<strong>第二引数以降を指定すると、対象になるパラメータを指定できます。</strong> 呼び出すメソッドの引数の数に応じて、解釈する方法を順に指定します。引数の意味を変換しない場合は、「0」を指定します。</p>
+<p>オブジェクトはパラメータとして渡すので、第一引数は“0”でもかまいません。 (メソッドの戻り値が、バイト配列の場合、第一引数に“2”を指定する必要があります。)</p>
+<p>“GetArrayListDataType” の場合、引数は2個で、最初はオブジェクトを渡すので「1」を、 次の引数は変換しないので「0」を、第二引数以降に順次指定していきます。</p>
+<div class="macro">
+<pre><code>allowobjparam 0,1,0;
+callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
+allowobjparam 0;</code></pre>
+</div></li>
+</ul>
+<p>変換を有効にした場合は、解除するのを忘れないようにしましょう。</p>
+</dd>
+<dt>バイト配列を引数に渡したし、戻り値で受け取る場合</dt>
+<dd><p>戻り値として「バイト配列」を受け取る場合は、第1引数のみ指定します。</p>
+<div class="macro">
+<pre><code>//対象のヘッダ部分を読み込み為、ADODBを使用する。
+#objStream = createobject( &quot;ADODB.Stream&quot; );
+setpropnum #objStream, &quot;Type&quot;, 1;//adTypeBinary
+callmethod #objStream, &quot;Open&quot;;
+callmethod #objStream, &quot;LoadFromFile&quot;, $target;
+//バイナリデータとして扱うように設定
+allowobjparam 2;
+//先頭から512バイト読み込み
+$buff = callmethod_returnstr(#objStream, &quot;Read&quot;, 512);</code></pre>
+</div>
+<p>引数として指定する場合は、オブジェクトと同じ方法が使えますが、指定する値は「2」になります。</p>
+<div class="macro">
+<pre><code>allowobjparam 0,2;
+//出力用ストリームにバイナリで書き込み
+callmethod ##Stm_out, &quot;Write&quot;, $$bindata;
+allowobjparam 0;</code></pre>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div>
 <h3 id="OTHERS">【３】その他</h3>
 <div class="marginleft">
-<h4 id="net-freameworkのクラス">「.NET Freamework」のクラス</h4>
+<h4 id="NET_CLASS">「.NET Freamework」のクラス</h4>
 <p>「.NET Freamework」のクラスも、COMから使える物もあります。</p>
 <p>以下のコレクションクラスが使えることが確認されています。</p>
 <ul>
@@ -273,7 +370,7 @@ endmacro;</code></pre>
 <span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/system.collections(v=vs.110).aspx" target="_blank">System.Collections 名前空間</a></span></p>
 <p>“ArrayList”は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
 <p>連想配列は、WSHでも可能で、<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc428065.aspx" target="_blank">Dictionary オブジェクト</a></span> を使います。</p>
-<h4 id="comオブジェクトの有効範囲">COMオブジェクトの有効範囲</h4>
+<h4 id="SCOPE">COMオブジェクトの有効範囲</h4>
 <p>createobject文を実行した秀丸エディタ上のみ有効です。秀丸エディタを切り替えた場合は、無効です。 (DLLのロードと同じ。)</p>
 <p>次のマクロでは、2回目の“Popup”メソッドは、新規秀丸エディタを開いて呼び出しているため、失敗します。 (新規秀丸エディタ上で、createobjectを実行していないので、“WScript.Shell” オブジェクトは存在してない。)</p>
 <div class="macro">
