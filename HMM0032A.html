@@ -4,7 +4,7 @@
   <meta charset="Shift_JIS" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0032A] ●「検索での表示」の設定による動作の違い{ - 秀丸エディタＱ＆Ａ集</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
@@ -46,7 +46,7 @@ if(result){
 endmacro;</code></pre>
 </div>
 <p>というマクロを作った場合、削除されるのが“秀丸”ではなく、 “秀”という一文字しか削除できないという状況の対処方法です。</p>
-<p>「その他-動作環境-検索-検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、検索にマッチした箇所を削除できません。 ［<strong>範囲選択</strong>］にする必要があります。。</p>
+<p>「その他-動作環境-検索-検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、検索にマッチした箇所を削除できません。 ［<strong>範囲選択</strong>］にする必要があります。</p>
 <p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。 その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている。)</p>
 <p>「setcompatiblemode文」を使えば、マクロ実行時に「検索での表示」の設定を、一時的に変更できます。</p>
 <div class="macro">
