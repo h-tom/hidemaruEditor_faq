@@ -1,6 +1,6 @@
 body {
-  margin : 2em ;
-  line-height: 1.4em;
+  margin      : 2em;
+  line-height : 1.4em;
 }
 
 h1{
@@ -33,7 +33,9 @@ h6 {
 }
 
 h2,h3,h4,h5,h6 {
-  text-indent : 2ex ;
+  padding-top      : 4px;
+  padding-bottom   : 2px;
+  text-indent      : 2ex;
 }
 
 h4,h5,h6 {
@@ -206,7 +208,7 @@ div.table_border1  td{
 }
 
 .font_org {
-  color       : orange;
+  color       : orange
   padding     : 5px;
 }
 
@@ -218,14 +220,33 @@ div.table_border1  td{
 
 .font_red_bold {
   font-weight : bold;
-  color       : Red ;
+  color       : red ;
   padding     : 5px;
 }
-
 
 .font_large {
   font-size   : x-large;
 }
+
+/* QA  start */
+.env{
+  font-weight     : bold;
+  color           : red ;
+  background-color: beige;/*lightgray;*/
+  padding-left    : 2px;
+  padding-right   : 2px;
+}
+
+.filetype {
+  font-weight     : bold;
+  color           : blue;
+  background-color: beige;/*lightgray;*/
+  padding-left    : 2px;
+  padding-right   : 2px;
+}
+/* QA  end */
+
+
 /*
 div.table_waku > table {
   border      : ridge 4px #000000;
@@ -349,17 +370,29 @@ div.img_border > img{
     border          : aquamarine solid 3px;
 }
 
-.ul_red {
-	/*text-decoration:underline solid red; */
-	border-bottom:solid 2px red;
+/* -start---------------------------------------- */
+.ul_red_wave {
+    /*text-decoration:underline solid red; */
+    border-bottom:solid 2px red;
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0){
+    .ul_red_wave {
+        border-bottom: none;
+        text-decoration:underline wavy red;
+    }
+}
+@-moz-document url-prefix(){
+    .ul_red_wave {
+        border-bottom: none;
+        text-decoration:underline wavy red;
+    }
+}
+
+/* -end------------------------------------------ */
 
 .marker_yellow {
 	background: linear-gradient(transparent 70%, yellow 70%);
-}
-
-.ul_red_w {
-	text-decoration:underline wavy red;
 }
 
 .mobile_view{
@@ -369,6 +402,19 @@ div.img_border > img{
 .dt_hyouki> dl > dt {
     margin-top  : 0.5em;
     font-weight  : bold;
+}
+
+
+.marker1 {
+    font-weight  : bold;
+    background: mistyrose;
+    padding-left    : 5px;
+    padding-right   : 5px;
+}
+
+.ul_red_bold {
+    font-weight  : bold;
+    border-bottom: solid 2px red;
 }
 
 /* 640px*/
