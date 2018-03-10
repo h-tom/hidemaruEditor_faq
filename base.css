@@ -231,19 +231,59 @@ div.table_border1  td{
 /* QA  start */
 .env{
   font-weight     : bold;
-  color           : red ;
-  background-color: beige;/*lightgray;*/
-  padding-left    : 2px;
-  padding-right   : 2px;
+  color           : white; /*orangered; /* mediumvioletred ; /*red ;*/
+  background-color: #6aa512; /*papayawhip;/*lightcyan; /*beige;lightgray;*/
+  padding-left    : 4px;
+  padding-right   : 4px;
 }
 
 .filetype {
   font-weight     : bold;
   color           : blue;
-  background-color: beige;/*lightgray;*/
-  padding-left    : 2px;
-  padding-right   : 2px;
+  background-color: paleturquoise;
+  padding-left    : 4px;
+  padding-right   : 4px;
+  /*
+  color           : white;
+  background-color: #167acb;
+  padding         : 2px;
+  */
 }
+/* IE */
+@media screen\0 {
+  .env{
+    padding-top     : 2px;
+    padding-bottom  : 2px;
+  }
+  .filetype{
+    padding-top     : 2px;
+    padding-bottom  : 2px;
+  }
+}
+/* edgw */
+@supports (-ms-ime-align: auto) {
+  .env{
+    padding-top     : 2px;
+    padding-bottom  : 2px;
+  }
+  .filetype{
+    padding-top     : 2px;
+    padding-bottom  : 2px;
+  }
+}
+
+.marker1 {
+  font-weight    : bold;
+  background     : mistyrose;
+  padding        : 2px;
+  /*
+  padding-top    : 2px;
+  padding-left   : 5px;
+  padding-right  : 5px;
+  padding-bottom : 2px;
+  */
+}
+
 /* QA  end */
 
 
@@ -292,29 +332,29 @@ li {
 }
 
 .macro  pre{
-    max-width     : 80em;
-    overflow      : auto;
-    margin-top    : 2px;
-    margin-bottom : 2px;
+  max-width     : 80em;
+  overflow      : auto;
+  margin-top    : 2px;
+  margin-bottom : 2px;
 }
 
 
 .box  pre{
-    padding-left  : 5px;
-    max-width     : 80em;
-    overflow      : auto;
-    margin-top    : 2px;
-    margin-bottom : 2px;
+  padding-left  : 5px;
+  max-width     : 80em;
+  overflow      : auto;
+  margin-top    : 2px;
+  margin-bottom : 2px;
 }
 
 .BlockScroll{
-    overflow      : auto;
+  overflow      : auto;
 }
 
 .hme0016c_01 {
-    width    : 300px;
-    height   : 200px;
-    overflow : auto;
+  width    : 300px;
+  height   : 200px;
+  overflow : auto;
 }
 
 .updated {
@@ -334,114 +374,132 @@ li {
 }
 
 .hr_noshade{
-    height          :2px;
-    border-width    :0;
-    color           :gray;
-    background-color:gray;
+  height          :2px;
+  border-width    :0;
+  color           :gray;
+  background-color:gray;
 }
 
 div.mark_dt > dl > dt {
-    margin-left   : 0.5em;
-    font-weight   : bold;
-    /*color       : white;*/
-    background-color : thistle;
+  margin-left   : 0.5em;
+  font-weight   : bold;
+  /*color       : white;*/
+  background-color : thistle;
 }
 
 div.mark_dt2 > dl > dt {
-    margin-top    : 1em;
-    margin-left   : 0.5em;
-    font-weight   : bold;
-    /*color       : white;*/
-    background-color : thistle;
+  margin-top    : 1em;
+  margin-left   : 0.5em;
+  font-weight   : bold;
+  /*color       : white;*/
+  background-color : thistle;
 }
 
 
 .outline_marker1{
-    background-color: #c0c0c0;
-    border          : #000000 solid 1px;
+  background-color: #c0c0c0;
+  border          : #000000 solid 1px;
 }
 
 .outline_marker2{
-    background-color: #c0c0c0;
-    border          : #c0c0c0 solid 1px;
+  background-color: #c0c0c0;
+  border          : #c0c0c0 solid 1px;
 }
 
 div.img_border > img{
-    border          : aquamarine solid 3px;
+  border          : aquamarine solid 3px;
 }
 
 /* -start---------------------------------------- */
+/* base */
 .ul_red_wave {
-    /*text-decoration:underline solid red; */
-    border-bottom:solid 2px red;
+    text-decoration:underline wavy red;
 }
 
+/* IE */
+@media screen\0 {
+  .ul_red_wave{
+      text-decoration:none;
+      border-bottom:solid 2px red;
+  }
+}
+/* edgw */
+@supports (-ms-ime-align: auto) {
+  .ul_red_wave{
+      text-decoration:none;
+      border-bottom:solid 2px red;
+  }
+}
+/*
+.ul_red_wave {
+  border-bottom:solid 2px red;
+}
+*/
+/* for google chrome */
+/*
 @media screen and (-webkit-min-device-pixel-ratio:0){
-    .ul_red_wave {
-        border-bottom: none;
-        text-decoration:underline wavy red;
-    }
+  .ul_red_wave {
+    border-bottom  : none;
+    text-decoration:underline wavy red;
+  }
 }
+*/
+
+/* for Mozilla firfox. 59以降は動作しない*/
+/*
 @-moz-document url-prefix(){
-    .ul_red_wave {
-        border-bottom: none;
-        text-decoration:underline wavy red;
-    }
+  .ul_red_wave {
+    border-bottom  : none;
+    text-decoration:underline wavy red;
+  }
 }
+*/
 
 /* -end------------------------------------------ */
 
 .marker_yellow {
-	background: linear-gradient(transparent 70%, yellow 70%);
+  background: linear-gradient(transparent 70%, yellow 70%);
 }
 
 .mobile_view{
-    display:none;
+  display:none;
 }
 
 .dt_hyouki> dl > dt {
-    margin-top  : 0.5em;
-    font-weight  : bold;
-}
-
-
-.marker1 {
-    font-weight  : bold;
-    background: mistyrose;
-    padding-left    : 5px;
-    padding-right   : 5px;
+  margin-top  : 0.5em;
+  font-weight  : bold;
 }
 
 .ul_red_bold {
-    font-weight  : bold;
-    border-bottom: solid 2px red;
+  font-weight  : bold;
+  border-bottom: solid 2px red;
 }
 
 /* 640px*/
 @media screen and (max-width: 640px) {
-    h1,h2,h3,h4,h5,h6 {
-        font-size :1em ;
-    }
-    
-    img{
-        max-width: 100%;
-        height: auto;
-        width : auto;
-    }
-    
-    .marginleft {
-        padding-left : 0em;
-    }
-    
-    .hme0016c_01 {
-        max-width: 100%;
-        width    : auto;
-        height   : 200px;
-        overflow : auto;
-    }
-    
-    .mobile_view{
-        font-size :x-small;
-        display   :inline;
-    }
+  h1,h2,h3,h4,h5,h6 {
+    font-size :1em ;
+  }
+  
+  img{
+    max-width: 100%;
+    height: auto;
+    width : auto;
+  }
+  
+  .marginleft {
+    padding-left : 0em;
+  }
+  
+  .hme0016c_01 {
+    max-width: 100%;
+    width    : auto;
+    height   : 200px;
+    overflow : auto;
+  }
+  
+  .mobile_view{
+    font-size :x-small;
+    display   :inline;
+  }
 }

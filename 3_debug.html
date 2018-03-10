@@ -35,7 +35,7 @@
 <p>秀丸エディタ本体には、デバッグ関連の命令として以下の2つがあります。(2つしかないと言うべきか？) 両方の命令は共に、デバッガ(デバッグを支援するツール/プログラム)にデータを出力します。</p>
 <p>デバッガは、一度に扱えるデータ量には制限があります。 デバッグ用共有メモリサイズは4kバイトなので、これ以上は一度に表示されません。</p>
 <ul>
-<li><p><span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/090_MessageStatement_debuginfo.html" target="_blank">debuginfo</a></span><br />
+<li><p><span class="externallink"><a href="http://help.maruo.co.jp/hidemac/html/090_MessageStatement_debuginfo.html" target="_blank">debuginfo</a></span><br />
 引数に指定された文字列を、デバッガに出力します。</p>
 <p>“デバッガに出力”する機能だけではなく、デバッガへの出力をON/OFFする機能も持ちます。</p>
 <ul>
@@ -43,7 +43,7 @@
 <li>引数として数値の 「0」以外を指定した場合は、デバッガへの出力をONします。<br />
 Ver.8.77から、引数として数値の 「2」を指定した場合、デバッガだけではなく、 アウトプット枠にもメッセージを出力します。 アウトプット枠が表示されていない場合は、アウトプット枠も表示されます。</li>
 </ul></li>
-<li><p><span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/090_MessageStatement_showvars.html" target="_blank">showvars</a></span><br />
+<li><p><span class="externallink"><a href="http://help.maruo.co.jp/hidemac/html/090_MessageStatement_showvars.html" target="_blank">showvars</a></span><br />
 現在のマクロで定義されている変数とその内容の一覧を出力する。</p>
 <p><code>debuginfo</code>命令で、デバッガへの出力をONにしていないと、出力されません。</p></li>
 </ul>
@@ -109,7 +109,7 @@ endmacro;</code></pre>
 </div>
 <p>この説明にある「デバッグアプリケーション」とは、「デバッガ」の事です。 その為、実際にはデバッガが起動しているかどうか確認してから、メッセージを出力した方が良いでしょう。</p>
 <p>毎回チェックコードを書くのも大変なので、起動チェックおよび出力部分は、サブルーチン化します。</p>
-<p>起動チェックは、ウィンドウクラス名を検索する事で確認します。 (<span class="externallink"><a href="http://hidemaruo.mydns.jp:81/helpsite/hidemac/html/180_Dde.html" target="_blank">findwindowclass関数</a></span>を使う)</p>
+<p>起動チェックは、ウィンドウクラス名を検索する事で確認します。 (<span class="externallink"><a href="http://help.maruo.co.jp/hidemac/html/180_Dde.html" target="_blank">findwindowclass関数</a></span>を使う)</p>
 <p>「DebugView for Windows」のウィンドウクラス名は“dbgviewClass”、 「秀丸エディタ・デバッグ出力モニター」のウィンドウクラス名は、“HM_DebugMonitor”です。</p>
 <p>この例では、2つのデバッガを検索し、どちらか見つかれば出力します。 「秀丸エディタ・デバッグ出力モニター」の場合で、最後に改行が付いていない場合は追加します。</p>
 <div class="macro">
