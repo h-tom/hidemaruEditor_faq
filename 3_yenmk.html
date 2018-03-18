@@ -177,8 +177,8 @@ endmacro;
 <p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。 表示される内容が、HMJRE.DLLに渡される文字列になるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
 <div class="marginleft">
 <h4 id="ver.8.54以降の場合">【３．１】<span id="QUOTE">Ver.8.54以降の場合</span></h4>
-<p>秀丸エディタ Ver.8.54以降では、 <span class="externallink"><a href="http://help.maruo.co.jp/hidemac/html/070_Function_quote.html" target="_blank">quote 関数</a></span> が使えます。</p>
-<p>この関数は、<span class="attention_red">正規表現</span>で使用されるメタ文字の前に“\”を追加し、エスケープします。 (正規表現で、その文字そのものとして扱われるようにする。 秀丸エディタのヘルプ-<span class="externallink"><a href="http://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" target="_blank">正規表現</a></span>の後半を参照。)</p>
+<p>秀丸エディタ Ver.8.54以降では、 <span class="externallink"><a href="https://help.maruo.co.jp/hidemac/html/070_Function_quote.html" target="_blank">quote 関数</a></span> が使えます。</p>
+<p>この関数は、<span class="attention_red">正規表現</span>で使用されるメタ文字の前に“\”を追加し、エスケープします。 (正規表現で、その文字そのものとして扱われるようにする。 秀丸エディタのヘルプ-<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" target="_blank">正規表現</a></span>の後半を参照。)</p>
 <p>現状では、以下の文字が対象になっています。</p>
 <div class="macro">
 <pre><code>[ ] ( ) ^ $ . * + ? | \ { }</code></pre>
@@ -290,6 +290,7 @@ message @&quot;&quot;&quot;Raw文字列
 </dd>
 </dl>
 </div>
+<!-- mark_dt -->
 <hr />
 <p>例として「message文」を使いましたが、文字列を指定する箇所なら何処でもこの記法が使えます。 正規表現パターンを指定する場合にも使用できるので、見やすくなります。</p>
 <p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>
