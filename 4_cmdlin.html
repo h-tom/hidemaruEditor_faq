@@ -159,7 +159,7 @@ echo 検索するファイルのワイルドカードを指定してください。
 goto :EOF
 
 :MAIN
-for %%a in (%1) do &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x 実行するマクロ.mac &quot;%%a&quot;</code></pre>
+for %%a in (%1) do start &quot;&quot; /wait &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x 実行するマクロ.mac &quot;%%a&quot;</code></pre>
 </div>
 <p>上記、内容をバッチファイルとして保存し、ワイルドカードを指定して実行すると、 ワイルドカードにマッチしたファイルに対しマクロを実行します。</p>
 <p>ただし、開いた秀丸エディタを閉じないと、次のファイルに進みません。 自動処理で使用する場合には、マクロ内でファイルを閉じる操作が必要になります。</p>
