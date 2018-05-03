@@ -57,25 +57,29 @@
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。 この項目がＯＦＦの場合、上の例で「<strong>OVER</strong>」や「<strong>Over</strong>」も置換対象になります。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。</p></li>
+この項目がＯＮになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(“_”)のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
-検索文字列に「<strong>正規表現</strong>」が使える様になります。この項目をＯＮにすると、上記二つのオプション指定は無効になります。<br />
-「<strong>正規表現</strong>」については「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。</p></li>
+「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
+複数行にマッチする検索に関しては制限が存在します。以下のリンク先を参照してください。</p>
+<ul>
+<li>秀丸エディタヘルプ<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" target="_blank">\nを使った複数行検索の際の制限について</a></span></li>
+<li>「<a href="4_regular.html">●正規表現について</a>-<a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a></li>
+</ul></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
-「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視、等)。<br />
-「<strong>あいまい検索</strong>」については「<a href="2_fuzzy.html">●あいまい検索について</a>」を参照して下さい。</p></li>
+「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視等)。<br />
+「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">●あいまい検索について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">選択した範囲内のみ</span>」チェックボックス：</strong><br />
 置換の範囲があらかじめ「<strong>範囲選択</strong>」された部分に限定されます。<br />
 ※このオプションの動作の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong> ●検索／置換の「選択した範囲内のみ」の動作</a> を参照してください。</p></li>
 <li><p><strong>「<span class="font_blue">次の秀丸エディタも続けて置換</span>」チェックボックス</strong><br />
 現在編集中の秀丸エディタウィンドウの他にも秀丸エディタが開いていた場合、その秀丸エディタウィンドウの内容に対しても置換を実行します。</p></li>
 <li><p><strong>「<span class="font_blue">一周する</span>」チェックボックス</strong><br />
-一番下まで検索し終わった場合、先頭に戻って検索します。上検索の場合は逆になります。</p></li>
+下検索の場合、ファイルの一番下まで検索し終わった場合、ファイルの先頭に戻って検索を続行します。上検索の場合は逆になります。</p></li>
 <li><p><strong>「<span class="font_blue">追加の条件</span>」チェックボックス</strong><br />
 追加の条件に従って検索する範囲を制限できます。<br />
 <a href="2_find.html">検索</a>の<a href="2_find.html#SUPPLEMENTATION-1">「追加の条件」について</a>を参照してください。</p></li>
 <li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
-検索を実行後、検索に該当する文字列を強調表示します。</p></li>
+置換を実行後、検索に該当する文字列を強調表示します。</p></li>
 <li><p><strong>「<span class="font_blue">置換の前に確認</span>」チェックボックス</strong><br />
 確認ダイアログを表示し、置換する前に本当に置換するかどうかの確認をします。<br />
 置換の確認ダイアログは「その他→<span class="env">動作環境</span>→検索→検索ダイアログ」の「置換の確認の種類」で、種類を変更できます。</p></li>
