@@ -515,10 +515,10 @@ int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
 <p><code>IsBadxxxxxPtr</code> APIに関しては、<span class="attention_red">Windows Vista以降非推奨</span>とのこと。 詳細は、以下を参照してください。</p>
 <ul>
 <li><span class="externallink"><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa366714(v=vs.85).aspx" target="_blank">IsBadStringPtr function</a></span></li>
-<li><span class="externallink"><a href="http://www.oki-osk.jp/esc/cyg/cygwin-26.html" target="_blank">Life with Cygwin</a></span></li>
 </ul>
 </dd>
 </dl>
+<!-- -   <span class="externallink">[Life with Cygwin](http://www.oki-osk.jp/esc/cyg/cygwin-26.html){target="_blank"}</span> -->
 <h3 id="dialog">【６】 「ファイルを開く」ダイアログを出してみる</h3>
 <p>さて、ここで話題をがらっと変えて、DLL関数の中でダイアログやウィンドウを出す方法について解説していくことにします。</p>
 <p>まず比較的簡単にできるダイアログの表示から行きますが、 例として「ファイルを開く」ダイアログを出すDLL関数を作ってみましょう。 このダイアログを出す関数は既に Win32API に <code>GetOpenFileName()</code>という名前で用意されているので、 ここでも素直にそれを使うことにしましょう。 この APIで出てくるダイアログはいわゆるモーダルダイアログという奴で、 APIの呼出しでダイアログが表示され、 ダイアログが表示されている間のユーザーからの入力等の処理は 全て API内で行われ、 最後にダイアログが閉じられた後に API から復帰します。 というわけで、DLL関数内でやるべきことは、結局の所</p>
