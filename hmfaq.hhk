@@ -680,6 +680,21 @@
 		<param name="Local" value="HME0096A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HME0097A">
+		<param name="Name" value="●ファイルを秀丸エディタで編集したのに、反映されていない">
+		<param name="Local" value="HME0097A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HME0098A">
+		<param name="Name" value="●ファイルの改行コードを変更したい">
+		<param name="Local" value="HME0098A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HMJRE">
+		<param name="Name" value="●HMJRE.DLLを使う場合の注意点">
+		<param name="Local" value="3_hmjre.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0001A">
 		<param name="Name" value="●マクロファイルとは？">
 		<param name="Local" value="HMM0001A.html">

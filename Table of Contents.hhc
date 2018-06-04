@@ -169,6 +169,10 @@
 			<param name="Local" value="3_debug.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="HMJRE.DLLを使う場合の注意点">
+			<param name="Local" value="3_hmjre.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴 ">
 			<param name="Local" value="3_macrov3.html">
 			</OBJECT>
