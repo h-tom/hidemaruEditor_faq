@@ -4,7 +4,7 @@
   <meta charset="Shift_JIS" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　HMJRE.DLLを使う場合の注意点</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
@@ -51,9 +51,9 @@
 </ul>
 <p>基本的にはShift_JISである前提で動作しています。</p>
 <p>通常、外部DLL内の関数を dllfunc/dllfuncstr を使って呼び出す時は、 引数に指定する文字列に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」が含まれると、 その文字を削除して、外部DLLに渡されます。</p>
-<p>これは、DLLとのインターフェースが、マルチバイト文字(Shift_JIS)を前提としている事と、 「特殊な文字コード」を外部DLLが理解できないためです。</p>
-<p>Unicode文字列を外部DLLに渡す場合は、dllfuncw/dllfuncstrw を使う必要がありますが、 HMJRE.DLLは、例外的に「 <strong>特殊な文字コード</strong>」 を理解できるので、 文字列内に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」があっても、内部の<span class="attention_red">「特殊な文字コード」がそのままHMJRE.DLLに渡されます。</span></p>
-<p>HMJRE.DLLの関数自体は、各種データをバイト数で返します。 「特殊な文字コード」は「1文字4バイト」なので、「常に漢字は2バイト」で扱うマクロ関数と一致しません。</p>
+<p>これは、DLLとのインターフェースが、マルチバイト文字(Shift_JIS)を前提としている事と、 「<strong>特殊な文字コード</strong>」を外部DLLが理解できないためです。 (<strong>dllfuncw/dllfuncstrw</strong> を使えば、Unicode文字列を外部DLLに渡す事は可能ですが、DLL側の対応が必要です)</p>
+<p>HMJRE.DLLは、例外的に「 <strong>特殊な文字コード</strong>」 を理解できる為、 dllfunc/dllfuncstr 呼び出し時、文字列内に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」があっても、 秀丸エディタ内部の<span class="attention_red">「特殊な文字コード」がそのままHMJRE.DLLに渡されます。</span></p>
+<p>HMJRE.DLLの関数自体は、マッチ位置やマッチした長さを、バイト数で返します。 「<strong>特殊な文字コード</strong>」は「<span class="attention_red">1文字4バイト</span>」なので、「<span class="attention_red">常に漢字は2バイト</span>」で扱うマクロ関数と一致しません。</p>
 <p>以下のマクロは、文字変数 <code>$a</code> の最後にある“a”の位置を返すマクロです。 マクロ関数とHMJRE.DLL内の関数の比較になります。</p>
 <div class="macro">
 <pre><code>// マクロ1
@@ -159,7 +159,7 @@ $a = &quot;hidemaruXXXXYYYYa&quot;;</code></pre>
 #n = dllfunc(&quot;SetUnicodeIndexAutoConvert&quot;, #flg);</code></pre>
 </div>
 <!-- macro -->
-<p>この関数を使用すると、HMJRE.DLLの各関数の戻り値が、マクロでそのまま使用できるように自動変換されます。</p>
+<p>この関数を使用すると、HMJRE.DLLの各関数の戻り値が、マクロでそのまま使用できるような値に自動変換されます。</p>
 <p>“SetUnicodeIndexAutoConvert関数” を使い自動変換を有効にしたマクロです。</p>
 <div class="macro">
 <pre><code>//マクロ3
