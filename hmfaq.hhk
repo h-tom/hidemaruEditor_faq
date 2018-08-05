@@ -68,6 +68,11 @@
 		<param name="Local" value="HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CSV">
+		<param name="Name" value="CSV/TSVƒ‚[ƒh">
+		<param name="Local" value="2_csv_tsv.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DLL">
 		<param name="Name" value="‘æV•”`ƒ}ƒNƒ‚©‚çŒÄ‚Ño‚·‚c‚k‚k‚Ìì‚è•û">
 		<param name="Local" value="make_dll.html">
@@ -1228,6 +1233,11 @@
 		<param name="Name" value="TeX">
 		<param name="Name" value="[HME0094A]œTeX‚Æ‚Ì˜AŒg">
 		<param name="Local" value="HME0094A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TSV">
+		<param name="Name" value="CSV/TSVƒ‚[ƒh">
+		<param name="Local" value="2_csv_tsv.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TOVER31.COM">
