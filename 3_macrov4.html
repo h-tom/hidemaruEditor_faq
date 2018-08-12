@@ -38,7 +38,7 @@
 <li>execmacroでメモリリークのバグ修正</li>
 <li>currentmacrobasenameが小文字にならないときがある</li>
 <li>disabledrawしてるときwindowwidthがおかしくなる</li>
-<li>getcofigとconfig “x..”で指定できるものにCurLineColorとCurLineColorExを追加</li>
+<li>getcofigとconfig &quot;x..&quot;で指定できるものにCurLineColorとCurLineColorExを追加</li>
 <li>findwindow失敗の対策</li>
 <li>run文で文字列が長すぎると落ちる</li>
 <li>movetilinenoでエラーメッセージが出ることがある場合の対処</li>
@@ -55,7 +55,7 @@
 <li>searchdialog, replacedialog,追加</li>
 <li>find2追加</li>
 <li>searchoptionのビット１１</li>
-<li>マクロgetcofigとconfig “x”で指定できるものに以下のものを追加
+<li>マクロgetcofigとconfig &quot;x&quot;で指定できるものに以下のものを追加
 <ul>
 <li>AutoAdjustOrikaeshi</li>
 <li>BquoteItemized</li>
@@ -68,13 +68,13 @@
 <li>ColorIfdef</li>
 </ul></li>
 <li><p>getconfigのFontSizeの返り値がマイナスだったのを修正<br />
-getconfigのFontCharSetはできるようにする（config “x”での設定はできないまま）</p></li>
+getconfigのFontCharSetはできるようにする（config &quot;x&quot;での設定はできないまま）</p></li>
 <li>menu文の位置補正の修正</li>
 <li>envchangedでフォントが変わってしまうバグ修正</li>
 <li>inputcharで砂時計を解除する修正</li>
 <li>setfilehist getfilehist setpathhist getpathhist を追加</li>
 <li>手前にあるウィンドウでも setactivehidemaru等、秀丸管理ができるようにする</li>
-<li>config “xFontCharset:数字”はやっぱりできるようにする</li>
+<li>config &quot;xFontCharset:数字&quot;はやっぱりできるようにする</li>
 <li>config文でフォントの文字セットが変わるとエンコードの種類が切り替わるようにする</li>
 <li>V4.10β1からできなくなっていたsetfontchangemodeもできるようにする</li>
 <li>マクロヘルプにclosenewを記載</li>
@@ -89,7 +89,7 @@ getconfigのFontCharSetはできるようにする（config “x”での設定はできないまま）</
 <li>savekeyassign 追加</li>
 <li>windowstateで配列表記で他の秀丸にも対応</li>
 <li>windowstate2追加</li>
-<li>config “xHilightList…”をサポート</li>
+<li>config &quot;xHilightList…&quot;をサポート</li>
 <li>openfileでワイルドカードを含む場合、ファイルを開いたのに新規ファイルとなってしまう問題修正</li>
 <li>openfileでワイルドカードを含む場合、開いているファイルの拡張子を自動的に追加しないようにする</li>
 <li>searchdownで、inselectを指定してないのに以前にinselect付きで検索した場合、引き継がれてしまう問題修正</li>
@@ -97,10 +97,10 @@ getconfigのFontCharSetはできるようにする（config “x”での設定はできないまま）</
 </ul>
 <h3 id="spec">【２】仕様変更</h3>
 <ul>
-<li>config “w数字”をすると「自動でウィンドウ幅に合わせる」をoffにするように修正</li>
+<li>config &quot;w数字&quot;をすると「自動でウィンドウ幅に合わせる」をoffにするように修正</li>
 <li>config文でオプションfやxで()を使って文字列を指定するとき、\でエスケープ可能にする<br />
-‘)’を文字列中に入れたいときは config “x名前:(ＡＢ\)ＣＤ)”<br />
-’\’を文字列中に入れたいときは config “x名前:(ＡＢ\\ＣＤ)”</li>
+‘)’を文字列中に入れたいときは config &quot;x名前:(ＡＢ\)ＣＤ)&quot;<br />
+’\’を文字列中に入れたいときは config &quot;x名前:(ＡＢ\\ＣＤ)&quot;</li>
 <li>configcolorの「マークしていてさらに編集した行」は廃止<br />
 ヘルプのcolorcodeとconfigcolorを追加修正</li>
 <li>menu系の文の項目の上限を400個へ</li>

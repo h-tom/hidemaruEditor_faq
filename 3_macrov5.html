@@ -39,17 +39,17 @@
 <li>gettext2, columntox, linenotoy, xtocolumn, ytolineno</li>
 <li>seltopcolumn, seltoplineno, selendcolumn, selendlineno</li>
 </ul></li>
-<li>config “x…”で指定できるものに xImeColorCurLine を追加</li>
-<li>config “x…”で指定できるものに xTategaki とxDangumiを追加</li>
-<li>config “x…”で指定できるものに xLastColor, xStripe, xClistFont, xClistFontSize を追加</li>
+<li>config &quot;x…&quot;で指定できるものに xImeColorCurLine を追加</li>
+<li>config &quot;x…&quot;で指定できるものに xTategaki とxDangumiを追加</li>
+<li>config &quot;x…&quot;で指定できるものに xLastColor, xStripe, xClistFont, xClistFontSize を追加</li>
 <li>searchdown等のオプションに hilight nohilight を追加</li>
-<li>config “x…”で指定できるものに xCharSpace を追加</li>
+<li>config &quot;x…&quot;で指定できるものに xCharSpace を追加</li>
 <li>foundhilightingキーワード追加</li>
 <li>nexttab/prevtabでマクロの実行が移らなかったのを修正</li>
 <li>1 * -1 がエラーになる問題修正</li>
 <li>disableerrormsgが有効のとき、「文字コード変換できない文字が含まれています。かまわずに保存しますか？」 のメッセージは出さないようにして、常にかまわず保存してしまうようにする</li>
 <li>Unicodeの文字列対応<br />
-文字列型変数の中で“</li>
+文字列型変数の中で&quot;</li>
 <li>Unicode対応の修正<br />
 insert, insertfix, overwrite,leftstr, rightstr, midstr,strlen, strstr, message,gettext, gettext2, setclipboard, addclipboard, getclipboard</li>
 <li>Unicode非対応の修正<br />
@@ -72,11 +72,11 @@ tabgrouptotal,tabgrouporder,gettabhandle(),getcurrenttab(),foundbuffer,foundopti
 <li>golineend3 追加。「行末に移動（その２）」相当。</li>
 <li>unicharの追加、unicodeの引数版の追加。</li>
 <li>setencode 26;でバイナリモードにも変更可能にする。</li>
-<li>menu文,input関数も“”によるUnicodeの文字の表示を可能にする。</li>
+<li>menu文,input関数も&quot;&quot;によるUnicodeの文字の表示を可能にする。</li>
 <li>configset文追加。</li>
 <li>currentconfigsetキーワード追加。</li>
 <li>openfile, loadfileなどのオプションにnoaddhistを追加。</li>
-<li>openfile “”;で新規作成されない場合がある問題修正。</li>
+<li>openfile &quot;&quot;;で新規作成されない場合がある問題修正。</li>
 <li>fontmodeキーワード追加</li>
 <li>menuarrayなどの縦書きモード対応</li>
 </ul>
@@ -96,7 +96,7 @@ tabgrouptotal,tabgrouporder,gettabhandle(),getcurrenttab(),foundbuffer,foundopti
 <li>getclipboardでフォントが日本語のときUnicodeから日本語への変換をするようにする</li>
 <li>loadhilightをした後に、強調表示一覧の枠を更新するようにする</li>
 <li>検索文字列に強調関係の仕様変更。既存のマクロでは、検索文字列の強調に影響を与えないようにする</li>
-<li>getconfig(“Tategaki”)では、一時的な状態の縦書きを取得するようにする</li>
+<li>getconfig(&quot;Tategaki&quot;)では、一時的な状態の縦書きを取得するようにする</li>
 <li>colorcodeの仕様変更<br />
 検索文字列の強調は 27 ではなく、0x00010000 のビットにして、他の強調と重なり合っていても、colorcodeの値は維持するようにする。</li>
 <li>filter文は動作環境で変換モジュールを追加していなくてもできるようにする。</li>

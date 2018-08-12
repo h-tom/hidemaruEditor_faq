@@ -25,7 +25,7 @@
 <p>【０】 <a href="#intro">イントロダクション</a><br />
 【１】 <a href="#requirement">用意するもの</a><br />
 【２】 <a href="#spec">マクロから呼び出せるDLL関数を作るには？</a><br />
-【３】 <a href="#basic">とりあえず “hello world”</a><br />
+【３】 <a href="#basic">とりあえず &quot;hello world&quot;</a><br />
 【４】 <a href="#medium">ちょっと手を加えてみる</a><br />
 【５】 <a href="#hard">もう少し複雑なものを作ってみる</a><br />
 【６】 <a href="#dialog">「ファイルを開く」ダイアログを出してみる</a><br />
@@ -185,12 +185,12 @@ DllMain(HINSTANCE hInstance, DWORD ul_reason_for_call, LPVOID pParam)
 <p>僕もこの解説のサンプルを作ってる時にやってしまったからです(笑)。</p>
 </div>
 <p>…とまぁ余談はともかく、以下の章でも必要に応じて適宜 <code>DllMain</code>関数を使っていますので、 具体的なサンプルコードについてはそちらをご覧ください。</p>
-<h3 id="basic">【３】 とりあえず “hello world!”</h3>
+<h3 id="basic">【３】 とりあえず &quot;hello world!&quot;</h3>
 <p>この手の解説をする時にはもはや定番、というか</p>
 <div class="attention_p">
 <p>これをやらないと解説をした気になれない</p>
 </div>
-<p>というネタですが、関数としては最も簡単な “hello world!”という文字列を返すだけの関数を作ってみます。 <a href="#spec">第２章</a>で説明した宣言子マクロや <code>DllMain</code>関数は同じ物を使って、 その後に以下のようなコードを付け足します。</p>
+<p>というネタですが、関数としては最も簡単な &quot;hello world!&quot;という文字列を返すだけの関数を作ってみます。 <a href="#spec">第２章</a>で説明した宣言子マクロや <code>DllMain</code>関数は同じ物を使って、 その後に以下のようなコードを付け足します。</p>
 <div class="macro">
 <pre><code>/* hello_world.c */
 
@@ -210,7 +210,7 @@ message dllfuncstr(&quot;hello&quot;); // hello() の呼出し
 
 freedll; // DLLのアンロード</code></pre>
 </div>
-<p>DLLの作成方法その他に間違いがなければ、 以下のような“<code>hello world!</code>” というテキストが入った メッセージボックスが表示されるはずです。</p>
+<p>DLLの作成方法その他に間違いがなければ、 以下のような&quot;<code>hello world!</code>&quot; というテキストが入った メッセージボックスが表示されるはずです。</p>
 <p><img src="make_dll_01.png" alt="MsgBox" width="167" height="160" /><br />
 </p>
 <p>この例は確かに単純ですが、一つ重要なことがあります。 この関数のように文字列、したがって <code>LPCSTR (= const char*)</code>を返す場合、 その文字列はDLL内部で静的に(またはヒープ領域に)確保したものでなければならない、ということです。 この注意はもちろんDLL関数に限ったことではありませんが、 C またはC++ でプログラムを書いていれば</p>
@@ -273,7 +273,7 @@ LPCSTR hello(void)
 </dd>
 </dl>
 <h3 id="medium">【４】 ちょっと手を加えてみる</h3>
-<p>前章で作成したDLL関数に少し手を加えて、 “hello”の後に引数で渡された文字列をつなげたものを返すようにしてみましょう。 単純に書けば</p>
+<p>前章で作成したDLL関数に少し手を加えて、 &quot;hello &quot;の後に引数で渡された文字列をつなげたものを返すようにしてみましょう。 単純に書けば</p>
 <div class="macro">
 <pre><code>/* hello_what.c */
 

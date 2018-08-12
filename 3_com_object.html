@@ -53,7 +53,7 @@
 <h3 id="MACRO">【２】秀丸マクロからCOMオブジェクトを使ってみる</h3>
 <div class="marginleft">
 <h4 id="MACRO-1">【２．１】「Windows Script Host」の WshShell オブジェクトを使ってみる</h4>
-<p>WshShell オブジェクト にある、“Popup”メソッドを使ってみます。</p>
+<p>WshShell オブジェクト にある、&quot;Popup&quot;メソッドを使ってみます。</p>
 <p>秀丸マクロの message文 と同じメッセージを表示する命令ですが、タイムアウト時間を設定でき自動で閉じることが出来ます。<br />
 (秀丸エディタ Ver.8.75以降では、message文が拡張され、タイムアウトする事も可能になっています。)</p>
 <p>Popupメソッドの引数、戻り値は以下になります。</p>
@@ -107,22 +107,22 @@ if(#WshShell == 0){ //if(getresultex(10) == false){
     endmacro;
 }</code></pre>
 </div>
-<p>次に“Popupメソッド”を呼び出します。</p>
+<p>次に&quot;Popupメソッド&quot;を呼び出します。</p>
 <p>呼び出すメソッドの戻り値が、</p>
 <ul>
-<li>数値の場合は、“<strong>callmethod_returnnum</strong>関数”</li>
-<li>文字列の場合は、“<strong>callmethod_returnstr</strong>関数”</li>
-<li>オブジェクトの場合は、“<strong>callmethod_returnobj</strong>関数”</li>
-<li>ない場合は、“<strong>callmethod</strong>文”</li>
+<li>数値の場合は、&quot;<strong>callmethod_returnnum</strong>関数&quot;</li>
+<li>文字列の場合は、&quot;<strong>callmethod_returnstr</strong>関数&quot;</li>
+<li>オブジェクトの場合は、&quot;<strong>callmethod_returnobj</strong>関数&quot;</li>
+<li>ない場合は、&quot;<strong>callmethod</strong>文&quot;</li>
 </ul>
 <p>を使います。</p>
 <p>プロパティの場合は、取得する/設定する内容により命令を使い分けます。</p>
 <ul>
-<li>数値の場合は、“<strong>getpropnum</strong>関数”、“<strong>setpropnum</strong>文”</li>
-<li>文字列の場合は、“<strong>getpropstr</strong>関数”、“<strong>setpropstr</strong>文”</li>
-<li>オブジェクトの場合は、“<strong>getpropobj</strong>関数”、“<strong>setpropobj</strong>文”</li>
+<li>数値の場合は、&quot;<strong>getpropnum</strong>関数&quot;、&quot;<strong>setpropnum</strong>文&quot;</li>
+<li>文字列の場合は、&quot;<strong>getpropstr</strong>関数&quot;、&quot;<strong>setpropstr</strong>文&quot;</li>
+<li>オブジェクトの場合は、&quot;<strong>getpropobj</strong>関数&quot;、&quot;<strong>setpropobj</strong>文&quot;</li>
 </ul>
-<p><strong>Popup</strong>は<span class="attention_red">メソッド</span>で、戻り値が<span class="attention_red">数値</span>なので、“<span class="attention_red">callmethod_returnnum関数</span>”を使います。</p>
+<p><strong>Popup</strong>は<span class="attention_red">メソッド</span>で、戻り値が<span class="attention_red">数値</span>なので、&quot;<span class="attention_red">callmethod_returnnum関数</span>&quot;を使います。</p>
 <div class="macro">
 <pre><code>#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
 if(getresultex(10) == false){ 
@@ -152,10 +152,10 @@ endmacro;</code></pre>
 </div>
 <p>エラー検出処理が入っているので、WSH(VBScript)と比較するとマクロが冗長になってしまいますが、 エラー検出をしないと、正常動作しない場合に、どこでエラーになっているのか追いかけるのが大変です。 面倒ですが、ある程度動作確認が出来るまでは、各メソッドの呼び出しやプロパティアクセス毎に、 チェックする事をお勧めします。</p>
 <p>また、WSH(VBScript、JScript)をつかって、事前に秀丸マクロで実行したい処理を実行してみるのも良いです。 そもそも、処理方法自体が間違っているのか、秀丸マクロにする時点で間違っているのか、判断の材料になります。</p>
-<h4 id="MACRO-2">【２．２】“Shell”オブジェクトと、“FileSystemObject”オブジェクトを使ってみる</h4>
-<p>次に、“Shell”オブジェクトと、“FileSystemObject”オブジェクトを使ってファイルの一覧を新規秀丸エディタに出力します。 “Shell”オブジェクトでフォルダを選択し、“FileSystemObject”オブジェクトでファイル一覧を取得します。 ファイル一覧(コレクション)にアクセスするために、“getcollection”を使っています。</p>
+<h4 id="MACRO-2">【２．２】&quot;Shell&quot;オブジェクトと、&quot;FileSystemObject&quot;オブジェクトを使ってみる</h4>
+<p>次に、&quot;Shell&quot;オブジェクトと、&quot;FileSystemObject&quot;オブジェクトを使ってファイルの一覧を新規秀丸エディタに出力します。 &quot;Shell&quot;オブジェクトでフォルダを選択し、&quot;FileSystemObject&quot;オブジェクトでファイル一覧を取得します。 ファイル一覧(コレクション)にアクセスするために、&quot;getcollection&quot;を使っています。</p>
 <p>このマクロでは、色々なオブジェクトのプロパティ、メソッドを使っていることから、 戻り値の型に従い、getpropobj、getpropstr、callmethod_returnobj、callmethod_returnstr等を使い分けています。</p>
-<p>各メソッド、プロパティの説明に従い適切な命令を使う必要がありますが、どうしてもわからない場合は、 <strong>“member文”, “member関数”</strong>を使う方法もあります。(プロパティは取得する場合のみで、セットすることは出来ない)</p>
+<p>各メソッド、プロパティの説明に従い適切な命令を使う必要がありますが、どうしてもわからない場合は、 <strong>&quot;member文&quot;, &quot;member関数&quot;</strong>を使う方法もあります。(プロパティは取得する場合のみで、セットすることは出来ない)</p>
 <div class="macro">
 <pre><code>// ファイル一覧の取得
 newfile;
@@ -295,7 +295,7 @@ callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code>
 </div>
 <p>第一引数に「#array」を指定して、オブジェクトを指定しているように見えますが、上記マクロは正常に動作しません。</p>
 <p>createobject、callmethod_returnobj、getpropobj で、戻り値を数値変数で受け取っていますが、 これは、「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。</p>
-<p>つまり、以下の“GetArrayListDataType”メソッド呼び出しは、第一引数に「オブジェクト」を要求しているのに、 「数値」を渡している事になり、失敗します。</p>
+<p>つまり、以下の&quot;GetArrayListDataType&quot;メソッド呼び出しは、第一引数に「オブジェクト」を要求しているのに、 「数値」を渡している事になり、失敗します。</p>
 <div class="macro">
 <pre><code>callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
 </div>
@@ -313,8 +313,8 @@ allowobjparam 0;</code></pre>
 <li><p>使い方その2</p>
 <p>対象となるパラメータを指定します。</p>
 <p>allowobjparam 文で、<strong>第二引数以降を指定すると、対象になるパラメータを指定できます。</strong> 呼び出すメソッドの引数の数に応じて、解釈する方法を順に指定します。引数の意味を変換しない場合は、「0」を指定します。</p>
-<p>オブジェクトはパラメータとして渡すので、第一引数は“0”でもかまいません。 (メソッドの戻り値が、バイト配列の場合、第一引数に“2”を指定する必要があります。)</p>
-<p>“GetArrayListDataType” の場合、引数は2個で、最初はオブジェクトを渡すので「1」を、 次の引数は変換しないので「0」を、第二引数以降に順次指定していきます。</p>
+<p>オブジェクトはパラメータとして渡すので、第一引数は&quot;0&quot;でもかまいません。 (メソッドの戻り値が、バイト配列の場合、第一引数に&quot;2&quot;を指定する必要があります。)</p>
+<p>&quot;GetArrayListDataType&quot; の場合、引数は2個で、最初はオブジェクトを渡すので「1」を、 次の引数は変換しないので「0」を、第二引数以降に順次指定していきます。</p>
 <div class="macro">
 <pre><code>allowobjparam 0,1,0;
 callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
@@ -368,11 +368,11 @@ allowobjparam 0;</code></pre>
 </ul>
 <p>詳細は、以下のページから各クラスのページを参照してください。<br />
 <span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/system.collections(v=vs.110).aspx" target="_blank">System.Collections 名前空間</a></span></p>
-<p>“ArrayList”は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
+<p>&quot;ArrayList&quot;は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
 <p>連想配列は、WSHでも可能で、<span class="externallink"><a href="https://msdn.microsoft.com/ja-jp/library/cc428065.aspx" target="_blank">Dictionary オブジェクト</a></span> を使います。</p>
 <h4 id="SCOPE">COMオブジェクトの有効範囲</h4>
 <p>createobject文を実行した秀丸エディタ上のみ有効です。秀丸エディタを切り替えた場合は、無効です。 (DLLのロードと同じ。)</p>
-<p>次のマクロでは、2回目の“Popup”メソッドは、新規秀丸エディタを開いて呼び出しているため、失敗します。 (新規秀丸エディタ上で、createobjectを実行していないので、“WScript.Shell” オブジェクトは存在してない。)</p>
+<p>次のマクロでは、2回目の&quot;Popup&quot;メソッドは、新規秀丸エディタを開いて呼び出しているため、失敗します。 (新規秀丸エディタ上で、createobjectを実行していないので、&quot;WScript.Shell&quot; オブジェクトは存在してない。)</p>
 <div class="macro">
 <pre><code>//オブジェクトの生成
 #WshShell = createobject(&quot;WScript.Shell&quot;);
