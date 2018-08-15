@@ -44,6 +44,32 @@ h4,h5,h6 {
   font-size :1em ;
 }
 
+kbd {
+  background: whitesmoke;
+  border-radius: 5px;
+  border: solid 2px silver;
+  box-shadow: 0 1px 0px #c3c3c3;
+  color: gray;
+  font-family: monospace;
+  font-weight: bold;
+  line-height: 1.4em;
+  margin: 0 3px;
+  padding: 0.10em 0.50em;
+}
+
+.kbd {
+  background: whitesmoke;
+  border-radius: 5px;
+  border: solid 2px silver;
+  box-shadow: 0 1px 0px #c3c3c3;
+  color: gray;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 1.4em;
+  margin: 0 3px;
+  padding: 0.10em 0.50em;
+}
+
 sup{
   margin-right : 0.5em;
 }
@@ -408,8 +434,9 @@ div.mark_dt2 > dl > dt {
   border          : #c0c0c0 solid 1px;
 }
 
-div.img_border > img{
-  border          : aquamarine solid 3px;
+div.img_border img{
+  /*border          : aquamarine solid 2px;*/
+  border          : blue solid 1px;*/
 }
 
 /* -start---------------------------------------- */
