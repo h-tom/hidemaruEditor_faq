@@ -8,11 +8,11 @@
   <title>第III部～秀丸マクロのいろはにほへと　マクロのデバッグについて</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -144,8 +144,8 @@ return;</code></pre>
 <p>変数の内容を、文字列ならそのまま、数値なら文字列に変換して、引数に指定し表示させます。 簡単ですが、ループ中で実行する場合は大変なので、使う箇所はよく考えましょう。</p>
 <p>question文は戻り値があるので、押したボタンによって処理を終了させることも可能です。</p>
 <p>また、message文、question文 はフォーカスをエディタ画面に移動させてしまうので、枠を対象とするようなマクロの場合は注意が必要です。</p>
-<p>ちなみに、message文、question文だけではなく、ダイアログで表示している内容は、ダイアログがアクティブな状態で「Ctrl + C」を押せば、 表示しているテキストをクリップボードにコピー可能です。 (なかには、Ctrl +C が効かないダイアログもあります。Windows 9x系OSでは出来ません。)</p>
-<p>たとえば、以下のようなダイアログが表示されているときに、「Ctrl + C」を押すと、<br />
+<p>ちなみに、message文、question文だけではなく、ダイアログで表示している内容は、ダイアログがアクティブな状態で<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押せば、 表示しているテキストをクリップボードにコピー可能です。 (なかには、<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd> が効かないダイアログもあります。Windows 9x系OSでは出来ません。)</p>
+<p>たとえば、以下のようなダイアログが表示されているときに、<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押すと、<br />
 <img src="3_debug_03.png" alt="DebugView for Windows" width="298" height="160" /><br />
 </p>
 <p>クリップボードには、以下の内容がコピーされます。</p>

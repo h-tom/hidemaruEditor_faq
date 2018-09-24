@@ -8,11 +8,11 @@
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.8 マクロ関連の変更履歴</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -47,6 +47,7 @@
 <li><a href="#V879">秀丸エディタVer.8.79 マクロ関連の変更履歴</a></li>
 <li><a href="#V881">秀丸エディタVer.8.81 マクロ関連の変更履歴</a></li>
 <li><a href="#V883">秀丸エディタVer.8.83 マクロ関連の変更履歴</a></li>
+<li><a href="#V885">秀丸エディタVer.8.85 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、 <span class="externallink"><a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a></span> を参照してください。</p>
@@ -832,6 +833,36 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>openregにパラメータを追加し、HKEY_LOCAL_MACHINE32bit/64bitを指定できるように修正。</li>
 </ul></li>
 <li>その他</li>
+</ul>
+</div>
+<!-- h3 -->
+<h2 id="V885">秀丸エディタVer.8.85 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V885">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.85</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V885">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.85</h3>
+<ul>
+<li>追加
+<ul>
+<li>ファイルマネージャ枠のマクロのdllfuncstr用の関数で、HmExplorerPane.dllにGetCurrentDirを追加。</li>
+<li>replaceallquick文</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>getcolormarker 関数で、第１パラメータに0x0100のフラグを追加し、表示に使われている名前付きレイヤーの情報を取得できるように修正。</li>
+<li>insert文の第３パラメータでインデントの詳細設定を指定できるように修正。</li>
+<li>selectcolormarkerで対象が無い場合にresultが変化するように修正。</li>
+<li>menu文などのサブメニューの記述対応。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>seterrormodeの指定でcallでラベルが見つからないときにエラーを無視できるように修正。</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V885">【２】仕様変更 - 「秀丸エディタ」Ver.8.85</h3>
+<ul>
+<li>マクロファイル用のフォルダと設定ファイル用のフォルダは、インストール直後の初期状態は%APPDATA%という環境変数を使って表現するように変更。</li>
+<li>マクロ実行中はautocomplete -1;による操作はリアルタイム入力は無効となるように変更。</li>
 </ul>
 </div>
 <!-- h3 -->

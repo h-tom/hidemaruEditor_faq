@@ -8,11 +8,11 @@
   <title>第II部～知っていると便利な秀丸の機能　置換</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -88,7 +88,12 @@
 <ul>
 <li>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上にある文字を置換)</li>
 <li>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下にある文字を置換)</li>
-<li>「<strong><span class="font_blue">全置換</span></strong>」(編集中のファイルの全ての文字を置換)</li>
+<li><p>「<strong><span class="font_blue">全置換</span></strong>」(編集中のファイルの全ての文字を置換)</p>
+<p>Ver.8.85より、「全置換」ボタンの「▼」マークから、「クイック全置換」が実行できます。</p>
+<p><img src="2_replace_10.png" alt="クイック全置換" width="224" height="132" /><br />
+</p>
+<p>通常の「全置換」と「クイック全置換」の違いについては、<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" target="_blank">秀丸エディタヘルプの「置換」</a></span>を参照してください。</p>
+<p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。 その為、置換した箇所の把握できません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。 正規表現に関しても多少動作の違いがあるようです。 要は、エディタ画面上の表示関連の処理を一切省いて、高速に動作させています。</p></li>
 </ul>
 <p>のいずれかを選んで下さい。</p></li>
 </ol>
@@ -105,6 +110,15 @@
 <li><p>「置換」ダイアログのタイトルバー部分にある「▼」マークを押すと、メニューが表示されます。 「<strong>検索文字列の追加取得</strong>」、「<strong>検索の動作環境</strong>」を開いたり、「<strong>検索ダイアログ</strong>」に切り替える事も可能です。</p>
 <p><img src="2_replace_03.png" alt="置換ダイアログのメニューその２" width="433" height="412" /><br />
 </p></li>
+<li><p>「全置換」ボタンですが、設定により機能を変更できます。</p>
+<p>ボタン横の「▼」マークを押すことより標示されるメニューの「ボタン形式」から変更できます。</p>
+<p><img src="2_replace_11.png" alt="全置換ボタンのメニューその２" width="470" height="154" /><br />
+</p>
+<ul>
+<li>「全置換」(全置換を実行)</li>
+<li>「適用」 (各種条件を適用してダイアログを閉じる)</li>
+</ul>
+<p>を選択できます。</p></li>
 </ul>
 <!-- h4 -->
 <div class="marginleft">

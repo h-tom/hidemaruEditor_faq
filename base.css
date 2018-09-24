@@ -55,6 +55,7 @@ kbd {
   line-height: 1.4em;
   margin: 0 3px;
   padding: 0.10em 0.50em;
+  vertical-align: text-top;
 }
 
 .kbd {
@@ -63,11 +64,12 @@ kbd {
   border: solid 2px silver;
   box-shadow: 0 1px 0px #c3c3c3;
   color: gray;
-  font-family: inherit;
+  font-family: monospace;
   font-weight: bold;
   line-height: 1.4em;
   margin: 0 3px;
   padding: 0.10em 0.50em;
+  vertical-align: text-top;
 }
 
 sup{
