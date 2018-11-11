@@ -8,11 +8,11 @@
   <title>第II部～知っていると便利な秀丸の機能　grep/タグジャンプ</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -47,8 +47,34 @@
 ※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <span class="rotate90"><strong>&gt;</strong></span> をクリックして&quot;<strong>(現在の内容)</strong>&quot;を選択して下さい。<br />
 　<img src="2_grep_06.png" alt="現在の内容" width="356" height="54" /><br />
 </p>
-<p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。 また、複数のファイル名を入力したい時は、ファイル名を<span class="monospace">&quot;;&quot;</span>(半角のセミコロン)で区切って下さい (<span class="monospace">ex.&quot;<strong>*.txt;file_?.man;a.doc</strong>&quot;</span>)。</p></li>
-<li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。 「…」ボタンを押すと、フォルダ参照ダイアログが開き、フォルダを選択可能です。</p></li>
+<p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。 また、複数のファイル名を入力したい時は、ファイル名を<span class="monospace">&quot;;&quot;</span>(半角のセミコロン)で区切って下さい (<span class="monospace">ex.&quot;<strong>*.txt;file_?.man;a.doc</strong>&quot;</span>)。</p>
+<p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足情報]</a>－<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。 除外したいファイルの設定が出来ます。</p>
+<p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。 「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と、直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
+<div class="macro">
+<pre><code>&lt;!*.xxx&gt;</code></pre>
+</div>
+<p>「<code>&lt;!</code>」に続き、除外したい内容を記述し、「<code>&gt;</code>」で閉じます。複数指定する場合は「<code>;</code>」で区切って入力します。</p>
+<div class="macro">
+<pre><code>例1)*.*&lt;!*.txt&gt;
+例2)*.*&lt;!*.txt;*.html&gt;</code></pre>
+</div>
+<p>例1)は、<code>&quot;*.*&quot;</code>(全てのファイル)を対処とするが、<code>&quot;*.txt&quot;</code> は除外。<br />
+例2)は、<code>&quot;*.*&quot;</code>(全てのファイル)を対処とするが、<code>&quot;*.txt&quot;</code> と <code>&quot;*.html&quot;</code> は除外。</p>
+<p>となります。</p></li>
+<li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。 「…」ボタンを押すと、フォルダ参照ダイアログが開き、フォルダを選択可能です。</p>
+<p>Ver.8.85以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
+<div class="macro">
+<pre><code>&lt;!フォルダ名\&gt;</code></pre>
+</div>
+<p>「<code>&lt;!</code>」に続き、除外したいフォルダ名記述し、「<code>&gt;</code>」で閉じます。<span class="attention_red">フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</span> 複数指定する場合は「<code>;</code>」で区切って入力します。</p>
+<div class="macro">
+<pre><code>例1)*.*&lt;!folder1\&gt;
+例2)*.*&lt;!folder1\;folder2\&gt;
+例3)*.*&lt;!folder*\&gt;</code></pre>
+</div>
+<p>例1)は、<code>&quot;*.*&quot;</code>(全てのファイル)を対処とするが、<code>&quot;folder1&quot;</code> は除外。<br />
+例2)は、<code>&quot;*.*&quot;</code>(全てのファイル)を対処とするが、<code>&quot;folder1&quot;</code> と <code>&quot;folder2&quot;</code> は除外。 例3)は、<code>&quot;*.*&quot;</code>(全てのファイル)を対処とするが、<code>&quot;folder*&quot;</code> にマッチするフォルダは除外。</p>
+<p>となります。</p></li>
 <li>右側にあるチェックボックスの内、該当する物にチェックをします。
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
@@ -56,7 +82,7 @@
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
 この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(&quot;_&quot;)のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
-検索文字列に「<strong>正規表現</strong>」が使える様になります。この項目をＯＮにすると、上記二つのオプション指定は無効になります。<br />
+検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
 「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
 「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視等…説明もあいまい(^^;)。<br />
@@ -159,8 +185,12 @@ exeファイルなどテキストではないファイルを、除外します。</p>
 <li><p>ワイルドカードを含む文字列を指定する記述方法<br />
 &quot;*&quot;(アスタリクス)、&quot;?&quot;(クエスチョンマーク)を含む場合です。単独の場合はそのまま記述してください。&quot;*.exe&quot;等。</p>
 <p>複数指定する場合は &quot;;&quot;(セミコロン)で区切る。<br />
-実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace"> *.exe;*.dll</span></p></li>
-</ul></li>
+実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace"> *.exe;*.dll</span></p>
+<p>ワイルドカードにマッチするかどうかの判定方法は、「拡張子を厳密にチェックする」をONにした時と同じロジックになるとの事。</p></li>
+</ul>
+<p>Ver.8.85以降、「ワイルドカードを含む文字列を指定する記述方法」の場合、「除外するフォルダ」も指定可能です。 フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</p>
+<p>以下の例は、拡張子がdll、exe、doc のファイルと、「temp」というフォルダを除外します。</p>
+<pre><code>例)*.dll;*.exe;*.doc;temp\</code></pre></li>
 </ul></li>
 <li>「検索するファイル」でワイルドカード使用した場合の確認方法
 <ul>
