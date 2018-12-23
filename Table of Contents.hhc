@@ -122,6 +122,10 @@
 			<param name="Name" value="CSV/TSVモード">
 			<param name="Local" value="2_csv_tsv.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="grepして置換">
+			<param name="Local" value="2_grepreplace.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">

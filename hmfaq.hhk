@@ -110,9 +110,21 @@
 		<param name="Local" value="3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="grep/タグジャンプ">
+		<param name="Local" value="2_grep.html">
+		<param name="Name" value="grepして置換">
+		<param name="Local" value="2_grepreplace.html">
 		<param name="Name" value="grep">
 		<param name="Name" value="[HME0080A]●grepが動作しない？">
 		<param name="Local" value="HME0080A.html">
+		<param name="Name" value="[HME0068A]●「grepの実行」って何ですか？">
+		<param name="Local" value="HME0068A.html">
+		<param name="Name" value="[HME0085A]●grepで文字コードの自動認識">
+		<param name="Local" value="HME0085A.html">
+		<param name="Name" value="[HME0091A]●ファイルタイプ別の設定の方法">
+		<param name="Local" value="HME0091A.html">
+		<param name="Name" value="[HMM0042A]●grepのダイアログボックスを出す">
+		<param name="Local" value="HMM0042A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grep/タグジャンプ">
@@ -138,6 +150,11 @@
 		<param name="Name" value="grepの実行">
 		<param name="Name" value="[HME0068A]●「grepの実行」って何ですか？">
 		<param name="Local" value="HME0068A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="grepして置換">
+		<param name="Name" value="grepして置換">
+		<param name="Local" value="2_grepreplace.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0001A">
@@ -1423,6 +1440,11 @@
 		<param name="Name" value="タグ付き正規表現">
 		<param name="Name" value="タグ付き正規表現とは？">
 		<param name="Local" value="4_tagreg.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="タブモード">
+		<param name="Name" value="秀丸エディタウィンドウの管理(タブモード編)">
+		<param name="Local" value="3_tabmode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="テキストファイルは常に秀丸で">
