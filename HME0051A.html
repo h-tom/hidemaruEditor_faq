@@ -8,11 +8,11 @@
   <title>[HME0051A] ●漢字コードの使い分け - 秀丸エディタＱ＆Ａ集</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -31,11 +31,13 @@
 <hr />
 <dl>
 <dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>秀丸エディタは、基本的にはエンコードを自動的に判別するので、(自動判定が有効になっていれば)何の設定も必要ではないです。 特定のエンコードを使う場合は種々の方法が存在します。 (自動判定で、全てのエンコードを間違いなく判定する保証はないです。)</p>
+<dd><p>秀丸エディタは、デフォルトでエンコードの自動判別が有効になっています。 しかし、自動判定で、全てのエンコードを間違いなく判定する保証はないです。</p>
+<p>特定のエンコードを使う場合は種々の方法が存在します。</p>
 <ol type="1">
 <li><p><strong>自動判定を有効にする。</strong></p>
 <p>「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード1」→「自動判定で開くとき」で、 <span class="marker1">「ファイルの内容を解析してエンコードの種類を自動認識する」</span>をＯＮにして下さい。<br />
 (「<strong>エンコード1</strong>」が表示されていない場合は、「動作環境」画面左下にある「<span class="attention_red">上級者向け設定</span>」をONにしてください)</p>
+<p>使用状況に合わせ、エンコードの優先度を変更したり、新規作成時のエンコードの指定も出来ます。</p>
 <p><img src="HME0051A_01.png" alt="エンコード1" width="605" height="433" /><br />
 </p></li>
 <li><p><strong>ファイルを開くときに明示的に文字コードを指定する。</strong></p>
@@ -46,6 +48,41 @@
 <p>秀丸エディタの「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード2」にある、 <span class="marker1">「EUCコードの指定ドライブ」</span>の欄にドライブを指定し、EUCコードのファイルはそこに保存する。</p>
 <p><img src="HME0051A_02.png" alt="エンコード2" width="605" height="415" /><br />
 </p></li>
+<li><p><strong>ファイルの先頭に、文字コードを記述しておく</strong></p>
+<p>ファイルの先頭に、文字コードを記述しておく方法もあります。 ただし、「<span class="filetype">ファイルタイプ別の設定</span>」で、判定を有効にしておく必要があります。</p>
+<p>「その他」－「保存・読込み」にある「エンコードの種類の指定」で<span class="marker1">「自動判定で開くときconfig等のコメントの認識」</span> のチェックをONにします。</p>
+<p><img src="HME0051A_03.png" alt="エンコードの指定" width="632" height="185" /><br />
+</p>
+<p>チェックを入れた状態で、ファイルの先頭に、決められた書式を記述しておくと。文字コードを指定できます。 指定方法は2通りあります。</p>
+<ol type="1">
+<li><p>書式その１</p>
+<p>行の先頭に<code>"#"</code>、次に<code>"encoding:"</code>、次に文字コードを示す文字列(utf-8|shift_jis|jis|ecu-jp等)を指定します。</p>
+<div class="macro">
+<pre><code># encoding: utf-8</code></pre>
+</div>
+<ul>
+<li>各項目間にスペースを入れても問題ありません。 (<code>#</code>の前にスペースを入れるのはダメ)</li>
+<li><code>encoding</code> の後は、<code>":"</code>だけではなく、<code>"="</code> でもいいです。 (<code>encoding</code>とその後の文字(<code>":"</code>または<code>"="</code>)との間に、スペースを入れてはいけません。)</li>
+</ul></li>
+<li><p>書式その２</p>
+<p>行の先頭に<code>"#"</code>、次に<code>"-*-"</code>、次に<code>"coding:"</code>、次に文字コードを示す文字列、最後に<code>"-*-"</code>を指定します。</p>
+<div class="macro">
+<pre><code># -*- coding: utf-8 -*-</code></pre>
+</div>
+<ul>
+<li><p>最初の <code>"-*-"</code> の後、最後の <code>"-*-"</code> の前には、スペースを入れてください。(タブは使用しないこと)</p>
+<p>以下の書式では認識しない</p>
+<pre><code># -*-coding: utf-8-*-</code></pre></li>
+<li><p><code>coding</code> の後は、<code>":"</code>だけではなく、<code>"="</code> でもいいです。 (<code>coding</code>とその後の文字(<code>":"</code>または<code>"="</code>)との間に、スペースを入れてはいけません。)</p></li>
+</ul></li>
+</ol>
+<p>文字コードを記述する箇所は、<span class="attention_red">ファイルの先頭から2行目</span>までです。</p>
+<p>C言語等の場合は、そのまま記述するとコンパイル時にエラーになるため、 コメント文字を利用します。(使用する言語のブロックコメントで囲んでください)</p>
+<div class="macro">
+<pre><code>/*
+# coding: utf-8
+*/</code></pre>
+</div></li>
 </ol>
 </dd>
 </dl>

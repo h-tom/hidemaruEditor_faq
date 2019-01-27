@@ -506,6 +506,18 @@ div.img_border img{
   border-bottom: solid 2px red;
 }
 
+.btn-push{
+  display: inline-block;
+  text-align: left;
+  background-color: #F0F0F0;
+  color: black;
+  text-decoration: none;
+  padding: 4px 4px;
+  border-bottom: 3px solid #A0A0A0;
+  border-right:  3px solid #A0A0A0;
+  margin-right:  5px;
+  margin-left:   5px;
+}
 /* 640px*/
 @media screen and (max-width: 640px) {
   h1,h2,h3,h4,h5,h6 {
