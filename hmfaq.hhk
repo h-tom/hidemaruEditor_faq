@@ -12,6 +12,8 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value=".hilight">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　強調表示">
+		<param name="Local" value="2_highlight.html">
 		<param name="Name" value="[HME0079A]●.hilight に ￥t や ￥n は使えるか？">
 		<param name="Local" value="HME0079A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
@@ -1771,6 +1773,8 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="強調表示">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　強調表示">
+		<param name="Local" value="2_highlight.html">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
 		<param name="Local" value="HME0092A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
@@ -1903,7 +1907,7 @@
 		<param name="Local" value="qa_kinou.html#MACRO">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="秀丸マクロファイル">
+		<param name="Name" value="強調表示で、色やスタイル">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
 		<param name="Local" value="HME0093A.html">
 		</OBJECT>
