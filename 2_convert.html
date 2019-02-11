@@ -8,11 +8,11 @@
   <title>第II部～知っていると便利な秀丸の機能　変換モジュール</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -23,7 +23,7 @@
 <hr />
 <h2 id="CONVERT">●変換モジュール</h2>
 <p>秀丸エディタ Ver.5.00以降では、変換モジュールが使用できます。</p>
-<p>変換モジュールは、今まで秀丸エディタ本体で行っていた各種文字変換機能(大文字に変換や、小文字に変換等)を、 外部プログラムで行えるようにしたものです。 標準で添付されているモジュールの他に、 <span class="externallink"><a href="https://hide.maruo.co.jp/lib/hmconv/index.html" target="_blank">変換モジュールライブラリ</a></span> にもいくつか登録されています。uniq(重複行削除)もあるので、いろいろ追加しておくと便利です。</p>
+<p>変換モジュールは、今まで秀丸エディタ本体で行っていた各種文字変換機能(大文字に変換や、小文字に変換等)を、 外部プログラムで行えるようにしたものです。 標準で添付されているモジュールの他に、 <a href="https://hide.maruo.co.jp/lib/hmconv/index.html" class="externallink" target="_blank">変換モジュールライブラリ</a> にもいくつか登録されています。uniq(重複行削除)もあるので、いろいろ追加しておくと便利です。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a>
 <ul>
@@ -59,7 +59,7 @@
 <li>ソート</li>
 </ul>
 <p>標準添付以外の変換モジュールを使うには、秀丸エディタに<span class="attention_red">登録する</span>必要があります。</p>
-<p>追加する変換モジュール(32bitは&quot;*.hmf&quot;、64bitは&quot;*.hmf64&quot;)は、 秀丸エディタ本体と同じ場所(デフォルトは、&quot;C:\Program Files\Hidemaru&quot;)に置いてください。<br />
+<p>追加する変換モジュール(32bitは"*.hmf"、64bitは"*.hmf64")は、 秀丸エディタ本体と同じ場所(デフォルトは、"C:\Program Files\Hidemaru")に置いてください。<br />
 変換モジュールによっては、変換モジュール本体の他に動作に必要なファイルもあるので、 添付されている説明などをよく確認してください。</p>
 <!-- h4 -->
 <div class="marginleft">
@@ -72,7 +72,7 @@
 <li><p>「編集」の下に項目が追加されるので、「編集」-「<span class="attention_red">変換</span>」を選択する。</p>
 <p><img src="2_convert_01.png" alt="変換画面" width="605" height="433" /><br />
 </p></li>
-<li><p>「<strong>変換モジュール</strong>」に登録済みの変換モジュールが表示されます。(初期状態は&quot;(標準の変換)&quot;のみ)<br />
+<li><p>「<strong>変換モジュール</strong>」に登録済みの変換モジュールが表示されます。(初期状態は"(標準の変換)"のみ)<br />
 <strong>「追加」</strong>で使用したい変換モジュールを指定します。<br />
 (秀丸エディタと同じ場所に、変換モジュールをおいた場合は、表示されるはずです。)</p>
 <p><img src="2_convert_02.png" alt="選択画面" width="650" height="476" /><br />
@@ -94,7 +94,7 @@
 <!-- h5 -->
 <div class="marginleft">
 <h5 id="EXPLANATION-2-1">変換モジュールの機能を呼び出すマクロを作るには</h5>
-<p>変換モジュールを呼び出すには、 「<span class="externallink"><a href="https://help.maruo.co.jp/hidemac/html/080_CmdStatement_Edit_filter.html" target="_blank">filter文</a></span>」 を使います。</p>
+<p>変換モジュールを呼び出すには、 「<a href="https://help.maruo.co.jp/hidemac/html/080_CmdStatement_Edit_filter.html" class="externallink" target="_blank">filter文</a>」 を使います。</p>
 <div class="macro">
 <pre><code>filter &quot;変換モジュール名&quot;, &quot;関数名&quot;, &quot;パラメータ(省略可能)&quot;
 変換モジュール名: &quot;&quot; を指定した場合は、標準の変換モジュールを使用します。
@@ -104,11 +104,12 @@
                   必ず指定してください。
 関数名          : 呼び出す機能名。
 パラメータ      : なければ省略可能です。</code></pre>
+<!-- macro -->
 </div>
 <p>変換モジュールの説明や取説に、使い方があれば、その指示に従います。</p>
 <p>使い方等説明がない場合は、「キー操作の記録」を使う方法があります。</p>
 <ul>
-<li>秀丸エディタのヘルプ－<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Edit_Convert.html" target="_blank">編集－変換</a></span> に 「参考：変換モジュールをキー割り当てする方法」があるので参考にしてください。</li>
+<li>秀丸エディタのヘルプ－<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Edit_Convert.html" class="externallink" target="_blank">編集－変換</a> に 「参考：変換モジュールをキー割り当てする方法」があるので参考にしてください。</li>
 </ul>
 <p>「キー操作の記録」を使うので、使用する変換モジュールを、あらかじめ秀丸エディタに登録しておく必要があります。</p>
 <ol type="1">
@@ -122,6 +123,7 @@
 <div class="macro">
 <pre><code>setcompatiblemode 0x0F;
 filter &quot;&quot; , &quot;Sort&quot; , &quot;000100010001000\&quot;00&quot;;</code></pre>
+<!-- macro -->
 </div>
 <p>そのまま使っても良いのですが、範囲選択しているかどうかのチェックを追加します。 (範囲選択していなければ失敗するだけなので、チェックが必須という事はないです。)</p>
 <div class="macro">
@@ -132,6 +134,7 @@ if(!selecting){
 }
 filter &quot;&quot; , &quot;Sort&quot; , &quot;000100010001000\&quot;00&quot;;
 endmacro;</code></pre>
+<!-- macro -->
 </div>
 <p>このマクロファイルを、「<a href="3_macro.html">秀丸マクロのいろはにほへと</a>」の「<a href="3_macro.html#REGIST">【４】マクロ登録</a>」、 「<a href="3_macro.html#SHORTCUT">【５】ショートカットキーへの登録</a>」を参考に、マクロを登録し、キーに割り当ててください。</p>
 <p>複数選択状態で、マクロを実行する場合は注意が必要です。</p>
@@ -140,10 +143,11 @@ endmacro;</code></pre>
 <p>setcompatiblemode 文のフラグには、</p>
 <div class="macro">
 <pre><code>0x00100000 各種の文を複数選択に対応した動作にします。</code></pre>
+<!-- macro -->
 </div>
 <p>があるので、setcompatiblemode文 に このフラグをセットし、マクロに追加しておけば、 複数選択に対応させることが可能です。</p>
-</div>
 <!-- h5 -->
+</div>
 <h4 id="EXPLANATION-3">変換モジュールを置く場所について</h4>
 <p>説明では秀丸エディタ本体と同じ場所に置きましたが、実際は何処に置いても登録してしまえば、 秀丸エディタ本体からは問題なく使用できます。</p>
 <p>問題(というかチョット面倒？)になるのは、マクロが絡む場合です。</p>
@@ -152,28 +156,30 @@ endmacro;</code></pre>
 <li><p>秀丸エディタ本体と同じ場所に配置した場合</p>
 <div class="macro">
 <pre><code>filter &quot;HmFilter&quot; , &quot;Sort&quot; , &quot;～&quot;</code></pre>
+<!-- macro -->
 </div>
 <p>のように、変換モジュール名を指定すればいい。拡張子が無くても、設定や環境に合わせ、適当に判断されます。 (秀丸エディタと同じ場所に変換モジュールを置いても、モジュール名の指定にパスが含まれると、拡張子の省略はできません。)</p></li>
 <li><p>秀丸エディタ本体とは別に配置した場合</p>
 <div class="macro">
 <pre><code>filter &quot;C:\\macro\\module\\HmFilter.hmf&quot; , &quot;Sort&quot; , &quot;～&quot;</code></pre>
+<!-- macro -->
 </div>
 <p>のように、変換モジュール名にフルパスを指定しないと、秀丸エディタが変換モジュールを読み込めません。 (拡張子の省略はできないので、必ず指定してください)</p></li>
 </ul>
 <p>秀丸エディタ本体とは別に配置した場合、「キー操作の記録」を行うと、変換モジュール名はフルパス(拡張子付き)で記録されるので、 「キー操作の記録」を使って雛形のマクロを作る方法をお勧めします。</p>
-</div>
 <!-- h4 -->
+</div>
 <h3 id="SUPPLEMENTATION">[補足]</h3>
 <!-- h4 -->
 <div class="marginleft">
 <h4 id="SUPPLEMENTATION-1">64bit対応について</h4>
 <p>変換モジュールは、</p>
 <ul>
-<li>32bit用変換モジュールは&quot;*.hmf&quot;</li>
-<li>64bit用変換モジュールは&quot;*.hmf64&quot;</li>
+<li>32bit用変換モジュールは"*.hmf"</li>
+<li>64bit用変換モジュールは"*.hmf64"</li>
 </ul>
 <p>という拡張子で識別されます。</p>
-<p>通常、32bit版秀丸エディタは&quot;*.hmf&quot;、64bit版秀丸エディタは&quot;*.hmf64&quot;しか使えません。 しかし、64bit版秀丸エディタは設定次第で32bit用変換モジュールを使用する事ができます。 (逆の32bit版秀丸エディタで、64bit変換モジュールを使う事は出来ません。)<br />
+<p>通常、32bit版秀丸エディタは"*.hmf"、64bit版秀丸エディタは"*.hmf64"しか使えません。 しかし、64bit版秀丸エディタは設定次第で32bit用変換モジュールを使用する事ができます。 (逆の32bit版秀丸エディタで、64bit変換モジュールを使う事は出来ません。)<br />
 64bit版秀丸エディタだけにある、「<span class="env">動作環境</span>」-「64bit版」-「32bit版との互換性」の <strong>「32bit変換モジュール(*.hmf)を動作可能にする。」</strong>のチェックを ON にしてください。 これで、64bit版秀丸エディタで、32bit版変換モジュールが使用可能になります。 (ただし、32bit版変換モジュールが<span class="attention_red">正常に動作する保証はありません。</span>)</p>
 <p><img src="2_convert_06.png" alt="32bit版の互換性" width="605" height="433" /><br />
 </p>
@@ -192,11 +198,11 @@ endmacro;</code></pre>
 <p>ただし、使用する変換モジュールが秀丸エディタ本体と同じ場所にない場合、 マクロと同じくモジュール名にフルパスを指定する必要があります。</p>
 <h4 id="SUPPLEMENTATION-4">変換モジュールを作るには</h4>
 <p>変換モジュールの実体はDLLなので、自分で作ることも可能です。</p>
-<p><span class="externallink"><a href="https://hide.maruo.co.jp/software/hidemaru.html" target="_blank">秀丸エディタ</a></span>のダウンロードに、 「変換モジュール開発キットおよびサンプル変換モジュール」があるので、参考にしてください。</p>
-</div>
+<p><a href="https://hide.maruo.co.jp/software/hidemaru.html" class="externallink" target="_blank">秀丸エディタ</a>のダウンロードに、 「変換モジュール開発キットおよびサンプル変換モジュール」があるので、参考にしてください。</p>
 <!-- h4 -->
 </div>
 <!-- h3 -->
+</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
