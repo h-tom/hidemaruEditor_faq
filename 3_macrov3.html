@@ -8,11 +8,11 @@
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.3.00 マクロ関連の変更履歴</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -43,7 +43,7 @@
 <li>剰余 % に関して、符号を考慮した計算方法に変更された。</li>
 <li>マクロが終了したとき、 /h でオープンされた窓が開かれる仕様になった。</li>
 <li>config を実行すると、disabledraw が無効になるバグを修正。</li>
-<li>totab; が \&quot; でエスケープ処理を間違えるバグを修正。</li>
+<li>totab; が \" でエスケープ処理を間違えるバグを修正。</li>
 <li>その他、マクロのバグが修正された。</li>
 </ul>
 <h3 id="GOKAKKO">【２】gokakko, goleftkakko, gorightkakko の仕様変更</h3>
@@ -62,6 +62,7 @@
 <div class="macro">
 <pre><code>escape;
 message str(result);</code></pre>
+<!-- macro -->
 </div>
 <p>現在 (Ver. 3.0x) でも、escape; は result = 0 となります。<br />
 偶然、この仕様であるが、将来は不明です、<br />
@@ -84,6 +85,7 @@ message str(#jj);
 message str(#kk);
 
 endmacro;</code></pre>
+<!-- macro -->
 </div>
 <p><br />
 </p>
@@ -93,6 +95,7 @@ endmacro;</code></pre>
 message str(#i);
 
 endmacro;</code></pre>
+<!-- macro -->
 </div>
 <p>※この内容は秀丸エディタ ver.3.01の内容を元に書かれています。<br />
 今後のバージョンアップによっては、上記の内容が必ずしも当てはまらない場合もあるかもしれません。</p>

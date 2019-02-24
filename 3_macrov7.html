@@ -8,11 +8,11 @@
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.7.00 マクロ関連の変更履歴</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -22,12 +22,12 @@
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　秀丸エディタVer.7.00 マクロ関連の変更履歴</h1>
 <hr />
 <h2 id="V6">●秀丸エディタVer.7.00 マクロ関連の変更履歴</h2>
-<p>秀丸エディタ本体の更新内容に関しては、 <span class="externallink"><a href="https://hide.maruo.co.jp/software/hidemaru7/index.html" target="_blank">秀丸エディタの紹介（Ver7.00対応版）</a></span> を参照してください。</p>
+<p>秀丸エディタ本体の更新内容に関しては、 <a href="https://hide.maruo.co.jp/software/hidemaru7/index.html" class="externallink" target="_blank">秀丸エディタの紹介（Ver7.00対応版）</a> を参照してください。</p>
 <p>【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.7.00</a><br />
 【２】<a href="#spec">仕様変更</a><br />
 </p>
 <!-- h3 -->
-<div class="marginleft">
+<div class="marginlef">
 <h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.7.00</h3>
 <ul>
 <li><p>searchoptionの追加ビット</p></li>
@@ -43,7 +43,7 @@ masknormal,maskcomment,maskifdef,maskscript maskstring,masktag,maskonly,loop,noc
 <li>autocomplete文追加</li>
 <li>gowordtop2 と gowordend2 を追加</li>
 <li><p>openbyshellで引数を指定できるようにした</p></li>
-<li><p>config &quot;x:～&quot;;とgetconfig()で指定できるものに、以下のものを追加。</p>
+<li><p>config "x:～";とgetconfig()で指定できるものに、以下のものを追加。</p>
 <ul>
 <li>AutocompFlag1（autocomplete文の第２パラメタと同じ）</li>
 <li>AutocompFlag2（autocomplete文の第３パラメタと同じ）</li>
@@ -63,7 +63,7 @@ masknormal,maskcomment,maskifdef,maskscript maskstring,masktag,maskonly,loop,noc
 <li>gettitle文追加。</li>
 <li>title -1;などでタブの*マークが残留する場合がある問題修正。</li>
 <li>toupper(),tolower()の第二パラメタで対象を指定できるようにする。</li>
-<li>config &quot;xGuideLine:n xGuideLineInterval:n&quot;でガイドライン横も含めるようにする。</li>
+<li>config "xGuideLine:n xGuideLineInterval:n"でガイドライン横も含めるようにする。</li>
 <li><p>wordleft2を追加して、wordleftはV6.xx以前と同じ動作にする。</p></li>
 </ul>
 <h3 id="spec">【２】仕様変更</h3>
