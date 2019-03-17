@@ -8,11 +8,11 @@
   <title>第III部～秀丸マクロのいろはにほへと　マクロを実行してみよう</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -31,17 +31,18 @@
 【６】<a href="#TOOLBAR">ツールバーからマクロ起動</a><br />
 【７】<a href="#USERMENU">ユーザーメニューからマクロ起動</a><br />
 【８】<a href="#SAMPLE">サンプルマクロ</a></p>
+<!-- h3 -->
 <div class="marginleft">
 <h3 id="ABOUT">【０】ここに書いてあること</h3>
 <p>　秀丸エディタの大きな魅力の一つに「秀丸マクロ」の存在があげられます。 マクロというのは、一種のプログラムで、これを利用することにより、秀丸エディタ上で行う作業を自動化したり、 秀丸エディタの機能を拡張したりと、秀丸エディタをより便利に使うことができます。 マクロは自分で作ってもよいし（実際、単純なマクロを組むのはそれほど難しいことではありません）、 人の作ったものをなんらかの方法で入手してもいいでしょう<a href="#exp1">(注1)</a>。 なお、手元に適当なマクロがない人は、<a href="#SAMPLE">【８】</a>にサンプルのマクロをいくつか用意しておきましたので、 それを元に自分でマクロファイルを作って、いろいろ実行させてみましょう。(^_^)</p>
 <p>　秀丸エディタのマクロの正体は、秀丸エディタのマクロ言語が記述された「MAC」という拡張子のついたテキストファイルです。 以下これをマクロファイルと呼びます。 ここでは、マクロ（マクロファイル）を入手してから、それを実際に利用するまでの手順を説明します。</p>
 <hr />
 <dl>
-<dt><a id="exp1">注1</a>:</dt>
+<dt><span id="exp1">注1</span>:</dt>
 <dd><p>例えば、以下の場所には、多くの秀丸エディタマクロが登録されています。</p>
 <ul>
-<li>秀まるおさんのホームページのライブラリ (<span class="externallink"><a href="https://hide.maruo.co.jp/lib/index.html" class="uri" target="_blank">https://hide.maruo.co.jp/lib/index.html</a></span>)</li>
-<li>Vector (<span class="externallink"><a href="http://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html" class="uri" target="_blank">http://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html</a></span>)</li>
+<li>秀まるおさんのホームページのライブラリ (<a href="https://hide.maruo.co.jp/lib/index.html" class="externallink" target="_blank">https://hide.maruo.co.jp/lib/index.html</a>)</li>
+<li>Vector (<a href="https://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html" class="externallink" target="_blank">https://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html</a>)</li>
 </ul>
 </dd>
 </dl>
@@ -65,8 +66,8 @@
 (環境変数が使えるのは、マクロ用と設定用のフォルダ指定です。すべてのパス設定で環境変数が使えるわけではない為、 何も設定変更しなくても良いというわけでは、ありません。)</p>
 <hr />
 <dl>
-<dt><a id="exp2">注2</a></dt>
-<dd><p>Windows Vista以降のOSは、通常の権限では&quot;OSに保護された領域&quot;にファイルの書き込みが出来ません(管理者権限に昇格が必要)。 秀丸エディタのデフォルトインストール先は、&quot;C:\Program Files\Hidemaru&quot;ですが、 &quot;C:\Program Files&quot;以下は、&quot;OSに保護された領域&quot;となるので、マクロフォルダの作成には向いていません。 (64bit OSで、32bit版秀丸エディタを使っている場合、インストール先は&quot;C:\Program Files(x86)\Hidemaru&quot;になり、 ここも保護されたフォルダになります。)</p>
+<dt><span id="exp2">注2</span></dt>
+<dd><p>Windows Vista以降のOSは、通常の権限では"OSに保護された領域"にファイルの書き込みが出来ません(管理者権限に昇格が必要)。 秀丸エディタのデフォルトインストール先は、"C:\Program Files\Hidemaru"ですが、 "C:\Program Files"以下は、"OSに保護された領域"となるので、マクロフォルダの作成には向いていません。 (64bit OSで、32bit版秀丸エディタを使っている場合、インストール先は"C:\Program Files(x86)\Hidemaru"になり、 ここも保護されたフォルダになります。)</p>
 <p>デフォルトマクロフォルダが指定されているユーザーフォルダは、エクスプローラでも見えないような設定になっています(OS側の設定)。 見えるようにするにはOSの設定を変更する必要があります。 (「フォルダーオプション」の「隠しファイル、隠しフォルダー、および隠しドライブを表示する」を選ぶ。)</p>
 <p><img src="3_macro_02.png" alt="フォルダーオプション" width="444" height="540" /><br />
 </p>
@@ -139,7 +140,7 @@
 <hr />
 <p>グループが「１～１０」以外の場合は上にある「グループ名」の欄にも任意の名前を入力して下さい<a href="#exp3">(注3)</a>。 作業が終わったらをクリックしてマクロ登録を終了します。</p>
 <dl>
-<dt><a id="exp3">注3</a></dt>
+<dt><span id="exp3">注3</span></dt>
 <dd>ここでグループ名を入力しないと、プルダウンメニューにグループ名が表示されません。 また、「１～１０」グループにはグループ名は付けられません。
 </dd>
 </dl>
@@ -163,10 +164,10 @@
 <p>　&lt;OK&gt;をクリックして終了すると、登録したキー割り当てが有効になります。</p>
 <hr />
 <dl>
-<dt><a id="exp4">注4</a>：</dt>
+<dt><span id="exp4">注4</span>：</dt>
 <dd>Ctrl+1～Ctrl+9のキー割り当ては「マクロ1」～「マクロ9」に固定されているようです。 もちろんこれらのマクロを別のキーに「も」割り当てることは問題なくできます。
 </dd>
-<dt><a id="exp5">注5</a>：</dt>
+<dt><span id="exp5">注5</span>：</dt>
 <dd>順番に注意して下さい。必ず左側で「キー」を選んだ後に、右側で「コマンド」を選ばなければなりません。
 </dd>
 </dl>
@@ -195,10 +196,10 @@
 <p>　これで、割り当てられたショートカットキーによりユーザーメニューが表示され、その中からマクロを実行できるようになります。</p>
 <hr />
 <dl>
-<dt><a id="exp6">注6</a>：</dt>
+<dt><span id="exp6">注6</span>：</dt>
 <dd>実際にはこのリスト中にはユーザーメニューも含まれています。 これを「追加」するとユーザーメニューの中にユーザーメニューを登録することになります。 これによりユーザーメニューを階層化することができるようです。
 </dd>
-<dt><a id="exp7">注7</a>：</dt>
+<dt><span id="exp7">注7</span>：</dt>
 <dd>「選択中右ボタン」に限り、「範囲選択中のマウス右クリック」に対応が固定されていますので、 キー割り当ての作業は不要です（というかできません）。 また、デフォルトの設定では「メニュー1」が「右クリック」に割り当てられているようです（キー割り当てのダイアログで確認できます）。 したがってマウスの右クリックメニューからマクロを実行したい場合は、さしあたって「メニュー1」および「選択中右ボタン」に 登録するのが簡単でしょう。こうすればキー割り当てで悩む必要はありません。 特に「処理範囲を選択してから実行するマクロ」の場合、「選択中右ボタン」に登録しておくと、 マウスの左ボタンドラッグで範囲を選択した後、右クリックでメニューを出して、すぐにマクロを実行できるので便利です。
 </dd>
 </dl>
@@ -213,6 +214,7 @@
 <li>秀丸エディタを起動し （あるいは「ファイル→新規作成」でまっさらな秀丸エディタを用意し）「編集→貼り付け」で先ほどコピーしたものを秀丸エディタにペーストする。</li>
 <li>「ファイル→名前を付けて保存」を選び、下記の名前をつけてマクロ用フォルダ（【１】参照）に保存する。</li>
 </ol>
+<!-- h4 -->
 <div class="marginleft">
 <h4 id="SAMPLE1">●サンプルマクロその１</h4>
 <p>「カーソル位置に現在日時を挿入するマクロ」</p>
@@ -227,7 +229,7 @@ endmacro;
 <h4 id="SAMPLE2">●サンプルマクロその２</h4>
 <p>「編集中のテキストの末尾に『自分の名前』をの行を挿入するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL2.MAC としてください。<br />
-「自分の名前」のところは任意の文字列（ただし「vや「&quot;」を含まない）に置き換えることができます。</p>
+「自分の名前」のところは任意の文字列（ただし「vや「"」を含まない）に置き換えることができます。</p>
 <div class="macro">
 <pre><code>//---ここから
 //QA_SMPL2.MAC
@@ -260,9 +262,7 @@ endmacro;
 //---ここまで</code></pre>
 </div>
 <p>※このマニュアルは秀丸エディタ Ver.3.08 の仕様を元に書かれています。秀丸エディタのバージョンによっては、必ずしもここに書かれている内容の通りとは限りません。</p>
-<!-- h4 -->
 </div>
-<!-- h3 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

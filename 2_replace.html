@@ -45,24 +45,24 @@
 <h3 id="EXPLANATION">[解説]</h3>
 <p>編集中のファイルにある「<strong>over</strong>」という文字列を「<strong>upper</strong>」という文字列に置き換えたいとします。</p>
 <ol type="1">
-<li>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>置換</strong>」を選択して、以下の様に入力します。
+<li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>置換</strong>」を選択して、以下の様に入力します。</p>
 <ul>
 <li>「<strong><span class="font_blue">検索</span></strong>」のエディットボックスに「<strong>over</strong>」と入力する</li>
 <li>「<strong><span class="font_blue">置換</span></strong>」のエディットボックスに「<strong>upper</strong>」と入力する</li>
 </ul>
 <p><img src="2_replace_01.png" alt="置換ダイアログ" width="433" height="272" /><br />
 </p></li>
-<li>次に適宜オプションを指定するわけですが、各オプションの意味は以下の通りです。
+<li><p>次に適宜オプションを指定するわけですが、各オプションの意味は以下の通りです。</p>
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。 この項目がＯＦＦの場合、上の例で「<strong>OVER</strong>」や「<strong>Over</strong>」も置換対象になります。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(&quot;_&quot;)のみで構成された文字(列)</strong>を指します。</p></li>
+この項目がＯＮになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
 複数行にマッチする検索に関しては制限が存在します。以下のリンク先を参照してください。</p>
 <ul>
-<li>秀丸エディタヘルプ<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" target="_blank">\nを使った複数行検索の際の制限について</a></span></li>
+<li>秀丸エディタヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" class="externallink" target="_blank">\nを使った複数行検索の際の制限について</a></li>
 <li>「<a href="4_regular.html">●正規表現について</a>-<a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a></li>
 </ul></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
@@ -84,15 +84,15 @@
 確認ダイアログを表示し、置換する前に本当に置換するかどうかの確認をします。<br />
 置換の確認ダイアログは「その他→<span class="env">動作環境</span>→検索→検索ダイアログ」の「置換の確認の種類」で、種類を変更できます。</p></li>
 </ul></li>
-<li>最後に実行方法を選択する事で「<strong>置換</strong>」が行われます。
+<li><p>最後に実行方法を選択する事で「<strong>置換</strong>」が行われます。</p>
 <ul>
-<li>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上にある文字を置換)</li>
-<li>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下にある文字を置換)</li>
+<li><p>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上にある文字を置換)</p></li>
+<li><p>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下にある文字を置換)</p></li>
 <li><p>「<strong><span class="font_blue">全置換</span></strong>」(編集中のファイルの全ての文字を置換)</p>
 <p>Ver.8.85より、「全置換」ボタンの「▼」マークから、「クイック全置換」が実行できます。</p>
 <p><img src="2_replace_10.png" alt="クイック全置換" width="224" height="132" /><br />
 </p>
-<p>通常の「全置換」と「クイック全置換」の違いについては、<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" target="_blank">秀丸エディタヘルプの「置換」</a></span>を参照してください。</p>
+<p>通常の「全置換」と「クイック全置換」の違いについては、<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank">秀丸エディタヘルプの「置換」</a>を参照してください。</p>
 <p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。 その為、置換した箇所の把握できません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。 正規表現に関しても多少動作の違いがあるようです。 要は、エディタ画面上の表示関連の処理を一切省いて、高速に動作させています。</p></li>
 </ul>
 <p>のいずれかを選んで下さい。</p></li>
@@ -234,7 +234,7 @@
 </dd>
 <dt>関数名</dt>
 <dd>使用したい機能を指定。<br />
-「ハンカク」を実行したい場合は &quot;ToHankaku&quot; を指定する。
+「ハンカク」を実行したい場合は "ToHankaku" を指定する。
 </dd>
 <dt>変換モジュール名</dt>
 <dd>標準添付の変換モジュールは省略可能。 標準添付以外の変換モジュールを使う場合は指定する必要がある。<br />
@@ -266,7 +266,7 @@
 実行後：ＨＩＤＥＭＡＲＵ ＥＤＩＴＯＲ</code></pre>
 </dd>
 </dl>
-<p>詳細はヘルプ<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" target="_blank">置換の時の、変換モジュールによる変換の指定</a></span> を参照してください。</p>
+<p>詳細はヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" class="externallink" target="_blank">置換の時の、変換モジュールによる変換の指定</a> を参照してください。</p>
 <h4 id="SUPPLEMENTATION-4">ヒストリーに常駐</h4>
 <p>「検索」は検索と共通ですが、「置換」は単独で設定可能です。</p>
 <p>「<strong>ヒストリーに常駐</strong>」の設定方法は、<a href="2_find.html">「検索」</a>の<a href="2_find.html#SUPPLEMENTATION-6">「ヒストリーに常駐」</a>を参照してください。</p>
@@ -275,9 +275,7 @@
 <p>上限を超えると、<span class="attention_red">警告が表示</span>されます。</p>
 <p><img src="2_replace_09.png" alt="置換ダイアログの警告" width="433" height="95" /><br />
 </p>
-<!-- h4 -->
 </div>
-<!-- h3 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

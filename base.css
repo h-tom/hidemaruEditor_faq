@@ -228,23 +228,23 @@ div.table_border1  td{
 }
 
 .font_red {
-  color       : Red ;
+  color       : Red;
   padding     : 5px;
 }
 
 .font_blue {
-  color       : blue ;
+  color       : blue;
   padding     : 5px;
 }
 
 .font_org {
-  color       : orange
+  color       : orange;
   padding     : 5px;
 }
 
 .font_blue_bold {
   font-weight : bold;
-  color       : blue ;
+  color       : blue;
   padding     : 5px;
 }
 

@@ -45,18 +45,18 @@
 <li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、 <strong><span class="font_blue">「検索」</span></strong>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
 <p><img src="2_find_101.png" alt="検索ダイアログ" width="433" height="244" /><br />
 </p></li>
-<li>次に、適宜オプションを指定します。ここで、各オプションの意味は以下の通りです。
+<li><p>次に、適宜オプションを指定します。ここで、各オプションの意味は以下の通りです。</p>
 <ul>
 <li><p><strong><span class="font_blue">「大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。この項目がＯＦＦの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア(&quot;_&quot;)のみで構成された文字(列)</strong>を指します。</p></li>
+この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
 「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
 複数行にマッチする検索に関しては制限が存在します。以下のリンク先を参照してください。</p>
 <ul>
-<li>秀丸エディタヘルプ<span class="externallink"><a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" target="_blank">\nを使った複数行検索の際の制限について</a></span></li>
+<li>秀丸エディタヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" class="externallink" target="_blank">\nを使った複数行検索の際の制限について</a></li>
 <li>「<a href="4_regular.html">●正規表現について</a>-<a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a></li>
 </ul></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
@@ -76,10 +76,10 @@
 <li><p><strong>「<span class="font_blue">検索したら閉じる</span>」チェックボックス</strong><br />
 検索を実行すると検索ダイアログを閉じます。</p></li>
 </ul></li>
-<li>最後に検索を行う<strong><span class="font_blue">方向</span></strong>を指定する事で検索が実行されます。
+<li><p>最後に検索を行う<strong><span class="font_blue">方向</span></strong>を指定する事で検索が実行されます。</p>
 <ul>
-<li>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上を検索します。)</li>
-<li>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下を検索します。)</li>
+<li><p>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上を検索します。)</p></li>
+<li><p>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下を検索します。)</p></li>
 <li><p>「<strong><span class="font_blue">すべて検索</span></strong>」(ファイル全体を検索します。)<br />
 「すべて検索」では、検索時の動作を選択できます。(ボタンを押すとメニューが表示されます。)</p>
 <p><img src="2_find_21.png" alt="すべて検索" width="636" height="354" /><br />
@@ -156,7 +156,7 @@
 <div class="mark_dt">
 <dl>
 <dt>ボタンの種類</dt>
-<dd><p>ボタンの動作を設定します。(標準=xx を選んだ場合、ボタン表示が&quot;xx&quot;になります)</p>
+<dd><p>ボタンの動作を設定します。(標準=xx を選んだ場合、ボタン表示が"xx"になります)</p>
 <ul>
 <li>ドロップダウンのみ</li>
 <li>ドロップダウン付き(標準=適用)</li>
@@ -169,6 +169,7 @@
 <dd>セットされている検索バッファを更新するか、しないかの設定です。 有効にした場合は、「すべて検索」を実行した条件で、上検索/下検索を実行できます。
 </dd>
 </dl>
+<!-- mark_dt -->
 </div></li>
 <li><p>ヒット候補の表示について設定します。</p>
 <div class="mark_dt">
@@ -208,6 +209,7 @@
 </ul>
 </dd>
 </dl>
+<!-- mark_dt -->
 </div></li>
 </ul></li>
 </ul></li>
@@ -222,8 +224,8 @@
 <p>「追加の条件」を使うと、検索の対象にする箇所を、限定したり除外する事が可能です。</p>
 <ul>
 <li><p>「カラー表示の条件」はダイアログの注意書きにあるように、「複数行コメント」の設定で、 各部分を認識している場合のみ有効です。</p></li>
-<li>「範囲の指定/カラーマーカー内」は、<strong>「選択した範囲内のみ」</strong>と似ていますが、 通常の範囲選択と違い、複数箇所を対象に出来ます。<br />
-以下のいずれかを指定可能です。
+<li><p>「範囲の指定/カラーマーカー内」は、<strong>「選択した範囲内のみ」</strong>と似ていますが、 通常の範囲選択と違い、複数箇所を対象に出来ます。<br />
+以下のいずれかを指定可能です。</p>
 <ul>
 <li>「一時的なカラーマーカー」の範囲</li>
 <li>「すべて検索 - 色付け」された範囲</li>
@@ -252,7 +254,7 @@
 <p><img src="2_find_33.png" alt="検索" width="617" height="230" /><br />
 </p></li>
 </ol></li>
-<li>例その２
+<li><p>例その２</p>
 <ol type="1">
 <li><p>カラーマーカーはまとまっていなくても問題ありません。 バラバラにマーキングを行います。</p>
 <p><img src="2_find_34.png" alt="バラバラにマーキング" width="591" height="246" /><br />
@@ -264,7 +266,7 @@
 <li>追加の条件に「一時的なカラーマーカー」を指定</li>
 </ul>
 <p>マッチ範囲の先頭と末尾が、カラーマーカーの範囲内に入っている箇所のみ、マッチしています。</p>
-<p>正規表現の&quot;+&quot;を指定した場合、検索エンジンにより結果が変わります。 画像はhmjre.dllの場合ですが、他の検索エンジンを使用した場合、4行目、10行目はマッチしません。</p>
+<p>正規表現の"+"を指定した場合、検索エンジンにより結果が変わります。 画像はhmjre.dllの場合ですが、他の検索エンジンを使用した場合、4行目、10行目はマッチしません。</p>
 <p><img src="2_find_35.png" alt="検索" width="586" height="260" /><br />
 </p></li>
 </ol></li>
@@ -274,7 +276,7 @@
 <p>ファイルの先頭部分にカーソルがある時に、検索ダイアログを開いた場合<br />
 <img src="2_find_11.png" alt="検索ダイアログの取り込み文字" width="500" height="380" /><br />
 </p>
-<p>この状態から、検索ダイアログを呼び出すキー(デフォルトは <kbd>[Ctrl]</kbd>+<kbd>[F]</kbd>)を押すと、 その隣の単語部分まで取り込み範囲が拡大されます。 複数回キーを押すとさらに拡大され取り込まれます。ただし改行までが限度です。<br />
+<p>この状態から、検索ダイアログを呼び出すキー(デフォルトは <span class="kbd">[Ctrl]</span>+<span class="kbd">[F]</span>)を押すと、 その隣の単語部分まで取り込み範囲が拡大されます。 複数回キーを押すとさらに拡大され取り込まれます。ただし改行までが限度です。<br />
 取り込み範囲が拡大されるのは、<strong><span class="font_red">範囲選択しないで検索ダイアログを開いた場合のみです。</span></strong> <strong>範囲選択していた場合</strong>、その箇所が取り込まれますが、キーを押しても範囲は<strong>拡大しません。</strong></p>
 <ul>
 <li><p>(2回目)<br />
@@ -319,10 +321,10 @@
 <p>上限を超えると、<span class="attention_red">警告が表示</span>されます。</p>
 <p><img src="2_find_104.png" alt="検索ダイアログの警告" width="433" height="133" /><br />
 </p>
-</div>
 <!-- h4 -->
 </div>
 <!-- h3 -->
+</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>

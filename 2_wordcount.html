@@ -8,11 +8,11 @@
   <title>第II部～知っていると便利な秀丸の機能　文字数の計算</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -30,7 +30,7 @@
 (範囲選択していなければ全体の文字数を、範囲選択している場合は選択範囲内の文字数を表示します。)</p>
 <p><img src="2_wordcount_01.png" alt="文字数計算-文書全体の文字数" width="371" height="326" /><br />
 </p></li>
-<li><a href="#EXPLANATION">解説</a></li>
+<li><p><a href="#EXPLANATION">解説</a></p></li>
 <li><p><a href="#SUPPLEMENTATION">補足</a></p></li>
 </ul>
 <!-- h3 -->
@@ -59,12 +59,11 @@
 <p>Unicodeの場合、結合文字があると秀丸エディタの設定しだいで、見た目と文字数が一致しない場合があります。 以下の例では、見た目は1文字ですが、文字数は<span class="attention_red">2</span>になっています。(全角文字も1文字で計算するように設定)</p>
 <p><img src="2_wordcount_03.png" alt="文字数計算-結合文字" width="357" height="303" /><br />
 </p>
-<p>これは、<code>&quot;ボ&quot;</code>が、Unicodeの結合文字列で構成されているためです。 1文字に見えますが、<code>&quot;ホ&quot;(U+30d8)</code> + <code>&quot;&#12441;&quot;(濁点 U+3099)</code> の2文字で構成されているため、文字数としては<span class="attention_red">2</span>として計算されます。</p>
+<p>これは、<code>"ボ"</code>が、Unicodeの結合文字列で構成されているためです。 1文字に見えますが、<code>"ホ"(U+30d8)</code> + <code>"&#12441;"(濁点 U+3099)</code> の2文字で構成されているため、文字数としては<span class="attention_red">2</span>として計算されます。</p>
 <p>結合文字の<span class="attention_red">表示方法</span>は、「<span class="env">動作環境</span>－編集－高度な編集2」で設定できます。(文字数の計算方法は変更できません。)</p>
 <p><img src="2_wordcount_04.png" alt="文字数計算-結合文字" width="605" height="433" /><br />
 </p>
 </div>
-<!-- h3 -->
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>

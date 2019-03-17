@@ -8,11 +8,11 @@
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理(タブモード編)</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -33,7 +33,7 @@
 </ul>
 <p>「開く」、「閉じる」、「切り替える」に関しては、秀丸エディタウィンドウ操作と同じコマンドを使います。</p>
 <p>基本操作は秀丸エディタウィンドウと同じですが、タブ、タブグループに関するキーワード、コマンドが追加されています。 タブの操作に関しては、追加されたコマンドを使用する事になります。</p>
-<p>タブ関連マクロ命令の使い方に関しては、マクロヘルプ- <span class="externallink"><a href="https://help.maruo.co.jp/hidemac/html/170_TabManagement.html" target="_blank">秀丸エディタ管理(タブ編)</a></span> に例があるので参考にしてください。</p>
+<p>タブ関連マクロ命令の使い方に関しては、マクロヘルプ- <a href="https://help.maruo.co.jp/hidemac/html/170_TabManagement.html" class="externallink" target="_blank">秀丸エディタ管理(タブ編)</a> に例があるので参考にしてください。</p>
 <dl>
 <dt><strong>注意</strong></dt>
 <dd>タブに関する各種コマンドを使う場合は、必ず「タブモード」になっている事を確認してから使用する事。 ウィンドウモードで、タブ関連のコマンドを使用しても期待する動作にならない場合があります。
@@ -138,8 +138,8 @@ while(#next &lt; #max){
 endmacro;</code></pre>
 </div>
 <ul>
-<li>状態のチェックを行い、タブグループが一つだけなら終了します。</li>
-<li>tabgrouporderは、自分は0なので、順次加算して(2番目から順番に)チェックしていきます。</li>
+<li><p>状態のチェックを行い、タブグループが一つだけなら終了します。</p></li>
+<li><p>tabgrouporderは、自分は0なので、順次加算して(2番目から順番に)チェックしていきます。</p></li>
 <li><p><code>getcurrenttab</code>は、タブグループ内の選択されているタブのウィンドウハンドルを調べる命令です。 第1引数で、第2引数の意味を切り替えています。今回は タブグループの順番<code>tabgrouporder</code> を使用するので、</p>
 <pre><code>第1引数：true
 第2引数：調べるタブグループの順番</code></pre>
@@ -184,9 +184,7 @@ endmacro;</code></pre>
 <ul>
 <li>「次のタブグループ」とほぼ同じですが、タブグループのチェック方法が異なります。 自分は「0」なので、最後(tabgrouptotal - 1)からチェックしていく事になります。</li>
 </ul>
-<!-- h5 -->
 </div>
-<!-- h4 -->
 </div>
 <h3 id="TAB">【２】タブ</h3>
 <p>タブの操作は、基本的にはウィンドウ操作と同じです。</p>
@@ -195,8 +193,8 @@ endmacro;</code></pre>
 (設定により、タブの移動(次のタブ、前のタブ)で、タブグループ間を含む移動も可能)<br />
 (タブの移動に <code>nexthidemaru</code>、<code>prevhidemaru</code> も使えますが、切り替えの順番は、秀丸エディタ本体の設定に左右される。)<br />
 (ウィンドウ分割した間の移動に、次のタブ <code>nexttab</code>、前のタブ <code>prevtab</code>は使用できません。)</p></li>
-<li>タブグループ内のタブの数は、<code>tabtotal</code> キーワードで取得可能です。</li>
-<li>自分がタブグループ内の何番目のタブなのかは、<code>taborder</code> キーワードで取得可能です。</li>
+<li><p>タブグループ内のタブの数は、<code>tabtotal</code> キーワードで取得可能です。</p></li>
+<li><p>自分がタブグループ内の何番目のタブなのかは、<code>taborder</code> キーワードで取得可能です。</p></li>
 <li><p>タブの位置からウィンドウハンドルを取得するには、<code>gettabhandle</code> を使います。</p>
 <div class="macro">
 <pre><code>//自分自身のハンドル
@@ -212,7 +210,6 @@ endmacro;</code></pre>
 settaborder #next, 0;</code></pre>
 </div></li>
 </ul>
-<!-- h3 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

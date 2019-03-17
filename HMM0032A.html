@@ -8,17 +8,17 @@
   <title>[HMM0032A] ●「検索での表示」の設定による動作の違い{ - 秀丸エディタＱ＆Ａ集</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"> <a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<p><span class="link_navigate"><a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0032a">[HMM0032A]</h1>
 <h2 id="HMM0032A_01">●「検索での表示」の設定による動作の違い</h2>
@@ -35,7 +35,7 @@
 <div class="macro">
 <pre><code>秀丸エディタ</code></pre>
 </div>
-<p>という内容で、&quot;秀丸&quot;を検索し削除する為に、</p>
+<p>という内容で、"秀丸"を検索し削除する為に、</p>
 <div class="macro">
 <pre><code>gofiletop;
 searchdown2 &quot;秀丸&quot;;
@@ -45,7 +45,7 @@ if(result){
 }
 endmacro;</code></pre>
 </div>
-<p>というマクロを作った場合、削除されるのが&quot;秀丸&quot;ではなく、 &quot;秀&quot;という一文字しか削除できないという状況の対処方法です。</p>
+<p>というマクロを作った場合、削除されるのが"秀丸"ではなく、 "秀"という一文字しか削除できないという状況の対処方法です。</p>
 <p>「その他」→「<span class="env">動作環境</span>」→「検索」→「検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、 検索にマッチした箇所を削除できません。［<strong>範囲選択</strong>］にする必要があります。</p>
 <p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。 その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている。)</p>
 <p>「setcompatiblemode文」を使えば、マクロ実行時に「検索での表示」の設定を、一時的に変更できます。</p>
@@ -69,7 +69,7 @@ endmacro;</code></pre>
 </tr>
 </tbody>
 </table>
-<p>以下のようにマクロを変更すれば、設定を変更しなくても、&quot;秀丸&quot;という文字を削除できます。</p>
+<p>以下のようにマクロを変更すれば、設定を変更しなくても、"秀丸"という文字を削除できます。</p>
 <div class="macro">
 <pre><code>setcompatiblemode 0x00000200；
 gofiletop;
@@ -84,6 +84,6 @@ endmacro;</code></pre>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"> <a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a> </span></p>
+<p><span class="link_navigate"><a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

@@ -73,7 +73,7 @@ xpixel
 ypixe
 formwidth
 formline(整形ラインの表示の有無)</code></pre></li>
-<li>追加関数
+<li><p>追加関数</p>
 <ul>
 <li><p>マクロ引数</p>
 <pre><code>getarg</code></pre></li>
@@ -313,7 +313,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <div class="marginleft">
 <h3 id="LIST_V830">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.30</h3>
 <ul>
-<li>追加
+<li><p>追加</p>
 <ul>
 <li>HmExplorerPane.dll に GetUpdated関数追加。</li>
 <li>cutafter 文</li>
@@ -384,21 +384,21 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li><p>変更、パラメータ追加等</p>
 <ul>
-<li>beginlinesel 範囲選択が含まれる行すべてを行単位の選択にしてから、行選択モードに移る。</li>
-<li>copyline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてコピーする。</li>
-<li>cutline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてカットする。</li>
-<li>colormarker パラメータに開始位置と終了位置を指定可能にした。(範囲選択していなくても、指定した箇所にカラーマーカーをつける。)</li>
+<li><p>beginlinesel 範囲選択が含まれる行すべてを行単位の選択にしてから、行選択モードに移る。</p></li>
+<li><p>copyline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてコピーする。</p></li>
+<li><p>cutline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてカットする。</p></li>
+<li><p>colormarker パラメータに開始位置と終了位置を指定可能にした。(範囲選択していなくても、指定した箇所にカラーマーカーをつける。)</p></li>
 <li><p>existfile 第二パラメータに2を指定すると、ファイルサイズを取得可能にした。</p>
 <pre><code>ファイルサイズは、マクロの数値範囲である2G(2147483647)が最大となる。
 存在しないファイルを指定した場合は、0(zero)が取得できる。</code></pre></li>
-<li>setcompatiblemode 0x00100000; で、複数選択対応。</li>
-<li>colormarker文で、スタイルに-1を指定もできるように修正。</li>
-<li>runex プログラム実行のパラメータにUTF-8を追加。</li>
+<li><p>setcompatiblemode 0x00100000; で、複数選択対応。</p></li>
+<li><p>colormarker文で、スタイルに-1を指定もできるように修正。</p></li>
+<li><p>runex プログラム実行のパラメータにUTF-8を追加。</p></li>
 <li><p>run文のコマンドラインに%cや%lを書けるように修正。</p>
 <pre><code>%l:カーソル位置の行番号（先頭が1）
 %c:カーソル位置の桁位置（行頭が1）</code></pre></li>
 </ul></li>
-<li>その他
+<li><p>その他</p>
 <ul>
 <li>colormarkerallfound の デフォルトで(未指定時に)使用されるレイヤー名は、"01#allfound"というレイヤー名になる。 カラーマーカー関連の命令では、このレイヤー名を指定するか、"findmarker"というオプション指定することにより、操作可能。</li>
 </ul></li>
@@ -522,9 +522,9 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
-<li>searchdown等に incolormarker パラメータを追加</li>
-<li>searchoption2 で追加の条件で「指定の範囲/カラーマーカー内」が有効かどうかの判定を追加</li>
-<li>replaceallなどでaskオプション指定時、置換を実行した回数をresultに入れるように修正。</li>
+<li><p>searchdown等に incolormarker パラメータを追加</p></li>
+<li><p>searchoption2 で追加の条件で「指定の範囲/カラーマーカー内」が有効かどうかの判定を追加</p></li>
+<li><p>replaceallなどでaskオプション指定時、置換を実行した回数をresultに入れるように修正。</p></li>
 <li><p>searchdownなどの文で、数値として検索オプションを書く書き方で、2つ連続して書くと searchoption2相当も記述できるように修正。</p>
 <pre><code>例：searchdown &quot;a&quot;, #searchoption1, #searchoption2;</code></pre></li>
 </ul></li>
@@ -538,7 +538,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <h3 id="LIST_V858">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.58</h3>
 <ul>
 <li><p>追加</p></li>
-<li>変更、パラメータ追加等
+<li><p>変更、パラメータ追加等</p>
 <ul>
 <li>setcompatiblemode で「前のカーソル位置」を変更させないフラグを追加。</li>
 <li>saveas文とappendsave文にselectionオプションを追加</li>
@@ -556,12 +556,12 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <div class="marginleft">
 <h3 id="LIST_V860">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.60</h3>
 <ul>
-<li>追加
+<li><p>追加</p>
 <ul>
 <li>beginrectmulti文 BOX範囲選択開始(複数選択化)</li>
 </ul></li>
 <li><p>変更、パラメータ追加等</p></li>
-<li>その他
+<li><p>その他</p>
 <ul>
 <li>configset文で文字列をうまく解釈できないことがあるバグ修正。</li>
 </ul></li>
@@ -648,6 +648,10 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <!-- h3 -->
 </div>
 <h2 id="V869">秀丸エディタVer.8.69 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v869_1.html" class="externallink" target="_blank">Per-Monitor DPI対応</a></li>
+</ul>
 <p>【１】<a href="#LIST_V869">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.69</a></p>
 <!-- h3 -->
 <div class="marginleft">
@@ -664,6 +668,10 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <!-- h3 -->
 </div>
 <h2 id="V871">秀丸エディタVer.8.71 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v871_1.html" class="externallink" target="_blank">ストアアプリ版</a></li>
+</ul>
 <p>【１】<a href="#LIST_V871">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.71</a></p>
 <!-- h3 -->
 <div class="marginleft">
@@ -694,6 +702,10 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <!-- h3 -->
 </div>
 <h2 id="V873">秀丸エディタVer.8.73 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v873_1.html" class="externallink" target="_blank">Creators Update対応</a></li>
+</ul>
 <p>【１】<a href="#LIST_V873">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.73</a></p>
 <!-- h3 -->
 <div class="marginleft">
@@ -746,6 +758,10 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <!-- h3 -->
 </div>
 <h2 id="V877">秀丸エディタVer.8.77 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v877_1.html" class="externallink" target="_blank">Fall Creators Update対策</a></li>
+</ul>
 <p>【１】<a href="#LIST_V877">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.77</a></p>
 <!-- h3 -->
 <div class="marginleft">
@@ -770,6 +786,10 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <!-- h3 -->
 </div>
 <h2 id="V879">秀丸エディタVer.8.79 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v879_1.html" class="externallink" target="_blank">検索候補表示</a></li>
+</ul>
 <p>【１】<a href="#LIST_V879">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.79</a></p>
 <!-- h3 -->
 <div class="marginleft">
@@ -840,6 +860,12 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <!-- h3 -->
 </div>
 <h2 id="V885">秀丸エディタVer.8.85 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、以下になります。</p>
+<ul>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v885_1.html" class="externallink" target="_blank">クイック全置換</a></li>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v885_2.html" class="externallink" target="_blank">カラー絵文字の結合文字</a></li>
+<li><a href="https://hide.maruo.co.jp/software/hidemarunew/v885_3.html" class="externallink" target="_blank">カーソル位置の単語</a></li>
+</ul>
 <p>【１】<a href="#LIST_V885">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.85</a></p>
 <p>【２】<a href="#SPEC_V885">仕様変更 - 「秀丸エディタ」Ver.8.85</a></p>
 <!-- h3 -->

@@ -35,6 +35,7 @@
 <li><a href="#SUPPLEMENTATION-5">文字数制限の設定</a></li>
 </ul></li>
 </ul>
+<!-- h2 -->
 <div class="marginleft">
 <h3 id="process">[手順]</h3>
 <p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>*.txt</strong> という拡張子を持つファイルから、「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
@@ -52,11 +53,13 @@
 <p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。 「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と、直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
 <div class="macro">
 <pre><code>&lt;!*.xxx&gt;</code></pre>
+<!-- macro -->
 </div>
 <p>「<code>&lt;!</code>」に続き、除外したい内容を記述し、「<code>&gt;</code>」で閉じます。複数指定する場合は「<code>;</code>」で区切って入力します。</p>
 <div class="macro">
 <pre><code>例1)*.*&lt;!*.txt&gt;
 例2)*.*&lt;!*.txt;*.html&gt;</code></pre>
+<!-- macro -->
 </div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> と <code>"*.html"</code> は除外。</p>
@@ -65,17 +68,19 @@
 <p>Ver.8.85以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
 <div class="macro">
 <pre><code>&lt;!フォルダ名\&gt;</code></pre>
+<!-- macro -->
 </div>
 <p>「<code>&lt;!</code>」に続き、除外したいフォルダ名記述し、「<code>&gt;</code>」で閉じます。<span class="attention_red">フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</span> 複数指定する場合は「<code>;</code>」で区切って入力します。</p>
 <div class="macro">
 <pre><code>例1)*.*&lt;!folder1\&gt;
 例2)*.*&lt;!folder1\;folder2\&gt;
 例3)*.*&lt;!folder*\&gt;</code></pre>
+<!-- macro -->
 </div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> と <code>"folder2"</code> は除外。 例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
 <p>となります。</p></li>
-<li>右側にあるチェックボックスの内、該当する物にチェックをします。
+<li><p>右側にあるチェックボックスの内、該当する物にチェックをします。</p>
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。この項目がＯＦＦの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
@@ -98,8 +103,8 @@
 この項目がＯＮの時、指定されたフォルダにサブフォルダがある場合そのサブフォルダの中のファイルも検索します。</p></li>
 <li><p><strong>「<span class="font_blue">最小化状態で実行</span>」チェックボックス：</strong><br />
 grepの実行時は、実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がＯＮの時はgrepの実行が終了するまで、 この結果表示ウィンドウをアイコン化します。</p></li>
-<li><strong>「<span class="font_blue">ファイル名一覧だけ作成</span>」チェックボックス：</strong><br />
-
+<li><p><strong>「<span class="font_blue">ファイル名一覧だけ作成</span>」チェックボックス：</strong><br />
+</p>
 <ol start="7" type="1">
 <li>の出力結果の違いをご覧下さい。</li>
 </ol></li>
@@ -107,8 +112,8 @@ grepの実行時は、実行結果を表示するための秀丸エディタウィンドウを自動で開きますが
 この項目がＯＮの時、検索文字列が見つかったファイルのファイル名をフルパスで出力します。 ＯＦＦの場合はファイル名だけを出力します。</p></li>
 <li><p><strong>「<span class="font_blue">エンコードの種類</span>」コンボボックス：</strong><br />
 検索するファイルのエンコードを指定します。「自動判定」で不都合がある場合には、指定してみてください。 ただし、検索対象が全部同じエンコードでないと、誤判定します。</p></li>
-<li><strong>「<span class="font_blue">出力先</span>」コンボボックス：</strong><br />
-grep結果の出力先を指定します。
+<li><p><strong>「<span class="font_blue">出力先</span>」コンボボックス：</strong><br />
+grep結果の出力先を指定します。</p>
 <ul>
 <li>「自動」の場合は、新しいタブ、新しい秀丸エディタウィンドウを開きます。</li>
 <li>「単一」は、grep結果を再利用します。なければ「自動と同じ」。</li>
@@ -142,6 +147,7 @@ file4.txt(2)<br />
 </p>
 <p><img src="2_grep_03.png" alt="動作環境－grepの動作" width="605" height="433" /><br />
 </p>
+<!-- h3 -->
 <div class="marginleft">
 <h4 id="SUPPLEMENTATION-1">タグジャンプ</h4>
 <p>結果ウィンドウのファイル名の部分にカーソルがある状態で「<strong>その他→タグジャンプ</strong>」を選択すると、 (開かれていない時は開いてから)<strong>そのファイルの該当する行へ移動</strong>する事ができます。 また、「<strong>バックタグジャンプ</strong>」で元の結果ウィンドウに戻る事もできます。<br />
@@ -153,9 +159,6 @@ file4.txt(2)<br />
 <p><img src="2_grep_04.png" alt="動作環境－grepダイアログ普通タイプ" width="503" height="388" /><br />
 </p>
 <p><strong>新タイプ</strong>はフォルダ選択ダイアログが別になっている事もあり、種類も変更可能です。好みに応じて設定を変更してください。</p>
-<!-- grepのダイアログ
-</div>
- -->
 <h4 id="SUPPLEMENTATION-3">検索するフォルダ</h4>
 <p>通常、grep実行時に開いているファイルの場所を「検索するフォルダ」に自動的にセットしますが、 前回grep実行時のフォルダを最初からセットする事も可能です。</p>
 <p>「<span class="env">動作環境</span> － 検索 － grepダイアログ － grepのダイアログボックス」にある、「<strong>前回のフォルダを使う</strong>」に、 チェックを入れてください。</p>
@@ -181,18 +184,18 @@ exeファイルなどテキストではないファイルを、除外します。</p>
 <li><p>拡張子を指定する記述方法<br />
 <span class="monospace">"."</span>(ドット)を含まない拡張子を指定します。実行ファイルの場合、 <span class="monospace">".exe"</span> ではなく <span class="monospace">"exe"</span> と指定する。</p>
 <p>複数の拡張子を指定する場合は " "(スペース)で区切る。<br />
-実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace"> exe dll</span></p></li>
+実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace">exe dll</span></p></li>
 <li><p>ワイルドカードを含む文字列を指定する記述方法<br />
 "*"(アスタリクス)、"?"(クエスチョンマーク)を含む場合です。単独の場合はそのまま記述してください。"*.exe"等。</p>
 <p>複数指定する場合は ";"(セミコロン)で区切る。<br />
-実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace"> *.exe;*.dll</span></p>
+実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace">*.exe;*.dll</span></p>
 <p>ワイルドカードにマッチするかどうかの判定方法は、「拡張子を厳密にチェックする」をONにした時と同じロジックになるとの事。</p></li>
 </ul>
 <p>Ver.8.85以降、「ワイルドカードを含む文字列を指定する記述方法」の場合、「除外するフォルダ」も指定可能です。 フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</p>
 <p>以下の例は、拡張子がdll、exe、doc のファイルと、「temp」というフォルダを除外します。</p>
 <pre><code>例)*.dll;*.exe;*.doc;temp\</code></pre></li>
 </ul></li>
-<li>「検索するファイル」でワイルドカード使用した場合の確認方法
+<li><p>「検索するファイル」でワイルドカード使用した場合の確認方法</p>
 <ul>
 <li><p><span class="font_blue">拡張子と短縮ファイル名を厳密にチェックする。</span><br />
 ワイルドカード使用時のファイル名チェックについての設定です。 チェックを入れておく事をお勧めします。</p>
@@ -210,11 +213,13 @@ Windowsが登場しファイル名の制限が緩和されましたが、MS-DOSとの互換性を考慮し、 MS
 2016/05/19  19:10                44 FILE3_~1.TXT file3_longname.txt
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
+<!-- cmdprompt -->
 </div>
 <p>上記のようなファイルがあり、チェックなしの状態で、検索するファイルに <strong>"*1.txt"</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.txt(1): 短縮名ファイルのテスト:file1.txt
 file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
+<!-- macro -->
 </div>
 <p>という結果になり、本来対象にならないはずの「file3_longname.txt」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE3_~1.TXT」が "*1.txt" にマッチするからです。</p>
 <p>拡張子部分も同様で、4文字以上の拡張子を付けると、OSが自動的にMS-DOS規格のファイル名を作成します。</p>
@@ -223,11 +228,13 @@ file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
 2016/05/19  22:58                35              file2.htm
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
+<!-- cmdprompt -->
 </div>
 <p>チェックなしの状態で、検索するファイルに <strong>"*.htm"</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.html(1): 短縮名ファイルのテスト：file1.html
 file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
+<!-- macro -->
 </div>
 <p>という結果になり、本来対象にならないはずの「file1.html」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE1~1.HTM」が "*.htm" にマッチするからです。</p>
 <p>この動作はOSの仕様で、ワイルドカードを使用したファイル検索を行うと、元の名前だけでなく、8.3形式の名前に対してもチェックを行い、 どちらかにマッチした場合は、マッチしたと判定するためです。)</p>
@@ -243,9 +250,9 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <ul>
 <li>"<span class="font_blue">制限を超えたとき確認メッセージを表示</span>"にチェックを入れておくと、「制限なし」以外のとき、 制限にかかった場合は警告を表示します。</li>
 </ul>
-<!-- H3 -->
+<!-- marginleft,h3 -->
 </div>
-<!-- H2 -->
+<!-- marginleft,h2 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

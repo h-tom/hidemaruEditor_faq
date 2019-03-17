@@ -8,11 +8,11 @@
   <title>第VI部～秀丸エディタ拡張モジュール　秀丸パブリッシャー</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
-      .smallcaps{font-variant: small-caps;}
-      .line-block{white-space: pre-line;}
-      .column{display: inline-block;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
     <script src="./html5shiv-printshiv.min.js"></script>
   <![endif]-->
@@ -36,7 +36,7 @@
 <li>.NET Frameworkで作成した「64bit版」</li>
 </ul>
 <p>の2種類が存在します。</p>
-<p><strong>「64bit版」とありますが 32bit版秀丸エディタ でも使用可能で、</strong> <span class="font_red_bold">Windows Vista 以降は、32bit/64bit 秀丸エディタを問わずに、.NET Framework で作成した「64bit版」を使用する事を推奨しています。</span></p>
+<p><strong>「64bit版」とありますが 32bit版秀丸エディタ/32bit OS でも使用可能で、</strong> <span class="font_red_bold">Windows Vista 以降は、32bit/64bit 秀丸エディタを問わずに、.NET Framework で作成した「64bit版」を使用する事を推奨しています。</span></p>
 <p>以降の説明は、「64bit版」を前提にしています。</p>
 <ul>
 <li><a href="#INSTALL">【1】ダウンロード、インストールと秀丸エディタ本体の設定</a></li>
@@ -49,7 +49,7 @@
 <h3 id="INSTALL">【1】ダウンロード、インストールと秀丸エディタ本体の設定</h3>
 <p>秀丸パブリッシャーは、以下の場所から入手可能です。</p>
 <ul>
-<li><p><span class="externallink"><a href="https://hide.maruo.co.jp/" target="_blank">秀まるおのホームページ</a></span> - <span class="externallink"><a href="https://hide.maruo.co.jp/software/index.html" target="_blank">ソフトウェア</a></span> - <span class="externallink"><a href="https://hide.maruo.co.jp/software/hmpv.html" target="_blank">秀丸パブリッシャー</a></span></p>
+<li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank">ソフトウェア</a> - <a href="https://hide.maruo.co.jp/software/hmpv.html" class="externallink" target="_blank">秀丸パブリッシャー</a></p>
 <p>2017/09/13 現在、以下のバージョンが公開されています。</p>
 <ul>
 <li>64bit版(<span class="attention_red">32bit でも使用可</span>)は、Ver.4.23</li>
@@ -97,8 +97,7 @@
 <li>ページ番号を印刷する場所を変えたい</li>
 </ul>
 <p>等の場合は、テンプレートを編集する事で可能になります。</p>
-<!-- #4 -->
-<div class="marginleft">
+<div class="{.marginleft.#4}">
 <h4 id="TEMPLATE-1">テンプレートの簡単な説明</h4>
 <ul>
 <li><p>秀丸パブリッシャーで印刷を行うには、「テンプレート」を作成し指定する必要があります。 Wordなど、ワープロソフトと違い、印刷対象のファイル内に印刷設定を保存する事ができないため、 印刷するテキストと、印刷設定を記録する「テンプレート」は別のファイルになります。</p>
@@ -110,10 +109,10 @@
 </ul>
 <h4 id="TEMPLATE-2">テンプレートの編集</h4>
 <p>では、テンプレートを実際に作成・編集してみましょう。</p>
-<p>テンプレート名が表示されている箇所の横にある、&quot;…&quot; ボタンを押して、テンプレートの一覧画面を表示させます。</p>
+<p>テンプレート名が表示されている箇所の横にある、"…" ボタンを押して、テンプレートの一覧画面を表示させます。</p>
 <p><img src="6_publisher_06.png" alt="テンプレート一覧表示ボタン" width="602" height="99" /><br />
 </p>
-<p>この画面で、テンプレート新規作成、コピー、削除等が可能です。 今回は<strong>&quot;_標準印刷&quot;</strong>をコピーして、<span class="attention_red">&quot;テスト用&quot;</span>という名前でテスト用のテンプレートを作り、編集していきます。</p>
+<p>この画面で、テンプレート新規作成、コピー、削除等が可能です。 今回は<strong>"_標準印刷"</strong>をコピーして、<span class="attention_red">"テスト用"</span>という名前でテスト用のテンプレートを作り、編集していきます。</p>
 <p><img src="6_publisher_07.png" alt="テンプレート一覧ダイアログ" width="406" height="179" /><br />
 </p>
 <p>テンプレートは、用紙の上から順番に</p>
@@ -145,15 +144,15 @@
 <li><p>同様に、ファイルの作成日時、印刷日時、ページ番号用のBOXを追加していきます。</p>
 <p>「テキスト」の「属性」をそれぞれ「タイムスタンプ」、「時間」、「ページ番号」に設定してください。</p></li>
 <li><p>ここでレイアウト編集画面を閉じ、プレビューで確認を行います。</p>
-<p>&quot;ファイルの作成日時&quot;と&quot;印刷日時&quot;を追加しましたが、ぱっと見でどちらが何の日時なのかわかりません。<br />
+<p>"ファイルの作成日時"と"印刷日時"を追加しましたが、ぱっと見でどちらが何の日時なのかわかりません。<br />
 <img src="6_publisher_12.png" alt="プレビュー1" width="426" height="303" /><br />
 </p>
-<p>そこで、各日時の前に&quot;<strong>ファイル作成日：</strong>&quot;と&quot;<strong>印刷日時：</strong>&quot;という文字を<span class="attention_red">追加</span>します。<br />
+<p>そこで、各日時の前に"<strong>ファイル作成日：</strong>"と"<strong>印刷日時：</strong>"という文字を<span class="attention_red">追加</span>します。<br />
 <img src="6_publisher_13.png" alt="プレビュー2" width="546" height="303" /><br />
 </p>
 <p>追加する方法は、いくつかあります。</p>
 <ul>
-<li>&quot;ファイルの作成日時&quot;と&quot;印刷日時&quot;を表示しているBOXの前に、新たにBOXを追加して、各文字を入力する。</li>
+<li><p>"ファイルの作成日時"と"印刷日時"を表示しているBOXの前に、新たにBOXを追加して、各文字を入力する。</p></li>
 <li><p>BOXのプロパティにある、テキストの「属性」はそのままで、「書式」を変更する。</p>
 <pre><code>変更前の属性　YYYY年MM月DD日（W曜日）hh:mm:ss
 変更後の属性　ファイル作成日：YYYY年MM月DD日（W曜日）hh:mm:ss</code></pre></li>
@@ -208,8 +207,8 @@
 <li><p>後は実際に印刷して結果を確認し、 修正箇所があれば、再度テンプレートを修正してください。</p></li>
 </ol>
 <p>以上、簡単ですがテンプレート作成例です。 今回、本文BOXは1個でしたが、2個にして、冊子印刷も可能です。 詳細は秀丸パブリッシャーのヘルプを参照してください。</p>
-</div>
 <!-- #4 -->
+</div>
 <h3 id="WARNING">【4】テンプレートの注意点</h3>
 <ul>
 <li><p>テンプレートファイルですが、一時的な設定のつもりで設定を変えてしまうと、 その設定が保存されてしまいます。<br />
@@ -230,8 +229,8 @@
 </p>
 <p>テンプレートをバックアップする場合は、このフォルダを保存するようにしてください。</p></li>
 </ul>
-</div>
 <!-- #3 -->
+</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
