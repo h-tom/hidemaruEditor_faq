@@ -26,7 +26,6 @@
 【１】<a href="#COMMON">run系命令文の共通事項</a><br />
 【２】<a href="#COMMAND">個別の命令文について</a><br />
 </p>
-<!-- h3 -->
 <div class="marginleft">
 <h3 id="ABOUT">はじめに</h3>
 <p>秀丸エディタのマクロから、他のプログラム(実行ファイル)を起動する方法は複数あり、 使用する命令文によって、出来ること/出来ないことがあります。</p>
@@ -177,7 +176,7 @@ if(!result){
 <h3 id="COMMAND">個別の命令文について</h3>
 <ul>
 <li><p>run</p>
-<p>非同期でプログラムの実行を行います。 非同期なので、プログラムが終了するまで待機しません。 その為、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
+<p>非同期でプログラムの実行を行います。 非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
 <p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
 <ul>
 <li>"&lt;con"は、範囲選択していた場合はその範囲を、それ以外の場合はファイルの内容を標準入力へ送ります。 標準入力は、ファイルの内容を、Shift_JISに変換して入力します。</li>
@@ -190,7 +189,7 @@ if(!result){
 <p>runsyncは、秀丸エディタ本体を最小化状態にして待機します。</p>
 <p>runsync2は、秀丸エディタ本体はそのままで待機します。</p></li>
 <li><p>runex</p>
-<p>run文の拡張版で、引数が多い(14個)です。詳細は以下のリンク先を参照の事。</p>
+<p>run文/runsync文の拡張版で、引数がとても多い(14個)ですが、細かく実行状態を指定できます。 詳細は以下のリンク先を参照の事。</p>
 <ul>
 <li>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html" class="externallink" target="_blank">runex文</a></li>
 <li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank">「プログラム実行の詳細（オプション指定時）」</a></li>

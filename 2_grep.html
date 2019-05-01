@@ -40,10 +40,13 @@
 <h3 id="process">[手順]</h3>
 <p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>*.txt</strong> という拡張子を持つファイルから、「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
 <ol type="1">
-<li><p>メニューバーの「<strong>検索→grepの実行</strong>」を選択して下さい。</p>
+<li><p>メニューバーから「<strong>検索→grepの実行</strong>」を選択して下さい。</p>
 <p><img src="2_grep_01.png" alt="grepダイアログ" width="464" height="338" /><br />
 </p></li>
-<li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p></li>
+<li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p>
+<p>通常は1行のみですが、複数行を入力可能にする事もできます。 「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから、 「<strong>複数行</strong>」を選択します。</p>
+<p><img src="2_grep_08.png" alt="複数行入力" width="496" height="135" /><br />
+</p></li>
 <li><p>その下にある「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、検索対象となるファイル名を記入します(今の例だと「<strong>*.txt</strong>」)。<br />
 ※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <span class="rotate90"><strong>&gt;</strong></span> をクリックして"<strong>(現在の内容)</strong>"を選択して下さい。<br />
 　<img src="2_grep_06.png" alt="現在の内容" width="356" height="54" /><br />
@@ -53,13 +56,11 @@
 <p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。 「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と、直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
 <div class="macro">
 <pre><code>&lt;!*.xxx&gt;</code></pre>
-<!-- macro -->
 </div>
 <p>「<code>&lt;!</code>」に続き、除外したい内容を記述し、「<code>&gt;</code>」で閉じます。複数指定する場合は「<code>;</code>」で区切って入力します。</p>
 <div class="macro">
 <pre><code>例1)*.*&lt;!*.txt&gt;
 例2)*.*&lt;!*.txt;*.html&gt;</code></pre>
-<!-- macro -->
 </div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> と <code>"*.html"</code> は除外。</p>
@@ -68,14 +69,12 @@
 <p>Ver.8.85以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
 <div class="macro">
 <pre><code>&lt;!フォルダ名\&gt;</code></pre>
-<!-- macro -->
 </div>
 <p>「<code>&lt;!</code>」に続き、除外したいフォルダ名記述し、「<code>&gt;</code>」で閉じます。<span class="attention_red">フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</span> 複数指定する場合は「<code>;</code>」で区切って入力します。</p>
 <div class="macro">
 <pre><code>例1)*.*&lt;!folder1\&gt;
 例2)*.*&lt;!folder1\;folder2\&gt;
 例3)*.*&lt;!folder*\&gt;</code></pre>
-<!-- macro -->
 </div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> と <code>"folder2"</code> は除外。 例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
@@ -213,13 +212,11 @@ Windowsが登場しファイル名の制限が緩和されましたが、MS-DOSとの互換性を考慮し、 MS
 2016/05/19  19:10                44 FILE3_~1.TXT file3_longname.txt
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
-<!-- cmdprompt -->
 </div>
 <p>上記のようなファイルがあり、チェックなしの状態で、検索するファイルに <strong>"*1.txt"</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.txt(1): 短縮名ファイルのテスト:file1.txt
 file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
-<!-- macro -->
 </div>
 <p>という結果になり、本来対象にならないはずの「file3_longname.txt」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE3_~1.TXT」が "*1.txt" にマッチするからです。</p>
 <p>拡張子部分も同様で、4文字以上の拡張子を付けると、OSが自動的にMS-DOS規格のファイル名を作成します。</p>
@@ -228,13 +225,11 @@ file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
 2016/05/19  22:58                35              file2.htm
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
-<!-- cmdprompt -->
 </div>
 <p>チェックなしの状態で、検索するファイルに <strong>"*.htm"</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.html(1): 短縮名ファイルのテスト：file1.html
 file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
-<!-- macro -->
 </div>
 <p>という結果になり、本来対象にならないはずの「file1.html」が対象になっています。 これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE1~1.HTM」が "*.htm" にマッチするからです。</p>
 <p>この動作はOSの仕様で、ワイルドカードを使用したファイル検索を行うと、元の名前だけでなく、8.3形式の名前に対してもチェックを行い、 どちらかにマッチした場合は、マッチしたと判定するためです。)</p>
@@ -250,9 +245,7 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <ul>
 <li>"<span class="font_blue">制限を超えたとき確認メッセージを表示</span>"にチェックを入れておくと、「制限なし」以外のとき、 制限にかかった場合は警告を表示します。</li>
 </ul>
-<!-- marginleft,h3 -->
 </div>
-<!-- marginleft,h2 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
