@@ -29,33 +29,33 @@
 <div class="marginleft">
 <h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 4.00</h3>
 <ul>
-<li>マクロヘルプ入門用のヘルプファイルを追加</li>
-<li>replaceallのinselect記録対応</li>
-<li>loadhilightで反映されないバグの修正</li>
-<li>マクロ getconfig, config の縦線系対応</li>
-<li>enabledraw;などができないバグ修正</li>
-<li>マクロgrep文のパラメタにfullpathを追加</li>
-<li>execmacroでメモリリークのバグ修正</li>
-<li>currentmacrobasenameが小文字にならないときがある</li>
-<li>disabledrawしてるときwindowwidthがおかしくなる</li>
-<li>getcofigとconfig "x.."で指定できるものにCurLineColorとCurLineColorExを追加</li>
-<li>findwindow失敗の対策</li>
-<li>run文で文字列が長すぎると落ちる</li>
-<li>movetilinenoでエラーメッセージが出ることがある場合の対処</li>
-<li>マクロヘルプに検索系文にnoregular, nocasesenseを追加</li>
-<li>replaceallのlinknextで固まってしまうバグ修正</li>
-<li>title文の内部構造作り直し</li>
-<li>loadhilight, savehilightでフルパス指定対応</li>
-<li>foundtopx,foundtopy,foundendx,foundendy を追加</li>
-<li>searchoptionとsetsearchにビット８～１０を追加</li>
-<li>grepfilebuffer, setgrepfile追加</li>
-<li>grepとlocalgrepでもnoregularに対応</li>
-<li>getsearchhist, getreplacehist, setsearchhist, setreplacehistを追加</li>
-<li>gettagsfileを追加</li>
-<li>searchdialog, replacedialog,追加</li>
-<li>find2追加</li>
-<li>searchoptionのビット１１</li>
-<li>マクロgetcofigとconfig "x"で指定できるものに以下のものを追加
+<li><p>マクロヘルプ入門用のヘルプファイルを追加</p></li>
+<li><p>replaceallのinselect記録対応</p></li>
+<li><p>loadhilightで反映されないバグの修正</p></li>
+<li><p>マクロ getconfig, config の縦線系対応</p></li>
+<li><p>enabledraw;などができないバグ修正</p></li>
+<li><p>マクロgrep文のパラメタにfullpathを追加</p></li>
+<li><p>execmacroでメモリリークのバグ修正</p></li>
+<li><p>currentmacrobasenameが小文字にならないときがある</p></li>
+<li><p>disabledrawしてるときwindowwidthがおかしくなる</p></li>
+<li><p>getcofigとconfig "x.."で指定できるものにCurLineColorとCurLineColorExを追加</p></li>
+<li><p>findwindow失敗の対策</p></li>
+<li><p>run文で文字列が長すぎると落ちる</p></li>
+<li><p>movetilinenoでエラーメッセージが出ることがある場合の対処</p></li>
+<li><p>マクロヘルプに検索系文にnoregular, nocasesenseを追加</p></li>
+<li><p>replaceallのlinknextで固まってしまうバグ修正</p></li>
+<li><p>title文の内部構造作り直し</p></li>
+<li><p>loadhilight, savehilightでフルパス指定対応</p></li>
+<li><p>foundtopx,foundtopy,foundendx,foundendy を追加</p></li>
+<li><p>searchoptionとsetsearchにビット８～１０を追加</p></li>
+<li><p>grepfilebuffer, setgrepfile追加</p></li>
+<li><p>grepとlocalgrepでもnoregularに対応</p></li>
+<li><p>getsearchhist, getreplacehist, setsearchhist, setreplacehistを追加</p></li>
+<li><p>gettagsfileを追加</p></li>
+<li><p>searchdialog, replacedialog,追加</p></li>
+<li><p>find2追加</p></li>
+<li><p>searchoptionのビット１１</p></li>
+<li><p>マクロgetcofigとconfig "x"で指定できるものに以下のものを追加</p>
 <ul>
 <li>AutoAdjustOrikaeshi</li>
 <li>BquoteItemized</li>
@@ -69,30 +69,30 @@
 </ul></li>
 <li><p>getconfigのFontSizeの返り値がマイナスだったのを修正<br />
 getconfigのFontCharSetはできるようにする（config "x"での設定はできないまま）</p></li>
-<li>menu文の位置補正の修正</li>
-<li>envchangedでフォントが変わってしまうバグ修正</li>
-<li>inputcharで砂時計を解除する修正</li>
-<li>setfilehist getfilehist setpathhist getpathhist を追加</li>
-<li>手前にあるウィンドウでも setactivehidemaru等、秀丸管理ができるようにする</li>
-<li>config "xFontCharset:数字"はやっぱりできるようにする</li>
-<li>config文でフォントの文字セットが変わるとエンコードの種類が切り替わるようにする</li>
-<li>V4.10β1からできなくなっていたsetfontchangemodeもできるようにする</li>
-<li>マクロヘルプにclosenewを記載</li>
-<li>alwaystopswitch追加</li>
-<li>envchangedでタブの状態がうまく反映されない問題修正</li>
-<li>　forceinselect, inselecting を追加</li>
-<li>暫定的にsearchoptionのビット１１が「選択した範囲のみ」だったのをやめにする</li>
-<li>setencode追加</li>
-<li>タブモードのときに showwindow 0;されている状態でsetactivehidemaruしても showwindow 0; が解除されないようにする</li>
-<li>showwindow 0;と後showwindow 1;してもタブに現れない問題修正</li>
-<li>copyurlを追加</li>
-<li>savekeyassign 追加</li>
-<li>windowstateで配列表記で他の秀丸にも対応</li>
-<li>windowstate2追加</li>
-<li>config "xHilightList…"をサポート</li>
-<li>openfileでワイルドカードを含む場合、ファイルを開いたのに新規ファイルとなってしまう問題修正</li>
-<li>openfileでワイルドカードを含む場合、開いているファイルの拡張子を自動的に追加しないようにする</li>
-<li>searchdownで、inselectを指定してないのに以前にinselect付きで検索した場合、引き継がれてしまう問題修正</li>
+<li><p>menu文の位置補正の修正</p></li>
+<li><p>envchangedでフォントが変わってしまうバグ修正</p></li>
+<li><p>inputcharで砂時計を解除する修正</p></li>
+<li><p>setfilehist getfilehist setpathhist getpathhist を追加</p></li>
+<li><p>手前にあるウィンドウでも setactivehidemaru等、秀丸管理ができるようにする</p></li>
+<li><p>config "xFontCharset:数字"はやっぱりできるようにする</p></li>
+<li><p>config文でフォントの文字セットが変わるとエンコードの種類が切り替わるようにする</p></li>
+<li><p>V4.10β1からできなくなっていたsetfontchangemodeもできるようにする</p></li>
+<li><p>マクロヘルプにclosenewを記載</p></li>
+<li><p>alwaystopswitch追加</p></li>
+<li><p>envchangedでタブの状態がうまく反映されない問題修正</p></li>
+<li><p>　forceinselect, inselecting を追加</p></li>
+<li><p>暫定的にsearchoptionのビット１１が「選択した範囲のみ」だったのをやめにする</p></li>
+<li><p>setencode追加</p></li>
+<li><p>タブモードのときに showwindow 0;されている状態でsetactivehidemaruしても showwindow 0; が解除されないようにする</p></li>
+<li><p>showwindow 0;と後showwindow 1;してもタブに現れない問題修正</p></li>
+<li><p>copyurlを追加</p></li>
+<li><p>savekeyassign 追加</p></li>
+<li><p>windowstateで配列表記で他の秀丸にも対応</p></li>
+<li><p>windowstate2追加</p></li>
+<li><p>config "xHilightList…"をサポート</p></li>
+<li><p>openfileでワイルドカードを含む場合、ファイルを開いたのに新規ファイルとなってしまう問題修正</p></li>
+<li><p>openfileでワイルドカードを含む場合、開いているファイルの拡張子を自動的に追加しないようにする</p></li>
+<li><p>searchdownで、inselectを指定してないのに以前にinselect付きで検索した場合、引き継がれてしまう問題修正</p></li>
 <li><p>openfileで存在しないファイルを指定したとき、新規作成とならずに無題になる問題修正</p></li>
 </ul>
 <h3 id="spec">【２】仕様変更</h3>
@@ -105,7 +105,6 @@ getconfigのFontCharSetはできるようにする（config "x"での設定はできないまま）</p>
 ヘルプのcolorcodeとconfigcolorを追加修正</li>
 <li>menu系の文の項目の上限を400個へ</li>
 </ul>
-<!-- h3 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

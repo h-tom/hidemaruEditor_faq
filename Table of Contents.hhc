@@ -185,6 +185,10 @@
 			<param name="Local" value="3_hmjre.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="外部プログラムの実行について">
+			<param name="Local" value="3_run.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴 ">
 			<param name="Local" value="3_macrov3.html">
 			</OBJECT>

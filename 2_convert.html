@@ -104,7 +104,6 @@
                   必ず指定してください。
 関数名          : 呼び出す機能名。
 パラメータ      : なければ省略可能です。</code></pre>
-<!-- macro -->
 </div>
 <p>変換モジュールの説明や取説に、使い方があれば、その指示に従います。</p>
 <p>使い方等説明がない場合は、「キー操作の記録」を使う方法があります。</p>
@@ -123,7 +122,6 @@
 <div class="macro">
 <pre><code>setcompatiblemode 0x0F;
 filter &quot;&quot; , &quot;Sort&quot; , &quot;000100010001000\&quot;00&quot;;</code></pre>
-<!-- macro -->
 </div>
 <p>そのまま使っても良いのですが、範囲選択しているかどうかのチェックを追加します。 (範囲選択していなければ失敗するだけなので、チェックが必須という事はないです。)</p>
 <div class="macro">
@@ -134,7 +132,6 @@ if(!selecting){
 }
 filter &quot;&quot; , &quot;Sort&quot; , &quot;000100010001000\&quot;00&quot;;
 endmacro;</code></pre>
-<!-- macro -->
 </div>
 <p>このマクロファイルを、「<a href="3_macro.html">秀丸マクロのいろはにほへと</a>」の「<a href="3_macro.html#REGIST">【４】マクロ登録</a>」、 「<a href="3_macro.html#SHORTCUT">【５】ショートカットキーへの登録</a>」を参考に、マクロを登録し、キーに割り当ててください。</p>
 <p>複数選択状態で、マクロを実行する場合は注意が必要です。</p>
@@ -143,10 +140,8 @@ endmacro;</code></pre>
 <p>setcompatiblemode 文のフラグには、</p>
 <div class="macro">
 <pre><code>0x00100000 各種の文を複数選択に対応した動作にします。</code></pre>
-<!-- macro -->
 </div>
 <p>があるので、setcompatiblemode文 に このフラグをセットし、マクロに追加しておけば、 複数選択に対応させることが可能です。</p>
-<!-- h5 -->
 </div>
 <h4 id="EXPLANATION-3">変換モジュールを置く場所について</h4>
 <p>説明では秀丸エディタ本体と同じ場所に置きましたが、実際は何処に置いても登録してしまえば、 秀丸エディタ本体からは問題なく使用できます。</p>
@@ -156,18 +151,15 @@ endmacro;</code></pre>
 <li><p>秀丸エディタ本体と同じ場所に配置した場合</p>
 <div class="macro">
 <pre><code>filter &quot;HmFilter&quot; , &quot;Sort&quot; , &quot;～&quot;</code></pre>
-<!-- macro -->
 </div>
 <p>のように、変換モジュール名を指定すればいい。拡張子が無くても、設定や環境に合わせ、適当に判断されます。 (秀丸エディタと同じ場所に変換モジュールを置いても、モジュール名の指定にパスが含まれると、拡張子の省略はできません。)</p></li>
 <li><p>秀丸エディタ本体とは別に配置した場合</p>
 <div class="macro">
 <pre><code>filter &quot;C:\\macro\\module\\HmFilter.hmf&quot; , &quot;Sort&quot; , &quot;～&quot;</code></pre>
-<!-- macro -->
 </div>
 <p>のように、変換モジュール名にフルパスを指定しないと、秀丸エディタが変換モジュールを読み込めません。 (拡張子の省略はできないので、必ず指定してください)</p></li>
 </ul>
 <p>秀丸エディタ本体とは別に配置した場合、「キー操作の記録」を行うと、変換モジュール名はフルパス(拡張子付き)で記録されるので、 「キー操作の記録」を使って雛形のマクロを作る方法をお勧めします。</p>
-<!-- h4 -->
 </div>
 <h3 id="SUPPLEMENTATION">[補足]</h3>
 <!-- h4 -->
@@ -199,9 +191,7 @@ endmacro;</code></pre>
 <h4 id="SUPPLEMENTATION-4">変換モジュールを作るには</h4>
 <p>変換モジュールの実体はDLLなので、自分で作ることも可能です。</p>
 <p><a href="https://hide.maruo.co.jp/software/hidemaru.html" class="externallink" target="_blank">秀丸エディタ</a>のダウンロードに、 「変換モジュール開発キットおよびサンプル変換モジュール」があるので、参考にしてください。</p>
-<!-- h4 -->
 </div>
-<!-- h3 -->
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
