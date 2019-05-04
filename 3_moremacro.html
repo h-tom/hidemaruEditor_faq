@@ -37,7 +37,7 @@
 <p>しかし、ファンクションキーに登録して画面上に常時表示しておけるマクロは、最大で12個です。 もちろん<span class="kbd">[SHIFT]</span>, <span class="kbd">[CTRL]</span>, <span class="kbd">[ALT]</span>キーを組み合わせると登録数自体は増やすことができますが、 その数だけ画面上のボタンに表示できるというわけではありません。</p>
 <p>それでは足りないという方のために、<strong>「マクロランチャー for秀丸エディタ」</strong>という外部アプリケーションが作成されています。 これを使えば、１つ起動する毎に最大30個のマクロをボタンに登録して、Windows画面上に表示させておくことができます。<br />
 ＃16bit版秀丸エディタには使用できません。</p>
-<p><strong>「マクロランチャー for 秀丸エディタ」の入手先：</strong></p>
+<p><span class="font_bold">「マクロランチャー for 秀丸エディタ」の入手先：</span></p>
 <ul>
 <li>ＪＲくんのホームページ (<a href="http://jrkun.my.coocan.jp/" class="externallink" target="_blank">http://jrkun.my.coocan.jp/</a>)</li>
 </ul>
@@ -64,7 +64,7 @@ else if(result==3)execmacro &quot;macro03.mac&quot;;
 …
 else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 </div>
-<h4 id="CONQUEST1">●制限克服への第二歩</h4>
+<h4 id="CONQUEST2">●制限克服への第二歩</h4>
 <p>　メニューから呼び出したマクロで、さらに別のメニューを呼び出すようにすれば、簡単に80個以上のマクロを呼び出せます。</p>
 <p>　例2：macro01.mac</p>
 <p>　　例えば、上記の例1で呼び出されるmacro01.macを次のように書くと、menu00.macで30個のメニューが表示された後、 　　さらに新しく10個のメニューが表示されます。</p>
@@ -123,7 +123,7 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <p>●マクロ登録数の限界を破る</p>
 <dl>
 <dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
-<dd><strong>秀丸エディタのマクロをショートカットキーやメニューに登録して使っています。 でも登録は、最高で80個まで（ショートカットキーを割り当てられるのは50個まで）しかできませんよね。 しかし、雑誌の付録などで集めた小さいマクロも含めていろいろ登録していると、これではとても収まらなくなってきました。 あふれたマクロを「マクロの実行」メニューから呼び出す方式はわずらわしいのでイヤなのですが、なんとかなりませんか。</strong>
+<dd><span class="font_bold">秀丸エディタのマクロをショートカットキーやメニューに登録して使っています。 でも登録は、最高で80個まで（ショートカットキーを割り当てられるのは50個まで）しかできませんよね。 しかし、雑誌の付録などで集めた小さいマクロも含めていろいろ登録していると、これではとても収まらなくなってきました。 あふれたマクロを「マクロの実行」メニューから呼び出す方式はわずらわしいのでイヤなのですが、なんとかなりませんか。</span>
 </dd>
 </dl>
 <hr />
@@ -163,7 +163,7 @@ endmacroall;</code></pre>
 <li><p>moreMac.macの書き換え</p>
 <p>　先のmoreMac.macを開き、次の作業を行ないます。</p>
 <div class="marginleft">
-<p><strong>（ア）特殊キー状態に対応したブロックへの挿入</strong></p>
+<p><span class="font_bold">（ア）特殊キー状態に対応したブロックへの挿入</span></p>
 <p>　マクロを割り当てたキーの特殊キーの状態に対応するmoreMac.macのブロック部分に存在する、次の1行を挿入してください。</p>
 <div class="macro">
 <pre><code>if(#c == XX )execmacro &quot;NNNN.mac&quot;;</code></pre>
@@ -173,7 +173,7 @@ endmacroall;</code></pre>
 <pre><code>if(#p == 7){// [Alt + Ctrl + Shift]</code></pre>
 </div>
 <p>の後に挿入します。</p>
-<p><strong>（イ）キーコードの指定（#c == XXの部分）</strong></p>
+<p><span class="font_bold">（イ）キーコードの指定（#c == XXの部分）</span></p>
 <p>　そこで、特殊キーと組み合わせて押す一般キー（A～Z、0～9）を、そのキーコードに変更します。 キーコードについては、表1の主なコード表を参照してください。 例では「A」キーですから、「#c == XX」の部分を「#c == 65」と書き換えます。</p>
 <div class="table_border">
 <table>
@@ -224,7 +224,7 @@ endmacroall;</code></pre>
 </tbody>
 </table>
 </div>
-<p><strong>（ウ）実行させるマクロファイルの指定（execmacro"NNNN.mac"の部分）</strong></p>
+<p><span class="font_bold">（ウ）実行させるマクロファイルの指定（execmacro"NNNN.mac"の部分）</span></p>
 <p>　<span class="kbd">[Alt＋Ctrl＋Shift＋A]</span>で実行させたいマクロの名前を指定します。例では「ASCII.mac」ですから、</p>
 <pre><code>if(#c == 65)execmacro &quot;ASCII.mac&quot;;</code></pre>
 <p>画面H7　<span class="kbd">[Alt＋Ctrl＋Shift＋A]</span>で実行させたいマクロの名前を「ASCII.mac」と指定した。</p>
@@ -241,7 +241,7 @@ endmacroall;</code></pre>
 </dl>
 <h5 id="SAMPLE2">●作例２</h5>
 <p>　作例１のマクロでは、マクロファイルそのものを編集しなければいけません。 これは秀丸マクロに慣れていないユーザにとっては難儀ですし、マクロが動作しなくなるなどの危険性も伴います。 そこで、原理的には同じですが、さらに高度でぐっとハイセンスなマクロにしあげた例をご紹介します。 安全でユーザビリティに優れています。（秀丸マクロ集REDライク Ver1.11に同梱。編集上の都合により一部変更）</p>
-<p><strong>●KEY_ASIN.MAC</strong></p>
+<p><span class="font_bold">●KEY_ASIN.MAC</span></p>
 <p>KEY_ASIN.MACと初期値ファイル（HIDERED.INI）です。<br />
 初期値ファイルは、秀丸エディタフォルダ下のREDというフォルダにあるという前提になっています。</p>
 <hr />

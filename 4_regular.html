@@ -112,56 +112,59 @@
 <p>で指定できるわけです。</p>
 <p>　今説明したピリオドやプラス記号のような、 正規表現の中で特殊な意味を持つ記号のことを<span class="font_red">メタキャラクタ</span>と呼びます。 メタキャラクタはこれらの他にも下記の表にあるようにいっぱい(笑)あります。</p>
 <table>
+<caption>量指定子</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">量指定メタキャラクタ</th>
+<th style="text-align: left;">　意　味</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">量指定メタキャラクタ</td>
-<td style="text-align: left;">　意　味</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong><code>*</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の０個以上の繰り返し</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>+</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の１個以上の繰り返し</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>?</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の０個(＝１個もない)または１個</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>{n}</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の n 個の繰り返し</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>{n,}</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の n 個以上の繰り返し</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>{n,m}</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の n からm 個の繰り返し</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>*?</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の０個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>+?</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の１個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>??</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の０個(＝１個もない)または１個(最短一致)</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>{n}?</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の n 個の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>{n,}?</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の n 個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>{n,m}?</code></strong></td>
 <td style="text-align: left;"><strong>直前の文字(※)の n からm 個の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
@@ -170,32 +173,35 @@
 <p><br />
 </p>
 <table>
+<caption>アンカー</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">位置指定メタキャラクタ</th>
+<th style="text-align: left;">　意　味</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">位置指定メタキャラクタ</td>
-<td style="text-align: left;">　意　味</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong><code>^</code></strong></td>
 <td style="text-align: left;">(パターンの先頭にある時のみ)<strong>行頭</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>$</code></strong></td>
 <td style="text-align: left;">(パターンの末尾にある時のみ)<strong>行末</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>(?=pattern)</code></strong></td>
 <td style="text-align: left;">後方一致指定(肯定先読み)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>(?!pattern)</code></strong></td>
 <td style="text-align: left;">後方不一致指定(否定先読み)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>(?&lt;=pattern)</code></strong></td>
 <td style="text-align: left;">前方一致指定(肯定戻り読み)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>(?&lt;!pattern)</code></strong></td>
 <td style="text-align: left;">前方不一致指定(否定戻り読み)</td>
 </tr>
@@ -204,40 +210,43 @@
 <p><br />
 </p>
 <table>
+<caption>その他</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">その他メタキャラクタ</th>
+<th style="text-align: left;">　意　味</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">その他メタキャラクタ</td>
-<td style="text-align: left;">　意　味</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong><code>.</code></strong></td>
 <td style="text-align: left;">(改行文字を除く)<strong>任意の１文字</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>[ ]</code></strong></td>
 <td style="text-align: left;">キャラクタクラス指定(後述)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>( )</code></strong></td>
 <td style="text-align: left;">グルーピング指定(後述)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>|</code></strong></td>
 <td style="text-align: left;">パターンの論理和(後述)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>\</code></strong></td>
 <td style="text-align: left;"><strong>エスケープキャラクタ</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>(?\tag-number)</code></strong></td>
 <td style="text-align: left;">ヒットした扱いにするタグ指定</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>(?#expression)</code></strong></td>
 <td style="text-align: left;">正規表現パターンに埋め込むコメント。検索では無視される。</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>\Q～\E</code></strong></td>
 <td style="text-align: left;"><code>\Q</code>から<code>\E</code>の間(<code>\E</code>がない場合は最後まで)のメタ文字を、通常の文字として扱う。</td>
 </tr>
@@ -442,64 +451,67 @@ hidemaru0A5</code></pre>
 <h5 id="BASIC-1-4">・エスケープキャラクタとエスケープシーケンス</h5>
 <p>　メタキャラクタの表の最後にある "<strong>\</strong>" (<span class="font_red">エスケープキャラクタ</span>)は 今までのメタキャラクタよりもっと特殊で、 それ自体では意味を持たず、<strong>その直後の文字とペアになって一つの特殊文字</strong> を表現します。 例えば前述の "\n"(改行文字) はその一つです。 このように "\"で作られる特殊文字の事を <span class="font_red">エスケープシーケンス</span>と呼びますが、 それらを下の表にまとめてみました。</p>
 <table>
+<caption>エスケープシーケンス</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">エスケープシーケンス</th>
+<th style="text-align: left;">意味</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>エスケープシーケンス</strong></td>
-<td style="text-align: left;"><strong>意味</strong></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong>\&lt;oct&gt;</strong></td>
 <td style="text-align: left;">&lt;oct&gt; を8進数とみなして、それを文字コードに持つ文字</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\x&lt;hex&gt;</strong></td>
 <td style="text-align: left;">&lt;hex&gt; を16進数とみなして、それを文字コードに持つ文字</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>\a</strong></td>
 <td style="text-align: left;"><strong>ベル (\x07)</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\b</strong></td>
 <td style="text-align: left;">バックスペース (\x08)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>\t</strong></td>
 <td style="text-align: left;"><strong>タブ (\x09)</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\n</strong></td>
 <td style="text-align: left;"><strong>改行 (\x0A)</strong></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>\v</strong></td>
 <td style="text-align: left;"><strong>垂直タブ (\x0B)</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\f</strong></td>
 <td style="text-align: left;"><strong>フォームフィード(改ページ) (\x0C)(※)</strong></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>\r</strong></td>
 <td style="text-align: left;"><strong>キャリッジリターン (\x0D)</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\z</strong></td>
 <td style="text-align: left;"><strong>EOF(End Of File) 記号 (\x1A)</strong></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>\&lt;</strong></td>
 <td style="text-align: left;"><strong>英単語の始まりにマッチ(文字ではない)</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\&gt;</strong></td>
 <td style="text-align: left;"><strong>英単語の終わりにマッチ(文字ではない)</strong></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong>\w</strong></td>
 <td style="text-align: left;"><strong>英単語にマッチ(アンダースコア "_" を含む)</strong></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong>\&lt;char&gt;</strong></td>
 <td style="text-align: left;"><strong>上記以外の文字の場合は &lt;char&gt; そのもの(メタキャラクタの<span class="font_red">エスケープ</span>に使用)</strong></td>
 </tr>
@@ -560,28 +572,31 @@ hidemaru0A5</code></pre>
 <p>ということになります。</p>
 <p>ここで、いくつかの典型的なキャラクタクラス指定を紹介します。</p>
 <table>
+<caption>キャラクタクラス</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">キャラクタクラス</th>
+<th style="text-align: left;">意味</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>キャラクタクラス</strong></td>
-<td style="text-align: left;"><strong>意味</strong></td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"><strong><code>[0-9]</code></strong></td>
 <td style="text-align: left;"><strong>半角の数字</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>[ぁ-ん]</code></strong></td>
 <td style="text-align: left;"><strong>全角ひらがな</strong>にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>[ァ-ヶ]</code></strong></td>
 <td style="text-align: left;"><strong>全角カタカナ</strong>にマッチ</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;"><strong><code>[ -~]</code></strong></td>
 <td style="text-align: left;"><strong>任意の１バイト文字</strong>(半角空白" "から"~"まで)にマッチ</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;"><strong><code>[亜-&#40657;]</code></strong></td>
 <td style="text-align: left;"><strong>漢字</strong>にマッチ (詳細は<strong><a href="HME0066A.html">●漢字だけを探したい</a></strong>を参照)</td>
 </tr>

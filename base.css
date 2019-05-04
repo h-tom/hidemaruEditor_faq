@@ -258,6 +258,10 @@ div.table_border1  td{
   font-size   : x-large;
 }
 
+.font_bold {
+  font-weight : bold;
+}
+
 /* QA  start */
 .env{
   font-weight     : bold;
