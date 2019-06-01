@@ -1875,6 +1875,11 @@
 		<param name="Local" value="HMM0035A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="自動保存">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　自動保存">
+		<param name="Local" value="2_autosave.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="質問">
 		<param name="Name" value="[HME0007A]●問い合わせ時の必要事項">
 		<param name="Local" value="HME0007A.html">
