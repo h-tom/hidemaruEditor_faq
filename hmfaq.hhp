@@ -3,17 +3,19 @@ Compatibility=1.1 or later
 Compiled file=hmeqa.chm
 Contents file=Table of Contents.hhc
 Default topic=hmindex0.html
-Display compile progress=No
+Display compile progress=Yes
 Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
 Language=0x411 日本語 (日本)
-Title=秀丸エディタＱ＆Ａ集(第８版)
+Title=秀丸エディタＱ＆Ａ集(第8.5版)
 
 
 [FILES]
+2_autosave.html
 2_colormarker.html
 2_convert.html
+2_csv_tsv.html
 2_custom.html
 2_filemanager.html
 2_find.html
@@ -28,7 +30,6 @@ Title=秀丸エディタＱ＆Ａ集(第８版)
 2_replace.html
 2_wordcomplete.html
 2_wordcount.html
-2_csv_tsv.html
 3_autostartmacro.html
 3_bit.html
 3_com_object.html
