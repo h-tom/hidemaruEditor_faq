@@ -52,10 +52,10 @@ kbd {
   color: black;
   font-family: monospace;
   font-weight: bold;
-  line-height: 1.4em;
+  line-height: 180%;
   margin: 0 3px;
   padding: 0.10em 0.50em;
-  vertical-align: text-top;
+  /*vertical-align: text-top;*/
 }
 
 .kbd {
@@ -66,10 +66,10 @@ kbd {
   color: black;
   font-family: monospace;
   font-weight: bold;
-  line-height: 1.4em;
+  line-height: 180%;
   margin: 0 3px;
   padding: 0.10em 0.50em;
-  vertical-align: text-top;
+  /*vertical-align: text-top;*/
 }
 
 sup{
@@ -522,6 +522,13 @@ div.img_border img{
   margin-right:  5px;
   margin-left:   5px;
 }
+/*
+header#title-block-header{
+    
+    visibility:hidden;
+    display:none
+}
+*/
 /* 640px*/
 @media screen and (max-width: 640px) {
   h1,h2,h3,h4,h5,h6 {

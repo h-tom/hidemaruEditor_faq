@@ -24,13 +24,13 @@
 <h2 id="HMM0081A_01">●「DLLがロードされてないのにdllfunc関数が使われました」と表示される</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>マクロを実行すると、「DLLがロードされてないのにdllfunc関数が使われました」 と表示されるのですが？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>原因としては 以下の内容が考えられます。</p>
 <ul>
 <li><p>loaddll文/関数で、dllの読み込みに失敗しているのに、dllfunc/dllfuncstrを呼び出している</p>
@@ -39,7 +39,7 @@
 <li><p>マクロとDLLが、同じ場所にあるにも関わらず、動作しない場合は、DLLのロード部分を確認見直してみてください。 単純にファイル名が間違っている場合もあります。</p></li>
 <li><p>64bit版秀丸エディタを使用しているのに、32bit版のDLLをロードしようとしている。<br />
 基本的に、64bit版秀丸エディタで使用できるのは、64bit版DLLだけです。 オプションの設定で、32bit版DLLを使用する事も出来ますが、<span class="attention_red">正常に動作する保証はありません。</span></p>
-<p><img src="2_convert_06.png" alt="32bit版の互換性" width="605" height="433" /><br />
+<p><img src="2_convert_06.png" width="613" height="433" alt="32bit版の互換性" /><br />
 </p></li>
 <li><p>DLLを実行するためのファイルが足りない。 VCのランタイムライブラリ等、DLLの実行に必要なファイルがない場合にもDLLのロードに失敗します。 DLL本体の他に、必要なファイルがあるかどうか確認してください。</p></li>
 </ul></li>

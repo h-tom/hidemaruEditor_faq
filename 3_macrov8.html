@@ -934,11 +934,16 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>split 関数</li>
 <li>setbackgroundmode文</li>
+<li>openfilepart文</li>
+<li>setmenudelay文</li>
+<li>screenleftxキーワード</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
 <li>自動起動マクロのカーソル移動後タイマーのgeteventparam(4)は、検索ダイアログで上検索/下検索したときも取得できるように修正。</li>
 <li>カーソル移動後タイマーの自動起動マクロで、geteventparam(5)で最後に実行した上検索/下検索が成功していたかを取得できるように修正。</li>
+<li>enabledrawの第２パラメータ追加。</li>
+<li>searchdownでmask関係や 0x00800000 のビットが無いときは、追加の条件のフラグは維持するように修正。</li>
 </ul></li>
 <li>その他
 <ul>

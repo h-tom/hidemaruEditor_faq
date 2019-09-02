@@ -30,22 +30,24 @@
 <div class="marginleft">
 <h3 id="ABOUT">【０】COMオブジェクトとは</h3>
 <p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの再利用を目的とした技術で、アプリケーションソフトウェア間での通信や、 OSとアプリケーションソフトウェアとのAPIに用いられています。</p>
-<p>ただし、現状(2019/06/22現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>ただし、現状(2019/09/02現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
 <p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
 <p>ここでは、OSに標準搭載されている、「Windows Script Host」等を使って説明を行います。</p>
 <h3 id="SETTING">【１】使用前の準備</h3>
 <p>まず、使用するCOMオブジェクトの情報を収集します。</p>
 <p>今回は以下のCOMオブジェクトを使用し説明を行います。</p>
 <ol type="1">
-<li><p>「Windows Script Host」の各種オブジェクト<br />
-「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2017/08/15)ではダウンロード出来なくなっています。</p>
+<li><p>「Windows Script Host」の各種オブジェクト</p>
+<p>「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2017/08/15)ではダウンロード出来なくなっています。</p>
 <p>その為、Microsoftのwebサイトを参照します。</p>
 <p>トップページは<a href="https://msdn.microsoft.com/ja-jp/library/cc392483.aspx" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>になります。 今回使用する<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank">Windows Script Host</a>を選び、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank">リファレンス</a>から、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank">オブジェクト</a>を選びます。</p>
 <p>このページにあるオブジェクトを使用します。</p></li>
-<li><p>FileSystemObject オブジェクト<br />
-トップページの <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>にある、 Script ランタイム－<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank">FileSystemObject</a>にあります。</p></li>
-<li><p>Shell オブジェクト<br />
-<a href="https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb774094(v=vs.85).aspx" class="externallink" target="_blank">Shell object (Windows)</a></p></li>
+<li><p>FileSystemObject オブジェクト</p></li>
+</ol>
+<p>トップページの <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>にある、 Script ランタイム－<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank">FileSystemObject</a>にあります。</p>
+<ol start="3" type="1">
+<li><p>Shell オブジェクト</p>
+<p><a href="https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb774094(v=vs.85).aspx" class="externallink" target="_blank">Shell object (Windows)</a></p></li>
 </ol>
 <p>各オブジェクトのリンク先には、使用できるプロパティ、メソッドの説明があります。 この情報を元に、秀丸マクロを作成していくことになります。 (逆に言うと、このような情報がない場合には、マクロの作成は出来ません。)</p>
 <p>Office製品の場合には、各製品の「VBA リファレンス」が参考になります。 ただし、秀丸マクロは文字と整数しか扱えないので、そのままでは使えない場合もあります。</p>
@@ -406,6 +408,29 @@ releaseobject #WshShell;
 endmacro;</code></pre>
 </div>
 <p>DLLの場合と違い、呼び出しに失敗してもマクロの実行は止まらない為、異常には気がつきにくいです。 (メソッドの呼び出し、プロパティアクセス後は、エラーチェックをした方が良いです。)</p>
+<h4 id="TYPE">COMコンポーネントのメソッドの戻り値や、プロパティの型がわからない場合の確認方法</h4>
+<p>VBScriptの VarType 関数、TypeName 関数 を使えば、戻り値/プロパティの型を確認できます。 (秀丸エディタマクロ上からは、VarType 関数、TypeName 関数を実行できないので、VBScript から実行する必要あり)</p>
+<p>これらの関数の引数に、型を知りたい変数、メソッドの戻り値、プロパティを指定すると TypeName 関数は文字列で、VarType 関数は数値で、型を示す値を返します。</p>
+<p>以下のスクリプトを、コマンドプロンプトから、Cscriptで実行してみます。</p>
+<div class="macro">
+<pre><code>a = &quot;秀丸エディタ&quot;
+WScript.echo  &quot;VarType:&quot; &amp; VarType(a) &amp; vbCrLf &amp; &quot;TypeName:&quot; &amp; TypeName(a)
+
+Set WshShell = Createobject(&quot;WScript.Shell&quot;)
+WScript.echo  &quot;VarType:&quot; &amp; VarType(WshShell) &amp; vbCrLf &amp; &quot;TypeName:&quot; &amp; TypeName(WshShell)</code></pre>
+</div>
+<p>上記スクリプトの実行結果です。TypeName関数は、オブジェクトの場合、オブジェクト名を返すようです。</p>
+<div class="macro">
+<pre><code>VarType :8
+TypeName:String
+VarType :9
+TypeName:IWshShell3</code></pre>
+</div>
+<p>各関数の詳細は以下のリンクを参照。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392344(v=msdn.10)" class="externallink" target="_blank">TypeName 関数</a></li>
+<li><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392346(v=msdn.10)" class="externallink" target="_blank">VarType 関数</a></li>
+</ul>
 </div>
 </div>
 <hr />
