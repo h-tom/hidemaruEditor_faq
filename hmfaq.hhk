@@ -714,6 +714,11 @@
 		<param name="Local" value="HME0098A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HME0099A">
+		<param name="Name" value="●秀丸エディタのバージョンアップ方法">
+		<param name="Local" value="HME0099A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMJRE">
 		<param name="Name" value="●HMJRE.DLLを使う場合の注意点">
 		<param name="Local" value="3_hmjre.html">
@@ -800,7 +805,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0017A">
-		<param name="Name" value="●openfile の ／(x,y,cx,xy) オプション">
+		<param name="Name" value="●openfile の /(x,y,cx,xy) オプション">
 		<param name="Local" value="HMM0017A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1303,6 +1308,11 @@
 		<param name="Local" value="2_outline.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="アップデート">
+		<param name="Name" value="●秀丸エディタのバージョンアップ方法">
+		<param name="Local" value="HME0099A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アンインストール">
 		<param name="Name" value="[HME0012A]●アンインストール失敗？［秀丸95］">
 		<param name="Local" value="HME0012A.html">
@@ -1486,6 +1496,11 @@
 		<param name="Name" value="バッファ">
 		<param name="Name" value="[HMM0011A]●バッファが溢れるとは？">
 		<param name="Local" value="HMM0011A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="バージョンアップ">
+		<param name="Name" value="●秀丸エディタのバージョンアップ方法">
+		<param name="Local" value="HME0099A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ファイルタイプ別の設定">
