@@ -51,6 +51,7 @@
 <li><a href="#V886">秀丸エディタVer.8.86 マクロ関連の変更履歴</a></li>
 <li><a href="#V887">秀丸エディタVer.8.87 マクロ関連の変更履歴</a></li>
 <li><a href="#V888">秀丸エディタVer.8.88 マクロ関連の変更履歴</a></li>
+<li><a href="#V889">秀丸エディタVer.8.89 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、 <a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" class="externallink" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a> を参照してください。</p>
@@ -933,10 +934,10 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>追加
 <ul>
 <li>split 関数</li>
-<li>setbackgroundmode文</li>
-<li>openfilepart文</li>
-<li>setmenudelay文</li>
-<li>screenleftxキーワード</li>
+<li>setbackgroundmode 文</li>
+<li>openfilepart 文</li>
+<li>setmenudelay 文</li>
+<li>screenleftx キーワード</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
@@ -944,6 +945,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>カーソル移動後タイマーの自動起動マクロで、geteventparam(5)で最後に実行した上検索/下検索が成功していたかを取得できるように修正。</li>
 <li>enabledrawの第２パラメータ追加。</li>
 <li>searchdownでmask関係や 0x00800000 のビットが無いときは、追加の条件のフラグは維持するように修正。</li>
+<li>自動起動マクロの編集後タイマーで、geteventparam(5)で置換や複数選択入力を判断できるように修正。</li>
 </ul></li>
 <li>その他
 <ul>
@@ -955,6 +957,8 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>マクロのconfig “s数値”で、サイズ変更した後にフォンとサイズの記憶状態がおかしい場合がある問題修正</li>
 <li>config文でフォントを変更してsaveconfigするとき、Unicodeのファイルで記憶されない問題修正</li>
 <li>crateobject後に他の秀丸エディタにアクティブ切り替えしたままマクロを終了するとメモリリークする場合がある問題修正</li>
+<li>nextoutlineitem/prevoutlineitemで、resultが得られるように修正。</li>
+<li>deleteregの第３パラメータで64bit/32bitの明示指定が動作していない問題修正。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V889">【２】仕様変更 - 「秀丸エディタ」Ver.8.89</h3>

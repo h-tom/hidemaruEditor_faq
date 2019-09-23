@@ -18,7 +18,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第II部～知っていると便利な秀丸の機能<br>　grep/タグジャンプ</h1>
 <hr />
 <h2 id="grep">●grep/タグジャンプ</h2>
@@ -38,20 +38,43 @@
 <!-- h2 -->
 <div class="marginleft">
 <h3 id="process">[手順]</h3>
-<p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>*.txt</strong> という拡張子を持つファイルから、「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
+<p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>txt</strong> という拡張子を持つファイルから、 「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
 <ol type="1">
 <li><p>メニューバーから「<strong>検索→grepの実行</strong>」を選択して下さい。</p>
-<p><img src="2_grep_01.png" alt="grepダイアログ" width="464" height="338" /><br />
+<p><img src="2_grep_01.png" width="464" height="338" alt="grepダイアログ" /><br />
 </p></li>
 <li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p>
 <p>通常は1行のみですが、複数行を入力可能にする事もできます。 「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから、 「<strong>複数行</strong>」を選択します。</p>
-<p><img src="2_grep_08.png" alt="複数行入力" width="496" height="135" /><br />
+<p><img src="2_grep_08.png" width="496" height="135" alt="複数行入力" /><br />
 </p></li>
 <li><p>その下にある「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、検索対象となるファイル名を記入します(今の例だと「<strong>*.txt</strong>」)。<br />
 ※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <span class="rotate90"><strong>&gt;</strong></span> をクリックして"<strong>(現在の内容)</strong>"を選択して下さい。<br />
-　<img src="2_grep_06.png" alt="現在の内容" width="356" height="54" /><br />
+　<img src="2_grep_06.png" width="356" height="54" alt="現在の内容" /><br />
 </p>
-<p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。 また、複数のファイル名を入力したい時は、ファイル名を<span class="monospace">";"</span>(半角のセミコロン)で区切って下さい (<span class="monospace">ex."<strong>*.txt;file_?.man;a.doc</strong>"</span>)。</p>
+<p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。<br />
+　ワイルドカードとは、<code>"*"</code>(アスタリクス) と <code>"?"</code> (クエスチョンマーク) の事で、</p>
+<ul>
+<li><code>"*"</code>は、0文字以上の文字列</li>
+<li><code>"?"</code>は、0文字、または1文字</li>
+</ul>
+<p>　を表します。</p>
+<p>複数のファイル名を入力したい時は、ファイル名を<span class="monospace">";"</span>(半角のセミコロン)で区切って下さい。</p>
+<div class="macro">
+<pre><code>例) *.txt;file\_?.man;a.doc</code></pre>
+</div>
+<p>上記の例では、</p>
+<dl>
+<dt><code>*.txt</code></dt>
+<dd>任意文字列が前にある<code>".txt"</code>というファイル = 拡張子が <code>".txt"</code> のファイル
+</dd>
+<dt><code>file\_?.man</code></dt>
+<dd>fileフォルダにある、<code>"_"</code> の後に0または1文字がある、拡張子が <code>".man"</code> というファイル
+</dd>
+<dt><code>a.doc</code></dt>
+<dd><code>a.doc</code> というファイル
+</dd>
+</dl>
+<p>の3つから検索することになります。</p>
 <p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足情報]</a>－<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。 除外したいファイルの設定が出来ます。</p>
 <p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。 「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と、直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
 <div class="macro">
@@ -77,7 +100,8 @@
 例3)*.*&lt;!folder*\&gt;</code></pre>
 </div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> は除外。<br />
-例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> と <code>"folder2"</code> は除外。 例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
+例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> と <code>"folder2"</code> は除外。<br />
+例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
 <p>となります。</p></li>
 <li><p>右側にあるチェックボックスの内、該当する物にチェックをします。</p>
 <ul>
@@ -142,9 +166,9 @@ file4.txt(2)<br />
 </ol>
 <h3 id="SUPPLEMENTATION">[補足情報]</h3>
 <p>grepに関係する「<strong>動作環境</strong>」です。</p>
-<p><img src="2_grep_02.png" alt="動作環境－grepダイアログ" width="605" height="433" /><br />
+<p><img src="2_grep_02.png" width="605" height="433" alt="動作環境－grepダイアログ" /><br />
 </p>
-<p><img src="2_grep_03.png" alt="動作環境－grepの動作" width="605" height="433" /><br />
+<p><img src="2_grep_03.png" width="605" height="433" alt="動作環境－grepの動作" /><br />
 </p>
 <!-- h3 -->
 <div class="marginleft">
@@ -155,14 +179,14 @@ file4.txt(2)<br />
 <h4 id="SUPPLEMENTATION-2">grepのダイアログ</h4>
 <p>grepダイアログの種類は2種類あります。</p>
 <p><strong>新タイプ</strong>は、<a href="#process">[手順]</a>にあるダイアログで、<strong>普通タイプ</strong>は、フォルダ選択画面と一体になっています。</p>
-<p><img src="2_grep_04.png" alt="動作環境－grepダイアログ普通タイプ" width="503" height="388" /><br />
+<p><img src="2_grep_04.png" width="503" height="388" alt="動作環境－grepダイアログ普通タイプ" /><br />
 </p>
 <p><strong>新タイプ</strong>はフォルダ選択ダイアログが別になっている事もあり、種類も変更可能です。好みに応じて設定を変更してください。</p>
 <h4 id="SUPPLEMENTATION-3">検索するフォルダ</h4>
 <p>通常、grep実行時に開いているファイルの場所を「検索するフォルダ」に自動的にセットしますが、 前回grep実行時のフォルダを最初からセットする事も可能です。</p>
 <p>「<span class="env">動作環境</span> － 検索 － grepダイアログ － grepのダイアログボックス」にある、「<strong>前回のフォルダを使う</strong>」に、 チェックを入れてください。</p>
 <p>Ver.8.71より、「grepダイアログ」の「検索するフォルダ」の横に<span class="attention_red">ピン留めアイコン</span>が追加され、 「<strong>前回のフォルダを使う</strong>」の設定を、「grepダイアログ」から変更可能です。</p>
-<p><img src="2_grep_07.png" alt="前回のフォルダを使うのピン" width="382" height="34" /><br />
+<p><img src="2_grep_07.png" width="382" height="34" alt="前回のフォルダを使うのピン" /><br />
 </p>
 <p>「<span class="attention_red">ピン留めアイコン</span>」自体を表示するかしないかも、 「<span class="env">動作環境</span> － 検索 － grepダイアログ － grepのダイアログボックス」にある「ピン止めボタン表示」のチェックボックスで設定可能です。</p>
 <p>「検索するフォルダ」は、「検索するファイル」と違い、複数箇所の指定は出来ません。</p>
@@ -238,7 +262,7 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </ul></li>
 </ul>
 <h4 id="SUPPLEMENTATION-5">文字数制限の設定</h4>
-<p><img src="2_grep_05.png" alt="動作環境－grepの動作－文字数制限の設定" width="455" height="344" /><br />
+<p><img src="2_grep_05.png" width="455" height="344" alt="動作環境－grepの動作－文字数制限の設定" /><br />
 </p>
 <p>処理の都合上、マッチした行が長いと全部を表示しない場合や、正規表現の対象となる一行の文字数の上限があります。 その制限に関する設定を行います。</p>
 <p>通常使用しているファイルで、1行の文字数が多くなければ、"<strong>小さい</strong>"や"<strong>大きい</strong>"で問題ないでしょう。 どんなファイルでも必ずマッチさせたい場合は、"<strong>制限なし</strong>"を選択します。 (自身の使用環境により、適切と思われる設定を行ってください。)</p>
