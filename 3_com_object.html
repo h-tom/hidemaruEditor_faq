@@ -29,8 +29,8 @@
 <!-- h3 -->
 <div class="marginleft">
 <h3 id="ABOUT">【０】COMオブジェクトとは</h3>
-<p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの再利用を目的とした技術で、アプリケーションソフトウェア間での通信や、 OSとアプリケーションソフトウェアとのAPIに用いられています。</p>
-<p>ただし、現状(2019/09/29現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの機能を部品化して外部から呼び出して利用する仕組みを定めた技術仕様になります。</p>
+<p>ただし、現状(2019/10/29現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
 <p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
 <p>ここでは、OSに標準搭載されている、「Windows Script Host」等を使って説明を行います。</p>
 <h3 id="SETTING">【１】使用前の準備</h3>
@@ -38,19 +38,17 @@
 <p>今回は以下のCOMオブジェクトを使用し説明を行います。</p>
 <ol type="1">
 <li><p>「Windows Script Host」の各種オブジェクト</p>
-<p>「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2017/08/15)ではダウンロード出来なくなっています。</p>
+<p>「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2019/10/29)ではダウンロード出来なくなっています。</p>
 <p>その為、Microsoftのwebサイトを参照します。</p>
-<p>トップページは<a href="https://msdn.microsoft.com/ja-jp/library/cc392483.aspx" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>になります。 今回使用する<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank">Windows Script Host</a>を選び、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank">リファレンス</a>から、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank">オブジェクト</a>を選びます。</p>
-<p>このページにあるオブジェクトを使用します。</p></li>
-<li><p>FileSystemObject オブジェクト</p></li>
-</ol>
-<p>トップページの <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>にある、 Script ランタイム－<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank">FileSystemObject</a>にあります。</p>
-<ol start="3" type="1">
+<p>トップページは<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>になります。 今回使用する<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank">Windows Script Host</a>を選び、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank">リファレンス</a>から、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank">オブジェクト</a>を選びます。</p>
+<p>このページにある各種オブジェクトを使用します。</p></li>
+<li><p>FileSystemObject オブジェクト</p>
+<p><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>にある、 Script ランタイム－<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank">FileSystemObject</a>にあります。</p></li>
 <li><p>Shell オブジェクト</p>
-<p><a href="https://msdn.microsoft.com/ja-jp/library/windows/desktop/bb774094(v=vs.85).aspx" class="externallink" target="_blank">Shell object (Windows)</a></p></li>
+<p><a href="https://docs.microsoft.com/ja-jp/windows/win32/shell/shell-application" class="externallink" target="_blank">Shell object (Windows)</a></p></li>
 </ol>
 <p>各オブジェクトのリンク先には、使用できるプロパティ、メソッドの説明があります。 この情報を元に、秀丸マクロを作成していくことになります。 (逆に言うと、このような情報がない場合には、マクロの作成は出来ません。)</p>
-<p>Office製品の場合には、各製品の「VBA リファレンス」が参考になります。 ただし、秀丸マクロは文字と整数しか扱えないので、そのままでは使えない場合もあります。</p>
+<p>Office製品を対象とする場合には、各製品の「VBA リファレンス」が参考になります。 ただし、秀丸マクロは文字と整数しか扱えないので、そのままでは使えない場合もあります。</p>
 <p>秀丸マクロ側は<a href="https://help.maruo.co.jp/hidemac/html/230_Com.html" class="externallink" target="_blank">「COMの呼び出し」</a>にある、 関数/文 を使うことになります。</p>
 <p>プロパティの呼び出し/設定、メソッドで戻り値が、数値、文字、オブジェクトの場合で命令が異なるので、 少し複雑です。また命令が異なるので、使用するCOMオブジェクトの情報がないと、何を使っていいのか、 判断に困まります。</p>
 <h3 id="MACRO">【２】秀丸マクロからCOMオブジェクトを使ってみる</h3>
@@ -105,8 +103,11 @@ Set WshShell = Nothing</code></pre>
 <p>まず、WshShell オブジェクトを生成するため、<strong>createobject</strong> 関数を使います。</p>
 <p>WSH(VBScript)で実行する場合と違い、秀丸マクロではCOM関連の実行時エラーが出ないので、 メソッドの実行やプロパティアクセス結果のチェックを行う必要があります。 createobject関数は戻り値で判断できますが、基本的には getresultex関数 を使い、成功/失敗を判断します。 (getresultex(10) で、COM関連命令が成功したか、失敗したかを返す)</p>
 <div class="macro">
-<pre><code>#WshShell = createobject(&quot;WScript.Shell&quot;)
+<pre><code>//オブジェクトの生成
+#WshShell = createobject(&quot;WScript.Shell&quot;)
+//createobject関数の成功/失敗をチェック
 if(#WshShell == 0){ //if(getresultex(10) == false){ 
+    //createobject関数が失敗した場合はメッセージを表示して終了
     message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
     endmacro;
 }</code></pre>
@@ -116,8 +117,9 @@ if(#WshShell == 0){ //if(getresultex(10) == false){
 <ul>
 <li>数値の場合は、"<strong>callmethod_returnnum</strong>関数"</li>
 <li>文字列の場合は、"<strong>callmethod_returnstr</strong>関数"</li>
-<li>オブジェクトの場合は、"<strong>callmethod_returnobj</strong>関数"</li>
-<li>ない場合は、"<strong>callmethod</strong>文"</li>
+<li>オブジェクトの場合は、"<strong>callmethod_returnobj</strong>関数"<br />
+(createobject関数と同じく、戻り値が「0」なら、メソッドの呼び出し/オブジェクトの取得に失敗していると判断できます)</li>
+<li>戻り値がない場合は、"<strong>callmethod</strong>文"</li>
 </ul>
 <p>を使います。</p>
 <p>プロパティの場合は、取得する/設定する内容により命令を使い分けます。</p>
@@ -126,10 +128,12 @@ if(#WshShell == 0){ //if(getresultex(10) == false){
 <li>文字列の場合は、"<strong>getpropstr</strong>関数"、"<strong>setpropstr</strong>文"</li>
 <li>オブジェクトの場合は、"<strong>getpropobj</strong>関数"、"<strong>setpropobj</strong>文"</li>
 </ul>
-<p><strong>Popup</strong>は<span class="attention_red">メソッド</span>で、戻り値が<span class="attention_red">数値</span>なので、"<span class="attention_red">callmethod_returnnum関数</span>"を使います。</p>
+<p><strong>Popup</strong>は<span class="attention_red">メソッド</span>で、戻り値が<span class="attention_red">数値</span>なので、"<span class="attention_red">callmethod_returnnum関数</span>"を使い、メソッド呼び出します。</p>
 <div class="macro">
 <pre><code>#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+//メソッドの呼び出しが成功したかどうか確認
 if(getresultex(10) == false){ 
+    //失敗した場合はメッセージを表示して終了
     message &quot;Popupメソッドの呼び出しに失敗しました。&quot;;
     endmacro;
 }</code></pre>
@@ -138,13 +142,17 @@ if(getresultex(10) == false){
 <div class="macro">
 <pre><code>//オブジェクトの生成
 #WshShell = createobject(&quot;WScript.Shell&quot;);
+//createobject関数の成功/失敗をチェック
 if(#WshShell == 0){ //if(getresultex(10) == false){ 
+    //createobject関数が失敗した場合はメッセージを表示して終了
     message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
     endmacro;
 }
-// メソッドの呼び出し、7秒待機する。
+// Popupメソッドの呼び出し、7秒待機する。
 #BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+//メソッドの呼び出しが成功したかどうか確認
 if(getresultex(10) == false){ 
+    //失敗した場合はメッセージを表示して終了
     message &quot;Popupメソッドの呼び出しに失敗しました。&quot;;
     endmacro;
 }
@@ -174,33 +182,51 @@ newfile;
 
 //shellオブジェクトの作成
 #shell = createobject(&quot;Shell.Application&quot;);
+//createobject関数の成功/失敗をチェック
 if(#shell == 0){
     message &quot;Shellのオブジェクト作成に失敗&quot;;
     endmacro;
 }
 insert &quot;shellオブジェクトの作成\n&quot;;
 insert &quot;フォルダ選択ダイアログの表示\n&quot;;
+//BrowseForFolder メソッドは、Folderオブジェクトを返す。
 #getfolder = callmethod_returnobj(#shell, &quot;BrowseForFolder&quot;, 0,&quot;フォルダを選んでください&quot;,0x10);
+//Folderオブジェクトの取得に成功したかチェック
 if(#getfolder == 0){
+    //失敗した場合はメッセージを表示して終了
     message &quot;BrowseForFolderが失敗&quot;;
     endmacro;
 }
+insert &quot;getfolder オブジェクト取得\n&quot;;
+
+//wshだと、以下の一文で、pathプロパティを取得できるが、
+//  Searchfolder = getfolder.Items.Item.path
+//秀丸マクロだと、1個づつ順番に取得していく
+//Folder オブジェクトから、FolderItems オブジェクトを取得
+//FolderItems オブジェクトから、FolderItem オブジェクトを取得
+//FolderItem オブジェクトの pathプロパティを参照する
+
 #folderitems = callmethod_returnobj(#getfolder, &quot;Items&quot;);
+//FolderItems オブジェクトの取得に成功したかチェック
 if(#folderitems == 0){
     message &quot;#folderitemsが失敗&quot;;
     endmacro;
 }
 #folderitem = callmethod_returnobj(#folderitems, &quot;Item&quot;);
+//FolderItem オブジェクト の取得に成功したかチェック
 if(#folderitem == 0){
     message &quot;#folderitemが失敗&quot;;
     endmacro;
 }
+//FolderItem オブジェクトの pathプロパティを取得
 $Searchfolder = getpropstr(#folderitem, &quot;path&quot;);
+//メソッドの呼び出しが成功したかどうか確認
 if(getresultex(10) == false){ 
     message &quot;pathプロパティが失敗&quot;;
     endmacro;
 }
 insert &quot;読み込む場所：&quot; + $Searchfolder + &quot;\n&quot;;
+//#shell は使わないので解放する
 releaseobject #shell;
 
 message &quot;出力するファイルの拡張子を入力してください。\n&quot; + 
@@ -220,6 +246,7 @@ if(strlen($chk_ext) &gt; 0){
     insert &quot;表示するファイルの種類:全て\n&quot;;
 }
 
+//ファイル一覧の取得
 //Set WshFso = Wscript.CreateObject(&quot;Scripting.FileSystemObject&quot;)
 //&#39;フォルダオブジェクトの取得
 //Set SFolder = WshFso.GetFolder(Searchfolder)
@@ -230,18 +257,24 @@ if(strlen($chk_ext) &gt; 0){
 //next
 /
 //ファイル一覧の取得
+//FileSystemObject を取得
 #WshFso = createobject(&quot;Scripting.FileSystemObject&quot;);
+//createobject関数の成功/失敗をチェック
 if(#WshFso == 0){ 
     message &quot;#folderitemが失敗&quot;;
     endmacro;
 }
 
+//指定されたフォルダの Folderオブジェクト を取得
 #Folder = callmethod_returnobj(#WshFso, &quot;GetFolder&quot;, $Searchfolder);
+//Folder オブジェクトの取得に成功したかチェック
 if(#Folder == 0){ 
     message &quot;Folderオブジェクトの取得に失敗&quot;;
     endmacro;
 }
+//Folderオブジェクト からファイル一覧(filesコレクション)を取得
 #Files  = getpropobj(#Folder,&quot;Files&quot;);
+// オブジェクトの取得に成功したかチェック
 if(getresultex(10) == false){ 
     message &quot;Filesコレクションの取得に失敗&quot;;
     endmacro;
@@ -249,6 +282,7 @@ if(getresultex(10) == false){
 insert &quot;ファイルの一覧\n&quot;;
 while(1){
     //filesコレクションから呼び出し
+    //#Fileには、コレクションの中身である「ファイルオブジェクト」が入る
     #File = getcollection(#Files);
     if(#File == 0) break;
     //ファイルオブジェクトから、パスプロパティを読み出し
@@ -268,7 +302,9 @@ while(1){
         }
     }
 }
+//filesコレクション を解放
 #File = getcollection(#Files, 3);
+//各オブジェクトを解放
 releaseobject #Files;
 releaseobject #Folder;
 releaseobject #WshFso;
@@ -372,7 +408,7 @@ allowobjparam 0;</code></pre>
 後入れ先出しリスト</li>
 </ul>
 <p>詳細は、以下のページから各クラスのページを参照してください。<br />
-<a href="https://docs.microsoft.com/ja-jp/dotnet/api/system.collections?redirectedfrom=MSDN&amp;view=netframework-4.7.2" class="externallink" target="_blank">System.Collections 名前空間</a> "ArrayList"は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
+<a href="https://docs.microsoft.com/ja-jp/dotnet/api/system.collections" class="externallink" target="_blank">System.Collections 名前空間</a> "ArrayList"は、動的配列なので、配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
 <p>連想配列は、WSHでも可能で、<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc428065(v=msdn.10)" class="externallink" target="_blank">Dictionary オブジェクト</a> を使います。</p>
 <h4 id="SCOPE">COMオブジェクトの有効範囲</h4>
 <p>createobject文を実行した秀丸エディタ上のみ有効です。秀丸エディタを切り替えた場合は、無効です。 (DLLのロードと同じ。)</p>
