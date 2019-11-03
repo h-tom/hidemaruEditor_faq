@@ -30,20 +30,22 @@
 <li>秀丸エディタ本体での文字修飾をそのまま印刷</li>
 </ul>
 <p>が可能になります。</p>
-<p>秀丸パブリッシャーは、</p>
+<p>秀丸パブリッシャーは、ランタイムライブラリが不要で、以下の環境でも使用可な Ver.5.00 が公開されていますが、 秀丸エディタ Ver.8.00以上が必要です。</p>
 <ul>
 <li>ストアアプリ版(秀丸エディタに同梱され、別途インストールする必要はない)</li>
 <li>持ち出しキット使用時</li>
 </ul>
-<p>でも使用可能なVer.5.00 が公開されていますが、秀丸エディタ Ver.8.00以上が必要です。</p>
-<p>秀丸エディタ Ver.8.00未満の場合は、Ver.4系を使用してください。</p>
-<p>Ver.4系は、</p>
+<p>秀丸エディタ Ver.8.00未満の場合は、秀丸パブリッシャーのVer.4系を使用してください。 ただし、「持ち出しキット」や「ストアアプリ版」では使用できません。</p>
+<div class="box_line">
+<ul>
+<li><p>秀丸パブリッシャーのVer.4は、以下の2種類が存在します。</p>
 <ul>
 <li>「Visual Basic版」</li>
 <li>.NET Frameworkで作成した「64bit版」</li>
 </ul>
-<p>の2種類が存在します。</p>
-<p><strong>「64bit版」とありますが 32bit版秀丸エディタ/32bit OS でも使用可能で、</strong> <span class="font_red_bold">Windows Vista 以降は、32bit/64bit 秀丸エディタを問わずに、.NET Framework で作成した「64bit版」を使用する事を推奨しています。</span></p>
+<p><strong>「64bit版」とありますが 32bit版秀丸エディタ/32bit OS でも使用可能で、</strong> <span class="font_red_bold">Windows Vista 以降は、32bit/64bit 秀丸エディタを問わずに、.NET Framework で作成した「64bit版」を使用する事を推奨しています。</span></p></li>
+</ul>
+</div>
 <p>以降の説明は、「<span class="attention_red">Ver.5.00以降</span>」を前提にしています。</p>
 <ul>
 <li><a href="#INSTALL">【1】ダウンロード、インストールと秀丸エディタ本体の設定</a></li>
@@ -57,7 +59,7 @@
 <p>秀丸パブリッシャーは、以下の場所から入手可能です。</p>
 <ul>
 <li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank">ソフトウェア</a> - <a href="https://hide.maruo.co.jp/software/hmpv.html" class="externallink" target="_blank">秀丸パブリッシャー</a></p>
-<p>2019/10/29 現在、以下のバージョンが公開されています。</p>
+<p>2019/11/03 現在、以下のバージョンが公開されています。</p>
 <ul>
 <li>Ver.5．00　64bit/32bit共通(秀丸エディタ Ver.8.00以降が必要。ストアアプリ、持ち出しキット使用時でも動作可能)</li>
 <li>Ver.4.25　64bit版(<span class="attention_red">32bit版秀丸エディタ/32bit OS でも使用可</span> .NET Framework 2.0 以上が必要)</li>
@@ -174,15 +176,18 @@
 <p>"ファイルの作成日時"と"印刷日時"を追加しましたが、ぱっと見でどちらが何の日時なのかわかりません。<br />
 <img src="6_publisher_14.png" width="354" height="276" alt="プレビュー1" /><br />
 </p>
-<p>そこで、各日時の前に"<strong>ファイル作成日：</strong>"と"<strong>印刷日時：</strong>"という文字を<span class="attention_red">追加</span>します。<br />
+<p>そこで、各日時の前に"<strong>ファイル作成日：</strong>"と"<strong>印刷日時：</strong>"という文字を<span class="attention_red">追加</span>し、年月日の表示も変更します。<br />
 <img src="6_publisher_15.png" width="375" height="278" alt="プレビュー2" /><br />
 </p>
-<p>追加する方法は、いくつかあります。</p>
+<p>年月日の表示を変更するには、「書式」を変更します。</p>
+<pre><code>    変更前の「書式」　YYYY/MM/DD(または未指定)
+    変更後の「書式」　YYYY年MM月DD日（W曜日）</code></pre>
+<p>文字を追加する方法は、いくつかあります。(例として「ファイル作成日時」の場合)</p>
 <ul>
-<li><p>"ファイルの作成日時"と"印刷日時"を表示しているBOXの前に、新たにBOXを追加して、各文字を入力する。</p></li>
+<li><p>"ファイルの作成日時"を表示しているBOXの前に新たにBOXを追加し、 「テキスト/属性」に“ファイル作成日：”を指定する。</p></li>
 <li><p>BOXのプロパティにある、「テキスト/属性」はそのままで、「書式」を変更する。</p>
-<pre><code>変更前の属性　YYYY/MM/DD
-変更後の属性　ファイル作成日：YYYY年MM月DD日（W曜日）</code></pre></li>
+<pre><code>変更前の「書式」　YYYY年MM月DD日（W曜日）
+変更後の「書式」　ファイル作成日：YYYY年MM月DD日（W曜日）</code></pre></li>
 <li><p>BOXのプロパティにある、「テキスト/属性」を変更する。</p>
 <pre><code>変更前の「テキスト/属性」　timestamp
 変更後の「テキスト/属性」　ファイル作成日：%timestamp%</code></pre>
@@ -236,6 +241,19 @@ NG：%FileName%</code></pre>
 </div>
 <h3 id="WARNING">【4】テンプレートの注意点</h3>
 <ul>
+<li><p>BOX のスタイルについて</p>
+<p>BOXで指定可能なスタイルは以下になります。</p>
+<p><img src="6_publisher_19.png" width="211" height="108" alt="BOXのスタイル" /><br />
+</p>
+<p>太文字、イタリック、下線は重複して指定することが可能ですが、 その場合はドロップダウンリストからは指定することは出来ません。 直接入力することになります。<br />
+(2019/11/03 現在 Ver.5では、長い文字列を入力する事が出来ません。次バージョンで修正予定)</p>
+<p>指定したいスタイルを、区切り文字で区切って入力します。 区切り文字は、<code>" "</code>(半角スペース)、<code>","</code>、<code>";"</code> が使えます。(どれか一種類の文字で区切ってください)</p>
+<ul>
+<li><p>太文字 と イタリック の場合(区切り文字には、“,”を使用)</p>
+<pre><code>bold,italic</code></pre></li>
+<li><p>イタリック と 下線 の場合(区切り文字には、“,”を使用)</p>
+<pre><code>italic,underline</code></pre></li>
+</ul></li>
 <li><p>テンプレートファイルですが、一時的な設定のつもりで設定を変えてしまうと、 その設定が保存されてしまいます。<br />
 (例えば、フォントの設定等)</p>
 <pre><code>印刷 → 印刷ダイアログ開く → 一時的なつもりでフォントを変更  → 印刷実行</code></pre>

@@ -30,31 +30,49 @@
 <div class="marginleft">
 <h3 id="ABOUT">【０】COMオブジェクトとは</h3>
 <p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの機能を部品化して外部から呼び出して利用する仕組みを定めた技術仕様になります。</p>
-<p>ただし、現状(2019/10/29現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>ただし、現状(2019/11/03現在)では、古い技術になっています。 とはいえ、使えなくなったという事ではなく、Word、ExcelなどのOffice製品や、Windows Script Hostなど、 OSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
 <p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、 使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
-<p>ここでは、OSに標準搭載されている、「Windows Script Host」等を使って説明を行います。</p>
+<p>ここでは、OSに標準搭載されている「Windows Script Host」等を使って説明を行います。</p>
 <h3 id="SETTING">【１】使用前の準備</h3>
 <p>まず、使用するCOMオブジェクトの情報を収集します。</p>
 <p>今回は以下のCOMオブジェクトを使用し説明を行います。</p>
 <ol type="1">
 <li><p>「Windows Script Host」の各種オブジェクト</p>
-<p>「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2019/10/29)ではダウンロード出来なくなっています。</p>
+<p>「Windows Script Host」ですが、以前はchm形式の日本語ヘルプがダウンロードできましたが、 現時点(2019/11/03)ではダウンロード出来なくなっています。</p>
 <p>その為、Microsoftのwebサイトを参照します。</p>
 <p>トップページは<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>になります。 今回使用する<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank">Windows Script Host</a>を選び、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank">リファレンス</a>から、 <a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank">オブジェクト</a>を選びます。</p>
-<p>このページにある各種オブジェクトを使用します。</p></li>
+<p>このページにある各種オブジェクトを使用します。</p>
+<p>このページに記載されている全てのオブジェクトが使える訳ではないので、注意してください。</p>
+<ul>
+<li>WScript オブジェクト は、ホストプログラム(cscript.exe、wscript.exe)のルートオブジェクトで、 外部からは使用できません。</li>
+<li>WshArguments オブジェクト、WshNamed オブジェクト、WshUnnamed オブジェクト は、 ホストプログラム(cscript.exe、wscript.exe)から実行した場合に、引数を取得するためのオブジェクトなので、 秀丸マクロからでは使い道はありません。</li>
+</ul></li>
 <li><p>FileSystemObject オブジェクト</p>
 <p><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank">Microsoft Windows スクリプト テクノロジ</a>にある、 Script ランタイム－<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank">FileSystemObject</a>にあります。</p></li>
 <li><p>Shell オブジェクト</p>
 <p><a href="https://docs.microsoft.com/ja-jp/windows/win32/shell/shell-application" class="externallink" target="_blank">Shell object (Windows)</a></p></li>
 </ol>
 <p>各オブジェクトのリンク先には、使用できるプロパティ、メソッドの説明があります。 この情報を元に、秀丸マクロを作成していくことになります。 (逆に言うと、このような情報がない場合には、マクロの作成は出来ません。)</p>
-<p>Office製品を対象とする場合には、各製品の「VBA リファレンス」が参考になります。 ただし、秀丸マクロは文字と整数しか扱えないので、そのままでは使えない場合もあります。</p>
+<p>Office製品を対象とする場合には、各製品の「VBA リファレンス」が参考になります。 ただし、秀丸マクロは基本的には文字と整数しか扱えないので、そのままでは使えない場合もあります。</p>
 <p>秀丸マクロ側は<a href="https://help.maruo.co.jp/hidemac/html/230_Com.html" class="externallink" target="_blank">「COMの呼び出し」</a>にある、 関数/文 を使うことになります。</p>
-<p>プロパティの呼び出し/設定、メソッドで戻り値が、数値、文字、オブジェクトの場合で命令が異なるので、 少し複雑です。また命令が異なるので、使用するCOMオブジェクトの情報がないと、何を使っていいのか、 判断に困まります。</p>
+<p>プロパティの呼び出し/設定、メソッドで戻り値が、数値、文字、オブジェクトの場合で命令が異なるので少し複雑です。 また戻り値によって命令が異なるので、使用するCOMオブジェクトの情報がないと、何を使っていいのか判断に困まります。</p>
 <h3 id="MACRO">【２】秀丸マクロからCOMオブジェクトを使ってみる</h3>
+<p>COMオブジェクトを使用するには、まず <strong>createobject</strong>関数を使用します。</p>
+<p><strong>createobject</strong>関数では、使用するオブジェクトの「アプリケーション名」、「クラス(オブジェクト)名」が必要です。 場合によっては「バージョン」を指定します。</p>
+<div class="macro">
+<pre><code>//&quot;WScript&quot;の&quot;WshShell&quot;オブジェクトを使う
+#n = createobject(&quot;WScript.Shell&quot;);
+
+//&quot;Excel&quot;の&quot;Application&quot;オブジェクトを使う
+#excel = createobject(&quot;Excel.Application&quot;);
+
+//&quot;WinHttp&quot;の&quot;WinHttpRequest&quot;オブジェクトのバージョン&quot;5.1&quot;を使う
+#objHttp = createobject(&quot;WinHttp.WinHttpRequest.5.1&quot;);</code></pre>
+</div>
+<p><strong>createobject</strong>関数で、COMオブジェクトを使用できるようにし、 そのオブジェクトが持つ各種メソッド呼び出しや、プロパティの操作を行う事になります。</p>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="MACRO-1">【２．１】「Windows Script Host」の WshShell オブジェクトを使ってみる</h4>
+<h4 id="MACRO-1">【２．１】「Windows Script Host」の "WshShell" オブジェクトを使ってみる</h4>
 <p>WshShell オブジェクト にある、"Popup"メソッドを使ってみます。</p>
 <p>秀丸マクロの message文 と同じメッセージを表示する命令ですが、タイムアウト時間を設定でき自動で閉じることが出来ます。<br />
 (秀丸エディタ Ver.8.75以降では、message文が拡張され、タイムアウトする事も可能になっています。)</p>
@@ -163,7 +181,7 @@ releaseobject #WshShell;
 endmacro;</code></pre>
 </div>
 <p>エラー検出処理が入っているので、WSH(VBScript)と比較するとマクロが冗長になってしまいますが、 エラー検出をしないと、正常動作しない場合に、どこでエラーになっているのか追いかけるのが大変です。 面倒ですが、ある程度動作確認が出来るまでは、各メソッドの呼び出しやプロパティアクセス毎に、 チェックする事をお勧めします。</p>
-<p>また、WSH(VBScript、JScript)をつかって、事前に秀丸マクロで実行したい処理を実行してみるのも良いです。 そもそも、処理方法自体が間違っているのか、秀丸マクロにする時点で間違っているのか、判断の材料になります。</p>
+<p>また、WSH(VBScript、JScript)をつかって、事前に秀丸マクロで実行したい処理を実行してみるのも良いです。 そもそも、処理方法自体が間違っているのか、秀丸マクロに変換する時点で間違っているのか、判断の材料になります。</p>
 <h4 id="MACRO-2">【２．２】"Shell"オブジェクトと、"FileSystemObject"オブジェクトを使ってみる</h4>
 <p>次に、"Shell"オブジェクトと、"FileSystemObject"オブジェクトを使ってファイルの一覧を新規秀丸エディタに出力します。 "Shell"オブジェクトでフォルダを選択し、"FileSystemObject"オブジェクトでファイル一覧を取得します。 ファイル一覧(コレクション)にアクセスするために、"getcollection"を使っています。</p>
 <p>このマクロでは、色々なオブジェクトのプロパティ、メソッドを使っていることから、 戻り値の型に従い、getpropobj、getpropstr、callmethod_returnobj、callmethod_returnstr等を使い分けています。</p>
