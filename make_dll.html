@@ -18,7 +18,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="head">第V部～マクロから呼び出すＤＬＬの作り方</h1>
 <hr />
 <h2 id="menu">●目次</h2>
@@ -211,7 +211,7 @@ message dllfuncstr(&quot;hello&quot;); // hello() の呼出し
 freedll; // DLLのアンロード</code></pre>
 </div>
 <p>DLLの作成方法その他に間違いがなければ、 以下のような"<code>hello world!</code>" というテキストが入った メッセージボックスが表示されるはずです。</p>
-<p><img src="make_dll_01.png" alt="MsgBox" width="167" height="160" /><br />
+<p><img src="make_dll_01.png" width="167" height="160" alt="MsgBox" /><br />
 </p>
 <p>この例は確かに単純ですが、一つ重要なことがあります。 この関数のように文字列、したがって <code>LPCSTR (= const char*)</code>を返す場合、 その文字列はDLL内部で静的に(またはヒープ領域に)確保したものでなければならない、ということです。 この注意はもちろんDLL関数に限ったことではありませんが、 C またはC++ でプログラムを書いていれば</p>
 <div class="attention_p">
@@ -514,11 +514,10 @@ int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
 <dd><p>文字列型の場合は <code>IsBadStringPtr()</code> API、ワイド文字列型の場合は <code>IsBadStringPtrW()</code> API で ポインタの値が正当なものかどうか<strong>だけ</strong>はチェックできます。 ポインタが指す先の文字列の内容、 または整数型の場合に値が不正かどうかの判断は 貴方(DLL関数)自身でやるしかないです。</p>
 <p><code>IsBadxxxxxPtr</code> APIに関しては、<span class="attention_red">Windows Vista以降非推奨</span>とのこと。 詳細は、以下を参照してください。</p>
 <ul>
-<li><a href="https://docs.microsoft.com/ja-jp/windows/desktop/api/winbase/nf-winbase-isbadstringptra" class="externallink" target="_blank">IsBadStringPtr function</a></li>
+<li><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/winbase/nf-winbase-isbadstringptra" class="externallink" target="_blank">IsBadStringPtr function</a> <!-- -   [Life with Cygwin](http://www.oki-osk.jp/esc/cyg/cygwin-26.html){.externallink target="_blank"} --></li>
 </ul>
 </dd>
 </dl>
-<!-- -   [Life with Cygwin](http://www.oki-osk.jp/esc/cyg/cygwin-26.html){.externallink target="_blank"} -->
 <h3 id="dialog">【６】 「ファイルを開く」ダイアログを出してみる</h3>
 <p>さて、ここで話題をがらっと変えて、DLL関数の中でダイアログやウィンドウを出す方法について解説していくことにします。</p>
 <p>まず比較的簡単にできるダイアログの表示から行きますが、 例として「ファイルを開く」ダイアログを出すDLL関数を作ってみましょう。 このダイアログを出す関数は既に Win32API に <code>GetOpenFileName()</code>という名前で用意されているので、 ここでも素直にそれを使うことにしましょう。 この APIで出てくるダイアログはいわゆるモーダルダイアログという奴で、 APIの呼出しでダイアログが表示され、 ダイアログが表示されている間のユーザーからの入力等の処理は 全て API内で行われ、 最後にダイアログが閉じられた後に API から復帰します。 というわけで、DLL関数内でやるべきことは、結局の所</p>
@@ -573,7 +572,7 @@ message dllfuncstr(&quot;getfilename&quot;,hidemaruhandle(0),hidemarudir,&quot;f
 freedll;</code></pre>
 </div>
 <p>このマクロを実行すると、(ダイアログの細かい形はＯＳのバージョンで違いますが) 以下のようないつもの「ファイルを開く」ダイアログが表示されるはずです。</p>
-<p><img src="make_dll_02.png" alt="ファイルオープンダイアログ" width="650" height="471" /><br />
+<p><img src="make_dll_02.png" width="650" height="471" alt="ファイルオープンダイアログ" /><br />
 </p>
 <p>「色の選択」等の他のコモンダイアログを表示する API も 概ね上の<code>GetOpenFileName()</code> と同じように モーダルダイアログを表示するだけなので、 特に何も考えずに APIを呼び出すだけでダイアログを出すことができます。</p>
 <h3 id="window">【７】 ウィンドウを表示してみる</h3>

@@ -18,7 +18,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　外部プログラムの実行について</h1>
 <hr />
 <h2 id="INDEX">●外部プログラムの実行について</h2>
@@ -29,7 +29,7 @@
 <div class="marginleft">
 <h3 id="ABOUT">はじめに</h3>
 <p>秀丸エディタのマクロから、他のプログラム(実行ファイル)を起動する方法は複数あり、 使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2019/03/07現在)では、単純にプログラムを実行するだけなら run文 でもいいですが、 複雑な事をする場合は、引数の指定が難しいですが、runex文をお勧めします。</p>
+<p>現状(2019/11/14現在)では、単純にプログラムを実行するだけなら run文 でもいいですが、 複雑な事をする場合は、引数の指定が難しいですが、runex文をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -200,7 +200,7 @@ if(!result){
 <ul>
 <li>同期フラグで、非同期実行/同期実行を指定できます。</li>
 <li>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</li>
-<li>表示フラグで、3以降の意味は、 <a href="https://docs.microsoft.com/en-us/windows/desktop/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank">ShellExecuteA function (shellapi.h)</a> の「nShowCmd」を参照の事。</li>
+<li>表示フラグで、3以降の意味は、 <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank">ShellExecuteA function (shellapi.h)</a> の「nShowCmd」を参照の事。</li>
 <li>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</li>
 <li>拡張フラグで、"%f" 等の変換を抑制できます</li>
 </ul></li>
