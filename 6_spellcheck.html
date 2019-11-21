@@ -55,14 +55,14 @@
 <ul>
 <li><p><a href="http://aspell.net/win32/" class="externallink" target="_blank">GNU Aspell (Win32 version)</a></p>
 <p>「<strong>Binaries</strong>」にある、「<strong>Full installer</strong>」をクリックすれば「GNU Aspell」がダウンロード出来ます。<br />
-(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2019/11/14現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
+(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2019/11/20現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
 <div class="img_border">
 <p><img src="6_spellcheck_01.png" width="425" height="205" alt="Aspellダウンロード先" /><br />
 </p>
 </div>
 <p><span class="attention_red">GNU Aspell は、プログラム本体だけでは使用できません。チェックする言語に対応した辞書ファイルが必要です。</span></p>
 <p>ここでは例として「<strong>英語用辞書</strong>」をダウンロードします。 プログラム本体と同じ場所で、辞書ファイルもダウンロード出来ます。 「<strong>英語用辞書</strong>」なので、「Precompiled dictionaries:」にある「<strong>English</strong>」のファイルをダウンロードしてください。<br />
-(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2019/11/14現在、「Aspell-en-0.50-2-3.exe」です)</p>
+(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2019/11/20現在、「Aspell-en-0.50-2-3.exe」です)</p>
 <div class="img_border">
 <p><img src="6_spellcheck_02.png" width="452" height="465" alt="Aspell辞書ダウンロード先" /><br />
 </p>
@@ -73,7 +73,7 @@
 インストールする前に、秀丸エディタが起動していれば、常駐秀丸を含め、終了させておいた方が良いでしょう。 (常駐秀丸の終了方法は、「<a href="HME0053A.html">[HME0053A]●「常駐秀丸の終了」がわかりません</a>」を参照してください。)</p>
 <ul>
 <li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank">ソフトウェア</a> - <a href="https://hide.maruo.co.jp/software/hmspell.html" class="externallink" target="_blank">秀丸スペルチェックアドイン</a></p>
-<p>(2019/11/14現在、以下のバージョンが公開されています。</p>
+<p>2019/11/20現在、以下のバージョンが公開されています。</p>
 <ul>
 <li>Ver1.04</li>
 </ul></li>
@@ -105,7 +105,7 @@
 <ul>
 <li><p>個人辞書ファイルの保存フォルダ<br />
 ダウンロードした辞書ファイルにない単語を、個人辞書に登録可能です。 その保存場所を設定します。</p>
-<p>「個人辞書ファイルを開く」ボタンで、個人辞書ファイルを秀丸エディタで開く事が可能です。 言語が表示されるので、編集する言語を選択してください。</p></li>
+<p><span class="btn-push">「個人辞書ファイルを開く」</span> ボタンで、個人辞書ファイルを秀丸エディタで開く事が可能です。 言語が表示されるので、編集する言語を選択してください。</p></li>
 <li><p>aspell.exeの場所指定<br />
 通常は、レジストリ情報などから自動的にインストール先を検索しますが、手動でインストールした場合などは、 見つける事が出来ずに、スペルチェックが動作しません。 スペルチェックが動作しない場合は、aspell.exe の場所を指定してください。</p></li>
 <li><p>「スペルミス修正ダイアログのフォントサイズ」や、ダイアログ位置を固定するかどうかの設定も出来ます。</p></li>
@@ -132,28 +132,28 @@
 <p><img src="6_spellcheck_10.png" width="640" height="443" alt="スペルミスの修正" /><br />
 </p>
 <dl>
-<dt>無視</dt>
+<dt><span class="btn-push">無視</span></dt>
 <dd>スペルミス対象になっている現在の単語を無視して(修正しないで)、次のスペルミス箇所に移動します。
 </dd>
-<dt>すべて無視</dt>
+<dt><span class="btn-push">すべて無視</span></dt>
 <dd>スペルミス対象になっている現在の単語と同じ単語があっても、以降は全て無視する(修正しない)対象にします。
 </dd>
-<dt>置換</dt>
+<dt><span class="btn-push">置換</span></dt>
 <dd>スペルミス対象になっている現在の単語を、選択した「候補」と置換します。 リストから選択した内容だけではなく、「候補」に自分で入力した内容にも置換可能です。
 </dd>
-<dt>すべて置換</dt>
+<dt><span class="btn-push">すべて置換</span></dt>
 <dd>現在の位置以降にある、スペルミス対象になっている現在の単語を、全て選択した「候補」と置換します。
 </dd>
-<dt>個人辞書に追加</dt>
+<dt><span class="btn-push">個人辞書に追加</span></dt>
 <dd>スペルミス対象になっている現在の単語を、個人辞書に追加します。 個人辞書に追加すると、今後は辞書に追加されるので、スペルミスではなくなります。
 </dd>
-<dt>小文字で追加(小文字で個人辞書に追加)</dt>
+<dt><span class="btn-push">小文字で追加(小文字で個人辞書に追加)</span></dt>
 <dd>スペルミス対象になっている現在の単語を、小文字に変換して個人辞書に追加します。 小文字で登録しておくと、先頭が大文字の場合や、全部大文字の場合も、同じ単語と認識します。
 </dd>
-<dt>中断</dt>
+<dt><span class="btn-push">中断</span></dt>
 <dd>スペルミスの修正を終了します。
 </dd>
-<dt>個人辞書の編集</dt>
+<dt><span class="btn-push">個人辞書の編集</span></dt>
 <dd>個人辞書ファイルを秀丸エディタで開きます。
 </dd>
 </dl>
