@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HME0087A] ●異なるフォルダの秀丸が実行されているので起動できません - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,14 +26,16 @@
 <h2 id="HME0087A_01">●異なるフォルダの秀丸が実行されているので起動できません</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>秀丸エディタに関連付けていたファイルを開こうとしても、 「異なるフォルダの秀丸エディタが実行されているので起動できません。」というエラーダイアログが出て開くことができません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>秀丸エディタは自分自身と違う秀丸エディタが既に実行されているときに、上述のエラーが出て実行されないようになっている仕様です。</p>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
+<dd><p>秀丸エディタは自分自身と違う秀丸エディタが既に実行されているときに、以下のダイアログが出て、 後から起動しようとする秀丸エディタが実行されないようになっているのは仕様です。</p>
+<p><img src="HME0087A_01.png" width="382" height="232" alt="警告ダイアログ" /><br />
+</p>
 <p>実際には、問題が発生する直接の原因は、以下のように複数あります。</p>
 <ul>
 <li><p>使っていない秀丸エディタを削除する<br />
@@ -50,6 +54,14 @@ HIDEMARU.EXEのファイル名を変更する（バックアップ目的や、浮動小数点数版秀丸エディ
 <li><p>「秀丸エディタ持ち出しキット」を使用している場合<br />
 「秀丸エディタ持ち出しキット」を使用している状態で、 パソコン本体に別途インストールされている秀丸エディタを、関連づけで起動させてしまうとこの状態になります。</p>
 <p>「秀丸エディタ持ち出しキット」を使用している場合は、状況に応じて、秀丸エディタにファイルをドロップして開くなど、 使い方に工夫が必要な場合があります。</p></li>
+<li><p>「秀丸エディタ(ストアアプリ版)」を使用している場合<br />
+「秀丸エディタ(デスクトップ版)」と「秀丸エディタ(ストアアプリ版)」を同時に起動させた場合も、以下の問い合わせダイアログが表示されます。</p>
+<p><img src="HME0087A_02.png" width="441" height="255" alt="切替問い合わせダイアログ" /><br />
+</p>
+<p>ただし、同時起動を可能にする設定もあります。</p>
+<p>「<span class="env">動作環境</span>」の「32bit版/64bit版」に設定があります。この設定をONにしておけば、同時起動は可能になります。</p>
+<p><img src="HME0087A_03.png" width="328" height="73" alt="同時起動の設定" /><br />
+</p></li>
 </ul>
 </dd>
 </dl>

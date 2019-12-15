@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HME0081A] ●秀丸でハイパーリンク - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,38 +26,38 @@
 <h2 id="HME0081A_01">●秀丸でハイパーリンク</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>秀丸エディタには Internet Explorer といったウェブブラウザのようなハイパーリンク機能が有りますか？ 有れば、使えるようにするための設定方法を教えてください。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><ol type="1">
 <li><p><strong>マウス操作で行う場合</strong><br />
 各々ハイパーリンクを行いたい機能について、 「その他」→「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」→「表示」の <strong>「メールアドレス」「ホームページURL」「ファイル名と思わしき場所」</strong>をON にしてください。</p>
-<p><img src="HME0016C_02.png" alt="デザイン-URL" width="632" height="428" /><br />
+<p><img src="HME0016C_02.png" width="632" height="428" alt="デザイン-URL" /><br />
 </p>
 <!-- HME0081A_01.png -->
 <p>この設定をすませれば、「その他」→「<span class="env">動作環境</span>」→「表示/操作」→「リンク」の、 「ホームページURL、Emailのマウス操作」の設定に従って、マウスによるハイパーリンクが行えます。<br />
 (「<strong>リンク</strong>」が表示されていない場合は、「動作環境」画面左下にある「<span class="attention_red">上級者向け設定</span>」をONにしてください)</p>
-<p><img src="HME0081A_03.png" alt="動作環境-リンク" width="605" height="433" /><br />
+<p><img src="HME0081A_03.png" width="605" height="433" alt="動作環境-リンク" /><br />
 </p>
 <p>ただし URL file:///…形式はウェブブラウザで開くとは限らず、 ファイル名の場合と同様関連付けられたアプリケーションで開きます。</p></li>
 <li><p><strong>キーボードから行う場合</strong><br />
 キーボードから行う場合は、上記設定に加えて、<strong>「…を開く」</strong>を <a href="HME0054A.html">[HME0054A]●他のエディタと同じキー操作を再現したい</a> を参考に適当なキーに割り当ててください。<br />
 この設定をすませれば、URLの上にカーソルを移動して、割り当てたキーを押すとハイパーリンクが行えます。</p>
 <p>また関連付けられたアプリケーションやファイルが見つからないなどの理由で失敗した場合のメッセージが異なりますが、 <strong>「ダイレクトタグジャンプ」</strong>も同様のことが行えます。<br />
-なお「…を開く」は「その他」→「コマンド一覧」と「ファイル系」でたどれ、 「ダイレクトタグジャンプ」は「その他」→「コマンド一覧」と「その他」でたどれます。 また、「ダイレクトタグジャンプ」は標準で、<span class="kbd">[Ctrl]</span>+<span class="kbd">[F10]</span>に割り当てられています。</p></li>
+なお「…を開く」は「その他」→「コマンド一覧」と「ファイル系」でたどれ、 「ダイレクトタグジャンプ」は「その他」→「コマンド一覧」と「その他」でたどれます。 また、「ダイレクトタグジャンプ」は標準で、<kbd>[Ctrl]</kbd>+<kbd>[F10]</kbd>に割り当てられています。</p></li>
 <li><p><strong>カラー表示されない場合の操作</strong><br />
 何らかの理由でカラー表示をしたくない場合や、URLにスペースや日本語などが含まれるといった理由でカラー表示されない場合は、 上記の方法が使えません。<br />
 この様な場合、ハイパーリンクを実現したい部分を範囲選択し、「…を開く」「ダイレクトタグジャンプ」を利用してください。</p>
 <p>マウス操作の場合、この方法はデフォルトの設定では使えませんので、 <a href="2_custom.html#KEY">「第II部～知っていると便利な秀丸の機能秀丸のカスタマイズ」 の【６】キー操作</a>を参考に、 「選択中右ボタン」に機能を追加すると便利だと思います。</p></li>
 </ol>
 <dl>
-<dt>[補足]</dt>
+<dt><span class="mark_dt3">[補足]</span></dt>
 <dd><p>「メールアドレス」「ホームページURL」「ファイル名と思わしき場所」認識する文字列は、 正規表現によるカスタマイズが可能です。 各設定を選択すると「カスタマイズ」ボタンがあり、そのボタンを押すとカスタマイズ用のダイアログが表示されます。 「自動判断」ではなく、「正規表現で指定」を選択し、マッチさせる正規表現を指定します。</p>
-<p><img src="HME0081A_02.png" alt="メールアドレス等のカスタマイズ" width="424" height="444" /><br />
+<p><img src="HME0081A_02.png" width="424" height="444" alt="メールアドレス等のカスタマイズ" /><br />
 </p>
 <p>ちなみに、正規表現で「自動判断」と同じ判定を行う事は出来ないとの事。</p>
 </dd>

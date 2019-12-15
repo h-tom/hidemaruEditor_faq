@@ -2246,5 +2246,14 @@
 		<param name="Name" value="秀丸エディタ持ち出しキット">
 		<param name="Local" value="6_takeout.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ストアアプリ版">
+		<param name="Name" value="パスワードを忘れた／紛失した">
+		<param name="Local" value="HME0004A.html">
+		<param name="Name" value="異なるフォルダの秀丸が実行されているので起動できません">
+		<param name="Local" value="HME0087A.html">
+		<param name="Name" value="秀丸エディタの最新版">
+		<param name="Local" value="s_saisin.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>

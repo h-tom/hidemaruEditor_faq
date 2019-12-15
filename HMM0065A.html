@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0065A] ●menuarray 文の引数を自由に設定したい - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0065A_01">●menuarray 文の引数を自由に設定したい</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>menuarray 文等で、第１引数の配列の指定を途中(ex.$a[2])からしたり、 途中で止めたりする事はできませんか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>まず、</p>
 <div class="macro">
 <pre><code>menuarray $a[2], 2;</code></pre>
@@ -47,7 +49,7 @@ endmacro;
 </div>
 <p>　</p>
 <dl>
-<dt>[参考]</dt>
+<dt><span class="mark_dt3">[参考]</span></dt>
 <dd><p>あまり使う事はないでしょうが(^^;、２次元配列を使えば以下の様な事もできます。</p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ -------//

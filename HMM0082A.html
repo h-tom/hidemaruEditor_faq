@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0082A] ●カーソルのある行の内容を文字列型変数に取り込む方法 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0082A_01">●カーソルのある行の内容を文字列型変数に取り込む方法</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>カーソルのある行の内容を、文字列型変数に取り込む方法はありませんか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>方法は複数あります。</p>
 <ol class="example" type="1">
 <li><p>行選択を行い、選択範囲を取り込む</p>
@@ -46,7 +48,7 @@ message $line;</code></pre>
 </div></li>
 </ol>
 <dl>
-<dt>[解説]</dt>
+<dt><span class="mark_dt3">[解説]</span></dt>
 <dd><p>(1)のマクロは、行選択を行い、選択範囲の文字列を取り込んでいます。 行選択の副作用でカーソルがマクロ実行前後で、違う位置に移動してしまう場合があります。</p>
 <p>(2)のマクロは</p>
 <ul>
@@ -57,7 +59,7 @@ message $line;</code></pre>
 <p>行の先頭は、"0"と決まっているので直接記述し、 行の長さは linelen2 キーワード、行数は、lineno キーワード を使い範囲を求め取得しています。。</p>
 <p>結果は同じですが、カーソルが移動する/しないの違いがあります。</p>
 </dd>
-<dt>[補足]</dt>
+<dt><span class="mark_dt3">[補足]</span></dt>
 <dd>(2)は、gettext関数でも問題ないように見えますが、 折り返しがある場合や、タブコードがある場合、 gettext関数では正常に内容を(簡単には)取得できません。
 </dd>
 </dl>

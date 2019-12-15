@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HME0066A] ●漢字だけを探したい - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,18 +26,18 @@
 <h2 id="HME0066A_01">●漢字だけを探したい</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>半角の英数文字と漢字が混ざっている文書で、漢字だけを検索したいのですが、どうしたらいいのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><ul>
 <li><p>Shift_JISの場合<br />
 正規表現で「[亜-&#40657;]」を検索して下さい。この指定で、「亜」から「&#40657;」の間の文字コードをもつ文字が検索できます。 つまり、すべての漢字が検索できるわけです。</p>
 <dl>
-<dt>[解説]</dt>
+<dt><span class="mark_dt3">[解説]</span></dt>
 <dd><p>なお、最後の漢字は区点コードで次のようになっているようです。</p>
 <table>
 <tbody>

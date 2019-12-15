@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0034A] ●rollup等の動き - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,16 +26,116 @@
 <h2 id="HMM0034A_01">●rollup等の動き</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>roll系のマクロ文の動きがわかりません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>画面のスクロールなどを担当するroll系マクロ文には「rollup/rollup2/rolldown/rolldown2」があります。</p>
-<p>rollup/rolldown文は「カーソル位置は、画面とともに上へ移動」します。 また、「rollup 5;」などのようにパラメータを指定して移動量を指定できます。</p>
-<p>一方、「rollup2/rolldown2」は「カーソル位置は、画面の同じ位置をキープ」したままで画面をスクロールさせます。 なお、rollup2/rolldown2文はパラメータの指定はできないので注意が必要です。</p>
+<p>rollup 文、rolldown 文は「カーソル位置は、画面とともに上、または下へ移動」します。</p>
+<p>赤色のアンダーラインがカーソル行を示し、そこでrollup 文、rolldown 文を実行すると以下のようになります。</p>
+<div class="monospace">
+<div class="table_border2">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">実行前</th>
+<th style="text-align: left;">rollup</th>
+<th style="text-align: left;">rolldown</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">line7<br />
+line8<br />
+line9<br />
+<span class="ul_red_bold">line10</span><br />
+line11<br />
+line12<br />
+line13<br />
+line14<br />
+</td>
+<td style="text-align: left;">line8<br />
+line9<br />
+<span class="ul_red_bold">line10</span><br />
+line11<br />
+line12<br />
+line13<br />
+line14<br />
+line15<br />
+</td>
+<td style="text-align: left;">line6<br />
+line7<br />
+line8<br />
+line9<br />
+<span class="ul_red_bold">line10</span><br />
+line11<br />
+line12<br />
+line13<br />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>rollup2 文、rolldown2 文は「カーソル位置は画面の同じ位置をキープしたままで、画面を上、または下へスクロール」させます。</p>
+<p>赤色のアンダーラインがカーソル行を示し、そこでrollup2 文、rolldown2 文を実行すると以下のようになります。</p>
+<div class="monospace">
+<div class="table_border2">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">実行前</th>
+<th style="text-align: left;">rollup2</th>
+<th style="text-align: left;">rolldown2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">line7<br />
+line8<br />
+line9<br />
+<span class="ul_red_bold">line10</span><br />
+line11<br />
+line12<br />
+line13<br />
+line14<br />
+</td>
+<td style="text-align: left;">line8<br />
+line9<br />
+line10<br />
+<span class="ul_red_bold">line11</span><br />
+line12<br />
+line13<br />
+line14<br />
+line15<br />
+</td>
+<td style="text-align: left;">line6<br />
+line7<br />
+line8<br />
+<span class="ul_red_bold">line9</span><br />
+line10<br />
+line11<br />
+line12<br />
+line13<br />
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </dd>
 </dl>
 </div>

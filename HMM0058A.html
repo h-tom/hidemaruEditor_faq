@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0058A] ●setactivehidemaru 文の引数 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,16 +26,16 @@
 <h2 id="HMM0058A_01">●setactivehidemaru 文の引数</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>setactivehidemaru文を使って編集ウィンドウを切り替えたいのですが、使い方がよく分かりません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>setactivehidemaru文には秀丸エディタウィンドウの「番号」か「ウィンドウハンドル」を指定します。</p>
 <dl>
-<dt>[解説]</dt>
+<dt><span class="mark_dt3">[解説]</span></dt>
 <dd><ol type="1">
 <li><p>ウィンドウ番号</p>
 <p>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>

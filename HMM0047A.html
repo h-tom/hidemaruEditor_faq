@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0047A] ●特定のファイルを開く - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,14 +26,15 @@
 <h2 id="HMM0047A_01">●特定のファイルを開く</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>指定したファイルが開いてなければ開く、既に開かれていればアクティブにする、というような操作をしたいのですが。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
-<dd><p>これもさまざまな方法があります。 次の例は、既に開かれているファイル名を調査するタイプのマクロで、常に「MEMO.txt」という文書を編集できる状態にします。</p>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
+<dd><p>これもさまざまな方法があります。</p>
+<p>次の例は、既に開かれているファイル名を調査するタイプのマクロで、常に「MEMO.txt」という文書を編集できる状態にします。</p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ -------//
 
@@ -45,6 +48,18 @@ endmacro;
 // ---------------------------- //</code></pre>
 </div>
 <p>秀丸エディタ Ver.8.66以降の場合、「setcompatiblemode」を使う方法もあります。</p>
+<div class="table_border2">
+<table>
+<caption>setcompatiblemode文の設定抜粋</caption>
+<tbody>
+<tr class="odd">
+<td>0x00000030</td>
+<td style="text-align: left;">同じファイルを２つ開くことを禁止する（ジャンプする）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br/></p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ -------//
 setcompatiblemode ((compatiblemode &amp; 0xFFFFFF0F) | 0x00000030);

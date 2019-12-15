@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0077A] ●マクロでの文字列の比較 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0077A_01">●マクロでの文字列の比較</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>マクロのif文で文字列の比較はできますか? 単純に、if ($a &lt; $b)などと比較すると、時々比較結果が変に感じるのですが…。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>できます。</p>
 <p>ただし、比較のルールは文字コード順ではなく、辞書引き順となります。</p>
 <p>大小比較をする場合は注意が必要です。 辞書引き順のルールは以下のようになっているようです。</p>
@@ -135,7 +137,7 @@ endmacro; </code></pre>
 </div>
 <p>厳密な（単純な）大小関係を知りたい場合は、ascii関数を使って１文字ずつ比較する方法があります。</p>
 <dl>
-<dt>[解説]</dt>
+<dt><span class="mark_dt3">[解説]</span></dt>
 <dd>Win32API の lstrcmp() についての詳細は以下を参照してください。<br />
 <a href="https://msdn.microsoft.com/ja-jp/windows/ms647488(v=vs.80)" class="externallink" target="_blank">lstrcmp 関数</a>
 </dd>

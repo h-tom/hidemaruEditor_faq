@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0015A] ●拡張子の認識 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,20 +26,20 @@
 <h2 id="HMM0015A_01">●拡張子の認識</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>編集中のファイルの拡張子を調べたいのですが。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>大きく分けて、次の 2 つの方法があります。</p>
 <ol type="1">
 <li><p>キーワード filetype を使う。</p>
 <p>filetype キーワードを利用することにより、<code>「.」</code>+拡張子を取得できます。</p>
 <p>なお、「新規」、「grepの結果」、プログラムの標準出力による「実行結果」の場合、 各々「new」「grep」「exeresult」という決まった文字列を返します。</p>
 <dl>
-<dt>[補足]</dt>
+<dt><span class="mark_dt3">[補足]</span></dt>
 <dd><p>秀丸エディタの起動オプションで、"/c"オプションを指定した場合や、setfiletype文を使った場合は、 実ファイルの拡張子と、filetypeで取得できる拡張子が一致しません。 これは、設定を強制的に変更している為の仕様になります。 (<a href="https://log.maruo.co.jp/turukame/turukame_3/x0701567.html#1568" class="externallink" target="_blank">turukame.3:01568</a>を参照)</p>
 <p>つまり、filetypeキーワードでは、編集しているファイルの拡張子を正確に取得できない場合があるということになります。</p>
 <p>設定の種類を取得したい場合は filetypeキーワードを、 実ファイルの確実な拡張子が必要な場合は、 basename 等、ファイル名を取得するキーワードから取得してください。</p>

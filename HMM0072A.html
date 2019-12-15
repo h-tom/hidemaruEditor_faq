@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0072A] ●２バイト文字の判断方法 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0072A_01">●２バイト文字の判断方法</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>カーソル位置にある文字が、１バイト文字か２バイト文字かを判断するにはどうしたらいいでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>秀丸エディタの内部キーワード「code」を使い、ビット演算を使って２バイト文字かどうかを判断することで、可能です。</p>
 <div class="macro">
 <pre><code>// サンプルマクロ（ここから） 
@@ -64,7 +66,7 @@ endmacro;
 </div>
 <p>文字列変数の中の文字列をバイト単位ではなく文字単位で扱いたい場合は、 <a href="HMM0073A.html">[HMM0073A]●文字列をバイト単位ではなく文字単位で扱う</a>を参照して下さい。</p>
 <dl>
-<dt>[補足]</dt>
+<dt><span class="mark_dt3">[補足]</span></dt>
 <dd><code>code</code> は基本的に、Shift_JISを返します。unicodeにあり、Shift_JISにない文字の場合は、<code>code</code>は"0"を返します。
 </dd>
 </dl>
