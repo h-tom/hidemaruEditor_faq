@@ -44,6 +44,11 @@ h4,h5,h6 {
   font-size :1em ;
 }
 
+strong{
+  margin-right:0.25em;
+  margin-left: 0.25em;
+}
+
 kbd {
   background: whitesmoke;
   border-radius: 5px;

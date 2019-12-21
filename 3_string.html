@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　秀丸マクロで文字列を編集する</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -155,19 +157,19 @@ if (code == ascii(&quot;\r&quot;)) { // これもなぜか ascii(&quot;\r&quot;) == 10
 ちなみに、この選択状態は、<strong>searchmode</strong>キーワードで知ることができます。</li>
 </ul>
 <!-- h4 -->
-<div class="marginleft">
-<h4 id="BEGINSEL-1">「検索系文を使って検索する」の補足説明</h4>
+<section id="BEGINSEL-1" class="marginleft">
+<h4>「検索系文を使って検索する」の補足説明</h4>
 <p>現状(Ver.4.10以降)では、「<span class="env">動作環境</span>」-「検索」-「検索の動作」-「検索での表示」が「点滅表示」でも取り込む事は可能です。</p>
 <p>foundtopx、foundtopy、foundendx、foundendy キーワードが追加され、それぞれに検索にマッチした座標がセットされます。 検索にマッチした事を確認して、foundtopx、foundtopy、foundendx、foundendy キーワードを使い、gettext文で文字変数に取り込む事が可能です。</p>
 <p>また、「setcompatiblemode文」が追加され(Ver.6.00以降）、マクロ内で一時的に「検索での表示」の動作を切り替える事も、 可能になっています。その為、「<span class="env">動作環境</span>」に関係なく使用したい「検索での表示」の設定で、マクロを実行する事が可能です。</p>
-</div>
+</section>
 <h3 id="ESCAPE">【５】範囲選択を解除するには</h3>
 <p>範囲選択を解除するには<strong>escape</strong>文を使用します。<br />
 例えばマクロ文で選択を行う場合、既に範囲選択されていると不都合がある場合があります。そのようなときに利用できます。<br />
 ちなみにbeginsel等で範囲選択モードになっているときに範囲選択モードを解除する（選択範囲は残す）場合に使うのは<strong>endsel</strong>文です。</p>
 <!-- h4 -->
-<div class="marginleft">
-<h4 id="endsel">endsel使用時の注意点</h4>
+<section id="endsel" class="marginleft">
+<h4>endsel使用時の注意点</h4>
 <p>選択モードを終了しても範囲選択状態でカーソル移動コマンドを使うと、移動した場所まで範囲選択状態になります。 (範囲選択が広がってしまう。)</p>
 <p>確認用マクロ</p>
 <div class="macro">
@@ -196,11 +198,39 @@ endmacro;</code></pre>
 </div>
 <p><img src="3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>動作的にはおかしいが、現状（2019/09/29）においては仕様ということです。 範囲選択状態から、検索を使用し、見つけた位置まで範囲選択を伸ばす事も可能になっているので、 カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+<p>動作的にはおかしいが、現状（2019/12/21）においては仕様ということです。 範囲選択状態から、検索を使用し、見つけた位置まで範囲選択を伸ばす事も可能になっているので、 カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto、movetolineno、mooveto2、goline～のコマンドです。)</p>
 <p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、 解除されない場合はカーソル移動を行うと思わぬ結果になるので注意すること。</p>
 <p>この動作を回避するには、範囲選択終了後に、一度カーソルを動かせばいい。(left、right等)</p>
+<div class="macro">
+<pre><code>//新規ファイル作成
+newfile;
+//ファイルに内容を追加
+gofiletop;
+#cnt = 1;
+while(5 &gt; #cnt){
+    insert &quot;123456789&quot;;
+    insertreturn;
+    #cnt = #cnt + 1;
+}
+//ファイルの先頭に移動
+gofiletop;
+//範囲選択開始
+beginsel;
+moveto x + 3, y;
+//範囲選択モード解除
+endsel;
+message &quot;範囲選択終了&quot;;
+
+//左に動かして、元に戻す(戻さなくてもいいがなんとなく)
+left;right;
+
+//今度は選択範囲が広がらない
+moveto x + 3, y + 3;
+message &quot;カーソル移動&quot;;
+endmacro;</code></pre>
 </div>
+</section>
 <h3 id="GETTEXT">【６】文字列型変数に取り込むには：その１（gettext文,gettext2文)</h3>
 <p>ユーザーの操作または上記のマクロ文で範囲選択した後、その選択された文字列を文字列型変数に取り込むにはどうすれば良いでしょうか。</p>
 <p>典型的には、以下のようなコーディングを見ることが多くなるでしょう。</p>
@@ -246,12 +276,12 @@ $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
 <dd>選択開始/BOX選択開始/行選択開始コマンドによる選択中かどうかを表します。（Ver.8.00以降）
 </dd>
 <dt><strong>mouseselecting</strong></dt>
-<dd>マウスによる選択中かどうかと、その選択方法を表します。（Ver.8.00以降） 0：マウスによる選択ではない<br />
+<dd><p>マウスによる選択中かどうかと、その選択方法を表します。（Ver.8.00以降）</p>
+<p>0：マウスによる選択ではない<br />
 1：文字単位の選択<br />
 2：単語単位の選択<br />
 3：行単位（折り返しまで）の選択<br />
-4：行単位（改行まで）の選択<br />
-
+4：行単位（改行まで）の選択</p>
 </dd>
 <dt><strong>multiselecting</strong></dt>
 <dd>複数選択中であるかどうかを表します。（Ver.8.40以降）
