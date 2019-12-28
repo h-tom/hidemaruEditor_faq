@@ -8,7 +8,7 @@ Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
 Language=0x411 日本語 (日本)
-Title=秀丸エディタＱ＆Ａ集(第8.6版)
+Title=秀丸エディタＱ＆Ａ集(第8.7版)
 
 
 [FILES]
@@ -251,6 +251,7 @@ HMM0079A.html
 HMM0080A.html
 HMM0081A.html
 HMM0082A.html
+HMM0083A.html
 about_us.html
 appendix.html
 atogaki.html
