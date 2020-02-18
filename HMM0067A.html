@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0067A] ●マクロで引用符を取得するには - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0067A_01">●マクロで引用符を取得するには</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>秀丸マクロの中で、秀丸エディタで設定されている引用符を文字列として取得したいのですが、どうすればいいですか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>現在の秀丸エディタ(Windows95以降対応バージョン)では、設定は全てレジストリに保存されています。 iniファイル関連の関数で、"HIDEMARU.INI"にアクセスすると、自動的にレジストリをアクセスするように なっていますが、 これは16bit版秀丸エディタとの(マクロの)互換性のための動作です。 現状では、レジストリアクセス関数で、レジストリから値を取得する方がいいでしょう。</p>
 <div class="macro">
 <pre><code>// （例） 引用符を取得するマクロサンプル ---------------------

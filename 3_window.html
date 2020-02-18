@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -18,7 +20,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　秀丸エディタウィンドウの管理</h1>
 <hr />
 <h2 id="INDEX">●秀丸エディタウィンドウの管理</h2>
@@ -151,11 +153,11 @@ insert $s;     // 元のファイルに挿入…あれ？</code></pre>
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><img src="3_window_01.png" alt="w1" width="260" height="260" /></td>
+<td><img src="3_window_01.png" width="260" height="260" alt="w1" /></td>
 <td style="text-align: center;">ウィンドウＣを<br />
 →<br />
 一番手前にする</td>
-<td style="text-align: right;"><img src="3_window_02.png" alt="w2" width="260" height="260" /></td>
+<td style="text-align: right;"><img src="3_window_02.png" width="260" height="260" alt="w2" /></td>
 </tr>
 </tbody>
 </table>
@@ -406,10 +408,10 @@ if (#modify_org) undo; // 元のウィンドウをいじっていたら元に戻す</code></pre>
 <h3 id="MISC2">【４】(補足)秀丸エディタウィンドウの間を移動時の注意点</h3>
 <p>マクロ実行中にウィンドウを切り替える場合の注意点</p>
 <!-- h4 -->
-<div class="marginleft">
-<h4 id="MISC2-1">[4-1] 外部DLLを使用してる場合</h4>
+<section id="MISC2-1" class="marginleft">
+<h4>[4-1] 外部DLLを使用してる場合</h4>
 <p>外部DLLをロードしている場合は、loaddll文/loaddll関数の有効範囲に注意してください。 詳細は、<a href="HMM0081A.html">[HMM0081A]●「DLLがロードされてないのにdllfunc関数が使われました」と表示される</a>の、 「loaddll文/loaddll関数の有効範囲の問題」を参照してください。</p>
-</div>
+</section>
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

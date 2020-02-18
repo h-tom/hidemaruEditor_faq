@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第IV部～テキスト編集を極める！！　正規表現について</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -18,7 +20,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第IV部～テキスト編集を極める！！<br>　正規表現について</h1>
 <hr />
 <h2 id="REGEXP">●正規表現について</h2>
@@ -295,7 +297,7 @@
 <dt><strong>"<code>{n}</code>"</strong></dt>
 <dd><p>n個の繰り返し<br />
 <code>a{5}</code> &#8211;&gt; aaaaa にマッチする</p>
-<p><img src="4_regular_01.png" alt="繰り返し5個" width="448" height="432" /><br />
+<p><img src="4_regular_01.png" width="448" height="432" alt="繰り返し5個" /><br />
 </p>
 <p>5個以上の箇所にもマッチしていますが、以下の</p>
 <ul>
@@ -308,14 +310,14 @@
 <dt><strong>"<code>{n,}</code>"</strong></dt>
 <dd><p>n個以上の繰り返し<br />
 <code>a{7,}</code> &#8211;&gt; aaaaaaa や aaaaaaaaaaaaaaa にマッチする</p>
-<p><img src="4_regular_02.png" alt="繰り返し7個以上" width="448" height="432" /><br />
+<p><img src="4_regular_02.png" width="448" height="432" alt="繰り返し7個以上" /><br />
 </p>
 <p>7個以上すべての箇所にマッチしています。</p>
 </dd>
 <dt><strong>"<code>{n,m}</code>"</strong></dt>
 <dd><p>n ～ m 個の繰り返し<br />
 <code>a{8,12}</code> &#8211;&gt; aaaaaaaa から aaaaaaaaaaaa にマッチする</p>
-<p><img src="4_regular_03.png" alt="繰り返し8～12個" width="448" height="432" /><br />
+<p><img src="4_regular_03.png" width="448" height="432" alt="繰り返し8～12個" /><br />
 </p>
 <p>8～12個の箇所にマッチしています。 20個の部分は、12個 と 8個の箇所にマッチしています。</p>
 </dd>
@@ -326,14 +328,14 @@
 <dt><strong>"<code>{n,}?</code>"</strong></dt>
 <dd><p>n個以上の繰り返し(最短一致)<br />
 <code>a{7,}?</code> &#8211;&gt; aaaaaaa にマッチする</p>
-<p><img src="4_regular_04.png" alt="繰り返し7個以上(最短一致)" width="448" height="432" /><br />
+<p><img src="4_regular_04.png" width="448" height="432" alt="繰り返し7個以上(最短一致)" /><br />
 </p>
 <p>14個以上は、7個 × 2個の箇所にマッチしています。</p>
 </dd>
 <dt><strong>"<code>{n,m}?</code>"</strong></dt>
 <dd><p>n ～ m 個の繰り返し(最短一致)<br />
 <code>a{8,12}?</code> &#8211;&gt; aaaaaaaa にマッチする</p>
-<p><img src="4_regular_05.png" alt="繰り返し8～12個(最短一致)" width="448" height="432" /><br />
+<p><img src="4_regular_05.png" width="448" height="432" alt="繰り返し8～12個(最短一致)" /><br />
 </p>
 <p>16個以上は、8個 × 2個の箇所にマッチしています。</p>
 </dd>

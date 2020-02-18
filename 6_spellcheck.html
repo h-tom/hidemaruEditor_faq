@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第VI部～秀丸エディタ拡張モジュール　秀丸スペルチェックアドイン</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -55,14 +57,14 @@
 <ul>
 <li><p><a href="http://aspell.net/win32/" class="externallink" target="_blank">GNU Aspell (Win32 version)</a></p>
 <p>「<strong>Binaries</strong>」にある、「<strong>Full installer</strong>」をクリックすれば「GNU Aspell」がダウンロード出来ます。<br />
-(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2019/11/20現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
+(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2020/02/16現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
 <div class="img_border">
 <p><img src="6_spellcheck_01.png" width="425" height="205" alt="Aspellダウンロード先" /><br />
 </p>
 </div>
 <p><span class="attention_red">GNU Aspell は、プログラム本体だけでは使用できません。チェックする言語に対応した辞書ファイルが必要です。</span></p>
 <p>ここでは例として「<strong>英語用辞書</strong>」をダウンロードします。 プログラム本体と同じ場所で、辞書ファイルもダウンロード出来ます。 「<strong>英語用辞書</strong>」なので、「Precompiled dictionaries:」にある「<strong>English</strong>」のファイルをダウンロードしてください。<br />
-(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2019/11/20現在、「Aspell-en-0.50-2-3.exe」です)</p>
+(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2020/02/16現在、「Aspell-en-0.50-2-3.exe」です)</p>
 <div class="img_border">
 <p><img src="6_spellcheck_02.png" width="452" height="465" alt="Aspell辞書ダウンロード先" /><br />
 </p>
@@ -73,7 +75,7 @@
 インストールする前に、秀丸エディタが起動していれば、常駐秀丸を含め、終了させておいた方が良いでしょう。 (常駐秀丸の終了方法は、「<a href="HME0053A.html">[HME0053A]●「常駐秀丸の終了」がわかりません</a>」を参照してください。)</p>
 <ul>
 <li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank">ソフトウェア</a> - <a href="https://hide.maruo.co.jp/software/hmspell.html" class="externallink" target="_blank">秀丸スペルチェックアドイン</a></p>
-<p>2019/11/20現在、以下のバージョンが公開されています。</p>
+<p>2020/02/16現在、以下のバージョンが公開されています。</p>
 <ul>
 <li>Ver1.04</li>
 </ul></li>
@@ -158,7 +160,7 @@
 </dd>
 </dl>
 <h3 id="SUPPLEMENTATION">【4】補足</h3>
-<div class="mark_dt2">
+<div class="mark_dt">
 <dl>
 <dt>スペルチェックアドインのアンインストール</dt>
 <dd><p>インストーラからインストールを行いましたが、アンインストールは手動で行う必要があります。 「プログラムと機能」や「アプリと機能」からはアンインストールできません。 手動でアンインストールするには準備が必要なので、「スペルチェックアドイン」のヘルプをよく読む必要があります。</p>
@@ -172,7 +174,7 @@
 <dt>スペルチェックアドインの設定について</dt>
 <dd><p>スペルチェックアドイン単独で設定をインポート/エクスポートする方法はありません。 秀丸エディタの「設定内容の保存/復元」を行えば、秀丸エディタ本体の設定と一緒に、保存/復元出来ます。</p>
 <p>設定内容も多くないので、「秀丸スペルチェックアドインの設定」ダイアログを表示させ、 設定画面をキャプチャーして保存し、同じように設定すればいいでしょう。</p>
-<p>設定画面をキャプチャーするには、ダイアログがアクティブな状態で、<span class="kbd">[Alt]</span>+<span class="kbd">[Print Screen]</span>キーを押します。 クリップボードにキャプチャされているので、ペイント等に貼り付けて保存してください。</p>
+<p>設定画面をキャプチャーするには、ダイアログがアクティブな状態で、<kbd>[Alt]</kbd>+<kbd>[Print Screen]</kbd>キーを押します。 クリップボードにキャプチャされているので、ペイント等に貼り付けて保存してください。</p>
 </dd>
 </dl>
 </div>

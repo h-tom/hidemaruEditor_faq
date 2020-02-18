@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　マクロ登録数の制限突破大作戦</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -18,7 +20,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　マクロ登録数の制限突破大作戦</h1>
 <hr />
 <h2 id="INDEX">●マクロ登録数の制限突破大作戦</h2>
@@ -34,7 +36,7 @@
 <div class="marginleft">
 <h3 id="HIDMACLN">【１】マウスクリックで秀丸マクロを実行できるアプリケーションの紹介</h3>
 <p>秀丸エディタのマクロをマウスで実行するには、もちろん「マクロ(M)」メニューから実行できますが、 画面上に常時表示させておいて、１クリックで実行しようとすると、 秀丸エディタ画面下部に出るファンクションキーに登録することになります。</p>
-<p>しかし、ファンクションキーに登録して画面上に常時表示しておけるマクロは、最大で12個です。 もちろん<span class="kbd">[SHIFT]</span>, <span class="kbd">[CTRL]</span>, <span class="kbd">[ALT]</span>キーを組み合わせると登録数自体は増やすことができますが、 その数だけ画面上のボタンに表示できるというわけではありません。</p>
+<p>しかし、ファンクションキーに登録して画面上に常時表示しておけるマクロは、最大で12個です。 もちろん<kbd>[SHIFT]</kbd>, <kbd>[CTRL]</kbd>, <kbd>[ALT]</kbd>キーを組み合わせると登録数自体は増やすことができますが、 その数だけ画面上のボタンに表示できるというわけではありません。</p>
 <p>それでは足りないという方のために、<strong>「マクロランチャー for秀丸エディタ」</strong>という外部アプリケーションが作成されています。 これを使えば、１つ起動する毎に最大30個のマクロをボタンに登録して、Windows画面上に表示させておくことができます。<br />
 ＃16bit版秀丸エディタには使用できません。</p>
 <p><span class="font_bold">「マクロランチャー for 秀丸エディタ」の入手先：</span></p>
@@ -99,17 +101,17 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 </div>
 <h4 id="NOMENUN">●メニューを出さないでマクロを実行したい</h4>
 <p>　メニューからマクロを実行する方法以外に、８０個以上のマクロを実行することはできないのでしょうか？<br />
-　例えば、デフォルトでは「<span class="kbd">[Ctrl]</span>+<span class="kbd">[F]</span>」で検索ダイアログがでますよね。こうした使い方でマクロを実行させたいわけです。 そして、これこそがこのセクションの最大のポイントです。<br />
+　例えば、デフォルトでは「<kbd>[Ctrl]</kbd>+<kbd>[F]</kbd>」で検索ダイアログがでますよね。こうした使い方でマクロを実行させたいわけです。 そして、これこそがこのセクションの最大のポイントです。<br />
 　そこで改めてマクロ登録数に関する仕様内容を読み返してみましょう。「８０個まで登録することができます」です。 おおっ。「８０個までのマクロを実行できます」ではなかったんですね。 つまり「登録の制限」があるだけで「８０個しかマクロを実行できないわけではない」のです。 この仕様の隙間に注目すれば、無限のマクロ登録が実現します！</p>
 <h4 id="PRINCIPLE">●登録数の制限突破への原理</h4>
 <p>　あうん？　「登録の制限」があるだけで……、んで、「実行できないわけではない」……。 なんだか、わかったようでわからないような…。これじゃ、まるで怪しげな結婚詐欺師。 持って回った言い回しになってスイマセンです。 要は「登録できるマクロは８０個までだが、８０個のマクロしか実行できないわけではない」という事です。</p>
 <p>　最大のポイントは「登録できるマクロ数には８０という制限があるが、キー割り当てには制限がない」という仕様に注目するところです。 実際のマクロ作成では、次のようなステップで目的を実現します。</p>
 <ol type="1">
 <li><p><strong>複数のキー割り当てから一つのマクロを呼び出す</strong><br />
-　「キー割り当て」によって指定できるマクロは、登録されたマクロに限られます。 逆に言えば、複数の「キー割り当て」に対して、一つのマクロを重複して指定することは許容されているわけです。 　例えば、<span class="kbd">[Ctrl]</span>+<span class="kbd">[A]</span>、<span class="kbd">[Ctrl]</span>+<span class="kbd">[Shift]</span>+<span class="kbd">[A]</span>、<span class="kbd">[Alt]</span>+<span class="kbd">[A]</span>の３つのキー割り当てに対して、すべてaaa.macというマクロを重複して指定します。</p></li>
+　「キー割り当て」によって指定できるマクロは、登録されたマクロに限られます。 逆に言えば、複数の「キー割り当て」に対して、一つのマクロを重複して指定することは許容されているわけです。 　例えば、<kbd>[Ctrl]</kbd>+<kbd>[A]</kbd>、<kbd>[Ctrl]</kbd>+<kbd>[Shift]</kbd>+<kbd>[A]</kbd>、<kbd>[Alt]</kbd>+<kbd>[A]</kbd>の３つのキー割り当てに対して、すべてaaa.macというマクロを重複して指定します。</p></li>
 <li><p><strong>押されているキーの状態を判別する</strong><br />
-　でも、1.まででは複数のキー入力によって一つのマクロを実行することしかできません。 そこで、呼び出されたマクロ（この例ではaaa.mac）では、押されているキーの状態を読みとります。 <span class="kbd">Ctrl</span>キーは押されているのか、<span class="kbd">Shift</span>キーはどうか、アルファベットキーはどうなのか、などをiskeydown関数を用いて調べます。</p>
-<p>　例えば、ここでは、<span class="kbd">[Ctrl]</span>+<span class="kbd">[A]</span>、<span class="kbd">[Ctrl]</span>+<span class="kbd">[Shift]</span>+<span class="kbd">[A]</span>、<span class="kbd">[Alt]</span>+<span class="kbd">[A]</span>のキー状態を判別します。</p></li>
+　でも、1.まででは複数のキー入力によって一つのマクロを実行することしかできません。 そこで、呼び出されたマクロ（この例ではaaa.mac）では、押されているキーの状態を読みとります。 <kbd>Ctrl</kbd>キーは押されているのか、<kbd>Shift</kbd>キーはどうか、アルファベットキーはどうなのか、などをiskeydown関数を用いて調べます。</p>
+<p>　例えば、ここでは、<kbd>[Ctrl]</kbd>+<kbd>[A]</kbd>、<kbd>[Ctrl]</kbd>+<kbd>[Shift]</kbd>+<kbd>[A]</kbd>、<kbd>[Alt]</kbd>+<kbd>[A]</kbd>のキー状態を判別します。</p></li>
 <li><p><strong>キーの状態に応じたマクロを呼び出して実行させる</strong><br />
 　2.で得られたキーの状態に応じたマクロを呼び出せば、キーボードからさまざまなマクロを実質的に無限に実行できるようになります。</p>
 <p>（もっともこの場合、どのキーにどんなマクロを割り当てたかを覚えておく必要があります。）</p></li>
@@ -122,13 +124,13 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <p>　では、まず、上述の原理をもっとも忠実に再現した、シンプルなマクロを紹介しましょう。 （月刊アスキー97年3月号「パソコン早わかり研究会」より引用）</p>
 <p>●マクロ登録数の限界を破る</p>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><span class="font_bold">秀丸エディタのマクロをショートカットキーやメニューに登録して使っています。 でも登録は、最高で80個まで（ショートカットキーを割り当てられるのは50個まで）しかできませんよね。 しかし、雑誌の付録などで集めた小さいマクロも含めていろいろ登録していると、これではとても収まらなくなってきました。 あふれたマクロを「マクロの実行」メニューから呼び出す方式はわずらわしいのでイヤなのですが、なんとかなりませんか。</span>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>では、この制限を回避し、無制限にショートカットキーにマクロを割り当てるマクロを紹介します。 「キー割り当ては50個で十分」という方も、備えあれば憂いなし、将来の不安を取り除くためにも、1度お試しください。</p>
 <p>　手順は以下の通りです。 ここでは例として、マクロ「ASCII.mac」をAlt＋Ctrl＋Shift＋A（Alt／Ctrl／Shiftキーを同時に押しながらAキーを押す）に割り付けたい場合を想定します。 また、便宜上、Alt／Ctrl／Shiftを特殊キー、A～Zと0～9を一般キーと呼ぶことにします。</p>
 <ol type="1">
@@ -225,12 +227,12 @@ endmacroall;</code></pre>
 </table>
 </div>
 <p><span class="font_bold">（ウ）実行させるマクロファイルの指定（execmacro"NNNN.mac"の部分）</span></p>
-<p>　<span class="kbd">[Alt＋Ctrl＋Shift＋A]</span>で実行させたいマクロの名前を指定します。例では「ASCII.mac」ですから、</p>
+<p>　<kbd>[Alt＋Ctrl＋Shift＋A]</kbd>で実行させたいマクロの名前を指定します。例では「ASCII.mac」ですから、</p>
 <pre><code>if(#c == 65)execmacro &quot;ASCII.mac&quot;;</code></pre>
-<p>画面H7　<span class="kbd">[Alt＋Ctrl＋Shift＋A]</span>で実行させたいマクロの名前を「ASCII.mac」と指定した。</p>
+<p>画面H7　<kbd>[Alt＋Ctrl＋Shift＋A]</kbd>で実行させたいマクロの名前を「ASCII.mac」と指定した。</p>
 </div></li>
 <li><p>登録したマクロの実行</p>
-<p>　これで、<span class="kbd">[Alt＋Ctrl＋Shift＋A]</span>キーにより「ASCII.mac」が実行されます。 <span class="kbd">[Alt＋Ctrl＋Shift＋A]</span>が押された時点で実際にはmoreMac.macが起動し、 そのマクロから、同じキー操作に割り当てられている「ASCII.mac」が実行されるわけです。</p></li>
+<p>　これで、<kbd>[Alt＋Ctrl＋Shift＋A]</kbd>キーにより「ASCII.mac」が実行されます。 <kbd>[Alt＋Ctrl＋Shift＋A]</kbd>が押された時点で実際にはmoreMac.macが起動し、 そのマクロから、同じキー操作に割り当てられている「ASCII.mac」が実行されるわけです。</p></li>
 <li><p>続々とマクロを登録していこう</p>
 <p>　今後は、マクロを新規にキー割り当てしたくなった時点で、(2)～(4)の処理を繰り返せば、 あらゆる「特殊キー＋一般キー」に対して事実上無制限にマクロを登録できます。 あらかじめ、現在マクロが登録されていない特殊キーと一般キーの組み合わせに対して片っ端から「moreMac.mac」を割り付けておくと、 今は面倒でも、後々はmoreMac.macのスクリプト変更だけでキー割付が実現するので楽でしょう （ただし、単独のShiftキーと一般キーとの組み合わせに割り付けることは避けましょう。文字入力が不便になります）。</p>
 <p>画面H8　moreMac.macに、実際にいくつかのマクロを割り当てた。 登録マクロ数が増えると、このmoreMac.macはどんどん長いマクロになっていく。ちなみに、(4)-（ア）で指定する</p>

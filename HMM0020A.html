@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0020A] ●長い文字列を message 表示 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0020A_01">●長い文字列を message 表示</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>長い文字列を表示したのですが、message 文では問題があるようです。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>確かに秀丸エディタV2.14あたりまでは、約500バイト、秀丸エディタV2.15でも約4000バイト程度で問題が発生するようです。 表示させる内容があらかじめわかっている場合であれば、文字列を短くするとか、 message文を複数用意するといった対応方法があります。</p>
 <p>しかし、マクロの途中などで、多量かつ何文字になるかわからない場合は、message文は不適当です。 そこで menuarrayを使う方法があります。これだとどれだけながくなっても少なくとも表示はできます。 欠点としては、幅が長くなると右で切れます。従ってどうしても長い情報を表示させたい場合には、 情報（文字列）を適当に切ってmenuarrayの配列子にいれると見栄えが良くなります。 ただし、こうした長い文字列をmessage 文や menuarray 文で処理するのは原則的に避けるべきです。</p>
 </dd>

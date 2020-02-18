@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部～知っていると便利な秀丸の機能　変換モジュール</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -67,7 +69,7 @@
 <p>変換モジュールの登録は、メニューの「その他」-&gt;「<span class="env">動作環境</span>」で行います。</p>
 <ol type="1">
 <li><p>「<span class="font_red_bold">上級者向け設定</span>」にチェックが付いていない場合、チェックする。</p>
-<p><img src="2_convert_05.png" width="605" height="433" alt="上級者向け設定にチェック" /><br />
+<p><img src="2_mark_01.png" width="605" height="433" alt="上級者向け設定にチェック" /><br />
 </p></li>
 <li><p>「編集」の下に項目が追加されるので、「編集」-「<span class="attention_red">変換</span>」を選択する。</p>
 <p><img src="2_convert_01.png" width="605" height="433" alt="変換画面" /><br />
@@ -92,8 +94,8 @@
 </ul>
 <p>という方法を使います。</p>
 <!-- h5 -->
-<div class="marginleft">
-<h5 id="EXPLANATION-2-1">変換モジュールの機能を呼び出すマクロを作るには</h5>
+<section id="EXPLANATION-2-1" class="marginleft">
+<h5>変換モジュールの機能を呼び出すマクロを作るには</h5>
 <p>変換モジュールを呼び出すには、 「<a href="https://help.maruo.co.jp/hidemac/html/080_CmdStatement_Edit_filter.html" class="externallink" target="_blank">filter文</a>」 を使います。</p>
 <div class="macro">
 <pre><code>filter &quot;変換モジュール名&quot;, &quot;関数名&quot;, &quot;パラメータ(省略可能)&quot;
@@ -142,7 +144,7 @@ endmacro;</code></pre>
 <pre><code>0x00100000 各種の文を複数選択に対応した動作にします。</code></pre>
 </div>
 <p>があるので、setcompatiblemode文 に このフラグをセットし、マクロに追加しておけば、 複数選択に対応させることが可能です。</p>
-</div>
+</section>
 <h4 id="EXPLANATION-3">変換モジュールを置く場所について</h4>
 <p>説明では秀丸エディタ本体と同じ場所に置きましたが、実際は何処に置いても登録してしまえば、 秀丸エディタ本体からは問題なく使用できます。</p>
 <p>問題(というかチョット面倒？)になるのは、マクロが絡む場合です。</p>

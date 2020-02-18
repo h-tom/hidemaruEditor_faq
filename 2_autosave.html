@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部～知っていると便利な秀丸の機能　自動保存</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -18,14 +20,14 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第II部～知っていると便利な秀丸の機能<br>　自動保存</h1>
 <hr />
 <h2 id="autosave">●自動保存</h2>
 <p>秀丸エディタでは、「<strong>自動保存</strong>」が可能です。</p>
 <p>秀丸エディタではファイルを開いている経過時間ではなく、「<span class="attention_red">更新された回数</span>」と「<span class="attention_red">遅延時間</span>」 で 自動保存の条件、タイミングの設定を行います。</p>
 <p>「自動保存」の設定は、「<span class="env">動作環境</span>」-「ファイル」-「自動保存」から行います。 「自動保存」が表示されない場合は、「上級者向け設定」にチェックを入れてください。</p>
-<p><img src="2_autosave_01.png" alt="自動保存のダイアログ" width="613" height="433" /><br />
+<p><img src="2_autosave_01.png" width="613" height="437" alt="自動保存のダイアログ" /><br />
 </p>
 <!-- h3 -->
 <div class="marginleft">
@@ -41,14 +43,14 @@
 </dd>
 <dt>テンポラリファイルに自動保存する</dt>
 <dd>環境変数TMPで示されるフォルダに同じファイル名で保存します。<br />
-「エクスプローラ」ボタンで、テンポラリフォルダを開く事が出来ます。
+<span class="btn-push">「エクスプローラ」</span>ボタンで、テンポラリフォルダを開く事が出来ます。
 </dd>
 <dt>ファイルを更新する</dt>
 <dd>編集しているファイル自体を、保存・更新します。
 </dd>
 <dt>指定フォルダに自動保存する</dt>
 <dd><p>指定されたフォルダに、同じファイル名で保存を行います。<br />
-書き込み可能なフォルダを指定してください。 「…」ボタンで、ダイアログから選択する事も可能です。</p>
+書き込み可能なフォルダを指定してください。 <span class="btn-push">「…」</span>ボタンで、ダイアログから選択する事も可能です。</p>
 <p>Ver.8.88以降、指定フォルダの指定に環境変数が指定できます(バッチファイルで指定する場合と同じで、%で囲む必要あり)。 ただし、先頭部分のみ指定可能です。パスの途中に環境変数の指定は出来ません。</p>
 <div class="macro">
 <pre><code>OK:  %USERPROFILE%\Documents\Hidemaru\AutoSave
@@ -73,14 +75,18 @@ NG:  C:\TEMP\%USERNAME%\Hidemaru\AutoSave</code></pre>
 <div class="mark_dt">
 <dl>
 <dt>更新された回数</dt>
-<dd><p>設定できるのは、1以上です。</p>
+<dd><p>設定できるのは、1以上です。0(ゼロ)も入力できますが、最小値は 1 なので、1に設定されます。</p>
 <p>「更新された回数」というのは、内容が変更された回数という認識で良いでしょう。</p>
 <p>例えば、単純に10文字入力すると、10回更新した事になりますが、 コピーや貼り付け、やり直し、IMEが有効で日本語入力した場合など、 自分が更新したと思われる回数と一致しない場合がありますが、あまり気にしない事です。 目安程度に考えましょう。</p>
 </dd>
 <dt>遅延時間</dt>
-<dd><p>設定できるのは、0～40秒です。</p>
+<dd><p>設定できるのは、0秒以上です。</p>
 <p>遅延とありますが、一定時間、入力・編集など操作しない時間です。</p>
 <p>つまり、「遅延時間」を設定した場合、連続で操作・編集していると、 「更新された回数」をすぎても保存されないので注意が必要です。</p>
+</dd>
+<dt>ウィンドウ切り替えですぐに保存</dt>
+<dd><p>編集中の秀丸エディタが、非アクティブ状態(他のウィンドウに切り替えた場合や、ダイアログを表示した場合等)になった場合、 遅延時間が経過していなくても、自動保存を行います。</p>
+<p>無視されるのは「遅延時間」だけなので、「更新された回数」を越えていない場合は、自動保存されません。</p>
 </dd>
 </dl>
 <p>以下の2つの設定は、自動保存の設定が「<strong>ファイルを更新する</strong>」の場合、有効になります。</p>

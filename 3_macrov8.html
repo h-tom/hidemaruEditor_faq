@@ -385,6 +385,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li><p>beginlinesel 範囲選択が含まれる行すべてを行単位の選択にしてから、行選択モードに移る。</p></li>
 <li><p>copyline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてコピーする。</p></li>
 <li><p>cutline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてカットする。</p></li>
+<li><p>selectline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行単位にそろえて選択する。</p></li>
 <li><p>colormarker パラメータに開始位置と終了位置を指定可能にした。(範囲選択していなくても、指定した箇所にカラーマーカーをつける。)</p></li>
 <li><p>existfile 第二パラメータに2を指定すると、ファイルサイズを取得可能にした。</p>
 <pre><code>ファイルサイズは、マクロの数値範囲である2G(2147483647)が最大となる。
@@ -984,12 +985,17 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>gettabstop 関数</li>
 <li>Hidemaru_AnalyzeEncoding 関数(DLL側から呼び出す秀丸エディタの関数)</li>
 <li>Hidemaru_LoadFileUnicode 関数(DLL側から呼び出す秀丸エディタの関数)</li>
+<li>outlineitemcount キーワード</li>
+<li>getoutlineitem 関数</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
 <li>setcompatiblemode でマクロ実行中にカーソル行の下線や縦線を描画できるフラグを追加。</li>
 <li>saveconfig 文のパラメータで指定した設定名で保存できるように追加。</li>
-<li>gettitleの第２パラメータを追加して、他の秀丸エディタからの取得もできるように修正。</li>
+<li>gettitle の第２パラメータを追加して、他の秀丸エディタからの取得もできるように修正。</li>
+<li>clearallmark 文のパラメータ追加。1で「現在のファイルのマークを解除」を行う。</li>
+<li>showvars も debuginfo で 2 を指定している場合はアウトプット枠へ出力するように修正。</li>
+<li>codepageキーワードのUTF-32は12000(UTF-32LE)と12001(UTF-32BE)に変更。</li>
 </ul></li>
 <li>その他
 <ul>
@@ -998,6 +1004,9 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V890">【２】仕様変更 - 「秀丸エディタ」Ver.8.90</h3>
+<ul>
+<li>強調表示の文字列の上限を3999文字までに拡張</li>
+</ul>
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

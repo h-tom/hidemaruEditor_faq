@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0018A] ●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意 - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,13 +26,13 @@
 <h2 id="HMM0018A_01">●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>openfileで自由な位置にウィンドウを開きたいのですが、思ったように動きません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。 従って「<code>openfile"/(100,200,300,400)";</code>」は正しい書き方ですが、 「<code>openfile "/(#XX,#YY,#CX,#CY)";</code>」は誤りです。 数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。 次にその例を示します。</p>
 <div class="macro">
 <pre><code>openfile &quot;/(&quot;+str(#XX)+&quot;,&quot;+str(#YY)+&quot;,&quot;+str(#CX)+&quot;,&quot;+str(#CY)+&quot;)&quot;;</code></pre>

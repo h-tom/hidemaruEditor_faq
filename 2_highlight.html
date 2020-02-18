@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部～知っていると便利な秀丸の機能　強調表示</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -62,10 +64,10 @@
 <p>強調表示を設定するには、以下の操作が必要です。</p>
 <ul>
 <li><p>「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」の「場所の一覧」で、 各強調表示の「プロパティ」から、文字色、背景色、スタイルを設定する。</p>
-<p><img src="2_highlight_01.png" width="604" height="321" alt="デザイン、場所の一覧" /><br />
+<p><img src="2_highlight_01.png" width="595" height="314" alt="デザイン、場所の一覧" /><br />
 </p></li>
 <li><p>「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」→「強調表示」で、 強調表示する内容を設定する。</p>
-<p><img src="2_highlight_02.png" width="609" height="269" alt="デザイン、強調表示" /><br />
+<p><img src="2_highlight_02.png" width="587" height="264" alt="デザイン、強調表示" /><br />
 </p></li>
 </ul>
 <p>「強調表示したい文字列」を、<span class="attention_red">任意の文字色、背景色、スタイルに設定する事は出来ません</span>。<br />
@@ -255,8 +257,8 @@
 <p>カラーマーカーと自動起動マクロを使えば、ある程度、強調表示と同じようなことは可能です。 ただし、結構大変です。</p>
 <p>マクロには、「すべての候補を色付け」コマンド相当の「<code>colormarkerallfound</code>文」があります。 この命令と、自動起動マクロの「ファイルを開いた直後」、「編集後タイマー」を使えば、 検索にマッチした箇所を、(カラーマーカーで設定できる範囲ですが)任意の色やスタイルにする事が出来ます。</p>
 <!-- h5 -->
-<div class="marginleft">
-<h5 id="SUPPLEMENTATION-4-1">特定箇所にカラーマーカーで色付けするマクロの例</h5>
+<section id="SUPPLEMENTATION-4-1" class="marginleft">
+<h5>特定箇所にカラーマーカーで色付けするマクロの例</h5>
 <p>「編集後タイマー」に、以下のマクロを指定します。(ある程度、時間経過させた方が良いでしょう。)</p>
 <p>編集していた行に「ファイルタイプ別の設定」という文字があれば、カラーマーカーで色付けします。 範囲選択しているのは、対象ファイルのサイズが大きいと時間がかかる可能性があるので、その対策です。</p>
 <p>実際には、外部にデータファイルを持たせたり、もう少し着色する範囲を広くした方が良いかもしれません。</p>
@@ -282,7 +284,7 @@ escape;right;
 moveto #x, #y;
 enabledraw #topy;</code></pre>
 </div>
-</div>
+</section>
 <h4 id="SUPPLEMENTATION-5">強調表示内容の合成</h4>
 <p>既存の強調表示内容に、強調表示定義ファイルの内容を追加する方法は、標準では用意されていませんが、 方法がないわけではありません。</p>
 <p>強調表示定義ファイルはテキストファイルです。その為、秀丸エディタ自身で編集が可能です。</p>

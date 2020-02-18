@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　秀丸エディタVer.5.00 マクロ関連の変更履歴</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -18,7 +20,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　秀丸エディタVer.5.00 マクロ関連の変更履歴</h1>
 <hr />
 <h2 id="V5">●秀丸エディタVer.5.00 マクロ関連の変更履歴</h2>
@@ -49,7 +51,7 @@
 <li>1 * -1 がエラーになる問題修正</li>
 <li>disableerrormsgが有効のとき、「文字コード変換できない文字が含まれています。かまわずに保存しますか？」 のメッセージは出さないようにして、常にかまわず保存してしまうようにする</li>
 <li>Unicodeの文字列対応<br />
-文字列型変数の中で"</li>
+文字列型変数の中で""として、0000の部分に16進数4桁でUnicodeを記述</li>
 <li>Unicode対応の修正<br />
 insert, insertfix, overwrite,leftstr, rightstr, midstr,strlen, strstr, message,gettext, gettext2, setclipboard, addclipboard, getclipboard</li>
 <li>Unicode非対応の修正<br />
