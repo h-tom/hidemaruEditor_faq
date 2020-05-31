@@ -435,12 +435,8 @@ div.mark_dt > dl > dt {
   background-color : thistle;
 }
 
-div.mark_dt2 > dl > dt {
-  margin-top    : 1em;
-  margin-left   : 0.5em;
-  font-weight   : bold;
-  /*color       : white;*/
-  background-color : thistle;
+div.mark_dt > dl > dd {
+  margin-bottom   : 0.5em;
 }
 
 .mark_dt3 {
@@ -556,6 +552,7 @@ header#title-block-header{
     display:none
 }
 */
+
 /* 640px*/
 @media screen and (max-width: 640px) {
   h1,h2,h3,h4,h5,h6 {

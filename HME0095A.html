@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HME0095A] ●検索した単語を全て強調表示したい - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -25,23 +27,24 @@
 <!-- H2 -->
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>検索した単語を、そのテキスト（秀丸エディタウィンドウ）全体で強調表示する方法はありますか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>秀丸エディタVer.5.00より、検索文字列を強調表示することが可能になりました。</p>
 <ul>
 <li><p>「検索」メニューから「検索文字列の強調」を選択</p>
-<p><img src="HME0095A_01.png" alt="検索文字列の強調メニュー画面" width="376" height="224" /><br />
+<p><img src="HME0095A_01.png" width="376" height="224" alt="検索文字列の強調メニュー画面" /><br />
 </p></li>
 <li><p>検索ダイアログで「検索文字列を強調」をチェック</p>
-<p><img src="HME0095A_02.png" alt="検索ダイアログ画面" width="433" height="244" /><br />
-</p></li>
+<div style="position:relative;">
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /> <img src="HME0095A_02.png" width="433" height="244" alt="検索ダイアログ-検索文字を強調" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
 <li><p>ツールバーに「検索文字列を強調」追加すれば、ツールバーでon/off可能</p>
-<p><img src="HME0095A_03.png" alt="検索文字列の強調メニュー画面" width="274" height="157" /><br />
+<p><img src="HME0095A_03.png" width="274" height="157" alt="検索文字列の強調メニュー画面" /><br />
 </p></li>
 </ul>
 <p>ちなみに、「検索文字列の強調」も強調表示の一種であるため、改行を含む場合は強調表示されません。 以下を参照してください。</p>
@@ -49,7 +52,7 @@
 <li><a href="https://log.maruo.co.jp/hidesoft/hidesoft_2/x20691.html#20700" class="externallink" target="_blank">hidesoft.2:20700</a></li>
 <li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/080_Config_HilightWord_Prop.html" class="externallink" target="_blank">強調表示文字列のプロパティ</a></li>
 </ul>
-<p>「検索文字列の強調」が有効になっている場合、<span class="kbd">[ESC]</span>キーを押すと、強調表示が<span class="attention_red">解除</span>されます。</p>
+<p>「検索文字列の強調」が有効になっている場合、<kbd>[ESC]</kbd>キーを押すと、強調表示が<span class="attention_red">解除</span>されます。</p>
 <p>「検索」の<a href="2_find.html#ALLSEARCH_COLORING">「すべて検索 - 色付け 」</a>を使う方法もあります。 詳細は、<a href="2_find.html">「第II部～知っていると便利な秀丸の機能　検索」</a>を参照。</p>
 </dd>
 </dl>

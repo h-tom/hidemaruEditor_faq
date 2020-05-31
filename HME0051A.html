@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HME0051A] ●漢字コードの使い分け - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -24,21 +26,21 @@
 <h2 id="HME0051A_01">●漢字コードの使い分け</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong>秀丸エディタで複数の漢字コードを使い分けたいのですがどうすればいいでしょうか?</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>秀丸エディタは、デフォルトでエンコードの自動判別が有効になっています。 しかし、自動判定で、全てのエンコードを間違いなく判定する保証はないです。</p>
 <p>特定のエンコードを使う場合は種々の方法が存在します。</p>
 <ol type="1">
 <li><p>自動判定を有効にする。</p>
-<p>「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード1」→「自動判定で開くとき」で、 <span class="marker1">「ファイルの内容を解析してエンコードの種類を自動認識する」</span>をＯＮにして下さい。<br />
+<p>「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード1」→「自動判定で開くとき」で、 <span class="marker1">「ファイルの内容を解析してエンコードの種類を自動認識する」</span>をONにして下さい。<br />
 (「<strong>エンコード1</strong>」が表示されていない場合は、「動作環境」画面左下にある「<span class="attention_red">上級者向け設定</span>」をONにしてください)</p>
 <p>使用状況に合わせ、エンコードの優先度を変更したり、新規作成時のエンコードの指定も出来ます。</p>
-<p><img src="HME0051A_01.png" alt="エンコード1" width="605" height="433" /><br />
+<p><img src="HME0051A_01.png" width="613" height="437" alt="エンコード1" /><br />
 </p></li>
 <li><p>ファイルを開くときに明示的に文字コードを指定する。</p>
 <p>メニューの「ファイル」→「開く」等のダイアログで、「文字コード」で正しい文字コードを指定します。</p></li>
@@ -46,12 +48,12 @@
 <p>ショートカットの作成方法は、<a href="4_cmdlin.html#DRAGDROP">テキスト編集を極める！！　起動オプションを使ってみよう</a> を参照してください。</p></li>
 <li><p>(EUCコードの場合のみ)保存するフォルダを決めておく。</p>
 <p>秀丸エディタの「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード2」にある、 <span class="marker1">「EUCコードの指定ドライブ」</span>の欄にドライブを指定し、EUCコードのファイルはそこに保存する。</p>
-<p><img src="HME0051A_02.png" alt="エンコード2" width="605" height="415" /><br />
+<p><img src="HME0051A_02.png" width="613" height="437" alt="エンコード2" /><br />
 </p></li>
 <li><p>ファイルの先頭に、文字コードを記述しておく</p>
 <p>ファイルの先頭に、文字コードを記述しておく方法もあります。 ただし、「<span class="filetype">ファイルタイプ別の設定</span>」で、判定を有効にしておく必要があります。</p>
 <p>「その他」－「保存・読込み」にある「エンコードの種類の指定」で<span class="marker1">「自動判定で開くときconfig等のコメントの認識」</span> のチェックをONにします。</p>
-<p><img src="HME0051A_03.png" alt="エンコードの指定" width="632" height="185" /><br />
+<p><img src="HME0051A_03.png" width="632" height="185" alt="エンコードの指定" /><br />
 </p>
 <p>チェックを入れた状態で、ファイルの先頭に、決められた書式を記述しておくと。文字コードを指定できます。 指定方法は2通りあります。</p>
 <ol type="1">

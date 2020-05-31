@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部～知っていると便利な秀丸の機能　grep/タグジャンプ</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -106,9 +108,9 @@
 <li><p>右側にあるチェックボックスの内、該当する物にチェックをします。</p>
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
-検索文字列の大文字と小文字を区別して検索します。この項目がＯＦＦの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
+検索文字列の大文字と小文字を区別して検索します。この項目がOFFの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
+この項目がONになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
 「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。</p></li>
@@ -123,16 +125,16 @@
 <li><p><strong>「<span class="font_blue">ヒットしない行</span>」チェックボックス</strong><br />
 これをONにすると、ヒットしない行を出力します。「追加の条件」が指定されている場合は、この設定は無効になります。</p></li>
 <li><p><strong>「<span class="font_blue">サブフォルダも検索</span>」チェックボックス：</strong><br />
-この項目がＯＮの時、指定されたフォルダにサブフォルダがある場合そのサブフォルダの中のファイルも検索します。</p></li>
+この項目がONの時、指定されたフォルダにサブフォルダがある場合そのサブフォルダの中のファイルも検索します。</p></li>
 <li><p><strong>「<span class="font_blue">最小化状態で実行</span>」チェックボックス：</strong><br />
-grepの実行時は、実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がＯＮの時はgrepの実行が終了するまで、 この結果表示ウィンドウをアイコン化します。</p></li>
+grepの実行時は、実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、 この結果表示ウィンドウをアイコン化します。</p></li>
 <li><p><strong>「<span class="font_blue">ファイル名一覧だけ作成</span>」チェックボックス：</strong><br />
 </p>
 <ol start="7" type="1">
 <li>の出力結果の違いをご覧下さい。</li>
 </ol></li>
 <li><p><strong>「<span class="font_blue">ファイル名をフルパスで出力</span>」チェックボックス：</strong><br />
-この項目がＯＮの時、検索文字列が見つかったファイルのファイル名をフルパスで出力します。 ＯＦＦの場合はファイル名だけを出力します。</p></li>
+この項目がONの時、検索文字列が見つかったファイルのファイル名をフルパスで出力します。 OFFの場合はファイル名だけを出力します。</p></li>
 <li><p><strong>「<span class="font_blue">エンコードの種類</span>」コンボボックス：</strong><br />
 検索するファイルのエンコードを指定します。「自動判定」で不都合がある場合には、指定してみてください。 ただし、検索対象が全部同じエンコードでないと、誤判定します。</p></li>
 <li><p><strong>「<span class="font_blue">出力先</span>」コンボボックス：</strong><br />
@@ -144,19 +146,19 @@ grep結果の出力先を指定します。</p>
 <li>「アウトプット枠」は、アウトプット枠を開き、そこに出力します。</li>
 </ul></li>
 </ul></li>
-<li><p>右上の「ＯＫ」ボタンを押すと検索が始まります。</p></li>
-<li><p>実行が終わると結果を表示するウィンドウができています。 その内容は「<strong>ファイル名一覧だけ作成</strong>」チェックボックスのＯＮ／ＯＦＦによって少し違います。</p>
+<li><p>右上の「OK」ボタンを押すと検索が始まります。</p></li>
+<li><p>実行が終わると結果を表示するウィンドウができています。 その内容は「<strong>ファイル名一覧だけ作成</strong>」チェックボックスのON/OFFによって少し違います。</p>
 <ul>
-<li><p><strong>「ファイル名一覧だけ作成」が「ＯＦＦ」の時の動作</strong><br />
-この項目がＯＦＦの時は、検索文字列が見つかった全てのファイル名と行を結果として書き出します。</p>
+<li><p><strong>「ファイル名一覧だけ作成」が「OFF」の時の動作</strong><br />
+この項目がOFFの時は、検索文字列が見つかった全てのファイル名と行を結果として書き出します。</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]<br />
 file1.txt(2): ファイル１の２行目<br />
 file1.txt(20): ファイル１の２０行目<br />
 file2.txt(1): ファイル２の１行目<br />
 file2.txt(2): ファイル２の２行目<br />
 (以下略)</p></li>
-<li><p><strong>「ファイル名一覧だけ作成」が「ＯＮ」の時の動作</strong><br />
-この項目がＯＮの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例("file?.txt"について"２"を検索)]<br />
+<li><p><strong>「ファイル名一覧だけ作成」が「ON」の時の動作</strong><br />
+この項目がONの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例("file?.txt"について"２"を検索)]<br />
 file1.txt(2)<br />
 file2.txt(1)<br />
 file3.txt(2)<br />

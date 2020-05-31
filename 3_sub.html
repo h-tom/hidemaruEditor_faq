@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部～秀丸マクロのいろはにほへと　サブルーチンについて</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -18,7 +20,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" alt="Hidemaru Q and A" width="88" height="32" /></a></p>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="sub01">第III部～秀丸マクロのいろはにほへと<br>　サブルーチンについて</h1>
 <hr />
 <h2 id="sub02">●サブルーチンについて</h2>
@@ -34,25 +36,25 @@
 <div class="marginleft">
 <h4 id="ABOUT01">●サブルーチンってナニ？</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>話の腰を折るようで申し訳ないんですが、そもそもサブルーチンって何ですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>簡単に言ってしまえば「ひとかたまりの処理をまとめたもの」というような感じで捕らえてください。 マクロファイル中で何度も現れるような処理をひとつのサブルーチンとして一個所に書き、 必要な時にはこれを呼び出して何度も利用しようという仕組みです。
 </dd>
 </dl>
 <h4 id="ABOUT02">●サブルーチンってどんなもの？</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>プログラミングの経験がない私としては、サブルーチンを使った具体的な例を示してもらわないとイマイチ、理解できないのですが…。
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>いま２つの数値があり、まずこの和を求め、続いてその和を10倍します。 この計算結果をダイアログボックスで表示するマクロで例を示します。 　原型となり得るのは次のマクロです。プログラミングの経験がない方も、それとなく、何をやっているか、 ある程度、想像はつくのではないでしょうか？</p>
 <div class="macro">
 <pre><code>// addten1.mac
@@ -116,13 +118,13 @@ return;</code></pre>
 <div class="marginleft">
 <h4 id="SYNTAX01">●サブルーチンの概要(イメージ)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>何となくサブルーチンが解ってきました。典型的なスタイルを教えてください。
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>サブルーチンを使うには「call文」「ラベル」「return文」の３つの構成要素について知る必要があります。 その詳細は次からの項目で説明します。 ここでは、典型的なマクロプログラムの型を紹介します。 マクロ文法を知らない人も下図を見ると、マクロの動き方がそれとなく理解できると思います。</p>
 <p><strong>-サブルーチンがないモデル-</strong><br />
 　call 文がない場合は、秀丸マクロはファイルの先頭から endmacro文まで上から下へと順番良くプログラムを実行します。 「ファイルの先頭から順番に１行づつプログラムを処理する」のが秀丸マクロの原則です。</p>
@@ -161,13 +163,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX02">●サブルーチンの作り方(call文)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>call文の使い方は？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>call文は「call」に続いて指定されるラベル名の位置へジャンプするための制御文です。 制御文というと何だか難しそうですが、「制御文とはプログラムの流れを強制的に変える命令」と考えればよかったですね。 call文には「ラベル」を指定しなければいけません。 もしラベルがなければ、「ジャンプ先がわからないのにジャンプしろ」と命令しているようなもの。 秀丸エディタは困ってしまい、「飛び先が見つかりません」とエラー表示します。</p>
 <p>　次の例は、「KEISAN」という名前のラベルを指定します。</p>
 <div class="macro">
@@ -190,13 +192,13 @@ call　KEISAN;        //1個の全角空白  &lt;&lt;--[×]</code></pre>
 </dl>
 <h4 id="SYNTAX03">●サブルーチンの作り方(ラベル1)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>ラベルはどうやって作るのですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>call文でジャンプするには「ラベル」を指定する必要がありました。 その「ラベル」とは、ジャンプ先を示すための一種の名札です。 名札ですから、なんらかの名前を付けなければなりません。 名前を付ける規則は「半角の英数字とアンダーバー」を用いることです。 さらに、ラベルの行末は他のマクロ文と違い、末尾が半角コロン「:」で終わらなければなりません。<br />
 　たとえば「sub:」「_ABC123:」などがラベルとして認識されます。<br />
 　なお、ラベルはcall文の他に「goto」文のジャンプ先としても利用できます。
@@ -204,38 +206,38 @@ call　KEISAN;        //1個の全角空白  &lt;&lt;--[×]</code></pre>
 </dl>
 <h4 id="SYNTAX04">●サブルーチンの作り方(ラベル2)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>ラベルにはどんな文字が使えるのですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>ラベルには「半角の英数字とアンダーバー」が使えます。 「sub_001:」、「KEISAN:」「Kotae:」などがラベルとして使えます。 ただし、大文字と小文字は区別されるので、「sub_01:」、「SUB_01:」、「Sub_01」はすべて異なるラベルとして認識されます。 注意が必要です。<br />
 　なお、半角文字の「#@$&amp;*+-/」などの記号文字はラベルに用いることはできません。 また、半角空白もラベルの一部としては使えません。さらに漢字などの２バイト系文字も使えません。
 </dd>
 </dl>
 <h4 id="SYNTAX05">●サブルーチンの作り方(return 文(1))</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>return 文はなぜ必要なんですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>一見すると return 文は何も仕事をしていないようですが、「callされた位置へ制御を戻す」という大変重要なマクロ文なのです。 サブルーチンは原則的に、「ラベル」で始まって、「return文」で閉じられていなければいけません。
 </dd>
 </dl>
 <h4 id="SYNTAX06">●サブルーチンの作り方(return 文(2))</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>return 文がなくても「エラー」になりませんでした。 それでも return文は必要なのでしょうか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>特殊な使い方をしない限り「return文は絶対必要」です。エラーにならない典型的なケースをあげておきます。<br />
 　まず、サブルーチンでマクロファイルが終わっているケースです。<br />
 　秀丸マクロはファイルの先頭から終端へ向けて１行ずつプログラムが実行されると説明しました。 つまり、マクロファイルの終端を見つけると自動的にマクロの実行を終了するわけです。 次のcall文で制御がサブルーチンに移ったまま終了してしまうマクロ例を示します。 エラーにはなりませんが、call文から endmacro文の間の処理は実行されないので、 意図したような動作は期待できないでしょう。</p>
@@ -288,13 +290,13 @@ call　KEISAN;        //1個の全角空白  &lt;&lt;--[×]</code></pre>
 </dl>
 <h4 id="SYNTAX07">●サブルーチンの位置</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>「…の飛び先がありません」というエラーメッセージが出るのですが、理由がわかりません。 文法的にはまったく問題ないハズなんですが…？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>秀丸マクロのサブルーチンでは「一番最初に現れる call 文より前に return文を置くことはできない」という規則があります。 これまで「ラベル」は名札みたいなものだと説明したように、ラベルそのものは何の動作もしません。 したがってラベルがあってもプログラムは、「あ、ここにラベルがあるな。位置だけ覚えておこう」と了承するだけで次の行へ処理を移します。 一方、return文は「呼び出し元へ戻る」動作をします。 ところが、対となるラベルが一度もcall文で呼び出されていない場合には、呼び出し元が記憶されていないわけですから、エラーとなります。<br />
 　下図のような場合です。SUB_001サブルーチンが呼び出されないのに、return文に到達してしまうケースです。 return文は呼び出し元へ戻ろうとしますが、この時点では、「call SUB_001」が実行されていないので、 return文はどこへ戻って良いかわからないわけです。</p>
 <div class="font_ms">
@@ -361,13 +363,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX08">●グローバル変数とローカル変数</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンの中では変数の頭が「$$」とか「##」になっているものがあります。これはミスタイプではないのですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>変数には、文字列型変数と数値型変数があり、文字型変数の場合は頭に「$」が、数値型変数の場合には頭に「#」が付きます。 これらは「グローバル変数」あるいは「広域変数」と呼ばれ、マクロ全体で常に有効な変数です。<br />
 　一方、「$$」や「##」で始まる変数は「ローカル変数」あるいは「局所変数」と呼ばれ、 これらが使用されているサブルーチンの中だけ有効です。呼び出し元に復帰した時点で下位のローカル変数は消滅（初期化）します。<br />
 　まず、サブルーチン内では、ローカル変数を用いるようにしましょう。 　次の例では、グローバル変数($str1)は、サブルーチンの中も、呼び出し元に復帰してからも常に値を維持しています。 サブルーチン sub1 の中で宣言されているローカル変数($$str2)は、 呼び出し元に戻ると初期化されてしまいカラの文字列（文字なし）になっていることがわかります。</p>
@@ -388,13 +390,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX09">●ローカル変数の有効範囲</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンからさらにサブルーチンを呼び出した時、ローカル変数はどうなるのですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>ローカル変数は宣言されたサブルーチンの中だけで有効と説明しました。 サブルーチンからさらに別のサブルーチンが呼び出された場合、 呼び出されたサブルーチンのローカル変数が呼び出し元に戻った時点で初期化されますが、 呼び出し元のサブルーチンのローカル変数はそのサブルーチン内では維持されます。<br />
 </p>
 <p>　次の例で、dlg_2 と dlg_4 でローカル変数 $$str2 が維持されている点に注目してください。</p>
@@ -422,13 +424,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX10">●サブルーチンへの引数(1)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンへ引数を渡せますか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>引数を指定してサブルーチンへ値を渡せます。call文に続くラベルの後ろに引数として指定してください。</p>
 <div class="macro">
 <pre><code>// sub01.mac
@@ -444,13 +446,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX11">●サブルーチンへの引数(2)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>引数はひとつしか指定できないのですか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>カンマで区切って並べればいくつでも指定できます。 また、引数をサブルーチン側で参照するには、文字列型の引数の場合は$$1, $$2, $$3…、 数値型の引数の場合は ##1, ##2,##3…とします。 注意しなければいけないのは、これらの 1, 2, 3 は call文で指定した引数の並び順であることです。 文字列型と数値型の引数が混在する場合は、呼び出す側とサブルーチンとの間で「型と順番」を一致させるように気をつけてください。</p>
 <div class="macro">
 <pre><code>// sub31.mac
@@ -467,13 +469,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX12">●サブルーチンへの引数(3)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンへ引数がうまく引き渡せません。
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>引数の「数」と「型」と「順番」を合わせる必要があります。 次の例は、３つの文字列型変数と２つの数値型変数を「test」というサブルーチンへ渡しています。 引数の順番に注意しましょう。特にサブルーチン側での引数の参照順に留意してください。</p>
 <div class="macro">
 <pre><code>call test #n1,$s1,$s2,#n2,$s3;
@@ -513,13 +515,13 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX13">●サブルーチンからの戻り値(1)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンから戻り値を得ることができますか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>戻り値として変数値をひとつ指定できます。サブルーチンの終わりを示す「return文」に続いて戻り値を指定します。 次の例は、文字型変数 $$ansを返します。</p>
 <div class="macro">
 <pre><code>// subret1.mac
@@ -555,13 +557,13 @@ return ##wa;</code></pre>
 </dl>
 <h4 id="SYNTAX14">●サブルーチンからの戻り値(2)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>戻り値を文字で得たいのですが。
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>サブルーチンからの戻り値は数値型変数だけでなく、文字列数値型でも得られます。 次の例は上の例とほぼ同じですが、戻り値を文字列型で返してします。</p>
 <div class="macro">
 <pre><code>// subcalc2.mac
@@ -583,13 +585,13 @@ return $$wa;</code></pre>
 </dl>
 <h4 id="SYNTAX15">●サブルーチンからの戻り値(3)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンからの戻り値（##return,$$return）を新しい変数で受けるのは面倒です。
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>戻り値そのものをマクロ文で利用できます。 次の例は、上の例とほぼ同じですが、戻り値を新しい変数に格納しないですぐに利用してます。</p>
 <div class="macro">
 <pre><code>// subcalc3.mac
@@ -610,13 +612,13 @@ return $$wa;</code></pre>
 </dl>
 <h4 id="SYNTAX16">●サブルーチンからの戻り値(4)</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>戻り値がひとつしか使えないのでは不便です。
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>秀丸マクロに限らず、ほとんどの言語では戻り値は１つです。複数の戻り値を扱いたい場合は、グローバル変数を用いることで対応します。</p>
 <div class="macro">
 <pre><code>// subcalc4.mac
@@ -639,37 +641,37 @@ return;</code></pre>
 </dl>
 <h4 id="SYNTAX17">●サブルーチンと関数</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンは「ひとかたまりの処理をまとめたもの」と言うのであれば、「関数と同じ」じゃないかと思うんですが？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>仕事の内容からするとほぼ同じです。 ただ、サブルーチンは「マクロの実行される行を制御」しているので、関数のようにそれ自体が「値を持つ」ことができません。
 </dd>
 </dl>
 <h4 id="SYNTAX18">●サブルーチンのネスト</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>サブルーチンからさらに別のサブルーチンを呼び出せますか？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>できます。この操作は「サブルーチンのネスト」と呼ばれ、秀丸マクロでのサブルーチンのネストの深さは20回くらいが限界になっています。 秀丸エディタ Ver.8.73で、ネスト深さは最大200回までに変更されています。
 </dd>
 </dl>
 <h4 id="SYNTAX19">●サブルーチンのもうひとつの用途</h4>
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd>いろんな人の作ったマクロを眺めていると、一度しか呼び出されていないのにサブルーチンを使っている例があります。 サブルーチンにする価値がないと思うんですが？
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>「サブルーチンは繰り返し処理に多用される」という原則からは外れていますね。 ただ、サブルーチンには「全体の流れを把握しやすくする」役割もあります。 いわゆるトップダウンでマクロの骨組みを作っておき、後で細部を作り上げておくという手法です。 また、こうして作られたサブルーチンは、他のマクロでも流用できるので生産性が高くなります。
 </dd>
 </dl>

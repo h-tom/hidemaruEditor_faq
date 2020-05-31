@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0040B] ●マクロ実行後に「やり直し」が効かない - 秀丸エディタＱ＆Ａ集</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -22,23 +24,23 @@
 <hr />
 <h1 id="hmm0040b">[HMM0040B]</h1>
 <p>古い情報なので削除 (Ver.8以降では、「ファイルタイプ別の設定」、「動作環境」を変更しても、「やり直し」「やり直しのやり直し」は問題なく動作します。)</p>
-<div class="old_information">
-<h2 id="HMM0040B_01">●マクロ実行後に「やり直し」が効かない</h2>
+<section id="HMM0040B_01" class="old_information">
+<h2>●マクロ実行後に「やり直し」が効かない</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" alt="Q." width="32" height="29" /></dt>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
 <dd><strong> 「その他→動作環境→パフォーマンス」にある「詳細」で設定可能な、「やり直しバッファサイズ」を超えないような編集であるにも関わらず、 マクロ実行後に「編集→やり直し」、「編集→やり直しのやり直し」が効かなくなる場合があります。 </strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" alt="A." width="32" height="29" /></dt>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd>「config "w80";」、「config "k+";」などで、「折り返し文字数」、 「禁則処理」のようなワープロ行（見た目での行数）が変わる可能性（実際に変わらなくても）がある設定を変更した場合は、 秀丸エディタ内部で情報の再配置が必要なため、「編集→やり直し」、「編集→やり直しのやり直し」が効かなくなります。<br />
 「その他→ファイルタイプ別の設定」、「その他→動作環境」で設定を変更した場合も同様です。 <a href="HME0082A.html">[HME0082A]●設定変更後に「やり直し」が効かない</a>を参照して下さい。
 </dd>
 </dl>
 </div>
-</div>
+</section>
 <hr />
 <p><span class="link_navigate"><a href="HMM0040A.html">←前へ</a> <a href="HMM0041A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>

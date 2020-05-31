@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部～知っていると便利な秀丸の機能　検索</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -49,9 +51,9 @@
 <li><p>次に、適宜オプションを指定します。ここで、各オプションの意味は以下の通りです。</p>
 <ul>
 <li><p><strong><span class="font_blue">「大文字／小文字の区別</span>」チェックボックス：</strong><br />
-検索文字列の大文字と小文字を区別して検索します。この項目がＯＦＦの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
+検索文字列の大文字と小文字を区別して検索します。この項目が OFF の場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がＯＮになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
+この項目が ON になっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
 「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
@@ -75,7 +77,8 @@
 <li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
 検索を実行後、検索に該当する文字列を強調表示します。</p></li>
 <li><p><strong>「<span class="font_blue">検索したら閉じる</span>」チェックボックス</strong><br />
-検索を実行すると検索ダイアログを閉じます。</p></li>
+OFF だとダイアログ表示させたまま、検索を実行します。</p>
+<p>ON の場合、検索を実行すると検索ダイアログを閉じます。 また、ダイアログの<span class="btn-push">「閉じる」</span>ボタンが<span class="btn-push">「キャンセル」</span>と表示されます。</p></li>
 </ul></li>
 <li><p>最後に検索を行う<strong><span class="font_blue">方向</span></strong>を指定する事で検索が実行されます。</p>
 <ul>
@@ -137,12 +140,14 @@
 <p>「上検索/下検索 ボタン」となっていますが、表示する箇所は設定で変更可能です。 (「<span class="env">動作環境</span>」-「検索」-<a href="#ALLSEARCH_SET">「すべて検索」</a>)</p>
 <p>表示する箇所は以下の5種類です。(表示の上限を100に設定)</p>
 <ul>
-<li><p>「ボタン右上」、「ボタン左上」、「入力上下1」、「入力上下2」<br />
-<img src="2_find_36.png" width="433" height="244" alt="表示箇所1" /><br />
-</p></li>
-<li><p>「ボタン右上2」(「ボタン右上」の色違い)<br />
-<img src="2_find_37.png" width="433" height="244" alt="表示箇所2" /><br />
-</p></li>
+<li><p>「ボタン右上」、「ボタン左上」、「入力上下1」、「入力上下2」</p>
+<div style="position:relative;">
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /> <img src="2_find_36.png" width="433" height="244" alt="検索ダイアログ-表示箇所1" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
+<li><p>「ボタン右上2」(「ボタン右上」の色違い)</p>
+<div style="position:relative;">
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /> <img src="2_find_37.png" width="433" height="244" alt="検索ダイアログ-表示箇所2" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
 </ul></li>
 <li><p>「スクロールバーにマップ」<br />
 スクロールバー部分に、現状の設定条件でマッチした行の位置を表示します。</p>
@@ -281,15 +286,18 @@
 <li><p>(2回目)<br />
 <img src="2_find_12.png" width="500" height="190" alt="検索ダイアログの取り込み2回目" /><br />
 </p></li>
-<li><p>(3回目)<br />
-<img src="2_find_13.png" width="500" height="190" alt="検索ダイアログの取り込み3回目" /><br />
-</p></li>
-<li><p>(4回目)<br />
-<img src="2_find_14.png" width="500" height="190" alt="検索ダイアログの取り込み4回目" /><br />
-</p></li>
-<li><p>(5回目)<br />
-<img src="2_find_15.png" width="500" height="190" alt="検索ダイアログの取り込み5回目" /><br />
-</p></li>
+<li><p>(3回目)</p>
+<div style="position:relative;">
+<p><img src="2_find_12.png" width="500" height="190" alt="検索ダイアログの取り込み2回目" /> <img src="2_find_13.png" width="500" height="190" alt="検索ダイアログの取り込み3回目" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
+<li><p>(4回目)</p>
+<div style="position:relative;">
+<p><img src="2_find_12.png" width="500" height="190" alt="検索ダイアログの取り込み2回目" /> <img src="2_find_14.png" width="500" height="190" alt="検索ダイアログの取り込み4回目" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
+<li><p>(5回目)</p>
+<div style="position:relative;">
+<p><img src="2_find_12.png" width="500" height="190" alt="検索ダイアログの取り込み2回目" /> <img src="2_find_15.png" width="500" height="190" alt="検索ダイアログの取り込み5回目" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
 </ul>
 <h4 id="SUPPLEMENTATION-3">複数行</h4>
 <p>検索ダイアログの「検索」入力部分は通常1行のみですが、複数行を入力可能にする事もできます。 「検索」入力部の横にある<span class="rotate90">▲</span>マークを押すと、メニューが表示されます。</p>
