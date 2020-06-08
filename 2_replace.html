@@ -52,15 +52,15 @@
 <li>「<strong><span class="font_blue">検索</span></strong>」のエディットボックスに「<strong>over</strong>」と入力する</li>
 <li>「<strong><span class="font_blue">置換</span></strong>」のエディットボックスに「<strong>upper</strong>」と入力する</li>
 </ul>
-<p>「<strong><span class="font_blue">検索</span></strong>」も「<strong><span class="font_blue">置換</span></strong>」は、通常は1行のみですが、<strong>複数行を入力可能</strong>にする事もできます。 詳細は「<a href="#SUPPLEMENTATION">補足</a>」を参照してください。</p>
+<p>「<strong><span class="font_blue">検索</span></strong>」も「<strong><span class="font_blue">置換</span></strong>」は、通常は1行のみですが、<strong>複数行を入力可能</strong>にする事もできます。詳細は「<a href="#SUPPLEMENTATION">補足</a>」を参照してください。</p>
 <p><img src="2_replace_01.png" width="433" height="272" alt="置換ダイアログ" /><br />
 </p></li>
 <li><p>次に適宜オプションを指定するわけですが、各オプションの意味は以下の通りです。</p>
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
-検索文字列の大文字と小文字を区別して検索します。 この項目がOFFの場合、上の例で「<strong>OVER</strong>」や「<strong>Over</strong>」も置換対象になります。</p></li>
+検索文字列の大文字と小文字を区別して検索します。この項目がOFFの場合、上の例で「<strong>OVER</strong>」や「<strong>Over</strong>」も置換対象になります。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目がONになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。 ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
+この項目がONになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
 複数行にマッチする検索に関しては制限が存在します。以下のリンク先を参照してください。</p>
@@ -73,7 +73,7 @@
 「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">●あいまい検索について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">選択した範囲内のみ</span>」チェックボックス：</strong><br />
 置換の範囲があらかじめ「<strong>範囲選択</strong>」された部分に限定されます。<br />
-※このオプションの動作の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong> ●検索／置換の「選択した範囲内のみ」の動作</a> を参照してください。</p></li>
+※このオプションの動作の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong>●検索/置換の「選択した範囲内のみ」の動作</a>を参照してください。</p></li>
 <li><p><strong>「<span class="font_blue">次の秀丸エディタも続けて置換</span>」チェックボックス</strong><br />
 現在編集中の秀丸エディタウィンドウの他にも秀丸エディタが開いていた場合、その秀丸エディタウィンドウの内容に対しても置換を実行します。</p></li>
 <li><p><strong>「<span class="font_blue">一周する</span>」チェックボックス</strong><br />
@@ -96,21 +96,21 @@
 <p><img src="2_replace_10.png" width="224" height="132" alt="クイック全置換" /><br />
 </p>
 <p>通常の「全置換」と「クイック全置換」の違いについては、<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank">秀丸エディタヘルプの「置換」</a>を参照してください。</p>
-<p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。 その為、置換した箇所の把握できません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。 正規表現に関しても多少動作の違いがあるようです。 要は、エディタ画面上の表示関連の処理を一切省いて、高速に動作させています。</p></li>
+<p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。その為、置換した箇所の把握できません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。正規表現に関しても多少動作の違いがあるようです。要は、エディタ画面上の表示関連の処理を一切省いて、高速に動作させています。</p></li>
 </ul>
 <p>のいずれかを選んで下さい。</p></li>
 </ol>
 <h3 id="SUPPLEMENTATION">[補足]</h3>
 <ul>
 <li><p>検索部分は、<a href="2_find.html">検索</a>の「<a href="2_find.html#SUPPLEMENTATION-2">検索文字列の取り込みについて</a>」と同じ事が可能です。</p></li>
-<li><p>「検索」、「置換」部分は、<strong>複数行入力</strong>に対応しています。 「検索」、「置換」入力部の横にある<span class="rotate90">▲</span>マークのメニューから「<span class="attention_red">複数行</span>」を選択してください。</p>
+<li><p>「検索」、「置換」部分は、<strong>複数行入力</strong>に対応しています。「検索」、「置換」入力部の横にある<span class="rotate90">▲</span>マークのメニューから「<span class="attention_red">複数行</span>」を選択してください。</p>
 <p><img src="2_replace_02.png" width="433" height="412" alt="置換ダイアログ-複数選択" /><br />
 </p>
 <p>「検索」で表示されるメニューは<a href="2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。<br />
 「置換」で表示されるメニューは以下になります。<br />
 <img src="2_replace_08.png" width="407" height="288" alt="置換メニュー" /><br />
 </p></li>
-<li><p>「置換」ダイアログのタイトルバー部分にある「▼」マークを押すと、メニューが表示されます。 「<strong>検索文字列の追加取得</strong>」、「<strong>検索の動作環境</strong>」を開いたり、「<strong>検索ダイアログ</strong>」に切り替える事も可能です。</p>
+<li><p>「置換」ダイアログのタイトルバー部分にある「▼」マークを押すと、メニューが表示されます。「<strong>検索文字列の追加取得</strong>」、「<strong>検索の動作環境</strong>」を開いたり、「<strong>検索ダイアログ</strong>」に切り替える事も可能です。</p>
 <p><img src="2_replace_03.png" width="433" height="412" alt="置換ダイアログのメニューその２" /><br />
 </p></li>
 <li><p>「全置換」ボタンですが、設定により機能を変更できます。</p>
@@ -126,7 +126,7 @@
 <!-- h4 -->
 <div class="marginleft">
 <h4 id="SUPPLEMENTATION-1">[置換確認のダイアログ]</h4>
-<p>「<span class="font_blue">置換の前に確認</span>」にチェックを入れた場合、確認用ダイアログが表示されます。 このダイアログは複数あり、設定により切り替え可能です。</p>
+<p>「<span class="font_blue">置換の前に確認</span>」にチェックを入れた場合、確認用ダイアログが表示されます。このダイアログは複数あり、設定により切り替え可能です。</p>
 <p>従来のダイアログ<br />
 <img src="2_replace_04.png" width="453" height="59" alt="確認ダイアログ従来タイプ" /><br />
 </p>
@@ -136,13 +136,13 @@
 <p>新しいダイアログ(タイプ3)<br />
 <img src="2_replace_06.png" width="348" height="59" alt="確認ダイアログタイプ3" /><br />
 </p>
-<p>以前だと、「<span class="font_blue">一周する</span>」がオフの状態で、上検索または下検索を行い、 ファイルの上限か下限に達して、検索出来なくなると確認ダイアログが消えましたが、 現状では「キャンセル」しないと表示されたままになります。 (移動できない方向の検索ボタンは無効化された状態になる。)</p>
+<p>以前だと、「<span class="font_blue">一周する</span>」がオフの状態で、上検索または下検索を行い、ファイルの上限か下限に達して、検索出来なくなると確認ダイアログが消えましたが、現状では「キャンセル」しないと表示されたままになります。 (移動できない方向の検索ボタンは無効化された状態になる。)</p>
 <p>従来のダイアログでの表示例<br />
 <img src="2_replace_07.png" width="453" height="59" alt="確認ダイアログ従来タイプその2" /><br />
 </p>
-<p>これは、例えば「下検索」実行時に、ファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。 以前のように、マッチしなくなった場合、ダイアログを消すよう変更する事も可能です。 (「置換の確認の種類」を「従来の互換(末端で自動的に消す)」に設定)</p>
+<p>これは、例えば「下検索」実行時に、ファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。以前のように、マッチしなくなった場合、ダイアログを消すよう変更する事も可能です。 (「置換の確認の種類」を「従来の互換(末端で自動的に消す)」に設定)</p>
 <h4 id="SUPPLEMENTATION-2">[置換に関する設定]</h4>
-<p>置換に関する設定は2箇所あります。 各機能に関しては、各ダイアログの「ヘルプ」を参照の事。 どちらでも、「置換確認のダイアログ」を選択可能です。</p>
+<p>置換に関する設定は2箇所あります。各機能に関しては、各ダイアログの「ヘルプ」を参照の事。どちらでも、「置換確認のダイアログ」を選択可能です。</p>
 <ul>
 <li><p>「検索」の「置換の動作」</p>
 <p><img src="2_replace_setting01.png" width="605" height="433" alt="動作環境-検索" /><br />
@@ -240,7 +240,7 @@
 「ハンカク」を実行したい場合は "ToHankaku" を指定する。
 </dd>
 <dt>変換モジュール名</dt>
-<dd>標準添付の変換モジュールは省略可能。 標準添付以外の変換モジュールを使う場合は指定する必要がある。<br />
+<dd>標準添付の変換モジュールは省略可能。標準添付以外の変換モジュールを使う場合は指定する必要がある。<br />
 <span class="attention_red">秀丸エディタ本体と同じ場所に変換モジュールがある場合以外は、フルパスで指定する事。</span>
 </dd>
 </dl>
@@ -269,12 +269,12 @@
 実行後：ＨＩＤＥＭＡＲＵ ＥＤＩＴＯＲ</code></pre>
 </dd>
 </dl>
-<p>詳細はヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" class="externallink" target="_blank">置換の時の、変換モジュールによる変換の指定</a> を参照してください。</p>
+<p>詳細はヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" class="externallink" target="_blank">置換の時の、変換モジュールによる変換の指定</a>を参照してください。</p>
 <h4 id="SUPPLEMENTATION-4">ヒストリに常駐</h4>
 <p>「検索」は検索と共通ですが、「置換」は単独で設定可能です。</p>
 <p>「<strong>ヒストリに常駐</strong>」の設定方法は、<a href="2_find.html">「検索」</a>の<a href="2_find.html#SUPPLEMENTATION-6">「ヒストリに常駐」</a>を参照してください。</p>
 <h4 id="SUPPLEMENTATION-5">検索/置換文字数の上限</h4>
-<p><strong><span class="font_blue">複数行の「検索」と「置換」</span></strong>エディットボックスに入力し、 検索/置換に指定できる文字列には上限があり、約4000文字が上限となります。</p>
+<p><strong><span class="font_blue">複数行の「検索」と「置換」</span></strong>エディットボックスに入力し、検索/置換に指定できる文字列には上限があり、約4000文字が上限となります。</p>
 <p>上限を超えると、<span class="attention_red">警告が表示</span>されます。</p>
 <p><img src="2_replace_09.png" width="433" height="95" alt="置換ダイアログの警告" /><br />
 </p>

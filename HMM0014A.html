@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0014A] ●「￥」の使い方 - 秀丸エディタＱ＆Ａ集</title>
+  <title>[HMM0014A] ●「\」の使い方 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -23,11 +23,11 @@
 <p><span class="link_navigate"><a href="HMM0013A.html">←前へ</a> <a href="HMM0015A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0014a">[HMM0014A]</h1>
-<h2 id="HMM0014A_01">●「￥」の使い方</h2>
+<h2 id="HMM0014A_01">●「\」の使い方</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><p><strong>マクロでファイル名に「"C:\TEST.TXT"」と指定してもうまく動きません。 たとえば、次のマクロ文で「C:\TEST.TXT」を開きたいのですが、エラーになってしまいます。 もちろん、このファイルは確かに存在しています。</strong></p>
+<dd><p><strong>マクロでファイル名に「"C:\TEST.TXT"」と指定してもうまく動きません。たとえば、次のマクロ文で「C:\TEST.TXT」を開きたいのですが、エラーになってしまいます。もちろん、このファイルは確かに存在しています。</strong></p>
 <div class="macro">
 <pre><code>openfile &quot;C:\TEST.TXT&quot;;</code></pre>
 </div>
@@ -41,7 +41,7 @@
 <pre><code>openfile &quot;C:\\TEST.TXT&quot;;</code></pre>
 </div>
 <p>というように「\」を２つ重ねて下さい。</p>
-<p>詳しくは、『<a href="hmindex3.html">第III部～秀丸マクロのいろはにほへと</a>』の『<a href="3_yenmk.html">マクロ内での「\」や 特殊文字の使い方</a>』をご覧ください。</p>
+<p>詳しくは、『<a href="hmindex3.html">第III部～秀丸マクロのいろはにほへと</a>』の『<a href="3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a>』をご覧ください。</p>
 <p>秀丸エディタ Ver.8.66以降の場合の場合は、「\」を２つ重ねなくてもいい記述方法も使えます。</p>
 <div class="macro">
 <pre><code>openfile R&quot;(C:\TEST.TXT)&quot;;</code></pre>
@@ -50,7 +50,7 @@
 <div class="macro">
 <pre><code>openfile @&quot;C:\TEST.TXT&quot;;</code></pre>
 </div>
-<p>詳しくは、『<a href="3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a>』にある 『<a href="3_yenmk.html#STRINGLITERAL">Ver.8.66以降の場合</a>』をご覧ください。</p>
+<p>詳しくは、『<a href="3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a>』にある『<a href="3_yenmk.html#STRINGLITERAL">Ver.8.66以降の場合</a>』をご覧ください。</p>
 </dd>
 </dl>
 </div>

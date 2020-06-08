@@ -59,7 +59,7 @@
 <li><a href="#V892">秀丸エディタVer.8.92 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
-<p>秀丸エディタ本体の更新内容に関しては、 <a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" class="externallink" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a> を参照してください。</p>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" class="externallink" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a>を参照してください。</p>
 <p>【１】<a href="#LIST_V800">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.00</a></p>
 <!-- h3 -->
 <section id="LIST_V800" class="marginleft">
@@ -401,7 +401,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li><p>その他</p>
 <ul>
-<li>colormarkerallfound の デフォルトで(未指定時に)使用されるレイヤー名は、"#allfound"というレイヤー名になる。 カラーマーカー関連の命令では、このレイヤー名を指定するか、"findmarker"というオプション指定することにより、操作可能。</li>
+<li>colormarkerallfound の デフォルトで(未指定時に)使用されるレイヤー名は、"#allfound"というレイヤー名になる。カラーマーカー関連の命令では、このレイヤー名を指定するか、"findmarker"というオプション指定することにより、操作可能。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V840">【２】仕様変更 - 「秀丸エディタ」Ver.8.40</h3>
@@ -913,13 +913,13 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>inputchar関数で、第３パラメータを指定して、タイトルを変更しないこともできるように修正。</li>
 <li>selectcolumn文で行の範囲のパラメータ追加。</li>
 <li>overwrite文のパラメータ追加。</li>
-<li>getregstrでレジストリのMacroPathを取得する場合や、backupdirでフルパスとなる組み合わせの場合など、 環境変数が展開可能な条件では自動的に展開されたものが取得されるように修正。</li>
+<li>getregstrでレジストリのMacroPathを取得する場合や、backupdirでフルパスとなる組み合わせの場合など、環境変数が展開可能な条件では自動的に展開されたものが取得されるように修正。</li>
 </ul></li>
 <li>その他
 <ul>
 <li>マクロに書く固定の文字列の長さの最大は64KBから128KBまでに変更。</li>
 <li>runexで表示フラグで非表示を指定の場合は、実行後に秀丸エディタ本体を再アクティブにしないように変更。</li>
-<li>config “xAutoAdjustOrikaeshi:0”;で折り返しを固定にするとき、ウィンドウ幅や最大による現在の折り返しではなく、 記憶されていた固定の折り返し文字数となるように変更。</li>
+<li>config “xAutoAdjustOrikaeshi:0”;で折り返しを固定にするとき、ウィンドウ幅や最大による現在の折り返しではなく、記憶されていた固定の折り返し文字数となるように変更。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V888">【２】仕様変更 - 「秀丸エディタ」Ver.8.88</h3>
@@ -957,7 +957,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>grep文でoutputsingleのとき一部の検索オプションが反映されない場合があるバグ修正</li>
 <li>openbyshellでUnicode独自の文字が含まれる場合の対応</li>
-<li>マクロ実行中のエラーは、マクロエラーだけでなく一般のエラーでも逆コンパイル内容を表示するように修正 （ただしexecmacroについては実行した次の行が対象）</li>
+<li>マクロ実行中のエラーは、マクロエラーだけでなく一般のエラーでも逆コンパイル内容を表示するように修正（ただしexecmacroについては実行した次の行が対象）</li>
 <li>writeinistrwでパスの区切りをスラッシュで書いた場合の対応（念のための対応で、他の処理はパスをスラッシュで区切ることは対応していません）</li>
 <li>マクロの変数格納の速度の改善</li>
 <li>マクロのconfig “s数値”で、サイズ変更した後にフォンとサイズの記憶状態がおかしい場合がある問題修正</li>
@@ -1027,7 +1027,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 </ul>
 </section>
-<h2 id="V892">秀丸エディタVer.8.90 マクロ関連の変更履歴</h2>
+<h2 id="V892">秀丸エディタVer.8.92 マクロ関連の変更履歴</h2>
 <p>【１】<a href="#LIST_V892">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.92</a></p>
 <p>【２】<a href="#SPEC_V892">仕様変更 - 「秀丸エディタ」Ver.8.92</a></p>
 <!-- h3 -->
@@ -1045,12 +1045,13 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>split関数 区切り文字に""を指定して一文字ずつに分割に対応。</li>
 <li>openfile文 複数ファイル指定のときはファイル検索パスは働かないようにして、getresultex(20)と(21)を追加。</li>
 <li>colormarker文、colormarkerallfound文で、種類のパラメータの上位16ビットで強調表示としての動作とできるように修正。</li>
+<li>colormarkerallfoundでレイヤー付きの場合は検索の色付け一覧ダイアログには入れないように修正や、範囲指定時にうまくいかない問題などの修正。</li>
 <li>openfile用のseterrormodeの値を追加して、ファイルが無い場合の問い合わせ、ファイル検索パスの問い合わせを指定できるように修正。 getresultex(22)の追加。</li>
 <li>setcompatiblemode 0x08000000;で、他の秀丸エディタへマクロ切り替え禁止の動作の追加。</li>
 <li>setcompatiblemode 0x04000000;で、execmacroのメモリ上の再利用の追加。</li>
 <li>exemacroの拡張子を.mac.cacheにするとキャッシュファイルの自動生成のとなる動作の追加。</li>
 <li>colormarker文の種類で強調表示の指定をしてるとき、ファイルタイプ別の設定の複数行コメントが「なし」でも動作するように修正。</li>
-<li>colormarker文の種類で強調表示の指定をしてるとき、同じレイヤーでの上書きで強調の優先順位の適用と、 特に強調で上書きしたときでもコメントや文字定数の判定ができるような修正など。</li>
+<li>colormarker文の種類で強調表示の指定をしてるとき、同じレイヤーでの上書きで強調の優先順位の適用と、特に強調で上書きしたときでもコメントや文字定数の判定ができるような修正など。</li>
 </ul></li>
 <li>その他</li>
 </ul>

@@ -14,7 +14,7 @@
 		<param name="Name" value=".hilight">
 		<param name="Name" value="第II部～知っていると便利な秀丸の機能　強調表示">
 		<param name="Local" value="2_highlight.html">
-		<param name="Name" value="[HME0079A]●.hilight に ￥t や ￥n は使えるか？">
+		<param name="Name" value="[HME0079A]●.hilight に \t や \n は使えるか？">
 		<param name="Local" value="HME0079A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
 		<param name="Local" value="HME0093A.html">
@@ -25,9 +25,11 @@
 		<param name="Local" value="HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="￥">
-		<param name="Name" value="[HMM0014A]●「￥」の使い方">
+		<param name="Name" value="\">
+		<param name="Name" value="[HMM0014A]●「\」の使い方">
 		<param name="Local" value="HMM0014A.html">
+		<param name="Name" value="マクロ内での「\」や特殊文字の使い方">
+		<param name="Local" value="3_yenmk.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="２バイト文字">
@@ -60,8 +62,8 @@
 		<param name="Local" value="3_com_object.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="config ”w”">
-		<param name="Name" value="[HMM0040A]●config ”w”">
+		<param name="Name" value="config &quot;w&quot;">
+		<param name="Name" value="[HMM0040A]●config &quot;w&quot;">
 		<param name="Local" value="HMM0040A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -177,7 +179,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0004A">
-		<param name="Name" value="●パスワードを忘れた／紛失した">
+		<param name="Name" value="●パスワードを忘れた/紛失した">
 		<param name="Local" value="HME0004A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -617,7 +619,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0079A">
-		<param name="Name" value="●.hilight に ￥t や ￥n は使えるか？">
+		<param name="Name" value="●.hilight に \t や \n は使えるか？">
 		<param name="Local" value="HME0079A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -637,7 +639,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0083A">
-		<param name="Name" value="●検索／置換の「選択した範囲内のみ」の動作">
+		<param name="Name" value="●検索/置換の「選択した範囲内のみ」の動作">
 		<param name="Local" value="HME0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -812,7 +814,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0018A">
-		<param name="Name" value="●openfile の ／(x,y,cx,xy) オプションでのマクロの動作時の注意">
+		<param name="Name" value="●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意">
 		<param name="Local" value="HMM0018A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -842,7 +844,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0024A">
-		<param name="Name" value="●サブルーチンからの戻り値(＄＄return,＃＃return)をそのまま使う">
+		<param name="Name" value="●サブルーチンからの戻り値($$return,##return)をそのまま使う">
 		<param name="Local" value="HMM0024A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -892,7 +894,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0033A">
-		<param name="Name" value="●insertreturnの上書き／挿入MODEでの動き">
+		<param name="Name" value="●insertreturnの上書き/挿入MODEでの動き">
 		<param name="Local" value="HMM0033A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -927,7 +929,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0040A">
-		<param name="Name" value="●config ”w”">
+		<param name="Name" value="●config &quot;w&quot;">
 		<param name="Local" value="HMM0040A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1137,12 +1139,12 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0081A">
-		<param name="Name" value="[HMM0081A] ●「DLLがロードされてないのにdllfunc関数が使われました」と表示される">
+		<param name="Name" value="●「DLLがロードされてないのにdllfunc関数が使われました」と表示される">
 		<param name="Local" value="HMM0081A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0082A">
-		<param name="Name" value="[HMM0082A] ●カーソルのある行の内容を文字列型変数に取り込む方法">
+		<param name="Name" value="●カーソルのある行の内容を文字列型変数に取り込む方法">
 		<param name="Local" value="HMM0082A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -1163,13 +1165,13 @@
 		<param name="Local" value="HMM0036A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="insert ”￥n”">
+		<param name="Name" value="insert &quot;\n&quot;">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
 		<param name="Local" value="3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="insertreturn">
-		<param name="Name" value="[HMM0033A]●insertreturnの上書き／挿入MODEでの動き">
+		<param name="Name" value="[HMM0033A]●insertreturnの上書き/挿入MODEでの動き">
 		<param name="Local" value="HMM0033A.html">
 		<param name="Name" value="[HMM0050A]●自動インデントとinsertreturn">
 		<param name="Local" value="HMM0050A.html">
@@ -1238,9 +1240,9 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="openfile">
-		<param name="Name" value="[HMM0017A]●openfile の ／(x,y,cx,xy) オプション">
+		<param name="Name" value="[HMM0017A]●openfile の /(x,y,cx,xy) オプション">
 		<param name="Local" value="HMM0017A.html">
-		<param name="Name" value="[HMM0018A]●openfile の ／(x,y,cx,xy) オプションでのマクロの動作時の注意">
+		<param name="Name" value="[HMM0018A]●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意">
 		<param name="Local" value="HMM0018A.html">
 		<param name="Name" value="[HMM0016A]●openfile のオプションでの注意項目">
 		<param name="Local" value="HMM0016A.html">
@@ -1381,6 +1383,8 @@
 		<param name="Local" value="HME0093A.html">
 		<param name="Name" value="[HME0096A]●[EOF]の色を変えるには">
 		<param name="Local" value="HME0096A.html">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能　カラーマーカー">
+		<param name="Local" value="2_colormarker.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="カラー設定">
@@ -1420,7 +1424,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="サブルーチン">
-		<param name="Name" value="[HMM0024A]●サブルーチンからの戻り値(＄＄return,＃＃return)をそのまま使う">
+		<param name="Name" value="[HMM0024A]●サブルーチンからの戻り値($$return,##return)をそのまま使う">
 		<param name="Local" value="HMM0024A.html">
 		<param name="Name" value="[HMM0023A]●サブルーチンからの戻り値(数値)">
 		<param name="Local" value="HMM0023A.html">
@@ -1496,7 +1500,7 @@
 		<param name="Local" value="HME0001A.html">
 		<param name="Name" value="[HME0005A]●パスワードを書いても良いの？">
 		<param name="Local" value="HME0005A.html">
-		<param name="Name" value="[HME0004A]●パスワードを忘れた／紛失した">
+		<param name="Name" value="[HME0004A]●パスワードを忘れた/紛失した">
 		<param name="Local" value="HME0004A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2055,7 +2059,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="選択した範囲内のみ">
-		<param name="Name" value="[HME0083A]●検索／置換の「選択した範囲内のみ」の動作">
+		<param name="Name" value="[HME0083A]●検索/置換の「選択した範囲内のみ」の動作">
 		<param name="Local" value="HME0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -2260,7 +2264,7 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ストアアプリ版">
-		<param name="Name" value="パスワードを忘れた／紛失した">
+		<param name="Name" value="パスワードを忘れた/紛失した">
 		<param name="Local" value="HME0004A.html">
 		<param name="Name" value="異なるフォルダの秀丸が実行されているので起動できません">
 		<param name="Local" value="HME0087A.html">
