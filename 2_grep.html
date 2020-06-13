@@ -28,13 +28,14 @@
 また、調べた結果の出力ファイルを使って、文字列の見つかった行(ファイル)へ直接移動する事ができます(<strong>タグジャンプ機能</strong>)。</p>
 <ul>
 <li><a href="#process">[手順]</a></li>
-<li><a href="#SUPPLEMENTATION">[補足情報]</a>
+<li><a href="#SUPPLEMENTATION">[補足]</a>
 <ul>
 <li><a href="#SUPPLEMENTATION-1">タグジャンプ</a></li>
 <li><a href="#SUPPLEMENTATION-2">grepのダイアログ</a></li>
 <li><a href="#SUPPLEMENTATION-3">検索するフォルダ</a></li>
 <li><a href="#SUPPLEMENTATION-4">検索するファイル</a></li>
 <li><a href="#SUPPLEMENTATION-5">文字数制限の設定</a></li>
+<li><a href="#SUPPLEMENTATION-6">補助メニュー</a></li>
 </ul></li>
 </ul>
 <!-- h2 -->
@@ -77,7 +78,7 @@
 </dd>
 </dl>
 <p>の3つから検索することになります。</p>
-<p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足情報]</a>－<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。除外したいファイルの設定が出来ます。</p>
+<p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足]</a>－<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。除外したいファイルの設定が出来ます。</p>
 <p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と、直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
 <div class="macro">
 <pre><code>&lt;!*.xxx&gt;</code></pre>
@@ -89,7 +90,8 @@
 </div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> と <code>"*.html"</code> は除外。</p>
-<p>となります。</p></li>
+<p>となります。</p>
+<p>除外するファイルの入力をアシストする機能もあります。<a href="#SUPPLEMENTATION-6">補助メニュー</a>を参照してください。</p></li>
 <li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。「…」ボタンを押すと、フォルダ参照ダイアログが開き、フォルダを選択可能です。</p>
 <p>Ver.8.85以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
 <div class="macro">
@@ -104,7 +106,8 @@
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> と <code>"folder2"</code> は除外。<br />
 例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
-<p>となります。</p></li>
+<p>となります。</p>
+<p>除外するフォルダの入力をアシストする機能もあります。<a href="#SUPPLEMENTATION-6">補助メニュー</a>を参照してください。</p></li>
 <li><p>右側にあるチェックボックスの内、該当する物にチェックをします。</p>
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
@@ -151,32 +154,38 @@ grep結果の出力先を指定します。</p>
 <ul>
 <li><p><strong>「ファイル名一覧だけ作成」が「OFF」の時の動作</strong><br />
 この項目がOFFの時は、検索文字列が見つかった全てのファイル名と行を結果として書き出します。</p>
-<p>[実行結果の例("file?.txt"について"２"を検索)]<br />
-file1.txt(2): ファイル１の２行目<br />
-file1.txt(20): ファイル１の２０行目<br />
-file2.txt(1): ファイル２の１行目<br />
-file2.txt(2): ファイル２の２行目<br />
-(以下略)</p></li>
+<p>[実行結果の例("file?.txt"について"２"を検索)]</p>
+<div class="macro">
+<pre><code>file1.txt(2): ファイル１の２行目
+file1.txt(20): ファイル１の２０行目
+file2.txt(1): ファイル２の１行目
+file2.txt(2): ファイル２の２行目
+(以下略)</code></pre>
+</div></li>
 <li><p><strong>「ファイル名一覧だけ作成」が「ON」の時の動作</strong><br />
-この項目がONの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例("file?.txt"について"２"を検索)]<br />
-file1.txt(2)<br />
-file2.txt(1)<br />
-file3.txt(2)<br />
-file4.txt(2)<br />
-(以下略)</p></li>
+この項目がONの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例("file?.txt"について"２"を検索)]</p>
+<div class="macro">
+<pre><code>file1.txt(2)
+file2.txt(1)
+file3.txt(2)
+file4.txt(2)
+(以下略)</code></pre>
+</div></li>
 </ul></li>
+<li><p>見つかったファイルに移動する(タグジャンプ機能)</p>
+<p>結果ウィンドウのファイル名の部分にカーソルがある状態で「<strong>その他→タグジャンプ</strong>」(デフォルトでは<span class="btn-push">F10</span>キー)を選択すると、 (開かれていない時は開いてから)<strong>そのファイルの該当する行へ移動</strong>する事ができます。</p>
+<p>また、「<strong>バックタグジャンプ</strong>」で元の結果ウィンドウに戻る事もできます。</p>
+<p>さらに、この結果ウィンドウをファイルとして保存する事もできて、上記の「<strong>タグジャンプ</strong>」も後から使用できます。 (ファイル名がフルパスでない場合は、ファイルを開いた箇所からの相対パスになるので、「<strong>検索するフォルダ</strong>」に結果を保存する必要があります。)</p></li>
 </ol>
-<h3 id="SUPPLEMENTATION">[補足情報]</h3>
+<h3 id="SUPPLEMENTATION">[補足]</h3>
 <p>grepに関係する「<strong>動作環境</strong>」です。</p>
-<p><img src="2_grep_02.png" width="605" height="433" alt="動作環境－grepダイアログ" /><br />
+<p><img src="2_grep_02.png" width="613" height="437" alt="動作環境－grepダイアログ" /><br />
 </p>
-<p><img src="2_grep_03.png" width="605" height="433" alt="動作環境－grepの動作" /><br />
+<p><img src="2_grep_03.png" width="613" height="437" alt="動作環境－grepの動作" /><br />
 </p>
 <!-- h3 -->
 <div class="marginleft">
 <h4 id="SUPPLEMENTATION-1">タグジャンプ</h4>
-<p>結果ウィンドウのファイル名の部分にカーソルがある状態で「<strong>その他→タグジャンプ</strong>」を選択すると、 (開かれていない時は開いてから)<strong>そのファイルの該当する行へ移動</strong>する事ができます。また、「<strong>バックタグジャンプ</strong>」で元の結果ウィンドウに戻る事もできます。<br />
-さらに、この結果ウィンドウをファイルとして保存する事もできて、上記の「<strong>タグジャンプ</strong>」も後から使用できます。 (ファイル名がフルパスでない場合は、ファイルを開いた箇所からの相対パスになるので、「<strong>検索するフォルダ</strong>」に結果を保存する必要があります。)</p>
 <p>設定により、結果ウィンドウのファイル名の部分をダブルクリックする事で、タグジャンプさせる事も可能です。「<span class="env">動作環境</span>－検索－grepの動作」にある、「grep結果」の「<strong>grep結果上ではダブルクリック=タグジャンプとする</strong>」に、チェックを入れてください。</p>
 <h4 id="SUPPLEMENTATION-2">grepのダイアログ</h4>
 <p>grepダイアログの種類は2種類あります。</p>
@@ -271,6 +280,12 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <ul>
 <li>"<span class="font_blue">制限を超えたとき確認メッセージを表示</span>"にチェックを入れておくと、「制限なし」以外のとき、制限にかかった場合は警告を表示します。</li>
 </ul>
+<h4 id="SUPPLEMENTATION-6">補助メニュー</h4>
+<p>「検索する文字列」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューは、<a href="2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。</p>
+<p>「検索するファイル」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューです。</p>
+<p><img src="2_grep_10.png" width="302" height="234" alt="検索するファイルのメニュー" /><br />
+</p>
+<p>前半には、「<span class="env">動作環境</span> － ファイル － 「開く」のダイアログボックス」にある「ファイルの種類の編集」で、「「開く」のダイアログ」に設定した内容が表示されます。後半には「除外の設定」や、「除外する拡張子」、「除外するサブフォルダ」の指定をアシストする機能もあります。</p>
 </div>
 </div>
 <hr />
