@@ -553,6 +553,18 @@ header#title-block-header{
 }
 */
 
+.default_select {
+  background-color : #0078D7;
+  color            : white;
+  font-family      : monospace,sans-serif;
+}
+
+.line_search_area {
+  background-color : red;
+  color            : white;
+  font-family      : monospace,sans-serif;
+}
+
 /* 640px*/
 @media screen and (max-width: 640px) {
   h1,h2,h3,h4,h5,h6 {
