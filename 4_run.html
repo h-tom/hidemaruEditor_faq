@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第IV部～テキスト編集を極める！！　プログラム実行について</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<h1 id="TOP">第IV部～テキスト編集を極める！！<br>　プログラム実行について</h1>
+<hr />
+<h2 id="INDEX">●プログラム実行について</h2>
+<p>秀丸では標準入力、標準出力を利用するプログラムを利用して、テキストを加工することができます。</p>
+<p>昔はlinuxのような便利なコマンドが少なくて活用しづらい機能でしたが、現在はWindowsでも便利なコマンドが増えたりPowerShellが導入されたことで色々な編集に活用することができます。</p>
+<p>【１】 <a href="#BASIC">プログラム実行の方法</a><br />
+【２】 <a href="#EXAMPLES">実用例</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="BASIC">【１】プログラム実行の方法</h3>
+<p>メニューから「その他→プログラム実行」できますが、そのときコマンドラインテキストの最後に「 &lt;con &gt;con」と付けて実行することで、外部プログラムの標準入力に現在の選択範囲テキストを渡し、標準出力を選択範囲に出力することができます。</p>
+<p>たとえばある行範囲を選択して「その他→プログラム実行」から「sort &lt;con &gt;con」を実行することで、選択範囲を並び替えた状態にテキストを加工することができます。</p>
+<h3 id="EXAMPLES">【２】実用例</h3>
+<dl>
+<dt><strong>sort &lt;con &gt;con</strong></dt>
+<dd><p>選択範囲を並び替える。<p></dd>
+<dt><strong>findstr "hoge" &lt;con &gt;con</strong></dt>
+<dd><p>hogeという文字が入った行だけを抜き出す。<p></dd>
+<dt><strong>powershell -c "$input | Get-Unique" &lt;con &gt;con</strong></dt>
+<dd><p>選択範囲の重複行を削除する。<p></dd>
+<dt><strong>powershell -c "1..5" &gt;con</strong></dt>
+<dd><p>「1 &lt;改行&gt; 2 &lt;改行&gt; 3 &lt;改行&gt; 4 &lt;改行&gt; 5」という連番を選択範囲に書き出す。<p></dd>
+<dt><strong>cmd /c "dir /b c:\hoge" &gt;con</strong></dt>
+<dd><p>「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。<p></dd>
+</dl>
+<!-- h3 -->
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>
