@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -30,8 +31,8 @@
 </p>
 <div class="marginleft">
 <h3 id="ABOUT">はじめに</h3>
-<p>秀丸エディタのマクロから、他のプログラム(実行ファイル)を起動する方法は複数あり、 使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2020/02/23現在)では、単純にプログラムを実行するだけなら run文 でもいいですが、 複雑な事をする場合は、引数の指定が難しいですが、runex文をお勧めします。</p>
+<p>秀丸エディタのマクロから、他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
+<p>現状(2020/09/06現在)では、単純にプログラムを実行するだけなら run文 でもいいですが、複雑な事をする場合は、引数の指定が難しいですが、runex文をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -160,7 +161,7 @@ Windows Script Host
 OK
 ---------------------------</code></pre>
 </div>
-<p>"%8C %B4 %88 %F6 %8B %86 %96 %BE" に含まれる、"%B"、"%F"が、ファイル名、フルパスに変換されて、プログラムに引き渡されています。 さらに、フルパスの場合、スペースが含まれている為、引数の数も違ってしまっています。</p></li>
+<p>"%8C %B4 %88 %F6 %8B %86 %96 %BE" に含まれる、"%B"、"%F"が、ファイル名、フルパスに変換されて、プログラムに引き渡されています。さらに、フルパスの場合、スペースが含まれている為、引数の数も違ってしまっています。</p></li>
 <li><p>run系文実行時の result は、プログラムの実行に成功した場合は <code>false</code>以外に 、失敗した場合は <code>false</code> になります。 <code>true</code> かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
 <div class="macro">
 <pre><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
@@ -169,7 +170,7 @@ if(!result){
 
 }</code></pre>
 </div></li>
-<li><p>プログラム実行に成功し、同期実行の場合は、実行したプログラムが返す「終了ステータス」を取得可能です。 取得には、<code>getresultex</code>関数で、引数に「9」を指定します。</p>
+<li><p>プログラム実行に成功し、同期実行の場合は、実行したプログラムが返す「終了ステータス」を取得可能です。取得には、<code>getresultex</code>関数で、引数に「9」を指定します。</p>
 <div class="macro">
 <pre><code>runsync &quot;xxxx.exe&quot;;
 #ret = getresultex(9);</code></pre>
@@ -177,36 +178,84 @@ if(!result){
 <p>run文の場合は、同期実行に対応していないため、<code>getresultex(9)</code> は 常に「259」(同期しなかった)を返します。</p></li>
 </ul>
 <h3 id="COMMAND">個別の命令文について</h3>
-<ul>
-<li><p>run</p>
-<p>非同期でプログラムの実行を行います。 非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
+<div class="marginleft">
+<h4 id="run">run</h4>
+<p>非同期でプログラムの実行を行います。非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
 <p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
 <ul>
-<li>"&lt;con"は、範囲選択していた場合はその範囲を、それ以外の場合はファイルの内容を標準入力へ送ります。 標準入力は、ファイルの内容を、Shift_JISに変換して入力します。</li>
-<li>"&gt;con"は、範囲選択していた場合はその範囲へ、それ以外の場合は新規の秀丸エディタへ、標準出力の内容を出力します。 標準出力はShift_JISである事を前提としています。</li>
+<li>"&lt;con"は、範囲選択していた場合はその範囲を、それ以外の場合はファイルの内容を標準入力へ送ります。標準入力は、ファイルの内容を、Shift_JISに変換して入力します。</li>
+<li>"&gt;con"は、範囲選択していた場合はその範囲へ、それ以外の場合は新規の秀丸エディタへ、標準出力の内容を出力します。標準出力はShift_JISである事を前提としています。</li>
 <li>"&lt;ファイル名"は、指定されたファイルの内容を標準入力へ送ります。</li>
 <li>"&gt;ファイル名"は、指定されたファイルへ、標準出力の内容を保存します。</li>
-</ul></li>
-<li><p>runsync,runsync2</p>
-<p>同期でプログラムの実行を行います。 同期なのでプログラムの「終了ステータス」を受け取ることが可能です。リダイレクトは使用できません。</p>
+</ul>
+<h4 id="runsyncrunsync2">runsync,runsync2</h4>
+<p>同期でプログラムの実行を行います。同期なのでプログラムの「終了ステータス」を受け取ることが可能です。リダイレクトは使用できません。</p>
 <p>runsyncは、秀丸エディタ本体を最小化状態にして待機します。</p>
-<p>runsync2は、秀丸エディタ本体はそのままで待機します。</p></li>
-<li><p>runex</p>
-<p>run文/runsync文の拡張版で、引数がとても多い(14個)ですが、細かく実行状態を指定できます。 詳細は以下のリンク先を参照の事。</p>
+<p>runsync2は、秀丸エディタ本体はそのままで待機します。</p>
+<h4 id="runex">runex</h4>
+<p>run文/runsync文の拡張版で、引数がとても多い(14個)ですが、細かく実行状態を指定できます。詳細は以下のリンク先を参照の事。</p>
 <ul>
 <li>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html" class="externallink" target="_blank">runex文</a></li>
 <li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank">「プログラム実行の詳細（オプション指定時）」</a></li>
 </ul>
 <p>書式は以下になります。</p>
-<p><strong>runex</strong> ファイル名, 同期フラグ, 標準入力フラグ, 標準入力ファイル名, 標準出力フラグ, 標準出力ファイル名, 標準エラー出力フラグ, 標準エラー出力ファイル名, フォルダフラグ, フォルダ名, 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>
+<p><strong>runex</strong> 実行ファイル名, 同期フラグ, 標準入力フラグ, 標準入力ファイル名, 標準出力フラグ, 標準出力ファイル名, 標準エラー出力フラグ, 標準エラー出力ファイル名, 作業フォルダフラグ, 作業フォルダ名, 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>
 <ul>
-<li>同期フラグで、非同期実行/同期実行を指定できます。</li>
-<li>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</li>
-<li>表示フラグで、3以降の意味は、 <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank">ShellExecuteA function (shellapi.h)</a> の「nShowCmd」を参照の事。</li>
-<li>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</li>
-<li>拡張フラグで、"%f" 等の変換を抑制できます</li>
+<li><p>同期フラグで、非同期実行/同期実行を指定できます。</p></li>
+<li><p>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</p></li>
+<li><p>表示フラグで、3以降の意味は、 <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank">ShellExecuteA function (shellapi.h)</a> の「nShowCmd」を参照の事。</p></li>
+<li><p>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</p></li>
+<li><p>拡張フラグで、"%f" 等の変換を抑制できます</p></li>
+<li><p>作業フォルダの使い方</p>
+<p>作業フォルダは、実行ファイルの実行時のフォルダを指定します。</p>
+<p>わかりやすい例だと、コマンドプロンプト(cmd.exe)を実行する場合、作業フォルダを指定すると、そのフォルダをカレントにしたコマンドプロンプトを開くことができます。 PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
+<p>コマンドプロンプトを、マクロフォルダをカレントにした状態で開くマクロ</p>
+<div class="macro">
+<pre><code>runex &quot;cmd.exe&quot;
+//sync   0:async, 1:sync
+, 0
+//stdin  0:none, 1:auto, 2:&lt;file, 3:(reserved), 4:current content, 5:selection
+, 0, &quot;&quot;
+//stdout 0:none, 1:auto, 2:&gt;file 3:&gt;&gt;file, 4:new window, 5:insert, 6:replace, 7:&gt;output pane, 8:&gt;&gt;output pane
+, 0, &quot;&quot;
+//stderr 0:none, 1:auto or &gt;&gt;stdout, 2-8:same as stdout&#39;s param
+, 0, &quot;&quot;
+//folder 0:none, 1:current, 2:specify 3:(reserved), 4:exe&#39;s
+, 2, macrodir
+//show   0:auto, 1:show, 2:hide, 3-13:ShellExecute()&#39;s SW_*
+, 0
+//draw   0:draw, 1:no draw when stdout redirected
+, 0
+//encode 0:ansi, 2:utf-16, 6:utf-8
+, 0
+//extended flags
+, 0
+;</code></pre>
+</div>
+<ul>
+<li><p>おまけ</p>
+<p>コマンドプロンプト、PowerShell、Windows Terminal は、起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
+<ul>
+<li><p>コマンドプロンプト</p>
+<div class="macro">
+<pre><code>cmd.exe /k cd /d &quot;開きたいフォルダ&quot;</code></pre>
+</div></li>
+<li><p>PowerShell(Ver.5)</p>
+<div class="macro">
+<pre><code>powershell.exe -noexit -command Set-Location -literalPath &#39;開きたいフォルダ&#39;</code></pre>
+</div></li>
+<li><p>PowerShell(Ver.7)</p>
+<div class="macro">
+<pre><code>pwsh.exe -WorkingDirectory &quot;開きたいフォルダ&quot;</code></pre>
+</div></li>
+<li><p>Windows Terminal</p>
+<div class="macro">
+<pre><code>wt.exe new-tab --startingDirectory &quot;開きたいフォルダ&quot;</code></pre>
+</div></li>
+</ul></li>
 </ul></li>
 </ul>
+</div>
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

@@ -1098,11 +1098,13 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>encodeuri関数</li>
 <li>decodeuri関数</li>
 <li>getlinecount関数</li>
+<li>mouselineno キーワード、mousecolumn キーワード(カーソルがエディタ画面範囲外の場合は-1)</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
 <li>searchdown等にinselect2のオプションを追加。</li>
 <li>gettext関数、gettext2関数で改行を。</li>
+<li>getoutlineitemの行番号が、分類モードでうまく取得できないバグ修正。</li>
 </ul></li>
 <li>その他
 <ul>
@@ -1113,6 +1115,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>検索ダイアログの「選択した範囲内のみ」を「選択した範囲」に変更して、[行単位]/[文字単位]を追加。</li>
 <li>[その他]→[動作環境]→[環境]や[パフォーマンス]からの詳細設定の項目を増やして、クリップボード履歴の個数、静的変数の上限を追加。</li>
+<li>ブックマークやプロジェクトの項目のパスの先頭に「mac:」と書くとマクロ実行用のファイルとして動作するように修正。</li>
 </ul>
 </div>
 <hr />
