@@ -24,7 +24,7 @@
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　外部プログラムの実行について</h1>
 <hr />
-<h2 id="INDEX">●外部プログラムの実行について</h2>
+<h2 id="INDEX">外部プログラムの実行について</h2>
 <p>【０】<a href="#ABOUT">はじめに</a><br />
 【１】<a href="#COMMON">run系命令文の共通事項</a><br />
 【２】<a href="#COMMAND">個別の命令文について</a><br />
@@ -32,7 +32,7 @@
 <div class="marginleft">
 <h3 id="ABOUT">はじめに</h3>
 <p>秀丸エディタのマクロから、他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2020/09/06現在)では、単純にプログラムを実行するだけなら run文 でもいいですが、複雑な事をする場合は、引数の指定が難しいですが、runex文をお勧めします。</p>
+<p>現状(2020/09/26現在)では、単純にプログラムを実行するだけなら run文 でもいいですが、複雑な事をする場合は、引数の指定が難しいですが、runex文をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -47,7 +47,7 @@
 <tr class="odd">
 <td style="text-align: center;">run</td>
 <td style="text-align: center;">×</td>
-<td style="text-align: center;">△(Shift_JIS前提)</td>
+<td style="text-align: center;">△</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">runsync/runsync2</td>
@@ -57,111 +57,28 @@
 <tr class="odd">
 <td style="text-align: center;">runex</td>
 <td style="text-align: center;">○</td>
-<td style="text-align: center;">○</td>
+<td style="text-align: center;">▽</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>○：問題なし　△：制限あり　×：不可</p>
+<p>○:問題なし<br />
+△:制限あり。標準入出力を使う場合は Shift_JIS に変換される。<br />
+▽:制限あり。標準入出力は、Shift_JIS、UTF-8、UTF-16LEに対応。<br />
+×:不可<br />
+</p>
+<hr />
 <dl>
 <dt>同期実行</dt>
 <dd>プログラムが終了するまで待機する。(プログラムの戻り値を取得可能)
 </dd>
 <dt>リダイレクト</dt>
-<dd>ファイルの内容を標準入力へ送ったり、標準出力をファイルへ取り込む。
+<dd>ファイルの内容を標準入力へ送ったり、標準出力をファイルへ取り込む。標準入出力を使う場合は、制限あり。ファイルから入力する場合は、保存してあるエンコードになります。
 </dd>
 </dl>
 <h3 id="COMMON">run系命令文の共通事項</h3>
 <ul>
-<li><p>コマンドラインに指定する文字列内に</p>
-<ul>
-<li>%f</li>
-<li>%d</li>
-<li>%b</li>
-<li>%n</li>
-<li>%l</li>
-<li>%c</li>
-</ul>
-<p>の文字がある場合、対象の内容に置換されてプログラムに引き渡されます。 (大文字小文字の区別はありません)<br />
-特に、パーセントエンコード/URLエンコード を含む文字列を指定する場合は、注意が必要です。 (runex文の場合、置換を抑制するオプションあり)</p>
-<p><strong><code>"C:\Program Files\Hidemaru\HIDEMARU.TXT"</code></strong> を秀丸エディタで開いている状態では、以下の内容に置換されます。</p>
-<dl>
-<dt>%f</dt>
-<dd><p>開いているファイルのフルパス</p>
-<div class="macro">
-<pre><code>C:\Program Files\Hidemaru\HIDEMARU.TXT</code></pre>
-</div>
-</dd>
-<dt>%d</dt>
-<dd><p>開いているファイルのフォルダ名</p>
-<div class="macro">
-<pre><code>C:\Program Files\Hidemaru</code></pre>
-</div>
-</dd>
-<dt>%b</dt>
-<dd><p>開いているファイルのファイル名</p>
-<div class="macro">
-<pre><code>HIDEMARU.TXT</code></pre>
-</div>
-</dd>
-<dt>%n</dt>
-<dd><p>開いているファイルのファイル名から拡張子を除いたもの</p>
-<div class="macro">
-<pre><code>HIDEMARU</code></pre>
-</div>
-</dd>
-<dt>%l</dt>
-<dd>カーソル位置の行番号(先頭が1)
-</dd>
-<dt>%c</dt>
-<dd>カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。
-</dd>
-</dl>
-<p>例えば、以下のVbscript に "%8C %B4 %88 %F6 %8B %86 %96 %BE" という文字列を引数として指定し、run文で実行してみます。</p>
-<div class="macro">
-<pre><code>Option Explicit
-
-Dim WshArgs
-Dim Argv
-Dim i
-
-Argv = &quot;&quot;
-
-&#39;引数の取得
-Set WshArgs = WScript.Arguments
-For i = 0 to WshArgs.Count - 1
-    Argv = Argv &amp; cstr(i) &amp; &quot; --&gt;&quot; &amp; WshArgs(I) &amp; &quot;&lt;--&quot; &amp; vbcrlf
-Next
-set WshArgs = Nothing
-
-Wscript.echo Argv
-Wscript.quit</code></pre>
-</div>
-<p>実行するマクロ</p>
-<div class="macro">
-<pre><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;</code></pre>
-</div>
-<p>出力結果</p>
-<div class="macro">
-<pre><code>---------------------------
-Windows Script Host
----------------------------
-
-0 --&gt;%8C&lt;--
-1 --&gt;HIDEMARU.TXT4&lt;--
-2 --&gt;%88&lt;--
-3 --&gt;C:\Program&lt;--
-4 --&gt;Files\Hidemaru\HIDEMARU.TXT6&lt;--
-5 --&gt;%8B&lt;--
-6 --&gt;%86&lt;--
-7 --&gt;%96&lt;--
-8 --&gt;HIDEMARU.TXTE&lt;--
-
----------------------------
-OK
----------------------------</code></pre>
-</div>
-<p>"%8C %B4 %88 %F6 %8B %86 %96 %BE" に含まれる、"%B"、"%F"が、ファイル名、フルパスに変換されて、プログラムに引き渡されています。さらに、フルパスの場合、スペースが含まれている為、引数の数も違ってしまっています。</p></li>
+<li><p><a href="./2_program.html">第II部～知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#NOTICE">【１】共通の注意点</a>を参照してください。</p></li>
 <li><p>run系文実行時の result は、プログラムの実行に成功した場合は <code>false</code>以外に 、失敗した場合は <code>false</code> になります。 <code>true</code> かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
 <div class="macro">
 <pre><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
@@ -180,23 +97,19 @@ if(!result){
 <h3 id="COMMAND">個別の命令文について</h3>
 <div class="marginleft">
 <h4 id="run">run</h4>
-<p>非同期でプログラムの実行を行います。非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
+<p>非同期でプログラムの実行を行います。(プログラムを実行しても、終了を待たないで次の命令に進みます) 非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
 <p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
-<ul>
-<li>"&lt;con"は、範囲選択していた場合はその範囲を、それ以外の場合はファイルの内容を標準入力へ送ります。標準入力は、ファイルの内容を、Shift_JISに変換して入力します。</li>
-<li>"&gt;con"は、範囲選択していた場合はその範囲へ、それ以外の場合は新規の秀丸エディタへ、標準出力の内容を出力します。標準出力はShift_JISである事を前提としています。</li>
-<li>"&lt;ファイル名"は、指定されたファイルの内容を標準入力へ送ります。</li>
-<li>"&gt;ファイル名"は、指定されたファイルへ、標準出力の内容を保存します。</li>
-</ul>
+<p><a href="./2_program.html">第II部～知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a>を参照してください。</p>
 <h4 id="runsyncrunsync2">runsync,runsync2</h4>
-<p>同期でプログラムの実行を行います。同期なのでプログラムの「終了ステータス」を受け取ることが可能です。リダイレクトは使用できません。</p>
+<p>同期でプログラムの実行を行います。(プログラムを実行すると、終了するまで待機します) 同期なのでプログラムの「終了ステータス」を受け取ることが可能です。<span class="attention_red">リダイレクトは使用できません。</span></p>
 <p>runsyncは、秀丸エディタ本体を最小化状態にして待機します。</p>
-<p>runsync2は、秀丸エディタ本体はそのままで待機します。</p>
+<p>runsync2は、秀丸エディタ本体はそのままの状態で待機します。</p>
 <h4 id="runex">runex</h4>
 <p>run文/runsync文の拡張版で、引数がとても多い(14個)ですが、細かく実行状態を指定できます。詳細は以下のリンク先を参照の事。</p>
 <ul>
 <li>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html" class="externallink" target="_blank">runex文</a></li>
 <li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank">「プログラム実行の詳細（オプション指定時）」</a></li>
+<li><a href="./2_program.html">第II部～知っていると便利な秀丸の機能　プログラム実行</a>- <a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a></li>
 </ul>
 <p>書式は以下になります。</p>
 <p><strong>runex</strong> 実行ファイル名, 同期フラグ, 標準入力フラグ, 標準入力ファイル名, 標準出力フラグ, 標準出力ファイル名, 標準エラー出力フラグ, 標準エラー出力ファイル名, 作業フォルダフラグ, 作業フォルダ名, 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>

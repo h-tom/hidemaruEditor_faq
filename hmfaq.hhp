@@ -23,15 +23,16 @@ Title=秀丸エディタＱ＆Ａ集(第8.8版)
 2_grep.html
 2_grepreplace.html
 2_highlight.html
+2_language.html
 2_mark.html
 2_multiselect.html
 2_outline.html
 2_output.html
+2_program.html
 2_replace.html
 2_wordcomplete.html
 2_wordcount.html
 3_autostartmacro.html
-2_language.html
 3_bit.html
 3_com_object.html
 3_debug.html
@@ -52,6 +53,7 @@ Title=秀丸エディタＱ＆Ａ集(第8.8版)
 3_yenmk.html
 4_cmdlin.html
 4_regular.html
+4_run.html
 4_tagreg.html
 6_publisher.html
 6_spellcheck.html

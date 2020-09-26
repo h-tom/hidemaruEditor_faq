@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -23,7 +24,7 @@
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　HMJRE.DLLを使う場合の注意点</h1>
 <hr />
-<h2 id="INDEX">●HMJRE.DLLを使う場合の注意点</h2>
+<h2 id="INDEX">HMJRE.DLLを使う場合の注意点</h2>
 <p>【０】<a href="#ABOUT">はじめに</a><br />
 【１】<a href="#UNICODE">文字変数にShift_JISに含まれない、Unicode文字がある場合</a><br />
 【２】<a href="#FOREIGNLANGUAGE">外国語を対象とする場合</a></p>
@@ -32,12 +33,12 @@
 <h3 id="ABOUT">はじめに</h3>
 <p>秀丸エディタの正規表現エンジンであるHMJRE.DLLは、マクロから呼び出すことが可能です。 (<a href="https://help.maruo.co.jp/hmjre/html/0008_API_MACRO.html" class="externallink" target="_blank">マクロからのdllfunc呼び出し</a>)<br />
 </p>
-<p>文字変数や文字列に対して、正規表現を使った検索、置換が実行できますが、 使用する場合には、注意点があります。</p>
+<p>文字変数や文字列に対して、正規表現を使った検索、置換が実行できますが、使用する場合には、注意点があります。</p>
 <ul>
 <li>文字変数にShift_JISに含まれない、Unicode文字がある場合</li>
 <li>外国語を対象とする場合</li>
 </ul>
-<p>秀丸エディタ本体で検索を行う場合は、秀丸エディタがつじつまを合わせてくれますが、 マクロで使う場合は、呼び出した側が注意しないといけない場合があります。</p>
+<p>秀丸エディタ本体で検索を行う場合は、秀丸エディタがつじつまを合わせてくれますが、マクロで使う場合は、呼び出した側が注意しないといけない場合があります。</p>
 <h3 id="UNICODE">文字変数にShift_JISに含まれない、Unicode文字がある場合</h3>
 <ul>
 <li><a href="#UNICODE-1">Unicode文字が含まれる場合の問題点</a></li>
@@ -53,11 +54,11 @@
 <li>Shift_JISがベースになっているため、マクロでは、常に<span class="attention_red">漢字は2バイト</span>として扱われる。</li>
 </ul>
 <p>基本的にはShift_JISである前提で動作しています。</p>
-<p>通常、外部DLL内の関数を dllfunc/dllfuncstr を使って呼び出す時は、 引数に指定する文字列に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」が含まれると、 その文字を削除して、外部DLLに渡されます。</p>
-<p>これは、DLLとのインターフェースが、マルチバイト文字(Shift_JIS)を前提としている事と、 「<strong>特殊な文字コード</strong>」を外部DLLが理解できないためです。 (<strong>dllfuncw/dllfuncstrw</strong> を使えば、Unicode文字列を外部DLLに渡す事は可能ですが、DLL側の対応が必要です)</p>
-<p>HMJRE.DLLは、例外的に「 <strong>特殊な文字コード</strong>」 を理解できる為、 dllfunc/dllfuncstr 呼び出し時、文字列内に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」があっても、 秀丸エディタ内部の<span class="attention_red">「特殊な文字コード」がそのままHMJRE.DLLに渡されます。</span></p>
-<p>HMJRE.DLLの関数自体は、マッチ位置やマッチした長さを、バイト数で返します。 「<strong>特殊な文字コード</strong>」は「<span class="attention_red">1文字4バイト</span>」なので、「<span class="attention_red">常に漢字は2バイト</span>」で扱うマクロ関数と一致しません。</p>
-<p>以下のマクロは、文字変数 <code>$a</code> の最後にある"a"の位置を返すマクロです。 マクロ関数とHMJRE.DLL内の関数の比較になります。</p>
+<p>通常、外部DLL内の関数を dllfunc/dllfuncstr を使って呼び出す時は、引数に指定する文字列に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」が含まれると、その文字を削除して、外部DLLに渡されます。</p>
+<p>これは、DLLとのインターフェースが、マルチバイト文字(Shift_JIS)を前提としている事と、「<strong>特殊な文字コード</strong>」を外部DLLが理解できないためです。 (<strong>dllfuncw/dllfuncstrw</strong> を使えば、Unicode文字列を外部DLLに渡す事は可能ですが、DLL側の対応が必要です)</p>
+<p>HMJRE.DLLは、例外的に「 <strong>特殊な文字コード</strong>」 を理解できる為、 dllfunc/dllfuncstr 呼び出し時、文字列内に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」があっても、秀丸エディタ内部の<span class="attention_red">「特殊な文字コード」がそのままHMJRE.DLLに渡されます。</span></p>
+<p>HMJRE.DLLの関数自体は、マッチ位置やマッチした長さを、バイト数で返します。「<strong>特殊な文字コード</strong>」は「<span class="attention_red">1文字4バイト</span>」なので、「<span class="attention_red">常に漢字は2バイト</span>」で扱うマクロ関数と一致しません。</p>
+<p>以下のマクロは、文字変数 <code>$a</code> の最後にある"a"の位置を返すマクロです。マクロ関数とHMJRE.DLL内の関数の比較になります。</p>
 <div class="macro">
 <pre><code>// マクロ1
 // このマクロはUnicode(UTF-16LE)で保存する事
@@ -103,7 +104,7 @@ $a = &quot;hidemaru&#131083;a&quot;;</code></pre>
 取得文字2($b2)：&lt;--</code></pre>
 </div>
 <p>となり、strrstr関数は期待通り「10」を返しますが、FindRegular関数は、「16」を返します。</p>
-<p>これは "&#131083;"という文字が、UTF-16で表現するとサロゲートペアとなるため、Unicode文字2文字で表現されているからです。 「<strong>特殊な文字コード</strong>」は1文字4バイトなので、2文字分で8バイトになっています。</p>
+<p>これは "&#131083;"という文字が、UTF-16で表現するとサロゲートペアとなるため、Unicode文字2文字で表現されているからです。「<strong>特殊な文字コード</strong>」は1文字4バイトなので、2文字分で8バイトになっています。</p>
 <p>先ほどのマクロを変更して、マッチした長さを返すGetLastMatchLength関数を使用し、 "&#131083;"を検索した時の、マッチした長さ(バイト数)を確認してみます。</p>
 <div class="macro">
 <pre><code>// マクロ2
@@ -147,8 +148,8 @@ endmacro;</code></pre>
 //    012345678901234567890
 $a = &quot;hidemaruXXXXYYYYa&quot;;</code></pre>
 </div>
-<p>「<span class="attention_red">マクロでは、常に漢字は2バイトとして扱われる</span>」ということになっていますが、 HMJRE.DLLの関数使用時に「<strong>特殊な文字コード</strong>」が含まれると、 <span class="attention_red">漢字1文字でも最大で8バイト</span>になる事もあるため、マクロ関数と一致しません。 マクロ1、マクロ2で、"取得文字($b2)"がおかしいのは、この不一致が原因です。</p>
-<p>HMJRE.DLL内の関数で戻り値を、マクロの関数で使用する場合は、ズレの有無をチェックし、 ズレていたら補正しないと、正確な位置、長さを取得出来ません。</p>
+<p>「<span class="attention_red">マクロでは、常に漢字は2バイトとして扱われる</span>」ということになっていますが、 HMJRE.DLLの関数使用時に「<strong>特殊な文字コード</strong>」が含まれると、<span class="attention_red">漢字1文字でも最大で8バイト</span>になる事もあるため、マクロ関数と一致しません。マクロ1、マクロ2で、"取得文字($b2)"がおかしいのは、この不一致が原因です。</p>
+<p>HMJRE.DLL内の関数で戻り値を、マクロの関数で使用する場合は、ズレの有無をチェックし、ズレていたら補正しないと、正確な位置、長さを取得出来ません。</p>
 <h4 id="UNICODE-2">対処方法</h4>
 <p>HMJRE.DLL Ver.3.13(秀丸エディタ Ver.8に添付)から、<code>"SetUnicodeIndexAutoConvert関数"</code>が追加されています。</p>
 <div class="macro">
@@ -216,7 +217,7 @@ endmacro;</code></pre>
 <p>確実に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」がないと判っているなら不要ですが、 HMJRE.DLLをマクロから使用する場合には、<code>SetUnicodeIndexAutoConvert関数</code> を実行することを推奨します。</p>
 </div>
 <h3 id="FOREIGNLANGUAGE">外国語を対象とする場合</h3>
-<p>マクロでは、基本的に日本語(Shift_JIS)を対象にしているため、日本語以外の言語使用する場合、 検索に失敗する場合があります。</p>
+<p>マクロでは、基本的に日本語(Shift_JIS)を対象にしているため、日本語以外の言語使用する場合、検索に失敗する場合があります。</p>
 <p>Shift_JISの文字コードに関係する話になります。</p>
 <p>Shift_JISの文字コードの割り当ては以下のようになっています。</p>
 <div class="marginleft">
@@ -239,7 +240,7 @@ endmacro;</code></pre>
 </dl>
 </div>
 <p>欧文文字コード(CP1252)の場合、Shift_JISの上位バイトに当たる範囲に、文字が割り当てられています。 (0xe0～0xef の 範囲には、アクセント記号付きの文字が割り当てられている)<br />
-その為、欧文文字を検索したくても、Shift_JISの上位バイトと認識され、正しく検索出来ない場合があります。 日本語以外の言語を使用する場合には、あらかじめ言語の情報をDLLに教えておく必要があります。</p>
+その為、欧文文字を検索したくても、Shift_JISの上位バイトと認識され、正しく検索出来ない場合があります。日本語以外の言語を使用する場合には、あらかじめ言語の情報をDLLに教えておく必要があります。</p>
 <p>HMJRE.DLLのVer.5.01から、"NotifyEncode"関数が追加されています。 (秀丸エディタのVer.8.74以降から添付)<br />
 この関数を使用することで、対象のエンコードを指定できます。</p>
 <div class="macro">

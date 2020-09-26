@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -23,7 +24,7 @@
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第IV部～テキスト編集を極める！！<br>　タグ付き正規表現とは?</h1>
 <hr />
-<h2 id="INDEX">●タグ付き正規表現とは?</h2>
+<h2 id="INDEX">タグ付き正規表現とは?</h2>
 <p>　秀丸エディタでは Ver.3.0以降で「タグ付き正規表現」がサポートされています。 (Ver.3.19までは、正規表現エンジンに「JRE32.DLL」が使用されていましたが、Ver.4.00以降は、「HMJRE.DLL」に変更されています。)</p>
 <p>秀丸エディタVer.3.0～Ver.4.19では秀丸エディタ独自の指定方法(\fを区切り文字で使用する方法)が使用されていましたが、秀丸エディタVer5.00以降では、正規表現エンジンであるHMJRE.DLLが変更され、 Prel等で使用されているグルーピング指定である、「<code>()</code>」括弧でのタグ指定が可能になっています。 (旧バージョンとの互換性から、現状でも"\f"を使う方法も指定可能ですが、「HMJRE.DLL」を使用している場合は使わないほうがいいです。)</p>
 <p>以降の説明は、正規表現エンジンに「HMJRE.DLL」を使用する前提で行います。</p>

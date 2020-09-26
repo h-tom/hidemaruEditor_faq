@@ -138,6 +138,10 @@
 			<param name="Name" value="表示言語の切替">
 			<param name="Local" value="2_language.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="プログラム実行">
+			<param name="Local" value="2_program.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">
@@ -237,6 +241,10 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="タグ付き正規表現とは?">
 			<param name="Local" value="4_tagreg.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="プログラム実行を利用したテキストの加工">
+			<param name="Local" value="4_run.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

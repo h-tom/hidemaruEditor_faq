@@ -496,6 +496,9 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>macrohelp文でパラメータでキーワードを指定して開くことができるように修正。</li>
 <li>insert文の第２パラメータに2を指定可能にして、自動アンインデントの対応。</li>
 <li>saveconfig文で「折りたたみ用の余白」の一時的な状態を解除されるように修正。</li>
+<li>insert文のパラメータ2またはoverwrite文の改行コードの処理は、 insert文のパラメータなしと同様に“0d0a”を１つの改行として解釈するように修正。</li>
+<li>overwriteとinsert $a,2;のサロゲートペア対応。</li>
+<li>goto文、call文のラベルに文字列変数を指定して、文字列変数をラベル名にジャンプできるように修正。</li>
 </ul></li>
 </ul>
 </section>

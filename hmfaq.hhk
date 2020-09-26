@@ -1760,8 +1760,12 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="外部プログラム">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能！！　プログラム実行">
+		<param name="Local" value="2_program.html">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと　外部プログラムの実行について">
 		<param name="Local" value="3_run.html">
+		<param name="Name" value="第IV部～テキスト編集を極める！！　プログラム実行を利用したテキストの加工">
+		<param name="Local" value="4_run.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="拡張子">

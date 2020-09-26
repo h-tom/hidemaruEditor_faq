@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -23,7 +24,7 @@
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第III部～秀丸マクロのいろはにほへと<br>　マクロを実行してみよう</h1>
 <hr />
-<h2 id="INDEX">●マクロを実行してみよう</h2>
+<h2 id="INDEX">マクロを実行してみよう</h2>
 <p>【０】<a href="#ABOUT">ここに書いてあること</a><br />
 【１】<a href="#PRE">導入前の準備</a><br />
 【２】<a href="#INSTALL">個々のマクロの導入</a><br />
@@ -229,7 +230,7 @@
 </ol>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="SAMPLE1">●サンプルマクロその１</h4>
+<h4 id="SAMPLE1">サンプルマクロその１</h4>
 <p>「カーソル位置に現在日時を挿入するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL1.MAC としてください。</p>
 <div class="macro">
@@ -239,7 +240,7 @@ insert date + &quot; &quot; + time;
 endmacro;
 //---ここまで</code></pre>
 </div>
-<h4 id="SAMPLE2">●サンプルマクロその２</h4>
+<h4 id="SAMPLE2">サンプルマクロその２</h4>
 <p>「編集中のテキストの末尾に『自分の名前』をの行を挿入するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL2.MAC としてください。<br />
 「自分の名前」のところは任意の文字列（ただし「vや「"」を含まない）に置き換えることができます。</p>
@@ -251,7 +252,7 @@ insert &quot;\n&quot; + &quot;自分の名前&quot; + &quot;\n&quot;;
 endmacro;
 //---ここまで</code></pre>
 </div>
-<h4 id="SAMPLE3">●サンプルマクロその３</h4>
+<h4 id="SAMPLE3">サンプルマクロその３</h4>
 <p>「改行のみの行が連続していたら１行に置換するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL3.MAC としてください。</p>
 <div class="macro">
@@ -264,7 +265,7 @@ endmacro;
 //---ここまで</code></pre>
 </div>
 <p>このマクロの意味の詳細は、<a href="4_regular.html">第IV部～テキスト編集を極める！！正規表現について</a> の <a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a>を参照してください。</p>
-<h4 id="SAMPLE4">●サンプルマクロその４</h4>
+<h4 id="SAMPLE4">サンプルマクロその４</h4>
 <p>「空白（全角スペース、半角スペース、タブ）のみからなる行を改行のみの行に置換するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL4.MAC としてください。</p>
 <div class="macro">
