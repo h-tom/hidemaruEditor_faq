@@ -2287,5 +2287,10 @@
 		<param name="Name" value="表示言語の切替">
 		<param name="Local" value="2_language.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="内容比較>
+		<param name="Name" value="他の秀丸エディタと内容比較">
+		<param name="Local" value="2_compfile.html">
+		</OBJECT>
 </UL>
 </BODY></HTML>
