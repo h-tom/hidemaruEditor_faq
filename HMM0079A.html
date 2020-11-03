@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -40,14 +41,14 @@
 <div class="line-block">数値型変数は４バイトの符号付きの値を記憶することができます。</div>
 <p>とありますので、動作は変わりません。</p>
 <p>例えば以下のマクロを32bit版(ver.3.13)と16bit版(ver.1.48)で確認したところ、動作は全く同じです。</p>
-<pre><code>if ((code &amp; 0xff00) != 0) { 
+<pre><code>if ((code &amp; 0xff00) != 0) {
     message &quot;(code &amp; 0xff00) != 0&quot;;
-} 
-if (code &gt; 0xff) { 
+}
+if (code &gt; 0xff) {
     message &quot;(code &gt; 0xff)&quot;;
-} 
-message str(0x8000); //32768が返る 
-message str(0xffff); //65535が返る 
+}
+message str(0x8000); //32768が返る
+message str(0xffff); //65535が返る
 if (0x8000 &lt; 0xffff) message &quot;16bit版でも同じ？&quot;;</code></pre>
 </dd>
 </dl>

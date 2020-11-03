@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -27,13 +28,13 @@
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>「strlen」等の文字列操作関数はバイト単位となっていますが、文字単位で扱うことはできないでしょうか？ １バイト文字と２バイト文字が混在している時に、とても困ります。</strong>
+<dd><strong>「strlen」等の文字列操作関数はバイト単位となっていますが、文字単位で扱うことはできないでしょうか？１バイト文字と２バイト文字が混在している時に、とても困ります。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>秀丸エディタ Ver.8以降は、文字列をunicode(正確にはUTF-16LE)として扱う関数群が追加されています。</p>
+<dd><p>秀丸エディタ Ver.8以降は、文字列をUnicode(UTF-16LE)として扱う関数群が追加されています。</p>
 <ul>
 <li>wcslen</li>
 <li>wcsleftstr</li>
@@ -43,7 +44,7 @@
 <li>wcsstrrstr</li>
 </ul>
 <p>この関数群を使用すれば、半角、全角問わずに文字単位で、文字列を操作可能です。</p>
-<p>ただし、UTF-16LE(16bit 0x0000 to 0xFFFF)なので、 コードポイントが U+10000 を越えるとサロゲートペアを使って表現する必要がある為、 上記関数群でも、1文字でも2文字扱いになります。</p>
+<p>ただし、UTF-16LE(16bit 0x0000 to 0xFFFF)なので、コードポイントが U+10000 を越えるとサロゲートペアを使って表現する必要がある為、上記関数群でも、1文字でも2文字扱いになります。</p>
 <p>Unicode(UTF-16LE)ベースで文字単位で扱うには、</p>
 <ul>
 <li>サロゲートペア</li>

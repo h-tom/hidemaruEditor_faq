@@ -45,11 +45,11 @@
 <div class="attention_p">
 <p>もっともブッ飛んだ</p>
 </div>
-<p>ものが、今から解説する 「DLLの関数を利用する機能」でしょう。 DLLは「Dynamic Link Library」の略語、日本語では「動的結合ライブラリ」となりますが、これは関数やサブルーチンを必要がある時にメモリにロードして、実行中のアプリケーションから呼び出せるようにするための仕組みです。で、このDLLのロード＆関数の呼出しをマクロ中からできるわけですが、自分でDLLを作ってこの機能を利用すれば、マクロの命令のここが気に入らないとかこんなのが欲しいとか、あれこれ要望して実現されるのをひたすら待っていた(または諦めていた)</p>
+<p>ものが、今から解説する 「DLLの関数を利用する機能」でしょう。 DLLは「Dynamic Link Library」の略語、日本語では「動的結合ライブラリ」となりますが、これは関数やサブルーチンを必要がある時にメモリへロードして、実行中のアプリケーションから呼び出せるようにするための仕組みです。で、このDLLのロード＆関数の呼出しをマクロ中からできるわけですが、自分でDLLを作ってこの機能を利用すれば、マクロの命令のここが気に入らないとかこんなのが欲しいとか、あれこれ要望して実現されるのをひたすら待っていた(または諦めていた)</p>
 <div class="attention_p">
 <p>そんな後ろ向きな自分にサヨナラ(笑)</p>
 </div>
-<p>できるわけです。 もっとも、秀丸エディタのウィンドウや編集中のテキストの内容を直接いじれるわけではないですが、それでも初期状態のマクロには用意されていない高度なファイル操作や文字列操作、自分で好きなようにデザインしたダイアログを表示したり… といったことが自由にできるようになるわけですから、</p>
+<p>できるわけです。もっとも、秀丸エディタのウィンドウや編集中のテキストの内容を直接いじれるわけではないですが、それでも初期状態のマクロには用意されていない高度なファイル操作や文字列操作、自分で好きなようにデザインしたダイアログを表示したり… といったことが自由にできるようになるわけですから、</p>
 <div class="attention_p">
 <p>これはもうDLL作るしかない</p>
 </div>
@@ -69,7 +69,7 @@
 <p>演算子のオーバーロードってどうやるんですか？</p>
 </div>
 <p>といったことで悩んでいる方は、この解説より先にまず言語自体の参考書を見て勉強してください。</p>
-<p>次に、DLLを作るためにはもちろんDLLが作成可能な開発環境(コンパイラetc.)が必要ですが、フリーソフトウェアのコンパイラがいくつかあります。その中でWeb 等から現在入手可能で比較的有名なものは以下の通りです。</p>
+<p>次に、DLLを作るためにはもちろんDLLを作成可能な開発環境(コンパイラetc.)が必要ですが、フリーソフトウェアのコンパイラがいくつかあります。その中でWeb 等から現在入手可能で比較的有名なものは以下の通りです。</p>
 <ul>
 <li>Cygwin 環境に含まれる GNU gcc コンパイラ (及び binutils に含まれるdlltool / dllwrap)</li>
 <li>MinGW (Minimalist GNU For Windows) 環境に含まれる GNU gccコンパイラ (及び 同上)</li>
@@ -78,10 +78,10 @@
 <p>これらの入手先については<a href="#links">こちら</a>をご覧ください。また、Visual Studio以外は、基本的にはコマンドライン上で使うツールなわけですが、それらをウィンドウ環境で利用するための <a href="#links">GUIソフトウェア(いわゆる統合開発環境)もいくつか公開されている</a>ようです。それらの環境の上でDLLを作成する方法についてはそれぞれのマニュアルを参照してください。ここでは、コマンドラインから直接DLLを作る時のコマンドラインオプションのみを説明します。</p>
 <ul>
 <li><p>Cygwin gcc の場合：<br />
-この場合、作成するDLLが Cygwin 環境 (正確には cygwin1.dll) を必要とするかしないかを -mno-cygwin オプションの有無で選択できます。 (-mno-cygwin をつけると cygwin1.dll の代わりに msvcrt.dll を使うようになります。)</p>
+この場合、作成するDLLが Cygwin 環境 (正確には cygwin1.dll) を必要とするかしないかを -mno-cygwin オプションの有無で選択できます。 (-mno-cygwin をつけると cygwin1.dll の代わりに msvcrt.dll を使うようになる)</p>
 <p>まず、アプリケーション等から呼び出せるようにする(＝エクスポートする) 関数に、 (後に説明する) __declspec(dllexport) 宣言子をつけておけば、以下のように直接 gcc を使うのがもっとも簡単です。</p>
 <pre><code>gcc -shared -mwindows -o foo.dll foo.cpp (Cygwin 環境下で動作)
-gcc -shared -mwindows -mno-cygwin -o foo.dll foo.cpp (Cygwin 環境は不要) </code></pre>
+gcc -shared -mwindows -mno-cygwin -o foo.dll foo.cpp (Cygwin 環境は不要)</code></pre>
 <p>__declspec(dllexport) 宣言子を使わない場合は 以下のような DEF ファイルが別途必要になります。</p>
 <div class="box_line">
 <pre><code>; gcc の場合の DEF ファイルの例：
@@ -93,10 +93,10 @@ EXPORTS
 </div>
 <p>このファイルを foo.def という名前で ソースファイルと同じディレクトリに置き、以下のようなコマンドを実行します。</p>
 <pre><code>dllwrap -mwindows --def foo.def -o foo.dll foo.c (cygwin 環境下で動作)
-dllwrap --driver-flag=&#39;-shared&#39; -mno-cygwin -mwindows --def foo.def -o foo.dll foo.c (cygwin 環境は不要)    </code></pre></li>
+dllwrap --driver-flag=&#39;-shared&#39; -mno-cygwin -mwindows --def foo.def -o foo.dll foo.c (cygwin 環境は不要)</code></pre></li>
 <li><p>MinGW gcc の場合：<br />
 この場合は Cygwin gcc とは異なり、 常に msvcrt.dll を利用するDLLができますが、 __declspec(dllexport) 宣言子をつけても 無視されているようなので、常に DEF ファイルが必要になります(内容は上の物と同じ)。</p>
-<pre><code>dllwrap -mwindows --def foo.def -o foo.dll foo.c  </code></pre></li>
+<pre><code>dllwrap -mwindows --def foo.def -o foo.dll foo.c</code></pre></li>
 </ul>
 <h3 id="spec">【２】 マクロから呼び出せるDLL関数を作るには？</h3>
 <p>前章でDLLを作成するための一般的な方法について説明しましたが、秀丸マクロでは一般的なDLL全てを扱えるわけではありません。マクロから呼び出せるDLL内の関数(以下「DLL関数」)は、以下の性質を持つものだけです。</p>
@@ -109,19 +109,19 @@ dllwrap --driver-flag=&#39;-shared&#39; -mno-cygwin -mwindows --def foo.def -o f
 <dl>
 <dt><span id="numerical">※(数値)</span></dt>
 <dd><p>浮動小数点数版秀丸エディタの場合は <strong><code>int</code></strong> ではなく <strong><code>double</code></strong> になります。浮動小数点数版秀丸エディタについては<a href="#double">【11】 補足～浮動小数点数版秀丸エディタ用のDLLについて</a>をご覧ください。</p>
-<p>64bit版秀丸エディタの場合は、<strong><code>int</code></strong>ではなく、<strong><code>__int64</code></strong>になります。(INT_PTRを使う方法もあります。)</p>
+<p>64bit版秀丸エディタの場合は、<strong><code>int</code></strong>ではなく、<strong><code>__int64</code></strong>になります。(INT_PTRを使う方法もあります)</p>
 </dd>
 </dl>
 <p>１番目と２番目の性質は、秀丸マクロで扱えるデータ型が 数値 (<code>int</code>)と文字列 (<code>char*</code>、<code>WCHAR*</code>) しかないことから当然の事といえます。なお、文字列型の <code>const</code> 修飾子はなくてもDLL関数の宣言としては支障ありませんが、かといって、わざと <code>const</code>をつけずに 引数として渡された文字列の内容を書き換えてはいけません(というか書き換えても無意味)。</p>
-<p>最後の性質はちょっとわかり難いかもしれませんが、 Win32API でいうと<code>WINAPI</code> 宣言子 (実際は <code>__stdcall</code> の #define)がついていないもの、もしくは <code>WINAPIV</code> 宣言子 (同じく <code>__cdecl</code> の#define)がつくものです。とはいえ、<code>__cdecl</code> や <code>__stdcall</code> 宣言子をつけなかった場合のデフォルトは <code>__cdecl</code> なので、特に何もつけなければＯＫ！ということになります。</p>
+<p>最後の性質はちょっとわかり難いかもしれませんが、 Win32API でいうと<code>WINAPI</code> 宣言子 (実際は <code>__stdcall</code> の #define)がついていないもの、もしくは <code>WINAPIV</code> 宣言子 (同じく <code>__cdecl</code> の#define)がつくものです。とはいえ、<code>__cdecl</code> や <code>__stdcall</code> 宣言子をつけなかった場合のデフォルトは <code>__cdecl</code> なので、特に何もつけなければOK!ということになります。</p>
 <p>以上の事を踏まえて、秀丸マクロから使用可能なDLL関数のプロトタイプ宣言を書き下すと以下のようになります。</p>
 <p>C言語の場合</p>
-<pre><code>__declspec(dllexport) return_type __cdecl func_name(param_list); </code></pre>
+<pre><code>__declspec(dllexport) return_type __cdecl func_name(param_list);</code></pre>
 <p>C++ 言語の場合</p>
 <pre><code>extern &quot;C&quot; __declspec(dllexport) return_type __cdecl func_name(param_list);
 
-※「extern &quot;C&quot;」は 関数名 func_name がマングルされるのを抑制するために必要。 
-「名前マングル」の意味については適当な C++ の教科書を参照してください。 </code></pre>
+※「extern &quot;C&quot;」は 関数名 func_name がマングルされるのを抑制するために必要。
+「名前マングル」の意味については適当な C++ の教科書を参照してください。</code></pre>
 <p>ここで、<em>param_list</em> や <em>return_type</em> は先に説明した引数リストまたは戻り値を表します。また、<em>func_name</em>は関数の名前ですが、 C++言語の場合は※の注にあるように「<code>extern "C"</code>」を つけておかないと、後からDLL関数を呼び出す時に <em>func_name</em> というソースコード中での名前で参照できなくなるので注意してください。</p>
 <p><code>__declspec(dllexport)</code> はDLL関数として呼び出せる関数につける宣言子ですが、いちいちこんな長ったらしい宣言子を書くのも面倒なので、以下の各章のサンプルのためにあらかじめ次のようなマクロ(<code>HIDEMARU_MACRO_DLL</code>)を定義しておきます。</p>
 <div class="macro">
@@ -135,14 +135,14 @@ dllwrap --driver-flag=&#39;-shared&#39; -mno-cygwin -mwindows --def foo.def -o f
 /* C 言語の場合 */
 #define HIDEMARU_MACRO_DLL __declspec(dllexport)
 
-#endif /* __cplusplus */ </code></pre>
+#endif /* __cplusplus */</code></pre>
 </div>
 <p>…って、何か C 言語の場合は宣言子の方が短いような気がしますが、</p>
 <div class="attention_p">
 <p>目の錯覚</p>
 </div>
 <p>なので気にしない様に(笑)。</p>
-<p>さて、DLLには上で説明したDLL関数や、それらから呼ばれるだけのヘルパー関数の他に、 DLLエントリポイント関数というものを入れることができます(必須ではないことに注意！！)。 DLLエントリポイント関数は、あるプロセスがDLLをロードした時に必要となるDLLの内部変数の初期化、またはアンロードされた時の後始末を行う目的で使用されます。デフォルトでは <code>DllMain</code> という名前の関数がエントリポイント関数になるので、以下の説明でも一貫して <code>DllMain</code>という名前を使うことにします。その <code>DllMain</code>関数のプロトタイプ宣言と、 <code>DllMain()</code>が呼び出された時の状況に応じた処理を行う、定型処理だけを書いたコードは以下の通りです。</p>
+<p>さて、DLLには上で説明したDLL関数や、それらから呼ばれるだけのヘルパー関数の他に DLLエントリポイント関数というものを入れることができます(必須ではないことに注意！！)。 DLLエントリポイント関数は、あるプロセスがDLLをロードした時に必要となるDLLの内部変数の初期化、またはアンロードされた時の後始末する目的で使用されます。デフォルトでは <code>DllMain</code> という名前の関数がエントリポイント関数になるので、以下の説明でも一貫して <code>DllMain</code>という名前を使うことにします。その <code>DllMain</code>関数のプロトタイプ宣言と、 <code>DllMain()</code>が呼び出された時の状況に応じた処理を行う、定型処理だけを書いたコードは以下の通りです。</p>
 <div class="macro">
 <pre><code>#include &lt;windows.h&gt;
 
@@ -216,7 +216,7 @@ freedll; // DLLのアンロード</code></pre>
 <p>DLLの作成方法その他に間違いがなければ、 以下のような"<code>hello world!</code>" というテキストが入ったメッセージボックスが表示されるはずです。</p>
 <p><img src="make_dll_01.png" width="167" height="160" alt="MsgBox" /><br />
 </p>
-<p>この例は確かに単純ですが、一つ重要なことがあります。この関数のように文字列、したがって <code>LPCSTR (= const char*)</code>を返す場合、その文字列はDLL内部で静的に(またはヒープ領域に)確保したものでなければならない、ということです。この注意はもちろんDLL関数に限ったことではありませんが、 C またはC++ でプログラムを書いていれば</p>
+<p>この例は確かに単純ですが、1つ重要なことがあります。この関数のように文字列、したがって <code>LPCSTR (= const char*)</code>を返す場合、その文字列はDLL内部で静的に(またはヒープ領域に)確保したものでなければならない、ということです。この注意はもちろんDLL関数に限ったことではありませんが、 C またはC++ でプログラムを書いていれば</p>
 <div class="attention_p">
 <p>一生に一度は必ず通る道(但し間違い(笑))</p>
 </div>
@@ -347,7 +347,7 @@ LPCSTR hello_what(LPCSTR what)
     return pszBuffer;
 }</code></pre>
 </div>
-<p>ここで、初期メモリの確保(<code>DLL_PROCESS_ATTACH</code>)と開放の後始末(<code>DLL_PROCESS_DETACH</code>)を <code>DllMain()</code>関数の中で行っています。その他、<code>hello_what()</code> 関数の中でもメモリの開放と再確保を行っている部分がありますが、これは現在確保されているメモリの量が足りない場合にのみ実行されます。実際にこのDLLを以下のようなマクロでテストしてみると、</p>
+<p>ここで、初期メモリの確保(<code>DLL_PROCESS_ATTACH</code>)と開放の後始末(<code>DLL_PROCESS_DETACH</code>)を <code>DllMain()</code>関数の中で行っています。その他、<code>hello_what()</code> 関数の中でもメモリの開放と再確保している部分がありますが、これは現在確保されているメモリの量が足りない場合にのみ実行されます。実際にこのDLLを以下のようなマクロでテストしてみると、</p>
 <div class="macro">
 <pre><code>// テスト用マクロ
 
@@ -487,12 +487,12 @@ freedll;</code></pre>
 <p>ところで、今回の例のような <code>sprintf()</code> 系の関数は、最初のフォーマット指定文字列によって間接的にその後に続く引数の個数を関数に伝えていますが、引数の個数を伝えるにはもちろん他の方法も色々と考えられます。一番簡単なのは、最初の数値引数でその後に続く引数の数を指定する、例えば</p>
 <div class="macro">
 <pre><code>/* n1 ～ nN の数値の最大値を返す */
-int max(int N, int n1, ...); </code></pre>
+int max(int N, int n1, ...);</code></pre>
 </div>
 <p>のような方法でしょう。または対象となる文字列の形式とは明らかに異なる文字列を最後に指定する、例えば</p>
 <div class="macro">
 <pre><code>/* destfile に srcfile 以下を追加する。引数の最後は &quot;&quot; で終わること！！ */
-int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
+int cat(LPCSTR destfile, LPCSTR srcfile, ...);</code></pre>
 </div>
 <p>のような方法などがあり得ると思います。いずれにしても<code>va_is_end(args)</code> のようなパラメータ指定の終了を判定するマクロは用意されていない<a href="#index-2">(*2)</a>ので、何らかの形で引数が何個あるかの情報をDLL関数に伝える必要があります。</p>
 <dl>
@@ -517,7 +517,7 @@ int cat(LPCSTR destfile, LPCSTR srcfile, ...); </code></pre>
 <dd><p>文字列型の場合は <code>IsBadStringPtr()</code> API、ワイド文字列型の場合は <code>IsBadStringPtrW()</code> API でポインタの値が正当なものかどうか<strong>だけ</strong>はチェックできます。ポインタが指す先の文字列の内容、 または整数型の場合に値が不正かどうかの判断は 貴方(DLL関数)自身でやるしかないです。</p>
 <p><code>IsBadxxxxxPtr</code> APIに関しては、<span class="attention_red">Windows Vista以降非推奨</span>とのこと。詳細は、以下を参照してください。</p>
 <ul>
-<li><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/winbase/nf-winbase-isbadstringptra" class="externallink" target="_blank">IsBadStringPtr function</a> <!-- -   [Life with Cygwin](http://www.oki-osk.jp/esc/cyg/cygwin-26.html){.externallink target="_blank"} --></li>
+<li><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/winbase/nf-winbase-isbadstringptra" class="externallink" target="_blank">IsBadStringPtr function</a></li>
 </ul>
 </dd>
 </dl>
@@ -574,12 +574,12 @@ message dllfuncstr(&quot;getfilename&quot;,hidemaruhandle(0),hidemarudir,&quot;f
 
 freedll;</code></pre>
 </div>
-<p>このマクロを実行すると、(ダイアログの細かい形はＯＳのバージョンで違いますが) 以下のようないつもの「ファイルを開く」ダイアログが表示されるはずです。</p>
+<p>このマクロを実行すると、(ダイアログの細かい形はOSのバージョンで違いますが) 以下のようないつもの「ファイルを開く」ダイアログが表示されるはずです。</p>
 <p><img src="make_dll_02.png" width="650" height="471" alt="ファイルオープンダイアログ" /><br />
 </p>
 <p>「色の選択」等の他のコモンダイアログを表示する API も 概ね上の<code>GetOpenFileName()</code> と同じようにモーダルダイアログを表示するだけなので、 特に何も考えずに APIを呼び出すだけでダイアログを出すことができます。</p>
 <h3 id="window">【７】 ウィンドウを表示してみる</h3>
-<p>前章ではＯＳがあらかじめ用意しているコモンダイアログを表示する例を紹介しましたが、自分で作成したダイアログやウィンドウを表示するにはどうすればよいのでしょうか？ダイアログの場合は(<code>::DialogBox()</code> 等の API を使って)モーダルダイアログとして表示すれば、前章の例とあまり変わらない手順で表示することができます。ですが、同じダイアログでもモードレスダイアログとして表示したい時や、普通のウィンドウを表示したい時は、 もう少し手順を踏む必要があります。</p>
+<p>前章ではOSがあらかじめ用意しているコモンダイアログを表示する例を紹介しましたが、自分で作成したダイアログやウィンドウを表示するにはどうすればよいのでしょうか？ダイアログの場合は(<code>::DialogBox()</code> 等の API を使って)モーダルダイアログとして表示すれば、前章の例とあまり変わらない手順で表示できます。ですが、同じダイアログでもモードレスダイアログとして表示したい時や、普通のウィンドウを表示したい時は、 もう少し手順を踏む必要があります。</p>
 <p>まず、以下のようなコードを試してみましょう。</p>
 <div class="macro">
 <pre><code>// show_window.cpp
@@ -669,7 +669,7 @@ int show_window(LPCSTR title)
 <dd>gcc の場合は binutils の <code>windres</code> を使います。
 </dd>
 </dl>
-<p>さて、このコードは実際に動作するわけですが、このコードには一つまずい点があります。それはDLL関数内で勝手にメッセージループを回していることです。 …と詳しい事を書き始めるとダラダラと長くなるだけなので、 ここでは単に</p>
+<p>さて、このコードは実際に動作するわけですが、このコードには1つまずい点があります。それはDLL関数内で勝手にメッセージループを回していることです。 …と詳しい事を書き始めるとダラダラと長くなるだけなので、 ここでは単に</p>
 <div class="attention_p">
 <p>人様のプロセス内で勝手にメッセージループを回すのは仁義に反する</p>
 </div>
@@ -912,7 +912,7 @@ int main(int argc, char** argv)
     return 0;
 }</code></pre>
 </div>
-<p>このテストプログラムが行っていることは、 <code>hello_world.dll</code>を動的にロードして、 <code>"hello"</code> という名前の関数へのポインタを取得し、そのポインタを介してDLL関数を呼び出し、その結果をコンソールに表示する、という処理です。このDLL関数を呼び出す部分にブレークポイントを置けば、あとはデバッガでDLL関数の内容を追っていけると思います。</p>
+<p>このテストプログラムが行っていることは、 <code>hello_world.dll</code>を動的にロードして、 <code>"hello"</code> という名前の関数へのポインタを取得し、そのポインタを介してDLL関数を呼び出し、その結果をコンソールに表示するという処理です。このDLL関数を呼び出す部分にブレークポイントを置けば、あとはデバッガでDLL関数の内容を追っていけると思います。</p>
 <p>次に、テストプログラムを書くのが面倒なほどの複雑な処理をマクロでしている場合は、実際にマクロを動かしてDLLを使っている秀丸エディタ自体をデバッグする必要があります。この場合はマクロを動かす秀丸エディタ(プロセス)にアタッチして、デバッガ側でDLL関数の内部にブレークポイントを置いたあとにアタッチした秀丸エディタでマクロを実行します<a href="#index-6">(*6)</a>。</p>
 <dl>
 <dt><span id="index-6">(*6)</span></dt>
@@ -957,11 +957,11 @@ int main(int argc, char** argv)
 </div>
 <p>という関数をエクスポートする必要がある</p></li>
 </ul>
-<p>なお、浮動小数点数版秀丸エディタ用のDLLは整数版秀丸エディタでは使えませんが、整数版秀丸エディタ用のDLLは浮動小数点数版秀丸エディタでも利用することができます。</p>
+<p>なお、浮動小数点数版秀丸エディタ用のDLLは整数版秀丸エディタでは使えませんが、整数版秀丸エディタ用のDLLは浮動小数点数版秀丸エディタでも利用できます。</p>
 <h3 id="WCHAR">【12】 補足～ワイド文字対応関数について</h3>
 <p>引数や、戻り値にワイド文字を使用する関数について補足します。</p>
-<p>通常の char* (文字列) しか扱えない関数に、Shift_JIS範囲外の文字を含む文字列を渡した場合、秀丸エディタ側で、Shift_JIS範囲外の文字が削除された文字列がDLLに渡されます。つまり、dllfunc、dllfuncstr を使用する限り、DLL側にはShift_JIS範囲外の文字は渡されません。</p>
-<p>DLL側で、Shift_JIS範囲外の文字を扱う場合には、ワイド文字(WCHAR)に対応した関数を作成する必要があります。 (引数および戻り値に、<strong><code>const WCHAR*</code></strong> を指定し、関数自体も<code>WCHAR</code> に対応させる。) また、マクロから呼び出す場合も、dllfuncw、dllfuncstrw を使用し呼び出します。</p>
+<p>通常の char* (文字列) しか扱えない関数に、Shift_JIS範囲外の文字を含む文字列を渡した場合、秀丸エディタ側でShift_JIS範囲外の文字を削除した文字列がDLLに渡されます。つまり、dllfunc、dllfuncstr を使用する限り、DLL側にはShift_JIS範囲外の文字は渡されません。</p>
+<p>DLL側で、Shift_JIS範囲外の文字を扱う場合には、ワイド文字(WCHAR)に対応した関数を作成する必要があります。 (引数および戻り値に、<strong><code>const WCHAR*</code></strong> を指定し、関数自体も<code>WCHAR</code> に対応させる) また、マクロから呼び出す場合も、dllfuncw、dllfuncstrw を使用し呼び出します。</p>
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>

@@ -67,11 +67,11 @@ tabgrouptotal,tabgrouporder,gettabhandle(),getcurrenttab(),foundbuffer,foundopti
 <li>settabgropで64以上を指定するとまずい問題修正</li>
 <li>setwindowsizeでセカンダリモニタが左にある場合などの修正</li>
 <li>ヘルプ内のグループ番号という呼び名をグループIDに変更</li>
-<li>setmonitorでワークエリアによるウィンドウの調整がされるときサイズがなるべく変化しないようにする</li>
-<li>closehidemruでタブモードで異なるウィンドウのタブを閉じると、アクティブウィンドウが移動してしまう問題修正</li>
-<li>浮動小数点数バージョンでopenfileで長いファイル名を指定すると死ぬことがあった問題修正</li>
+<li>setmonitorでワークエリアによるウィンドウの調整されるときサイズがなるべく変化しないようにする</li>
+<li>closehidemruで、タブモードで異なるウィンドウのタブを閉じると、アクティブウィンドウが移動してしまう問題修正</li>
+<li>浮動小数点数バージョンで、openfileで長いファイル名を指定すると死ぬことがあった問題修正</li>
 <li>getclipboardで8KBを超えるデータが扱えなくなってしまった問題修正</li>
-<li>ステルス秀丸エディタ上でexit;すると次のウィンドウにアクティブが移らない場合がある問題修正。</li>
+<li>ステルス秀丸エディタ上で exit すると、次のウィンドウにアクティブが移らない場合がある問題修正。</li>
 <li>golineend3 追加。「行末に移動（その２）」相当。</li>
 <li>unicharの追加、unicodeの引数版の追加。</li>
 <li>setencode 26;でバイナリモードにも変更可能にする。</li>
@@ -85,27 +85,27 @@ tabgrouptotal,tabgrouporder,gettabhandle(),getcurrenttab(),foundbuffer,foundopti
 </ul>
 <h3 id="spec">【２】仕様変更</h3>
 <ul>
-<li>gettextに第５パラメタを指定して、範囲選択を維持することができるようにする</li>
-<li>nexttab, prevtabではウィンドウ分割の移動はできないようにする</li>
-<li>localgrepでfullpathができるようにする</li>
-<li>findwindowの第二パラメタでクラス名を同時に指定できるようにする</li>
-<li>directtagjumpで候補のダイアログでキャンセルした場合はresultを -1 にする</li>
-<li>config文で数値の記述でマイナスも書けるようにする</li>
-<li>marklistでキャンセルした場合resultに-1を設定する</li>
-<li>marklistで他の秀丸エディタに移動してもマクロ実行の切り替えを行う</li>
-<li>setsearchのフラグのビット１３をセットしないと、ビット１１，１２は有効でないようにする</li>
-<li>searchoptionのビット１３は常にセットする</li>
-<li>gettextとgettext2で、ファイルの最後を超える行を指定した場合は、ファイルの終端に修正して指定するようにする</li>
-<li>getclipboardでフォントが日本語のときUnicodeから日本語への変換をするようにする</li>
-<li>loadhilightをした後に、強調表示一覧の枠を更新するようにする</li>
-<li>検索文字列に強調関係の仕様変更。既存のマクロでは、検索文字列の強調に影響を与えないようにする</li>
-<li>getconfig("Tategaki")では、一時的な状態の縦書きを取得するようにする</li>
+<li>gettext に第５パラメータを指定して、範囲選択を維持することができるようにする。</li>
+<li>nexttab, prevtabではウィンドウ分割の移動はできないようにする。</li>
+<li>localgrepでfullpathができるようにする。</li>
+<li>findwindowの第二パラメータでクラス名を同時に指定できるようにする。</li>
+<li>directtagjumpで候補のダイアログでキャンセルした場合はresultを -1 にする。</li>
+<li>config文で数値の記述でマイナスも書けるようにする。</li>
+<li>marklistでキャンセルした場合resultに-1を設定する。</li>
+<li>marklistで他の秀丸エディタに移動してもマクロ実行の切り替えを行う。</li>
+<li>setsearchのフラグのビット13をセットしないと、ビット11，12は有効でないようにする。</li>
+<li>searchoptionのビット13は常にセットする。</li>
+<li>gettextとgettext2で、ファイルの最後を超える行を指定した場合は、ファイルの終端に修正して指定するようにする。</li>
+<li>getclipboardでフォントが日本語のときUnicodeから日本語への変換をするようにする。</li>
+<li>loadhilightをした後に、強調表示一覧の枠を更新するようにする。</li>
+<li>検索文字列に強調関係の仕様変更。既存のマクロでは、検索文字列の強調に影響を与えないようにする。</li>
+<li>getconfig("Tategaki")では、一時的な状態の縦書きを取得するようにする。</li>
 <li>colorcodeの仕様変更<br />
-検索文字列の強調は 27 ではなく、0x00010000 のビットにして、他の強調と重なり合っていても、colorcodeの値は維持するようにする。</li>
+検索文字列の強調は 27 ではなく、0x00010000 のビットにして他の強調と重なり合っていても、colorcodeの値は維持するようにする。</li>
 <li>filter文は動作環境で変換モジュールを追加していなくてもできるようにする。</li>
-<li>setactivehidemaruにパラメタ追加。二番目のパラメタでウィンドウを指定して、そのウィンドウの下にＺオーダーを移動。</li>
+<li>setactivehidemaruにパラメータ追加。2番目のパラメータでウィンドウを指定して、そのウィンドウの下にZオーダーを移動。</li>
 <li>columntox(-1,1)は0を返すようにする。</li>
-<li>文字列内にUnicode独自の文字が含まれていない場合は、message文やmenu文など、なるべく従来通りの動作となるようにする。（日本語以外のWindowsの場合に影響）</li>
+<li>文字列内にUnicode独自の文字が含まれていない場合は、message文やmenu文など、なるべく従来通りの動作となるようにする。(日本語以外のWindowsの場合に影響)</li>
 <li>insertfile でオプション指定可能にする。</li>
 <li>grep文でエンコードの種類を指定できるようにする。</li>
 <li>grepの実行・grep文でUnicode独自の文字なども使用できるようにする。</li>

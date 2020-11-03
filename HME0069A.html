@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -27,18 +28,18 @@
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>"富士山"とか"東京"とかのような固定的な文字列ではなく、"交響曲第○番"とかNIFTYのＩＤ（AAAnnnnn：３桁英字＋５桁数字）のよう に、規則で表される文字列に対しても検索や置換はできるのでしょうか。</strong>
+<dd><strong>"富士山"とか"東京"とかのような固定的な文字列ではなく、"交響曲第○番"とかNIFTYのID（AAAnnnnn：３桁英字＋５桁数字）のように、規則で表される文字列に対しても検索や置換はできるのでしょうか。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>可能です。正規表現という文字列を表す一般的な規則がありますが、その正規表現で目標とする文字列の規則を指定し、 それを使って検索や置換を行うことができます。<br />
-たとえば、NIFTYのＩＤ（３桁英字＋５桁数字：半角文字のとき）は、正規表現では<br />
+<dd><p>可能です。正規表現という文字列を表す一般的な規則がありますが、その正規表現で目標とする文字列の規則を指定し、それを使って検索や置換ができます。<br />
+たとえば、NIFTYのID（３桁英字＋５桁数字：半角文字のとき）は、正規表現では<br />
 </p>
 <p><strong>[A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9][0-9]</strong><br />
 </p>
-<p>というようになります。 詳しくは、「<a href="4_regular.html">●正規表現について</a>」を参照してください。</p>
+<p>というようになります。詳しくは、「<a href="4_regular.html">●正規表現について</a>」を参照してください。</p>
 </dd>
 </dl>
 </div>

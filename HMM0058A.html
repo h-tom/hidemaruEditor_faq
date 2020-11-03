@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -38,7 +39,7 @@
 <dt><span class="mark_dt3">[解説]</span></dt>
 <dd><ol type="1">
 <li><p>ウィンドウ番号</p>
-<p>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。 ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
+<p>秀丸エディタウィンドウの「番号」とは、秀丸エディタのウィンドウを画面手前から順に数えた番号になっています(一番手前が0 です)。ファイル名からウィンドウ番号を取得するには findhidemaru()関数を使います。</p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ1 -------//
 // &quot;c:\\hidemaru\\install.txt&quot; のウィンドウ番号を取得する
@@ -51,7 +52,7 @@ endmacro;
 </div>
 <p>※ ファイルが開かれていない場合は、ウィンドウ番号は -1 になります。</p></li>
 <li><p>ウィンドウハンドル</p>
-<p>1.で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。 いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、 「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</p>
+<p>1.で説明したウィンドウ番号は、setactivehidemaruを繰り返し使用してウィンドウの切り替えを行うと変化してしまいます。いちいちfindhidemaru()関数を使ってウィンドウ番号を取得してもいいのですが、「ウィンドウハンドル」を取得しておけば(ウィンドウを閉じない限り)そのウィンドウを一発で指定できます。</p>
 <div class="macro">
 <pre><code>//------- サンプルマクロ2 -------//
 // &quot;c:\\hidemaru\\install.txt&quot; のウィンドウハンドルを取得する
@@ -62,9 +63,9 @@ if( #h_wnd != 0 ) setactivehidemaru #h_wnd; //切り替え
 endmacro;
 // ---------------------------- //</code></pre>
 </div>
-<p>※ hidemaruhandle()関数の引数にはハンドルを取得したいウィンドウのウィンドウ番号を指定します。 ウィンドウが存在しない場合(ウィンドウ番号が-1 の場合)、hidemaruhandle() 関数は 0 を返します。</p></li>
+<p>※ hidemaruhandle()関数の引数にはハンドルを取得したいウィンドウのウィンドウ番号を指定します。ウィンドウが存在しない場合(ウィンドウ番号が-1 の場合)、hidemaruhandle() 関数は 0 を返します。</p></li>
 <li><p>findhidemaru() 関数を使う場合の注意点</p>
-<p>findhidemaru() 関数の引数にアクティブウィンドウ(ウィンドウ番号0)のファイル名を指定した場合も (ウィンドウが存在しない時と同様に) -1を返すため、 上記のサンプルマクロを c:\hidemaru\install.txt上で実行すると「c:\hidemaru\install.txt のウィンドウ番号は -1 (ウィンドウハンドルは 0)です。」と嘘(^^;を言われてしまいます。 (findhidemaru() 関数は自分自身を見つける事はできない。)</p>
+<p>findhidemaru() 関数の引数にアクティブウィンドウ(ウィンドウ番号0)のファイル名を指定した場合も (ウィンドウが存在しない時と同様に) -1を返すため、上記のサンプルマクロを c:\hidemaru\install.txt上で実行すると「c:\hidemaru\install.txt のウィンドウ番号は -1 (ウィンドウハンドルは 0)です。」と嘘(^^;を言われてしまいます。 (findhidemaru() 関数は自分自身を見つける事はできない)</p>
 <p>例えばアクティブウィンドウのウィンドウハンドルを取得したい場合は、</p>
 <div class="macro">
 <pre><code>#hwnd_act = hidemaruhandle(findhidemaru(filename));</code></pre>
@@ -76,9 +77,9 @@ endmacro;
 </div>
 <p>と指定しなければ正しく動作しません。</p></li>
 <li><p>setactivehidemaru文の第2引数の使い方</p>
-<p>２番目のパラメータを指定すると、自分自身のウィンドウの重なり位置を調節できます。 ウィンドウ番号かハンドルをを指定すると、指定したウィンドウの下に移動します。</p>
+<p>２番目のパラメータを指定すると、自分自身のウィンドウの重なり位置を調節できます。ウィンドウ番号かハンドルをを指定すると、指定したウィンドウの下に移動します。</p>
 <ul>
-<li>-1を指定すると、一番下に移動します。 ２番目のパラメータは省略可能です。</li>
+<li>-1を指定すると、一番下に移動します。２番目のパラメータは省略可能です。</li>
 </ul>
 <p>初期状態。アルファベット(a～d)がウィンドウハンドル(ウィンドウ識別番号)、数字がウィンドウ順番です。</p>
 <div class="BlockScroll">
@@ -101,7 +102,7 @@ endmacro;
             <span style="color:Black">┗━━━━━━━┛</span>
 </pre>
 </div>
-<p>「次の秀丸エディタ」に切り替えるため、２番目のウィンドウをアクティブにする。(setactivehidemaru 1;) 単純に２番目のウィンドウ(b)が先頭に移動するだけなので、(a)と(b)が入れ替わるだけ。 再度２番目のウィンドウをアクティブにしても、(a)と(b)が入れ替わるだけで、(c)には移動しない。</p>
+<p>「次の秀丸エディタ」に切り替えるため、２番目のウィンドウをアクティブにする。(setactivehidemaru 1;) 単純に２番目のウィンドウ(b)が先頭に移動するだけなので、(a)と(b)が入れ替わるだけ。再度２番目のウィンドウをアクティブにしても、(a)と(b)が入れ替わるだけで、(c)には移動しない。</p>
 <div class="BlockScroll">
 <table class="table_no_border">
 <caption>
@@ -156,7 +157,7 @@ setactivehidemaru 1;実行時の動作
 </tbody>
 </table>
 </div>
-<p>「次の秀丸エディタ」で順次ウィンドウを切り替えるには、先頭のウィンドウを最後に移動する必要があります。 第二引数を指定し、先頭のウィンドウを最後に移動させる。</p>
+<p>「次の秀丸エディタ」で順次ウィンドウを切り替えるには、先頭のウィンドウを最後に移動する必要があります。第二引数を指定し、先頭のウィンドウを最後に移動させる。</p>
 <div class="BlockScroll">
 <table class="table_no_border">
 <caption>

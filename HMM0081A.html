@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -38,8 +39,8 @@
 <li><p>loaddll文/関数で、dllの読み込みに失敗しているのに、dllfunc/dllfuncstrを呼び出している</p>
 <p>DLLの読み込み失敗に関しては、<a href="./HMM0083A.html">[HMM0083A]●外部DLLのロードに失敗する</a>を参照してください。</p>
 <!--
--   DLLの読み込みに失敗する原因としては、DLLが適切な位置に配置されていない等が考えられます。 
-    実行するマクロと同じ場所か、マクロフォルダか、秀丸エディタ本体と同じ場所に配置するかは、 
+-   DLLの読み込みに失敗する原因としては、DLLが適切な位置に配置されていない等が考えられます。
+    実行するマクロと同じ場所か、マクロフォルダか、秀丸エディタ本体と同じ場所に配置するかは、
     マクロの説明書等に記載されているはずなので、確認してください。
 -   マクロとDLLが、同じ場所にあるにも関わらず、動作しない場合は、DLLのロード部分を確認見直してみてください。
     単純にファイル名が間違っている場合もあります。
@@ -60,7 +61,7 @@
 <p>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/200_Dll.html" class="externallink" target="_blank">DLL呼び出し機能</a>を参照の事。</p></li>
 </ul>
 <p>その為、ウィンドウの切り替えに失敗していたり、意図しないウィンドウの切り替えが発生してしまい、 DLLをロードしたウィンドウ以外でdllfunc等を呼び出すと、<strong>「DLLがロードされてないのにdllfunc関数が使われました」</strong>と表示されてしまいます。</p>
-<p>動作確認用マクロ(意図的にウィンドウを切り替えて、エラーを発生させている。)</p>
+<p>動作確認用マクロ(意図的にウィンドウを切り替えて、エラーを発生させている)</p>
 <div class="macro">
 <pre><code>//新しいファイルを2個開く
 newfile;
@@ -81,7 +82,7 @@ message $version1;
 
 //2番目の秀丸エディタに移動
 setactivehidemaru #window2;
-//関数の実行(ここでエラーになるはず。)
+//関数の実行(ここでエラーになるはず)
 // --&gt; DLLがロードされてないのにdllfunc関数が使われました
 $version2 = hex(dllfunc(&quot;JreGetVersion&quot;) &amp; 0xFFFF);
 message $version2;

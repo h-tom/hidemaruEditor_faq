@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -35,7 +36,7 @@
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>できます。</p>
 <p>ただし、比較のルールは文字コード順ではなく、辞書引き順となります。</p>
-<p>大小比較をする場合は注意が必要です。 辞書引き順のルールは以下のようになっているようです。</p>
+<p>大小比較をする場合は注意が必要です。辞書引き順のルールは以下のようになっているようです。</p>
 <p>(以下は、本Ｑ＆Ａ執筆者が独自に調査した結果を基に記述しています。このルールに基づかない結果になることがあるかもしれません)</p>
 <p>例に示す式はすべて真です。</p>
 <p><strong>(1-a)</strong></p>
@@ -69,31 +70,31 @@
 &#160;例) "カク" &lt; "カ゛ク"（半角カタカナ）</div>
 <p>ここまでで2つの文字列に違いが見られない場合、2つの文字列は同じであるという結果になります。<br />
 </p>
-<p>例) "バ"=="ハ゛" 漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、 ご自身で確かめてみましょう。</p>
+<p>例) "バ"=="ハ゛" 漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、ご自身で確かめてみましょう。</p>
 <hr />
 <p><strong>（例１）</strong><br />
-次のマクロは、編集中のテキストのカーソル位置から、 英大文字で始まる単語を取得して1単語ずつダイアログボックスに表示させようとしたものです。</p>
+次のマクロは、編集中のテキストのカーソル位置から、英大文字で始まる単語を取得して1単語ずつダイアログボックスに表示させようとしたものです。</p>
 <p>ファイルの最後に達するまで繰り返します。</p>
 <div class="macro">
-<pre><code>gowordtop; 
-#x1 = x; 
-#y1 = y; 
-while( 1 ) { 
-    wordright; 
-    if( result == false ) { 
+<pre><code>gowordtop;
+#x1 = x;
+#y1 = y;
+while( 1 ) {
+    wordright;
+    if( result == false ) {
         break;
-    } 
-    $str = gettext(#x1, #y1, x, y); 
-    $s1 = leftstr($str, 1); 
-    if( $s1 &gt;= &quot;A&quot; &amp;&amp; $s1 &lt;= &quot;Z&quot; ) { // *1 
+    }
+    $str = gettext(#x1, #y1, x, y);
+    $s1 = leftstr($str, 1);
+    if( $s1 &gt;= &quot;A&quot; &amp;&amp; $s1 &lt;= &quot;Z&quot; ) { // *1
         message $str;
-    } 
-    #x1 = x; 
-    #y1 = y; 
-} </code></pre>
+    }
+    #x1 = x;
+    #y1 = y;
+}</code></pre>
 </div>
 <p>英単語かどうかの判断に文字列の比較を使用しています (*1 の行)。<br />
-("A"～"Z"で始まる単語を英単語であると判断) このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、 前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
+("A"～"Z"で始まる単語を英単語であると判断) このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
 <p>正しく英大文字で始まる単語のみを表示するには、*1 の行を次のように変更します。</p>
 <div class="macro">
 <pre><code>if( ascii($s1) &gt;= &#39;A&#39; &amp;&amp; ascii($s1) &lt;= &#39;Z&#39; ) { // *1</code></pre>
@@ -102,7 +103,7 @@ while( 1 ) {
 ※ AとZの囲みがシングルクォートに変わっていることに注意。</p>
 <hr />
 <p><strong>（例２）</strong><br />
-例１の例を含めて、秀丸エディタの文字列比較（&lt;, ==, &gt;の演算子で行うもの）はWin32API の lstrcmp()を使っているので、 その通りのルールになっています。<br />
+例１の例を含めて、秀丸エディタの文字列比較（&lt;, ==, &gt;の演算子で行うもの）はWin32API の lstrcmp()を使っているので、その通りのルールになっています。<br />
 そのため、比較結果が以下のようなちょっと凝った？ものになります。</p>
 <div class="line-block">"パ"=="ハ゛゛"<br />
 "⑳"&lt;"∞" //（Shift_JIS, UNICODEコード順と逆）<br />
@@ -113,27 +114,27 @@ while( 1 ) {
 "山ゞ"=="山山゛"</div>
 <p>厳密に（単純に）同じ文字列か比較を行いたい場合は、以下のような方法があります。</p>
 <div class="macro">
-<pre><code>$a = input (&quot;１個め&quot;, &quot;&quot;); 
-$b = input (&quot;２個め&quot;, &quot;&quot;); 
-// 秀丸エディタの比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ) 
-if ($a == $b) { 
+<pre><code>$a = input (&quot;１個め&quot;, &quot;&quot;);
+$b = input (&quot;２個め&quot;, &quot;&quot;);
+// 秀丸エディタの比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ)
+if ($a == $b) {
     message &quot;$a == $b&quot;;
-} else if ($a &gt; $b) { 
+} else if ($a &gt; $b) {
     message &quot;$a &gt; $b&quot;;
-} else { 
+} else {
     message &quot;$a &lt; $b&quot;;
-} 
-// 厳密な比較例 
-if (($a == &quot;&quot;) &amp;&amp; ($b == &quot;&quot;)) { 
+}
+// 厳密な比較例
+if (($a == &quot;&quot;) &amp;&amp; ($b == &quot;&quot;)) {
 
-    // 例外的に strstr(&quot;&quot;, &quot;&quot;) == -1 になります。 
+    // 例外的に strstr(&quot;&quot;, &quot;&quot;) == -1 になります。
     message &quot;$a と $b は共にヌルストリングです。&quot;;
-} else if ((strlen($a) == strlen($b)) &amp;&amp; (strstr($a, $b) == 0)) { 
+} else if ((strlen($a) == strlen($b)) &amp;&amp; (strstr($a, $b) == 0)) {
     message &quot;本当に $a と $b は同じ文字列です。&quot;;
-} else { 
+} else {
     message &quot;$a と $b は違う文字列です。&quot;;
-} 
-endmacro; </code></pre>
+}
+endmacro;</code></pre>
 </div>
 <p>厳密な（単純な）大小関係を知りたい場合は、ascii関数を使って１文字ずつ比較する方法があります。</p>
 <dl>

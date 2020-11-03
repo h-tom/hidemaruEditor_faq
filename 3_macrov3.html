@@ -40,7 +40,7 @@
 <li>loadhilight 文、hilighttitle 関数、colorcode 関数、copy2文、openbyhidemaru 文、openbyshell 文、nextmark 文、 prevmark 文が追加された。</li>
 <li>ファイル系文の result に関して、trueで初期値を与え、エラー処理も統一された。<br />
 ( saveas, insertfile, changename, appendsave, etc. )</li>
-<li>ダイアログボックスを出力するファイル系文で、失敗したり、キャンセルされた場合は、result は false を返すように統一された。<br />
+<li>ダイアログボックスを出力するファイル系文で、失敗したりキャンセルされた場合は、result は false を返すように統一された。<br />
 ( CHANGENAME, INSERTFILE, etc. )</li>
 <li>gokakko, goleftkakko, gorightkakko に関して、「コメント/文字定数」内の考慮が加えられた。</li>
 <li>剰余 % に関して、符号を考慮した計算方法に変更された。</li>
@@ -54,7 +54,7 @@
 goleftkakko  &#39;{&#39;に移動
 gorightkakko &#39;}&#39;に移動</code></pre>
 <p>これらの 3 個のマクロ、コマンドは Ver. 3.00 から仕様が変更されました。<br />
-「ファイルタイプ別の設定」で「コメント/文字定数のカラー表示」を指定しない場合には従来の移動と同じです。また、これを指定した場合には、</p>
+「ファイルタイプ別の設定」で「コメント/文字定数のカラー表示」を指定しない場合には従来の移動と同じです。また、これを指定した場合には、以下の動作になります。</p>
 <ol type="1">
 <li>gokakko は、「コメント/文字定数」の中にある括弧では移動しません。</li>
 <li>goleftkakko, gorightkakko は、「コメント/文字定数」の中にある括弧 { } を無視して移動します。</li>
@@ -69,7 +69,7 @@ gorightkakko &#39;}&#39;に移動</code></pre>
 message str(result);</code></pre>
 </div>
 <p>現在 (Ver. 3.0x) でも、escape; は result = 0 となります。<br />
-偶然、この仕様であるが、将来は不明です、<br />
+偶然、この仕様であるが将来は不明です、<br />
 マクロのテストにはべんりですが、恒久的なコードをすることはお勧めではないです。</p>
 <h3 id="HHANDLE">【５】hidemaruhandle(0) の取り違え</h3>
 <p>下記のような例で発生する hidemaruhandle(0) の取り違えは治っていませんが、大きな問題ではありません。仕様にも見えるでしょう。</p>
