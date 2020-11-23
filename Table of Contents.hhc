@@ -6,7 +6,7 @@
 </HEAD><BODY>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="秀丸エディタＱ＆Ａ集第８．７版">
+		<param name="Name" value="秀丸エディタＱ＆Ａ集第８．８版">
 		<param name="Local" value="hmindex0.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -134,6 +134,22 @@
 			<param name="Name" value="自動保存">
 			<param name="Local" value="2_autosave.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="表示言語の切替">
+			<param name="Local" value="2_language.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="プログラム実行">
+			<param name="Local" value="2_program.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="他の秀丸エディタと内容比較">
+			<param name="Local" value="2_compfile.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="デスクトップ保存と復元">
+			<param name="Local" value="2_desktop.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと">
@@ -233,6 +249,10 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="タグ付き正規表現とは?">
 			<param name="Local" value="4_tagreg.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="プログラム実行を利用したテキストの加工">
+			<param name="Local" value="4_run.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第II部～知っていると便利な秀丸の機能　プログラム実行</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<h1 id="top">第II部～知っていると便利な秀丸の機能<br>　プログラム実行</h1>
+<hr />
+<h2 id="INTRODUCTION">プログラム実行</h2>
+<p>秀丸エディタでは、メニューの「その他→プログラム実行」から、外部プログラムの実行が可能です。</p>
+<p>編集しているhtmlファイルをwebブラウザで開いたり等、開いているファイルを指定して別のアプリケーションを呼び出すこともできます。</p>
+<p>「プログラム実行」ダイアログにある「オプション」を展開すると表示される「詳細設定」のON/OFFにより、多少動作が異なります。<br />
+(「オプション」や「詳細設定」は、秀丸エディタVer.8.00から追加)</p>
+<p><img src="2_program_01.png" width="447" height="376" alt="プログラム実行ダイアログ-オプション展開" /><br />
+画像は、「オプション」を展開した状態です。</p>
+<p>「オプション」を閉じてしまうと、「詳細設定」のON/OFF状態が確認できないので、注意が必要です。</p>
+<p><img src="2_program_02.png" width="447" height="124" alt="プログラム実行ダイアログ-オプション閉じる" /><br />
+</p>
+<p>【１】<a href="#NOTICE">共通の注意点</a><br />
+【２】<a href="#PROGRAM1">プログラム実行の方法 その１</a> 詳細設定 OFFの場合 or 秀丸エディタVer.8未満<br />
+【３】<a href="#PROGRAM2">プログラム実行の方法 その２</a> 詳細設定 ONの場合<br />
+【４】<a href="#SUPPLEMENT">補足</a><br />
+</p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="NOTICE">【１】共通の注意点</h3>
+<ul>
+<li><p>コマンドラインに指定する文字列について</p>
+<p>文字列内に</p>
+<ul>
+<li>%f</li>
+<li>%d</li>
+<li>%b</li>
+<li>%n</li>
+<li>%l</li>
+<li>%c</li>
+</ul>
+<p>の文字がある場合、対象の内容に置換されてプログラムに引き渡されます。 (大文字小文字の区別はありません)<br />
+特に、パーセントエンコード/URLエンコード を含む文字列を指定する場合は、注意が必要です。</p>
+<p><strong><code>"C:\Program Files\Hidemaru\HIDEMARU.TXT"</code></strong> を秀丸エディタで開いている状態では、以下の内容に置換されます。</p>
+<dl>
+<dt>%f</dt>
+<dd><p>開いているファイルのフルパス</p>
+<div class="macro">
+<pre><code>C:\Program Files\Hidemaru\HIDEMARU.TXT</code></pre>
+</div>
+</dd>
+<dt>%d</dt>
+<dd><p>開いているファイルのフォルダ名</p>
+<div class="macro">
+<pre><code>C:\Program Files\Hidemaru</code></pre>
+</div>
+</dd>
+<dt>%b</dt>
+<dd><p>開いているファイルのファイル名</p>
+<div class="macro">
+<pre><code>HIDEMARU.TXT</code></pre>
+</div>
+</dd>
+<dt>%n</dt>
+<dd><p>開いているファイルのファイル名から拡張子を除いたもの</p>
+<div class="macro">
+<pre><code>HIDEMARU</code></pre>
+</div>
+</dd>
+<dt>%l</dt>
+<dd>カーソル位置の行番号(先頭が1)
+</dd>
+<dt>%c</dt>
+<dd>カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。
+</dd>
+</dl>
+<p>例えば、以下の Vbscript を “argv.vbs” というファイル名で保存し、 "%8C %B4 %88 %F6 %8B %86 %96 %BE" という文字列を引数として wscript.exe で実行してみます。</p>
+<div class="macro">
+<pre><code>Option Explicit
+
+Dim WshArgs
+Dim Argv
+Dim i
+
+Argv = &quot;&quot;
+
+&#39;引数の取得
+Set WshArgs = WScript.Arguments
+For i = 0 to WshArgs.Count - 1
+    Argv = Argv &amp; cstr(i) &amp; &quot; --&gt;&quot; &amp; WshArgs(I) &amp; &quot;&lt;--&quot; &amp; vbcrlf
+Next
+set WshArgs = Nothing
+
+Wscript.echo Argv
+Wscript.quit</code></pre>
+</div>
+<p>コマンドラインに指定する文字列。(“argv.vbs” は、スクリプトを保存した場所に合わせて、修正してください)</p>
+<div class="macro">
+<pre><code>wscript.exe &quot;argv.vbs&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE</code></pre>
+</div>
+<p>出力結果</p>
+<div class="macro">
+<pre><code>---------------------------
+Windows Script Host
+---------------------------
+
+0 --&gt;%8C&lt;--
+1 --&gt;HIDEMARU.TXT4&lt;--
+2 --&gt;%88&lt;--
+3 --&gt;C:\Program&lt;--
+4 --&gt;Files\Hidemaru\HIDEMARU.TXT6&lt;--
+5 --&gt;%8B&lt;--
+6 --&gt;%86&lt;--
+7 --&gt;%96&lt;--
+8 --&gt;HIDEMARU.TXTE&lt;--
+
+---------------------------
+OK
+---------------------------</code></pre>
+</div>
+<p>"%8C %B4 %88 %F6 %8B %86 %96 %BE" に含まれる、"%B"、"%F"が、ファイル名、フルパスに変換されて、プログラムに引き渡されています。さらに、フルパスの場合、スペースが含まれている為、引数の数も違ってしまっています。</p></li>
+<li><p>標準出力でNULL文字が含まれる場合は、<strong>「その他→<span class="env">動作環境</span>→ファイル→エンコード2」</strong> にある以下の設定に影響されます。</p>
+<ul>
+<li>NULL文字があったとき警告メッセージを表示</li>
+<li>NULL文字の変換</li>
+</ul></li>
+</ul>
+<h3 id="PROGRAM1">【２】プログラム実行の方法その1</h3>
+<p>秀丸エディタ Ver.8未満か、「詳細設定」がチェックされていない状態で実行する場合の動作になります。<br />
+<strong>「その他→<span class="env">動作環境</span>→その他のコマンド→プログラム実行」</strong> にある「標準エラー出力も出力する」の設定が影響します。</p>
+<p>コマンドラインを使ってリダイレクトの指定が可能で、編集中のファイルを標準入力に指定したり、標準出力を指定したファイルに出力できます。</p>
+<ul>
+<li><p>標準入力</p>
+<ul>
+<li>"&lt;ファイル名" で指定したファイルの内容を標準入力に送ります。</li>
+<li>"&lt;con" と指定すると範囲選択していればその範囲を、範囲選択していない場合は開いているファイルの全内容が、標準入力の対象になります。</li>
+</ul></li>
+<li><p>標準出力</p>
+<p>なにも指定しない場合は、新規の秀丸エディタを開き、そこに出力されます。</p>
+<ul>
+<li>"&gt;ファイル名" で標準出力を指定したファイルに出力します。既存のファイルに追加する事は出来ません。上書きされます。</li>
+<li>"&gt;con" と指定すると、範囲選択していればその範囲を標準出力で置き換えます。範囲選択していない場合は、何も指定しない場合と同じで、新規の秀丸エディタを開きそこに出力されます。</li>
+</ul></li>
+<li><p>範囲選択は行選択である事が前提です。 BOX選択では、選択範囲を標準入力へ送ることはできますが、"&gt;con"で正確に置換する事は出来ません。</p></li>
+<li><p>"&lt;con"を指定すると、選択範囲内の内容をShift_JISに変換して標準入力へ送ります。<br />
+"&gt;con"を指定すると、標準出力はShift_JISである事を前提にしています。<br />
+"&lt;ファル名"の場合は、保存しているエンコードのまま、標準入力に送ります。</p></li>
+<li><p>「アウトプット枠」への出力はできません。</p></li>
+</ul>
+<h3 id="PROGRAM2">【３】プログラム実行の方法その2</h3>
+<ul>
+<li>「詳細設定」がチェックされている状態で実行する場合。</li>
+<li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank">「プログラム実行の詳細（オプション指定時）」</a>も参照</li>
+</ul>
+<p>詳細を設定してプログラムの実行か可能です。有効にする場合は、チェックをONにして設定します。各項目のチェックがOFFの場合は、設定が無効になります。</p>
+<p>コマンドラインに、「&lt;」や「&gt;」を使ったリダイレクトの指定はできません。以下の設定を使用し、リダイレクトを指定します。</p>
+<ul>
+<li><p>標準入力</p>
+<p>標準入力を設定します。以下の設定が可能です。「指定したファイル」は<span class="btn-push">「…」</span>ボタンを使い、指定できます。</p>
+<ul>
+<li>自動("&lt;con" を指定した場合と同じ)</li>
+<li>現在の内容</li>
+<li>範囲選択の内容</li>
+<li>指定したファイル</li>
+</ul></li>
+<li><p>標準出力</p>
+<p>標準出力を設定します。以下の設定が可能です。「指定したファイル」は<span class="btn-push">「…」</span>ボタンを使い、指定できます。ファイルを指定し「追加」をチェックした場合は、指定したファイルに標準出力の内容を追加します。</p>
+<ul>
+<li>自動("&gt;con" を指定した場合と同じ)</li>
+<li>新規(新しく秀丸エディタを開き、そこに出力)</li>
+<li>挿入(カーソル位置へ挿入)</li>
+<li>範囲選択を置き換え</li>
+<li>アウトプット枠</li>
+<li>指定したファイル</li>
+</ul>
+<p>「アウトプット枠」は、Windows 98/Meでは使用できません。<br />
+「挿入」を使えば、範囲選択をしていなくても、カーソル位置に標準出力を挿入できます。</p></li>
+<li><p>標準エラー出力</p>
+<p>標準エラー出力を設定します。以下の設定が可能です。「指定したファイル」は<span class="btn-push">「…」</span>ボタンを使い、指定できます。ファイルを指定し「追加」をチェックした場合は、指定したファイルに標準出力の内容を追加します。</p>
+<ul>
+<li>標準出力と同じ</li>
+<li>新規</li>
+<li>挿入(カーソル位置へ挿入)</li>
+<li>範囲選択を置き換え</li>
+<li>アウトプット枠(あらかじめ表示しておくこと)</li>
+<li>指定したファイル</li>
+</ul></li>
+<li><p>作業フォルダ</p>
+<p>コマンドラインで実行するファイルのカレントフォルダを指定します。「指定したフォルダ」は<span class="btn-push">「…」</span>ボタンを使い、指定できます。</p>
+<ul>
+<li>現在のフォルダ</li>
+<li>実行ファイルのあるフォルダ</li>
+<li>指定したフォルダ</li>
+</ul></li>
+<li><p>ウィンドウ表示</p>
+<p>コマンドラインで実行するプログラムの表示状態を設定します。実行するアプリケーションによっては、指定通りにならない場合があります。</p>
+<ul>
+<li>自動</li>
+<li>あり</li>
+<li>なし</li>
+</ul></li>
+<li><p>標準出をリダイレクト中は描画しない</p>
+<p>有効にすると、実行スピードが上がる事もあります。</p></li>
+<li><p>エンコードを指定</p>
+<p>標準入出力のエンコードを指定します。OFFの場合は、Shift_JISに変換されます。</p>
+<ul>
+<li>Unicode(UTF-16LE)</li>
+<li>Unicode(UTF-8)</li>
+</ul></li>
+</ul>
+<h3 id="SUPPLEMENT">【４】補足</h3>
+<ul>
+<li>コマンドラインのヒストリから以前に実行した内容を選択した場合は、コマンドライン文字列だけではなく、「オプション」-「詳細設定」の内容まで復元出来ます。</li>
+</ul>
+</div>
+<hr />
+<p><a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -37,22 +38,22 @@
 <ol type="1">
 <li><p>キーワード filetype を使う。</p>
 <p>filetype キーワードを利用することにより、<code>「.」</code>+拡張子を取得できます。</p>
-<p>なお、「新規」、「grepの結果」、プログラムの標準出力による「実行結果」の場合、 各々「new」「grep」「exeresult」という決まった文字列を返します。</p>
+<p>なお、「新規」、「grepの結果」、プログラムの標準出力による「実行結果」の場合、各々「new」「grep」「exeresult」という決まった文字列を返します。</p>
 <dl>
 <dt><span class="mark_dt3">[補足]</span></dt>
-<dd><p>秀丸エディタの起動オプションで、"/c"オプションを指定した場合や、setfiletype文を使った場合は、 実ファイルの拡張子と、filetypeで取得できる拡張子が一致しません。 これは、設定を強制的に変更している為の仕様になります。 (<a href="https://log.maruo.co.jp/turukame/turukame_3/x0701567.html#1568" class="externallink" target="_blank">turukame.3:01568</a>を参照)</p>
+<dd><p>秀丸エディタの起動オプションで、"/c"オプションを指定した場合や、setfiletype文を使った場合は、実ファイルの拡張子と、filetypeで取得できる拡張子が一致しません。これは、設定を強制的に変更している為の仕様になります。 (<a href="https://log.maruo.co.jp/turukame/turukame_3/x0701567.html#1568" class="externallink" target="_blank">turukame.3:01568</a>を参照)</p>
 <p>つまり、filetypeキーワードでは、編集しているファイルの拡張子を正確に取得できない場合があるということになります。</p>
-<p>設定の種類を取得したい場合は filetypeキーワードを、 実ファイルの確実な拡張子が必要な場合は、 basename 等、ファイル名を取得するキーワードから取得してください。</p>
+<p>設定の種類を取得したい場合は filetypeキーワードを、実ファイルの確実な拡張子が必要な場合は、 basename 等、ファイル名を取得するキーワードから取得してください。</p>
 </dd>
 </dl></li>
 <li><p><strong>文字列から拡張子を取得したい場合</strong><br />
-編集中のファイルでなく、DLL や DDE サーバなどの外部ソフトウェアや、gettext等を利用して、 既に取得済みの文字列から拡張子を取得したい場合は、 <a href="HMM0074A.html">[HMM0074A]●文字列の後方から文字列を検索</a> を参照して下さい。 (後方から"."を検索し、そこから拡張子を切り出す。)</p>
+編集中のファイルでなく、DLL や DDE サーバなどの外部ソフトウェアや、gettext等を利用して、既に取得済みの文字列から拡張子を取得したい場合は、 <a href="HMM0074A.html">[HMM0074A]●文字列の後方から文字列を検索</a> を参照して下さい。 (後方から"."を検索し、そこから拡張子を切り出す)</p>
 <p>その他には以下の方法もあります。</p>
 <ul>
-<li><p>hmjre.dll を使用し、正規表現検索を使う。(dllfuncを使う。)</p>
+<li><p>hmjre.dll を使用し、正規表現検索を使う。(dllfuncを使う)</p>
 <p>例) 「.+(.[^.]+)」を検索し、タグの位置(括弧内の範囲)を切り出す。</p></li>
 <li><p>COM呼び出し機能を使用し、"Scripting.FileSystemObject"の"GetExtensionName"メソッドを使う。</p>
-<p>"GetExtensionName"メソッドは、filetypeキーワードと違い、<code>"."</code>(ドット)を含まない文字列を返します。 また、小文字に正規化はされていないので、注意が必要です。</p></li>
+<p>"GetExtensionName"メソッドは、filetypeキーワードと違い、<code>"."</code>(ドット)を含まない文字列を返します。また、小文字に正規化はされていないので、注意が必要です。</p></li>
 </ul></li>
 </ol>
 </dd>

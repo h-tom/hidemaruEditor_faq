@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -35,9 +36,9 @@
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>チェック専用の関数はありませんが、入力チェックをするときに、色々な値がある場合には、 ifで strstr 関数を使用すると文が簡単になります。</p>
 <div class="macro">
-<pre><code>// a1.mac --------------------- 
-$wk1 = input(&quot;血液型を入力してください!&quot;,&quot;&quot;); 
-if( $wk1 == &quot;O&quot; || $wk1 == &quot;A&quot; || $wk1 == &quot;B&quot; || $wk1 == &quot;AB&quot; ){ 
+<pre><code>// a1.mac ---------------------
+$wk1 = input(&quot;血液型を入力してください!&quot;,&quot;&quot;);
+if( $wk1 == &quot;O&quot; || $wk1 == &quot;A&quot; || $wk1 == &quot;B&quot; || $wk1 == &quot;AB&quot; ){
 
     message &quot;血液型 : &quot; + $wk1;
 
@@ -47,26 +48,26 @@ if( $wk1 == &quot;O&quot; || $wk1 == &quot;A&quot; || $wk1 == &quot;B&quot; || $
 
 }
 endmacro;
-// （ここまで）----------------------------------------------- </code></pre>
+// （ここまで）-----------------------------------------------</code></pre>
 </div>
 <p><br />
 </p>
 <div class="macro">
-<pre><code>// a2.mac --------------------- 
-$wk1 = input(&quot;血液型を入力してください!&quot;,&quot;&quot;); 
+<pre><code>// a2.mac ---------------------
+$wk1 = input(&quot;血液型を入力してください!&quot;,&quot;&quot;);
 if( strstr(&quot;|O|A|B|AB|&quot;,&quot;|&quot;+$wk1+&quot;|&quot;) != -1 ){
 
     message &quot;血液型 : &quot; + $wk1;
 
-} else { 
+} else {
 
     message &quot;間違った血液型です !&quot;;
 
-} 
-endmacro; 
-// （ここまで）----------------------------------------------- </code></pre>
+}
+endmacro;
+// （ここまで）-----------------------------------------------</code></pre>
 </div>
-<p>この a1.mac と a2.mac は同じ結果となります。"|" は、一般的には区切文字(区切記号)と呼ばれ、 入力文字としてありえない文字を使用すると文が見やすくなります。 全角文字(Shift_JIS の場合) を処理するときには、! - / などの 0x40 (16 進数)より小さな文字を区切文字にします。</p>
+<p>この a1.mac と a2.mac は同じ結果となります。"|" は、一般的には区切文字(区切記号)と呼ばれ、入力文字としてありえない文字を使用すると文が見やすくなります。全角文字(Shift_JIS の場合) を処理するときには、! - / などの 0x40 (16 進数)より小さな文字を区切文字にします。</p>
 <p>全角半角の文字が混在するときは完璧なチェック方法にはなりませんが、実用レベルには耐えるでしょう。</p>
 </dd>
 </dl>

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0083A] ●検索/置換の「選択した範囲内のみ」の動作 - 秀丸エディタＱ＆Ａ集</title>
+  <title>[HME0083A] ●検索/置換の「選択した範囲」の動作 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -23,30 +24,83 @@
 <p><span class="link_navigate"><a href="HME0082A.html">←前へ</a> <a href="HME0084A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0083a">[HME0083A]</h1>
-<h2 id="HME0083A_01">●検索/置換の「選択した範囲内のみ」の動作</h2>
+<h2 id="HME0083A_01">●検索/置換の「選択した範囲」の動作</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>検索/置換の「選択した範囲内のみ」の動作がちょっと変な感じがしますが？時々、ダイアログの「選択した範囲内のみ」チェックボックスがグレーになって変更不可になったり、選択した範囲より少し外側まで検索/置換されたりするようです。</strong>
+<dd><strong>検索/置換の「選択した範囲」の動作がちょっと変な感じがしますが？時々、ダイアログの「選択した範囲」チェックボックスがグレーになって変更不可になったり、選択した範囲より少し外側まで検索/置換されたりするようです。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>「選択した範囲内のみ」チェックボックスが有効になるのは、<span class="attention_red">行単位で範囲選択</span>している場合だけです。 <strong>BOX範囲選択</strong>は、文字単位の選択になるので、「選択した範囲内のみ」は有効になりません。</p>
-<p>現時点（秀丸エディタ Ver.8.92）では、検索/置換の「選択した範囲内のみ」の機能は秀丸エディタ内部の構造上、論理行（改行までを１行と数える）単位になっています。</p>
-<p>例えば、選択範囲の始まりが行頭でない場合、検索/置換の開始場所は選択範囲の始まりの場所の行の行頭になります。また同様に、検索/置換の終わりは選択範囲の終わりの行の行末になります。<br />
-その為、範囲選択した箇所と一致しない場合があります。</p>
-<p>選択範囲の始まりが行頭でない/選択範囲の終わりが行末でない状態で「選択した範囲内のみ」をONにし、検索を実行した場合は、範囲は行単位になると、メッセージが表示されます。</p>
-<p><img src="HME0083A_01.png" width="438" height="160" alt="選択した範囲内のみの警告表示" /><br />
+<dd><p>「選択した範囲」チェックボックスが有効になるのは、<span class="attention_red">範囲選択</span>している場合だけです。<br />
+<strong>BOX範囲選択</strong>は、文字単位の選択になるので、「選択した範囲」は有効になりません。<br />
+<strong>複数選択</strong>している場合は、カーソルのある行が対象になります。</p>
+<ul>
+<li><p>Ver.8.94以降の場合、検索/置換の範囲を「<strong>行単位</strong>」にするか「<strong>文字単位</strong>」にするか選択可能です。</p>
+<p><img src="HME0083A_02.png" width="225" height="68" alt="選択した範囲の選択" /><br />
 </p>
+<dl>
+<dt>行単位</dt>
+<dd>Ver.8.94未満と同じ動作。選択範囲を含む先頭の行頭から、末尾の行末まで。
+</dd>
+<dt>文字単位</dt>
+<dd>選択範囲部分のみ (Ver.8.94未満は、追加の条件で「カラーマーカ」を使う必要がある)
+</dd>
+</dl></li>
+<li><p>Ver.8.94未満の場合</p>
+<p>検索/置換の「選択した範囲」の機能は「<strong>行単位</strong>」のみ。</p>
+<p>選択範囲の始まりが行頭でない/選択範囲の終わりが行末でない状態で「選択した範囲内」をONにし、「行単位」で検索/置換を実行した場合は、範囲は行単位になると、メッセージが表示されます。</p>
+<p><img src="HME0083A_01.png" width="438" height="160" alt="選択した範囲の警告表示" /><br />
+</p></li>
+</ul>
+<p>「<strong>行単位</strong>」だと以下のような動作になるため、範囲選択した箇所と、検索/置換の範囲が一致しない場合があります。</p>
+<ul>
+<li>選択範囲の始まりが行頭でない場合、検索/置換の開始は選択範囲の始まりの行頭から。</li>
+<li>選択範囲の終わりが行末でない場合、検索/置換の終了は選択範囲の終わりの行の行末まで。ただし、選択範囲の終わりが行頭の場合は、その前の行の行末まで。</li>
+</ul>
+<dl>
+<dt>行単位の例1)</dt>
+<dd><p>選択範囲</p>
+<pre style="line-height:100%;letter-spacing:0.1em;">
+ABCDEFGHIJ<span class="default_select">KLMNOPQRSTUVWXYZ↓</span>
+<span class="default_select">ABCDEFGHIJKLMNOPQRSTUVWXYZ↓</span>
+<span class="default_select">ABCDEFGHIJKLMN</span>OPQRSTUVWXYZ↓
+↓
+</pre>
+<p>実際の検索範囲</p>
+<pre style="line-height:100%;letter-spacing:0.1em;">
+<span class="line_search_area">ABCDEFGHIJKLMNOPQRSTUVWXYZ↓</span>
+<span class="line_search_area">ABCDEFGHIJKLMNOPQRSTUVWXYZ↓</span>
+<span class="line_search_area">ABCDEFGHIJKLMNOPQRSTUVWXYZ↓</span>
+↓
+</pre>
+</dd>
+<dt>行単位の例2)</dt>
+<dd><p>選択範囲</p>
+<pre style="line-height:100%;letter-spacing:0.1em;">
+ABCDEFGHIJ<span class="default_select">KLMNOPQ</span>RSTUVWXYZ↓
+ABCDEFGHIJKLMNOPQRSTUVWXYZ↓
+ABCDEFGHIJKLMNOPQRSTUVWXYZ↓
+↓
+</pre>
+<p>実際の検索範囲</p>
+<pre style="line-height:100%;letter-spacing:0.1em;">
+<span class="line_search_area">ABCDEFGHIJKLMNOPQRSTUVWXYZ↓</span>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ↓
+ABCDEFGHIJKLMNOPQRSTUVWXYZ↓
+↓
+</pre>
+</dd>
+</dl>
 <p>文書中の内容を検索文字列として取り込む為に、改行を含む範囲を選択行い、検索/置換を実行すると、範囲選択した文字列が検索/置換ダイアログの検索文字列に取り込まれず、「選択した範囲内のみ」が有効な状態で検索/置換ダイアログが開く場合があります。 (選択した範囲によって、動作が異なる)</p>
-<p>この状態で、検索/置換コマンドを割り当てたキーを押すと、選択範囲が「検索文字列」として取り込まれ、「選択した範囲内のみ」が解除されます。</p>
+<p>この状態で、検索/置換コマンドを割り当てたキーを押すと、選択範囲が「検索文字列」として取り込まれ、「選択した範囲」が解除されます。</p>
 <dl>
 <dt><span class="mark_dt3">[補足]</span></dt>
 <dd><ul>
 <li><p>マクロの検索系文で使用する「inselect」オプションは、複数行の選択でなくても有効です。行内の一部分のみを選択していても、範囲を拡張して1行を選択した状態で実行されます。</p></li>
-<li><p>検索の範囲を任意に指定したい場合や、BOX範囲選択を対象にしたい場合は、<a href="2_colormarker.html">「カラーマーカー」</a>を使います。<br />
+<li><p>検索の範囲を任意に指定したい場合や、BOX範囲選択を対象にしたい場合は、<a href="2_colormarker.html">「カラーマーカー」</a>を使います。(Ver.8.94未満の場合)<br />
 <a href="hmindex2.html">「第II部～知っていると便利な秀丸の機能」</a>の<a href="2_find.html">「検索」</a>-<a href="2_find.html#SUPPLEMENTATION-1">「「追加の条件」について」</a>を参照してください。</p></li>
 </ul>
 </dd>

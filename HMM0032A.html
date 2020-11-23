@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -48,8 +49,8 @@ if(result){
 endmacro;</code></pre>
 </div>
 <p>というマクロを作った場合、削除されるのが"秀丸"ではなく、 "秀"という一文字しか削除できないという状況の対処方法です。</p>
-<p>「その他」→「<span class="env">動作環境</span>」→「検索」→「検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、 検索にマッチした箇所を削除できません。［<strong>範囲選択</strong>］にする必要があります。</p>
-<p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。 その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている。)</p>
+<p>「その他」→「<span class="env">動作環境</span>」→「検索」→「検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、検索にマッチした箇所を削除できません。［<strong>範囲選択</strong>］にする必要があります。</p>
+<p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている)</p>
 <p>「setcompatiblemode文」を使えば、マクロ実行時に「検索での表示」の設定を、一時的に変更できます。</p>
 <div class="macro">
 <pre><code>setcompatiblemode 0x00000200；</code></pre>

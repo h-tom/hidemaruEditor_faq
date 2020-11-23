@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -35,24 +36,24 @@
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><p>起動オプションの「ステルス起動(/h)」を使えばできます。</p>
 <div class="macro">
-<pre><code>//------- サンプルマクロ -------// 
-// &quot;c:\\temp\\00work00.$$$&quot; をステルスモードで起動する 
-#hwnd = hidemaruhandle( 0 ); //元ウィンドウのハンドルを取得 
-$temp_file = &quot;c:\\temp\\00work00.$$$&quot;; 
+<pre><code>//------- サンプルマクロ -------//
+// &quot;c:\\temp\\00work00.$$$&quot; をステルスモードで起動する
+#hwnd = hidemaruhandle( 0 ); //元ウィンドウのハンドルを取得
+$temp_file = &quot;c:\\temp\\00work00.$$$&quot;;
 
-openfile &quot;/h &quot; + $temp_file; //ステルスモードで開く 
-#hwnd_stealth = hidemaruhandle( 0 ); //ステルスウィンドウのハンドル 
+openfile &quot;/h &quot; + $temp_file; //ステルスモードで開く
+#hwnd_stealth = hidemaruhandle( 0 ); //ステルスウィンドウのハンドル
 
-    //ここに c:\temp\00work00.$$$ 上での処理が入る。 
-    // (ここで実行される処理は画面では見えない) 
+    //ここに c:\temp\00work00.$$$ 上での処理が入る。
+    // (ここで実行される処理は画面では見えない)
 
-setactivehidemaru #hwnd; //元ウィンドウへ移動 
-closehidemaruforced #hwnd_stealth; //ステルスウィンドウを閉じる 
-endmacro; 
-// ---------------------------- // </code></pre>
+setactivehidemaru #hwnd; //元ウィンドウへ移動
+closehidemaruforced #hwnd_stealth; //ステルスウィンドウを閉じる
+endmacro;
+// ---------------------------- //</code></pre>
 </div>
 <p>※ ステルスモードで開いたウィンドウは「必ず」マクロの中で終了させて下さい！！</p>
-<p>なお、ステルスウィンドウに対する findwindow() 関数は失敗する場合が多いので、 なるべく開いた「直後」に hidemaruhandle( 0 ) でウィンドウハンドルを取得しておきましょう。</p>
+<p>なお、ステルスウィンドウに対する findwindow() 関数は失敗する場合が多いので、なるべく開いた「直後」に hidemaruhandle( 0 ) でウィンドウハンドルを取得しておきましょう。</p>
 </dd>
 </dl>
 </div>

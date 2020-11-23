@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -57,6 +58,9 @@
 <li><a href="#V890">秀丸エディタVer.8.90 マクロ関連の変更履歴</a></li>
 <li><a href="#V891">秀丸エディタVer.8.91 マクロ関連の変更履歴</a></li>
 <li><a href="#V892">秀丸エディタVer.8.92 マクロ関連の変更履歴</a></li>
+<li><a href="#V893">秀丸エディタVer.8.93 マクロ関連の変更履歴</a></li>
+<li><a href="#V894">秀丸エディタVer.8.94 マクロ関連の変更履歴</a></li>
+<li><a href="#V895">秀丸エディタVer.8.95 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" class="externallink" target="_blank">秀丸エディタの紹介（Ver8.00対応版）</a>を参照してください。</p>
@@ -292,8 +296,8 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
-<li>カーソル移動後タイマーのイベントマクロで、geteventparam(4)にて、どういうコマンドによってカーソル移動したかが分かるようにした。</li>
-<li>「setcompatiblemode 0x20000;」にて、マクロ内で検索系コマンドを実行しても、マクロが終了したら自動的に検索条件を元に戻せるようにした。</li>
+<li>カーソル移動後タイマーのイベントマクロで、geteventparam(4)にて、どのようなコマンドによってカーソル移動したかが分かるようにした。</li>
+<li>「setcompatiblemode 0x20000;」を設定した場合、マクロ内で検索系コマンドを実行しても、マクロが終了したら自動的に検索条件が元に戻るようにした。</li>
 </ul></li>
 <li>その他
 <ul>
@@ -327,7 +331,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>undo命令のパラメータで数値の3を指定したら、「動作環境・編集・全置換のやり直し」で指定した方法でundoするようにした。</li>
 <li>nextoutlineitem,prevoutlineitemで、パラメータを指定して「自動的な選択/部分編集の対象」がOFFの見出しにもジャンプできるようにする。</li>
 <li>platform キーワードで持ち出しキットで動作中かどうかのビット追加。</li>
-<li>copyword にパラメタを指定して連続した単語を指定可能にする。</li>
+<li>copyword にパラメータを指定して連続した単語を指定可能にする。</li>
 <li>filetype キーワードでプログラム実行中のウィンドウは"executing"を返すようにする。</li>
 <li>setcompatiblemode 0x80000;でマクロ実行後にもカーソル移動後と編集後の自動起動マクロを動かせるようにする。</li>
 <li>getsearchhist,setsearchhist で常駐の状態を取得/設定できるようにする。</li>
@@ -369,8 +373,8 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li><p>追加</p>
 <ul>
 <li>colormarkerallfound 文 検索でマッチする箇所を色付けする。</li>
-<li>selectcolormarker 文 カラーマーカーをつけた箇所を選択する。(複数あれば、複数選択となる。)</li>
-<li>invertselection 文 範囲選択箇所を反転する。(範囲選択した箇所と、それ以外の箇所を入れ替える。)</li>
+<li>selectcolormarker 文 カラーマーカーをつけた箇所を選択する。(複数あれば、複数選択となる)</li>
+<li>invertselection 文 範囲選択箇所を反転する。(範囲選択した箇所と、それ以外の箇所を入れ替える)</li>
 <li>複数選択関連
 <ul>
 <li>multiselecting キーワード 複数選択しているかどうか</li>
@@ -388,7 +392,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li><p>copyline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてコピーする。</p></li>
 <li><p>cutline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行選択にしてカットする。</p></li>
 <li><p>selectline パラメータに1を指定すると、範囲選択が含まれる行を、すべて行単位にそろえて選択する。</p></li>
-<li><p>colormarker パラメータに開始位置と終了位置を指定可能にした。(範囲選択していなくても、指定した箇所にカラーマーカーをつける。)</p></li>
+<li><p>colormarker パラメータに開始位置と終了位置を指定可能にした。(範囲選択していなくても、指定した箇所にカラーマーカーをつける)</p></li>
 <li><p>existfile 第二パラメータに2を指定すると、ファイルサイズを取得可能にした。</p>
 <pre><code>ファイルサイズは、マクロの数値範囲である2G(2147483647)が最大となる。
 存在しないファイルを指定した場合は、0(zero)が取得できる。</code></pre></li>
@@ -493,6 +497,9 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>macrohelp文でパラメータでキーワードを指定して開くことができるように修正。</li>
 <li>insert文の第２パラメータに2を指定可能にして、自動アンインデントの対応。</li>
 <li>saveconfig文で「折りたたみ用の余白」の一時的な状態を解除されるように修正。</li>
+<li>insert文のパラメータ2またはoverwrite文の改行コードの処理は、 insert文のパラメータなしと同様に“0d0a”を１つの改行として解釈するように修正。</li>
+<li>overwriteとinsert $a,2;のサロゲートペア対応。</li>
+<li>goto文、call文のラベルに文字列変数を指定して、文字列変数をラベル名にジャンプできるように修正。</li>
 </ul></li>
 </ul>
 </section>
@@ -1079,6 +1086,54 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>秀丸マクロのカラー表示の複数行コメントと複数行文字列対応。</li>
 </ul>
 </div>
+<h2 id="V893">秀丸エディタVer.8.93 マクロ関連の変更履歴</h2>
+<p>Ver.8.93は、マクロ関連の変更はありません。</p>
+<h2 id="V894">秀丸エディタVer.8.94 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V894">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.94</a></p>
+<p>【２】<a href="#SPEC_V894">仕様変更 - 「秀丸エディタ」Ver.8.94</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V894">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.94</h3>
+<ul>
+<li>追加
+<ul>
+<li>getmaxinfo関数</li>
+<li>encodeuri関数</li>
+<li>decodeuri関数</li>
+<li>getlinecount関数</li>
+<li>mouselineno キーワード、mousecolumn キーワード(カーソルがエディタ画面範囲外の場合は-1)</li>
+<li>convert_return_in_cell文</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>searchdown等にinselect2のオプションを追加。</li>
+<li>gettext関数、gettext2関数で改行を。</li>
+<li>getoutlineitemの行番号が、分類モードでうまく取得できないバグ修正。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>HmJre.dll V5.09</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V894">【２】仕様変更 - 「秀丸エディタ」Ver.8.94</h3>
+<ul>
+<li>検索ダイアログの「選択した範囲内のみ」を「選択した範囲」に変更して、[行単位]/[文字単位]を追加。</li>
+<li>[その他]→[動作環境]→[環境]や[パフォーマンス]からの詳細設定の項目を増やして、クリップボード履歴の個数、静的変数の上限を追加。</li>
+<li>ブックマークやプロジェクトの項目のパスの先頭に「mac:」と書くとマクロ実行用のファイルとして動作するように修正。</li>
+</ul>
+</div>
+<h2 id="V895">秀丸エディタVer.8.95 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V895">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.95</a></p>
+<!-- h3 -->
+<section id="LIST_V895" class="marginleft">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.95</h3>
+<ul>
+<li>変更、パラメータ追加等
+<ul>
+<li>setstaticvariable/getstaticvariable で Ver.8.94 で数値を扱えるようになっていたのをやめて、従来通り文字列だけとなるように修正。</li>
+</ul></li>
+</ul>
+</section>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>

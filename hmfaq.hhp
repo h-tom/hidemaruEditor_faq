@@ -8,7 +8,7 @@ Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
 Language=0x411 日本語 (日本)
-Title=秀丸エディタＱ＆Ａ集(第8.7版)
+Title=秀丸エディタＱ＆Ａ集(第8.8版)
 
 
 [FILES]
@@ -23,13 +23,18 @@ Title=秀丸エディタＱ＆Ａ集(第8.7版)
 2_grep.html
 2_grepreplace.html
 2_highlight.html
+2_language.html
 2_mark.html
 2_multiselect.html
 2_outline.html
 2_output.html
+2_program.html
 2_replace.html
 2_wordcomplete.html
 2_wordcount.html
+2_program.html
+2_compfile.html
+2_desktop.html
 3_autostartmacro.html
 3_bit.html
 3_com_object.html
@@ -51,6 +56,7 @@ Title=秀丸エディタＱ＆Ａ集(第8.7版)
 3_yenmk.html
 4_cmdlin.html
 4_regular.html
+4_run.html
 4_tagreg.html
 6_publisher.html
 6_spellcheck.html

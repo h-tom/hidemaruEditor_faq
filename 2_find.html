@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -23,7 +24,7 @@
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第II部～知っていると便利な秀丸の機能<br>　検索</h1>
 <hr />
-<h2 id="find">●検索</h2>
+<h2 id="find">検索</h2>
 <p>編集中のテキストファイルの中から、ある文字列を探したい時には、秀丸エディタの「検索」機能を使えば簡単にできます。</p>
 <p>※文字列をあるだけ探したい場合は、<strong>grep 機能</strong>を使った方が効率的です。詳しくは「<a href="2_grep.html">●grep/タグジャンプ</a>」を参照して下さい。</p>
 <ul>
@@ -45,7 +46,7 @@
 <p>編集中のファイルにある「<strong>Love</strong>」という文字列を探したいとします。</p>
 <ol type="1">
 <li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、<strong><span class="font_blue">「検索」</span></strong>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
-<p>通常は1行のみですが、<strong>複数行を入力可能</strong>にする事もできます。詳細は「<a href="#SUPPLEMENTATION">補足</a>」-「<a href="#SUPPLEMENTATION-3">複数行</a>」を参照してください。</p>
+<p>通常は1行のみですが、<strong>複数行を入力可能</strong>にできます。詳細は「<a href="#SUPPLEMENTATION">補足</a>」-「<a href="#SUPPLEMENTATION-3">複数行</a>」を参照してください。</p>
 <p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /><br />
 </p></li>
 <li><p>次に、適宜オプションを指定します。ここで、各オプションの意味は以下の通りです。</p>
@@ -56,36 +57,37 @@
 この項目が ON になっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
-「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。<br />
+「<strong>正規表現</strong>」は「<a href="4_regular.html">正規表現について</a>」を参照して下さい。<br />
 複数行にマッチする検索に関しては制限が存在します。以下のリンク先を参照してください。</p>
 <ul>
 <li>秀丸エディタヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" class="externallink" target="_blank">\nを使った複数行検索の際の制限について</a></li>
-<li>「<a href="4_regular.html">●正規表現について</a>-<a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a></li>
+<li>「<a href="4_regular.html">正規表現について</a>-<a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a>」</li>
 </ul></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
 「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視等)。<br />
-「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">●あいまい検索について</a>」を参照して下さい。</p></li>
-<li><p><strong>「<span class="font_blue">選択した範囲内のみ</span>」チェックボックス：</strong><br />
-検索の範囲があらかじめ「<strong>範囲選択</strong>」された部分に限定されます。範囲選択されていない時はこの項目は選択できない様になっています。ここでの「<strong>範囲選択</strong>」は行単位での範囲になります。その為、文書の一部分を選択する「BOX範囲選択」の場合は、「<strong>選択した範囲内のみ</strong>」は有効になりません。<br />
-※このオプションの動作の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong>●検索/置換の「選択した範囲内のみ」の動作</a>を参照してください。</p></li>
+「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">あいまい検索について</a>」を参照して下さい。</p></li>
+<li><p><strong>「<span class="font_blue">選択した範囲</span>」チェックボックス：</strong><br />
+検索範囲が「<strong>範囲選択</strong>」された部分に限定されます。範囲選択されていない場合、この項目を設定できません。</p>
+<p>文書の一部分を選択する「BOX範囲選択」の場合、「<strong>選択した範囲</strong>」は有効になりません。 (Ver.8.94未満の場合は有効になりませんが、Ver.8.94以降だと有効になる)<br />
+※このオプションの動作の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong>●検索/置換の「選択した範囲」の動作</a>を参照してください。</p></li>
 <li><p><strong>「<span class="font_blue">次の秀丸エディタも続けて検索</span>」チェックボックス</strong><br />
-現在編集中の秀丸エディタウィンドウの他にも秀丸エディタが開いていた場合、その秀丸エディタウィンドウの内容に対しても検索を実行します。</p></li>
+現在編集中の秀丸エディタウィンドウの他にも秀丸エディタが開いていた場合、その秀丸エディタウィンドウも検索対象にします。</p></li>
 <li><p><strong>「<span class="font_blue">一周する</span>」チェックボックス</strong><br />
 下検索の場合、ファイルの一番下まで検索し終わった場合、ファイルの先頭に戻って検索を続行します。上検索の場合は逆になります。</p></li>
 <li><p><strong>「<span class="font_blue">追加の条件</span>」チェックボックス</strong><br />
 追加の条件に従って検索する範囲を制限できます。</p></li>
 <li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
-検索を実行後、検索に該当する文字列を強調表示します。</p></li>
+検索後、該当する文字列を強調表示します。</p></li>
 <li><p><strong>「<span class="font_blue">検索したら閉じる</span>」チェックボックス</strong><br />
-OFF だとダイアログ表示させたまま、検索を実行します。</p>
-<p>ON の場合、検索を実行すると検索ダイアログを閉じます。また、ダイアログの<span class="btn-push">「閉じる」</span>ボタンが<span class="btn-push">「キャンセル」</span>と表示されます。</p></li>
+OFF だとダイアログ表示させたまま、検索します。</p>
+<p>ON の場合、検索すると検索ダイアログを閉じます。また、ダイアログの<span class="btn-push">「閉じる」</span>ボタンが<span class="btn-push">「キャンセル」</span>と表示されます。</p></li>
 </ul></li>
-<li><p>最後に検索を行う<strong><span class="font_blue">方向</span></strong>を指定する事で検索が実行されます。</p>
+<li><p>最後に検索する<strong><span class="font_blue">方向</span></strong>を指定します。</p>
 <ul>
-<li><p>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上を検索します。)</p></li>
-<li><p>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下を検索します。)</p></li>
-<li><p>「<strong><span class="font_blue">すべて検索</span></strong>」(ファイル全体を検索します。)<br />
-「すべて検索」では、検索時の動作を選択できます。(ボタンを押すとメニューが表示されます。)</p>
+<li><p>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上を検索します)</p></li>
+<li><p>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下を検索します)</p></li>
+<li><p>「<strong><span class="font_blue">すべて検索</span></strong>」(ファイル全体を検索します)<br />
+「すべて検索」では、検索時の動作を選択できます。(ボタンを押すとメニューが表示されます)</p>
 <p><img src="2_find_21.png" width="636" height="354" alt="すべて検索" /><br />
 </p>
 <ul>
@@ -95,14 +97,14 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 <img src="2_find_04.png" width="340" height="146" alt="検索文字列を強調" /><br />
 </p></li>
 <li><p><span id="ALLSEARCH_COLORING">「すべて検索 - 色付け 」</span><br />
-検索文字列を更新せずに、検索条件に一致する箇所に色付けを行います。</p>
+検索文字列を更新せずに、検索条件と一致する箇所に色付けを行います。</p>
 <p>実行結果<br />
 <img src="2_find_02.png" width="340" height="160" alt="色付け1回目" /><br />
 </p>
 <p>連続で行うと、別の色で色付けします。<br />
 <img src="2_find_03.png" width="340" height="160" alt="色付け2回目" /><br />
 </p>
-<p>矢印のような部分で、色付けした箇所に移動する事が可能です。<br />
+<p>矢印のような部分で、色付けした箇所に移動が可能です。<br />
 <img src="2_find_16.png" width="142" height="33" alt="色付け2回目" /><br />
 </p>
 <p>個別に色付けした箇所に移動する事も設定で可能です。<br />
@@ -116,23 +118,23 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 </p></li>
 <li><p>「すべて検索 - 一覧表示」<br />
 <span class="attention_red">検索条件にマッチした箇所を含む行を</span>「一覧表示画面」に表示します。表示内容をクリックすると、その箇所に移動します。</p>
-<p>「一覧表示画面」から簡易的に検索する事や、「すべて色付け」、「すべて選択(複数選択)」する事も可能です。「すべて行単位コピー」を選ぶと一覧の内容を合成したものが、クリップボードに入ります。 (行番号は入りません)</p>
-<p>右下に「一覧表示画面」に表示している<span class="attention_red">行数</span>を表示しています。(マッチした数ではないので、注意すること。)</p>
+<p>「一覧表示画面」から簡易的に検索する事や、「すべて色付け」「すべて選択(複数選択)」も可能です。「すべて行単位コピー」を選ぶと一覧の内容を合成したものが、クリップボードに入ります。 (行番号は入りません)</p>
+<p>右下に「一覧表示画面」に表示している<span class="attention_red">行数</span>を表示しています。(マッチした数ではないので、注意すること)</p>
 <p>実行結果<br />
 <img src="2_find_06.png" width="524" height="247" alt="すべて検索-一覧表示" /><br />
 </p></li>
 <li><p>「すべて検索 - アウトラインに表示」<br />
-「アウトライン解析の内容」に<span class="attention_red">検索条件にマッチした文字以降</span>を合わせた内容を「一覧画面」に表示します。</p>
+「アウトライン解析の内容」と<span class="attention_red">検索条件にマッチした文字以降</span>を合わせた内容を「一覧画面」に表示します。</p>
 <p>元のアウトライン表示<br />
 <img src="2_find_07.png" width="232" height="198" alt="すべて検索-アウトライン" /><br />
 </p>
-<p>「すべて検索 - アウトラインに表示」実行結果(「ツリー表示-通常」、「検索文字列を強調」がONの状態です)<br />
+<p>「すべて検索 - アウトラインに表示」実行結果(「ツリー表示-通常」「検索文字列を強調」がONの状態です)<br />
 <img src="2_find_08.png" width="531" height="328" alt="すべて検索-アウトライン" /><br />
 </p>
 <p>(例は「ツリー表示」ですが、「関数一覧」や「強調表示一覧」でも、項目の下位レベルとして「検索結果」が表示されます)</p>
 <p>表示内容をダブルクリックするか、表示項目を選択し「移動」ボタンを押すと、その箇所に移動します。</p>
 <p><span class="attention_red">「アウトライン解析の内容」に検索結果を合成した内容になるため、アウトライン解析の設定が行われている必要があります。</span></p>
-<p>アウトラインの設定が行われていない場合は、秀丸エディタによる「自動解析」の結果と検索結果の合成になりますが、「自動解析」に失敗した場合は、「一覧に何もありません」と表示されます。</p>
+<p>アウトラインの設定が行われていない場合は、秀丸エディタによる「自動解析」の結果と検索結果の合成になりますが、「自動解析」に失敗した場合は「一覧に何もありません」と表示されます。</p>
 <p><img src="2_find_09.png" width="531" height="108" alt="すべて検索-アウトライン解析に失敗" /><br />
 </p></li>
 <li><p><span id="HITCOUNT">「上/下検索ボタンに個数表示」</span><br />
@@ -140,7 +142,7 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 <p>「上検索/下検索 ボタン」となっていますが、表示する箇所は設定で変更可能です。 (「<span class="env">動作環境</span>」-「検索」-<a href="#ALLSEARCH_SET">「すべて検索」</a>)</p>
 <p>表示する箇所は以下の5種類です。(表示の上限を100に設定)</p>
 <ul>
-<li><p>「ボタン右上」、「ボタン左上」、「入力上下1」、「入力上下2」</p>
+<li><p>「ボタン右上」「ボタン左上」「入力上下1」「入力上下2」</p>
 <div style="position:relative;">
 <p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /> <img src="2_find_36.png" width="433" height="244" alt="検索ダイアログ-表示箇所1" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
@@ -172,7 +174,7 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 </ul>
 </dd>
 <dt>「「すべて検索 - 色付け」実行時、検索文字列更新」、「「すべて検索 - 複数選択」実行時、検索文字列更新」</dt>
-<dd>セットされている検索バッファを更新するか、しないかの設定です。有効にした場合は、「すべて検索」を実行した条件で、上検索/下検索を実行できます。
+<dd>セットされている検索バッファを更新するか、しないかの設定です。有効にした場合は、「すべて検索」を実行した条件で、上検索/下検索できます。
 </dd>
 </dl>
 </div></li>
@@ -225,7 +227,7 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 <h4 id="SUPPLEMENTATION-1">「追加の条件」について</h4>
 <p><img src="2_find_01.png" width="368" height="386" alt="追加の条件ダイアログ" /><br />
 </p>
-<p>「追加の条件」を使うと、検索の対象にする箇所を、限定したり除外する事が可能です。</p>
+<p>「追加の条件」を使うと、検索の対象にする箇所を、限定したり除外できます。</p>
 <ul>
 <li><p>「カラー表示の条件」はダイアログの注意書きにあるように、「複数行コメント」の設定で、各部分を認識している場合のみ有効です。</p></li>
 <li><p>「範囲の指定/カラーマーカー内」は、<strong>「選択した範囲内のみ」</strong>と似ていますが、通常の範囲選択と違い、複数箇所を対象に出来ます。<br />
@@ -278,7 +280,7 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 <h4 id="SUPPLEMENTATION-2">検索文字列の取り込みについて</h4>
 <p>検索ダイアログを開くとき、<strong>範囲選択していない場合</strong>は、カーソル位置から後の単語部分を「検索内容」として取り込みます。</p>
 <p>ファイルの先頭部分にカーソルがある時に、検索ダイアログを開いた場合<br />
-<img src="2_find_11.png" width="500" height="380" alt="検索ダイアログの取り込み文字" /><br />
+<img src="2_find_11.png" width="493" height="368" alt="検索ダイアログの取り込み文字" /><br />
 </p>
 <p>この状態から、検索ダイアログを呼び出すキー(デフォルトは <kbd>[Ctrl]</kbd>+<kbd>[F]</kbd>)を押すと、その隣の単語部分まで取り込み範囲が拡大されます。複数回キーを押すとさらに拡大され取り込まれます。ただし改行までが限度です。<br />
 取り込み範囲が拡大されるのは、<strong><span class="font_red">範囲選択しないで検索ダイアログを開いた場合のみです。</span></strong><strong>範囲選択していた場合</strong>、その箇所が取り込まれますが、キーを押しても範囲は<strong>拡大しません。</strong></p>
@@ -300,7 +302,7 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 </div></li>
 </ul>
 <h4 id="SUPPLEMENTATION-3">複数行</h4>
-<p>検索ダイアログの「検索」入力部分は通常1行のみですが、複数行を入力可能にする事もできます。「検索」入力部の横にある<span class="rotate90">▲</span>マークを押すと、メニューが表示されます。</p>
+<p>検索ダイアログの「検索」入力部分は通常1行のみですが、複数行を入力可能にできます。「検索」入力部の横にある<span class="rotate90">▲</span>マークを押すと、メニューが表示されます。</p>
 <p><img src="2_find_18.png" width="650" height="169" alt="検索ダイアログのメニュー" /><br />
 </p>
 <p>メニューの「<span class="font_red_bold">複数行</span>」を選択すると、ダイアログの「検索」部分が広がります。複数行にわたる範囲選択をしている場合は、「<span class="font_red_bold">範囲選択の取り込み</span>」で取り込む事も出来ます。</p>
@@ -326,7 +328,7 @@ OFF だとダイアログ表示させたまま、検索を実行します。</p>
 <h4 id="SUPPLEMENTATION-7">検索文字数の上限</h4>
 <p><strong><span class="font_blue">複数行の「検索」</span></strong>エディットボックスに入力し、検索に指定できる文字列には上限があり、約4000文字が上限となります。</p>
 <p>上限を超えると、<span class="attention_red">警告が表示</span>されます。</p>
-<p><img src="2_find_104.png" width="433" height="133" alt="検索ダイアログの警告" /><br />
+<p><img src="2_find_104.png" width="433" height="113" alt="検索ダイアログの警告" /><br />
 </p>
 </div>
 </div>

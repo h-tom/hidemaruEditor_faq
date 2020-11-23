@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -33,35 +34,35 @@
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>秀丸エディタの内部キーワード「code」を使い、ビット演算を使って２バイト文字かどうかを判断することで、可能です。</p>
+<dd><p>秀丸エディタの内部キーワード「code」を使い、ビット演算を使って２バイト文字かどうかを判断できます。</p>
 <div class="macro">
-<pre><code>// サンプルマクロ（ここから） 
-#Code = code; 
-if( #Code == 0 ) 
-{ // フリーカーソルで改行以降 
+<pre><code>// サンプルマクロ（ここから）
+#Code = code;
+if( #Code == 0 )
+{ // フリーカーソルで改行以降
     message &quot;改行以降&quot;;
-} 
-else if( #Code == 0x09 ) 
-{ // タブ 
+}
+else if( #Code == 0x09 )
+{ // タブ
     message &quot;タブ&quot;;
-} 
-else if( #Code == 0x0d ) 
-{ // 改行 
+}
+else if( #Code == 0x0d )
+{ // 改行
     message &quot;改行&quot;;
-} 
-else if( #Code == eof ) 
-{ // EOF 
+}
+else if( #Code == eof )
+{ // EOF
     message &quot;EOF&quot;;
-} 
-else if( ( code &amp; 0xff00 ) != 0 ) 
-{ // ２バイト文字 
+}
+else if( ( code &amp; 0xff00 ) != 0 )
+{ // ２バイト文字
     message &quot;２バイト文字&quot;;
-} 
-else 
-{ 
+}
+else
+{
     message &quot;１バイト文字&quot;;
-} 
-endmacro; 
+}
+endmacro;
 // サンプルマクロ（ここまで）</code></pre>
 </div>
 <p>文字列変数の中の文字列をバイト単位ではなく文字単位で扱いたい場合は、 <a href="HMM0073A.html">[HMM0073A]●文字列をバイト単位ではなく文字単位で扱う</a>を参照して下さい。</p>

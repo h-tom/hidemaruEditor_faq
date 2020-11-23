@@ -1760,8 +1760,12 @@
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="外部プログラム">
+		<param name="Name" value="第II部～知っていると便利な秀丸の機能！！　プログラム実行">
+		<param name="Local" value="2_program.html">
 		<param name="Name" value="第III部～秀丸マクロのいろはにほへと　外部プログラムの実行について">
 		<param name="Local" value="3_run.html">
+		<param name="Name" value="第IV部～テキスト編集を極める！！　プログラム実行を利用したテキストの加工">
+		<param name="Local" value="4_run.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="拡張子">
@@ -2272,6 +2276,26 @@
 		<param name="Local" value="s_saisin.html">
 		<param name="Name" value="[HMM0083A] ●外部DLLのロードに失敗する">
 		<param name="Local" value="HMM0083A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="表示言語>
+		<param name="Name" value="表示言語の切替">
+		<param name="Local" value="2_language.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="英語>
+		<param name="Name" value="表示言語の切替">
+		<param name="Local" value="2_language.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="内容比較>
+		<param name="Name" value="他の秀丸エディタと内容比較">
+		<param name="Local" value="2_compfile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="デスクトップ>
+		<param name="Name" value="デスクトップ保存と復元">
+		<param name="Local" value="2_desktop.html">
 		</OBJECT>
 </UL>
 </BODY></HTML>

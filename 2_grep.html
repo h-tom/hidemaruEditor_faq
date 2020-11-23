@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -23,9 +24,9 @@
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <h1 id="TOP">第II部～知っていると便利な秀丸の機能<br>　grep/タグジャンプ</h1>
 <hr />
-<h2 id="grep">●grep/タグジャンプ</h2>
+<h2 id="grep">grep/タグジャンプ</h2>
 <p>現在編集しているファイルの内容や、あるフォルダに置かれている複数のファイルから、特定の文字列を含んだ行を全て調べる事ができます(<strong>grep("ぐれっぷ"と読む(^^;)機能</strong>)。<br />
-また、調べた結果の出力ファイルを使って、文字列の見つかった行(ファイル)へ直接移動する事ができます(<strong>タグジャンプ機能</strong>)。</p>
+また、調べた結果の出力ファイルを使って、文字列の見つかった行(ファイル)へ直接移動ができます(<strong>タグジャンプ機能</strong>)。</p>
 <ul>
 <li><a href="#process">[手順]</a></li>
 <li><a href="#SUPPLEMENTATION">[補足]</a>
@@ -47,7 +48,7 @@
 <p><img src="2_grep_01.png" width="464" height="338" alt="grepダイアログ" /><br />
 </p></li>
 <li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p>
-<p>通常は1行のみですが、複数行を入力可能にする事もできます。「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから、「<strong>複数行</strong>」を選択します。</p>
+<p>通常は1行のみですが、複数行を入力可能にできます。「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから、「<strong>複数行</strong>」を選択します。</p>
 <p><img src="2_grep_08.png" width="496" height="135" alt="複数行入力" /><br />
 </p></li>
 <li><p>その下にある「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、検索対象となるファイル名を記入します(今の例だと「<strong>*.txt</strong>」)。<br />
@@ -79,7 +80,7 @@
 </dl>
 <p>の3つから検索することになります。</p>
 <p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足]</a>－<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。除外したいファイルの設定が出来ます。</p>
-<p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と、直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
+<p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と直接指定した拡張子が、除外対象になります。 (「動作環境」の設定を上書きするわけではない)</p>
 <div class="macro">
 <pre><code>&lt;!*.xxx&gt;</code></pre>
 </div>
@@ -116,21 +117,21 @@
 この項目がONになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
-「<strong>正規表現</strong>」は「<a href="4_regular.html">●正規表現について</a>」を参照して下さい。</p></li>
+「<strong>正規表現</strong>」は「<a href="4_regular.html">正規表現について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
 「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視等…説明もあいまい(^^;)。<br />
-「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">●あいまい検索について</a>」を参照して下さい。</p></li>
+「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">あいまい検索について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">追加の条件</span>」チェックボックス：</strong><br />
 追加の条件に従って検索する範囲を制限できます。<br />
 <a href="2_find.html">検索</a>の<a href="2_find.html#SUPPLEMENTATION-1">「追加の条件」について</a>を参照してください。</p></li>
 <li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
-検索を実行後、検索に該当する文字列を強調表示します。</p></li>
+検索後、検索に該当する文字列を強調表示します。</p></li>
 <li><p><strong>「<span class="font_blue">ヒットしない行</span>」チェックボックス</strong><br />
 これをONにすると、ヒットしない行を出力します。「追加の条件」が指定されている場合は、この設定は無効になります。</p></li>
 <li><p><strong>「<span class="font_blue">サブフォルダも検索</span>」チェックボックス：</strong><br />
 この項目がONの時、指定されたフォルダにサブフォルダがある場合そのサブフォルダの中のファイルも検索します。</p></li>
 <li><p><strong>「<span class="font_blue">最小化状態で実行</span>」チェックボックス：</strong><br />
-grepの実行時は、実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、この結果表示ウィンドウをアイコン化します。</p></li>
+grepの実行時は実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、この結果表示ウィンドウをアイコン化します。</p></li>
 <li><p><strong>「<span class="font_blue">ファイル名一覧だけ作成</span>」チェックボックス：</strong><br />
 </p>
 <ol start="7" type="1">
@@ -173,9 +174,9 @@ file4.txt(2)
 </div></li>
 </ul></li>
 <li><p>見つかったファイルに移動する(タグジャンプ機能)</p>
-<p>結果ウィンドウのファイル名の部分にカーソルがある状態で「<strong>その他→タグジャンプ</strong>」(デフォルトでは<span class="btn-push">F10</span>キー)を選択すると、 (開かれていない時は開いてから)<strong>そのファイルの該当する行へ移動</strong>する事ができます。</p>
+<p>結果ウィンドウのファイル名の部分にカーソルがある状態で「<strong>その他→タグジャンプ</strong>」(デフォルトでは<span class="btn-push">F10</span>キー)を選択すると、 (開かれていない時は開いてから)<strong>そのファイルの該当する行へ移動</strong>できます。</p>
 <p>また、「<strong>バックタグジャンプ</strong>」で元の結果ウィンドウに戻る事もできます。</p>
-<p>さらに、この結果ウィンドウをファイルとして保存する事もできて、上記の「<strong>タグジャンプ</strong>」も後から使用できます。 (ファイル名がフルパスでない場合は、ファイルを開いた箇所からの相対パスになるので、「<strong>検索するフォルダ</strong>」に結果を保存する必要があります。)</p></li>
+<p>さらに、この結果ウィンドウをファイルとして保存もできて、上記の「<strong>タグジャンプ</strong>」も後から使用できます。 (ファイル名がフルパスでない場合は、ファイルを開いた箇所からの相対パスになるので、「<strong>検索するフォルダ</strong>」に結果を保存する必要があります)</p></li>
 </ol>
 <h3 id="SUPPLEMENTATION">[補足]</h3>
 <p>grepに関係する「<strong>動作環境</strong>」です。</p>
@@ -194,9 +195,9 @@ file4.txt(2)
 </p>
 <p><strong>新タイプ</strong>はフォルダ選択ダイアログが別になっている事もあり、種類も変更可能です。好みに応じて設定を変更してください。</p>
 <h4 id="SUPPLEMENTATION-3">検索するフォルダ</h4>
-<p>通常、grep実行時に開いているファイルの場所を「検索するフォルダ」に自動的にセットしますが、前回grep実行時のフォルダを最初からセットする事も可能です。</p>
-<p>「<span class="env">動作環境</span> － 検索 － grepダイアログ － grepのダイアログボックス」にある、「<strong>前回のフォルダを使う</strong>」に、チェックを入れてください。</p>
-<p>Ver.8.71より、「grepダイアログ」の「検索するフォルダ」の横に<span class="attention_red">ピン留めアイコン</span>が追加され、「<strong>前回のフォルダを使う</strong>」の設定を、「grepダイアログ」から変更可能です。</p>
+<p>通常、grep実行時に開いているファイルの場所を「検索するフォルダ」に自動的にセットしますが、前回grep実行時のフォルダを最初からセットできます。</p>
+<p>「<span class="env">動作環境</span> － 検索 － grepダイアログ － grepのダイアログボックス」にある、「<strong>前回のフォルダを使う</strong>」にチェックを入れてください。</p>
+<p>Ver.8.71より、「grepダイアログ」の「検索するフォルダ」の横に<span class="attention_red">ピン留めアイコン</span>が追加され、「<strong>前回のフォルダを使う</strong>」の設定を「grepダイアログ」から変更可能です。</p>
 <p><img src="2_grep_07.png" width="382" height="34" alt="前回のフォルダを使うのピン" /><br />
 </p>
 <p>「<span class="attention_red">ピン留めアイコン</span>」自体を表示するかしないかも、「<span class="env">動作環境</span> － 検索 － grepダイアログ － grepのダイアログボックス」にある「ピン止めボタン表示」のチェックボックスで設定可能です。</p>
@@ -237,7 +238,7 @@ exeファイルなどテキストではないファイルを、除外します。</p>
 <li><p>説明</p>
 <p>OSの歴史的な経緯が絡んでいます。<br />
 MicrosoftのWindows以前のOSである「MS-DOS」は、ファイル名は英数字で8文字(8バイト)、拡張子は3文字(3バイト)までしか扱えません。(8.3形式)<br />
-Windowsが登場しファイル名の制限が緩和されましたが、MS-DOSとの互換性を考慮し、 MS-DOSのファイル名規則に当てはまらないファイルが作成された場合には、 OSが自動的にMS-DOS規格のファイル名も作成します。</p>
+Windowsが登場しファイル名の制限が緩和されましたが、 MS-DOSとの互換性を考慮しMS-DOSのファイル名規則に当てはまらないファイルが作成された場合には、 OSが自動的にMS-DOS規格のファイル名も作成します。</p>
 <div class="cmdprompt">
 <pre><code>コマンドプロンプトから dir /x で 8.3形式 のファイル名を確認できる。
 2016/05/19  19:09                34              file1.txt
@@ -248,7 +249,7 @@ Windowsが登場しファイル名の制限が緩和されましたが、MS-DOSとの互換性を考慮し、 MS
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
 </div>
-<p>上記のようなファイルがあり、チェックなしの状態で、検索するファイルに <strong>"*1.txt"</strong> を指定すると、</p>
+<p>上記のようなファイルがあり、チェックなしの状態で検索するファイルに <strong>"*1.txt"</strong> を指定すると、</p>
 <div class="macro">
 <pre><code>file1.txt(1): 短縮名ファイルのテスト:file1.txt
 file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
@@ -267,7 +268,7 @@ file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
 file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </div>
 <p>という結果になり、本来対象にならないはずの「file1.html」が対象になっています。これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE1~1.HTM」が "*.htm" にマッチするからです。</p>
-<p>この動作はOSの仕様で、ワイルドカードを使用したファイル検索を行うと、元の名前だけでなく、8.3形式の名前に対してもチェックを行い、どちらかにマッチした場合は、マッチしたと判定するためです。)</p>
+<p>この動作はOSの仕様で、ワイルドカードを使用したファイル検索すると元の名前だけでなく8.3形式の名前に対してもチェックを行い、どちらかにマッチした場合はマッチしたと判定するためです。</p>
 <p>"<span class="font_blue">拡張子と短縮ファイル名を厳密にチェックする。</span>"にチェックを入れておくと、上記のような事は起こらなくなります。</p></li>
 </ul></li>
 </ul></li>
@@ -275,8 +276,8 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <h4 id="SUPPLEMENTATION-5">文字数制限の設定</h4>
 <p><img src="2_grep_05.png" width="455" height="344" alt="動作環境－grepの動作－文字数制限の設定" /><br />
 </p>
-<p>処理の都合上、マッチした行が長いと全部を表示しない場合や、正規表現の対象となる一行の文字数の上限があります。その制限に関する設定を行います。</p>
-<p>通常使用しているファイルで、1行の文字数が多くなければ、"<strong>小さい</strong>"や"<strong>大きい</strong>"で問題ないでしょう。どんなファイルでも必ずマッチさせたい場合は、"<strong>制限なし</strong>"を選択します。 (自身の使用環境により、適切と思われる設定を行ってください。)</p>
+<p>処理の都合上、マッチした行が長いと全部を表示しない場合や、正規表現の対象となる一行の文字数の上限があります。その制限に関する設定をします。</p>
+<p>通常使用しているファイルで、1行の文字数が多くなければ、"<strong>小さい</strong>"や"<strong>大きい</strong>"で問題ないでしょう。どんなファイルでも必ずマッチさせたい場合は、"<strong>制限なし</strong>"を選択します。 (自身の使用環境により、適切と思われる設定してください)</p>
 <ul>
 <li>"<span class="font_blue">制限を超えたとき確認メッセージを表示</span>"にチェックを入れておくと、「制限なし」以外のとき、制限にかかった場合は警告を表示します。</li>
 </ul>
@@ -285,7 +286,7 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <p>「検索するファイル」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューです。</p>
 <p><img src="2_grep_10.png" width="302" height="234" alt="検索するファイルのメニュー" /><br />
 </p>
-<p>前半には、「<span class="env">動作環境</span> － ファイル － 「開く」のダイアログボックス」にある「ファイルの種類の編集」で、「「開く」のダイアログ」に設定した内容が表示されます。後半には「除外の設定」や、「除外する拡張子」、「除外するサブフォルダ」の指定をアシストする機能もあります。</p>
+<p>前半には、「<span class="env">動作環境</span> － ファイル － 「開く」のダイアログボックス」にある「ファイルの種類の編集」で、「「開く」のダイアログ」に設定した内容が表示されます。後半には「除外の設定」や、「除外する拡張子」「除外するサブフォルダ」の指定をアシストする機能もあります。</p>
 </div>
 </div>
 <hr />
