@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�����\��</title>
+  <title>第II部〜知っていると便利な秀丸の機能　強調表示</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,111 +22,110 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\<br>�@�����\��</h1>
+<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　強調表示</h1>
 <hr />
-<h2 id="highlight">�����\��</h2>
-<p>�G�ۃG�f�B�^�ł́A�u<strong>�����\��</strong>�v���\�ł��B</p>
-<p>�u<strong>�����\��</strong>�v�Ƃ́A�������ɂ���w�肳�ꂽ<span class="attention_red">������(�L�[���[�h)</span>�ɑ΂��A�����F���w�肵����C������@�\�ł��B�Ώۂ��܂܂��s�S�̂���������u<strong>�s�̋����\��</strong>�v���\�ł��B</p>
-<p>���[�U�[�Őݒ�\�ȋ����\���ɂ́A������(�L�[���[�h)�p�̋����\����12��ށB</p>
+<h2 id="highlight">強調表示</h2>
+<p>秀丸エディタでは、「<strong>強調表示</strong>」が可能です。</p>
+<p>「<strong>強調表示</strong>」とは、文書中にある指定された<span class="attention_red">文字列(キーワード)</span>に対し、文字色を指定したり修飾する機能です。対象が含まれる行全体を強調する「<strong>行の強調表示</strong>」も可能です。</p>
+<p>ユーザーで設定可能な強調表示には、文字列(キーワード)用の強調表示が12種類。</p>
 <ul>
-<li>�����\��1�`8</li>
-<li>���ɋ����\��1�`4</li>
+<li>強調表示1〜8</li>
+<li>特に強調表示1〜4</li>
 </ul>
-<p>�s�P�ʂŋ�������u�s�̋����\���v��4��ށB</p>
+<p>行単位で強調する「行の強調表示」が4種類。</p>
 <ul>
-<li>�s�̋����\��1�`4</li>
+<li>行の強調表示1〜4</li>
 </ul>
-<p>�S���ŁA16��ނ̋����\�����\�ł��B</p>
+<p>全部で、16種類の強調表示が可能です。</p>
 <ul>
-<li><a href="#PROCESS">�ݒ�菇</a>
+<li><a href="#PROCESS">設定手順</a>
 <ul>
-<li><a href="#PROCESS-1">�����\���̎��</a></li>
-<li><a href="#PROCESS-2">�����\���̐ݒ�</a></li>
-<li><a href="#PROCESS-3">�����\���������L�[���[�h�̐ݒ���@</a>
+<li><a href="#PROCESS-1">強調表示の種類</a></li>
+<li><a href="#PROCESS-2">強調表示の設定</a></li>
+<li><a href="#PROCESS-3">強調表示したいキーワードの設定方法</a>
 <ul>
-<li><a href="#PROCESS-3-1">��������ƌ���w��̏ꍇ</a></li>
-<li><a href="#PROCESS-3-2">���[�U�[��`</a></li>
-<li><a href="#PROCESS-3-3">�u�����\����`�t�@�C���v�̓��e����荞��</a></li>
-<li><a href="#PROCESS-3-4">�u�����\����`�t�@�C���v�̒��ڎw�胂�[�h</a></li>
+<li><a href="#PROCESS-3-1">自動判定と言語指定の場合</a></li>
+<li><a href="#PROCESS-3-2">ユーザー定義</a></li>
+<li><a href="#PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む</a></li>
+<li><a href="#PROCESS-3-4">「強調表示定義ファイル」の直接指定モード</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#SUPPLEMENTATION">�⑫</a>
+<li><a href="#SUPPLEMENTATION">補足</a>
 <ul>
-<li><a href="#SUPPLEMENTATION-1">�����\����`�t�@�C���g�p���̒��ӓ_</a></li>
-<li><a href="#SUPPLEMENTATION-2">�����\�������܂������Ȃ��ꍇ�̒��ӓ_</a></li>
-<li><a href="#SUPPLEMENTATION-3">�G�ۃG�f�B�^�ɓ�������Ă��鋭���\���ݒ�����o��</a></li>
-<li><a href="#SUPPLEMENTATION-4">�C�ӂ̐F��X�^�C���ŋ����\�����s������</a></li>
-<li><a href="#SUPPLEMENTATION-5">�����\�����e�̍���</a></li>
+<li><a href="#SUPPLEMENTATION-1">強調表示定義ファイル使用時の注意点</a></li>
+<li><a href="#SUPPLEMENTATION-2">強調表示がうまくいかない場合の注意点</a></li>
+<li><a href="#SUPPLEMENTATION-3">秀丸エディタに内蔵されている強調表示設定を取り出す</a></li>
+<li><a href="#SUPPLEMENTATION-4">任意の色やスタイルで強調表示を行いたい</a></li>
+<li><a href="#SUPPLEMENTATION-5">強調表示内容の合成</a></li>
 </ul></li>
 </ul>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="PROCESS">�ݒ�菇</h3>
-<p>�����\����ݒ肷��ɂ́A�ȉ��̑��삪�K�v�ł��B</p>
+<h3 id="PROCESS">設定手順</h3>
+<p>強調表示を設定するには、以下の操作が必要です。</p>
 <ul>
-<li><p>�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v���u�f�U�C���v�́u�ꏊ�̈ꗗ�v�ŁA�e�����\���́u�v���p�e�B�v����A�����F�A�w�i�F�A�X�^�C����ݒ肷��B</p>
-<p><img src="2_highlight_01.png" width="595" height="314" alt="�f�U�C���A�ꏊ�̈ꗗ" /><br />
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」の「場所の一覧」で、各強調表示の「プロパティ」から、文字色、背景色、スタイルを設定する。</p>
+<p><img src="2_highlight_01.png" width="595" height="314" alt="デザイン、場所の一覧" /><br />
 </p></li>
-<li><p>�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v���u�f�U�C���v���u�����\���v�ŁA�����\��������e��ݒ肷��B</p>
-<p><img src="2_highlight_02.png" width="587" height="264" alt="�f�U�C���A�����\��" /><br />
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」→「強調表示」で、強調表示する内容を設定する。</p>
+<p><img src="2_highlight_02.png" width="587" height="264" alt="デザイン、強調表示" /><br />
 </p></li>
 </ul>
-<p>�u�����\��������������v���A<span class="attention_red">�C�ӂ̕����F�A�w�i�F�A�X�^�C���ɐݒ肷�鎖�͏o���܂���</span>�B<br />
-�u�����\��������������v���A�u�ꏊ�̈ꗗ�v�Őݒ肵���A�ǂ�<span class="attention_red">�u�����\���v�Ɋ��蓖�Ă邩��I��</span> ���ɂȂ�܂��B</p>
+<p>「強調表示したい文字列」を、<span class="attention_red">任意の文字色、背景色、スタイルに設定する事は出来ません</span>。<br />
+「強調表示したい文字列」を、「場所の一覧」で設定した、どの<span class="attention_red">「強調表示」に割り当てるかを選ぶ</span> 事になります。</p>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="PROCESS-1">�����\���̎��</h4>
-<p>�����\���̎�ނ́A�S����16��ނ���A�D�揇�ʂ�����܂��B</p>
-<p>�D�悪<span class="attention_red">������</span>����</p>
+<h4 id="PROCESS-1">強調表示の種類</h4>
+<p>強調表示の種類は、全部で16種類あり、優先順位があります。</p>
+<p>優先が<span class="attention_red">高い方</span>から</p>
 <ol type="1">
-<li>���ɋ����\��1�`4</li>
-<li>�s�̋����\��1�`4</li>
-<li>�����\��1�`8</li>
+<li>特に強調表示1〜4</li>
+<li>行の強調表示1〜4</li>
+<li>強調表示1〜8</li>
 </ol>
-<p>�ɂȂ�܂��B</p>
+<p>になります。</p>
 <ul>
-<li>�D��x�������B�@���@��������ӏ����d�������ꍇ�A�\������ɂȂ�B�@���@���ۂɕ\��������ԁB</li>
+<li>優先度が高い。　→　強調する箇所が重複した場合、表示が上になる。　→　実際に表示される状態。</li>
 </ul>
-<p>�������ړ�(�Ⴆ�΁A�����\��1�`8)�ŋ���/�d�������ꍇ�́A�ǂ̋����\�����D�悳��邩�͕s��Ƃ̂��ƁB</p>
-<h4 id="PROCESS-2">�����\���̐ݒ�</h4>
-<p>�u�ꏊ�̈ꗗ�v����e�����\����I�����A�v���p�e�B��</p>
+<p>同じ項目内(例えば、強調表示1〜8)で競合/重複した場合は、どの強調表示が優先されるかは不定とのこと。</p>
+<h4 id="PROCESS-2">強調表示の設定</h4>
+<p>「場所の一覧」から各強調表示を選択し、プロパティで以下の項目を設定します。</p>
 <ul>
-<li>�����F</li>
-<li>�w�i�F</li>
-<li>�X�^�C��</li>
+<li>文字色</li>
+<li>背景色</li>
+<li>スタイル</li>
 </ul>
-<p>��ݒ肵�܂��B</p>
-<p>�u�����F�v�u�w�i�F�v�͔C�ӂ̐F�����ł͂Ȃ��A�u�����v���ݒ�o���܂��B�u�����v�ɐݒ肵���ꍇ�A�F�̕ύX�͍s���܂���B����̕\���F�̂܂܂ł��B (�X�^�C�������K�����������ꍇ�́A�������g��)</p>
-<p>�u�X�^�C���v�͈ȉ��̂悤�Ȑݒ肪�\�ł��B<br />
-<img src="common_style.png" width="419" height="363" alt="�X�^�C���̈ꗗ" /><br />
+<p>「文字色」「背景色」は任意の色だけではなく、「透明」も設定出来ます。「透明」に設定した場合、色の変更は行われません。現状の表示色のままです。 (スタイルだけ適応させたい場合は、透明を使う)</p>
+<p>「スタイル」は以下のような設定が可能です。<br />
+<img src="common_style.png" width="419" height="363" alt="スタイルの一覧" /><br />
 </p>
-<h4 id="PROCESS-3">�����\���������L�[���[�h�̐ݒ���@</h4>
-<p>�����\��������������(�L�[���[�h)�̐ݒ���@�́A�ȉ��ɂȂ�܂��B</p>
+<h4 id="PROCESS-3">強調表示したいキーワードの設定方法</h4>
+<p>強調表示したい文字列(キーワード)の設定方法は、以下になります。</p>
 <ul>
-<li><p><a href="#PROCESS-3-1">��������</a></p>
-<p>�G�ۃG�f�B�^���g���q���猾��𔻒肵�āA�����\�����s���܂��B�G�ۃG�f�B�^�ɓ�������Ă��鋭���\���ݒ���g�p���邽�߁A�����\��������e��ύX���鎖�͏o���܂���B</p></li>
-<li><p><a href="#PROCESS-3-1">����w��</a></p>
-<p>������w�肵�āA�����\�����s���܂��B�G�ۃG�f�B�^�ɓ�������Ă��鋭���\���ݒ���g�p���邽�߁A�����\��������e��ύX���鎖�͏o���܂���B</p></li>
-<li><p><a href="#PROCESS-3-2">���[�U�[��`</a></p>
-<p>�����\��������e�����[�U�[�Őݒ肵�܂��B</p></li>
-<li><p>�Ȃ�</p>
-<p>�����\�����s��Ȃ��B</p></li>
-<li><p><a href="#PROCESS-3-3">�u�����\����`�t�@�C���v�̓��e����荞��</a></p>
-<p><a href="https://hide.maruo.co.jp/lib/hilight/index.html" class="externallink" target="_blank">�G�ۃG�f�B�^�̋����\����`�t�@�C�����C�u����</a>�ɂ���u�����\����`�t�@�C���v��A web�T�C�g�Ō��J����Ă���u�����\����`�t�@�C���v�̓��e����荞�݁A�u���[�U�[��`�v�ɃZ�b�g���܂��B</p></li>
-<li><p><a href="#PROCESS-3-4">�u�����\����`�t�@�C���v�̒��ڎw�胂�[�h</a>�@(Ver.8.89�ȍ~)</p>
-<p>�u���[�U�[��`�v�̏ꍇ�A�w�肳�ꂽ�u�����\����`�t�@�C���v�̓��e�𒼐ڎQ�Ƃ��܂��B</p></li>
+<li><p><a href="#PROCESS-3-1">自動判定</a></p>
+<p>秀丸エディタが拡張子から言語を判定して、強調表示を行います。秀丸エディタに内蔵されている強調表示設定を使用するため、強調表示する内容を変更する事は出来ません。</p></li>
+<li><p><a href="#PROCESS-3-1">言語指定</a></p>
+<p>言語を指定して、強調表示を行います。秀丸エディタに内蔵されている強調表示設定を使用するため、強調表示する内容を変更する事は出来ません。</p></li>
+<li><p><a href="#PROCESS-3-2">ユーザー定義</a></p>
+<p>強調表示する内容をユーザーで設定します。</p></li>
+<li><p>なし</p>
+<p>強調表示を行わない。</p></li>
+<li><p><a href="#PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む</a></p>
+<p><a href="https://hide.maruo.co.jp/lib/hilight/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの強調表示定義ファイルライブラリ</a>にある「強調表示定義ファイル」や、 webサイトで公開されている「強調表示定義ファイル」の内容を取り込み、「ユーザー定義」にセットします。</p></li>
+<li><p><a href="#PROCESS-3-4">「強調表示定義ファイル」の直接指定モード</a>　(Ver.8.89以降)</p>
+<p>「ユーザー定義」の場合、指定された「強調表示定義ファイル」の内容を直接参照します。</p></li>
 </ul>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="PROCESS-3-1">��������ƌ���w��̏ꍇ</h5>
-<p>��������⌾��w��ŃT�|�[�g���Ă��錾��́A�ȉ��ɂȂ�܂��B</p>
+<h5 id="PROCESS-3-1">自動判定と言語指定の場合</h5>
+<p>自動判定や言語指定でサポートしている言語は、以下になります。</p>
 <ul>
 <li>HTML/XML</li>
 <li>CSS</li>
-<li>C����/Java/JavaScript</li>
+<li>C言語/Java/JavaScript</li>
 <li>VisualBasic</li>
 <li>Pascal/Delphi</li>
-<li>�A�Z���u����</li>
+<li>アセンブリ語</li>
 <li>Perl</li>
 <li>Ruby</li>
 <li>Python</li>
@@ -135,176 +134,176 @@
 <li>AutoLISP</li>
 <li>TeX</li>
 <li>PL/SQL</li>
-<li>�G�ۃ}�N��</li>
-<li>�GTerm�X�N���v�g</li>
+<li>秀丸マクロ</li>
+<li>秀Termスクリプト</li>
 <li>FORTRAN77</li>
 <li>FORTRAN90</li>
-<li>UNIX�V�F���X�N���v�g</li>
+<li>UNIXシェルスクリプト</li>
 <li>Hidemarnet Explorer</li>
 </ul>
-<p>��������̏ꍇ�́A�t�@�C���̊g���q���玩���I�ɔ��肳��܂��B����w�肷��ꍇ�́A���X�g���猾���I�����Ă��������B</p>
-<p>��������/����w�� �̏ꍇ�A�G�ۃG�f�B�^�ɓ�������Ă��鋭���\���ݒ���g�p���邽�߁A�����\��������e��ύX���鎖�͏o���܂���B�u�f�U�C���v�ŁA�e�����\���̐F/�X�^�C���̕ύX�͉\�ł��B</p>
-<p>�܂��A�e����̍ŐV�o�[�W�����̓��e�����f����Ă���ۏ؂͂���܂���B</p>
-<p>�e����̍ŐV�o�[�W������W���ŃT�|�[�g���Ă��Ȃ�����̏ꍇ�A<a href="https://hide.maruo.co.jp/lib/hilight/index.html" class="externallink" target="_blank">�G�ۃG�f�B�^�̋����\����`�t�@�C�����C�u����</a>�ŁA���̌���p�̋����\����`�t�@�C�������J����Ă��Ȃ����T���Ă݂Ă��������B</p>
-<h5 id="PROCESS-3-2">���[�U�[��`</h5>
-<p>�u<span class="attention_red">���[�U�[��`</span>�v��I������ƁA�E���ɂ���e��{�^�����L���ɂȂ�A�����\���ꗗ���\������܂��B</p>
-<p><img src="2_highlight_03.png" width="447" height="259" alt="�����\��-���[�U�[��`" /><br />
+<p>自動判定の場合は、ファイルの拡張子から自動的に判定されます。言語指定する場合は、リストから言語を選択してください。</p>
+<p>自動判定/言語指定 の場合、秀丸エディタに内蔵されている強調表示設定を使用するため、強調表示する内容を変更する事は出来ません。「デザイン」で、各強調表示の色/スタイルの変更は可能です。</p>
+<p>また、各言語の最新バージョンの内容が反映されている保証はありません。</p>
+<p>各言語の最新バージョンや標準でサポートしていない言語の場合、<a href="https://hide.maruo.co.jp/lib/hilight/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの強調表示定義ファイルライブラリ</a>で、その言語用の強調表示定義ファイルが公開されていないか探してみてください。</p>
+<h5 id="PROCESS-3-2">ユーザー定義</h5>
+<p>「<span class="attention_red">ユーザー定義</span>」を選択すると、右側にある各種ボタンが有効になり、強調表示一覧が表示されます。</p>
+<p><img src="2_highlight_03.png" width="447" height="259" alt="強調表示-ユーザー定義" /><br />
 </p>
 <dl>
-<dt>�v���p�e�B</dt>
-<dd>�I�����������\���ݒ��ύX���܂��B
+<dt>プロパティ</dt>
+<dd>選択した強調表示設定を変更します。
 </dd>
-<dt>�ǉ�</dt>
-<dd>�V�K�ɋ����\���ݒ��ǉ����܂��B
+<dt>追加</dt>
+<dd>新規に強調表示設定を追加します。
 </dd>
-<dt>�폜</dt>
-<dd>�I�����������\���ݒ���폜���܂��B
+<dt>削除</dt>
+<dd>選択した強調表示設定を削除します。
 </dd>
-<dt>�S�폜</dt>
-<dd>�ݒ肳��Ă���S�Ă̋����\���ݒ���폜���܂��B
+<dt>全削除</dt>
+<dd>設定されている全ての強調表示設定を削除します。
 </dd>
-<dt>�ۑ�</dt>
-<dd>���݂̓��e�������\����`�t�@�C���ɕۑ����܂��B
+<dt>保存</dt>
+<dd>現在の内容を強調表示定義ファイルに保存します。
 </dd>
 </dl>
-<p><span class="btn-push">�u�ǉ��v</span>�{�^���������ƁA�u�����\��������̒ǉ��v�_�C�A���O���\������܂��B</p>
-<p><img src="2_highlight_04.png" width="385" height="242" alt="�����\��������̒ǉ�" /><br />
+<p><span class="btn-push">「追加」</span>ボタンを押すと、「強調表示文字列の追加」ダイアログが表示されます。</p>
+<p><img src="2_highlight_04.png" width="385" height="242" alt="強調表示文字列の追加" /><br />
 </p>
 <dl>
-<dt>������</dt>
-<dd>�������镶�������͂��܂��B<br />
-���͕������ɂ͐���������܂��BVer.8.21�ȉ��܂ł͔��p�����Ŗ�249�����܂ŁAVer.8.22�����999�����܂ŁB
+<dt>文字列</dt>
+<dd>検索する文字列を入力します。<br />
+入力文字数には制限があります。Ver.8.21以下までは半角文字で約249文字まで、Ver.8.22からは999文字まで。
 </dd>
-<dt>�������@</dt>
-<dd><p>�ʏ�̌����Ɠ����ŁA����������ݒ肵�܂��B�ȉ��̏�����ݒ�\�ł��B</p>
+<dt>検索方法</dt>
+<dd><p>通常の検索と同じで、検索条件を設定します。以下の条件を設定可能です。</p>
 <ul>
-<li>�啶���������̋��</li>
-<li>�P��̌���</li>
-<li>���K�\��<br />
-���s���������� <code>\n</code> ���܂߂邱�Ƃ͏o���܂���B</li>
+<li>大文字小文字の区別</li>
+<li>単語の検索</li>
+<li>正規表現<br />
+改行文字を示す <code>\n</code> を含めることは出来ません。</li>
 </ul>
 </dd>
-<dt>�\�����@</dt>
-<dd><p>�����Ƀ}�b�`�����ӏ��ɑ΂��A�ǂ̋����\����K�p�����邩�I�����܂��B<br />
-���S�ł͂���܂��񂪁A�h���b�v�_�E�����X�g�ɁA�u�f�U�C���v�Őݒ肵���F��X�^�C���ŕ\������܂��B</p>
-<p><img src="2_highlight_05.png" width="343" height="298" alt="�\�����@�̑I��" /><br />
+<dt>表示方法</dt>
+<dd><p>検索にマッチした箇所に対し、どの強調表示を適用させるか選択します。<br />
+完全ではありませんが、ドロップダウンリストに、「デザイン」で設定した色やスタイルで表示されます。</p>
+<p><img src="2_highlight_05.png" width="343" height="298" alt="表示方法の選択" /><br />
 </p>
 </dd>
 </dl>
-<p>�����̍��ڂ�I���<span class="btn-push">�u�v���p�e�B�v</span>�{�^���������ƁA�u�����\��������̃v���p�e�B�v�_�C�A���O���\������A�ݒ�̕ύX���\�ł��B</p>
-<h5 id="PROCESS-3-3">�u�����\����`�t�@�C���v�̓��e����荞��</h5>
-<p><span class="attention_red">����</span>�@<a href="#SUPPLEMENTATION-1">�����\����`�t�@�C���g�p���̒��ӓ_</a>���ŏ��Ɍ��Ă����Ă��������B</p>
-<p>�u�����\����`�t�@�C���v�̓��e����荞�݁A�u���[�U�[��`�v�ɃZ�b�g���܂��B (�t�@�C���̓��e����荞�݁A���W�X�g���ɃZ�b�g���邾���Ȃ̂ŁA���̑���ȍ~�A�����\����`�t�@�C����ҏW���Ă����f����܂���B���W�X�g���̃f�[�^���{�̂ɂȂ�܂�)</p>
-<p>�_�E�����[�h�����u�����\����`�t�@�C���v���u�ݒ�t�@�C���p�̃t�H���_�v�ɓ���Ă����ƁA������Ԃ��Ȃ��܂��B (ZIP�`���ň��k����Ă���ꍇ�́A�𓀂��āAhilight�t�@�C�����u�ݒ�t�@�C���p�̃t�H���_�v�ɓ���Ă�������)</p>
-<p><span class="btn-push">�u�Ǎ��݁v</span>�{�^���������ƁA�u�����\���Ȃǂ̓Ǎ��_�C�A���O�v���\������܂��B</p>
-<p><img src="2_highlight_06.png" width="448" height="396" alt="�����\����`�t�@�C���̓ǂݍ���" /><br />
+<p>既存の項目を選んで<span class="btn-push">「プロパティ」</span>ボタンを押すと、「強調表示文字列のプロパティ」ダイアログが表示され、設定の変更が可能です。</p>
+<h5 id="PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む</h5>
+<p><span class="attention_red">注意</span>　<a href="#SUPPLEMENTATION-1">強調表示定義ファイル使用時の注意点</a>を最初に見ておいてください。</p>
+<p>「強調表示定義ファイル」の内容を取り込み、「ユーザー定義」にセットします。 (ファイルの内容を取り込み、レジストリにセットするだけなので、この操作以降、強調表示定義ファイルを編集しても反映されません。レジストリのデータが本体になります)</p>
+<p>ダウンロードした「強調表示定義ファイル」を「設定ファイル用のフォルダ」に入れておくと、多少手間が省けます。 (ZIP形式で圧縮されている場合は、解凍して、hilightファイルを「設定ファイル用のフォルダ」に入れてください)</p>
+<p><span class="btn-push">「読込み」</span>ボタンを押すと、「強調表示などの読込ダイアログ」が表示されます。</p>
+<p><img src="2_highlight_06.png" width="448" height="396" alt="強調表示定義ファイルの読み込み" /><br />
 </p>
-<p>�f�t�H���g�ł́A�u<span class="env">�����</span>�v�ɂ���u�ݒ�t�@�C���p�̃t�H���_�v�Őݒ肳��Ă���t�H���_���́u�����\����`�t�@�C���v���ꗗ�ɕ\������܂��B���̃t�H���_�ɂ���u�����\����`�t�@�C���v��ǂݍ��ޏꍇ�́A<span class="btn-push">�u�Q�Ɓv</span>�{�^������t�@�C����I�����Ă��������B</p>
-<p>�t�@�C����I�ԂƁA���̃t�@�C���Ɋ܂܂�Ă��鍀�ڂ��u�ǂݍ��ޑΏە����v�ɔ��f(�`�F�b�N�{�b�N�X���L��/����)����܂��B (�����\������Ăяo�����̂ŁA�����\���̃`�F�b�N�̓f�t�H���g��ON��ԂɂȂ�܂�)</p>
-<p>�ꗗ�ɕ\������Ă���t�@�C����I�����A<span class="btn-push">�uOK�v</span>�{�^�����������A�t�@�C���ꗗ�̃_�u���N���b�N�ŁA�I���������e���ǂݍ��܂�܂��B�u�����\����`�t�@�C���v��ǂݍ��񂾏ꍇ�́A�����\���̐ݒ�́u���[�U�[��`�v�ɂȂ�܂��B</p>
-<h5 id="PROCESS-3-4">�u�����\����`�t�@�C���v���璼�ړǂݍ��ރ��[�h</h5>
-<p>Ver.8.89�ȍ~�A�u�����\����`�t�@�C���v���璼�ڐݒ��ǂݍ��ރ��[�h���ǉ�����Ă��܂��B<br />
-(���̐ݒ��ʏォ��́u�����\���v�����̂ݓǂݍ��݉\)</p>
-<p><a href="#PROCESS-3-3">�u�����\����`�t�@�C���v�̓��e����荞�ށv</a>�Ƃ̈Ⴂ�́A�w�肳�ꂽ�u�����\����`�t�@�C���v�̓��e�𒼐ڎQ�Ƃ��鎖�ł��B</p>
-<p>���ׁ̈A�_�C�A���O���g�����ݒ�ύX�͂ł��܂���B�����\���ݒ��ύX����ꍇ�́A�u�����\����`�t�@�C���v�𒼐ڕҏW����K�v������܂��B</p>
-<p>�u���j���[�v����uhilight�t�@�C�����ڎw�胂�[�h�v��I�����Ă��������B<br />
-<img src="2_highlight_12.png" width="591" height="122" alt="hilight�t�@�C�����ڎw�胂�[�h" /><br />
+<p>デフォルトでは、「<span class="env">動作環境</span>」にある「設定ファイル用のフォルダ」で設定されているフォルダ内の「強調表示定義ファイル」が一覧に表示されます。他のフォルダにある「強調表示定義ファイル」を読み込む場合は、<span class="btn-push">「参照」</span>ボタンからファイルを選択してください。</p>
+<p>ファイルを選ぶと、そのファイルに含まれている項目が「読み込む対象部分」に反映(チェックボックスが有効/無効)されます。 (強調表示から呼び出したので、強調表示のチェックはデフォルトでON状態になります)</p>
+<p>一覧に表示されているファイルを選択し、<span class="btn-push">「OK」</span>ボタンを押すか、ファイル一覧のダブルクリックで、選択した内容が読み込まれます。「強調表示定義ファイル」を読み込んだ場合は、強調表示の設定は「ユーザー定義」になります。</p>
+<h5 id="PROCESS-3-4">「強調表示定義ファイル」から直接読み込むモード</h5>
+<p>Ver.8.89以降、「強調表示定義ファイル」から直接設定を読み込むモードが追加されています。<br />
+(この設定画面上からは「強調表示」部分のみ読み込み可能)</p>
+<p><a href="#PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む」</a>との違いは、指定された「強調表示定義ファイル」の内容を直接参照する事です。</p>
+<p>その為、ダイアログを使った設定変更はできません。強調表示設定を変更する場合は、「強調表示定義ファイル」を直接編集する必要があります。</p>
+<p>「メニュー」から「hilightファイル直接指定モード」を選択してください。<br />
+<img src="2_highlight_12.png" width="591" height="122" alt="hilightファイル直接指定モード" /><br />
 </p>
-<p>���̃��[�h�ł́u���[�U�[��`�v�̏ꍇ�A�ȉ��̂悤�ȓ���ɂȂ�܂��B</p>
+<p>このモードでは「ユーザー定義」の場合、以下のような動作になります。</p>
 <ul>
-<li><p>�u���[�U�[��`�v�͋����\����`�t�@�C�����w�肷���ʂɐ؂�ւ��܂��B�g�p���鋭���\����`�t�@�C�����w�肵�Ă��������B<br />
-<img src="2_highlight_13.png" width="446" height="107" alt="hilight�t�@�C���w��" /><br />
+<li><p>「ユーザー定義」は強調表示定義ファイルを指定する画面に切り替わります。使用する強調表示定義ファイルを指定してください。<br />
+<img src="2_highlight_13.png" width="446" height="107" alt="hilightファイル指定" /><br />
 </p></li>
-<li><p>�t�@�C�����J���Ƃ��ɁA�w�肳�ꂽ�u�����\����`�t�@�C���v���狭���\���̐ݒ���e��ǂݍ��݂܂��B (�u�����\����`�t�@�C���v�̓��e��ǂݎ�邪�A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v�ɕۑ����Ȃ�)</p></li>
-<li><p>�u�����\����`�t�@�C���v�𒼐ڕҏW���鎖�ŁA�����\����`�̐ݒ��ύX�\�ł��B<span class="btn-push">�u�ҏW�v</span>�{�^���ŁA�u�����\����`�t�@�C���v���G�ۃG�f�B�^�ŊJ�������o���܂��B</p>
-<p>�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v��<span class="btn-push">�u�L�����Z���v</span>�{�^���ȊO�ŕ���ƁA�ۑ������ҏW���e�����f����܂��B</p>
-<p>���ڕҏW����ꍇ�́A�u�����\����`�t�@�C���v�̃t�H�[�}�b�g�𗝉�����K�v������܂��B�ڍׂ�<a href="https://help.maruo.co.jp/hidemac/html/150_ConfigStatement_loadhilight.html" class="externallink" target="_blank">�u�}�N���w���v�|�ݒ�n�|loadhilight���v</a>���Q�Ƃ��Ă��������B</p></li>
+<li><p>ファイルを開くときに、指定された「強調表示定義ファイル」から強調表示の設定内容を読み込みます。 (「強調表示定義ファイル」の内容を読み取るが、「<span class="filetype">ファイルタイプ別の設定</span>」に保存しない)</p></li>
+<li><p>「強調表示定義ファイル」を直接編集する事で、強調表示定義の設定を変更可能です。<span class="btn-push">「編集」</span>ボタンで、「強調表示定義ファイル」を秀丸エディタで開く事が出来ます。</p>
+<p>「<span class="filetype">ファイルタイプ別の設定</span>」を<span class="btn-push">「キャンセル」</span>ボタン以外で閉じると、保存した編集内容が反映されます。</p>
+<p>直接編集する場合は、「強調表示定義ファイル」のフォーマットを理解する必要があります。詳細は<a href="https://help.maruo.co.jp/hidemac/html/150_ConfigStatement_loadhilight.html" class="externallink" target="_blank" rel="noopener">「マクロヘルプ−設定系−loadhilight文」</a>を参照してください。</p></li>
 </ul>
 </div>
 </div>
-<h3 id="SUPPLEMENTATION">�⑫</h3>
+<h3 id="SUPPLEMENTATION">補足</h3>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="SUPPLEMENTATION-1">�����\����`�t�@�C���g�p���̒��ӓ_</h4>
-<p>�u�����\����`�t�@�C���v��ǂݍ��ޏꍇ�A���ɐݒ肵�Ă�����e��<span class="attention_red">�S�Ĕj��</span>����܂��B����̋����\���ɒǉ������̂ł͂Ȃ��A�u�����\����`�t�@�C���v�̓��e��<span class="attention_red">����ւ��</span>���ƂɂȂ�܂��B</p>
-<p>���̓��e��ۑ����Ă��������ꍇ�́A���O��<span class="btn-push">�u�ۑ��v</span>�{�^�����g�p���A�t�@�C���ɕۑ����Ă����Ă��������B</p>
-<p>�����A���������\����ۑ����Ȃ��Łu�����\����`�t�@�C���v��ǂݍ���ł��܂��Ă��A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v��<span class="btn-push">�u�L�����Z���v</span>��<span class="btn-push">�u�ۑ����Ȃ��ōX�V�v</span>�ŕ��Ă��܂��ΕύX���e�͕ۑ�����܂���B(���̐ݒ���ύX���Ă����ꍇ�́A������Ȃ��ɂȂ��Ă��܂��܂���)</p>
-<h4 id="SUPPLEMENTATION-2">�����\�������܂������Ȃ��ꍇ�̒��ӓ_</h4>
-<p>�D��x���Ⴂ�u�����\��1�`8�v�̏ꍇ�A�G�ۃG�f�B�^���s���Ă���A�u�f�U�C���v-�u�ꏊ�̈ꗗ�v�̋����\���ȊO�̏����Ƀ}�b�`���Ă��܂��A�v�����悤�ɋ�������Ȃ��ꍇ������܂��B</p>
-<p>����́u�ꏊ�̈ꗗ�v���̗D��x�̖��Ȃ̂ŁA�Ώ��Ƃ��Ă͈ȉ��ɂȂ�܂��B</p>
+<h4 id="SUPPLEMENTATION-1">強調表示定義ファイル使用時の注意点</h4>
+<p>「強調表示定義ファイル」を読み込む場合、既に設定してある内容は<span class="attention_red">全て破棄</span>されます。現状の強調表示に追加されるのではなく、「強調表示定義ファイル」の内容と<span class="attention_red">入れ替わる</span>ことになります。</p>
+<p>元の内容を保存しておきたい場合は、事前に<span class="btn-push">「保存」</span>ボタンを使用し、ファイルに保存しておいてください。</p>
+<p>もし、元も強調表示を保存しないで「強調表示定義ファイル」を読み込んでしまっても、「<span class="filetype">ファイルタイプ別の設定</span>」を<span class="btn-push">「キャンセル」</span>や<span class="btn-push">「保存しないで更新」</span>で閉じてしまえば変更内容は保存されません。(他の設定も変更していた場合は、それもなしになってしまいますが)</p>
+<h4 id="SUPPLEMENTATION-2">強調表示がうまくいかない場合の注意点</h4>
+<p>優先度が低い「強調表示1〜8」の場合、秀丸エディタが行っている、「デザイン」-「場所の一覧」の強調表示以外の条件にマッチしてしまい、思ったように強調されない場合があります。</p>
+<p>これは「場所の一覧」内の優先度の問題なので、対処としては以下になります。</p>
 <ul>
-<li>�u�����\��1�`8�v�ł͂Ȃ��A�u���ɋ����\���v���g��</li>
-<li>�������Ă���ݒ肪�AON/OFF�o����ꍇ�AOFF�ɂ��Ė��Ȃ����OFF�ɂ���</li>
-<li>���߂�</li>
+<li>「強調表示1〜8」ではなく、「特に強調表示」を使う</li>
+<li>競合している設定が、ON/OFF出来る場合、OFFにして問題なければOFFにする</li>
+<li>諦める</li>
 </ul>
-<p>�u�f�U�C���v - �u�ꏊ�̈ꗗ�v�̗D�揇�ʂ́A�ȉ��̏��ɂȂ�܂��B (�X�N���[���o�[�ŃX�N���[���o���܂�)</p>
+<p>「デザイン」 - 「場所の一覧」の優先順位は、以下の順になります。 (スクロールバーでスクロール出来ます)</p>
 <!-- hme0016c_01 -->
 <div class="hme0016c_01">
-<p><img src="2_highlight_07.png" width="271" height="560" alt="�ꏊ�̈ꗗ" /><br />
+<p><img src="2_highlight_07.png" width="271" height="560" alt="場所の一覧" /><br />
 </p>
 </div>
-<h4 id="SUPPLEMENTATION-3">�G�ۃG�f�B�^�ɓ�������Ă��鋭���\���ݒ�����o��</h4>
-<p>�G�ۃG�f�B�^�ɓ�������Ă��鋭���\���ݒ�������ύX�������ꍇ�̕��@�ł��B</p>
+<h4 id="SUPPLEMENTATION-3">秀丸エディタに内蔵されている強調表示設定を取り出す</h4>
+<p>秀丸エディタに内蔵されている強調表示設定を少し変更したい場合の方法です。</p>
 <ol type="1">
-<li><p>�V�K�t�@�C�����J���A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v-�u�f�U�C���v-�u�����\���v�ŁA�u����w��v��I�����A���o�����������I�����܂��B(��͏G�ۃ}�N��)</p>
-<p><img src="2_highlight_08.png" width="441" height="258" alt="����w���I��" /><br />
+<li><p>新規ファイルを開き、「<span class="filetype">ファイルタイプ別の設定</span>」-「デザイン」-「強調表示」で、「言語指定」を選択し、取り出したい言語を選択します。(例は秀丸マクロ)</p>
+<p><img src="2_highlight_08.png" width="441" height="258" alt="言語指定を選択" /><br />
 </p></li>
-<li><p><span class="btn-push">�u�ۑ����Ȃ��ōX�V�v</span>�{�^���������A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v����x���܂��B</p></li>
-<li><p>�ēx�A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v���J���A�u�f�U�C���v-�u�����\���v�ŁA�u���[�U�[��`�v��I�����܂��B��������ƁA����w��Őݒ肳��Ă������e���A���̂܂܋����\���ꗗ�ɕ\������܂��B</p>
-<p><img src="2_highlight_09.png" width="473" height="204" alt="���[�U�[��`��I��" /><br />
+<li><p><span class="btn-push">「保存しないで更新」</span>ボタンを押し、「<span class="filetype">ファイルタイプ別の設定</span>」を一度閉じます。</p></li>
+<li><p>再度、「<span class="filetype">ファイルタイプ別の設定</span>」を開き、「デザイン」-「強調表示」で、「ユーザー定義」を選択します。そうすると、言語指定で設定されていた内容が、そのまま強調表示一覧に表示されます。</p>
+<p><img src="2_highlight_09.png" width="473" height="204" alt="ユーザー定義を選択" /><br />
 </p></li>
-<li><p><span class="btn-push">�u�ۑ��v</span>�{�^���Łu�����\����`�t�@�C���v�Ƃ��ĕۑ��ł��܂��B</p></li>
-<li><p>�ݒ肵�����g���q�̃t�@�C�����J���A�u�����\����`�t�@�C���v��ǂݍ��߂΁A�ҏW���\�ł��B</p></li>
+<li><p><span class="btn-push">「保存」</span>ボタンで「強調表示定義ファイル」として保存できます。</p></li>
+<li><p>設定したい拡張子のファイルを開き、「強調表示定義ファイル」を読み込めば、編集が可能です。</p></li>
 </ol>
-<h4 id="SUPPLEMENTATION-4">�C�ӂ̐F��X�^�C���ŋ����\�����s������</h4>
-<p>�G�ۃG�f�B�^�́u�����\���v�̋@�\�����ł͖����ł��B�u�ꏊ�̈ꗗ�v�Őݒ肵�������\���̒�����I�ԕK�v������܂��B</p>
-<p>�G�ۃG�f�B�^ Ver.8.92(2020/11/03���݃���)���A�}�N�����g���K�v������܂����A�J���[�}�[�J�[�Ŏw�肵��������C�ӂ́u�����\���v�Ɠ��������ɂł��܂��B (�J���[�}�[�J�[�őI�������͈͂��A�u�R�����g�v��u�s�̋����\���v�Ƃ��Ĉ������Ƃ��ł���)</p>
-<p>�����N���}�N�����g���΁A������x�u�����\���v�Ɠ����悤�Ȃ��Ƃ͉\�ł����A���\��ςł��B</p>
-<p>�}�N���ɂ́A�u���ׂĂ̌���F�t���v�R�}���h�����́u<code>colormarkerallfound</code>���v������܂��B���̖��߂ƁA�����N���}�N���́u�t�@�C�����J��������v�u�ҏW��^�C�}�[�v���g���΁A�����Ƀ}�b�`�����ӏ����A(�J���[�}�[�J�[�Őݒ�ł���͈͂ł���)�C�ӂ̐F��X�^�C���A�����\���ɂ��鎖���o���܂��B</p>
+<h4 id="SUPPLEMENTATION-4">任意の色やスタイルで強調表示を行いたい</h4>
+<p>秀丸エディタの「強調表示」の機能だけでは無理です。「場所の一覧」で設定した強調表示の中から選ぶ必要があります。</p>
+<p>秀丸エディタ Ver.8.92(2020/12/13現在β版)より、マクロを使う必要がありますが、カラーマーカーで指定した部分を任意の「強調表示」と同じ扱いにできます。 (カラーマーカーで選択した範囲を、「コメント」や「行の強調表示」として扱うことができる)</p>
+<p>自動起動マクロを使えば、ある程度「強調表示」と同じようなことは可能ですが、結構大変です。</p>
+<p>マクロには、「すべての候補を色付け」コマンド相当の「<code>colormarkerallfound</code>文」があります。この命令と、自動起動マクロの「ファイルを開いた直後」「編集後タイマー」を使えば、検索にマッチした箇所を、(カラーマーカーで設定できる範囲ですが)任意の色やスタイル、強調表示にする事が出来ます。</p>
 <!-- h5 -->
 <section id="SUPPLEMENTATION-4-1" class="marginleft">
-<h5>�J���[�}�[�J�[�ŐF�t������}�N���̗�</h5>
-<p>�u�ҏW��^�C�}�[�v�ɁA�ȉ��̃}�N�����w�肵�܂��B(������x�A���Ԍo�߂����������ǂ��ł��傤)</p>
-<p>�ҏW���Ă����s�Ɂu�t�@�C���^�C�v�ʂ̐ݒ�v�Ƃ�������������΁A�J���[�}�[�J�[�ŐF�t�����A�u����1�v�ɐݒ肵�܂��B (�u����1�v�ł����A�ݒ�Ƃ͕ʂ̐F�A�X�^�C���ɐݒ���\�ł�)</p>
-<p>�͈͂����肵�Ă���̂́A�Ώۃt�@�C�����傫���ꍇ�A�S�̂���������ɂ͎��Ԃ�������̂ŁA���̑΍�ł��B</p>
-<p>���ۂɂ́A�O���Ƀf�[�^�t�@�C��������������A�����������F����͈͂��L�����������ǂ��ł��傤�B</p>
+<h5>カラーマーカーで色付けするマクロの例</h5>
+<p>「編集後タイマー」に、以下のマクロを指定します。(ある程度、時間経過させた方が良いでしょう)</p>
+<p>編集していた行に「ファイルタイプ別の設定」という文字があれば、カラーマーカーで色付けし、「強調1」に設定します。 (「強調1」ですが、設定とは別の色、スタイルに設定も可能です)</p>
+<p>範囲を限定しているのは、対象ファイルが大きい場合、全体を検索するには時間がかかるので、その対策です。</p>
+<p>実際には、外部にデータファイルを持たせたり、もう少し着色する範囲を広くした方が良いでしょう。</p>
 <div class="macro">
-<pre><code>//�G�ۃG�f�B�^Ver.8.92���K�v
-//����������ێ�
+<pre><code>//秀丸エディタVer.8.92が必要
+//検索条件を保持
 setcompatiblemode 0x120000;
-//�e����W��ۑ�
+//各種座標を保存
 #x = x; #y = y;
 #topy = screentopy;
-//�����͈͂�ݒ�
-//�f�t�H���g�ł́A�J�[�\���s�̐擪����A�J�[���ʒu�܂ŁB
-//�͈͂��L�������ꍇ�͈ȉ��̕ϐ���ύX����
+//検索範囲を設定
+//デフォルトでは、カーソル行の先頭から、カール位置まで。
+//範囲を広げたい場合は以下の変数を変更する
 #find_top_lineno = lineno;
 #find_top_column = 1;
 #find_end_lineno = lineno;
 #find_end_column = column;
-//��ʍX�V��~
+//画面更新停止
 disabledraw;
-//�������e�ݒ�
-setsearch &quot;�t�@�C���^�C�v�ʂ̐ݒ�&quot;, 0;
-//�������ĐF�t��
+//検索内容設定
+setsearch &quot;ファイルタイプ別の設定&quot;, 0;
+//検索して色付け
 colormarkerallfound 0x0000ff,-1, 3, 0x00040002, 0, &quot;&quot;, #find_top_lineno, #find_top_column, #find_end_lineno, #find_end_column;
-//���W�����ɖ߂��A��ʍX�V
+//座標を元に戻し、画面更新
 moveto #x, #y;
 enabledraw #topy;
 endmacro;</code></pre>
 </div>
 </section>
-<h4 id="SUPPLEMENTATION-5">�����\�����e�̍���</h4>
-<p>�����̋����\�����e�ɁA�����\����`�t�@�C���̓��e��ǉ�������@�͕W���ł͗p�ӂ���Ă��܂��񂪁A���@���Ȃ��킯�ł͂���܂���B</p>
-<p>�����\����`�t�@�C���̓e�L�X�g�t�@�C���ł��B���ׁ̈A�G�ۃG�f�B�^���g�ŕҏW���\�ł��B</p>
+<h4 id="SUPPLEMENTATION-5">強調表示内容の合成</h4>
+<p>既存の強調表示内容に、強調表示定義ファイルの内容を追加する方法は標準では用意されていませんが、方法がないわけではありません。</p>
+<p>強調表示定義ファイルはテキストファイルです。その為、秀丸エディタ自身で編集が可能です。</p>
 <ol type="1">
-<li>�����̋����\�����t�@�C���֕ۑ��B</li>
-<li>�ۑ������t�@�C���̓��e���A�ǉ������������\����`�t�@�C���ɒǉ��B</li>
-<li>�ҏW���������\����`�t�@�C����ǂݍ��ށB</li>
+<li>既存の強調表示をファイルへ保存。</li>
+<li>保存したファイルの内容を、追加したい強調表示定義ファイルに追加。</li>
+<li>編集した強調表示定義ファイルを読み込む。</li>
 </ol>
 </div>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

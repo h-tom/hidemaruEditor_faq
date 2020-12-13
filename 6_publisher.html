@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��VI���`�G�ۃG�f�B�^�g�����W���[���@�G�ۃp�u���b�V���[</title>
+  <title>第VI部〜秀丸エディタ拡張モジュール　秀丸パブリッシャー</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,265 +22,263 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��VI���`�G�ۃG�f�B�^�g�����W���[��<br>�@�G�ۃp�u���b�V���[</h1>
+<h1 id="TOP">第VI部〜秀丸エディタ拡張モジュール<br>　秀丸パブリッシャー</h1>
 <hr />
-<h2 id="INDEX">�G�ۃp�u���b�V���[�Ƃ�?</h2>
-<p>�G�ۃG�f�B�^�{�̂ɂ�����@�\�����Ă��܂����A�@�\�͑�������܂���B</p>
-<p>�G�ۃp�u���b�V���[���g�����ŁA</p>
+<h2 id="INDEX">秀丸パブリッシャーとは?</h2>
+<p>秀丸エディタ本体にも印刷機能がついていますが、機能は多くありません。</p>
+<p>秀丸パブリッシャーを使う事で、以下の事が可能になります。</p>
 <ul>
-<li>����v���r���[</li>
-<li>�J���[���</li>
-<li>�G�ۃG�f�B�^�{�̂ł̕����C�������̂܂܈��</li>
+<li>印刷プレビュー</li>
+<li>カラー印刷</li>
+<li>秀丸エディタ本体での文字修飾をそのまま印刷</li>
 </ul>
-<p>���\�ɂȂ�܂��B</p>
-<p>�G�ۃp�u���b�V���[�̓����^�C�����C�u�������s�v�ŏG�ۃG�f�B�^�{�̂��u�����o���L�b�g�v�Ŏg�p���Ă���ꍇ��A�X�g�A�A�v���ŏG�ۃG�f�B�^�ł��g�p��Ver.5.00 �����J����Ă��܂����A�G�ۃG�f�B�^ Ver.8.00�ȏオ�K�v�ł��B</p>
-<p>�G�ۃG�f�B�^ Ver.8.00�����̏ꍇ�́A�G�ۃp�u���b�V���[��Ver.4�n���g�p���Ă��������B�������A�u�����o���L�b�g�v��u�X�g�A�A�v���Łv�ł͎g�p�ł��܂���B</p>
+<p>秀丸パブリッシャーはランタイムライブラリが不要で秀丸エディタ本体を「持ち出しキット」で使用している場合や、ストアアプリ版秀丸エディタでも使用可なVer.5.00 が公開されていますが、秀丸エディタ Ver.8.00以上が必要です。</p>
+<p>秀丸エディタ Ver.8.00未満の場合は、秀丸パブリッシャーのVer.4系を使用してください。ただし、「持ち出しキット」や「ストアアプリ版」では使用できません。</p>
 <div class="box_line">
 <ul>
-<li><p>�G�ۃp�u���b�V���[��Ver.4�́A�ȉ���2��ނ����݂��܂��B</p>
+<li><p>秀丸パブリッシャーのVer.4は、以下の2種類が存在します。</p>
 <ul>
-<li>�uVisual Basic�Łv</li>
-<li>.NET Framework�ō쐬�����u64bit�Łv</li>
+<li>「Visual Basic版」</li>
+<li>.NET Frameworkで作成した「64bit版」</li>
 </ul>
-<p><strong>�u64bit�Łv�Ƃ���܂��� 32bit�ŏG�ۃG�f�B�^/32bit OS �ł��g�p�\�ŁA</strong> <span class="font_red_bold">Windows Vista �ȍ~�́A32bit/64bit �G�ۃG�f�B�^���킸�ɁA.NET Framework �ō쐬�����u64bit�Łv���g�p���鎖�𐄏����Ă��܂��B</span></p></li>
+<p><strong>「64bit版」とありますが 32bit版秀丸エディタ/32bit OS でも使用可能で、</strong> <span class="font_red_bold">Windows Vista 以降は、32bit/64bit 秀丸エディタを問わずに、.NET Framework で作成した「64bit版」を使用する事を推奨しています。</span></p></li>
 </ul>
 </div>
-<p>�ȍ~�̐����́A�u<span class="attention_red">Ver.5.02�ȍ~</span>�v��O��ɂ��Ă��܂��B</p>
+<p>以降の説明は、「<span class="attention_red">Ver.5.02以降</span>」を前提にしています。</p>
 <ul>
-<li><a href="#INSTALL">�y1�z�_�E�����[�h�A�C���X�g�[���ƏG�ۃG�f�B�^�{�̂̐ݒ�</a></li>
-<li><a href="#PRINTOUT">�y2�z�������ɂ�</a></li>
-<li><a href="#TEMPLATE">�y3�z����t�H�[�}�b�g���w�肵�Ĉ��������</a></li>
-<li><a href="#WARNING">�y4�z�e���v���[�g�̒��ӓ_</a></li>
+<li><a href="#INSTALL">【1】ダウンロード、インストールと秀丸エディタ本体の設定</a></li>
+<li><a href="#PRINTOUT">【2】印刷するには</a></li>
+<li><a href="#TEMPLATE">【3】印刷フォーマットを指定して印刷したい</a></li>
+<li><a href="#WARNING">【4】テンプレートの注意点</a></li>
 </ul>
 <!-- #3 -->
 <div class="marginleft">
-<h3 id="INSTALL">�y1�z�_�E�����[�h�A�C���X�g�[���ƏG�ۃG�f�B�^�{�̂̐ݒ�</h3>
+<h3 id="INSTALL">【1】ダウンロード、インストールと秀丸エディタ本体の設定</h3>
 <div class="box_line">
 <dl>
-<dt>�X�g�A�A�v���ł̏ꍇ</dt>
+<dt>ストアアプリ版の場合</dt>
 <dd><ul>
-<li>�G�ۃG�f�B�^�{�̂ɓ�������Ă��邽�߁A�u�G�ۃp�u���b�V���[�v�̃C���X�g�[���͕s�v�ł��B(�X�g�A�A�v����Ver.8.90�ȍ~)</li>
-<li>�X�g�A�A�v���łɓ�������Ă���u�G�ۃp�u���b�V���[�v�����A�o�[�W�����A�b�v�͂ł��܂���B</li>
+<li>秀丸エディタ本体に同梱されているため、「秀丸パブリッシャー」のインストールは不要です。(ストアアプリ版Ver.8.90以降)</li>
+<li>ストアアプリ版に同梱されている「秀丸パブリッシャー」だけ、バージョンアップはできません。</li>
 </ul>
 </dd>
 </dl>
 </div>
-<p>�G�ۃp�u���b�V���[�́A�ȉ��̏ꏊ�������\�ł��B</p>
+<p>秀丸パブリッシャーは、以下の場所から入手可能です。</p>
 <ul>
-<li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank">�G�܂邨�̃z�[���y�[�W</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank">�\�t�g�E�F�A</a> - <a href="https://hide.maruo.co.jp/software/hmpv.html" class="externallink" target="_blank">�G�ۃp�u���b�V���[</a></p>
-<p>2020/11/03 ���݁A�ȉ��̃o�[�W���������J����Ă��܂��B</p>
+<li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank" rel="noopener">ソフトウェア</a> - <a href="https://hide.maruo.co.jp/software/hmpv.html" class="externallink" target="_blank" rel="noopener">秀丸パブリッシャー</a></p>
+<p>2020/12/13 現在、以下のバージョンが公開されています。</p>
 <ul>
-<li>Ver.5.03�@64bit/32bit����(�G�ۃG�f�B�^ Ver.8.00�ȍ~���K�v�B�X�g�A�A�v���A�����o���L�b�g�g�p���ł�����\)</li>
-<li>Ver.4.25�@64bit��(<span class="attention_red">32bit�ŏG�ۃG�f�B�^/32bit OS �ł��g�p��</span> .NET Framework 2.0 �ȏオ�K�v)</li>
-<li>Ver.4.16b�@32bit��(Visual Basic�� Visual Basic6.0�̃����^�C�����C�u�������K�v)</li>
+<li>Ver.5.03　64bit/32bit共通(秀丸エディタ Ver.8.00以降が必要。ストアアプリ、持ち出しキット使用時でも動作可能)</li>
+<li>Ver.4.25　64bit版(<span class="attention_red">32bit版秀丸エディタ/32bit OS でも使用可</span> .NET Framework 2.0 以上が必要)</li>
+<li>Ver.4.16b　32bit版(Visual Basic版 Visual Basic6.0のランタイムライブラリが必要)</li>
 </ul></li>
 </ul>
-<p>�G�ۃp�u���b�V���[���̂́A�t���[�\�t�g�E�F�A�ł��B�G�ۃG�f�B�^ Ver.8.00 �ȏ�Ŏg�p���鎖����������Ă��܂��B</p>
-<p>�C���X�g�[���t�@�C���́A64bit/32bit���ʂł��B</p>
-<p><img src="6_publisher_01.png" width="307" height="147" alt="�C���X�g�[�����s" /><br />
+<p>秀丸パブリッシャー自体は、フリーソフトウェアです。秀丸エディタ Ver.8.00 以上で使用する事が推奨されています。</p>
+<p>インストールファイルは、64bit/32bit共通です。</p>
+<p><img src="6_publisher_01.png" width="307" height="147" alt="インストール実行" /><br />
 </p>
-<p>�_�E�����[�h�����t�@�C�������s����ƃC���X�g�[����𕷂���܂��B</p>
-<p><img src="6_publisher_02.png" width="510" height="259" alt="�C���X�g�[����̐ݒ�" /><br />
+<p>ダウンロードしたファイルを実行するとインストール先を聞かれます。</p>
+<p><img src="6_publisher_02.png" width="510" height="259" alt="インストール先の設定" /><br />
 </p>
-<p>�C���X�g�[������������ƁA�G�ۃG�f�B�^�{�̂̐ݒ��ς���悤���b�Z�[�W���\�������̂ŁA�u<span class="env">�����</span>�v����ݒ��ύX���܂��傤�B</p>
-<p><img src="6_publisher_03.png" width="510" height="259" alt="�ŏI���b�Z�[�W" /><br />
+<p>インストールが完了すると、秀丸エディタ本体の設定を変えるようメッセージが表示されるので、「<span class="env">動作環境</span>」から設定を変更しましょう。</p>
+<p><img src="6_publisher_03.png" width="510" height="259" alt="最終メッセージ" /><br />
 </p>
-<p>�u�X�g�A�A�v���Łv�ł��A�g�p����ɂ́u<span class="env">�����</span>�v����ݒ��ύX����K�v������܂��B</p>
-<p><img src="6_publisher_04.png" width="605" height="191" alt="�G�ۃG�f�B�^�{�̑��̈���ݒ�" /><br />
+<p>「ストアアプリ版」でも、使用するには「<span class="env">動作環境</span>」から設定を変更する必要があります。</p>
+<p><img src="6_publisher_04.png" width="605" height="191" alt="秀丸エディタ本体側の印刷設定" /><br />
 </p>
-<h3 id="PRINTOUT">�y2�z�������ɂ�</h3>
-<p>�ݒ肪�����ł����A���ʂɈ�����邾���Ȃ�A�ȉ���2�ӏ���ݒ�E�m�F��A����͈́E����������m�F���A<span class="btn-push">�u����v</span>�{�^�������������ł��B<br />
-(�f�t�H���g�Ńe���v���[�g�́u_�W������v���I������Ă��܂�)</p>
+<h3 id="PRINTOUT">【2】印刷するには</h3>
+<p>設定が多いですが、普通に印刷するだけなら、以下の2箇所を設定・確認後、印刷範囲・印刷部数を確認し、<span class="btn-push">「印刷」</span>ボタンを押すだけです。<br />
+(デフォルトでテンプレートは「_標準印刷」が選択されています)</p>
 <ul>
-<li><p>�u�ݒ�̈ꗗ�v�ɂ���u�v�����^/�p���v��I�����A�g�p����v�����^�[�Ɨp���T�C�Y�A�������m�F�E�ݒ�B</p>
-<p><img src="6_publisher_05.png" width="630" height="426" alt="�v�����^�[/�p��" /><br />
+<li><p>「設定の一覧」にある「プリンタ/用紙」を選択し、使用するプリンターと用紙サイズ、向きを確認・設定。</p>
+<p><img src="6_publisher_05.png" width="630" height="426" alt="プリンター/用紙" /><br />
 </p></li>
-<li><p>�u�ݒ�̈ꗗ�v�ɂ���u�{��BOX�v��I�����A�]����t�H���g�A�t�H���g�T�C�Y�A�J���[����Ȃǐݒ�B<br />
-�s�ԍ���A�t�@�C�����̈���Ȃǂ��u�{��BOX�v�̐ݒ�ŉ\�ł��B</p>
-<p><img src="6_publisher_06.png" width="538" height="243" alt="�{��BOX" /><br />
+<li><p>「設定の一覧」にある「本文BOX」を選択し、余白やフォント、フォントサイズ、カラー印刷など設定。<br />
+行番号や、ファイル名の印刷なども「本文BOX」の設定で可能です。</p>
+<p><img src="6_publisher_06.png" width="538" height="243" alt="本文BOX" /><br />
 </p>
 <ul>
-<li>�u�J���[����v�Ƀ`�F�b�N������ƁA�u�t�H���g�C���Č��v�͑���ł��Ȃ��Ȃ�܂��B (�����I��ON�ɂȂ�AOFF�ɂł��Ȃ�)</li>
-<li>�u�w�i�F�͔��ɂ���v�́A�J���[�������Ȃ��ꍇ���ݒ�ł��܂����A�u�J���[����v���L���łȂ��ƈӖ����Ȃ��ł��B</li>
-<li>�u�t�H���g�C���Č��v�́A�u�t�@�C���^�C�v�ʐݒ�-�f�U�C���v�Őݒ肵���X�^�C����������ɂ��K�p���邩�A�ǂ����ł��B</li>
-<li>�u�ҏW�L���̈���v�́A�ʏ�������Ȃ��A�^�u�����A���s�����A�S�p�󔒁A���p�󔒂�������܂��B<br />
-���ۂɈ�������̂́A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v�ŕ\������悤�ɐݒ肵�Ă���u�ҏW�L���v�����ł��B�܂�A�������t�@�C���̐ݒ�ɉe������܂��B��ʂɕ\������Ȃ��ҏW�L���́A�`�F�b�N�����Ă��������܂���B</li>
+<li>「カラー印刷」にチェックを入れると、「フォント修飾再現」は操作できなくなります。 (強制的にONになり、OFFにできない)</li>
+<li>「背景色は白にする」は、カラー印刷じゃない場合も設定できますが、「カラー印刷」が有効でないと意味がないです。</li>
+<li>「フォント修飾再現」は、「ファイルタイプ別設定-デザイン」で設定したスタイルを印刷時にも適用するか、どうかです。</li>
+<li>「編集記号の印刷」は、通常印刷されない、タブ文字、改行文字、全角空白、半角空白を印刷します。<br />
+実際に印刷されるのは、「<span class="filetype">ファイルタイプ別の設定</span>」で表示するように設定してある「編集記号」だけです。つまり、印刷するファイルの設定に影響されます。画面に表示されない編集記号は、チェックを入れても印刷されません。</li>
 </ul></li>
 </ul>
-<p><span class="attention_red">����</span></p>
+<p><span class="attention_red">注意</span></p>
 <ul>
-<li><p>�u�]���v���Ő��l����͉\�ȉӏ�������܂����A�L�[�{�[�h���璼�ڐ��l����͂��āuEnter�v�������ƁA������n�܂��Ă��܂��܂��B(IME��OFF�̏ꍇ)</p>
-<p>����́A�f�t�H���g�̃{�^�����u����v�ɐݒ肳��Ă��邩��ł��B���ڂ��ړ��������ŁuEnter�v�������Ă��܂��ƁA������n�܂��Ă��܂��̂Œ��ӂ��Ă��������B</p></li>
+<li><p>「余白」等で数値を入力可能な箇所がありますが、キーボードから直接数値を入力して「Enter」を押すと、印刷が始まってしまいます。(IMEがOFFの場合)</p>
+<p>これは、デフォルトのボタンが「印刷」に設定されているからです。項目を移動するつもりで「Enter」を押してしまうと、印刷が始まってしまうので注意してください。</p></li>
 </ul>
-<h3 id="TEMPLATE">�y3�z����t�H�[�}�b�g���w�肵�Ĉ��������</h3>
-<p>�t�@�C�����̕\����A�y�[�W�ԍ��̈�����u�{��BOX�v�̐ݒ�ŉ\�ł����A</p>
+<h3 id="TEMPLATE">【3】印刷フォーマットを指定して印刷したい</h3>
+<p>ファイル名の表示や、ページ番号の印刷も「本文BOX」の設定で可能ですが、</p>
 <ul>
-<li>�{���Ƃ͕ʂ̃t�H���g�ɂ������A</li>
-<li>�y�[�W�ԍ��̈󎚕��@��ς�����</li>
-<li>�y�[�W�ԍ����������ꏊ��ς�����</li>
+<li>本文とは別のフォントにしたい、</li>
+<li>ページ番号の印字方法を変えたい</li>
+<li>ページ番号を印刷する場所を変えたい</li>
 </ul>
-<p>���̏ꍇ�́A�e���v���[�g��ҏW���鎖�ŉ\�ɂȂ�܂��B</p>
+<p>等の場合は、テンプレートを編集する事で可能になります。</p>
 <!-- #4 -->
 <div class="marginleft">
-<h4 id="TEMPLATE-1">�e���v���[�g�̊ȒP�Ȑ���</h4>
+<h4 id="TEMPLATE-1">テンプレートの簡単な説明</h4>
 <ul>
-<li><p>�G�ۃp�u���b�V���[�ň������ɂ́A�u�e���v���[�g�v���쐬���w�肷��K�v������܂��B Word�Ȃǃ��[�v���\�t�g�ƈႢ�A����Ώۂ̃t�@�C�����Ɉ���ݒ��ۑ��ł��Ȃ����߁A�������e�L�X�g�ƈ���ݒ���L�^����u�e���v���[�g�v�͕ʂ̃t�@�C���ɂȂ�܂��B</p>
-<p>�܂�w�肳�ꂽ�e���v���[�g�ɍ��킹�A�{����������鎖�ɂȂ�܂��B</p></li>
-<li><p>�u�e���v���[�g�v�ɂ́A�p�����ɁuBOX�v�Ƃ�������G���A��z�u���A�ݒ肷��K�v������܂��B</p>
-<p>�uBOX�v�͒ʏ�́uBOX�v�Ɓu�{��BOX�v��2��ނ���A�z�u�́u���C�A�E�g�ҏW�v�ōs���܂��B</p></li>
-<li><p>�u�e���v���[�g�v�ɂ́A�u�{��BOX�v���f�t�H���g�Ŕz�u����A�폜�͂ł��܂���B�u�{��BOX�v�͈������t�@�C���̓��e���}�������ꏊ�Ȃ̂ŁA�K��1�K�v�ɂȂ�܂��B (�V�K�Ńe���v���[�g���쐬����ƁA�u�{��BOX�v���f�t�H���g�Ŕz�u����܂�)</p></li>
-<li><p>�ʏ�́uBOX�v�ɂ́A�L�q�������e���A���̂܂ܕ\��/�������܂��B���[�v���ł����Ƃ���́A�w�b�_�[/�t�b�^�[�̂悤�Ȏg�����ɂȂ�܂��B�Œ肳�ꂽ�����񂾂��łȂ��A�y�[�W�ԍ���A�t�@�C�����A�t���p�X�A�����Ȃǂ��ݒ�ł��܂��B</p></li>
+<li><p>秀丸パブリッシャーで印刷するには、「テンプレート」を作成し指定する必要があります。 Wordなどワープロソフトと違い、印刷対象のファイル内に印刷設定を保存できないため、印刷するテキストと印刷設定を記録する「テンプレート」は別のファイルになります。</p>
+<p>つまり指定されたテンプレートに合わせ、本文を印刷する事になります。</p></li>
+<li><p>「テンプレート」には、用紙内に「BOX」という印刷エリアを配置し、設定する必要があります。</p>
+<p>「BOX」は通常の「BOX」と「本文BOX」の2種類あり、配置は「レイアウト編集」で行います。</p></li>
+<li><p>「テンプレート」には、「本文BOX」がデフォルトで配置され、削除はできません。「本文BOX」は印刷するファイルの内容が挿入される場所なので、必ず1個必要になります。 (新規でテンプレートを作成すると、「本文BOX」がデフォルトで配置されます)</p></li>
+<li><p>通常の「BOX」には、記述した内容が、そのまま表示/印刷されます。ワープロでいうところの、ヘッダー/フッターのような使い方になります。固定された文字列だけでなく、ページ番号や、ファイル名、フルパス、日時などが設定できます。</p></li>
 </ul>
-<h4 id="TEMPLATE-2">�e���v���[�g�̕ҏW</h4>
-<p>�ł́A�e���v���[�g�����ۂɍ쐬�E�ҏW���Ă݂܂��傤�B</p>
-<p>�e���v���[�g�����\������Ă���ӏ��̉��ɂ���A<span class="btn-push">�u�c�v</span>�{�^���������āA�e���v���[�g�̈ꗗ��ʂ�\�������܂��B</p>
-<p><img src="6_publisher_07.png" width="630" height="101" alt="�e���v���[�g�ꗗ�\���{�^��" /><br />
+<h4 id="TEMPLATE-2">テンプレートの編集</h4>
+<p>では、テンプレートを実際に作成・編集してみましょう。</p>
+<p>テンプレート名が表示されている箇所の横にある、<span class="btn-push">「…」</span>ボタンを押して、テンプレートの一覧画面を表示させます。</p>
+<p><img src="6_publisher_07.png" width="630" height="101" alt="テンプレート一覧表示ボタン" /><br />
 </p>
-<p>���̉�ʂŁA�e���v���[�g�V�K�쐬�A�R�s�[�A�폜�����\�ł��B�����<strong>"_�W�����"</strong>���R�s�[���āA<span class="attention_red">"�e�X�g�p"</span>�Ƃ������O�Ńe�X�g�p�̃e���v���[�g�����A�ҏW���Ă����܂��B</p>
-<p><img src="6_publisher_08.png" width="406" height="177" alt="�e���v���[�g�ꗗ�_�C�A���O" /><br />
+<p>この画面で、テンプレート新規作成、コピー、削除等が可能です。今回は<strong>"_標準印刷"</strong>をコピーして、<span class="attention_red">"テスト用"</span>という名前でテスト用のテンプレートを作り、編集していきます。</p>
+<p><img src="6_publisher_08.png" width="406" height="177" alt="テンプレート一覧ダイアログ" /><br />
 </p>
-<p>�e���v���[�g�́A�p���̏ォ�珇�Ԃ�</p>
+<p>テンプレートは、用紙の上から順番に、以下の校正で作成します。</p>
 <ul>
-<li>�t�@�C����(�t���p�X)</li>
-<li>�t�@�C���̍쐬����</li>
-<li>�������</li>
-<li>�{��</li>
-<li>�y�[�W�ԍ�</li>
+<li>ファイル名(フルパス)</li>
+<li>ファイルの作成日時</li>
+<li>印刷日時</li>
+<li>本文</li>
+<li>ページ番号</li>
 </ul>
-<p>�Ƃ����\���ō쐬���܂��B</p>
-<p>�܂��́A�p���ƁA�]����ݒ肵�Ă��������B</p>
-<p><span class="btn-push">�u���C�A�E�g�ҏW�v</span>�{�^���������ƁA�ҏW��ʂ��J���܂��B������Ԃł́A�}�[�W�������ς��܂ŁA�{��BOX ���z�u����Ă��邾���ł��B</p>
+<p>まずは、用紙と、余白を設定してください。</p>
+<p><span class="btn-push">「レイアウト編集」</span>ボタンを押すと、編集画面が開きます。初期状態では、マージンいっぱいまで、本文BOX が配置されているだけです。</p>
 <ol type="1">
-<li><p>����BOX��z�u���邽�߂ɁA�{���{�b�N�X�̍�����K���ɕς��āABOX��z�u����ꏊ�����܂��B BOX�́A�d�˂鎖���\�Ȃ̂ŁA���炳�Ȃ��ƈ�����ɏd�Ȃ��Ă��܂��܂��B<br />
-<img src="6_publisher_09.png" width="432" height="325" alt="���C�A�E�g-�{��BOX" /><br />
+<li><p>他のBOXを配置するために、本文ボックスの高さを適当に変えて、BOXを配置する場所を作ります。 BOXは、重ねる事が可能なので、ずらさないと印刷時に重なってしまいます。<br />
+<img src="6_publisher_09.png" width="432" height="325" alt="レイアウト-本文BOX" /><br />
 </p></li>
-<li><p>�t�@�C�����\���p��BOX��ǉ����܂��B�V�K��BOX��ǉ�������@�͈ȉ��ɂȂ�܂��B</p>
+<li><p>ファイル名表示用のBOXを追加します。新規のBOXを追加する方法は以下になります。</p>
 <ul>
-<li><p>�]�������̉E�N���b�N���j���[</p>
-<p><img src="6_publisher_10.png" width="411" height="329" alt="���C�A�E�g-BOX�̒ǉ�" /><br />
+<li><p>余白部分の右クリックメニュー</p>
+<p><img src="6_publisher_10.png" width="411" height="329" alt="レイアウト-BOXの追加" /><br />
 </p></li>
-<li><p>�ҏW��ʂ̃c�[���o�[</p>
-<p><img src="6_publisher_11.png" width="436" height="255" alt="���C�A�E�g-BOX�̒ǉ�" /><br />
+<li><p>編集画面のツールバー</p>
+<p><img src="6_publisher_11.png" width="436" height="255" alt="レイアウト-BOXの追加" /><br />
 </p></li>
 </ul>
-<p>�uBOX��V�K�ɒǉ��v��I������ƁA���C�A�E�g�ҏW��ʂɁuBOX�v���ǉ�����܂��B</p>
-<p>BOX��I�����_�u���N���b�N����ƁA�v���p�e�B���J���A�t�H���g��\��������e�Ȃǂ�ݒ肷�鎖���ł��܂��B�v���p�e�B��ʂ̐ݒ�Ɋւ��Ă̏ڍׂ́u�w���v�v���Q�Ƃ̎��B</p>
-<p><img src="6_publisher_12.png" width="738" height="482" alt="���C�A�E�g-BOX�̃v���p�e�B" /><br />
+<p>「BOXを新規に追加」を選択すると、レイアウト編集画面に「BOX」が追加されます。</p>
+<p>BOXを選択しダブルクリックすると、プロパティが開き、フォントや表示する内容などを設定する事ができます。プロパティ画面の設定に関しての詳細は「ヘルプ」を参照の事。</p>
+<p><img src="6_publisher_12.png" width="738" height="482" alt="レイアウト-BOXのプロパティ" /><br />
 </p>
-<p>����̓t�@�C������\������̂ŁA�u�����v���u�t�@�C����(�t���p�X)�v�ɂ��A�t�H���g��T�C�Y�A�X�^�C���́A�D�݂ɂ��킹�Đݒ���s���܂��B</p>
-<p><img src="6_publisher_13.png" width="306" height="132" alt="���C�A�E�g-�����̐ݒ�" /><br />
+<p>今回はファイル名を表示するので、「属性」を「ファイル名(フルパス)」にし、フォントやサイズ、スタイルは、好みにあわせて設定を行います。</p>
+<p><img src="6_publisher_13.png" width="306" height="132" alt="レイアウト-属性の設定" /><br />
 </p>
-<p>�ݒ��A<span class="btn-push">�uOK�v</span>�{�^���������ƁA�ݒ���e�ɍ��킹BOX�̕\�����ς��̂ŁA�ݒ���e�̊m�F���ł��܂��B</p>
-<p>�u���v�Ɓu��v�ō��W���A�u���v�Ɓu�����v�ŃT�C�Y�̎w�肪�\�ł����A�}�E�X���g�p��BOX���̂𓮂�������A�T�C�Y��ύX���鎖���\�ł��B</p></li>
-<li><p>���l�ɁA�t�@�C���̍쐬�����A��������A�y�[�W�ԍ��p��BOX��ǉ����Ă����܂��B</p>
-<p>�u�����v�����ꂼ��</p>
+<p>設定後、<span class="btn-push">「OK」</span>ボタンを押すと、設定内容に合わせBOXの表示が変わるので、設定内容の確認ができます。</p>
+<p>「左」と「上」で座標を、「幅」と「高さ」でサイズの指定が可能ですが、マウスを使用しBOX自体を動かしたり、サイズを変更する事も可能です。</p></li>
+<li><p>同様に、ファイルの作成日時、印刷日時、ページ番号用のBOXを追加していきます。</p>
+<p>「属性」をそれぞれ</p>
 <ul>
-<li>�t�@�C���̍쐬�����́u�^�C���X�^���v�v</li>
-<li>��������́u���ԁv</li>
-<li>�y�[�W�ԍ��́u�y�[�W�ԍ��v</li>
+<li>ファイルの作成日時は「タイムスタンプ」</li>
+<li>印刷日時は「時間」</li>
+<li>ページ番号は「ページ番号」</li>
 </ul>
-<p>�ɐݒ肵�Ă��������B</p>
-<p>�t�@�C���̍쐬�����A�������I�������ꍇ�A�����ɁuYYYY/MM/DD(W) hh:mm:ss�v���Z�b�g����܂��B�����Ɏw�肳��Ă��镶���̏ڍׂ́A<span class="btn-push">�u�w���v�v</span>�{�^���������ƕ\�������w���v�ŁA�m�F���鎖���ł��܂��B</p></li>
-<li><p>�����Ń��C�A�E�g�ҏW��ʂ���A�v���r���[�Ŋm�F���܂��B</p>
-<p>"�t�@�C���̍쐬����"��"�������"��ǉ����܂������A�ς��ƌ��łǂ��炪���̓����Ȃ̂��킩��܂���B<br />
-<img src="6_publisher_14.png" width="354" height="276" alt="�v���r���[1" /><br />
+<p>に設定してください。</p>
+<p>ファイルの作成日時、印刷日を選択した場合、書式に「YYYY/MM/DD(W) hh:mm:ss」がセットされます。書式に指定されている文字の詳細は、<span class="btn-push">「ヘルプ」</span>ボタンを押すと表示されるヘルプで、確認する事ができます。</p></li>
+<li><p>ここでレイアウト編集画面を閉じ、プレビューで確認します。</p>
+<p>"ファイルの作成日時"と"印刷日時"を追加しましたが、ぱっと見でどちらが何の日時なのかわかりません。<br />
+<img src="6_publisher_14.png" width="354" height="276" alt="プレビュー1" /><br />
 </p>
-<p>�����ŁA�e�����̑O��"<strong>�t�@�C���쐬���F</strong>"��"<strong>��������F</strong>"�Ƃ���������<span class="attention_red">�ǉ�</span>���A�N�����̕\�����ύX���܂��B<br />
-<img src="6_publisher_15.png" width="375" height="278" alt="�v���r���[2" /><br />
+<p>そこで、各日時の前に"<strong>ファイル作成日：</strong>"と"<strong>印刷日時：</strong>"という文字を<span class="attention_red">追加</span>し、年月日の表示も変更します。<br />
+<img src="6_publisher_15.png" width="375" height="278" alt="プレビュー2" /><br />
 </p>
-<p>�N�����̕\����ύX����ɂ́A�u�����v��ύX���܂��B</p>
-<pre><code>    �ύX�O�́u�����v�@YYYY/MM/DD(W) hh:mm:ss
-    �ύX��́u�����v�@YYYY�NMM��DD���iW�j���j</code></pre>
-<p>������ǉ�������@�́A����������܂��B(��Ƃ��āu�t�@�C���̍쐬�����v�̏ꍇ)</p>
+<p>年月日の表示を変更するには、「書式」を変更します。</p>
+<pre><code>    変更前の「書式」　YYYY/MM/DD(W) hh:mm:ss
+    変更後の「書式」　YYYY年MM月DD日（W曜日）</code></pre>
+<p>文字を追加する方法は、いくつかあります。(例として「ファイルの作成日時」の場合)</p>
 <ul>
-<li><p>"�t�@�C���̍쐬����"��\�����Ă���BOX�̑O�ɐV����BOX��ǉ����A�u�����v�́g�ʏ�̃e�L�X�g�h�A�u�e�L�X�g�v�Ɂg�t�@�C���쐬���F�h���w�肷��B</p></li>
-<li><p>BOX�̃v���p�e�B�ɂ���A�u�����v�͂��̂܂܂ŁA�u�����v��ύX����B</p>
-<pre><code>�ύX�O�́u�����v�@YYYY�NMM��DD���iW�j���j
-�ύX��́u�����v�@�t�@�C���쐬���FYYYY�NMM��DD���iW�j���j</code></pre></li>
-<li><p>BOX�̃v���p�e�B�ɂ���A�u�����v���g�ʏ�̃e�L�X�g�h�Ƃ��A�u�e�L�X�g�v��ύX����B</p>
-<pre><code>�ύX��́u�e�L�X�g�v�@�t�@�C���쐬���F%timestamp%</code></pre>
-<p>�u�e�L�X�g�v���Ɂu�����v�̓��e����荞�݂����ꍇ�́A�u����������������v��%�ň݂͂܂��B(��:%filename%)<br />
-%�ň͂ޏꍇ�́A�u����������������v�͑S�ď������ŋL�q����K�v������܂��B</p>
-<pre><code>OK�F%filename%
-NG�F%FILENAME%
-NG�F%FileName%</code></pre>
+<li><p>"ファイルの作成日時"を表示しているBOXの前に新たにBOXを追加し、「属性」は“通常のテキスト”、「テキスト」に“ファイル作成日：”を指定する。</p></li>
+<li><p>BOXのプロパティにある、「属性」はそのままで、「書式」を変更する。</p>
+<pre><code>変更前の「書式」　YYYY年MM月DD日（W曜日）
+変更後の「書式」　ファイル作成日：YYYY年MM月DD日（W曜日）</code></pre></li>
+<li><p>BOXのプロパティにある、「属性」を“通常のテキスト”とし、「テキスト」を変更する。</p>
+<pre><code>変更後の「テキスト」　ファイル作成日：%timestamp%</code></pre>
+<p>「テキスト」中に「属性」の内容を取り込みたい場合は、「属性を示す文字列」を%で囲みます。(例:%filename%)<br />
+%で囲む場合は、「属性を示す文字列」は全て小文字で記述する必要があります。</p>
+<pre><code>OK：%filename%
+NG：%FILENAME%
+NG：%FileName%</code></pre>
 <div class="table_border">
 <table>
-<caption>�u�����v�Ɓu����������������v</caption>
+<caption>「属性」と「属性を示す文字列」</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">����</th>
-<th style="text-align: left;">����������������</th>
+<th style="text-align: left;">属性</th>
+<th style="text-align: left;">属性を示す文字列</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">�t�@�C�����i�t���p�X�j</td>
+<td style="text-align: left;">ファイル名（フルパス）</td>
 <td style="text-align: left;">filename</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�t�@�C����</td>
+<td style="text-align: left;">ファイル名</td>
 <td style="text-align: left;">basename</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�f�B���N�g����</td>
+<td style="text-align: left;">ディレクトリ名</td>
 <td style="text-align: left;">directory</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�y�[�W�ԍ�</td>
+<td style="text-align: left;">ページ番号</td>
 <td style="text-align: left;">pagenum</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">����</td>
+<td style="text-align: left;">時間</td>
 <td style="text-align: left;">date</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�^�C���X�^���v</td>
+<td style="text-align: left;">タイムスタンプ</td>
 <td style="text-align: left;">timestamp</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>�u�����v���g�ʏ�̃e�L�X�g�h�̏ꍇ�A�u�e�L�X�g�v�̓��e���A�u����������������v�ƈ�v���Ă��܂��ƁA���̓��e���\������Ă��܂��܂��B (�u�����v�g�ʏ�̃e�L�X�g�h�ŁA�u�e�L�X�g�v�� filename ���ƁA�t���p�X���\�������)</p>
-<p>�啶���������͖����A�O��̋󔒂����������̂ŁAFileName ���ł���v���Ă��܂��܂��B�󔒈ȊO�̕���������Ƒ��v�ł��B</p>
-<pre><code>�e�L�X�g���ufilename�v��uFILENAME�v���� �t���p�X�ɕϊ������B
-�e�L�X�g���ufilename:%filename%�v���Ɩ��Ȃ��B</code></pre>
-<p>�u���ԁv��u�^�C���X�^���v�v�̏ꍇ�A�\������鏑���́A��x��������ݒ肵�����Ƃ̂Ȃ��ꍇ�̓f�t�H���g�l(�uYYYY/MM/DD�v)���A�ȑO������ݒ肵�����Ƃ�����ꍇ�́A���̏������g�p����܂��B</p></li>
+<p>「属性」が“通常のテキスト”の場合、「テキスト」の内容が、「属性を示す文字列」と一致してしまうと、その内容が表示されてしまいます。 (「属性」“通常のテキスト”で、「テキスト」が filename だと、フルパスが表示される)</p>
+<p>大文字小文字は無視、前後の空白も無視されるので、FileName 等でも一致してしまいます。空白以外の文字があると大丈夫です。</p>
+<pre><code>テキストが「filename」や「FILENAME」だと フルパスに変換される。
+テキストが「filename:%filename%」だと問題ない。</code></pre>
+<p>「時間」や「タイムスタンプ」の場合、表示される書式は、一度も書式を設定したことのない場合はデフォルト値(「YYYY/MM/DD」)が、以前書式を設定したことがある場合は、その書式が使用されます。</p></li>
 </ul></li>
-<li><p>��͎��ۂɈ�����v���r���[�Ō��ʂ��m�F���A�C���ӏ�������΁A�ēx�e���v���[�g���C�����Ă��������B</p></li>
+<li><p>後は実際に印刷かプレビューで結果を確認し、修正箇所があれば、再度テンプレートを修正してください。</p></li>
 </ol>
-<p>�ȏ�A�ȒP�ł����e���v���[�g�쐬��ł��B����A�{��BOX��1�ł������A2�ɂ��āA���q������\�ł��B�ڍׂ͏G�ۃp�u���b�V���[�̃w���v���Q�Ƃ��Ă��������B</p>
+<p>以上、簡単ですがテンプレート作成例です。今回、本文BOXは1個でしたが、2個にして、冊子印刷も可能です。詳細は秀丸パブリッシャーのヘルプを参照してください。</p>
 </div>
-<h3 id="WARNING">�y4�z�e���v���[�g�̒��ӓ_</h3>
+<h3 id="WARNING">【4】テンプレートの注意点</h3>
 <ul>
-<li><p>BOX �̃X�^�C���ɂ���</p>
-<p>BOX�Ŏw��\�ȃX�^�C���͈ȉ��ɂȂ�܂��B</p>
-<p><img src="6_publisher_19.png" width="634" height="222" alt="BOX�̃X�^�C��" /><br />
+<li><p>BOX のスタイルについて</p>
+<p>BOXで指定可能なスタイルは以下になります。</p>
+<p><img src="6_publisher_19.png" width="634" height="222" alt="BOXのスタイル" /><br />
 </p>
-<p>�������A�C�^���b�N�A�����͏d�����Ďw��ł��܂��B</p></li>
-<li><p>�e���v���[�g�t�@�C���ł����A�ꎞ�I�Ȑݒ�̂���Őݒ��ς��Ă��܂��ƁA���̐ݒ肪�ۑ�����Ă��܂��܂��B<br />
-(�Ⴆ�΁A�t�H���g�̐ݒ蓙)</p>
-<pre><code>��� �� ����_�C�A���O�J�� �� �ꎞ�I�Ȃ���Ńt�H���g��ύX  �� ������s</code></pre>
-<p>�Ƒ��삷��ƁA�ύX���e�̓e���v���[�g�ɕۑ�����܂��B</p>
-<p>�ݒ�ύX���s���Ă��A�e���v���[�g�֕ۑ����Ȃ��悤�ɂ���ɂ́A�u�e���v���[�g�㏑���֎~�v���`�F�b�N���Ă��������B</p>
-<p><img src="6_publisher_16.png" width="630" height="102" alt="�e���v���[�g�㏑���֎~" /><br />
+<p>太文字、イタリック、下線は重複して指定できます。</p></li>
+<li><p>テンプレートファイルですが、一時的な設定のつもりで設定を変えてしまうと、その設定が保存されてしまいます。<br />
+(例えば、フォントの設定等)</p>
+<pre><code>印刷 → 印刷ダイアログ開く → 一時的なつもりでフォントを変更  → 印刷実行</code></pre>
+<p>と操作すると、変更内容はテンプレートに保存されます。</p>
+<p>設定変更を行っても、テンプレートへ保存しないようにするには、「テンプレート上書き禁止」をチェックしてください。</p>
+<p><img src="6_publisher_16.png" width="630" height="102" alt="テンプレート上書き禁止" /><br />
 </p></li>
-<li><p>����ABOX�ł�Unicode���L�̕������w��ł��܂���BShift_JIS�Ɋ܂܂�镶���̂ݕ\���\�ł��B</p>
-<p>�������A�u�����v���t�@�C�����ɂ����ꍇ(�t���p�X���܂�)�́A�t�@�C������Unicode���L�̕����������Ă�����ɕ\������܂��B</p></li>
-<li><p>�e���v���[�g�̕ۑ��ꏊ�́A�u�G�ۃp�u���b�V���[�v�̃_�C�A���O����m�F�ł��܂��B</p>
-<p>�u����v�����s���A�G�ۃp�u���b�V���[�̃_�C�A���O��\�������܂��B�_�C�A���O����̃A�C�R���������N���b�N����ƁA���j���[���\�������̂Łu�ݒ�v��I�����܂��B</p>
+<li><p>現状、BOXではUnicode特有の文字を指定できません。Shift_JISに含まれる文字のみ表示可能です。</p>
+<p>ただし、「属性」をファイル名にした場合(フルパスも含む)は、ファイル名にUnicode特有の文字があっても正常に表示されます。</p></li>
+<li><p>テンプレートの保存場所は、「秀丸パブリッシャー」のダイアログから確認できます。</p>
+<p>「印刷」を実行し、秀丸パブリッシャーのダイアログを表示させます。ダイアログ左上のアイコン部分をクリックすると、メニューが表示されるので「設定」を選択します。</p>
 <div class="box_line">
-<p>�X�g�A�A�v���ł̏ꍇ�F�u�ŐV�o�[�W�����̊m�F�v�͂���܂���B</p>
+<p>ストアアプリ版の場合：「最新バージョンの確認」はありません。</p>
 </div>
-<p><img src="6_publisher_17.png" width="348" height="186" alt="�ݒ胁�j���[" /><br />
+<p><img src="6_publisher_17.png" width="348" height="186" alt="設定メニュー" /><br />
 </p>
-<p>�u�G�ۃp�u���b�V���[�̐ݒ�v�_�C�A���O���\������A�e���v���[�g��ۑ����Ă���t�H���_���\������܂��B</p>
-<p><img src="6_publisher_18.png" width="550" height="435" alt="����e���v���[�g�̐ݒ�_�C�A���O" /><br />
+<p>「秀丸パブリッシャーの設定」ダイアログが表示され、テンプレートを保存してあるフォルダが表示されます。</p>
+<p><img src="6_publisher_18.png" width="550" height="435" alt="印刷テンプレートの設定ダイアログ" /><br />
 </p>
-<p>�e���v���[�g���o�b�N�A�b�v����ꍇ�́A���̃t�H���_��ۑ�����悤�ɂ��Ă��������B</p></li>
+<p>テンプレートをバックアップする場合は、このフォルダを保存するようにしてください。</p></li>
 </ul>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

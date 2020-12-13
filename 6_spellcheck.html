@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��VI���`�G�ۃG�f�B�^�g�����W���[���@�G�ۃX�y���`�F�b�N�A�h�C��</title>
+  <title>第VI部〜秀丸エディタ拡張モジュール　秀丸スペルチェックアドイン</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,165 +22,165 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��VI���`�G�ۃG�f�B�^�g�����W���[��<br>�@�G�ۃX�y���`�F�b�N�A�h�C��</h1>
+<h1 id="TOP">第VI部〜秀丸エディタ拡張モジュール<br>　秀丸スペルチェックアドイン</h1>
 <hr />
-<h2 id="INDEX">�G�ۃX�y���`�F�b�N�A�h�C���Ƃ�?</h2>
-<p>���̃A�h�C���́A�G�ۃG�f�B�^�ɃX�y���`�F�b�N�@�\��ǉ����܂��B���̃A�h�C�����̂̓t���[�\�t�g�E�F�A�ɂȂ�܂��B</p>
-<p>��������́A�ȉ��̒ʂ�ŁA�Â��G�ۃG�f�B�^�AOS�ł͓��삵�܂���B</p>
+<h2 id="INDEX">秀丸スペルチェックアドインとは?</h2>
+<p>このアドインは、秀丸エディタにスペルチェック機能を追加します。このアドイン自体はフリーソフトウェアになります。</p>
+<p>動作条件は、以下の通りで、古い秀丸エディタ、OSでは動作しません。</p>
 <ul>
-<li>�G�ۃG�f�B�^�F <span class="attention_red">Ver.8.50�ȍ~</span></li>
-<li>OS�F<span class="attention_red">Windows XP�ȍ~</span></li>
+<li>秀丸エディタ： <span class="attention_red">Ver.8.50以降</span></li>
+<li>OS：<span class="attention_red">Windows XP以降</span></li>
 </ul>
-<p>���̃A�h�C�����̂̓X�y���`�F�b�N�@�\�������Ă��܂���B�ʓr�AGNU Aspell �Ƃ����u<strong>�X�y���`�F�b�J</strong>�v���K�v�ł��B���̃A�h�C�����G�ۃG�f�B�^�� GNU Aspell ��A�g�����邱�ƂŁA�G�ۃG�f�B�^��ŃX�y���`�F�b�N���\�ɂȂ�܂��B</p>
-<p>�G�ۃG�f�B�^�ɃX�y���`�F�b�N�@�\��ǉ�����ɂ́A�ȉ��̍�Ƃ��K�v�ł��B</p>
+<p>このアドイン自体はスペルチェック機能を持っていません。別途、GNU Aspell という「<strong>スペルチェッカ</strong>」が必要です。このアドインが秀丸エディタと GNU Aspell を連携させることで、秀丸エディタ上でスペルチェックが可能になります。</p>
+<p>秀丸エディタにスペルチェック機能を追加するには、以下の作業が必要です。</p>
 <ol type="1">
-<li>GNU Aspell(�X�y���`�F�b�J�{��)�̃C���X�g�[��</li>
-<li>�X�y���`�F�b�N���錾���GNU Aspell�p�����̃C���X�g�[��</li>
-<li>�G�ۃX�y���`�F�b�N�A�h�C���̃C���X�g�[��</li>
+<li>GNU Aspell(スペルチェッカ本体)のインストール</li>
+<li>スペルチェックする言語のGNU Aspell用辞書のインストール</li>
+<li>秀丸スペルチェックアドインのインストール</li>
 </ol>
 <ul>
-<li>GNU Aspell �́AGNU LGPL �Ń��C�Z���X����Ă��āA�t���[�\�t�g�E�F�A�ł��B</li>
-<li>GNU Aspell ���̂́A�R���\�[���v���O������32bit�łł����A64bit OS /�G�ۃG�f�B�^ 64bit�łł��g�p�ł��܂��B</li>
-<li>GNU Aspell �� ���ɃC���X�g�[������Ă���ꍇ�ɂ́A�u�G�ۃX�y���`�F�b�N�A�h�C���v�̃C���X�g�[�������ɂȂ�܂��B</li>
-<li>�X�g�A�A�v���ł��g�p���Ă���ꍇ�́A�G�ۃG�f�B�^�{�̂ƈꏏ�ɏG�ۃX�y���`�F�b�N�A�h�C�����C���X�g�[���ς݂Ȃ̂ŁA GNU Aspell �{�̂Ǝ����̃C���X�g�[�����K�v�ł��B</li>
+<li>GNU Aspell は、GNU LGPL でライセンスされていて、フリーソフトウェアです。</li>
+<li>GNU Aspell 自体は、コンソールプログラムで32bit版ですが、64bit OS /秀丸エディタ 64bit版でも使用できます。</li>
+<li>GNU Aspell が 既にインストールされている場合には、「秀丸スペルチェックアドイン」のインストールだけになります。</li>
+<li>ストアアプリ版を使用している場合は、秀丸エディタ本体と一緒に秀丸スペルチェックアドインがインストール済みなので、 GNU Aspell 本体と辞書のインストールが必要です。</li>
 </ul>
-<p>�菇�̏ڍׂ͈ȉ��̍��ڂ��Q�Ƃ��Ă��������B</p>
+<p>手順の詳細は以下の項目を参照してください。</p>
 <ul>
-<li><a href="#INSTALL">�y1�z�_�E�����[�h�A�C���X�g�[��</a></li>
-<li><a href="#SPELLCHECK">�y2�z�X�y���`�F�b�N���s���ɂ�</a></li>
-<li><a href="#SPELLMISS">�y3�z�X�y���~�X�̏C��</a></li>
-<li><a href="#SUPPLEMENTATION">�y4�z�⑫</a></li>
+<li><a href="#INSTALL">【1】ダウンロード、インストール</a></li>
+<li><a href="#SPELLCHECK">【2】スペルチェックを行うには</a></li>
+<li><a href="#SPELLMISS">【3】スペルミスの修正</a></li>
+<li><a href="#SUPPLEMENTATION">【4】補足</a></li>
 </ul>
 <!-- #3 -->
 <div class="marginleft">
-<h3 id="INSTALL">�y1�z�_�E�����[�h�A�C���X�g�[��</h3>
-<p>�܂��AGNU Aspell �̃v���O�����{��/�����t�@�C���̃C���X�g�[�����s���܂��B Windows�p��GNU Aspell�͈ȉ��̏ꏊ����_�E�����[�h�\�ł��B</p>
+<h3 id="INSTALL">【1】ダウンロード、インストール</h3>
+<p>まず、GNU Aspell のプログラム本体/辞書ファイルのインストールを行います。 Windows用のGNU Aspellは以下の場所からダウンロード可能です。</p>
 <ul>
-<li><p><a href="http://aspell.net/win32/" class="externallink" target="_blank">GNU Aspell (Win32 version)</a></p>
-<p>�u<strong>Binaries</strong>�v�ɂ���A�u<strong>Full installer</strong>�v���N���b�N����΁uGNU Aspell�v���_�E�����[�h�o���܂��B<br />
-(Aspell-(�o�[�W�����ԍ�)-Setup.exe�Ƃ����t�@�C�����ɂȂ�܂��B2020/11/03���݁A�uAspell-0-50-3-3-Setup.exe�v�ł�)</p>
+<li><p><a href="http://aspell.net/win32/" class="externallink" target="_blank" rel="noopener">GNU Aspell (Win32 version)</a></p>
+<p>「<strong>Binaries</strong>」にある、「<strong>Full installer</strong>」をクリックすれば「GNU Aspell」がダウンロード出来ます。<br />
+(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2020/12/13現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
 <div class="img_border">
-<p><img src="6_spellcheck_01.png" width="425" height="205" alt="Aspell�_�E�����[�h��" /><br />
+<p><img src="6_spellcheck_01.png" width="425" height="205" alt="Aspellダウンロード先" /><br />
 </p>
 </div>
-<p><span class="attention_red">GNU Aspell �́A�v���O�����{�̂����ł͎g�p�ł��܂���B�`�F�b�N���錾��ɑΉ����������t�@�C�����K�v�ł��B</span></p>
-<p>�����ł͗�Ƃ��āu<strong>�p��p����</strong>�v���_�E�����[�h���܂��B�v���O�����{�̂Ɠ����ꏊ�ŁA�����t�@�C�����_�E�����[�h�o���܂��B�u<strong>�p��p����</strong>�v�Ȃ̂ŁA�uPrecompiled dictionaries:�v�ɂ���u<strong>English</strong>�v�̃t�@�C�����_�E�����[�h���Ă��������B<br />
-(Aspell-en-(�o�[�W�����ԍ�).exe�Ƃ����t�@�C�����Ń_�E�����[�h�o���܂��B2020/11/03���݁A�uAspell-en-0.50-2-3.exe�v�ł�)</p>
+<p><span class="attention_red">GNU Aspell は、プログラム本体だけでは使用できません。チェックする言語に対応した辞書ファイルが必要です。</span></p>
+<p>ここでは例として「<strong>英語用辞書</strong>」をダウンロードします。プログラム本体と同じ場所で、辞書ファイルもダウンロード出来ます。「<strong>英語用辞書</strong>」なので、「Precompiled dictionaries:」にある「<strong>English</strong>」のファイルをダウンロードしてください。<br />
+(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2020/12/13現在、「Aspell-en-0.50-2-3.exe」です)</p>
 <div class="img_border">
-<p><img src="6_spellcheck_02.png" width="452" height="465" alt="Aspell�����_�E�����[�h��" /><br />
+<p><img src="6_spellcheck_02.png" width="452" height="465" alt="Aspell辞書ダウンロード先" /><br />
 </p>
 </div></li>
 </ul>
-<p>�C���X�g�[���́AGNU Aspell �̃v���O�����{�̂���s���A���ɉp�ꎫ���t�@�C�����C���X�g�[�����Ă��������B</p>
-<p>�����āA�u�G�ۃX�y���`�F�b�N�A�h�C���v���_�E�����[�h/�C���X�g�[�����s���܂��B(�X�g�A�A�v���ł͕s�v)<br />
-�C���X�g�[������O�ɁA�G�ۃG�f�B�^���N�����Ă���΁A�풓�G�ۂ��܂ߏI�������Ă����������ǂ��ł��傤�B (�풓�G�ۂ̏I�����@�́A�u<a href="HME0053A.html">[HME0053A]���u�풓�G�ۂ̏I���v���킩��܂���</a>�v���Q��)</p>
+<p>インストールは、GNU Aspell のプログラム本体から行い、次に英語辞書ファイルをインストールしてください。</p>
+<p>続いて、「秀丸スペルチェックアドイン」をダウンロード/インストールを行います。(ストアアプリ版は不要)<br />
+インストールする前に、秀丸エディタが起動していれば、常駐秀丸を含め終了させておいた方が良いでしょう。 (常駐秀丸の終了方法は、「<a href="HME0053A.html">[HME0053A]●「常駐秀丸の終了」がわかりません</a>」を参照)</p>
 <ul>
-<li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank">�G�܂邨�̃z�[���y�[�W</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank">�\�t�g�E�F�A</a> - <a href="https://hide.maruo.co.jp/software/hmspell.html" class="externallink" target="_blank">�G�ۃX�y���`�F�b�N�A�h�C��</a></p>
-<p>2020/11/03���݁A�ȉ��̃o�[�W���������J����Ă��܂��B</p>
+<li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank" rel="noopener">ソフトウェア</a> - <a href="https://hide.maruo.co.jp/software/hmspell.html" class="externallink" target="_blank" rel="noopener">秀丸スペルチェックアドイン</a></p>
+<p>2020/12/13現在、以下のバージョンが公開されています。</p>
 <ul>
 <li>Ver1.05</li>
 </ul></li>
 </ul>
-<p>32bit/64bit���ʂ̃C���X�g�[���[�ɂȂ��Ă��āA���s���32bit/64bit�̑I�����\�ł��B</p>
-<p>32/64bit �����̏G�ۃG�f�B�^���C���X�g�[������Ă��Ȃ���Η����L���ɂȂ鎖�͂���܂��񂪁A�g�p���Ă���G�ۃG�f�B�^�Ɠ��� bit�� ��I�����A�C���X�g�[�����s���Ă��������B</p>
-<p><img src="6_spellcheck_03.png" width="434" height="233" alt="�G�ۃX�y���`�F�b�N�A�h�C���C���X�g�[��" /><br />
+<p>32bit/64bit共通のインストーラーになっていて、実行後に32bit/64bitの選択が可能です。</p>
+<p>32/64bit 両方の秀丸エディタがインストールされていなければ両方有効になる事はありませんが、使用している秀丸エディタと同じ bit数 を選択し、インストールを行ってください。</p>
+<p><img src="6_spellcheck_03.png" width="434" height="233" alt="秀丸スペルチェックアドインインストール" /><br />
 </p>
-<p>�ȏ�ŁA�G�ۃG�f�B�^��ŃX�y���`�F�b�N���s�����߂̃\�t�g�̃C���X�g�[���͏I���ł��B</p>
-<h3 id="SPELLCHECK">�y2�z�X�y���`�F�b�N���s���ɂ�</h3>
-<p>�ȍ~�́A�p��̎����t�@�C�����g�p���Ă���ꍇ�̐����ɂȂ�܂��B</p>
-<p>�X�y���`�F�b�N�����s����ɂ́A�u�\���v���j���[�ɂ���u�����X�y���`�F�b�N�v�Őݒ肵�܂��B (�u�\���v���j���[�ɂȂ��ꍇ�́A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v����s���Ă�������)</p>
-<p><img src="6_spellcheck_04.png" width="407" height="330" alt="�����X�y���`�F�b�N���j���[" /><br />
+<p>以上で、秀丸エディタ上でスペルチェックを行うためのソフトのインストールは終了です。</p>
+<h3 id="SPELLCHECK">【2】スペルチェックを行うには</h3>
+<p>以降は、英語の辞書ファイルを使用している場合の説明になります。</p>
+<p>スペルチェックを実行するには、「表示」メニューにある「自動スペルチェック」で設定します。 (「表示」メニューにない場合は、「<span class="filetype">ファイルタイプ別の設定</span>」から行ってください)</p>
+<p><img src="6_spellcheck_04.png" width="407" height="330" alt="自動スペルチェックメニュー" /><br />
 </p>
-<p>�܂��A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v������u�����X�y���`�F�b�N�v��ON/OFF�\�ł��B</p>
-<p><img src="6_spellcheck_05.png" width="534" height="262" alt="�t�@�C���^�C�v�ʐݒ�-�X�y���`�F�b�N" /><br />
+<p>また、「<span class="filetype">ファイルタイプ別の設定</span>」からも「自動スペルチェック」をON/OFF可能です。</p>
+<p><img src="6_spellcheck_05.png" width="534" height="262" alt="ファイルタイプ別設定-スペルチェック" /><br />
 </p>
-<p>�Ⴆ�΁A�ȉ��̂悤�ɁuHidemaru Editor�v�Ɠ��͂��A�u�����X�y���`�F�b�N�v��L���ɂ��܂��B����ƁA�����ɓo�^����Ă���uEditor�v�͖�肠��܂��񂪁A�����ɂȂ��uHidemaru�v�̕�����<span class="ul_red_wave"><strong>�Ԃ��g����̉���</strong></span>��������܂��B</p>
-<p><img src="6_spellcheck_08.png" width="247" height="129" alt="�X�y���~�X�̗�" /><br />
+<p>例えば、以下のように「Hidemaru Editor」と入力し、「自動スペルチェック」を有効にします。すると、辞書に登録されている「Editor」は問題ありませんが、辞書にない「Hidemaru」の部分に<span class="ul_red_wave"><strong>赤い波線状の下線</strong></span>が引かれます。</p>
+<p><img src="6_spellcheck_08.png" width="247" height="129" alt="スペルミスの例" /><br />
 </p>
-<p>���̏�ԂɂȂ�΁A<span class="attention_red">�X�y���`�F�b�N������ɓ��삵�Ă���</span>���ƂɂȂ�܂��B�Ȃ�Ȃ��ꍇ�́A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v����u�G�ۃX�y���`�F�b�N�A�h�C���̐ݒ�v���J���A�uaspell.exe�̏ꏊ�w��v���u�ʎw��v�Œ��ڎw�肵�Ă݂Ă��������B</p>
-<p>�X�y���`�F�b�N�̏ڍאݒ�́A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v����s���܂��B</p>
+<p>この状態になれば、<span class="attention_red">スペルチェックが正常に動作している</span>ことになります。ならない場合は、「<span class="filetype">ファイルタイプ別の設定</span>」から「秀丸スペルチェックアドインの設定」を開き、「aspell.exeの場所指定」を「個別指定」で直接指定してみてください。</p>
+<p>スペルチェックの詳細設定は、「<span class="filetype">ファイルタイプ別の設定</span>」から行います。</p>
 <ul>
-<li><p>�����X�y���`�F�b�N�v��ON/OFF</p></li>
-<li><p>�X�y���`�F�b�N���s������̎w��</p></li>
-<li><p>�u�G�ۃX�y���`�F�b�N�A�h�C���̐ݒ�v</p>
-<p><img src="6_spellcheck_06.png" width="441" height="446" alt="�G�ۃX�y���`�F�b�N�A�h�C���̐ݒ�" /><br />
+<li><p>自動スペルチェック」のON/OFF</p></li>
+<li><p>スペルチェックを行う言語の指定</p></li>
+<li><p>「秀丸スペルチェックアドインの設定」</p>
+<p><img src="6_spellcheck_06.png" width="441" height="446" alt="秀丸スペルチェックアドインの設定" /><br />
 </p>
 <ul>
-<li><p>�l�����t�@�C���̕ۑ��t�H���_<br />
-�_�E�����[�h���������t�@�C���ɂȂ��P����A�l�����ɓo�^�\�ł��B���̕ۑ��ꏊ��ݒ肵�܂��B</p>
-<p><span class="btn-push">�u�l�����t�@�C�����J���v</span> �{�^���ŁA�l�����t�@�C�����G�ۃG�f�B�^�ŊJ�������\�ł��B���ꂪ�\�������̂ŁA�ҏW���錾���I�����Ă��������B</p></li>
-<li><p>aspell.exe�̏ꏊ�w��<br />
-�ʏ�̓��W�X�g�����Ȃǂ��玩���I�ɃC���X�g�[������������܂����A�蓮�ŃC���X�g�[�������ꍇ�Ȃǂ́A�����鎖���o�����ɃX�y���`�F�b�N�����삵�܂���B�X�y���`�F�b�N�����삵�Ȃ��ꍇ�́Aaspell.exe �̏ꏊ���w�肵�Ă��������B</p></li>
-<li><p>�u�X�y���~�X�C���_�C�A���O�̃t�H���g�T�C�Y�v��A�_�C�A���O�ʒu���Œ肷�邩�ǂ����̐ݒ���o���܂��B</p></li>
+<li><p>個人辞書ファイルの保存フォルダ<br />
+ダウンロードした辞書ファイルにない単語を、個人辞書に登録可能です。その保存場所を設定します。</p>
+<p><span class="btn-push">「個人辞書ファイルを開く」</span> ボタンで、個人辞書ファイルを秀丸エディタで開く事が可能です。言語が表示されるので、編集する言語を選択してください。</p></li>
+<li><p>aspell.exeの場所指定<br />
+通常はレジストリ情報などから自動的にインストール先を検索しますが、手動でインストールした場合などは、見つける事が出来ずにスペルチェックが動作しません。スペルチェックが動作しない場合は、aspell.exe の場所を指定してください。</p></li>
+<li><p>「スペルミス修正ダイアログのフォントサイズ」や、ダイアログ位置を固定するかどうかの設定も出来ます。</p></li>
 </ul></li>
-<li><p>�u�X�y���~�X�̐F�v<br />
-�X�y���~�X�������������@��ݒ�ł��܂��B�f�t�H���g�͐Ԃ̔g���̃A���_�[���C���ɂȂ�܂��B</p>
-<p><img src="6_spellcheck_07.png" width="259" height="209" alt="�X�y���~�X�̐F�ݒ�" /> <img src="6_spellcheck_08.png" width="247" height="129" alt="�X�y���~�X�̗�" /><br />
+<li><p>「スペルミスの色」<br />
+スペルミス部分を示す方法を設定できます。デフォルトは赤の波線のアンダーラインになります。</p>
+<p><img src="6_spellcheck_07.png" width="259" height="209" alt="スペルミスの色設定" /> <img src="6_spellcheck_08.png" width="247" height="129" alt="スペルミスの例" /><br />
 </p></li>
-<li><p>�u�X�y���`�F�b�N�̑Ώہv<br />
-�`�F�b�N�����ӏ����A�X�y���`�F�b�N�Ώۂɂ���/���Ȃ� ��ݒ肵�܂��B<br />
-(�摜�͉��H���ĂȂ�����ԁB���ۂ͏������_�C�A���O�ŕ\������܂�)</p>
-<p>�ʐݒ�͖����ŁA�܂Ƃ߂Ă����ݒ�ł��܂���B(�`�F�b�N�����ӏ����A�Ώۂɂ��邩���O���邩�̂ǂ��炩�ɐݒ�)</p>
-<p><img src="6_spellcheck_09.png" width="308" height="565" alt="�X�y���`�F�b�N�Ώېݒ�" /><br />
+<li><p>「スペルチェックの対象」<br />
+チェックした箇所を、スペルチェック対象にする/しない を設定します。<br />
+(画像は加工してつなげた状態。実際は小さいダイアログで表示されます)</p>
+<p>個別設定は無理で、まとめてしか設定できません。(チェックした箇所を、対象にするか除外するかのどちらかに設定)</p>
+<p><img src="6_spellcheck_09.png" width="308" height="565" alt="スペルチェック対象設定" /><br />
 </p></li>
 </ul>
-<h3 id="SPELLMISS">�y3�z�X�y���~�X�̏C��</h3>
-<p>�X�y���`�F�b�N�̃~�X������ӏ��ɑ΂��āA�C�����o���܂��B</p>
-<p>�u���̑��v���j���[����u�X�y���~�X�̏C���v��I�ԂƁA�J�[�\���ʒu������ɂ���X�y���~�X�����������E�ړ����A�u�X�y���~�X�̏C���v�_�C�A���O���\������܂��B (�J�[�\���ȍ~�ɃX�y���~�X���Ȃ��ꍇ�́A�t�@�C���̐擪���猟��)</p>
-<p>�p�ɂɁu�X�y���~�X�̏C���v���g���ꍇ�́A�u�X�y���~�X�̏C���v���u�V���[�g�J�b�g�L�[�v��u�c�[���o�[�v�ɓo�^���Ă����̂��ǂ��ł��傤�B (�o�^���@�́A�u<a href="3_macro.html">�G�ۃ}�N���̂���͂ɂقւƁ@�}�N�������s���Ă݂悤</a>�v���Q�ƁB�u�c�[���o�[�v�ɓo�^����ꍇ�́A�u���ׂẴR�}���h��\���v�Ƀ`�F�b�N�����u���̑��v����I�����鎖)</p>
-<p>�Ⴆ�΁A�ȉ��̂悤�ȃX�y���~�X�������ԂŁA�u�X�y���~�X�̏C���v�����s���Ă݂܂��B</p>
-<p><img src="6_spellcheck_08.png" width="247" height="129" alt="�X�y���~�X�̗�" /><br />
+<h3 id="SPELLMISS">【3】スペルミスの修正</h3>
+<p>スペルチェックのミスがある箇所に対して、修正が出来ます。</p>
+<p>「その他」メニューから「スペルミスの修正」を選ぶと、カーソル位置から後ろにあるスペルミス部分を検索・移動し、「スペルミスの修正」ダイアログが表示されます。 (カーソル以降にスペルミスがない場合は、ファイルの先頭から検索)</p>
+<p>頻繁に「スペルミスの修正」を使う場合は、「スペルミスの修正」を「ショートカットキー」や「ツールバー」に登録しておくのが良いでしょう。 (登録方法は、「<a href="3_macro.html">秀丸マクロのいろはにほへと　マクロを実行してみよう</a>」を参照。「ツールバー」に登録する場合は、「すべてのコマンドを表示」にチェックを入れ「その他」から選択する事)</p>
+<p>例えば、以下のようなスペルミスがある状態で、「スペルミスの修正」を実行してみます。</p>
+<p><img src="6_spellcheck_08.png" width="247" height="129" alt="スペルミスの例" /><br />
 </p>
-<p>�u�X�y���~�X�̏C���v�����s����ƁA�uHidemaru�v����������A�u�X�y���~�X�̏C���v�_�C�A���O�Ɂu�C���̌��v��\�����܂��B�X�y���~�X�ΏۂɂȂ��Ă���P��ɑ΂��A�e�폈�����s�������o���܂��B</p>
-<p><img src="6_spellcheck_10.png" width="640" height="443" alt="�X�y���~�X�̏C��" /><br />
+<p>「スペルミスの修正」を実行すると、「Hidemaru」が検索され、「スペルミスの修正」ダイアログに「修正の候補」を表示します。スペルミス対象になっている単語に対し、各種処理を行う事が出来ます。</p>
+<p><img src="6_spellcheck_10.png" width="640" height="443" alt="スペルミスの修正" /><br />
 </p>
 <dl>
-<dt><span class="btn-push">����</span></dt>
-<dd>�X�y���~�X�Ώۂ̒P��𖳎�����(�C�����Ȃ���)�A���̃X�y���~�X�ӏ��Ɉړ����܂��B
+<dt><span class="btn-push">無視</span></dt>
+<dd>スペルミス対象の単語を無視して(修正しないで)、次のスペルミス箇所に移動します。
 </dd>
-<dt><span class="btn-push">���ׂĖ���</span></dt>
-<dd>�X�y���~�X�Ώۂ̒P��Ɠ����P�ꂪ�����Ă��A�ȍ~�͑S�Ė�������(�C�����Ȃ�)�Ώۂɂ��܂��B
+<dt><span class="btn-push">すべて無視</span></dt>
+<dd>スペルミス対象の単語と同じ単語があっても、以降は全て無視する(修正しない)対象にします。
 </dd>
-<dt><span class="btn-push">�u��</span></dt>
-<dd>�X�y���~�X�Ώۂ̒P����A�I�������u���v�ƒu�����܂��B���X�g����I���������e�����ł͂Ȃ��A�u���v�Ɏ����œ��͂������e�ɂ��u���\�ł��B
+<dt><span class="btn-push">置換</span></dt>
+<dd>スペルミス対象の単語を、選択した「候補」と置換します。リストから選択した内容だけではなく、「候補」に自分で入力した内容にも置換可能です。
 </dd>
-<dt><span class="btn-push">���ׂĒu��</span></dt>
-<dd>���݂̈ʒu�ȍ~�ɂ���A�X�y���~�X�Ώۂ̒P����A�S�đI�������u���v�ƒu�����܂��B
+<dt><span class="btn-push">すべて置換</span></dt>
+<dd>現在の位置以降にある、スペルミス対象の単語を、全て選択した「候補」と置換します。
 </dd>
-<dt><span class="btn-push">�l�����ɒǉ�</span></dt>
-<dd>�X�y���~�X�Ώۂ̒P����A�l�����֒ǉ����܂��B�l�����֒ǉ�����ƁA����̓X�y���~�X�ł͂Ȃ��Ȃ�܂��B
+<dt><span class="btn-push">個人辞書に追加</span></dt>
+<dd>スペルミス対象の単語を、個人辞書へ追加します。個人辞書へ追加すると、今後はスペルミスではなくなります。
 </dd>
-<dt><span class="btn-push">�������Œǉ�(�������Ōl�����ɒǉ�)</span></dt>
-<dd>�X�y���~�X�Ώۂ̒P����A�������ɕϊ����Čl�����ɒǉ����܂��B�������œo�^���Ă����ƁA�擪���啶���̏ꍇ��S���啶���̏ꍇ���A�����P��ƔF�����܂��B
+<dt><span class="btn-push">小文字で追加(小文字で個人辞書に追加)</span></dt>
+<dd>スペルミス対象の単語を、小文字に変換して個人辞書に追加します。小文字で登録しておくと、先頭が大文字の場合や全部大文字の場合も、同じ単語と認識します。
 </dd>
-<dt><span class="btn-push">���f</span></dt>
-<dd>�X�y���~�X�̏C�����I�����܂��B
+<dt><span class="btn-push">中断</span></dt>
+<dd>スペルミスの修正を終了します。
 </dd>
-<dt><span class="btn-push">�l�����̕ҏW</span></dt>
-<dd>�l�����t�@�C�����G�ۃG�f�B�^�ŊJ���܂��B
+<dt><span class="btn-push">個人辞書の編集</span></dt>
+<dd>個人辞書ファイルを秀丸エディタで開きます。
 </dd>
 </dl>
-<h3 id="SUPPLEMENTATION">�y4�z�⑫</h3>
+<h3 id="SUPPLEMENTATION">【4】補足</h3>
 <div class="mark_dt">
 <dl>
-<dt>�X�y���`�F�b�N�A�h�C���̃A���C���X�g�[��</dt>
-<dd><p>�C���X�g�[������C���X�g�[�����s���܂������A�A���C���X�g�[���͎蓮�ōs���K�v������܂��B�u�v���O�����Ƌ@�\�v��u�A�v���Ƌ@�\�v����̓A���C���X�g�[���ł��܂���B�蓮�ŃA���C���X�g�[������ɂ͏������K�v�Ȃ̂ŁA�u�X�y���`�F�b�N�A�h�C���v�̃w���v���悭�ǂޕK�v������܂��B</p>
-<p>�n�߂ɁA�G�ۃG�f�B�^��S�ďI����������Ԃɂ��܂��B</p>
-<p>�u�X�y���`�F�b�N�p�̌l�����t�@�C���v��K�v�ɉ����č폜���Ă��������B�u�X�y���`�F�b�N�p�̌l�����t�@�C���v�̂���ꏊ�́A�f�t�H���g�̏ꍇ�u�}�C�h�L�������g�ɂ���aspell �t�H���_�v�ɂȂ�܂��B (GNU Aspell���A�X�y���`�F�b�N�A�h�C���݂̂Ŏg�p���Ă�ꍇ�͍폜���Ă����v�ł����A���ł��g���Ă���ꍇ�͍폜���Ȃ����������ł��傤)</p>
-<p>���Ŏg���Ă��Ȃ��ꍇ�́AGNU Aspell�Ǝ������폜���܂��B�u�v���O�����Ƌ@�\�v��u�A�v���Ƌ@�\�v����A���C���X�g�[�����Ă��������B</p>
-<p>���j���[�ɂ���u�����X�y���`�F�b�N�v����\�����Ȃ��悤�ɂ���ɂ́A���W�X�g����ҏW����K�v������܂��B�ҏW�ӏ��́A�u�X�y���`�F�b�N�A�h�C���v�̃w���v�ɋL�ڂ���Ă��܂��B���W�X�g���̕ҏW�Ɏ��M�̂Ȃ�����A�����������W�X�g���̕ҏW���@���킩��Ȃ��ꍇ�́A���̂܂܂ɂ��Ă����Ă��������B</p>
-<p>�Ō�ɁA�G�ۃG�f�B�^�{�̂Ɠ����ꏊ�ɂ���A�uHmSpell.dll�v�A�uHmSpell.chm�v���폜���܂��B</p>
-<p>����Ń��j���[�Ɂu�����X�y���`�F�b�N�v�����\������Ă��Ă��A�X�y���`�F�b�N�͓��삵�܂���B</p>
+<dt>スペルチェックアドインのアンインストール</dt>
+<dd><p>インストーラからインストールを行いましたが、アンインストールは手動で行う必要があります。「プログラムと機能」や「アプリと機能」からはアンインストールできません。手動でアンインストールするには準備が必要なので、「スペルチェックアドイン」のヘルプをよく読む必要があります。</p>
+<p>始めに、秀丸エディタを全て終了させた状態にします。</p>
+<p>「スペルチェック用の個人辞書ファイル」を必要に応じて削除してください。「スペルチェック用の個人辞書ファイル」のある場所は、デフォルトの場合「マイドキュメントにあるaspell フォルダ」になります。 (GNU Aspellを、スペルチェックアドインのみで使用してる場合は削除しても大丈夫ですが、他でも使っている場合は削除しない方がいいでしょう)</p>
+<p>他で使っていない場合は、GNU Aspellと辞書を削除します。「プログラムと機能」や「アプリと機能」からアンインストールしてください。</p>
+<p>メニューにある「自動スペルチェック」等を表示しないようにするには、レジストリを編集する必要があります。編集箇所は、「スペルチェックアドイン」のヘルプに記載されています。レジストリの編集に自信のない方や、そもそもレジストリの編集方法がわからない場合は、そのままにしておいてください。</p>
+<p>最後に、秀丸エディタ本体と同じ場所にある、「HmSpell.dll」、「HmSpell.chm」を削除します。</p>
+<p>これでメニューに「自動スペルチェック」等が表示されていても、スペルチェックは動作しません。</p>
 </dd>
-<dt>�X�y���`�F�b�N�A�h�C���̐ݒ�ɂ���</dt>
-<dd><p>�X�y���`�F�b�N�A�h�C���P�ƂŐݒ���C���|�[�g/�G�N�X�|�[�g������@�͂���܂���B�G�ۃG�f�B�^�́u�ݒ���e�̕ۑ�/�����v���s���΁A�G�ۃG�f�B�^�{�̂̐ݒ�ƈꏏ�ɁA�ۑ�/�����o���܂��B</p>
-<p>�ݒ���e�������Ȃ��̂ŁA�u�G�ۃX�y���`�F�b�N�A�h�C���̐ݒ�v�_�C�A���O��\�������A�ݒ��ʂ��L���v�`���[���ĕۑ����A�����悤�ɐݒ肷��΂����ł��傤�B</p>
-<p>�ݒ��ʂ��L���v�`���[����ɂ́A�_�C�A���O���A�N�e�B�u�ȏ�ԂŁA<kbd>[Alt]</kbd>+<kbd>[Print Screen]</kbd>�L�[�������܂��B�N���b�v�{�[�h�ɃL���v�`������Ă���̂ŁA�y�C���g���ɓ\��t���ĕۑ����Ă��������B</p>
+<dt>スペルチェックアドインの設定について</dt>
+<dd><p>スペルチェックアドイン単独で設定をインポート/エクスポートする方法はありません。秀丸エディタの「設定内容の保存/復元」を行えば、秀丸エディタ本体の設定と一緒に、保存/復元出来ます。</p>
+<p>設定内容も多くないので、「秀丸スペルチェックアドインの設定」ダイアログを表示させ、設定画面をキャプチャーして保存し、同じように設定すればいいでしょう。</p>
+<p>設定画面をキャプチャーするには、ダイアログがアクティブな状態で、<kbd>[Alt]</kbd>+<kbd>[Print Screen]</kbd>キーを押します。クリップボードにキャプチャされているので、ペイント等に貼り付けて保存してください。</p>
 </dd>
 </dl>
 </div>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

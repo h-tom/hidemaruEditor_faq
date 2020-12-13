@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0015A] ���g���q�̔F�� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0015A] ●拡張子の認識 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,45 +21,45 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0014A.html">���O��</a> <a href="HMM0016A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0014A.html">←前へ</a> <a href="HMM0016A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0015a">[HMM0015A]</h1>
-<h2 id="HMM0015A_01">���g���q�̔F��</h2>
+<h2 id="HMM0015A_01">●拡張子の認識</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�ҏW���̃t�@�C���̊g���q�𒲂ׂ����̂ł����B</strong>
+<dd><strong>編集中のファイルの拡張子を調べたいのですが。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�傫�������āA���� 2 �̕��@������܂��B</p>
+<dd><p>大きく分けて、次の 2 つの方法があります。</p>
 <ol type="1">
-<li><p>�L�[���[�h filetype ���g���B</p>
-<p>filetype �L�[���[�h�𗘗p���邱�Ƃɂ��A<code>�u.�v</code>+�g���q���擾�ł��܂��B</p>
-<p>�Ȃ��A�u�V�K�v�A�ugrep�̌��ʁv�A�v���O�����̕W���o�͂ɂ��u���s���ʁv�̏ꍇ�A�e�X�unew�v�ugrep�v�uexeresult�v�Ƃ������܂����������Ԃ��܂��B</p>
+<li><p>キーワード filetype を使う。</p>
+<p>filetype キーワードを利用することにより、<code>「.」</code>+拡張子を取得できます。</p>
+<p>なお、「新規」、「grepの結果」、プログラムの標準出力による「実行結果」の場合、各々「new」「grep」「exeresult」という決まった文字列を返します。</p>
 <dl>
-<dt><span class="mark_dt3">[�⑫]</span></dt>
-<dd><p>�G�ۃG�f�B�^�̋N���I�v�V�����ŁA"/c"�I�v�V�������w�肵���ꍇ��Asetfiletype�����g�����ꍇ�́A���t�@�C���̊g���q�ƁAfiletype�Ŏ擾�ł���g���q����v���܂���B����́A�ݒ�������I�ɕύX���Ă���ׂ̎d�l�ɂȂ�܂��B (<a href="https://log.maruo.co.jp/turukame/turukame_3/x0701567.html#1568" class="externallink" target="_blank">turukame.3:01568</a>���Q��)</p>
-<p>�܂�Afiletype�L�[���[�h�ł́A�ҏW���Ă���t�@�C���̊g���q�𐳊m�Ɏ擾�ł��Ȃ��ꍇ������Ƃ������ƂɂȂ�܂��B</p>
-<p>�ݒ�̎�ނ��擾�������ꍇ�� filetype�L�[���[�h���A���t�@�C���̊m���Ȋg���q���K�v�ȏꍇ�́A basename ���A�t�@�C�������擾����L�[���[�h����擾���Ă��������B</p>
+<dt><span class="mark_dt3">[補足]</span></dt>
+<dd><p>秀丸エディタの起動オプションで、"/c"オプションを指定した場合や、setfiletype文を使った場合は、実ファイルの拡張子と、filetypeで取得できる拡張子が一致しません。これは、設定を強制的に変更している為の仕様になります。 (<a href="https://log.maruo.co.jp/turukame/turukame_3/x0701567.html#1568" class="externallink" target="_blank" rel="noopener">turukame.3:01568</a>を参照)</p>
+<p>つまり、filetypeキーワードでは、編集しているファイルの拡張子を正確に取得できない場合があるということになります。</p>
+<p>設定の種類を取得したい場合は filetypeキーワードを、実ファイルの確実な拡張子が必要な場合は、 basename 等、ファイル名を取得するキーワードから取得してください。</p>
 </dd>
 </dl></li>
-<li><p><strong>�����񂩂�g���q���擾�������ꍇ</strong><br />
-�ҏW���̃t�@�C���łȂ��ADLL �� DDE �T�[�o�Ȃǂ̊O���\�t�g�E�F�A��Agettext���𗘗p���āA���Ɏ擾�ς݂̕����񂩂�g���q���擾�������ꍇ�́A <a href="HMM0074A.html">[HMM0074A]��������̌�����當���������</a> ���Q�Ƃ��ĉ������B (�������"."���������A��������g���q��؂�o��)</p>
-<p>���̑��ɂ͈ȉ��̕��@������܂��B</p>
+<li><p><strong>文字列から拡張子を取得したい場合</strong><br />
+編集中のファイルでなく、DLL や DDE サーバなどの外部ソフトウェアや、gettext等を利用して、既に取得済みの文字列から拡張子を取得したい場合は、 <a href="HMM0074A.html">[HMM0074A]●文字列の後方から文字列を検索</a> を参照して下さい。 (後方から"."を検索し、そこから拡張子を切り出す)</p>
+<p>その他には以下の方法もあります。</p>
 <ul>
-<li><p>hmjre.dll ���g�p���A���K�\���������g���B(dllfunc���g��)</p>
-<p>��) �u.+(.[^.]+)�v���������A�^�O�̈ʒu(���ʓ��͈̔�)��؂�o���B</p></li>
-<li><p>COM�Ăяo���@�\���g�p���A"Scripting.FileSystemObject"��"GetExtensionName"���\�b�h���g���B</p>
-<p>"GetExtensionName"���\�b�h�́Afiletype�L�[���[�h�ƈႢ�A<code>"."</code>(�h�b�g)���܂܂Ȃ��������Ԃ��܂��B�܂��A�������ɐ��K���͂���Ă��Ȃ��̂ŁA���ӂ��K�v�ł��B</p></li>
+<li><p>hmjre.dll を使用し、正規表現検索を使う。(dllfuncを使う)</p>
+<p>例) 「.+(.[^.]+)」を検索し、タグの位置(括弧内の範囲)を切り出す。</p></li>
+<li><p>COM呼び出し機能を使用し、"Scripting.FileSystemObject"の"GetExtensionName"メソッドを使う。</p>
+<p>"GetExtensionName"メソッドは、filetypeキーワードと違い、<code>"."</code>(ドット)を含まない文字列を返します。また、小文字に正規化はされていないので、注意が必要です。</p></li>
 </ul></li>
 </ol>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0014A.html">���O��</a> <a href="HMM0016A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0014A.html">←前へ</a> <a href="HMM0016A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

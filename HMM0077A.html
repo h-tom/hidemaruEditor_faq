@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0077A] ���}�N���ł̕�����̔�r - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0077A] ●マクロでの文字列の比較 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,60 +21,60 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0076A.html">���O��</a> <a href="HMM0078A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0076A.html">←前へ</a> <a href="HMM0078A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0077a">[HMM0077A]</h1>
-<h2 id="HMM0077A_01">���}�N���ł̕�����̔�r</h2>
+<h2 id="HMM0077A_01">●マクロでの文字列の比較</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�}�N����if���ŕ�����̔�r�͂ł��܂���? �P���ɁAif ($a &lt; $b)�ȂǂƔ�r����ƁA���X��r���ʂ��ςɊ�����̂ł����c�B</strong>
+<dd><strong>マクロのif文で文字列の比較はできますか? 単純に、if ($a &lt; $b)などと比較すると、時々比較結果が変に感じるのですが…。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�ł��܂��B</p>
-<p>�������A��r�̃��[���͕����R�[�h���ł͂Ȃ��A�����������ƂȂ�܂��B</p>
-<p>�召��r������ꍇ�͒��ӂ��K�v�ł��B�����������̃��[���͈ȉ��̂悤�ɂȂ��Ă���悤�ł��B</p>
-<p>(�ȉ��́A�{�p���`���M�҂��Ǝ��ɒ����������ʂ���ɋL�q���Ă��܂��B���̃��[���Ɋ�Â��Ȃ����ʂɂȂ邱�Ƃ����邩������܂���)</p>
-<p>��Ɏ������͂��ׂĐ^�ł��B</p>
+<dd><p>できます。</p>
+<p>ただし、比較のルールは文字コード順ではなく、辞書引き順となります。</p>
+<p>大小比較をする場合は注意が必要です。辞書引き順のルールは以下のようになっているようです。</p>
+<p>(以下は、本Ｑ＆Ａ執筆者が独自に調査した結果を基に記述しています。このルールに基づかない結果になることがあるかもしれません)</p>
+<p>例に示す式はすべて真です。</p>
 <p><strong>(1-a)</strong></p>
-<div class="line-block">������S�̂̊֌W�́A�L�� &lt; �p�� &lt; ���� &lt; ���� �ƂȂ�B<br />
-�p�����m�̔�r�͑啶��/�������A�S�p/���p�̋�ʂȂ��A�p�����ɑ傫���Ɣ��f�����B<br />
+<div class="line-block">文字種全体の関係は、記号 &lt; 英字 &lt; かな &lt; 漢字 となる。<br />
+英字同士の比較は大文字/小文字、全角/半角の区別なく、英字順に大きいと判断される。<br />
 <br />
-���ȓ��m�̔�r�́A�Ђ炪��/�J�^�J�i�A�S�p/���p�̋�ʂȂ��A�܏\�����ɑ傫���Ɣ��f�����B���_�A�����_�͂Ȃ����̂ƌ��Ȃ��B<br />
+かな同士の比較は、ひらがな/カタカナ、全角/半角の区別なく、五十音順に大きいと判断される。濁点、半濁点はないものと見なす。<br />
 <br />
-��) "��" &lt; "�A"�i���p�J�^�J�i�j<br />
-��) "a" &lt; "B"<br />
-��) "�A�C"�i���p�J�^�J�i�j &gt; "�A�A"<br />
-��) "�J�N" &lt; "�J�J�P"�i���p�J�^�J�i�j<br />
-��) "�O" &lt; "1"</div>
+例) "ａ" &lt; "ア"（半角カタカナ）<br />
+例) "a" &lt; "B"<br />
+例) "アイ"（半角カタカナ） &gt; "アア"<br />
+例) "カク" &lt; "カ゛ケ"（半角カタカナ）<br />
+例) "０" &lt; "1"</div>
 <p><strong>(1-b)</strong></p>
-<div class="line-block">�������̈Ⴄ�����񓯎m�̔�r�ŁA�Z�����̕�����̒����܂ł�(1-a�̃��[����) ��v���Ă���ꍇ�A�����ق����傫���Ɣ��f�����B<br />
-�� �����̓o�C�g���ł͂Ȃ��������ŃJ�E���g����B<br />
-��) "�`�a�b" &lt; "abc1"</div>
-<p>�����܂łŌ��������Ȃ������ꍇ�ɁA���̃��[����K�p���܂��B</p>
+<div class="line-block">文字数の違う文字列同士の比較で、短い方の文字列の長さまでが(1-aのルールで) 一致している場合、長いほうが大きいと判断される。<br />
+※ 長さはバイト数ではなく文字数でカウントする。<br />
+例) "ＡＢＣ" &lt; "abc1"</div>
+<p>ここまでで決着がつかなかった場合に、次のルールを適用します。</p>
 <p><strong>(2)</strong></p>
-<div class="line-block">&#160;�p���̓��ꕶ���̑啶���Ə������̔�r�ł́A�啶���̂ق����傫���B<br />
-&#160;���Ȃ̓��ꕶ���̔�r�ł́A���̂悤�Ȋ֌W�ƂȂ�B<br />
+<div class="line-block">&#160;英字の同一文字の大文字と小文字の比較では、大文字のほうが大きい。<br />
+&#160;かなの同一文字の比較では、次のような関係となる。<br />
 <br />
-&#160;���_�i�V &lt; ���_�t�� &lt; �����_�t��<br />
+&#160;濁点ナシ &lt; 濁点付き &lt; 半濁点付き<br />
 <br />
-&#160;���p�J�i &lt; �S�p�J�^�J�i &lt; �S�p�Ђ炪��<br />
+&#160;半角カナ &lt; 全角カタカナ &lt; 全角ひらがな<br />
 <br />
-&#160;�� ���_�̗L���̂ق����D�揇�ʂ������B<br />
+&#160;※ 濁点の有無のほうが優先順位が高い。<br />
 <br />
-&#160;��) "ABC" &gt; "abc"<br />
-&#160;��) "�A�C"�i���p�J�^�J�i�j &lt; "�A�C"<br />
-&#160;��) "�J�N" &lt; "�J�J�N"�i���p�J�^�J�i�j</div>
-<p>�����܂ł�2�̕�����ɈႢ�������Ȃ��ꍇ�A2�̕�����͓����ł���Ƃ������ʂɂȂ�܂��B<br />
+&#160;例) "ABC" &gt; "abc"<br />
+&#160;例) "アイ"（半角カタカナ） &lt; "アイ"<br />
+&#160;例) "カク" &lt; "カ゛ク"（半角カタカナ）</div>
+<p>ここまでで2つの文字列に違いが見られない場合、2つの文字列は同じであるという結果になります。<br />
 </p>
-<p>��) "�o"=="�n�J" ������L���Ȃǌ��y���Ă��Ȃ�����������܂��i�ꕔ�A��Q���Q�Ƃ��������j���A�����ŋ����Ă����Ƃ��肪�Ȃ��̂ŁA�����g�Ŋm���߂Ă݂܂��傤�B</p>
+<p>例) "バ"=="ハ゛" 漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、ご自身で確かめてみましょう。</p>
 <hr />
-<p><strong>�i��P�j</strong><br />
-���̃}�N���́A�ҏW���̃e�L�X�g�̃J�[�\���ʒu����A�p�啶���Ŏn�܂�P����擾����1�P�ꂸ�_�C�A���O�{�b�N�X�ɕ\�������悤�Ƃ������̂ł��B</p>
-<p>�t�@�C���̍Ō�ɒB����܂ŌJ��Ԃ��܂��B</p>
+<p><strong>（例１）</strong><br />
+次のマクロは、編集中のテキストのカーソル位置から、英大文字で始まる単語を取得して1単語ずつダイアログボックスに表示させようとしたものです。</p>
+<p>ファイルの最後に達するまで繰り返します。</p>
 <div class="macro">
 <pre><code>gowordtop;
 #x1 = x;
@@ -93,30 +93,30 @@ while( 1 ) {
     #y1 = y;
 }</code></pre>
 </div>
-<p>�p�P�ꂩ�ǂ����̔��f�ɕ�����̔�r���g�p���Ă��܂� (*1 �̍s)�B<br />
-("A"�`"Z"�Ŏn�܂�P����p�P��ł���Ɣ��f) ���̃}�N���͉p�啶���Ŏn�܂�P��݂̂�\������ړI�ō쐬�������̂ł����A�O�q�������[���ɂ��p�������Ŏn�܂�P����\�����Ă��܂��܂��B</p>
-<p>�������p�啶���Ŏn�܂�P��݂̂�\������ɂ́A*1 �̍s�����̂悤�ɕύX���܂��B</p>
+<p>英単語かどうかの判断に文字列の比較を使用しています (*1 の行)。<br />
+("A"〜"Z"で始まる単語を英単語であると判断) このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
+<p>正しく英大文字で始まる単語のみを表示するには、*1 の行を次のように変更します。</p>
 <div class="macro">
 <pre><code>if( ascii($s1) &gt;= &#39;A&#39; &amp;&amp; ascii($s1) &lt;= &#39;Z&#39; ) { // *1</code></pre>
 </div>
-<p>��r�Ώۂ𕶎�(��)�̂܂܂ł͂Ȃ������R�[�h�ɕϊ����Ĕ�r���܂��B<br />
-�� A��Z�݂̈͂��V���O���N�H�[�g�ɕς���Ă��邱�Ƃɒ��ӁB</p>
+<p>比較対象を文字(列)のままではなく文字コードに変換して比較します。<br />
+※ AとZの囲みがシングルクォートに変わっていることに注意。</p>
 <hr />
-<p><strong>�i��Q�j</strong><br />
-��P�̗���܂߂āA�G�ۃG�f�B�^�̕������r�i&lt;, ==, &gt;�̉��Z�q�ōs�����́j��Win32API �� lstrcmp()���g���Ă���̂ŁA���̒ʂ�̃��[���ɂȂ��Ă��܂��B<br />
-���̂��߁A��r���ʂ��ȉ��̂悤�Ȃ�����ƋÂ����H���̂ɂȂ�܂��B</p>
-<div class="line-block">"�p"=="�n�J�J"<br />
-"�S"&lt;"��" //�iShift_JIS, UNICODE�R�[�h���Ƌt�j<br />
-"��"=="C�K"<br />
-"��"=="��Z�Z�Z�Z"<br />
-"���J"=="��"<br />
-"���R"=="����"<br />
-"�R�U"=="�R�R�J"</div>
-<p>�����Ɂi�P���Ɂj���������񂩔�r���s�������ꍇ�́A�ȉ��̂悤�ȕ��@������܂��B</p>
+<p><strong>（例２）</strong><br />
+例１の例を含めて、秀丸エディタの文字列比較（&lt;, ==, &gt;の演算子で行うもの）はWin32API の lstrcmp()を使っているので、その通りのルールになっています。<br />
+そのため、比較結果が以下のようなちょっと凝った？ものになります。</p>
+<div class="line-block">"パ"=="ハ゛゛"<br />
+"⑳"&lt;"∞" //（Shift_JIS, UNICODEコード順と逆）<br />
+"℃"=="C゜"<br />
+"一"=="一〇〇〇〇"<br />
+"◎゛"=="●"<br />
+"㈱ヽ"=="㈱㈱"<br />
+"山ゞ"=="山山゛"</div>
+<p>厳密に（単純に）同じ文字列か比較を行いたい場合は、以下のような方法があります。</p>
 <div class="macro">
-<pre><code>$a = input (&quot;�P��&quot;, &quot;&quot;);
-$b = input (&quot;�Q��&quot;, &quot;&quot;);
-// �G�ۃG�f�B�^�̔�r���Z�q�ɂ�镶�����r (WIN32 API ��lstrcmp()�Ɠ���)
+<pre><code>$a = input (&quot;１個め&quot;, &quot;&quot;);
+$b = input (&quot;２個め&quot;, &quot;&quot;);
+// 秀丸エディタの比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ)
 if ($a == $b) {
     message &quot;$a == $b&quot;;
 } else if ($a &gt; $b) {
@@ -124,30 +124,30 @@ if ($a == $b) {
 } else {
     message &quot;$a &lt; $b&quot;;
 }
-// �����Ȕ�r��
+// 厳密な比較例
 if (($a == &quot;&quot;) &amp;&amp; ($b == &quot;&quot;)) {
 
-    // ��O�I�� strstr(&quot;&quot;, &quot;&quot;) == -1 �ɂȂ�܂��B
-    message &quot;$a �� $b �͋��Ƀk���X�g�����O�ł��B&quot;;
+    // 例外的に strstr(&quot;&quot;, &quot;&quot;) == -1 になります。
+    message &quot;$a と $b は共にヌルストリングです。&quot;;
 } else if ((strlen($a) == strlen($b)) &amp;&amp; (strstr($a, $b) == 0)) {
-    message &quot;�{���� $a �� $b �͓���������ł��B&quot;;
+    message &quot;本当に $a と $b は同じ文字列です。&quot;;
 } else {
-    message &quot;$a �� $b �͈Ⴄ������ł��B&quot;;
+    message &quot;$a と $b は違う文字列です。&quot;;
 }
 endmacro;</code></pre>
 </div>
-<p>�����ȁi�P���ȁj�召�֌W��m�肽���ꍇ�́Aascii�֐����g���ĂP��������r������@������܂��B</p>
+<p>厳密な（単純な）大小関係を知りたい場合は、ascii関数を使って１文字ずつ比較する方法があります。</p>
 <dl>
-<dt><span class="mark_dt3">[���]</span></dt>
-<dd>Win32API �� lstrcmp() �ɂ��Ă̏ڍׂ͈ȉ����Q�Ƃ��Ă��������B<br />
-<a href="https://msdn.microsoft.com/ja-jp/windows/ms647488(v=vs.80)" class="externallink" target="_blank">lstrcmp �֐�</a>
+<dt><span class="mark_dt3">[解説]</span></dt>
+<dd>Win32API の lstrcmp() についての詳細は以下を参照してください。<br />
+<a href="https://msdn.microsoft.com/ja-jp/windows/ms647488(v=vs.80)" class="externallink" target="_blank" rel="noopener">lstrcmp 関数</a>
 </dd>
 </dl>
-<p>�����������̏ڍׂ́A�i�h�r�̓��{�ꕶ����ƍ����� X4061-1996�Œ�`����Ă��܂��B</p>
+<p>辞書引き順の詳細は、ＪＩＳの日本語文字列照合順番 X4061-1996で定義されています。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0076A.html">���O��</a> <a href="HMM0078A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0076A.html">←前へ</a> <a href="HMM0078A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

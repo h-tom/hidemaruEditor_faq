@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�����ۑ�</title>
+  <title>第II部〜知っていると便利な秀丸の機能　自動保存</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,36 +22,36 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\<br>�@�����ۑ�</h1>
+<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　自動保存</h1>
 <hr />
-<h2 id="autosave">�����ۑ�</h2>
-<p>�G�ۃG�f�B�^�ł̓t�@�C�����J���Ă���o�ߎ��Ԃł͂Ȃ��A�u<span class="attention_red">�X�V���ꂽ��</span>�v�Ɓu<span class="attention_red">�x������</span>�v �Ŏ����ۑ��̏����E�ۑ��^�C�~���O��ݒ肵�܂��B</p>
-<p>�u�����ۑ��v�̐ݒ�́A�u<span class="env">�����</span>�v-�u�t�@�C���v-�u�����ۑ��v����s���܂��B�u�����ۑ��v���\������Ȃ��ꍇ�́A�u�㋉�Ҍ����ݒ�v�Ƀ`�F�b�N�����Ă��������B</p>
-<p><img src="2_autosave_01.png" width="613" height="437" alt="�����ۑ��̃_�C�A���O" /><br />
+<h2 id="autosave">自動保存</h2>
+<p>秀丸エディタではファイルを開いている経過時間ではなく、「<span class="attention_red">更新された回数</span>」と「<span class="attention_red">遅延時間</span>」 で自動保存の条件・保存タイミングを設定します。</p>
+<p>「自動保存」の設定は、「<span class="env">動作環境</span>」-「ファイル」-「自動保存」から行います。「自動保存」が表示されない場合は、「上級者向け設定」にチェックを入れてください。</p>
+<p><img src="2_autosave_01.png" width="613" height="437" alt="自動保存のダイアログ" /><br />
 </p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="PROCESS">�ݒ�菇</h3>
-<p>�����ۑ���L���ɂ���ɂ́A�܂��ۑ��ꏊ���w�肵�܂��B</p>
+<h3 id="PROCESS">設定手順</h3>
+<p>自動保存を有効にするには、まず保存場所を指定します。</p>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="�ۑ��ꏊ��ݒ�">�ۑ��ꏊ��ݒ�</h4>
+<h4 id="保存場所を設定">保存場所を設定</h4>
 <div class="mark_dt">
 <dl>
-<dt>���Ȃ�</dt>
-<dd>�����ۑ����Ȃ��B
+<dt>しない</dt>
+<dd>自動保存しない。
 </dd>
-<dt>�e���|�����t�@�C���Ɏ����ۑ�����</dt>
-<dd>���ϐ�TMP�Ŏ������t�H���_�ɓ����t�@�C�����ŕۑ����܂��B<br />
-<span class="btn-push">�u�G�N�X�v���[���v</span>�{�^���ŁA�e���|�����t�H���_���J�������o���܂��B
+<dt>テンポラリファイルに自動保存する</dt>
+<dd>環境変数TMPで示されるフォルダに同じファイル名で保存します。<br />
+<span class="btn-push">「エクスプローラ」</span>ボタンで、テンポラリフォルダを開く事が出来ます。
 </dd>
-<dt>�t�@�C�����X�V����</dt>
-<dd>�ҏW���Ă���t�@�C�����̂��A�ۑ��E�X�V���܂��B
+<dt>ファイルを更新する</dt>
+<dd>編集しているファイル自体を、保存・更新します。
 </dd>
-<dt>�w��t�H���_�Ɏ����ۑ�����</dt>
-<dd><p>�w�肳�ꂽ�t�H���_�ցA�����t�@�C�����ŕۑ����܂��B<br />
-�������݉\�ȃt�H���_���w�肵�Ă��������B<span class="btn-push">�u�c�v</span>�{�^���ŁA�_�C�A���O����I���\�ł��B</p>
-<p>Ver.8.88�ȍ~�A�w��t�H���_�̎w��Ɋ��ϐ����w��ł��܂�(�o�b�`�t�@�C���Ŏw�肷��ꍇ�Ɠ����ŁA%�ň͂ޕK�v����)�B�������A�擪�����̂ݎw��\�ł��B�p�X�̓r���Ɋ��ϐ��̎w��͏o���܂���B</p>
+<dt>指定フォルダに自動保存する</dt>
+<dd><p>指定されたフォルダへ、同じファイル名で保存します。<br />
+書き込み可能なフォルダを指定してください。<span class="btn-push">「…」</span>ボタンで、ダイアログから選択可能です。</p>
+<p>Ver.8.88以降、指定フォルダの指定に環境変数が指定できます(バッチファイルで指定する場合と同じで、%で囲む必要あり)。ただし、先頭部分のみ指定可能です。パスの途中に環境変数の指定は出来ません。</p>
 <div class="macro">
 <pre><code>OK:  %USERPROFILE%\Documents\Hidemaru\AutoSave
 NG:  C:\TEMP\%USERNAME%\Hidemaru\AutoSave</code></pre>
@@ -59,55 +59,55 @@ NG:  C:\TEMP\%USERNAME%\Hidemaru\AutoSave</code></pre>
 <p><br />
 </p>
 </dd>
-<dt>�����t�H���_�ɈႤ�g���q�Ŏ����ۑ�����</dt>
-<dd>�J���Ă���t�@�C���Ɠ����ꏊ�ɁA�t�@�C���� + �g.SAV�h �Ƃ������O�ŁA�ۑ����܂��B
+<dt>同じフォルダに違う拡張子で自動保存する</dt>
+<dd>開いているファイルと同じ場所に、ファイル名 + “.SAV” という名前で、保存します。
 </dd>
 </dl>
 </div>
-<p>�ȉ��́A�e���ڂ̋��ʓ��e�ɂȂ�܂��B</p>
+<p>以下は、各項目の共通内容になります。</p>
 <ul>
-<li>����t�@�C���̏ꍇ�́A�gSAV�`�h�Ƃ����t�@�C�����ŕۑ�����܂��B</li>
-<li>�G�ۃG�f�B�^������ɏI�������ꍇ�A�ꎞ�I�ɍ쐬�����t�@�C���͍폜����܂��B</li>
-<li>�G�ۃG�f�B�^�ُ̈�I�����ŁA�����ۑ��̈ꎞ�t�@�C�����폜����Ă��Ȃ��ꍇ�A�㏑���͍s��ꂸ �gSAV�`�h �Ƃ����t�@�C�����ŕۑ�����܂��B</li>
+<li>無題ファイルの場合は、“SAV〜”というファイル名で保存されます。</li>
+<li>秀丸エディタが正常に終了した場合、一時的に作成したファイルは削除されます。</li>
+<li>秀丸エディタの異常終了等で、自動保存の一時ファイルが削除されていない場合、上書きは行われず “SAV〜” というファイル名で保存されます。</li>
 </ul>
-<h4 id="�ۑ������̐ݒ�">�ۑ������̐ݒ�</h4>
-<p>�w�肳�ꂽ�u<strong>�X�V���ꂽ��</strong>�v���z���A�u<strong>�x������</strong>�v�Őݒ肵�����ԓ��ɓ��́E���삪�Ȃ��ꍇ�A<span class="attention_red">�����ۑ�</span>���s���܂��B</p>
+<h4 id="保存条件の設定">保存条件の設定</h4>
+<p>指定された「<strong>更新された回数</strong>」を越え、「<strong>遅延時間</strong>」で設定した時間内に入力・操作しない場合、<span class="attention_red">自動保存</span>が行われます。</p>
 <div class="mark_dt">
 <dl>
-<dt>�X�V���ꂽ��</dt>
-<dd><p>�ݒ�ł���̂́A1�ȏ�ł��B0(�[��)�����͂ł��܂����A�ŏ��l�� 1 �Ȃ̂ŁA1�ɐݒ肳��܂��B</p>
-<p>�u�X�V���ꂽ�񐔁v�Ƃ����̂́A���e���ύX���ꂽ�񐔂Ƃ����F���ŗǂ��ł��傤�B</p>
-<p>�Ⴆ�΁A�P����10�������͂���ƁA10��X�V�������ɂȂ�܂����A�R�s�[��\��t���A��蒼���AIME���L���œ��{����͂����ꍇ�ȂǁA�������X�V�����Ǝv����񐔂ƈ�v���Ȃ��ꍇ������܂����A���܂�C�ɂ��Ȃ����ł��B�ڈ����x�ɍl���܂��傤�B</p>
+<dt>更新された回数</dt>
+<dd><p>設定できるのは、1以上です。0(ゼロ)も入力できますが、最小値は 1 なので、1に設定されます。</p>
+<p>「更新された回数」というのは、内容が変更された回数という認識で良いでしょう。</p>
+<p>例えば、単純に10文字入力すると、10回更新した事になりますが、コピーや貼り付け、やり直し、IMEが有効で日本語入力した場合など、自分が更新したと思われる回数と一致しない場合がありますが、あまり気にしない事です。目安程度に考えましょう。</p>
 </dd>
-<dt>�x������</dt>
-<dd><p>�ݒ�ł���̂́A0�b�ȏ�ł��B</p>
-<p>�x���Ƃ���܂����A��莞�ԁA���́E�ҏW�ȂǑ��삵�Ȃ����Ԃł��B</p>
-<p>�܂�A�u�x�����ԁv��ݒ肵���ꍇ�A�A���ő���E�ҏW���Ă���ƁA�u�X�V���ꂽ�񐔁v�������Ă��ۑ�����Ȃ��̂Œ��ӂ��K�v�ł��B</p>
+<dt>遅延時間</dt>
+<dd><p>設定できるのは、0秒以上です。</p>
+<p>遅延とありますが、一定時間、入力・編集など操作しない時間です。</p>
+<p>つまり、「遅延時間」を設定した場合、連続で操作・編集していると、「更新された回数」をすぎても保存されないので注意が必要です。</p>
 </dd>
-<dt>�E�B���h�E�؂�ւ��ł����ɕۑ�</dt>
-<dd><p>�ҏW���̏G�ۃG�f�B�^����A�N�e�B�u���(���̃E�B���h�E�ɐ؂�ւ����ꍇ��A�_�C�A���O��\�������ꍇ��)�ɂȂ����ꍇ�A�x�����Ԃ��o�߂��Ă��Ȃ��Ă������ۑ����܂��B</p>
-<p>���������̂́u�x�����ԁv�����Ȃ̂ŁA�u�X�V���ꂽ�񐔁v���z���Ă��Ȃ��ꍇ�́A�����ۑ�����܂���B</p>
+<dt>ウィンドウ切り替えですぐに保存</dt>
+<dd><p>編集中の秀丸エディタが非アクティブ状態(他のウィンドウに切り替えた場合や、ダイアログを表示した場合等)になった場合、遅延時間が経過していなくても自動保存します。</p>
+<p>無視されるのは「遅延時間」だけなので、「更新された回数」を越えていない場合は、自動保存されません。</p>
 </dd>
 </dl>
-<p>�ȉ���2�̐ݒ�́A�����ۑ��̐ݒ肪�u<strong>�t�@�C�����X�V����</strong>�v�̏ꍇ�A�L���ɂȂ�܂��B</p>
+<p>以下の2つの設定は、自動保存の設定が「<strong>ファイルを更新する</strong>」の場合、有効になります。</p>
 <dl>
-<dt>�t���b�s�[�̏ꍇ�͎����ۑ����Ȃ�</dt>
-<dd>�ۑ�����ꏊ���t���b�s�[�f�B�X�N�ɂȂ�ꍇ�A���삪�x���̂ŁA�`�F�b�N���Ă����Ǝ����ۑ��͎��s����܂���B (�t���b�s�[���́A�ߋ��̈╨�ł���)
+<dt>フロッピーの場合は自動保存しない</dt>
+<dd>保存する場所がフロッピーディスクになる場合、動作が遅いので、チェックしておくと自動保存は実行されません。 (フロッピー自体、過去の遺物ですが)
 </dd>
-<dt>�����ۑ����Ă��u(�X�V)�v�͏����Ȃ�</dt>
-<dd>�ʏ�A�t�@�C���ɕۑ������ꍇ�A�^�C�g���o�[�ɂ���u(�X�V)�v�͏����܂����A���̃`�F�b�N��ON �ɂ���ƁA�����ۑ����ɂ́A�u(�X�V)�v�������܂���B<br />
-�u�x�����ԁv���g0�h(zero)�̏ꍇ�́A�`�F�b�N��OFF�ł��A�u(�X�V)�v�������܂���B
+<dt>自動保存しても「(更新)」は消さない</dt>
+<dd>通常、ファイルに保存した場合、タイトルバーにある「(更新)」は消えますが、このチェックをON にすると、自動保存時には、「(更新)」を消しません。<br />
+「遅延時間」が“0”(zero)の場合は、チェックがOFFでも、「(更新)」を消しません。
 </dd>
 </dl>
 </div>
 </div>
-<h3 id="SUPPLEMENTATION">�⑫</h3>
+<h3 id="SUPPLEMENTATION">補足</h3>
 <ul>
-<li>�u�X�V���ꂽ�񐔁v���u1�v�ɐݒ肵�A������x�́u�x�����ԁv��ݒ肵�Ă����ƁA�ҏW�㏭������~�߂��Ƃ��Ɏ����ۑ�����܂��B (�u�X�V���ꂽ�񐔁v���u1�v�ɐݒ肵���ꍇ�́A�K���x�����Ԃ�ݒ肵�܂��傤�B�x�����Ԃ��u0�v�ɂ���ƁA�ҏW���邽�тɎ����ۑ������s����܂�)</li>
-<li>USB�������́A���������̉񐔂̐��������邽�߁A�����ۑ��̏ꏊ�ɂ͎w�肵�Ȃ������ǂ��ł��傤�B</li>
+<li>「更新された回数」を「1」に設定し、ある程度の「遅延時間」を設定しておくと、編集後少し手を止めたときに自動保存されます。 (「更新された回数」を「1」に設定した場合は、必ず遅延時間を設定しましょう。遅延時間を「0」にすると、編集するたびに自動保存が実行されます)</li>
+<li>USBメモリは、書き換えの回数の制限があるため、自動保存の場所には指定しない方が良いでしょう。</li>
 </ul>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

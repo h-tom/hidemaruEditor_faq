@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�����N���}�N��</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　自動起動マクロ</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,122 +22,122 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�����N���}�N��</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　自動起動マクロ</h1>
 <hr />
-<h2 id="INDEX">�����N���}�N��</h2>
-<p>�y�O�z<a href="#ABOUT">�����N���}�N���Ƃ�</a><br />
-�y�P�z<a href="#SETTING">�ݒ���@</a><br />
-�y�Q�z<a href="#MACRO">�}�N�����̏���</a><br />
-�y�R�z<a href="#NOTES">���ӎ���</a></p>
+<h2 id="INDEX">自動起動マクロ</h2>
+<p>【０】<a href="#ABOUT">自動起動マクロとは</a><br />
+【１】<a href="#SETTING">設定方法</a><br />
+【２】<a href="#MACRO">マクロ側の処理</a><br />
+【３】<a href="#NOTES">注意事項</a></p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="ABOUT">�y�O�z�����N���}�N���Ƃ�</h3>
-<p>�}�N�������s����ɂ́A��������̃L�[�����N���I�v�V�����Ŏw�肷��K�v������܂������A�G�ۃG�f�B�^Ver.6.00 ����G�ۃG�f�B�^�̃C�x���g�������Ƀ}�N���������I�Ɏ��s���鎖���\�ɂȂ�܂����B (Ver.6�͈ꕔ�̃C�x���g�̂ݑΉ�)</p>
-<p>�G�ۃG�f�B�^�̃C�x���g�Ƃ́A�ȉ��ɂȂ�܂��B</p>
+<h3 id="ABOUT">【０】自動起動マクロとは</h3>
+<p>マクロを実行するには、何かしらのキー操作や起動オプションで指定する必要がありましたが、秀丸エディタVer.6.00 から秀丸エディタのイベント発生時にマクロを自動的に実行する事が可能になりました。 (Ver.6は一部のイベントのみ対応)</p>
+<p>秀丸エディタのイベントとは、以下になります。</p>
 <ul>
-<li>�t�@�C�����J��������</li>
-<li>�V�K�쐬����</li>
-<li>�ۑ����O�ƒ���</li>
-<li>������O�ƒ���</li>
-<li>�ҏW��^�C�}�[</li>
-<li>�J�[�\���ړ���^�C�}�[</li>
-<li>�t�@�C������钼�O</li>
-<li>�A�N�e�B�u�؂�ւ���</li>
+<li>ファイルを開いた直後</li>
+<li>新規作成直後</li>
+<li>保存直前と直後</li>
+<li>印刷直前と直後</li>
+<li>編集後タイマー</li>
+<li>カーソル移動後タイマー</li>
+<li>ファイルを閉じる直前</li>
+<li>アクティブ切り替え後</li>
 </ul>
-<p>�u�����N���}�N���v�ŉ����֗��ɂȂ邩�́A���s����}�N���ɂ��܂����A�ȉ��̂悤�Ȏ����\�ł��B</p>
+<p>「自動起動マクロ」で何が便利になるかは、実行するマクロによりますが、以下のような事が可能です。</p>
 <ul>
-<li>�u�ۑ����O�v�ɁA����̃G���R�[�h�ŕۑ��ł��Ȃ��������`�F�b�N���Čx�����o���B</li>
-<li>�u�V�K�쐬����v�ɁA�e���v���[�g��}������B</li>
-<li>�u������O�v�ɁA���`����B</li>
+<li>「保存直前」に、現状のエンコードで保存できない文字をチェックして警告を出す。</li>
+<li>「新規作成直後」に、テンプレートを挿入する。</li>
+<li>「印刷直前」に、整形する。</li>
 </ul>
-<p>�u�����N���v�Ȃ̂ŁA�}�N�������s�������Ȃ��t�@�C���ɂ��A�}�N�������s���鎖�ɂȂ�܂��B���ׁ̈A���s����}�N���̓��e�ɂ����܂����A�}�N�����Ŏ��s�������i��ȂǁA�΍􂪕K�v�ȏꍇ������܂��B</p>
-<p>�u�����N���v�ł����A�}�N�����瑀�삵���ꍇ�́A��{�I�Ɂu�����N���v���鎖�͂���܂���B (��O����A��Ő�������)</p>
-<p>�܂�A</p>
+<p>「自動起動」なので、マクロを実行したくないファイルにも、マクロを実行する事になります。その為、実行するマクロの内容にもよりますが、マクロ内で実行条件を絞るなど、対策が必要な場合もあります。</p>
+<p>「自動起動」ですが、マクロから操作した場合は、基本的に「自動起動」する事はありません。 (例外あり、後で説明あり)</p>
+<p>つまり、</p>
 <div class="macro">
-<pre><code>openfile &quot;�`&quot;;</code></pre>
+<pre><code>openfile &quot;〜&quot;;</code></pre>
 </div>
-<p>�Ƃ����}�N�������s���Ă��u�t�@�C�����J��������v�Ŏw�肵���}�N���́A���s����܂���B���[�U�[�����삵���ꍇ�̂ݎ��s����܂��B</p>
-<h3 id="SETTING">�y�P�z�ݒ���@</h3>
-<p>�ʏ�̃}�N���Ɠ����ŁA�u�}�N���v���j���[����A�u�}�N���o�^�v��I�����܂��B</p>
-<p><img src="3_autostartmacro_01.png" width="358" height="226" alt="�}�N���o�^" /><br />
+<p>というマクロを実行しても「ファイルを開いた直後」で指定したマクロは、実行されません。ユーザーが操作した場合のみ実行されます。</p>
+<h3 id="SETTING">【１】設定方法</h3>
+<p>通常のマクロと同じで、「マクロ」メニューから、「マクロ登録」を選択します。</p>
+<p><img src="3_autostartmacro_01.png" width="358" height="226" alt="マクロ登録" /><br />
 </p>
-<p>�u�}�N���o�^�v�_�C�A���O���\�������̂ŁA�u�Ώہv����u�����N���v��I�т܂��B</p>
-<p><img src="3_autostartmacro_02.png" width="634" height="416" alt="�}�N���o�^�_�C�A���O" /><br />
+<p>「マクロ登録」ダイアログが表示されるので、「対象」から「自動起動」を選びます。</p>
+<p><img src="3_autostartmacro_02.png" width="634" height="416" alt="マクロ登録ダイアログ" /><br />
 </p>
 <dl>
-<dt>&#9745;�����N���}�N����L���ɂ���</dt>
-<dd><p>�����N���}�N�����̂��A�L���ɂ���/���Ȃ��̐ݒ�ł��B</p>
-<p>��́A�����N�����������C�x���g�Ƀ`�F�b�N�����A�}�N�����w�肵�܂��B</p>
+<dt>&#9745;自動起動マクロを有効にする</dt>
+<dd><p>自動起動マクロ自体を、有効にする/しないの設定です。</p>
+<p>後は、自動起動させたいイベントにチェックを入れ、マクロを指定します。</p>
 <ul>
-<li>&#9745;�t�@�C�����J��������</li>
-<li>&#9745;�V�K�쐬����</li>
-<li>&#9745;�ۑ����O�ƒ���</li>
-<li>&#9745;������O�ƒ���</li>
-<li>&#9745;�ҏW��^�C�}�[</li>
-<li>&#9745;�J�[�\���ړ���^�C�}�[</li>
-<li>&#9745;�t�@�C������钼�O</li>
-<li>&#9745;�A�N�e�B�u�؂�ւ���</li>
+<li>&#9745;ファイルを開いた直後</li>
+<li>&#9745;新規作成直後</li>
+<li>&#9745;保存直前と直後</li>
+<li>&#9745;印刷直前と直後</li>
+<li>&#9745;編集後タイマー</li>
+<li>&#9745;カーソル移動後タイマー</li>
+<li>&#9745;ファイルを閉じる直前</li>
+<li>&#9745;アクティブ切り替え後</li>
 </ul>
-<p>�u�ҏW��^�C�}�[�v�A�u�J�[�\���ړ���^�C�}�[�v�A�u�A�N�e�B�u�؂�ւ���v�́A�C�x���g���������Ă���A�}�N�������s����܂ł̒x�����Ԃ��ݒ�ł��܂��B(�x�����ԓ��ɑ��삳�ꂽ�ꍇ�́A���s����Ȃ�)</p>
+<p>「編集後タイマー」、「カーソル移動後タイマー」、「アクティブ切り替え後」は、イベントが発生してから、マクロを実行するまでの遅延時間も設定できます。(遅延時間内に操作された場合は、実行されない)</p>
 <dl>
-<dt>&#9745;�L���b�V���t�@�C���������I�ɍ쐬���č���������</dt>
-<dd>����́A���炩���߃}�N�����R���p�C�����Ă����A���s�܂ł̎��Ԃ�����������ׂ̐ݒ�ł��B
+<dt>&#9745;キャッシュファイルを自動的に作成して高速化する</dt>
+<dd>これは、あらかじめマクロをコンパイルしておき、実行までの時間を高速化する為の設定です。
 </dd>
 </dl>
 </dd>
 </dl>
-<p>�w��ł���}�N���́A1�����ł��B�����̃}�N�����w�肷��ꍇ�ɂ́A�N���p�̃}�N����p�ӂ��A���̃}�N���̒�����<code>execmacro��</code> �Ŋe�}�N�������s���鎖�ɂȂ�܂��B</p>
-<p>���̏ꍇ�́A�u�L���b�V���t�@�C���������I�ɍ쐬���č���������v�͈Ӗ��������܂���B</p>
-<h3 id="MACRO">�y�Q�z�}�N�����̏���</h3>
-<p>�����N���}�N���p�Ɉȉ��� �L�[���[�h/�֐�/�� ���p�ӂ���Ă��܂��B�K�v�ɉ����Ďg�p���Ă��������B (�u�ۑ��v�Ɓu����v�̏ꍇ�A�u���O�v�Ɓu����v�����ʂ���̂Ɂugeteventparam �֐��v���g�p���܂�)</p>
-<p>�e�L�[���[�h/�֐�/���̏ڍׂ́A�}�N���w���v��<a href="https://help.maruo.co.jp/hidemac/html/210_Event.html" class="externallink" target="_blank">�u�����N���}�N���v</a>���Q�Ƃ��Ă��������B</p>
+<p>指定できるマクロは、1つだけです。複数のマクロを指定する場合には、起動用のマクロを用意し、そのマクロの中から<code>execmacro文</code> で各マクロを実行する事になります。</p>
+<p>その場合は、「キャッシュファイルを自動的に作成して高速化する」は意味を持ちません。</p>
+<h3 id="MACRO">【２】マクロ側の処理</h3>
+<p>自動起動マクロ用に以下の キーワード/関数/文 が用意されています。必要に応じて使用してください。 (「保存」と「印刷」の場合、「直前」と「直後」を識別するのに「geteventparam 関数」を使用します)</p>
+<p>各キーワード/関数/文の詳細は、マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/210_Event.html" class="externallink" target="_blank" rel="noopener">「自動起動マクロ」</a>を参照してください。</p>
 <dl>
-<dt>event �L�[���[�h</dt>
-<dd>�ǂ̃C�x���g�ŋN�����ꂽ���������܂��B
+<dt>event キーワード</dt>
+<dd>どのイベントで起動されたかを示します。
 </dd>
-<dt>geteventparam �֐�</dt>
-<dd><p>�C�x���g����N�����ꂽ�ꍇ�A�ǂ̂悤�ȏ����ŌĂяo���ꂽ���ȏڍׂȏ����擾���܂��B�C�x���g�ɂ���ĈӖ����ς��܂��B</p>
-<p>�Ⴆ�΁A�u�ۑ��v�Ɓu����v�́u���O�ƒ���v����ʂ���̂ɂ��̊֐����g�p���܂��B</p>
+<dt>geteventparam 関数</dt>
+<dd><p>イベントから起動された場合、どのような条件で呼び出されたかな詳細な情報を取得します。イベントによって意味が変わります。</p>
+<p>例えば、「保存」と「印刷」の「直前と直後」を区別するのにこの関数を使用します。</p>
 </dd>
-<dt>seteventnotify ��</dt>
-<dd><p>�����N���}�N���Ƃ��ČĂяo���ꂽ�Ƃ��A�}�N�����s��̏������G�ۃG�f�B�^�Ɏw�����܂��B�C�x���g�ɂ���ĈӖ����ς��܂��B</p>
-<p>�Ⴆ�΁A�C�x���g���̂𒆒f�����鎖���\�ł��B(�u�t�@�C������钼�O�v�̏ꍇ�A���鏈���𒆒f����)</p>
+<dt>seteventnotify 文</dt>
+<dd><p>自動起動マクロとして呼び出されたとき、マクロ実行後の処理を秀丸エディタに指示します。イベントによって意味が変わります。</p>
+<p>例えば、イベント自体を中断させる事も可能です。(「ファイルを閉じる直前」の場合、閉じる処理を中断する)</p>
 </dd>
-<dt>geteventnotify �֐�</dt>
-<dd>seteventnotify �� �Ŏw�肳�ꂽ�l���擾����B
+<dt>geteventnotify 関数</dt>
+<dd>seteventnotify 文 で指定された値を取得する。
 </dd>
 </dl>
-<h3 id="NOTES">�y�R�z���ӎ���</h3>
+<h3 id="NOTES">【３】注意事項</h3>
 <dl>
-<dt>�u���O�ƒ���v�̌�������</dt>
-<dd><p>�u�ۑ��v�Ɓu����v�ɂ́A�u���O�v�Ɓu����v������܂����A�Ăяo�����}�N����1�ł��B���ׁ̈A�}�N�����Łu���O�v�Ɓu����v�𔻒f����K�v������܂��B</p>
-<p>���f����ɂ́Ageteventparam�֐����g���܂��B�u�ۑ��v�Ɓu����v�ł́A</p>
+<dt>「直前と直後」の見分け方</dt>
+<dd><p>「保存」と「印刷」には、「直前」と「直後」がありますが、呼び出されるマクロは1つです。その為、マクロ内で「直前」と「直後」を判断する必要があります。</p>
+<p>判断するには、geteventparam関数を使います。「保存」と「印刷」では、</p>
 <div class="macro">
 <pre><code>geteventparam(0)</code></pre>
 </div>
-<p>�̖߂�l�Ŕ��肵�A"0" �Ȃ�u���O�v�A"1"�Ȃ�u����v�������܂��B</p>
+<p>の戻り値で判定し、"0" なら「直前」、"1"なら「直後」を示します。</p>
 </dd>
-<dt>�t�@�C�������Ƃ��̃C�x���g</dt>
-<dd><p>�t�@�C�������ꍇ�ɂ́A�ȉ��̏��ԂŃC�x���g���������܂��B(�ۑ��͕ҏW����Ă����ꍇ�̂ݎ��s�����)</p>
+<dt>ファイルを閉じるときのイベント</dt>
+<dd><p>ファイルを閉じる場合には、以下の順番でイベントが発生します。(保存は編集されていた場合のみ実行される)</p>
 <ol type="1">
-<li>�t�@�C������钼�O</li>
-<li>�ۑ����O</li>
-<li>�ۑ�����</li>
+<li>ファイルを閉じる直前</li>
+<li>保存直前</li>
+<li>保存直後</li>
 </ol>
-<p>��Ԃ�ۑ�����悤�ȃ}�N�������s����ꍇ�A�u�t�@�C������钼�O�v�ŏ�Ԃ�ۑ����Ă��A�t�@�C���ۑ��₢���킹�ŁA�u�������v��I��������e��p�������ƁA�ۑ��������e�ƃt�@�C���̓��e����v���Ȃ��Ƃ����󋵂ɂȂ�܂��B</p>
+<p>状態を保存するようなマクロを実行する場合、「ファイルを閉じる直前」で状態を保存しても、ファイル保存問い合わせで、「いいえ」を選択され内容を廃棄されると、保存した内容とファイルの内容が一致しないという状況になります。</p>
 </dd>
-<dt>�}�N�����s���́u�����N���v�ɂ���</dt>
-<dd><p>��{�I�ɂ́A�}�N�����s���Ɋe�푀������Ă��A�����N���}�N���͎��s����܂���B��O�I�ɁA�}�N���I����Ɂu�ҏW��^�C�}�[�v�Ɓu�J�[�\���ړ���^�C�}�[�v���A�u�����N���v�����鎖�͉\�ł��B</p>
-<p>����2�̃C�x���g���������s����ɂ́A<code>setcompatiblemode ��</code> �Ŏw�肵�܂��B</p>
-<p>�}�N�����s���ɁA�u�����N���}�N���v�����s������@�͒񋟂���Ă��Ȃ��̂ŁA�ǂ����Ă������N���}�N�������s�������ꍇ�́A���W�X�g������o�^������݂Ƃ�A <code>execmacro ��</code> �Ŏ��s������@������܂��B�������A�ʏ�̎����N���}�N���ƈႢ�A<code>event�L�[���[�h</code>��A<code>geteventparam�֐�</code>�̖߂�l�̓Z�b�g����܂���B</p>
+<dt>マクロ実行時の「自動起動」について</dt>
+<dd><p>基本的には、マクロ実行中に各種操作をしても、自動起動マクロは実行されません。例外的に、マクロ終了後に「編集後タイマー」と「カーソル移動後タイマー」を、「自動起動」させる事は可能です。</p>
+<p>この2つのイベントを自動実行するには、<code>setcompatiblemode 文</code> で指定します。</p>
+<p>マクロ実行中に、「自動起動マクロ」を実行する方法は提供されていないので、どうしても自動起動マクロを実行したい場合は、レジストリから登録情報をよみとり、 <code>execmacro 文</code> で実行する方法もあります。ただし、通常の自動起動マクロと違い、<code>eventキーワード</code>や、<code>geteventparam関数</code>の戻り値はセットされません。</p>
 </dd>
-<dt>�����N���}�N������Aexecmacro���ő��̃}�N�������s�����ꍇ</dt>
-<dd><p>�����N���}�N���ŋN�����ꂽ�ꍇ�A�N�����ꂽ�C�x���g�̎�ނ���уp�����[�^�̒l�́A execmacro���Ŏ��s���ꂽ�}�N��������擾�\�ł��B</p>
-<p>�t�ɁAexecmacro���Ŏ��s���ꂽ�}�N������Aseteventnotify �������s���Ă��A���Ȃ��A��������܂��B(seteventnotify ���Őݒ肵�����e�͗L��)</p>
+<dt>自動起動マクロから、execmacro文で他のマクロを実行した場合</dt>
+<dd><p>自動起動マクロで起動された場合、起動されたイベントの種類およびパラメータの値は、 execmacro文で実行されたマクロからも取得可能です。</p>
+<p>逆に、execmacro文で実行されたマクロから、seteventnotify 文を実行しても、問題なく、処理されます。(seteventnotify 文で設定した内容は有効)</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0081A] ���uDLL�����[�h����ĂȂ��̂�dllfunc�֐����g���܂����v�ƕ\������� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0081A] ●「DLLがロードされてないのにdllfunc関数が使われました」と表示される - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,69 +21,69 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0080A.html">���O��</a> <a href="HMM0082A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0080A.html">←前へ</a> <a href="HMM0082A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0081a">[HMM0081A]</h1>
-<h2 id="HMM0081A_01">���uDLL�����[�h����ĂȂ��̂�dllfunc�֐����g���܂����v�ƕ\�������</h2>
+<h2 id="HMM0081A_01">●「DLLがロードされてないのにdllfunc関数が使われました」と表示される</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�}�N�������s����ƁA�uDLL�����[�h����ĂȂ��̂�dllfunc�֐����g���܂����v�ƕ\�������̂ł����H</strong>
+<dd><strong>マクロを実行すると、「DLLがロードされてないのにdllfunc関数が使われました」と表示されるのですが？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�����Ƃ��Ă� �ȉ��̓��e���l�����܂��B</p>
+<dd><p>原因としては 以下の内容が考えられます。</p>
 <ul>
-<li><p>loaddll��/�֐��ŁAdll�̓ǂݍ��݂Ɏ��s���Ă���̂ɁAdllfunc/dllfuncstr���Ăяo���Ă���</p>
-<p>DLL�̓ǂݍ��ݎ��s�Ɋւ��ẮA<a href="./HMM0083A.html">[HMM0083A]���O��DLL�̃��[�h�Ɏ��s����</a>���Q�Ƃ��Ă��������B</p>
+<li><p>loaddll文/関数で、dllの読み込みに失敗しているのに、dllfunc/dllfuncstrを呼び出している</p>
+<p>DLLの読み込み失敗に関しては、<a href="./HMM0083A.html">[HMM0083A]●外部DLLのロードに失敗する</a>を参照してください。</p>
 <!--
--   DLL�̓ǂݍ��݂Ɏ��s���錴���Ƃ��ẮADLL���K�؂Ȉʒu�ɔz�u����Ă��Ȃ������l�����܂��B
-    ���s����}�N���Ɠ����ꏊ���A�}�N���t�H���_���A�G�ۃG�f�B�^�{�̂Ɠ����ꏊ�ɔz�u���邩�́A
-    �}�N���̐��������ɋL�ڂ���Ă���͂��Ȃ̂ŁA�m�F���Ă��������B
--   �}�N����DLL���A�����ꏊ�ɂ���ɂ��ւ�炸�A���삵�Ȃ��ꍇ�́ADLL�̃��[�h�������m�F�������Ă݂Ă��������B
-    �P���Ƀt�@�C�������Ԉ���Ă���ꍇ������܂��B
--   64bit�ŏG�ۃG�f�B�^���g�p���Ă���̂ɁA32bit�ł�DLL�����[�h���悤�Ƃ��Ă���B\
-    ��{�I�ɁA64bit�ŏG�ۃG�f�B�^�Ŏg�p�ł���̂́A64bit��DLL�����ł��B
-    �I�v�V�����̐ݒ�ŁA32bit��DLL���g�p���鎖���o���܂����A[����ɓ��삷��ۏ؂͂���܂���B]{.attention_red}
+-   DLLの読み込みに失敗する原因としては、DLLが適切な位置に配置されていない等が考えられます。
+    実行するマクロと同じ場所か、マクロフォルダか、秀丸エディタ本体と同じ場所に配置するかは、
+    マクロの説明書等に記載されているはずなので、確認してください。
+-   マクロとDLLが、同じ場所にあるにも関わらず、動作しない場合は、DLLのロード部分を確認見直してみてください。
+    単純にファイル名が間違っている場合もあります。
+-   64bit版秀丸エディタを使用しているのに、32bit版のDLLをロードしようとしている。\
+    基本的に、64bit版秀丸エディタで使用できるのは、64bit版DLLだけです。
+    オプションの設定で、32bit版DLLを使用する事も出来ますが、[正常に動作する保証はありません。]{.attention_red}
 
-    ![32bit�ł̌݊���](2_convert_06.png){height="433" width="613"}\
+    ![32bit版の互換性](2_convert_06.png){height="433" width="613"}\
 
--   DLL�����s���邽�߂̃t�@�C��������Ȃ��B
-    VC�̃����^�C�����C�u�������ADLL�̎��s�ɕK�v�ȃt�@�C�����Ȃ��ꍇ�ɂ�DLL�̃��[�h�Ɏ��s���܂��B
-    DLL�{�̂̑��ɁA�K�v�ȃt�@�C�������邩�ǂ����m�F���Ă��������B
+-   DLLを実行するためのファイルが足りない。
+    VCのランタイムライブラリ等、DLLの実行に必要なファイルがない場合にもDLLのロードに失敗します。
+    DLL本体の他に、必要なファイルがあるかどうか確認してください。
 --></li>
-<li><p>loaddll��/loaddll�֐��̗L���͈̖͂��</p>
-<p>�G�ۃG�f�B�^�ł�Ver.3.02�ȍ~�A�O��DLL���g�p�ł���悤�ɂȂ�܂������A�ȉ��̐��������݂��܂��B</p>
+<li><p>loaddll文/loaddll関数の有効範囲の問題</p>
+<p>秀丸エディタではVer.3.02以降、外部DLLを使用できるようになりましたが、以下の制限が存在します。</p>
 <ul>
-<li><p>dllfunc���̊֐��Ăяo���́Aloaddll��/loaddll�֐� �����s�����G�ۃG�f�B�^�̂݉\�B dll�����[�h�����G�ۃG�f�B�^�ȊO�ł́Adllfunc���̊֐��Ăяo���͎��s����B</p>
-<p>�}�N���w���v��<a href="https://help.maruo.co.jp/hidemac/html/200_Dll.html" class="externallink" target="_blank">DLL�Ăяo���@�\</a>���Q�Ƃ̎��B</p></li>
+<li><p>dllfunc等の関数呼び出しは、loaddll文/loaddll関数 を実行した秀丸エディタのみ可能。 dllをロードした秀丸エディタ以外では、dllfunc等の関数呼び出しは失敗する。</p>
+<p>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/200_Dll.html" class="externallink" target="_blank" rel="noopener">DLL呼び出し機能</a>を参照の事。</p></li>
 </ul>
-<p>���ׁ̈A�E�B���h�E�̐؂�ւ��Ɏ��s���Ă�����A�Ӑ}���Ȃ��E�B���h�E�̐؂�ւ����������Ă��܂��A DLL�����[�h�����E�B���h�E�ȊO��dllfunc�����Ăяo���ƁA<strong>�uDLL�����[�h����ĂȂ��̂�dllfunc�֐����g���܂����v</strong>�ƕ\������Ă��܂��܂��B</p>
-<p>����m�F�p�}�N��(�Ӑ}�I�ɃE�B���h�E��؂�ւ��āA�G���[�𔭐������Ă���)</p>
+<p>その為、ウィンドウの切り替えに失敗していたり、意図しないウィンドウの切り替えが発生してしまい、 DLLをロードしたウィンドウ以外でdllfunc等を呼び出すと、<strong>「DLLがロードされてないのにdllfunc関数が使われました」</strong>と表示されてしまいます。</p>
+<p>動作確認用マクロ(意図的にウィンドウを切り替えて、エラーを発生させている)</p>
 <div class="macro">
-<pre><code>//�V�����t�@�C����2�J��
+<pre><code>//新しいファイルを2個開く
 newfile;
 #window1 = hidemaruhandle(0);
 newfile;
 #window2 = hidemaruhandle(0);
 
-//1�Ԗڂ̏G�ۃG�f�B�^��ŁAhmjre.dll�����[�h����
+//1番目の秀丸エディタ上で、hmjre.dllをロードする
 setactivehidemaru #window1;
 loaddll &quot;hmjre.dll&quot;;
 if(!result){
-    message &quot;hmjre.dll�̃��[�h�Ɏ��s���܂����B&quot;;
+    message &quot;hmjre.dllのロードに失敗しました。&quot;;
     endmacro;
 }
-//�֐��̎��s(���Ȃ�)
+//関数の実行(問題なし)
 $version1 = hex(dllfunc(&quot;JreGetVersion&quot;) &amp; 0xFFFF);
 message $version1;
 
-//2�Ԗڂ̏G�ۃG�f�B�^�Ɉړ�
+//2番目の秀丸エディタに移動
 setactivehidemaru #window2;
-//�֐��̎��s(�����ŃG���[�ɂȂ�͂�)
-// --&gt; DLL�����[�h����ĂȂ��̂�dllfunc�֐����g���܂���
+//関数の実行(ここでエラーになるはず)
+// --&gt; DLLがロードされてないのにdllfunc関数が使われました
 $version2 = hex(dllfunc(&quot;JreGetVersion&quot;) &amp; 0xFFFF);
 message $version2;
 freedll;
@@ -94,6 +94,6 @@ endmacro;</code></pre>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0080A.html">���O��</a> <a href="HMM0082A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0080A.html">←前へ</a> <a href="HMM0082A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

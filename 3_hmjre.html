@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@HMJRE.DLL���g���ꍇ�̒��ӓ_</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　HMJRE.DLLを使う場合の注意点</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,93 +22,92 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@HMJRE.DLL���g���ꍇ�̒��ӓ_</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　HMJRE.DLLを使う場合の注意点</h1>
 <hr />
-<h2 id="INDEX">HMJRE.DLL���g���ꍇ�̒��ӓ_</h2>
-<p>�y�O�z<a href="#ABOUT">�͂��߂�</a><br />
-�y�P�z<a href="#UNICODE">�����ϐ���Shift_JIS�Ɋ܂܂�Ȃ��AUnicode����������ꍇ</a><br />
-�y�Q�z<a href="#FOREIGNLANGUAGE">�O�����ΏۂƂ���ꍇ</a></p>
+<h2 id="INDEX">HMJRE.DLLを使う場合の注意点</h2>
+<p>【０】<a href="#ABOUT">はじめに</a><br />
+【１】<a href="#UNICODE">文字変数にShift_JISに含まれない、Unicode文字がある場合</a><br />
+【２】<a href="#FOREIGNLANGUAGE">外国語を対象とする場合</a></p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="ABOUT">�͂��߂�</h3>
-<p>�G�ۃG�f�B�^�̐��K�\���G���W���ł���HMJRE.DLL�́A�}�N������Ăяo�����Ƃ��\�ł��B (<a href="https://help.maruo.co.jp/hmjre/html/0008_API_MACRO.html" class="externallink" target="_blank">�}�N�������dllfunc�Ăяo��</a>)<br />
+<h3 id="ABOUT">はじめに</h3>
+<p>秀丸エディタの正規表現エンジンであるHMJRE.DLLは、マクロから呼び出すことが可能です。 (<a href="https://help.maruo.co.jp/hmjre/html/0008_API_MACRO.html" class="externallink" target="_blank" rel="noopener">マクロからのdllfunc呼び出し</a>)<br />
 </p>
-<p>�����ϐ��╶����ɑ΂��āA���K�\�����g���������A�u�������s�ł��܂����A�g�p����ꍇ�ɂ͒��ӓ_������܂��B</p>
+<p>文字変数や文字列に対して、正規表現を使った検索、置換が実行できますが、使用する場合には注意点があります。</p>
 <ul>
-<li>�����ϐ���Shift_JIS�Ɋ܂܂�Ȃ��AUnicode����������ꍇ</li>
-<li>�O�����ΏۂƂ���ꍇ</li>
+<li>文字変数に、Shift_JISに含まれないUnicode文字がある場合</li>
+<li>外国語を対象とする場合</li>
 </ul>
-<p>�G�ۃG�f�B�^�{�̂Ō�������ꍇ�͏G�ۃG�f�B�^�����܂����킹�Ă���܂����A�}�N���Ŏg���ꍇ�͌Ăяo�����������ӂ��Ȃ��Ƃ����Ȃ��ꍇ������܂��B</p>
-<h3 id="UNICODE">�����ϐ���Shift_JIS�Ɋ܂܂�Ȃ��AUnicode����������ꍇ</h3>
+<p>秀丸エディタ本体で検索する場合は秀丸エディタがつじつまを合わせてくれますが、マクロで使う場合は呼び出した側が注意しないといけない場合があります。</p>
+<h3 id="UNICODE">文字変数にShift_JISに含まれない、Unicode文字がある場合</h3>
 <ul>
-<li><a href="#UNICODE-1">Unicode�������܂܂��ꍇ�̖��_</a></li>
-<li><a href="#UNICODE-2">�Ώ����@</a></li>
+<li><a href="#UNICODE-1">Unicode文字が含まれる場合の問題点</a></li>
+<li><a href="#UNICODE-2">対処法</a></li>
 </ul>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="UNICODE-1">Unicode�������܂܂��ꍇ�̖��_</h4>
-<p>�G�ۃG�f�B�^�̓����I�Ȏ���������������܂��B</p>
+<h4 id="UNICODE-1">Unicode文字が含まれる場合の問題点</h4>
+<p>秀丸エディタの内部的な事情を少し説明します。</p>
 <ul>
-<li>�G�ۃG�f�B�^�̓����R�[�h��Shift_JIS���x�[�X�B</li>
-<li>Shift_JIS�Ɋ܂܂�Ȃ�Unicode�����́A<strong>����ȕ����R�[�h</strong>�ɂȂ��Ă��āA<span class="attention_red">1����4�o�C�g</span>�ō\������Ă���B</li>
-<li>Shift_JIS���x�[�X�ɂȂ��Ă��邽�߁A�}�N���ł́A���<span class="attention_red">������2�o�C�g</span>�Ƃ��Ĉ�����B</li>
+<li>秀丸エディタの内部コードはShift_JISがベース。</li>
+<li>Shift_JISに含まれないUnicode文字は、<strong>特殊な文字コード</strong>になっていて、<span class="attention_red">1文字4バイト</span>で構成されている。</li>
+<li>Shift_JISがベースになっているため、マクロでは、常に<span class="attention_red">漢字は2バイト</span>として扱われる。</li>
 </ul>
-<p>��{�I�ɂ�Shift_JIS�ł���O��œ��삵�Ă��܂��B</p>
-<p>�ʏ�A�O��DLL���̊֐��� dllfunc/dllfuncstr ���g���ČĂяo�����́A�����Ŏw�肷�镶����Ɂu<span class="attention_red">Shift_JIS�Ɋ܂܂�Ȃ�Unicode����</span>�v���܂܂��ƁA���̕������폜���ĊO��DLL�ɓn����܂��B</p>
-<p>����� DLL�Ƃ̃C���^�t�F�[�X���A�}���`�o�C�g����(Shift_JIS)��O��Ƃ��Ă��鎖�ƁA�u<strong>����ȕ����R�[�h</strong>�v���O��DLL�������ł��Ȃ����߂ł��B (<strong>dllfuncw/dllfuncstrw</strong> ���g���΁AUnicode��������O��DLL�ɓn�����͉\�ł����ADLL���̑Ή����K�v�ł�)</p>
-<p>HMJRE.DLL�́A��O�I�Ɂu <strong>����ȕ����R�[�h</strong>�v �𗝉��ł���ׁA dllfunc/dllfuncstr �Ăяo�����A��������Ɂu<span class="attention_red">Shift_JIS�Ɋ܂܂�Ȃ�Unicode����</span>�v�������Ă��A�G�ۃG�f�B�^������<span class="attention_red">�u����ȕ����R�[�h�v�����̂܂�HMJRE.DLL�ɓn����܂��B</span></p>
-<p>HMJRE.DLL�̊֐����̂́A�}�b�`�ʒu��}�b�`�����������A�o�C�g���ŕԂ��܂��B�u<strong>����ȕ����R�[�h</strong>�v�́u<span class="attention_red">1����4�o�C�g</span>�v�Ȃ̂ŁA�u<span class="attention_red">��Ɋ�����2�o�C�g</span>�v�ň����}�N���֐��ƈ�v���܂���B</p>
-<p>�ȉ��̃}�N���́A�����ϐ� <code>$a</code> �̍Ō�ɂ���"a"�̈ʒu��Ԃ��}�N���ł��B�}�N���֐���HMJRE.DLL���̊֐��̔�r�ɂȂ�܂��B</p>
+<p>基本的にはShift_JISである前提で動作しています。</p>
+<p>通常、外部DLL内の関数を dllfunc/dllfuncstr を使って呼び出す時は、引数で指定する文字列に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」が含まれると、その文字を削除して外部DLLに渡されます。</p>
+<p>これは DLLとのインタフェースが、マルチバイト文字(Shift_JIS)を前提としている事と、「<strong>特殊な文字コード</strong>」を外部DLLが理解できないためです。 (<strong>dllfuncw/dllfuncstrw</strong> を使えば、Unicode文字列を外部DLLに渡す事は可能ですが、DLL側の対応が必要です)</p>
+<p>HMJRE.DLLは、例外的に「 <strong>特殊な文字コード</strong>」 を理解できる為、 dllfunc/dllfuncstr 呼び出し時、文字列内に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」があっても、秀丸エディタ内部の<span class="attention_red">「特殊な文字コード」がそのままHMJRE.DLLに渡されます。</span></p>
+<p>HMJRE.DLLの関数自体は、マッチ位置やマッチした長さを、バイト数で返します。「<strong>特殊な文字コード</strong>」は「<span class="attention_red">1文字4バイト</span>」なので、「<span class="attention_red">常に漢字は2バイト</span>」で扱うマクロ関数と一致しません。</p>
+<p>以下のマクロは、文字変数 <code>$a</code> の最後にある"a"の位置を返すマクロです。マクロ関数とHMJRE.DLL内の関数の比較になります。</p>
 <div class="macro">
-<pre><code>// �}�N��1
-// ���̃}�N����Unicode(UTF-16LE)�ŕۑ����鎖
+<pre><code>// マクロ1
+// このマクロはUnicode(UTF-16LE)で保存する事
 //    0         1
 //    01234567890
 $a = &quot;hidemaru&#131083;a&quot;;
 #n1 = strrstr($a, &quot;a&quot;);
-// �������ꏊ����1�����؂�o��
+// 見つけた場所から1文字切り出す
 $b1 = midstr($a, #n1, 1);
 
 loaddll &quot;HMJRE.DLL&quot;;
 if(!result){
-    message &quot;DLL�̃��[�h�Ɏ��s���܂����B&quot;;
+    message &quot;DLLのロードに失敗しました。&quot;;
     endmacro;
 }
 #n2 = dllfunc(&quot;FindRegular&quot;, &quot;a$&quot;, $a, 0);
 if(0 &gt; #n2){
-    message &quot;�����Ɏ��s���܂����B&quot;;
+    message &quot;検索に失敗しました。&quot;;
     endmacro;
 }
 #l2 = dllfunc(&quot;GetLastMatchLength&quot;);
-// �}�b�`�����ӏ���؂�o��
+// マッチした箇所を切り出す
 $b2  = midstr($a, #n2, #l2);
-message &quot;�ꏊ(#n1)     �F&quot; + str(#n1) + &quot;\n&quot; +
-        &quot;�ꏊ(#n2)     �F&quot; + str(#n2) + &quot;\n&quot; +
-        &quot;�擾����1($b1)�F&quot; + $b1 + &quot;&lt;--&quot; + &quot;\n&quot; +
-        &quot;�擾����2($b2)�F&quot; + $b2 + &quot;&lt;--&quot;;
+message &quot;場所(#n1)     ：&quot; + str(#n1) + &quot;\n&quot; +
+        &quot;場所(#n2)     ：&quot; + str(#n2) + &quot;\n&quot; +
+        &quot;取得文字1($b1)：&quot; + $b1 + &quot;&lt;--&quot; + &quot;\n&quot; +
+        &quot;取得文字2($b2)：&quot; + $b2 + &quot;&lt;--&quot;;
 freedll;
 endmacro;</code></pre>
 </div>
-<p><strong>�u�}�N���ł́A��Ɋ�����2�o�C�g�Ƃ��Ĉ�����v</strong> �̂ŁA�Ō��"a"��10�����҂��܂��B</p>
+<p><strong>「マクロでは、常に漢字は2バイトとして扱われる」</strong> ので、最後の"a"は10を期待します。</p>
 <div class="macro">
-<pre><code>//              ��
+<pre><code>//              ★
 //    0         1
 //    01234567890
 $a = &quot;hidemaru&#131083;a&quot;;</code></pre>
 </div>
-<p>�������A�}�N�������s�������ʂ́A</p>
+<p>しかし、マクロを実行した結果は以下となり、strrstr関数は期待通り「10」を返しますが、FindRegular関数は「16」を返します。</p>
 <div class="macro">
-<pre><code>�ꏊ(#n1)     �F10
-�ꏊ(#n2)     �F16
-�擾����1($b1)�Fa&lt;--
-�擾����2($b2)�F&lt;--</code></pre>
+<pre><code>場所(#n1)     ：10
+場所(#n2)     ：16
+取得文字1($b1)：a&lt;--
+取得文字2($b2)：&lt;--</code></pre>
 </div>
-<p>�ƂȂ�Astrrstr�֐��͊��Ғʂ�u10�v��Ԃ��܂����AFindRegular�֐��́u16�v��Ԃ��܂��B</p>
-<p>����� "&#131083;"�Ƃ����������AUTF-16�ŕ\������ƃT���Q�[�g�y�A�ƂȂ邽�߁AUnicode����2�����ŕ\������Ă��邩��ł��B�u<strong>����ȕ����R�[�h</strong>�v��1����4�o�C�g�Ȃ̂ŁA2��������8�o�C�g�ɂȂ��Ă��܂��B</p>
-<p>��قǂ̃}�N����ύX���āA�}�b�`����������Ԃ�GetLastMatchLength�֐����g�p���A "&#131083;"�������������̃}�b�`��������(�o�C�g��)���m�F���Ă݂܂��B</p>
+<p>これは "&#131083;"という文字が、UTF-16で表現するとサロゲートペアとなるため、Unicode文字2文字で表現されているからです。「<strong>特殊な文字コード</strong>」は1文字4バイトなので、2文字分で8バイトになっています。</p>
+<p>先ほどのマクロを変更して、マッチした長さを返すGetLastMatchLength関数を使用し、 "&#131083;"を検索した時のマッチした長さ(バイト数)を確認してみます。</p>
 <div class="macro">
-<pre><code>// �}�N��2
-// ���̃}�N����Unicode(UTF-16LE)�ŕۑ����鎖
+<pre><code>// マクロ2
+// このマクロはUnicode(UTF-16LE)で保存する事
 //    0         1
 //    01234567890
 $a = &quot;&#131083;123456789&quot;;
@@ -116,146 +115,144 @@ $a = &quot;&#131083;123456789&quot;;
 
 loaddll &quot;HMJRE.DLL&quot;;
 if(!result){
-    message &quot;DLL�̃��[�h�Ɏ��s���܂����B&quot;;
+    message &quot;DLLのロードに失敗しました。&quot;;
     endmacro;
 }
 #n2 = dllfunc(&quot;FindRegular&quot;, &quot;&#131083;&quot;, $a, 0);
 if(0 &gt; #n2){
-    message &quot;�����Ɏ��s���܂����B&quot;;
+    message &quot;検索に失敗しました。&quot;;
     endmacro;
 }
 #l2 = dllfunc(&quot;GetLastMatchLength&quot;);
-// �}�b�`�����ӏ���؂�o��
+// マッチした箇所を切り出す
 $b2  = midstr($a, #n2, #l2);
-message &quot;������(#l1)�F&quot; + str(#l1) + &quot;\n&quot; +
-        &quot;�ꏊ(#n2)    �F&quot; + str(#n2) + &quot;\n&quot; +
-        &quot;����(#l2)    �F&quot; + str(#l2) + &quot;\n&quot; +
-        &quot;�擾����($b2)�F&quot; + $b2 + &quot;&lt;--&quot;;
+message &quot;文字列長(#l1)：&quot; + str(#l1) + &quot;\n&quot; +
+        &quot;場所(#n2)    ：&quot; + str(#n2) + &quot;\n&quot; +
+        &quot;長さ(#l2)    ：&quot; + str(#l2) + &quot;\n&quot; +
+        &quot;取得文字($b2)：&quot; + $b2 + &quot;&lt;--&quot;;
 freedll;
 endmacro;</code></pre>
 </div>
-<p>�}�N��2�̎��s���ʂł��B</p>
+<p>マクロ2の実行結果です。</p>
 <div class="macro">
-<pre><code>������(#l1)�F11
-�ꏊ(#n2)    �F0
-����(#l2)    �F8
-�擾����($b2)�F&#131083;123456&lt;--</code></pre>
+<pre><code>文字列長(#l1)：11
+場所(#n2)    ：0
+長さ(#l2)    ：8
+取得文字($b2)：&#131083;123456&lt;--</code></pre>
 </div>
-<p>"����(#l2)"���A"&#131083;" ���������}�b�`�����o�C�g���ɂȂ�A8�ł��鎖���m�F�ł��܂��B</p>
-<p>�ȏ�̂��Ƃ���A�}�N��1���s����DLL�ɓn����� <code>$a</code> �̒��g�͈ȉ��̗l�ȃf�[�^�ɂȂ��Ă���ׁA "FindRegular"�̏ꍇ�A�Ō��"a"�̈ʒu�� �u16�v �ƂȂ�܂��B ("&#131083;"�́A"XXXX"��"YYYY" �̗l�ȁA8�o�C�g�ŕ\�������)</p>
+<p>"長さ(#l2)"が、"&#131083;" を検索しマッチしたバイト数になり、8である事が確認できます。</p>
+<p>以上のことから、マクロ1実行時にDLLへ渡される <code>$a</code> の中身は以下の様なデータになっている為、 "FindRegular"の場合、最後の"a"の位置は 「16」 となります。 ("&#131083;"は、"XXXX"と"YYYY" の様な、8バイトで表現される)</p>
 <div class="macro">
 <pre><code>//    0         1         2
 //    012345678901234567890
 $a = &quot;hidemaruXXXXYYYYa&quot;;</code></pre>
 </div>
-<p>�u<span class="attention_red">�}�N���ł́A��Ɋ�����2�o�C�g�Ƃ��Ĉ�����</span>�v�Ƃ������ƂɂȂ��Ă��܂����A HMJRE.DLL�̊֐��g�p���Ɂu<strong>����ȕ����R�[�h</strong>�v���܂܂��ƁA<span class="attention_red">����1�����ł��ő��8�o�C�g</span>�ɂȂ鎖�����邽�߁A�}�N���֐��ƈ�v���܂���B�}�N��1�A�}�N��2�ŁA"�擾����($b2)"�����������̂́A���̕s��v�������ł��B</p>
-<p>HMJRE.DLL���̊֐��Ŗ߂�l���}�N���̊֐��Ŏg�p����ꍇ�́A�Y���̗L�����`�F�b�N���␳���Ȃ��ƁA���m�Ȉʒu�E�������擾�o���܂���B</p>
-<h4 id="UNICODE-2">�Ώ����@</h4>
-<p>HMJRE.DLL Ver.3.13(�G�ۃG�f�B�^ Ver.8�ɓY�t)����A<code>"SetUnicodeIndexAutoConvert�֐�"</code>���ǉ�����Ă��܂��B</p>
+<p>「<span class="attention_red">マクロでは、常に漢字は2バイトとして扱われる</span>」ということになっていますが、 HMJRE.DLLの関数使用時に「<strong>特殊な文字コード</strong>」が含まれると、<span class="attention_red">漢字1文字でも最大で8バイト</span>になる事もあるため、マクロ関数と一致しません。マクロ1、マクロ2で、"取得文字($b2)"がおかしいのは、この不一致が原因です。</p>
+<p>HMJRE.DLL内の関数で戻り値をマクロの関数で使用する場合は、ズレの有無をチェックし補正しないと、正確な位置・長さを取得出来ません。</p>
+<h4 id="UNICODE-2">対処法</h4>
+<p>HMJRE.DLL Ver.3.13(秀丸エディタ Ver.8に添付)から、<code>"SetUnicodeIndexAutoConvert関数"</code>が追加されています。</p>
 <div class="macro">
-<pre><code>//#flg = 0 �����ϊ������A#flg = 1 �����ϊ��L��
+<pre><code>//#flg = 0 自動変換無効、#flg = 1 自動変換有効
 #n = dllfunc(&quot;SetUnicodeIndexAutoConvert&quot;, #flg);</code></pre>
 </div>
-<p>���̊֐����g�p����ƁAHMJRE.DLL�̊e�֐��̖߂�l���A�}�N���ł��̂܂܎g�p�ł���悤�Ȓl�Ɏ����ϊ�����܂��B</p>
-<p>"SetUnicodeIndexAutoConvert�֐�" ���g�������ϊ���L���ɂ����}�N���ł��B</p>
+<p>この関数を使用すると、HMJRE.DLLの各関数の戻り値が、マクロでそのまま使用できるような値に自動変換されます。</p>
+<p>"SetUnicodeIndexAutoConvert関数" を使い自動変換を有効にしたマクロです。</p>
 <div class="macro">
-<pre><code>//�}�N��3
-// ���̃}�N����Unicode(UTF-16LE)�ŕۑ����鎖
+<pre><code>//マクロ3
+// このマクロはUnicode(UTF-16LE)で保存する事
 //    0         1
 //    01234567890
 $a  = &quot;hidemaru&#131083;a&quot;;
-// $a �ɓ����Ă��钷��(�o�C�g��)
+// $a に入っている長さ(バイト数)
 #l  = strlen($a);
-// $a �̍Ōォ��A&quot;a&quot; ��T��
+// $a の最後から、&quot;a&quot; を探す
 #n1 = strrstr($a, &quot;a&quot;);
-// �������ꏊ����1�����؂�o��
+// 見つけた場所から1文字切り出す
 $b1 = midstr($a, #n1, 1);
 
 loaddll &quot;HMJRE.DLL&quot;;
 if(!result){
-    message &quot;DLL�̃��[�h�Ɏ��s���܂����B&quot;;
+    message &quot;DLLのロードに失敗しました。&quot;;
     endmacro;
 }
-// ������ 1 ��ݒ肵�A�����ϊ���L���ɂ���(0 �Ŗ�����)
+// 引数に 1 を設定し、自動変換を有効にする(0 で無効化)
 #x = dllfunc(&quot;SetUnicodeIndexAutoConvert&quot;, 1);
-// $a ����Ō�ɂ��� &quot;a&quot; �̈ʒu���擾
+// $a から最後にある &quot;a&quot; の位置を取得
 #n2 = dllfunc(&quot;FindRegular&quot;, &quot;a$&quot;, $a, 0);
 if(0 &gt; #n2){
-    message &quot;�����Ɏ��s���܂����B&quot;;
+    message &quot;検索に失敗しました。&quot;;
     endmacro;
 }
-// �}�b�`�������e�̒������擾
+// マッチした内容の長さを取得
 #l2 = dllfunc(&quot;GetLastMatchLength&quot;);
-// �}�b�`�����ӏ���؂�o��
+// マッチした箇所を切り出す
 $b2  = midstr($a, #n2, #l2);
-//���ʕ\��
-message &quot;������(#l) �F&quot; + str(#l) + &quot;\n&quot; +
-        &quot;�ꏊ    (#n1)�F&quot; + str(#n1) + &quot;\n&quot; +
-        &quot;�ꏊ    (#n2)�F&quot; + str(#n2) + &quot;\n&quot; +
-        &quot;����    (#l2)�F&quot; + str(#l2) + &quot;\n&quot; +
-        &quot;�擾����($b1)�F&quot; + $b1 + &quot;&lt;--&quot; + &quot;\n&quot; +
-        &quot;�擾����($b2)�F&quot; + $b2 + &quot;&lt;--&quot;;
+//結果表示
+message &quot;文字列長(#l) ：&quot; + str(#l) + &quot;\n&quot; +
+        &quot;場所    (#n1)：&quot; + str(#n1) + &quot;\n&quot; +
+        &quot;場所    (#n2)：&quot; + str(#n2) + &quot;\n&quot; +
+        &quot;長さ    (#l2)：&quot; + str(#l2) + &quot;\n&quot; +
+        &quot;取得文字($b1)：&quot; + $b1 + &quot;&lt;--&quot; + &quot;\n&quot; +
+        &quot;取得文字($b2)：&quot; + $b2 + &quot;&lt;--&quot;;
 freedll;
 endmacro;</code></pre>
 </div>
-<p>��L�}�N���̎��s���ʂł��B</p>
+<p>上記マクロの実行結果です。</p>
 <div class="macro">
-<pre><code>������(#l) �F11
-�ꏊ    (#n1)�F10
-�ꏊ    (#n2)�F10
-����    (#l2)�F1
-�擾����($b1)�Fa&lt;--
-�擾����($b2)�Fa&lt;--</code></pre>
+<pre><code>文字列長(#l) ：11
+場所    (#n1)：10
+場所    (#n2)：10
+長さ    (#l2)：1
+取得文字($b1)：a&lt;--
+取得文字($b2)：a&lt;--</code></pre>
 </div>
-<p>"FindRegular"�̖߂�l���A���̂܂܎g�p���Ă��A����Ɏ擾�ł��Ă��܂��B ("SetUnicodeIndexAutoConvert" �̎����ϊ����L���ɂȂ��Ă���)</p>
-<p>�Ƃ������ƂŁA�}�N������HMJRE.DLL���g���ꍇ�A</p>
+<p>"FindRegular"の戻り値を、そのまま使用しても、正常に取得できています。 ("SetUnicodeIndexAutoConvert" の自動変換が有効になっている)</p>
+<p>ということで、マクロからHMJRE.DLLを使う場合は以下の手順になります。</p>
 <ol type="1">
-<li>SetUnicodeIndexAutoConvert�֐����A�����Ɂu1�v���w�肵�ČĂяo���A�����ϊ���L���ɂ���B</li>
-<li>�e�֐����Ăяo���B</li>
+<li>SetUnicodeIndexAutoConvert関数を、引数に「1」を指定して呼び出し、自動変換を有効にする。</li>
+<li>各関数を呼び出す。</li>
 </ol>
-<p>�Ƃ����菇�ɂȂ�܂��B</p>
-<p>�m���Ɂu<span class="attention_red">Shift_JIS�Ɋ܂܂�Ȃ�Unicode����</span>�v���Ȃ��Ɣ����Ă���Ȃ�s�v�ł����A HMJRE.DLL���}�N������g�p����ꍇ�ɂ́A<code>SetUnicodeIndexAutoConvert�֐�</code> �����s���邱�Ƃ𐄏����܂��B</p>
+<p>確実に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」がないと判っているなら不要ですが、 HMJRE.DLLをマクロから使用する場合には、<code>SetUnicodeIndexAutoConvert関数</code> を実行することを推奨します。</p>
 </div>
-<h3 id="FOREIGNLANGUAGE">�O�����ΏۂƂ���ꍇ</h3>
-<p>�}�N���ł́A��{�I�ɓ��{��(Shift_JIS)��Ώۂɂ��Ă��邽�߁A���{��ȊO�̌���g�p����ꍇ�A�����Ɏ��s����ꍇ������܂��B</p>
-<p>Shift_JIS�̕����R�[�h�Ɋ֌W����b�ł��B</p>
-<p>Shift_JIS�̕����R�[�h�̊��蓖�Ă͈ȉ��̂悤�ɂȂ��Ă��܂��B</p>
+<h3 id="FOREIGNLANGUAGE">外国語を対象とする場合</h3>
+<p>マクロでは、基本的に日本語(Shift_JIS)を対象にしているため、日本語以外の言語使用する場合、検索に失敗する場合があります。</p>
+<p>Shift_JISの文字コードに関係する話です。</p>
+<p>Shift_JISの文字コードの割り当ては以下のようになっています。</p>
 <div class="marginleft">
 <dl>
-<dt>0x00�`0x1f�A0x7f</dt>
-<dd>���͈̔͂͐���R�[�h�����蓖�Ă��Ă���B
+<dt>0x00〜0x1f、0x7f</dt>
+<dd>この範囲は制御コードが割り当てられている。
 </dd>
-<dt>0x20�`0x7e</dt>
-<dd>ASCII���������蓖�Ă��Ă���BASCII�����Ƃ͉p�����ƋL���ɂȂ�܂��B
+<dt>0x20〜0x7e</dt>
+<dd>ASCII文字が割り当てられている。ASCII文字とは英数字と記号になります。
 </dd>
-<dt>0xa1�`0xdf</dt>
-<dd>���p�J�^�J�i�ł��B
+<dt>0xa1〜0xdf</dt>
+<dd>半角カタカナです。
 </dd>
-<dt>0x81�`0x9f�A0xe0�`0xef</dt>
-<dd>Shift_JIS�̏�ʃo�C�g�B
+<dt>0x81〜0x9f、0xe0〜0xef</dt>
+<dd>Shift_JISの上位バイト。
 </dd>
-<dt>0x40�`0x7e�A0x80�`0xfc</dt>
-<dd>Shift_JIS�̉��ʃo�C�g�B
+<dt>0x40〜0x7e、0x80〜0xfc</dt>
+<dd>Shift_JISの下位バイト。
 </dd>
 </dl>
 </div>
-<p>���������R�[�h(CP1252)�̏ꍇ�AShift_JIS�̏�ʃo�C�g�͈̔͂ɕ��������蓖�Ă��Ă��܂��B (0xe0�`0xef �� �͈͂́A�A�N�Z���g�L���t���̕��������蓖�Ă��Ă���)<br />
-���ׁ̈A���������������������Ă� Shift_JIS �̏�ʃo�C�g�ƔF������A�����������o���Ȃ��ꍇ������܂��B���{��ȊO�̌�����g�p����ꍇ�ɂ́A���炩���ߌ���̏���DLL�ɋ����Ă����K�v������܂��B</p>
-<p>HMJRE.DLL��Ver.5.01����A"NotifyEncode"�֐����ǉ�����Ă��܂��B (�G�ۃG�f�B�^��Ver.8.74�ȍ~����Y�t)<br />
-���̊֐����g�p���邱�ƂŁA�Ώۂ̃G���R�[�h���w��ł��܂��B</p>
+<p>欧文文字コード(CP1252)の場合、Shift_JISの上位バイトの範囲に文字が割り当てられています。 (0xe0〜0xef の 範囲は、アクセント記号付きの文字が割り当てられている)<br />
+その為、欧文文字を検索したくても Shift_JIS の上位バイトと認識され、正しく検索出来ない場合があります。日本語以外の言語を使用する場合には、あらかじめ言語の情報をDLLに教えておく必要があります。</p>
+<p>HMJRE.DLLのVer.5.01から、"NotifyEncode"関数が追加されています。 (秀丸エディタのVer.8.74以降から添付)<br />
+この関数を使用することで、対象のエンコードを指定できます。</p>
 <div class="macro">
-<pre><code>//�t�@�C���Ɠ��������R�[�h���g���ꍇ�ɂ́A������ &quot;encode&quot;�L�[���[�h���w�肷��B
-//�t�@�C���ƈႤ�����R�[�h���g���ꍇ�ɂ́A&quot;encode&quot;�L�[���[�h�̒l�𒲂ׂĎw�肷��
+<pre><code>//ファイルと同じ文字コードを使う場合には、引数に &quot;encode&quot;キーワードを指定する。
+//ファイルと違う文字コードを使う場合には、&quot;encode&quot;キーワードの値を調べて指定する。
 #n = dllfunc(&quot;NotifyEncode&quot;, encode);</code></pre>
 </div>
-<p>�}�N������O�����Ώۂɂ��� HMJRE.DLL ���g���ꍇ�ɂ́A</p>
+<p>マクロから外国語を対象にして HMJRE.DLL を使う場合には、以下の手順になります。</p>
 <ol type="1">
-<li>NotifyEncode�֐��ɁA�Ώۂ̃G���R�[�h�l���w�肵�ČĂяo���B</li>
-<li>�e�֐����Ăяo���B</li>
+<li>NotifyEncode関数に、対象のエンコード値を指定して呼び出す。</li>
+<li>各関数を呼び出す。</li>
 </ol>
-<p>�Ƃ����菇�ɂȂ�܂��B</p>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

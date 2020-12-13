@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�}�N�������s���Ă݂悤</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　マクロを実行してみよう</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,264 +22,264 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�}�N�������s���Ă݂悤</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　マクロを実行してみよう</h1>
 <hr />
-<h2 id="INDEX">�}�N�������s���Ă݂悤</h2>
-<p>�y�O�z<a href="#ABOUT">�����ɏ����Ă��邱��</a><br />
-�y�P�z<a href="#PRE">�����O�̏���</a><br />
-�y�Q�z<a href="#INSTALL">�X�̃}�N���̓���</a><br />
-�y�R�z<a href="#RUN">��Ԍ��n�I�ȃ}�N���̎��s</a><br />
-�y�S�z<a href="#REGIST">�}�N���o�^</a><br />
-�y�T�z<a href="#SHORTCUT">�V���[�g�J�b�g�L�[�ւ̓o�^</a><br />
-�y�U�z<a href="#TOOLBAR">�c�[���o�[����}�N���N��</a><br />
-�y�V�z<a href="#USERMENU">���[�U�[���j���[����}�N���N��</a><br />
-�y�W�z<a href="#SAMPLE">�T���v���}�N��</a></p>
+<h2 id="INDEX">マクロを実行してみよう</h2>
+<p>【０】<a href="#ABOUT">ここに書いてあること</a><br />
+【１】<a href="#PRE">導入前の準備</a><br />
+【２】<a href="#INSTALL">個々のマクロの導入</a><br />
+【３】<a href="#RUN">一番原始的なマクロの実行</a><br />
+【４】<a href="#REGIST">マクロ登録</a><br />
+【５】<a href="#SHORTCUT">ショートカットキーへの登録</a><br />
+【６】<a href="#TOOLBAR">ツールバーからマクロ起動</a><br />
+【７】<a href="#USERMENU">ユーザーメニューからマクロ起動</a><br />
+【８】<a href="#SAMPLE">サンプルマクロ</a></p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="ABOUT">�y�O�z�����ɏ����Ă��邱��</h3>
-<p>�G�ۃG�f�B�^�̑傫�Ȗ��͂�1�Ɂu�G�ۃ}�N���v�̑��݂��������܂��B�}�N���Ƃ����͈̂��̃v���O�����ŁA����𗘗p���邱�Ƃɂ��G�ۃG�f�B�^��ōs����Ƃ�������������G�ۃG�f�B�^�̋@�\���g��������ƁA�G�ۃG�f�B�^�����֗��Ɏg�����Ƃ��ł��܂��B�}�N���͎����ō���Ă��悢���i���ہA�P���ȃ}�N����g�ނ̂͂���قǓ�����Ƃł͂���܂���j�A�l�̍�������̂��Ȃ�炩�̕��@�œ��肵�Ă������ł��傤<a href="#exp1">(��1)</a>�B�Ȃ��A�茳�ɓK���ȃ}�N�����Ȃ��l�́A<a href="#SAMPLE">�y�W�z</a>�ɃT���v���̃}�N�����������p�ӂ��Ă����܂����̂ŁA��������Ɏ����Ń}�N���t�@�C��������Ă��낢����s�����Ă݂܂��傤�B(^_^)</p>
-<p>�G�ۃG�f�B�^�̃}�N���̐��̂́A�G�ۃG�f�B�^�̃}�N�����ꂪ�L�q���ꂽ�uMAC�v�Ƃ����g���q�̂����e�L�X�g�t�@�C���ł��B�ȉ�������}�N���t�@�C���ƌĂт܂��B�����ł́A�}�N���i�}�N���t�@�C���j����肵�Ă���A��������ۂɗ��p����܂ł̎菇��������܂��B</p>
+<h3 id="ABOUT">【０】ここに書いてあること</h3>
+<p>秀丸エディタの大きな魅力の1つに「秀丸マクロ」の存在があげられます。マクロというのは一種のプログラムで、これを利用することにより秀丸エディタ上で行う作業を自動化したり秀丸エディタの機能を拡張したりと、秀丸エディタをより便利に使うことができます。マクロは自分で作ってもよいし（実際、単純なマクロを組むのは、それほど難しいことではありません）、人の作ったものをなんらかの方法で入手してもいいでしょう<a href="#exp1">(注1)</a>。なお、手元に適当なマクロがない人は、<a href="#SAMPLE">【８】</a>にサンプルのマクロをいくつか用意しておきましたので、それを元に自分でマクロファイルを作っていろいろ実行させてみましょう。(^_^)</p>
+<p>秀丸エディタのマクロの正体は、秀丸エディタのマクロ言語が記述された「MAC」という拡張子のついたテキストファイルです。以下これをマクロファイルと呼びます。ここでは、マクロ（マクロファイル）を入手してから、それを実際に利用するまでの手順を説明します。</p>
 <hr />
 <dl>
-<dt><span id="exp1">��1</span>:</dt>
-<dd><p>�Ⴆ�΁A�ȉ��̏ꏊ�ɂ́A�����̏G�ۃG�f�B�^�}�N�����o�^����Ă��܂��B</p>
+<dt><span id="exp1">注1</span>:</dt>
+<dd><p>例えば、以下の場所には、多くの秀丸エディタマクロが登録されています。</p>
 <ul>
-<li>�G�܂邨����̃z�[���y�[�W�̃��C�u���� (<a href="https://hide.maruo.co.jp/lib/index.html" class="externallink" target="_blank">https://hide.maruo.co.jp/lib/index.html</a>)</li>
-<li>Vector (<a href="https://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html" class="externallink" target="_blank">https://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html</a>)</li>
+<li>秀まるおさんのホームページのライブラリ (<a href="https://hide.maruo.co.jp/lib/index.html" class="externallink" target="_blank" rel="noopener">https://hide.maruo.co.jp/lib/index.html</a>)</li>
+<li>Vector (<a href="https://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html" class="externallink" target="_blank" rel="noopener">https://www.vector.co.jp/vpack/filearea/win/writing/edit/hm/index.html</a>)</li>
 </ul>
 </dd>
 </dl>
-<h3 id="PRE">�y�P�z�����O�̏���</h3>
-<p>�܂��A���̃}�N���t�@�C�����i�[���邽�߂̃t�H���_�����Ȃ���΂Ȃ�܂���B</p>
-<p><strong>Windows Vista�ȍ~�̏ꍇ</strong>�A�f�t�H���g�ł̓��[�U�[�t�H���_�ɂ���A�A�v���P�[�V�����f�[�^�t�H���_�ɐݒ肳��Ă��܂��B</p>
-<pre><code>    ��) C:\Users\���[�U�[��\AppData\Roaming\Hidemaruo\Hidemaru\Macro</code></pre>
-<p>�X�g�A�A�v���ł̏ꍇ�A�}�N���t�H���_�̓h�L�������g�t�H���_�ɐݒ肳��܂��B</p>
-<pre><code>    ��) %USERPROFILE%\Documents\Hidemaru\StoreAppMacro</code></pre>
-<p>�}�N���t�H���_�̓��[�U�[�t�H���_�łȂ��Ă����܂��܂��񂪁A�������݉\�ȃt�H���_���w�肵�Ă��������B�t�H���_�̖��O�͔C�ӂɎw��\�ł��B<a href="#exp2">(��2)</a></p>
-<p>�f�t�H���g�ȊO�̏ꏊ�Ƀ}�N���t�H���_���쐬�����ꍇ�ɂ́A�ݒ��ύX����K�v������܂��B���j���[�́u���̑� �� <span class="env">�����</span>�v�œ�������J���A�u���v�ɂ���u�p�X�v�́u�}�N���t�@�C���p�̃t�H���_�v�Őݒ肵�܂��B</p>
-<p><img src="3_macro_01.png" width="604" height="189" alt="��-�p�X" /><br />
+<h3 id="PRE">【１】導入前の準備</h3>
+<p>まず、このマクロファイルを格納するためのフォルダを作らなければなりません。</p>
+<p><strong>Windows Vista以降の場合</strong>、デフォルトではユーザーフォルダにある、アプリケーションデータフォルダに設定されています。</p>
+<pre><code>    例) C:\Users\ユーザー名\AppData\Roaming\Hidemaruo\Hidemaru\Macro</code></pre>
+<p>ストアアプリ版の場合、マクロフォルダはドキュメントフォルダに設定されます。</p>
+<pre><code>    例) %USERPROFILE%\Documents\Hidemaru\StoreAppMacro</code></pre>
+<p>マクロフォルダはユーザーフォルダでなくてもかまいませんが、書き込み可能なフォルダを指定してください。フォルダの名前は任意に指定可能です。<a href="#exp2">(注2)</a></p>
+<p>デフォルト以外の場所にマクロフォルダを作成した場合には、設定を変更する必要があります。メニューの「その他 → <span class="env">動作環境</span>」で動作環境を開き、「環境」にある「パス」の「マクロファイル用のフォルダ」で設定します。</p>
+<p><img src="3_macro_01.png" width="604" height="189" alt="環境-パス" /><br />
 </p>
-<p>�^�C�v�~�X������Ƃ����Ȃ��̂�<strong>[�Q�Ɓc]</strong>�{�^���������āA��قǍ쐬�����t�H���_��I�����Ă��������B <strong>&lt;OK&gt;</strong>��I��Őݒ���I�����܂��B<strong>&lt;�L�����Z��&gt;</strong>�ŏI������ƁA�ݒ��ύX�������Ƃɂ͂Ȃ�Ȃ��̂Œ��ӂ��ĉ������B</p>
-<p>����ō�Ƃ͏I���ł��B���̍�Ƃ͍ŏ��ɂP�񂾂����K�v������܂��B�}�N���p�t�H���_�̖��O��ꏊ��ς��Ȃ�����A���̍�Ƃ����Ȃ����K�v�͂���܂���B</p>
+<p>タイプミスをするといけないので<strong>[参照…]</strong>ボタンを押して、先ほど作成したフォルダを選択してください。 <strong>&lt;OK&gt;</strong>を選んで設定を終了します。<strong>&lt;キャンセル&gt;</strong>で終了すると、設定を変更したことにはならないので注意して下さい。</p>
+<p>これで作業は終了です。この作業は最初に１回だけやる必要があります。マクロ用フォルダの名前や場所を変えない限り、この作業をやりなおす必要はありません。</p>
 <hr />
-<p>�X�g�A�A�v���łł́u���ϐ��v���܂ރp�X���ݒ肳��܂����A�f�X�N�g�b�v�łł��p�X�Ɂu���ϐ��v���܂߂邱�Ƃ͉\�ł��B(Ver.8.40�ȍ~)<br />
-�f�t�H���g�ݒ�̏ꍇ�A���ϐ����g�����ꍇ�́A�ȉ��̂悤�ɂȂ�܂��B</p>
-<pre><code>    ��) %APPDATA%\Hidemaruo\Hidemaru\Macro</code></pre>
-<p>�u���ϐ��v���܂߂闘�_�́A�u�ݒ���e�̕ۑ�/�����v���g���ۑ����A�ʊ��ŕ�������Ƃ�����Ƃ����₷�����Ƃł��B���ڃt���p�X�ŋL�������ꍇ�AWindows�̃��O�I�����[�U�[���Ȃǂ��܂ߓ����łȂ��ꍇ�́A�K���ݒ�̕ύX���K�v�ɂȂ�܂��B���ϐ����g���΁A���O�I�����[�U�[���Ȃǂ͊��ϐ��Ɋ܂܂�邽�߁A�ݒ�̕ύX�͕s�v�ł��B<br />
-(���ϐ����g����̂́A�}�N���p�Ɛݒ�p�̃t�H���_�w��ł��B���ׂẴp�X�ݒ�Ŋ��ϐ����g����킯�ł͂Ȃ��ׁA�����ݒ�ύX���Ȃ��Ă��ǂ��Ƃ����킯�ł͂���܂���)</p>
+<p>ストアアプリ版では「環境変数」を含むパスが設定されますが、デスクトップ版でもパスに「環境変数」を含めることは可能です。(Ver.8.40以降)<br />
+デフォルト設定の場合、環境変数を使った場合は、以下のようになります。</p>
+<pre><code>    例) %APPDATA%\Hidemaruo\Hidemaru\Macro</code></pre>
+<p>「環境変数」を含める利点は、「設定内容の保存/復元」を使い保存し、別環境で復元するという作業がやりやすいことです。直接フルパスで記入した場合、Windowsのログオンユーザー名なども含め同じでない場合は、必ず設定の変更が必要になります。環境変数を使えば、ログオンユーザー名などは環境変数に含まれるため、設定の変更は不要です。<br />
+(環境変数が使えるのは、マクロ用と設定用のフォルダ指定です。すべてのパス設定で環境変数が使えるわけではない為、何も設定変更しなくても良いというわけではありません)</p>
 <hr />
 <dl>
-<dt><span id="exp2">��2</span></dt>
-<dd><p>Windows Vista�ȍ~��OS�́A�ʏ�̌����ł�"OS�ɕی삳�ꂽ�̈�"�Ƀt�@�C���̏������݂��o���܂���(�Ǘ��Ҍ����֏��i���K�v)�B�G�ۃG�f�B�^�̃f�t�H���g�C���X�g�[����́A"C:\Program Files\Hidemaru"�ł����A "C:\Program Files"�ȉ��́A"OS�ɕی삳�ꂽ�̈�"�ƂȂ�̂ŁA�}�N���t�H���_�̍쐬�ɂ͌����Ă��܂���B (64bit OS�ŁA32bit�ŏG�ۃG�f�B�^���g���Ă���ꍇ�A�C���X�g�[�����"C:\Program Files(x86)\Hidemaru"�ɂȂ�A�������ی삳�ꂽ�t�H���_�ɂȂ�܂�)</p>
-<p>�f�t�H���g�}�N���t�H���_���w�肳��Ă��郆�[�U�[�t�H���_�́A�G�N�X�v���[���ł������Ȃ��悤�Ȑݒ�ɂȂ��Ă��܂�(OS���̐ݒ�)�B������悤�ɂ���ɂ�OS�̐ݒ��ύX����K�v������܂��B (�u�t�H���_�[�I�v�V�����v�́u�B���t�@�C���A�B���t�H���_�[�A����щB���h���C�u��\������v��I��)</p>
-<p><img src="3_macro_02.png" width="444" height="540" alt="�t�H���_�[�I�v�V����" /><br />
+<dt><span id="exp2">注2</span></dt>
+<dd><p>Windows Vista以降のOSは、通常の権限では"OSで保護された領域"にファイルの書き込みが出来ません(管理者権限へ昇格が必要)。秀丸エディタのデフォルトインストール先は、"C:\Program Files\Hidemaru"ですが、 "C:\Program Files"以下は、"OSで保護された領域"となるので、マクロフォルダの作成には向いていません。 (64bit OSで、32bit版秀丸エディタを使っている場合、インストール先は"C:\Program Files(x86)\Hidemaru"になり、ここも保護されたフォルダになります)</p>
+<p>デフォルトマクロフォルダが指定されているユーザーフォルダは、エクスプローラでも見えないような設定になっています(OS側の設定)。見えるようにするにはOSの設定を変更する必要があります。 (「フォルダーオプション」の「隠しファイル、隠しフォルダー、および隠しドライブを表示する」を選ぶ)</p>
+<p><img src="3_macro_02.png" width="444" height="540" alt="フォルダーオプション" /><br />
 </p>
-<p>OS���̐ݒ��ύX�������Ȃ��ꍇ�́A���[�U�[�t�H���_�ȊO�Ƀ}�N���t�H���_���쐬����K�v������܂��B</p>
-<p>�G�ۃG�f�B�^�̎d�l�ł̓}�N���p�̃t�H���_�͕K�������������Ȃ��Ă��������ƂɂȂ��Ă��܂����A <span class="font_red_bold">Windows Vista�ȍ~��OS�ł́A�K���w�肷��悤�ɂ��Ă��������B</span>�󗓂��ƁA�G�ۃG�f�B�^�{�̂Ɠ����ꏊ���w�肵�����ɂȂ��Ă��܂��܂��B</p>
+<p>OS側の設定を変更したくない場合は、ユーザーフォルダ以外にマクロフォルダを作成する必要があります。</p>
+<p>秀丸エディタの仕様ではマクロ用のフォルダは必ずしも準備しなくてもいいことになっていますが、 <span class="font_red_bold">Windows Vista以降のOSでは、必ず指定するようにしてください。</span>空欄だと、秀丸エディタ本体と同じ場所を指定した事になってしまいます。</p>
 </dd>
 </dl>
-<h3 id="INSTALL">�y�Q�z�X�̃}�N���̓����i�O��F�y�P�z�j</h3>
+<h3 id="INSTALL">【２】個々のマクロの導入（前提：【１】）</h3>
 <div class="attention1">
-<p>�}�N���t�@�C���͒ʏ�A�}�N���p�t�H���_�ɒu���܂��B</p>
+<p>マクロファイルは通常、マクロ用フォルダに置きます。</p>
 </div>
-<p>�f�[�^���C�u�����ɓo�^����Ă���}�N���̏ꍇ�� LHA��ZIP�`���ň��k����Ă���ꍇ���قƂ�ǂł�����A�}�N���p�t�H���_�ɓW�J�i�𓀁j���܂��B�܂��h�L�������g�ȊO�̓Y�t�t�@�C��������ꍇ�A�����̒��ɂ̓}�N���̎��s�ɕK�v�Ȃ��̂��܂܂�Ă���\��������܂��B�h�L�������g�����悭�ǂ�ł��̎w���ɏ]���ĉ������B</p>
-<h3 id="RUN">�y�R�z��Ԍ��n�I�ȃ}�N���̎��s�i�O��F�y�P�z�y�Q�z�j</h3>
+<p>データライブラリに登録されているマクロの場合は LHAやZIP形式で圧縮されている場合がほとんどですから、マクロ用フォルダに展開（解凍）します。またドキュメント以外の添付ファイルがある場合、それらの中にはマクロの実行に必要なものが含まれている可能性があります。ドキュメント等をよく読んでその指示に従って下さい。</p>
+<h3 id="RUN">【３】一番原始的なマクロの実行（前提：【１】【２】）</h3>
 <div class="attention1">
-<p>�u�Ƃ肠�������s���Ă݂�v�ɂ́A���j���[����u�}�N�����}�N�����s�v��I�т܂��B</p>
+<p>「とりあえず実行してみる」には、メニューから「マクロ→マクロ実行」を選びます。</p>
 </div>
-<p>�_�C�A���O�̒��ɁA�y�P�z�Ń}�N���p�t�H���_�Ɋ܂܂��}�N���t�@�C���̃��X�g���\������܂��B���̒�������s�������}�N���t�@�C����I�сA�t�@�C�����̃e�L�X�g�{�b�N�X�̒��ɂ��̃t�@�C�������\�����ꂽ�̂��m�F���Ă���<strong>&lt;OK&gt;</strong>���N���b�N���܂��B����ŁA���̃}�N�������s����܂��B</p>
-<p><img src="3_macro_execute.png" width="406" height="395" alt="�}�N���̎��s�_�C�A���O" /><br />
+<p>ダイアログの中に、【１】でマクロ用フォルダに含まれるマクロファイルのリストが表示されます。その中から実行したいマクロファイルを選び、ファイル名のテキストボックスの中にそのファイル名が表示されたのを確認してから<strong>&lt;OK&gt;</strong>をクリックします。これで、そのマクロが実行されます。</p>
+<p><img src="3_macro_execute.png" width="406" height="395" alt="マクロの実行ダイアログ" /><br />
 </p>
-<p>�}�N�����s�_�C�A���O�͕ύX�\�ł��B�u<span class="env">�����</span> �| �� �| ���x�Ȋ� �| �}�N�����s�_�C�A���O�v�Őݒ肵�܂��B</p>
-<p><img src="3_macro_execute3.png" width="605" height="70" alt="�}�N���̎��s�_�C�A���O�̐ݒ�" /><br />
+<p>マクロ実行ダイアログは変更可能です。「<span class="env">動作環境</span> − 環境 − 高度な環境 − マクロ実行ダイアログ」で設定します。</p>
+<p><img src="3_macro_execute3.png" width="605" height="70" alt="マクロの実行ダイアログの設定" /><br />
 </p>
-<p>�u�Q�ƃ_�C�A���O�v�̏ꍇ�A�t�@�C���I���_�C�A���O���J���܂��B�}�N�����t�H���_�ŕ��ނ��Ă���悤�ȏꍇ�ɂ́A������̃_�C�A���O�̕����֗��ł��傤�B</p>
-<p><img src="3_macro_execute2.png" width="650" height="476" alt="�}�N���̎��s�@�Q�ƃ_�C�A���O" /><br />
+<p>「参照ダイアログ」の場合、ファイル選択ダイアログが開きます。マクロをフォルダで分類しているような場合には、こちらのダイアログの方が便利でしょう。</p>
+<p><img src="3_macro_execute2.png" width="650" height="476" alt="マクロの実行　参照ダイアログ" /><br />
 </p>
-<h3 id="REGIST">�y�S�z�}�N���o�^�i�O��F�y�P�z�y�Q�z�j</h3>
+<h3 id="REGIST">【４】マクロ登録（前提：【１】【２】）</h3>
 <div class="attention1">
-<p>�y�R�z�̕��@�́A�}�N�������s����x�Ƀ��X�g����I�΂Ȃ���΂Ȃ�Ȃ��̂Ŗʓ|�ł��B�܂��}�N���t�@�C���������Ȃ��Ă���ƁA�t�@�C���������ł͂ǂꂪ���̃}�N����������Ȃ��Ȃ��Ă��܂��B�����ŁA��r�I�p�ɂɎg�p����悤�ȃ}�N���́u�}�N���o�^�v���Ă��܂��܂��傤�B�}�N���o�^����ƁA�v���_�E�����j���[����}�N�������s�ł���悤�ɂȂ�ق��A</p>
+<p>【３】の方法は、マクロを実行する度にリストから選ばなければならないので面倒です。またマクロファイルが多くなってくると、ファイル名だけではどれが何のマクロか分からなくなってきます。そこで、比較的頻繁に使用するようなマクロは「マクロ登録」してしまいましょう。マクロ登録すると、プルダウンメニューからマクロを実行できるようになるほか、</p>
 <ul>
-<li>�V���[�g�J�b�g�L�[�ɂ��}�N���̎��s�i��<a href="#SHORTCUT">�y�T�z</a>�j</li>
-<li>�c�[���o�[�̃A�C�R������̃}�N���̎��s�i��<a href="#TOOLBAR">�y�U�z</a>�j</li>
-<li>���[�U�[���j���[����̃}�N���̎��s�i��<a href="#USERMENU">�y�V�z</a>�j</li>
+<li>ショートカットキーによるマクロの実行（→<a href="#SHORTCUT">【５】</a>）</li>
+<li>ツールバーのアイコンからのマクロの実行（→<a href="#TOOLBAR">【６】</a>）</li>
+<li>ユーザーメニューからのマクロの実行（→<a href="#USERMENU">【７】</a>）</li>
 </ul>
-<p>�Ȃǂ����p�ł���悤�ɂȂ�܂��B</p>
+<p>なども利用できるようになります。</p>
 </div>
-<p>�܂��u�}�N�����}�N���o�^�v�Łu�}�N���o�^�v�_�C�A���O���Ăяo���܂��B�}�N���o�^�ł́u�}�N��1�v����u�}�N��80�v�܂�80�̃}�N����o�^�ł��܂��B�����́u1�`10�v�u11�`20�v�Ƃ�������10�Â̃O���[�v�ƂȂ��Ă��܂��B�_�C�A���O�̍����ɂ���u�Ώہv�ŁA������؂�ւ��邱�Ƃ��ł��܂��B</p>
-<p>�u1�`10�v�O���[�v�ɓo�^�����}�N���́A�u�}�N���v�̃v���_�E�����j���[�̒��Ƀ^�C�g�����\������A�������璼�ڋN���ł��܂��B�u11�`20�v�O���[�v�ȍ~�ɓo�^�������̂́A�v���_�E�����j���[�̒��ɃO���[�v�����\������܂��B�O���[�v����I������ƁA�Y������O���[�v�ɓo�^���ꂽ�}�N���̃^�C�g���̃��j���[���\������A��������}�N�����N���ł��܂��B</p>
-<p>���j���[�́u�}�N���v���J�����Ƃ���<br />
-<img src="HMM0012A_01.png" width="417" height="306" alt="�}�N���̃��j���[" /><br />
+<p>まず「マクロ→マクロ登録」で「マクロ登録」ダイアログを呼び出します。マクロ登録では「マクロ1」から「マクロ80」まで80個のマクロを登録できます。これらは「1〜10」「11〜20」という風に10個づつのグループとなっています。ダイアログの左側にある「対象」で、これらを切り替えることができます。</p>
+<p>「1〜10」グループに登録したマクロは、「マクロ」のプルダウンメニューの中にタイトルが表示され、そこから直接起動できます。「11〜20」グループ以降に登録したものは、プルダウンメニューの中にグループ名が表示されます。グループ名を選択すると、該当するグループに登録されたマクロのタイトルのメニューが表示され、そこからマクロを起動できます。</p>
+<p>メニューの「マクロ」を開いたところ<br />
+<img src="HMM0012A_01.png" width="417" height="306" alt="マクロのメニュー" /><br />
 </p>
-<p>�}�N���o�^�_�C�A���O�́A�o�[�W�����ɂ��قȂ�܂��B</p>
+<p>マクロ登録ダイアログは、バージョンにより異なります。</p>
 <ul>
-<li><a href="#V879">Ver.8.79�ȍ~</a></li>
-<li><a href="#V877">Ver.8.77�܂�</a></li>
+<li><a href="#V879">Ver.8.79以降</a></li>
+<li><a href="#V877">Ver.8.77まで</a></li>
 </ul>
 <hr />
 <dl>
-<dt><span id="V879">Ver.8.79�ȍ~</span></dt>
-<dd><p>Ver.8.79����́A�_�C�A���O���ύX����Ă��܂��B<br />
-�ǉ��������ꏊ��I����A��ʉ��i�ɂ���^�C�g���ƃt�@�C�����̓��͗��ŁA�e���ڂ���͂��܂��B<br />
-�t�@�C�����E���́u<strong><span class="rotate90">��</span></strong>�v�{�^���Ń��X�g���o�܂��B�u<strong>�c</strong>�v�{�^���ŁA�t�@�C���Q�ƃ_�C�A���O���g���āA�}�N���t�@�C����I���ł��܂��B</p>
-<p>�G�N�X�v���[������̃h���b�v�ɂ��Ή����Ă��āA�}�N�����G�N�X�v���[������o�^�������ӏ��Ƀh���b�v����΁A�^�C�g���ƃt�@�C�������ݒ肳��܂��B�^�C�g���̓t�@�C��������g���q���폜�������̂������ɃZ�b�g�����̂ŁA�K�v�ɉ����ĕύX���Ă��������B<br />
-�E���́u�J���v�{�^���������ƁA�G�N�X�v���[���Ń}�N���t�H���_���J���܂��B</p>
-<p>�h���b�v���ɁA�O���[�v�̐ؑւ͏o���Ȃ��̂ŁA���炩���ߓo�^�������O���[�v�I�����Ă����Ă��������B�Ƃ肠�����h���b�v���A�ړ����������ڂ�I����A�u��ցv�A�u���ցv�̃{�^���ŁA�ړ����鎖���o���܂��B (�u��ցv�A�u���ցv�̃{�^���́A�O���[�v�𒴂��Ĉړ��ł��܂�)</p>
-<p>Ver.8.79�ȍ~�̃}�N���o�^�_�C�A���O(�����́u���[�h�v���狌�_�C�A���O�ɂ��ύX�\�ł��B�L�[���蓖�Ă��\���ł��܂�)<br />
-<img src="3_macro_registration2.png" width="606" height="415" alt="�}�N���̓o�^" /><br />
+<dt><span id="V879">Ver.8.79以降</span></dt>
+<dd><p>Ver.8.79からは、ダイアログが変更されています。<br />
+追加したい場所を選択後、画面下段にあるタイトルとファイル名の入力欄で、各項目を入力します。<br />
+ファイル名右側の「<strong><span class="rotate90">＞</span></strong>」ボタンでリストが出ます。「<strong>…</strong>」ボタンで、ファイル参照ダイアログを使って、マクロファイルを選択できます。</p>
+<p>エクスプローラからのドロップにも対応していて、マクロをエクスプローラから登録したい箇所にドロップすれば、タイトルとファイル名が設定されます。タイトルはファイル名から拡張子を削除したものが自動にセットされるので、必要に応じて変更してください。<br />
+右下の「開く」ボタンを押すと、エクスプローラでマクロフォルダが開きます。</p>
+<p>ドロップ中に、グループの切替は出来ないので、あらかじめ登録したいグループ選択しておいてください。とりあえずドロップし、移動したい項目を選択後、「上へ」、「下へ」のボタンで、移動する事も出来ます。 (「上へ」、「下へ」のボタンは、グループを超えて移動できます)</p>
+<p>Ver.8.79以降のマクロ登録ダイアログ(左下の「モード」から旧ダイアログにも変更可能です。キー割り当ても表示できます)<br />
+<img src="3_macro_registration2.png" width="606" height="415" alt="マクロの登録" /><br />
 </p>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><span id="V877">Ver.8.77�܂�</span></dt>
-<dd><p>�}�N���o�^�̊�{�́u�^�C�g���v�Ɓu�t�@�C�����v�̎w��ł��B�܂��u�t�@�C�����v�̗��ɁA�Z�b�g�A�b�v�����}�N���t�@�C���̖��O����͂��܂��B�E���́u<strong><span class="rotate90">��</span></strong>�v�{�^���Ń��X�g���o�܂��B�u<strong>�c</strong>�v�{�^���ŁA�t�@�C���Q�ƃ_�C�A���O���g���āA�}�N���t�@�C����I���ł��܂��B</p>
-<p>���ɁA�C�ӂ́u�^�C�g�����v����͂��܂��B���̃^�C�g�����v���_�E�����j���[���ɕ\������܂��̂ŁA�}�N���̋@�\�������ɂ킩��悤�Ȗ��O��t���܂��傤�B</p>
-<p>Ver.8.77�܂ł̉��<br />
-<img src="3_macro_registration.png" width="606" height="415" alt="�}�N���̓o�^" /><br />
+<dt><span id="V877">Ver.8.77まで</span></dt>
+<dd><p>マクロ登録の基本は「タイトル」と「ファイル名」の指定です。まず「ファイル名」の欄に、セットアップしたマクロファイルの名前を入力します。右側の「<strong><span class="rotate90">＞</span></strong>」ボタンでリストが出ます。「<strong>…</strong>」ボタンで、ファイル参照ダイアログを使って、マクロファイルを選択できます。</p>
+<p>次に、任意の「タイトル名」を入力します。このタイトルがプルダウンメニュー等に表示されますので、マクロの機能がすぐにわかるような名前を付けましょう。</p>
+<p>Ver.8.77までの画面<br />
+<img src="3_macro_registration.png" width="606" height="415" alt="マクロの登録" /><br />
 </p>
 </dd>
 </dl>
 <hr />
-<p>�O���[�v���u�P�`�P�O�v�ȊO�̏ꍇ�͏�ɂ���u�O���[�v���v�̗��ɂ��C�ӂ̖��O����͂��ĉ�����<a href="#exp3">(��3)</a>�B��Ƃ��I���������N���b�N���ă}�N���o�^���I�����܂��B</p>
+<p>グループが「１〜１０」以外の場合は上にある「グループ名」の欄にも任意の名前を入力して下さい<a href="#exp3">(注3)</a>。作業が終わったらをクリックしてマクロ登録を終了します。</p>
 <dl>
-<dt><span id="exp3">��3</span></dt>
-<dd>�����ŃO���[�v������͂��Ȃ��ƁA�v���_�E�����j���[�ɃO���[�v�����\������܂���B�܂��A�u�P�`�P�O�v�O���[�v�ɂ̓O���[�v���͕t�����܂���B
+<dt><span id="exp3">注3</span></dt>
+<dd>ここでグループ名を入力しないと、プルダウンメニューにグループ名が表示されません。また、「１〜１０」グループにはグループ名は付けられません。
 </dd>
 </dl>
-<h3 id="SHORTCUT">�y�T�z�V���[�g�J�b�g�L�[�ւ̓o�^�i�O��F�y�P�z�y�Q�z�y�S�z�j</h3>
-<p>�}�N���o�^��A�v���_�E�����j���[������ƁA�u�}�N��1�v����u�}�N��9�v�ɓo�^�������̂́A���ꂼ��E���ɁuCtrl+1�v�Ȃǂƕ\������Ă��܂��B����́u���͂���́E�ҏW���Ă���Ƃ��ɁA<kbd>[CTRL]</kbd>�������Ȃ���<kbd>[1]</kbd>�������ƁA�}�N��1�����s�����v�Ƃ����Ӗ��ł��B�܂�u�}�N��1�v����u�}�N��9�v�ɓo�^�����}�N���́A�i���Ԃɉ��̃}�N�����o�^����Ă��邩�������Ă�������΁j���̓v���_�E�����j���[��\�������Ȃ��Ă��Ăяo�����Ƃ��ł���̂ł�<a href="#exp4">(��4)</a>�B���̂悤�ȓ���̃L�[�̑g�ݍ��킹�ɂ���āA���j���[�Ȃǂ�����ɒ��ڃR�}���h�Ȃǂ����s����@�\�i����т��̃L�[�̑g�ݍ��킹�j�̂��Ƃ���ʂɁu�V���[�g�J�b�g�L�[�v�Ƃ����܂��B</p>
+<h3 id="SHORTCUT">【５】ショートカットキーへの登録（前提：【１】【２】【４】）</h3>
+<p>マクロ登録後、プルダウンメニューを見ると、「マクロ1」から「マクロ9」に登録したものは、それぞれ右側に「Ctrl+1」などと表示されています。これは「文章を入力・編集しているときに、<kbd>[CTRL]</kbd>を押しながら<kbd>[1]</kbd>を押すと、マクロ1が実行される」という意味です。つまり「マクロ1」から「マクロ9」に登録したマクロは、（何番に何のマクロが登録されているかを憶えてさえいれば）実はプルダウンメニューを表示させなくても呼び出すことができるのです<a href="#exp4">(注4)</a>。このような特定のキーの組み合わせによって、メニューなどを介さずに直接コマンドなどを実行する機能（およびそのキーの組み合わせ）のことを一般に「ショートカットキー」といいます。</p>
 <div class="attention1">
-<p>�G�ۃG�f�B�^�̃V���[�g�J�b�g�L�[�́u�L�[���蓖�āv�ƌĂ΂�Ă��܂����A���Ȃ荂�����R�x�ŃJ�X�^�}�C�Y�ł���悤�ɂȂ��Ă���A�u�}�N��80�v�܂łɓo�^�����}�N���͔C�ӂ́i�Ƃ����Ă�������񂠂���x�̐����͂���܂����j�V���[�g�J�b�g�L�[�Ɋ���t���邱�Ƃ��ł��܂��B�����ł́A�}�N���o�^�����}�N�����V���[�g�J�b�g�L�[�Ɋ���t������@��������܂��B</p>
+<p>秀丸エディタのショートカットキーは「キー割り当て」と呼ばれていますが、かなり高い自由度でカスタマイズできるようになっており、「マクロ80」までに登録したマクロは任意の（といってももちろんある程度の制限はありますが）ショートカットキーに割り付けることができます。ここでは、マクロ登録したマクロをショートカットキーに割り付ける方法を説明します。</p>
 </div>
-<p>�܂��u���̑����L�[���蓖�āv�ŃL�[���蓖�Ẵ_�C�A���O���Ăяo���܂��B</p>
+<p>まず「その他→キー割り当て」でキー割り当てのダイアログを呼び出します。</p>
 <ul>
-<li><p>�G�ۃG�f�B�^ Ver.8.90�ȍ~�̏ꍇ (Ver.8.90�`)�u�L�[�ɑ΂���R�}���h�v�̏ꍇ</p>
+<li><p>秀丸エディタ Ver.8.90以降の場合 (Ver.8.90〜)「キーに対するコマンド」の場合</p>
 <div style="position:relative;">
-<p><img src="2_custom_31.png" width="737" height="401" alt="�L�[���蓖�Ẵ_�C�A���O" /> <img src="keymap_v890.png" width="737" height="401" alt="�L�[���蓖�Ẵ_�C�A���O-v890" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="2_custom_31.png" width="737" height="401" alt="キー割り当てのダイアログ" /> <img src="keymap_v890.png" width="737" height="401" alt="キー割り当てのダイアログ-v890" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div>
-<p>�u�L�[�̈ꗗ�v�ɂ́A���蓖�Ă邱�Ƃ̂ł���u�L�[�v�ƌ��݊��蓖�ĂĂ���u�R�}���h�v�̈ꗗ���\������܂��B�u�L�[�̈ꗗ�v�̓��e�́A���̉��́uShift/Ctrl/Alt�v�ƁA�E�ɂ���u�L�[���蓖�Ċg���v�̃`�F�b�N�Ƃ̑g�ݍ��킹�ŕω����܂��B</p>
-<p>�u�L�[�̈ꗗ�v���犄�蓖�Ă����L�[��I������ƁA�u���蓖�Ă�R�}���h�v�ŊY������R�}���h���I������܂��B</p>
-<p>�u���蓖�Ă�R�}���h�v�ɕ\�����ꂽ�R�}���h���N���b�N���đI�����邱�Ƃɂ��A�u�L�[�̈ꗗ�v�őI�������L�[�Ɋ��蓖�Ă�R�}���h��ύX(���邢�͐V�K�ɐݒ�)�ł��܂��B<a href="#exp5">(��5)</a></p>
-<p>�����{�b�N�X�E���́u<span class="rotate90">��</span>�v�ŕ\������郊�X�g����u���j���[/�}�N���v��I�ԂƁA���ڂ̍i�荞�݂��s���A���j���[�ƃ}�N���̂ݕ\�������邱�Ƃ��ł��܂�</p></li>
-<li><p>�G�ۃG�f�B�^ Ver.8.90���O�̏ꍇ (�`Ver.8.89)</p>
-<p><img src="keymap.png" width="497" height="314" alt="�L�[���蓖�Ẵ_�C�A���O" /><br />
+<p>「キーの一覧」には、割り当てることのできる「キー」と現在割り当てている「コマンド」の一覧が表示されます。「キーの一覧」の内容は、その下の「Shift/Ctrl/Alt」と、右にある「キー割り当て拡張」のチェックとの組み合わせで変化します。</p>
+<p>「キーの一覧」から割り当てたいキーを選択すると、「割り当てるコマンド」で該当するコマンドが選択されます。</p>
+<p>「割り当てるコマンド」に表示されたコマンドをクリックして選択することにより、「キーの一覧」で選択したキーに割り当てるコマンドを変更(あるいは新規に設定)できます。<a href="#exp5">(注5)</a></p>
+<p>検索ボックス右側の「<span class="rotate90">＞</span>」で表示されるリストから「メニュー/マクロ」を選ぶと、項目の絞り込みが行われ、メニューとマクロのみ表示させることができます</p></li>
+<li><p>秀丸エディタ Ver.8.90より前の場合 (〜Ver.8.89)</p>
+<p><img src="keymap.png" width="497" height="314" alt="キー割り当てのダイアログ" /><br />
 </p>
-<p>�����́u�L�[�v�̃��X�g�ɂ͊��蓖�Ă邱�Ƃ̂ł���L�[(���łɃR�}���h�����蓖�Ă��Ă���L�[���܂�)�̈ꗗ���\������܂��B���̃L�[���X�g�̓��e�́A���̉��́uShift/Ctrl/Alt/�L�[���蓖�Ċg���v�̃`�F�b�N�Ƃ̑g�ݍ��킹�ŕω����܂��B</p>
-<p>�L�[���X�g�̒����炠��L�[�̑g�ݍ��킹��I��(�N���b�N����)�ƁA���̃L�[�ɓo�^����Ă���R�}���h���A�����́u�R�}���h�v�̃��X�g�̒��őI��\������܂��B�u(�Ȃ�)�v���I��\������Ă���ꍇ�A���̃L�[�ɂ͂܂��R�}���h�����蓖�Ă��Ă��Ȃ��Ƃ������Ƃł��B�R�}���h�n��{�b�N�X�E���́u<span class="rotate90">��</span>�v�ŕ\������郊�X�g����R�}���h�n���I�сA���̉��̃R�}���h���X�g�ɕ\�����ꂽ�R�}���h��1���N���b�N���đI��\�������邱�Ƃɂ��A�����Ŏw�������L�[�Ɋ��蓖�Ă�R�}���h��ύX(���邢�͐V�K�ɐݒ�)�ł��܂��B<a href="#exp5">(��5)</a></p>
-<p>�}�N����ݒ肷��ꍇ�́A�L�[�I����R�}���h��I������ۂɁu���j���[/�}�N���v�̌n���I�сA�R�}���h���X�g���́u�}�N��1�v����u�}�N��80�v�̒����犄�蓖�Ă������̂��N���b�N���܂��B</p></li>
+<p>左側の「キー」のリストには割り当てることのできるキー(すでにコマンドが割り当てられているキーを含む)の一覧が表示されます。このキーリストの内容は、その下の「Shift/Ctrl/Alt/キー割り当て拡張」のチェックとの組み合わせで変化します。</p>
+<p>キーリストの中からあるキーの組み合わせを選ぶ(クリックする)と、そのキーに登録されているコマンドが、中央の「コマンド」のリストの中で選択表示されます。「(なし)」が選択表示されている場合、そのキーにはまだコマンドが割り当てられていないということです。コマンド系列ボックス右側の「<span class="rotate90">＞</span>」で表示されるリストからコマンド系列を選び、その下のコマンドリストに表示されたコマンドの1つをクリックして選択表示させることにより、左側で指示したキーに割り当てるコマンドを変更(あるいは新規に設定)できます。<a href="#exp5">(注5)</a></p>
+<p>マクロを設定する場合は、キー選択後コマンドを選択する際に「メニュー/マクロ」の系列を選び、コマンドリスト中の「マクロ1」から「マクロ80」の中から割り当てたいものをクリックします。</p></li>
 </ul>
-<p>�Ⴆ�΁u<kbd>[Ctrl]</kbd>��<kbd>[Shift]</kbd>�������Ȃ���<kbd>[C]</kbd>���}�N��15�i�ɓo�^�����}�N���j �����s�v�Ɛݒ肵�����ꍇ�A�܂��E����</p>
+<p>例えば「<kbd>[Ctrl]</kbd>と<kbd>[Shift]</kbd>を押しながら<kbd>[C]</kbd>→マクロ15（に登録したマクロ） を実行」と設定したい場合、まず右下の</p>
 <ul>
 <li>&#9744;Shift(S)</li>
 <li>&#9744;Ctrl(T)</li>
 </ul>
-<p>���`�F�b�N(�N���b�N����&#9744;�̒���&#9745;��������Ԃɂ���)���܂��B<br />
-���ɃL�[���X�g���X�N���[�������āuShift+Ctrl+C�v���N���b�N���đI����Ԃɂ��āA�u���j���[/�}�N���v�̌n���I��ł���A�R�}���h���X�g���X�N���[�������āu�}�N��15:�~�~�~�~�~�v���N���b�N���邱�ƂɂȂ�܂��B</p>
-<p><span class="btn-push">�uOK�v</span>���N���b�N���ďI������ƁA�o�^�����L�[���蓖�Ă��L���ɂȂ�܂��B</p>
+<p>をチェック(クリックして&#9744;の中に&#9745;がついた状態にする)します。<br />
+次にキーリストをスクロールさせて「Shift+Ctrl+C」をクリックして選択状態にして、「メニュー/マクロ」の系列を選んでから、コマンドリストをスクロールさせて「マクロ15:×××××」をクリックすることになります。</p>
+<p><span class="btn-push">「OK」</span>をクリックして終了すると、登録したキー割り当てが有効になります。</p>
 <hr />
 <dl>
-<dt><span id="exp4">��4</span>�F</dt>
-<dd>Ctrl+1�`Ctrl+9�̃L�[���蓖�Ắu�}�N��1�v�`�u�}�N��9�v�ɌŒ肳��Ă���悤�ł��B(�f�t�H���g�̃L�[���蓖��) ������񂱂��̃}�N����ʂ̃L�[�Ɂu���v���蓖�Ă邱�Ƃ͖��Ȃ��ł��܂��B
+<dt><span id="exp4">注4</span>：</dt>
+<dd>Ctrl+1〜Ctrl+9のキー割り当ては「マクロ1」〜「マクロ9」に固定されているようです。(デフォルトのキー割り当て) もちろんこれらのマクロを別のキーに「も」割り当てることは問題なくできます。
 </dd>
-<dt><span id="exp5">��5</span>�F</dt>
-<dd>���Ԃɒ��ӂ��ĉ������B�K�������Łu�L�[�v��I�񂾌�ɁA�E���Łu�R�}���h�v��I�΂Ȃ���΂Ȃ�܂���B
+<dt><span id="exp5">注5</span>：</dt>
+<dd>順番に注意して下さい。必ず左側で「キー」を選んだ後に、右側で「コマンド」を選ばなければなりません。
 </dd>
 </dl>
-<h3 id="TOOLBAR">�y�U�z�c�[���o�[����}�N���N���i�O��F�y�P�z�y�Q�z�y�S�z�j</h3>
+<h3 id="TOOLBAR">【６】ツールバーからマクロ起動（前提：【１】【２】【４】）</h3>
 <div class="attention1">
-<p>�y�S�z�œo�^�����}�N���Ɍ����āA�c�[���o�[�̃A�C�R������N���ł��܂��B</p>
+<p>【４】で登録したマクロに限って、ツールバーのアイコンから起動できます。</p>
 </div>
-<p>�܂��u���̑���<span class="env">�����</span>���E�B���h�E�v�́u&#9744;�c�[���o�[�v�̍��ڂ��`�F�b�N����Ă��Ȃ�������A������`�F�b�N���܂��B�����[�ڍ�]�{�^�����N���b�N���A�u�c�[���o�[�ڍׁv�̃_�C�A���O���Ăяo���܂��B�E���̃{�b�N�X�ŃR�}���h�n��Ɂu���j���[/�}�N���n�v���w�肷��ƁA���̉��̃��X�g�Ɂu�}�N��1�v����u�}�N��10�v�܂ł́i�����̃f�U�C���́j�A�C�R�����\������܂��B(11�`80�܂ł̓A�C�R��������܂���) �����́u�}�N���o�^�v�Łu�}�N��1�v�`�u�}�N��80�v�֊��蓖�Ă��}�N���ɑΉ����Ă��܂�����A�K�X�I��Œ�����[�ǉ�]�{�^�����N���b�N����ƁA�����̃c�[���o�[���X�g�̍Ō���ɒǉ�����܂��B�A�C�R���̕��т�<span class="btn-push">�u���Ɂv</span> <span class="btn-push">�u����Ɂv</span>�{�^���Œ������܂��B��Ƃ��I�������<span class="btn-push">&lt;OK&gt;</span>�{�^���ŏI�����܂��B</p>
-<p>����ŁA���j���[�̉��̃c�[���o�[�̐����̃A�C�R�����璼�ڃ}�N�����N���ł���悤�ɂȂ�܂��B</p>
-<p><img src="3_macro_toolbar.png" width="572" height="439" alt="�c�[���o�[�J�X�^�}�C�Y�̃_�C�A���O" /><br />
+<p>まず「その他→<span class="env">動作環境</span>→ウィンドウ」の「&#9744;ツールバー」の項目がチェックされていなかったら、これをチェックします。さらに[詳細]ボタンをクリックし、「ツールバー詳細」のダイアログを呼び出します。右側のボックスでコマンド系列に「メニュー/マクロ系」を指定すると、その下のリストに「マクロ1」から「マクロ10」までの（数字のデザインの）アイコンが表示されます。(11〜80まではアイコンがありません) これらは「マクロ登録」で「マクロ1」〜「マクロ80」へ割り当てたマクロに対応していますから、適宜選んで中央の[追加]ボタンをクリックすると、左側のツールバーリストの最後尾に追加されます。アイコンの並びは<span class="btn-push">「一つ上に」</span> <span class="btn-push">「一つ下に」</span>ボタンで調整します。作業が終わったら<span class="btn-push">&lt;OK&gt;</span>ボタンで終了します。</p>
+<p>これで、メニューの下のツールバーの数字のアイコンから直接マクロを起動できるようになります。</p>
+<p><img src="3_macro_toolbar.png" width="572" height="439" alt="ツールバーカスタマイズのダイアログ" /><br />
 </p>
-<p><img src="3_macro_toolbar2.png" width="579" height="133" alt="�c�[���o�[�J�X�^�}�C�Y����" /><br />
+<p><img src="3_macro_toolbar2.png" width="579" height="133" alt="ツールバーカスタマイズ結果" /><br />
 </p>
-<h3 id="USERMENU">�y�V�z���[�U�[���j���[����}�N���N���i�O��F�y�P�z�y�Q�z�y�S�z�j</h3>
+<h3 id="USERMENU">【７】ユーザーメニューからマクロ起動（前提：【１】【２】【４】）</h3>
 <div class="attention1">
-<p>�G�ۃG�f�B�^�ɂ́u���j���[1�v����u���j���[8�v����сu�I�𒆉E�{�^���v�Ƃ����X�̃��[�U�[���j���[(���[�U�[�����R�ɕҏW�ł��郁�j���[)���p�ӂ���Ă��܂��B�����Ɂu�}�N��1�v����u�}�N��80�v�܂ł̃}�N����o�^�ł��܂��B����𗘗p���邽�߂ɂ́A�u���j���[�̕ҏW�v�Ɓu���j���[�̃L�[���蓖�āv�̂Q�i�K�̏������K�v�ɂȂ�܂��B</p>
+<p>秀丸エディタには「メニュー1」から「メニュー8」および「選択中右ボタン」という９つのユーザーメニュー(ユーザーが自由に編集できるメニュー)が用意されています。ここに「マクロ1」から「マクロ80」までのマクロを登録できます。これを利用するためには、「メニューの編集」と「メニューのキー割り当て」の２段階の準備が必要になります。</p>
 </div>
-<p>�܂����j���[�̕ҏW�����܂��B�u���̑������j���[�ҏW�v�Łu���j���[�̕ҏW�v�̃_�C�A���O���Ăяo���A�u���[�U�[���j���[�v�̃^�u��I�����܂��B�u���j���[�v���ŕҏW���郁�j���[��I������ƁA���̃��j���[�̌��݂̓��e���u���e�v�̃��X�g�ɕ\������܂��B</p>
-<p><img src="3_macro_usermenu.png" width="482" height="453" alt="���[�U�[���j���[" /><br />
+<p>まずメニューの編集をします。「その他→メニュー編集」で「メニューの編集」のダイアログを呼び出し、「ユーザーメニュー」のタブを選択します。「メニュー」欄で編集するメニューを選択すると、そのメニューの現在の内容が「内容」のリストに表示されます。</p>
+<p><img src="3_macro_usermenu.png" width="482" height="453" alt="ユーザーメニュー" /><br />
 </p>
-<p>[�ǉ��c]�{�^���Łu�ǉ��v�_�C�A���O���Ăяo���܂��B</p>
-<p><img src="3_macro_usermenu_add.png" width="322" height="333" alt="���[�U�[���j���[�̒ǉ�" /><br />
+<p>[追加…]ボタンで「追加」ダイアログを呼び出します。</p>
+<p><img src="3_macro_usermenu_add.png" width="322" height="333" alt="ユーザーメニューの追加" /><br />
 </p>
-<p>�R�}���h�n��Ɂu���j���[/�}�N���v���w�肷��ƁA���̃��X�g�Ɂu�}�N��1�v����u�}�N��80�v�܂ł��\������܂�<a href="#exp6">(��6)</a>�B���j���[�ɒǉ����������̂��N���b�N���đI��\�������A�u�L�[�v���ɔ��p�p�����P��������͂��܂��i���̔��p�p�����̓��j���[���ł̈��̃V���[�g�J�b�g�L�[�ɂȂ�܂��j�B������[�ǉ�]���N���b�N����ƁA�u���[�U�[���j���[�̐ݒ�v�_�C�A���O�ɖ߂�̂ŁA�u���e�v���X�g�̖����ɐ�قǎw�肵���}�N�����ǉ�����Ă��邱�Ƃ��m�F���ĉ������B�K�v�Ȃ���בւ��������A[����]�ŏI�����܂��B����Ń��j���[�̕ҏW�͏I���ł��B</p>
-<p>�u���j���[1�v����u���j���[8�v�̏ꍇ�A���Ƀ��j���[�̃L�[���蓖�Ă����܂�<a href="#exp7">(��7)</a>�B�v�̂́y�T�z�Ƃقړ����ł��B�Ⴄ�̂̓R�}���h���X�g����I�Ԃ̂��u�}�N���v�ł͂Ȃ��u���j���[�v�ł���Ƃ������Ƃ����ł��B</p>
-<p>����ŁA���蓖�Ă�ꂽ�V���[�g�J�b�g�L�[�ɂ�胆�[�U�[���j���[���\������A���̒�����}�N�������s�ł���悤�ɂȂ�܂��B</p>
+<p>コマンド系列に「メニュー/マクロ」を指定すると、下のリストに「マクロ1」から「マクロ80」までが表示されます<a href="#exp6">(注6)</a>。メニューに追加したいものをクリックして選択表示させ、「キー」欄に半角英数字１文字を入力します（この半角英数字はメニュー内での一種のショートカットキーになります）。ここで[追加]をクリックすると、「ユーザーメニューの設定」ダイアログに戻るので、「内容」リストの末尾に先ほど指定したマクロが追加されていることを確認して下さい。必要なら並べ替え等をし、[閉じる]で終了します。これでメニューの編集は終わりです。</p>
+<p>「メニュー1」から「メニュー8」の場合、次にメニューのキー割り当てをします<a href="#exp7">(注7)</a>。要領は【５】とほぼ同じです。違うのはコマンドリストから選ぶのが「マクロ」ではなく「メニュー」であるということだけです。</p>
+<p>これで、割り当てられたショートカットキーによりユーザーメニューが表示され、その中からマクロを実行できるようになります。</p>
 <hr />
 <dl>
-<dt><span id="exp6">��6</span>�F</dt>
-<dd>���ۂɂ͂��̃��X�g���Ƀ��[�U�[���j���[���܂܂�Ă��܂��B������u�ǉ��v����ƃ��[�U�[���j���[�̒��Ƀ��[�U�[���j���[��o�^���邱�ƂɂȂ�܂��B����ɂ�胆�[�U�[���j���[���K�w���ł���悤�ł��B
+<dt><span id="exp6">注6</span>：</dt>
+<dd>実際にはこのリスト中にユーザーメニューも含まれています。これを「追加」するとユーザーメニューの中にユーザーメニューを登録することになります。これによりユーザーメニューを階層化できるようです。
 </dd>
-<dt><span id="exp7">��7</span>�F</dt>
-<dd>�u�I�𒆉E�{�^���v�Ɍ���A�u�͈͑I�𒆂̃}�E�X�E�N���b�N�v�ɑΉ����Œ肳��Ă��܂��̂ŁA�L�[���蓖�Ă̍�Ƃ͕s�v�ł��i�Ƃ������ł��܂���j�B�܂��A�f�t�H���g�̐ݒ�ł́u���j���[1�v���u�E�N���b�N�v�Ɋ��蓖�Ă��Ă���悤�ł��i�L�[���蓖�Ẵ_�C�A���O�Ŋm�F�ł��܂��j�B���������ă}�E�X�̉E�N���b�N���j���[����}�N�������s�������ꍇ�́A�����������āu���j���[1�v����сu�I�𒆉E�{�^���v�ɓo�^����̂��ȒP�ł��傤�B��������΃L�[���蓖�ĂŔY�ޕK�v�͂���܂���B���Ɂu�����͈͂�I�����Ă�����s����}�N���v�̏ꍇ�u�I�𒆉E�{�^���v�ɓo�^���Ă����ƁA�}�E�X�̍��{�^���h���b�O�Ŕ͈͂�I��������A�E�N���b�N�Ń��j���[���o���Ă����Ƀ}�N�������s�ł���̂ŕ֗��ł��B
+<dt><span id="exp7">注7</span>：</dt>
+<dd>「選択中右ボタン」に限り、「範囲選択中のマウス右クリック」に対応が固定されていますので、キー割り当ての作業は不要です（というかできません）。また、デフォルトの設定では「メニュー1」が「右クリック」に割り当てられているようです（キー割り当てのダイアログで確認できます）。したがってマウスの右クリックメニューからマクロを実行したい場合は、さしあたって「メニュー1」および「選択中右ボタン」に登録するのが簡単でしょう。こうすればキー割り当てで悩む必要はありません。特に「処理範囲を選択してから実行するマクロ」の場合「選択中右ボタン」に登録しておくと、マウスの左ボタンドラッグで範囲を選択した後、右クリックでメニューを出してすぐにマクロを実行できるので便利です。
 </dd>
 </dl>
-<h3 id="SAMPLE">�y�W�z�T���v���}�N��</h3>
+<h3 id="SAMPLE">【８】サンプルマクロ</h3>
 <div class="attention1">
-<p>�茳�ɓK���ȃ}�N���t�@�C�����Ȃ����́A���̗v�̂Ń}�N���t�@�C��������ē������Ă݂܂��傤�B�������y�P�z�̓����O�̏����͍ς܂��Ă����ĉ������B</p>
+<p>手元に適当なマクロファイルがない方は、次の要領でマクロファイルを作って動かしてみましょう。ただし【１】の導入前の準備は済ませておいて下さい。</p>
 </div>
 <ol type="1">
-<li>�ȉ��̃T���v���̒�����D���Ȃ��̂�S�Ɍ��߂�B(^_^)</li>
-<li>Q&amp;A�W�̃E�B���h�E�̃��j���[�́u�ҏW���R�s�[�v��I������B(�������Ԃ������邩������܂���)</li>
-<li>�S�Ɍ��߂��T���v���́u//�\��������v�Ɓu//�\�����܂Łv�ŋ��܂ꂽ�������h���b�O���đI�����u�ꕔ���R�s�[�v���N���b�N����B</li>
-<li>�G�ۃG�f�B�^���N�����i���邢�́u�t�@�C�����V�K�쐬�v�ł܂�����ȏG�ۃG�f�B�^��p�ӂ��j�u�ҏW���\��t���v�Ő�قǃR�s�[�������̂��G�ۃG�f�B�^�Ƀy�[�X�g����B</li>
-<li>�u�t�@�C�������O��t���ĕۑ��v��I�сA���L�̖��O�����ă}�N���p�t�H���_�i�y�P�z�Q�Ɓj�ɕۑ�����B</li>
+<li>以下のサンプルの中から好きなものを心に決める。(^_^)</li>
+<li>Q&amp;A集のウィンドウのメニューの「編集→コピー」を選択する。(多少時間がかかるかもしれません)</li>
+<li>心に決めたサンプルの「//―ここから」と「//―ここまで」で挟まれた部分をドラッグして選択し「一部分コピー」をクリックする。</li>
+<li>秀丸エディタを起動し（あるいは「ファイル→新規作成」でまっさらな秀丸エディタを用意し）「編集→貼り付け」で先ほどコピーしたものを秀丸エディタにペーストする。</li>
+<li>「ファイル→名前を付けて保存」を選び、下記の名前をつけてマクロ用フォルダ（【１】参照）に保存する。</li>
 </ol>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="SAMPLE1">�T���v���}�N�����̂P</h4>
-<p>�u�J�[�\���ʒu�Ɍ��ݓ�����}������}�N���v</p>
-<p>�ۑ����̃t�@�C������ QA_SMPL1.MAC �Ƃ��Ă��������B</p>
+<h4 id="SAMPLE1">サンプルマクロその１</h4>
+<p>「カーソル位置に現在日時を挿入するマクロ」</p>
+<p>保存時のファイル名は QA_SMPL1.MAC としてください。</p>
 <div class="macro">
-<pre><code>//---��������
+<pre><code>//---ここから
 //QA_SMPL1.MAC
 insert date + &quot; &quot; + time;
 endmacro;
-//---�����܂�</code></pre>
+//---ここまで</code></pre>
 </div>
-<h4 id="SAMPLE2">�T���v���}�N�����̂Q</h4>
-<p>�u�ҏW���̃e�L�X�g�̖����Ɂw�����̖��O�x���̍s��}������}�N���v</p>
-<p>�ۑ����̃t�@�C������ QA_SMPL2.MAC �Ƃ��Ă��������B<br />
-�u�����̖��O�v�̂Ƃ���͔C�ӂ̕�����i�������uv��u"�v���܂܂Ȃ��j�ɒu�������邱�Ƃ��ł��܂��B</p>
+<h4 id="SAMPLE2">サンプルマクロその２</h4>
+<p>「編集中のテキストの末尾に『自分の名前』をの行を挿入するマクロ」</p>
+<p>保存時のファイル名は QA_SMPL2.MAC としてください。<br />
+「自分の名前」のところは任意の文字列（ただし「vや「"」を含まない）に置き換えることができます。</p>
 <div class="macro">
-<pre><code>//---��������
+<pre><code>//---ここから
 //QA_SMPL2.MAC
 gofileend;
-insert &quot;\n&quot; + &quot;�����̖��O&quot; + &quot;\n&quot;;
+insert &quot;\n&quot; + &quot;自分の名前&quot; + &quot;\n&quot;;
 endmacro;
-//---�����܂�</code></pre>
+//---ここまで</code></pre>
 </div>
-<h4 id="SAMPLE3">�T���v���}�N�����̂R</h4>
-<p>�u���s�݂̂̍s���A�����Ă�����P�s�ɒu������}�N���v</p>
-<p>�ۑ����̃t�@�C������ QA_SMPL3.MAC �Ƃ��Ă��������B</p>
+<h4 id="SAMPLE3">サンプルマクロその３</h4>
+<p>「改行のみの行が連続していたら１行に置換するマクロ」</p>
+<p>保存時のファイル名は QA_SMPL3.MAC としてください。</p>
 <div class="macro">
-<pre><code>//---��������
+<pre><code>//---ここから
 //QA_SMPL3.MAC
 gofileend;
 replaceup &quot;^\\n\\n+&quot;, &quot;\n&quot;, regular;
 while (result) findup;
 endmacro;
-//---�����܂�</code></pre>
+//---ここまで</code></pre>
 </div>
-<p>���̃}�N���̈Ӗ��̏ڍׂ́A<a href="4_regular.html">��IV���`�e�L�X�g�ҏW���ɂ߂�I�I���K�\���ɂ���</a> ��<a href="4_regular.html#RETURNS">�y�T�z (�⑫)�G�ۃG�f�B�^��ł̕����s�ɂ܂����錟���ɂ���</a>���Q�Ƃ��Ă��������B</p>
-<h4 id="SAMPLE4">�T���v���}�N�����̂S</h4>
-<p>�u�󔒁i�S�p�X�y�[�X�A���p�X�y�[�X�A�^�u�j�݂̂���Ȃ�s�����s�݂̂̍s�ɒu������}�N���v</p>
-<p>�ۑ����̃t�@�C������ QA_SMPL4.MAC �Ƃ��Ă��������B</p>
+<p>このマクロの意味の詳細は、<a href="4_regular.html">第IV部〜テキスト編集を極める！！正規表現について</a> の<a href="4_regular.html#RETURNS">【５】 (補足)秀丸エディタ上での複数行にまたがる検索について</a>を参照してください。</p>
+<h4 id="SAMPLE4">サンプルマクロその４</h4>
+<p>「空白（全角スペース、半角スペース、タブ）のみからなる行を改行のみの行に置換するマクロ」</p>
+<p>保存時のファイル名は QA_SMPL4.MAC としてください。</p>
 <div class="macro">
-<pre><code>//---��������
+<pre><code>//---ここから
 //QA_SMPL4.MAC
-replaceall &quot;^[ �@\\t]+$&quot;,&quot;&quot;, regular;
+replaceall &quot;^[ 　\\t]+$&quot;,&quot;&quot;, regular;
 endmacro;
-//---�����܂�</code></pre>
+//---ここまで</code></pre>
 </div>
-<p>�����̃}�j���A���͏G�ۃG�f�B�^ Ver.3.08 �̎d�l�����ɏ�����Ă��܂��B�G�ۃG�f�B�^�̃o�[�W�����ɂ���ẮA�K�����������ɏ�����Ă�����e�̒ʂ�Ƃ͌���܂���B</p>
+<p>※このマニュアルは秀丸エディタ Ver.3.08 の仕様を元に書かれています。秀丸エディタのバージョンによっては、必ずしもここに書かれている内容の通りとは限りません。</p>
 </div>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>
