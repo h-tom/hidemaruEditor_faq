@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�G�ۃ}�N���ŕ������ҏW����</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　秀丸マクロで文字列を編集する</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,48 +22,48 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�G�ۃ}�N���ŕ������ҏW����</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　秀丸マクロで文字列を編集する</h1>
 <hr />
-<h2 id="EDIT">�G�ۃ}�N���ŕ������ҏW����</h2>
-<p>�����ł́A�G�ۃ}�N���ŕ������ҏW����Ƃ��ɂ悭�g���R�}���h�̊�{�I�ȉ���ƁA���ۂɃR�}���h���g����ł��������ӂ��ׂ��_���܂Ƃ߂܂����B<br />
-�G�ۃ}�N���ŕ������ҏW����ɂ͑傫�������āA</p>
+<h2 id="EDIT">秀丸マクロで文字列を編集する</h2>
+<p>ここでは、秀丸マクロで文字列を編集するときによく使うコマンドの基本的な解説と、実際にコマンドを使う上でいくつか注意すべき点をまとめました。<br />
+秀丸マクロで文字列を編集するには大きく分けて、</p>
 <ul>
-<li>�G�ۃG�f�B�^�E�B���h�E��ŃJ�[�\���ړ���͈͑I���A���ڕ������}�������肵�ď���������@</li>
-<li>������ϐ��Ɏ�荞��ŕϐ��̒��ŏ���������@</li>
+<li>秀丸エディタウィンドウ上でカーソル移動や範囲選択、直接文字列を挿入したりして処理する方法</li>
+<li>文字列変数に取り込んで変数の中で処理する方法</li>
 </ul>
-<p>������܂��B�����̏������s���ɂ������āA�͈͑I���̕��@�╶����ϐ��Ɏ�荞�ޕ��@�A�Q�o�C�g�����̈����Ȃǂɂ��Ď�ɐ������܂��B</p>
-<p>�y�P�z<a href="#RETURN">���s��}������ɂ́iinsertreturn; ��insert "\n";�j</a><br />
-�y�Q�z<a href="#CODE">�J�[�\���ʒu�̕�����������m��ɂ́icode, unicode�L�[���[�h�j</a><br />
-�y�R�z<a href="#MOVETO">�C�ӂ̍��W�ɂ��镶���������𔻒f����ɂ́imoveto,�J�[�\���ړ��n�R�}���h�j</a><br />
-�y�S�z<a href="#BEGINSEL">�͈͑I������ɂ�</a><br />
-�y�T�z<a href="#ESCAPE">�͈͑I������������ɂ�</a><br />
-�y�U�z<a href="#GETTEXT">������^�ϐ��Ɏ�荞�ނɂ́F���̂P�igettext��)</a><br />
-�y�V�z<a href="#SELECTING">�͈͑I������Ă��邩���f����ɂ́iselecting�L�[���[�h�j</a><br />
-�y�W�z<a href="#CLIPBOARD">������^�ϐ��Ɏ�荞�ނɂ́F���̂Q�i�N���b�v�{�[�h�o�R�j</a><br />
-�y�X�z<a href="#ASCII">�ϐ����̕�����������m��ɂ́iascii�֐��j</a><br />
-�y�P�O�z<a href="#DOUBLE">�����񒆂̐擪�ȊO�̕������P�o�C�g�������Q�o�C�g����������ʂ���ɂ́imidstr�����ւ̒��ӎ����j</a></p>
+<p>があります。それらの処理を行うにあたって、範囲選択の方法や文字列変数に取り込む方法、２バイト文字の扱いなどについて主に説明します。</p>
+<p>【１】<a href="#RETURN">改行を挿入するには（insertreturn; とinsert "\n";）</a><br />
+【２】<a href="#CODE">カーソル位置の文字が何かを知るには（code, unicodeキーワード）</a><br />
+【３】<a href="#MOVETO">任意の座標にある文字が何かを判断するには（moveto,カーソル移動系コマンド）</a><br />
+【４】<a href="#BEGINSEL">範囲選択するには</a><br />
+【５】<a href="#ESCAPE">範囲選択を解除するには</a><br />
+【６】<a href="#GETTEXT">文字列型変数に取り込むには：その１（gettext文)</a><br />
+【７】<a href="#SELECTING">範囲選択されているか判断するには（selectingキーワード）</a><br />
+【８】<a href="#CLIPBOARD">文字列型変数に取り込むには：その２（クリップボード経由）</a><br />
+【９】<a href="#ASCII">変数内の文字が何かを知るには（ascii関数）</a><br />
+【１０】<a href="#DOUBLE">文字列中の先頭以外の文字が１バイト文字か２バイト文字かを区別するには（midstr文等への注意事項）</a></p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="RETURN">�y�P�z���s��}������ɂ́iinsertreturn; ��insert "\n";�j</h3>
-<p>�G�ۃ}�N���ŉ��s��}������ɂ́A�ǂ�����΂悢�ł��傤���H</p>
-<p>���̖������΂�A<strong>insertreturn</strong>�Ƃ������߂�����܂��B<br />
-insertreturn���́A�u���s�L�[���������̂ƑS�����������v�����܂��B<br />
-�G�ۃG�f�B�^�}�N���w���v�́u�}���n���v�ɂ���������Ă���悤�ɁAinsertreturn���͌��݂̃��[�h���㏑�����[�h���}�����[�h���ɂ���ē��삪�قȂ�܂��B<br />
-�㏑�����[�h�̏ꍇ�A�u<span class="env">�����</span>�v-�u�ҏW�v-�u���x�ȕҏW1�v-�u�}��/�㏑���[�h�v�́u�㏑�����[�h���̃��^�[���v�̐ݒ�ɂ���ē��삪�ς��܂��B�u�J�[�\���ړ�����v���I������Ă���ƁA���s�͑}�����ꂸ�J�[�\�������s�s���Ɉړ����܂��B<br />
-�܂��u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v-�u�̍فv-�u�C���f���g�v�́A�u�����C���f���g�v�Őݒ肵������ɂȂ�܂��B</p>
-<p>�u���s�L�[���������̂ƑS�����������v�����������ꍇ�́Ainsertreturn�����֗��ł����A�㏑�����[�h�E�}�����[�h�̂ǂ���ł��K�����s��}���������ꍇ�͂ǂ�����̂��ǂ��ł��傤���H<br />
-<strong>insert</strong>���ŉ��s������}������̂��ȒP�ł��B</p>
-<p>�i��j ���s��}������ɂ�</p>
+<h3 id="RETURN">【１】改行を挿入するには（insertreturn; とinsert "\n";）</h3>
+<p>秀丸マクロで改行を挿入するには、どうすればよいでしょうか？</p>
+<p>その名もずばり、<strong>insertreturn</strong>という命令があります。<br />
+insertreturn文は、「改行キーを押したのと全く同じ働き」をします。<br />
+秀丸エディタマクロヘルプの「挿入系文」にも説明されているように、insertreturn文は現在のモードが上書きモードか挿入モードかによって動作が異なります。<br />
+上書きモードの場合、「<span class="env">動作環境</span>」-「編集」-「高度な編集1」-「挿入/上書モード」の「上書きモード時のリターン」の設定によって動作が変わります。「カーソル移動する」が選択されていると、改行は挿入されずカーソルが次行行頭に移動します。<br />
+また「<span class="filetype">ファイルタイプ別の設定</span>」-「体裁」-「インデント」の、「自動インデント」で設定した動作になります。</p>
+<p>「改行キーを押したのと全く同じ働き」をさせたい場合は、insertreturn文が便利ですが、上書きモード・挿入モードのどちらでも必ず改行を挿入したい場合はどうするのが良いでしょうか？<br />
+<strong>insert</strong>文で改行文字を挿入するのが簡単です。</p>
+<p>（例） 改行を挿入するには</p>
 <div class="macro">
 <pre><code>insert &quot;\n&quot;;</code></pre>
 </div>
-<p>�܂���</p>
+<p>または</p>
 <div class="macro">
 <pre><code>insert &quot;\x0a&quot;;</code></pre>
 </div>
-<p>�ɂȂ�܂��B</p>
-<p>�܂��́A�㏑�����[�h�̎���U�}�����[�h�֕ύX���Ainsertreturn ���Ă܂��㏑�����[�h�ɖ߂��Ă�������@������܂��B<br />
-���̏ꍇ�A�C���f���g�̐ݒ�ɏ]��������ƂȂ�܂��B</p>
+<p>になります。</p>
+<p>または、上書きモードの時一旦挿入モードへ変更し、insertreturn してまた上書きモードに戻してあげる方法もあります。<br />
+この場合、インデントの設定に従った動作となります。</p>
 <div class="macro">
 <pre><code>if(overwrite){
     overwriteswitch;
@@ -73,112 +73,112 @@ insertreturn���́A�u���s�L�[���������̂ƑS�����������v�����܂��B<br />
     insertreturn;
 }</code></pre>
 </div>
-<h3 id="CODE">�y�Q�z�J�[�\���ʒu�̕�����������m��ɂ́icode, unicode�L�[���[�h�j</h3>
-<p>���݂̃J�[�\���ʒu�ɂ��镶�����A1�o�C�g������2�o�C�g�������𒲂ׂ�ɂ͂ǂ�����Ηǂ��ł��傤���H</p>
-<p><strong>code</strong>�A<strong>unicode</strong> �Ƃ����L�[���[�h������܂��B</p>
+<h3 id="CODE">【２】カーソル位置の文字が何かを知るには（code, unicodeキーワード）</h3>
+<p>現在のカーソル位置にある文字が、1バイト文字か2バイト文字かを調べるにはどうすれば良いでしょうか？</p>
+<p><strong>code</strong>、<strong>unicode</strong> というキーワードがあります。</p>
 <ul>
-<li><p>code�L�[���[�h�́A�J�[�\���ʒu��Shift_JIS �����R�[�h��\���܂��B</p>
-<p>���̃L�[���[�h��2�o�C�g�����ɑΉ����Ă���A2�o�C�g�����̏�ʃo�C�g�ɂ���ꍇ��2�o�C�g�̃R�[�h��Ԃ��܂��B�Ⴆ�ΑS�p�󔒂̏ꍇ�Acode�L�[���[�h�́A0x8140�ɂȂ�܂��B</p>
-<p>code�L�[���[�h�́A�ҏW���̃e�L�X�g�̃G���R�[�h�Ɋ֌W�Ȃ��AShift_JIS�̕����R�[�h��Ԃ��܂��B���ׁ̈A<span class="attention_red">Shift_JIS�Ɋ܂܂�Ȃ������̏ꍇ�́A�u0�v��Ԃ��܂��B</span></p></li>
-<li><p>unicode�L�[���[�h�́A�J�[�\���ʒu��unicode�R�[�h�|�C���g��\���܂��B</p>
-<p>�R�[�h�|�C���g�Ȃ̂ŁAUTF-16�AUTF-8���̕�����������̃R�[�h�Ƃ͈قȂ�̂Œ��ӂ��Ă��������B</p></li>
+<li><p>codeキーワードは、カーソル位置のShift_JIS 文字コードを表します。</p>
+<p>このキーワードは2バイト文字に対応しており、2バイト文字の上位バイトにある場合は2バイトのコードを返します。例えば全角空白の場合、codeキーワードは、0x8140になります。</p>
+<p>codeキーワードは、編集中のテキストのエンコードに関係なく、Shift_JISの文字コードを返します。その為、<span class="attention_red">Shift_JISに含まれない文字の場合は、「0」を返します。</span></p></li>
+<li><p>unicodeキーワードは、カーソル位置のunicodeコードポイントを表します。</p>
+<p>コードポイントなので、UTF-16、UTF-8等の文字符号化後のコードとは異なるので注意してください。</p></li>
 </ul>
 <dl>
-<dt>�i��j���݂̃J�[�\���ʒu�ɂ��镶�����A1�o�C�g�������A2�o�C�g�����������b�Z�[�W�{�b�N�X�ŕ\������B</dt>
+<dt>（例）現在のカーソル位置にある文字が、1バイト文字か、2バイト文字かをメッセージボックスで表示する。</dt>
 <dd><div class="macro">
 <pre><code>if (code &gt; 0xff) {
-    message &quot;2�o�C�g�����ł�&quot;;
+    message &quot;2バイト文字です&quot;;
 } else {
-    message &quot;1�o�C�g�����ł�&quot;;
+    message &quot;1バイト文字です&quot;;
 }</code></pre>
 </div>
-<p>�G�ۃ}�N���̐��l�^�͂S�o�C�g�ł���A0x8000�ȍ~�����̒l�ƂȂ�̂ŁA��L�̏������łn�j�ł��B</p>
+<p>秀丸マクロの数値型は４バイトであり、0x8000以降も正の値となるので、上記の書き方でＯＫです。</p>
 </dd>
-<dt>�i��j �܂��́A�ȉ��ł�OK�B</dt>
+<dt>（例） または、以下でもOK。</dt>
 <dd><div class="macro">
 <pre><code>if (code &amp;&amp; 0xff00 != 0) {
-    message &quot;2�o�C�g�����ł�&quot;;
+    message &quot;2バイト文字です&quot;;
 } else {
-    message &quot;1�o�C�g�����ł�&quot;;
+    message &quot;1バイト文字です&quot;;
 }</code></pre>
 </div>
-<p>�����ő��̓��ꕶ���̗�����܂��傤�B</p>
+<p>ここで他の特殊文字の例も見ましょう。</p>
 </dd>
-<dt>�i��j ���s�����𔻒肷��B</dt>
+<dt>（例） 改行文字を判定する。</dt>
 <dd><div class="macro">
 <pre><code>if (code == 0x0d) {
-    message &quot;���s�����ł�&quot;;
+    message &quot;改行文字です&quot;;
 }</code></pre>
 </div>
-<p>�ȉ��̏������ł͉��s�����Ɣ���ł��܂���Binsert���ŉ��s��}������ꍇ�Ƃ̈Ⴂ�ɒ��ӂ��܂��傤�B</p>
+<p>以下の書き方では改行文字と判定できません。insert文で改行を挿入する場合との違いに注意しましょう。</p>
 <div class="macro">
 <pre><code>if (code == 0x0a) {
 if (code == &#39;\n&#39;) {
 if (code == ascii(&quot;\n&quot;)) {
-if (code == ascii(&quot;\r&quot;)) { // ������Ȃ��� ascii(&quot;\r&quot;) == 10 �ƂȂ�ʖ�</code></pre>
+if (code == ascii(&quot;\r&quot;)) { // これもなぜか ascii(&quot;\r&quot;) == 10 となり駄目</code></pre>
 </div>
-<p>���G�ۃ}�N���ł́A\r�� 0x0a �Ƃ��ď�������܂��B</p>
+<p>※秀丸マクロでは、\rも 0x0a として処理されます。</p>
 </dd>
-<dt>�i��j �����𔻒肷��B<strong>eof</strong>�L�[���[�h�������������܂��B</dt>
+<dt>（例） 文末を判定する。<strong>eof</strong>キーワードが文末を示します。</dt>
 <dd><div class="macro">
 <pre><code>if (code == eof) {
-    message &quot;�����ł�&quot;;
+    message &quot;文末です&quot;;
 }</code></pre>
 </div>
-<p>�@</p>
+<p>　</p>
 </dd>
-<dt>�i��j �^�u�����̔���B</dt>
+<dt>（例） タブ文字の判定。</dt>
 <dd><div class="macro">
 <pre><code>if (code == 0x09) {
-    message &quot;�^�u�����ł�&quot;;
+    message &quot;タブ文字です&quot;;
 }</code></pre>
 </div>
-<p>�ȉ��̏������ł����v�ł��B</p>
+<p>以下の書き方でも大丈夫です。</p>
 <div class="macro">
 <pre><code>if (code == &#39;\t&#39;) {
-    message &quot;�^�u�����ł�&quot;;
+    message &quot;タブ文字です&quot;;
 }</code></pre>
 </div>
 </dd>
 </dl>
-<h3 id="MOVETO">�y�R�z�C�ӂ̍��W�ɂ��镶���������𔻒f����ɂ́imoveto,�J�[�\���ړ��n�R�}���h�j</h3>
-<p>�C�ӂ̍��W�ɂ��镶���������𔻒f����ɂ͂ǂ�����Ηǂ��ł��傤���B<br />
-�ȒP�ȕ��@�Ƃ��ẮA�J�[�\���ړ��n�R�}���h��<strong>moveto</strong>�A<strong>movetolineno</strong>�A<strong>moveto2</strong>�ŃJ�[�\�����ړ����Ă���A <strong>code</strong>�L�[���[�h���g���܂��B</p>
-<p>�����ŋ^�₪�o�Ă��܂��B�J�[�\���ړ��n�R�}���h�łQ�o�C�g�����̐^�񒆂̍��W�Ɉړ�����Ƃǂ��Ȃ�ł��傤���H<br />
-�����F�Q�o�C�g�����̐擪�ɃJ�[�\�����ړ����܂��B</p>
-<p>�t�ɏ�L�̐������g���ƁAmoveto�Ŏw�肵�����W�l�Ǝ��ۂɈړ�������̍��W�l�i�L�[���[�hx �� y�Ŏ擾�o����j���r���邱�ƂŁA���̍��W�ɂ��镶�����A�P�o�C�g�������A�Q�o�C�g�����̂P�o�C�g�ڂ��Q�o�C�g�ڂ�����ʂł��܂��B</p>
-<p>�^�u�����̏�Ɉړ�����ꍇ���A�Q�o�C�g�����Ɠ��l�̓���ɂȂ�܂��B (moveto �̂݁Amovetolineno�Amoveto2�́A�^�u������1�����ƃJ�E���g����̂ŁA���������^�u�����̐^��(?)�Ɉړ��ł��Ȃ�)</p>
-<p>�u<span class="env">�����</span>�v-�u�ҏW�v-�u���x�ȕҏW2�v-�u�J�[�\���ړ��v-�u���x�ȃJ�[�\���v�́u�^�u�����̏�̃J�[�\���ړ��������v�̐ݒ�́A moveto,movetolineno ���̓���ɂ͉e�����܂���B</p>
-<h3 id="BEGINSEL">�y�S�z�͈͑I������ɂ�</h3>
-<p>��ŕ�����ϐ��Ɏ�荞�񂾂�A�G�ۃG�f�B�^�̕ҏW�n�R�}���h(�Ⴆ�΁A<strong>tohankaku</strong>�Ȃ�)���g�����肷��ꍇ�ɂ́A�͈͑I������Ă���K�v������܂��B<br />
-�G�ۃ}�N���Ŕ͈͑I������ɂ͂������̕��@������܂��B</p>
+<h3 id="MOVETO">【３】任意の座標にある文字が何かを判断するには（moveto,カーソル移動系コマンド）</h3>
+<p>任意の座標にある文字が何かを判断するにはどうすれば良いでしょうか。<br />
+簡単な方法としては、カーソル移動系コマンドの<strong>moveto</strong>、<strong>movetolineno</strong>、<strong>moveto2</strong>でカーソルを移動してから、 <strong>code</strong>キーワードを使います。</p>
+<p>ここで疑問が出てきます。カーソル移動系コマンドで２バイト文字の真ん中の座標に移動するとどうなるでしょうか？<br />
+答え：２バイト文字の先頭にカーソルが移動します。</p>
+<p>逆に上記の性質を使うと、movetoで指定した座標値と実際に移動した先の座標値（キーワードx と yで取得出来る）を比較することで、その座標にある文字が、１バイト文字か、２バイト文字の１バイト目か２バイト目かを区別できます。</p>
+<p>タブ文字の上に移動する場合も、２バイト文字と同様の動作になります。 (moveto のみ、movetolineno、moveto2は、タブ文字も1文字とカウントするので、そもそもタブ文字の真ん中(?)に移動できない)</p>
+<p>「<span class="env">動作環境</span>」-「編集」-「高度な編集2」-「カーソル移動」-「高度なカーソル」の「タブ文字の上のカーソル移動した時」の設定は、 moveto,movetolineno 文の動作には影響しません。</p>
+<h3 id="BEGINSEL">【４】範囲選択するには</h3>
+<p>後で文字列変数に取り込んだり、秀丸エディタの編集系コマンド(例えば、<strong>tohankaku</strong>など)を使ったりする場合には、範囲選択されている必要があります。<br />
+秀丸マクロで範囲選択するにはいくつかの方法があります。</p>
 <ul>
-<li><strong>beginsel</strong>�ƁA���̌��<strong>right</strong>��<strong>moveto</strong>���̃J�[�\���ړ��n�����g��</li>
-<li><strong>selectline</strong>�� <strong>selectword</strong>�Ȃǂ̃N���b�v�{�[�h�n�����g��</li>
-<li>�����n�����g���Č�������<br />
-�u<span class="env">�����</span>�v-�u�����v-�u�����̓���v-�u�����ł̕\���v�ŁA�u�͈͑I���v���I������Ă���K�v������܂��B<br />
-���Ȃ݂ɁA���̑I����Ԃ́A<strong>searchmode</strong>�L�[���[�h�Œm�邱�Ƃ��ł��܂��B</li>
+<li><strong>beginsel</strong>と、その後に<strong>right</strong>や<strong>moveto</strong>等のカーソル移動系文を使う</li>
+<li><strong>selectline</strong>や <strong>selectword</strong>などのクリップボード系文を使う</li>
+<li>検索系文を使って検索する<br />
+「<span class="env">動作環境</span>」-「検索」-「検索の動作」-「検索での表示」で、「範囲選択」が選択されている必要があります。<br />
+ちなみに、この選択状態は、<strong>searchmode</strong>キーワードで知ることができます。</li>
 </ul>
 <!-- h4 -->
 <section id="BEGINSEL-1" class="marginleft">
-<h4>�u�����n�����g���Č�������v�̕⑫����</h4>
-<p>����(Ver.4.10�ȍ~)�ł́A�u<span class="env">�����</span>�v-�u�����v-�u�����̓���v-�u�����ł̕\���v���u�_�ŕ\���v�ł���荞�ގ��͉\�ł��B</p>
-<p>foundtopx�Afoundtopy�Afoundendx�Afoundendy �L�[���[�h���ǉ�����A���ꂼ��Ɍ����Ń}�b�`�������W���Z�b�g����܂��B�����Ƀ}�b�`���������m�F���āAfoundtopx�Afoundtopy�Afoundendx�Afoundendy �L�[���[�h���g���Agettext���ŕ����ϐ��Ɏ�荞�ގ����\�ł��B</p>
-<p>�܂��A�usetcompatiblemode���v���ǉ�����(Ver.6.00�ȍ~�j�A�}�N�����ňꎞ�I�Ɂu�����ł̕\���v�̓����؂�ւ��鎖���\�ɂȂ��Ă��܂��B���ׁ̈A�u<span class="env">�����</span>�v�Ɋ֌W�Ȃ��g�p�������u�����ł̕\���v�̐ݒ�ŁA�}�N�������s�ł��܂��B</p>
+<h4>「検索系文を使って検索する」の補足説明</h4>
+<p>現状(Ver.4.10以降)では、「<span class="env">動作環境</span>」-「検索」-「検索の動作」-「検索での表示」が「点滅表示」でも取り込む事は可能です。</p>
+<p>foundtopx、foundtopy、foundendx、foundendy キーワードが追加され、それぞれに検索でマッチした座標がセットされます。検索にマッチした事を確認して、foundtopx、foundtopy、foundendx、foundendy キーワードを使い、gettext文で文字変数に取り込む事が可能です。</p>
+<p>また、「setcompatiblemode文」が追加され(Ver.6.00以降）、マクロ内で一時的に「検索での表示」の動作を切り替える事も可能になっています。その為、「<span class="env">動作環境</span>」に関係なく使用したい「検索での表示」の設定で、マクロを実行できます。</p>
 </section>
-<h3 id="ESCAPE">�y�T�z�͈͑I������������ɂ�</h3>
-<p>�͈͑I������������ɂ�<strong>escape</strong>�����g�p���܂��B<br />
-�Ⴆ�΃}�N�����őI������ꍇ�A���ɔ͈͑I������Ă���ƕs�s���ȏꍇ������܂��B���̂悤�ȂƂ��ɗ��p�ł��܂��B<br />
-���Ȃ݂�beginsel���Ŕ͈͑I�����[�h�ɂȂ��Ă���Ƃ��ɔ͈͑I�����[�h����������i�I��͈͎͂c���j�ꍇ�Ɏg���̂�<strong>endsel</strong>���ł��B</p>
+<h3 id="ESCAPE">【５】範囲選択を解除するには</h3>
+<p>範囲選択を解除するには<strong>escape</strong>文を使用します。<br />
+例えばマクロ文で選択する場合、既に範囲選択されていると不都合な場合があります。そのようなときに利用できます。<br />
+ちなみにbeginsel等で範囲選択モードになっているときに範囲選択モードを解除する（選択範囲は残す）場合に使うのは<strong>endsel</strong>文です。</p>
 <!-- h4 -->
 <section id="endsel" class="marginleft">
-<h4>endsel�g�p���̒��ӓ_</h4>
-<p>�I�����[�h���I�����Ă��͈͑I����ԂŃJ�[�\���ړ��R�}���h���g���ƁA�ړ������ꏊ�܂Ŕ͈͑I����ԂɂȂ�܂��B (�͈͑I�����L�����Ă��܂�)</p>
-<p>�m�F�p�}�N��</p>
+<h4>endsel使用時の注意点</h4>
+<p>選択モードを終了しても範囲選択状態でカーソル移動コマンドを使うと、移動した場所まで範囲選択状態になります。 (範囲選択が広がってしまう)</p>
+<p>確認用マクロ</p>
 <div class="macro">
-<pre><code>//�V�K�t�@�C���쐬
+<pre><code>//新規ファイル作成
 newfile;
-//�t�@�C���ɓ��e��ǉ�
+//ファイルに内容を追加
 gofiletop;
 #cnt = 1;
 while(5 &gt; #cnt){
@@ -186,29 +186,29 @@ while(5 &gt; #cnt){
     insertreturn;
     #cnt = #cnt + 1;
 }
-//�t�@�C���̐擪�Ɉړ�
+//ファイルの先頭に移動
 gofiletop;
-//�͈͑I���J�n
+//範囲選択開始
 beginsel;
 moveto x + 3, y;
-//�͈͑I�����[�h����
+//範囲選択モード解除
 endsel;
-message &quot;�͈͑I���I��&quot;;
-//�͈͑I�����[�h�����������͂��Ȃ̂Ɉړ������J�[�\���ʒu�܂őI�������B
+message &quot;範囲選択終了&quot;;
+//範囲選択モードを解除したはずなのに移動したカーソル位置まで選択される。
 moveto x + 3, y + 3;
-message &quot;�J�[�\���ړ�&quot;;
+message &quot;カーソル移動&quot;;
 endmacro;</code></pre>
 </div>
-<p><img src="3_string_501.png" width="350" height="193" alt="�͈͑I���I����" /> <img src="3_string_502.png" width="350" height="193" alt="�J�[�\���ړ��I����" /><br />
+<p><img src="3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>����I�ɂ͂����������A����i2020/11/23�j�ɂ����Ă͎d�l�Ƃ������Ƃł��B�͈͑I����Ԃ���A�������g�p���Č������ʒu�܂Ŕ͈͑I����L�΂������\�ɂȂ��Ă���̂ŁA�J�[�\���ړ��R�}���h�̎g�p���͔͈͑I�����ێ����Ă���Ƃ̎��B<br />
-(�J�[�\���ړ��R�}���h�Ƃ́Amoveto�Amovetolineno�Amooveto2�Agoline�`�̃R�}���h)</p>
-<p>�͈͑I��������̑���i�R�}���h�H�j�Ŕ͈͑I�������������Ζ��͂Ȃ����A��������Ȃ��ꍇ�̓J�[�\���ړ�����Ǝv��ʌ��ʂɂȂ�̂Œ��ӂ��邱�ƁB</p>
-<p>���̓�����������ɂ́A�͈͑I���I����ɁA��x�J�[�\���𓮂����΂����B(left�Aright��)</p>
+<p>動作的にはおかしいが、現状（2020/12/13）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+(カーソル移動コマンドとは、moveto、movetolineno、mooveto2、goline〜のコマンド)</p>
+<p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、解除されない場合はカーソル移動すると思わぬ結果になるので注意すること。</p>
+<p>この動作を回避するには、範囲選択終了後に、一度カーソルを動かせばいい。(left、right等)</p>
 <div class="macro">
-<pre><code>//�V�K�t�@�C���쐬
+<pre><code>//新規ファイル作成
 newfile;
-//�t�@�C���ɓ��e��ǉ�
+//ファイルに内容を追加
 gofiletop;
 #cnt = 1;
 while(5 &gt; #cnt){
@@ -216,103 +216,103 @@ while(5 &gt; #cnt){
     insertreturn;
     #cnt = #cnt + 1;
 }
-//�t�@�C���̐擪�Ɉړ�
+//ファイルの先頭に移動
 gofiletop;
-//�͈͑I���J�n
+//範囲選択開始
 beginsel;
 moveto x + 3, y;
-//�͈͑I�����[�h����
+//範囲選択モード解除
 endsel;
-message &quot;�͈͑I���I��&quot;;
+message &quot;範囲選択終了&quot;;
 
-//���ɓ������āA���ɖ߂�(�߂��Ȃ��Ă��������Ȃ�ƂȂ�)
+//左に動かして、元に戻す(戻さなくてもいいがなんとなく)
 left;right;
 
-//���x�͑I��͈͂��L����Ȃ�
+//今度は選択範囲が広がらない
 moveto x + 3, y + 3;
-message &quot;�J�[�\���ړ�&quot;;
+message &quot;カーソル移動&quot;;
 endmacro;</code></pre>
 </div>
 </section>
-<h3 id="GETTEXT">�y�U�z������^�ϐ��Ɏ�荞�ނɂ́F���̂P�igettext��,gettext2��)</h3>
-<p>���[�U�[�̑���܂��͏�L�̃}�N�����Ŕ͈͑I��������A���̑I�����ꂽ������𕶎���^�ϐ��Ɏ�荞�ނɂ͂ǂ�����Ηǂ��ł��傤���B</p>
-<p>�T�^�I�ɂ́A�ȉ��̂悤�ȃR�[�f�B���O�����邱�Ƃ������Ȃ�ł��傤�B</p>
+<h3 id="GETTEXT">【６】文字列型変数に取り込むには：その１（gettext文,gettext2文)</h3>
+<p>ユーザーの操作または上記のマクロ文で範囲選択した後、その選択された文字列を文字列型変数に取り込むにはどうすれば良いでしょうか。</p>
+<p>典型的には、以下のようなコーディングを見ることが多くなるでしょう。</p>
 <div class="macro">
 <pre><code>$s = gettext(seltopx,seltopy,selendx,selendy);</code></pre>
 </div>
-<p>�G�ۃ}�N���ł́A�͈͑I�����ꂽ������𒼐ڕ����ϐ��Ɏ�荞�ރ}�N�����͗L��܂���B��ʏ�̔C�ӂ͈̔͂̕�����𕶎��ϐ��Ɏ�荞��<strong>gettext</strong>���ƁA���݂̑I��͈͂̍��W�l������<strong>seltopx</strong>�`<strong>selendy</strong>�L�[���[�h�i�͈͑I���֘A�L�[���[�h�j�𕹗p���܂��B (�G�ۃG�f�B�^Ver5.00�ȍ~�́A���W�n���J�����ʒu�A�G�f�B�^�I�Ɍv�Z�����s�ԍ��ɂȂ��Ă���<strong>gettext2</strong>���ƁA <strong>seltopcolumn</strong>�A<strong>seltoplineno</strong>�A<strong>selendcolumn</strong>�A<strong>selendlineno</strong> �L�[���[�h���ǉ�����Ă��܂�)</p>
-<p>�A�����ӂ��K�v�Ȃ̂́Aseltopx�`selendy�L�[���[�h�ɒl�������Ă���Ƃ����āA���̒l�ǂ���͈͑I������Ă���Ƃ͌���Ȃ����Ƃł��B<br />
-�}�N���w���v�́u�͈͑I���֘A�L�[���[�h�v�̐����ɂ�����悤�ɁA�͈͑I�����������ꂽ����A�ȑO�̒l��ێ����Ă��邽�߂ł��B<br />
-�Ƃ������Ƃ́A��L�̃R�[�f�B���O�ŕ�����^�ϐ��Ɏ擾����ꍇ�́A���ݖ{���ɔ͈͑I������Ă��邩���m�F����K�v������܂��B</p>
-<p>gettext���͎��s����Ɣ͈͑I������������d�l�ł������A�G�ۃG�f�B�^Ver5.00 ����5�������ǉ�����͈͑I�����������邩�ǂ����̐ݒ肪�\�ɂȂ��Ă܂��B(gettext2���������d�l)</p>
+<p>秀丸マクロでは、範囲選択された文字列を直接文字変数に取り込むマクロ文は有りません。画面上の任意の範囲の文字列を文字変数に取り込む<strong>gettext</strong>文と、現在の選択範囲の座標値を示す<strong>seltopx</strong>〜<strong>selendy</strong>キーワード（範囲選択関連キーワード）を併用します。 (秀丸エディタVer5.00以降は、座標系がカラム位置、エディタ的に計算した行番号になっている<strong>gettext2</strong>文と、 <strong>seltopcolumn</strong>、<strong>seltoplineno</strong>、<strong>selendcolumn</strong>、<strong>selendlineno</strong> キーワードが追加されています)</p>
+<p>但し注意が必要なのは、seltopx〜selendyキーワードに値が入っているといって、その値どおり範囲選択されているとは限らないことです。<br />
+マクロヘルプの「範囲選択関連キーワード」の説明にもあるように、範囲選択が解除された後も、以前の値を保持しているためです。<br />
+ということは、上記のコーディングで文字列型変数に取得する場合は、現在本当に範囲選択されているかを確認する必要があります。</p>
+<p>gettext文は実行すると範囲選択を解除する仕様でしたが、秀丸エディタVer5.00 より第5引数が追加され範囲選択を解除するかどうかの設定が可能になってます。(gettext2文も同じ仕様)</p>
 <ul>
-<li>��5������ 0 ��ݒ肵���ꍇ�͔͈͑I�����������܂��B</li>
-<li>��5������ 1 ��ݒ肵���ꍇ�͔͈͑I����ێ����܂��B</li>
+<li>第5引数に 0 を設定した場合は範囲選択を解除します。</li>
+<li>第5引数に 1 を設定した場合は範囲選択を保持します。</li>
 </ul>
-<p>��5�������ȗ������ꍇ�́A0 ��ݒ肵���Ɠ�����ԂɂȂ�܂��B</p>
+<p>第5引数を省略した場合は、0 を設定したと同じ状態になります。</p>
 <div class="macro">
-<pre><code>//�͈͑I������������ꍇ
+<pre><code>//範囲選択を解除する場合
 $s = gettext(seltopx,seltopy,selendx,selendy, 0);
-//�͈͑I�����������Ȃ��ꍇ
+//範囲選択を解除しない場合
 $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
 </div>
-<h3 id="SELECTING">�y�V�z�͈͑I������Ă��邩���f����ɂ́iselecting�L�[���[�h�j</h3>
-<p>�G�ۃ}�N������A���ݔ͈͑I������Ă��邩���f����ɂ́A<strong>selecting</strong>�L�[���[�h���g���܂��B</p>
-<p>�i��j �͈͑I�����ꂽ�ꏊ�𕶎���ϐ��Ɏ擾����</p>
+<h3 id="SELECTING">【７】範囲選択されているか判断するには（selectingキーワード）</h3>
+<p>秀丸マクロから、現在範囲選択されているか判断するには、<strong>selecting</strong>キーワードを使います。</p>
+<p>（例） 範囲選択された場所を文字列変数に取得する</p>
 <div class="macro">
 <pre><code>if(selecting) {
     $s = gettext(seltopx,seltopy,selendx,selendy);
-    message &quot;�I��͈͂́A&quot; + $s + &quot;�ł�&quot;;
+    message &quot;選択範囲は、&quot; + $s + &quot;です&quot;;
 } else {
-    message &quot;�͈͑I������Ă��܂���&quot;;
+    message &quot;範囲選択されていません&quot;;
 }</code></pre>
 </div>
-<p>�͈͑I�𒆂������L�[���[�h�͑��ɂ�����܂��B�󋵂ɉ����Ďg�������Ă��������B</p>
+<p>範囲選択中か示すキーワードは他にもあります。状況に応じて使い分けてください。</p>
 <dl>
 <dt><strong>rectselecting</strong></dt>
-<dd>BOX�͈͑I�𒆂��ǂ�����\���܂��B�͈͑I�𒆂̏ꍇ�͂P�A�����łȂ��ꍇ�͂O�ł��B
+<dd>BOX範囲選択中かどうかを表します。範囲選択中の場合は１、そうでない場合は０です。
 </dd>
 <dt><strong>lineselecting</strong></dt>
-<dd>�s�I���J�n�R�}���h�ɂ��I�𒆂��ǂ�����\���܂��B(Ver.8.00�ȍ~)
+<dd>行選択開始コマンドによる選択中かどうかを表します。(Ver.8.00以降)
 </dd>
 <dt><strong>selectionlock</strong></dt>
-<dd>�I���J�n/BOX�I���J�n/�s�I���J�n�R�}���h�ɂ��I�𒆂��ǂ�����\���܂��B(Ver.8.00�ȍ~)
+<dd>選択開始/BOX選択開始/行選択開始コマンドによる選択中かどうかを表します。(Ver.8.00以降)
 </dd>
 <dt><strong>mouseselecting</strong></dt>
-<dd><p>�}�E�X�ɂ��I�𒆂��ǂ����ƁA���̑I����@��\���܂��B(Ver.8.00�ȍ~)</p>
-<p>0�F�}�E�X�ɂ��I���ł͂Ȃ�<br />
-1�F�����P�ʂ̑I��<br />
-2�F�P��P�ʂ̑I��<br />
-3�F�s�P�ʁi�܂�Ԃ��܂Łj�̑I��<br />
-4�F�s�P�ʁi���s�܂Łj�̑I��</p>
+<dd><p>マウスによる選択中かどうかと、その選択方法を表します。(Ver.8.00以降)</p>
+<p>0：マウスによる選択ではない<br />
+1：文字単位の選択<br />
+2：単語単位の選択<br />
+3：行単位（折り返しまで）の選択<br />
+4：行単位（改行まで）の選択</p>
 </dd>
 <dt><strong>multiselecting</strong></dt>
-<dd>�����I�𒆂ł��邩�ǂ�����\���܂��B(Ver.8.40�ȍ~)
+<dd>複数選択中であるかどうかを表します。(Ver.8.40以降)
 </dd>
 </dl>
-<h3 id="CLIPBOARD">�y�W�z������^�ϐ��Ɏ�荞�ނɂ́F���̂Q�i�N���b�v�{�[�h�o�R�j</h3>
-<p>�N���b�v�{�[�h���o�R���čs�����@������܂��B��܂��ɂ́A�ȉ��̗���ɂȂ�܂��B</p>
+<h3 id="CLIPBOARD">【８】文字列型変数に取り込むには：その２（クリップボード経由）</h3>
+<p>クリップボードを経由して行う方法もあります。大まかには、以下の流れになります。</p>
 <ol type="1">
-<li>���炩���ߔ͈͑I������</li>
-<li><strong>cut</strong>�Ő؂���A�܂���<strong>copy</strong>�ŃR�s�[����</li>
-<li><strong>beginclipboardread</strong>���ŁA�N���b�v�{�[�h����̓ǂݍ��݊J�n��錾����</li>
-<li><strong>getclipboard</strong>���ŁA�N���b�v�{�[�h����P�s�i���s�����ŋ�؂�ꂽ�͈́j��ǂݍ��ށB</li>
+<li>あらかじめ範囲選択する</li>
+<li><strong>cut</strong>で切り取り、または<strong>copy</strong>でコピーする</li>
+<li><strong>beginclipboardread</strong>文で、クリップボードからの読み込み開始を宣言する</li>
+<li><strong>getclipboard</strong>文で、クリップボードから１行（改行文字で区切られた範囲）を読み込む。</li>
 </ol>
-<p>�g�����̏ڍׂ́A�G�ۃ}�N���w���v�́u�N���b�v�{�[�h�ƕϐ��̂��Ƃ�v���Q�Ƃ��Ă��������B</p>
-<p>gettext���ƃN���b�v�{�[�h�n���Ƃ̗��_�Ǝ�_���ׂāA�������s�������ɍ��������̂��g���܂��傤�B</p>
+<p>使い方の詳細は、秀丸マクロヘルプの「クリップボードと変数のやりとり」を参照してください。</p>
+<p>gettext文とクリップボード系文との利点と弱点を比べて、自分が行う処理に合ったものを使いましょう。</p>
 <ul>
-<li><p>�N���b�v�{�[�h���g���Ƃ������Ƃ́A�}�N���ŏ������������񂪃N���b�v�{�[�h�Ɏc���Ă��܂����Ƃ��Ӗ����܂��B (�N���b�v�{�[�h�������g�p���Ă��鎞�́A�����ɕۑ�����Ă��܂��܂�)<br />
-gettext���̓N���b�v�{�[�h������܂���B</p></li>
-<li><p>BOX�͈͑I�����ꂽ�͈͂𕶎���ϐ��Ɏ�荞�ޏꍇ�́A�N���b�v�{�[�h���g���̂��ȒP�ł��B</p></li>
+<li><p>クリップボードを使うということは、マクロで処理した文字列がクリップボードに残ってしまうことを意味します。 (クリップボード履歴を使用している時は、履歴に保存されてしまいます)<br />
+gettext文はクリップボードを消費しません。</p></li>
+<li><p>BOX範囲選択された範囲を文字列変数に取り込む場合は、クリップボードを使うのが簡単です。</p></li>
 </ul>
-<h3 id="ASCII">�y�X�z�ϐ����̕�����������m��ɂ́iascii�֐��j</h3>
-<p>�ϐ����̕����̃R�[�h�𒲂ׂ邽�߂ɁA<strong>ascii</strong>�֐����p�ӂ���Ă��܂��B����͈����Ƃ��ė^����������̍ŏ��̕����̃R�[�h��Ԃ��܂��B</p>
-<p>�G�ۃG�f�B�^ Ver.8��6 ��� ascii�֐��̎d�l���ύX����A�P�o�C�g�����̏ꍇ�̓}���`�o�C�g�����̏�ʃo�C�g�͈͓��ł��A���̂܂ܕ����R�[�h��Ԃ��܂��B �Q�o�C�g�ȏ�ŁAShift_JIS�͈͓��̏ꍇ�́AShift_JIS�R�[�h��Ԃ��܂��B</p>
-<p>ascii�֐��Ŕ��肷�邽�߂ɁAmidstr���ȂǂŐ؂�o���ꍇ�́A�Q�����ȏ�؂�o���̂��ǂ��ł��傤�B</p>
-<p>�����}�N���B</p>
+<h3 id="ASCII">【９】変数内の文字が何かを知るには（ascii関数）</h3>
+<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。</p>
+<p>秀丸エディタ Ver.8β6 より ascii関数の仕様が変更され、１バイトだけの場合はマルチバイト文字の上位バイト範囲内でも、そのまま文字コードを返します。 ２バイト以上で、Shift_JIS範囲内の場合は、Shift_JISコードを返します。</p>
+<p>ascii関数で判定するために、midstr文などで切り出す場合は、２文字以上切り出すのが良いでしょう。</p>
+<p>実験マクロ。</p>
 <div class="macro">
 <pre><code>debuginfo 1;
-$test = &quot;012�R�S�T6�V&quot;;
+$test = &quot;012３４５6７&quot;;
 ##len = strlen($test);
 ##cnt = 0;
 while(##cnt &amp;lt; ##len){
@@ -322,40 +322,40 @@ while(##cnt &amp;lt; ##len){
 }
 endmacro;</code></pre>
 </div>
-<p>���s���ʁB</p>
+<p>実行結果。</p>
 <div class="macro">
 <pre><code>check = 0 hex = 30
 check = 1 hex = 31
 check = 2 hex = 32
-check = �Ehex = 8200
+check = ・hex = 8200
 check = R hex = 52
-check = �Ehex = 8200
+check = ・hex = 8200
 check = S hex = 53
-check = �Ehex = 8200
+check = ・hex = 8200
 check = T hex = 54
 check = 6 hex = 36
-check = �Ehex = 8200
+check = ・hex = 8200
 check = V hex = 56</code></pre>
 </div>
-<p>���s���ʁB(Ver.8��6�ȍ~)</p>
+<p>実行結果。(Ver.8β6以降)</p>
 <div class="macro">
 <pre><code>check = 0 hex = 30
 check = 1 hex = 31
 check = 2 hex = 32
-check = �Ehex = 82
+check = ・hex = 82
 check = R hex = 52
-check = �Ehex = 82
+check = ・hex = 82
 check = S hex = 53
-check = �Ehex = 82
+check = ・hex = 82
 check = T hex = 54
 check = 6 hex = 36
-check = �Ehex = 82
+check = ・hex = 82
 check = V hex = 56</code></pre>
 </div>
-<p>�����}�N���@���̂Q�B</p>
+<p>実験マクロ　その２。</p>
 <div class="macro">
 <pre><code>debuginfo 1;
-$test = &quot;012�R�S�T6�V&quot;;
+$test = &quot;012３４５6７&quot;;
 ##len = strlen($test);
 ##cnt = 0;
 while(##cnt &amp;lt; ##len){
@@ -365,72 +365,72 @@ while(##cnt &amp;lt; ##len){
 }
 endmacro;</code></pre>
 </div>
-<p>���̂Q�̎��s���ʁB</p>
+<p>その２の実行結果。</p>
 <div class="macro">
 <pre><code>check = 01 hex = 30
 check = 12 hex = 31
-check = 2�Ehex = 32
-check = �R hex = 8252
-check = R�Ehex = 52
-check = �S hex = 8253
-check = S�Ehex = 53
-check = �T hex = 8254
+check = 2・hex = 32
+check = ３ hex = 8252
+check = R・hex = 52
+check = ４ hex = 8253
+check = S・hex = 53
+check = ５ hex = 8254
 check = T6 hex = 54
-check = 6�Ehex = 36
-check = �V hex = 8256
+check = 6・hex = 36
+check = ７ hex = 8256
 check = V  hex = 56</code></pre>
 </div>
-<p>�ȉ��̓��e�͌Â��o�[�W�������ΏۂɂȂ�܂��B</p>
+<p>以下の内容は古いバージョンが対象になります。</p>
 <hr />
-<p>�ϐ����̕����̃R�[�h�𒲂ׂ邽�߂ɁA<strong>ascii</strong>�֐����p�ӂ���Ă��܂��B����͈����Ƃ��ė^����������̍ŏ��̕����̃R�[�h��Ԃ��܂��B�܂��Q�o�C�g�����������ɗ^�����Ă���ƁA�Q�o�C�g�̃R�[�h���Ԃ�֗��Ȋ֐��ł����A�t�ɂ���䂦�̗��Ƃ���������܂��B<br />
-ascii�֐����Q�o�C�g�����ɑ΂��ēK�p�����ꍇ�A�Q�o�C�g�����܂Ƃ߂�16bit�����Ƃ��ĕԂ��A�Ƃ����d�l�ł����A�ȉ��̂悤�ɂ킴�ƂQ�o�C�g�����̂P�o�C�g��(�R�[�h=0x??)��؂�o�����i�P��������Ȃ�j������ɓK�p����ƁA�Ȃ��0x??00�Ƃ����l���Ԃ��Ă��܂��I</p>
+<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。また２バイト文字を引数に与えられていると、２バイトのコードが返る便利な関数ですが、逆にそれゆえの落とし穴もあります。<br />
+ascii関数を２バイト文字に対して適用した場合、２バイト分をまとめて16bit整数として返す、という仕様ですが、以下のようにわざと２バイト文字の１バイト目(コード=0x??)を切り出した（１文字からなる）文字列に適用すると、なんと0x??00という値が返ってきます！</p>
 <div class="macro">
-<pre><code>$a = midstr(&quot;��&quot;, 0, 1); // �Q�o�C�g�����̂P�o�C�g�ڂ�؂�o��\
-message str(ascii($a)); // == 33280 == 0x8200 ���Ԃ�</code></pre>
+<pre><code>$a = midstr(&quot;あ&quot;, 0, 1); // ２バイト文字の１バイト目を切り出す\
+message str(ascii($a)); // == 33280 == 0x8200 が返る</code></pre>
 </div>
-<p>�Ƃ����킯�ŁA�Q�o�C�g�����̂P�o�C�g�ڂ��ǂ����𔻒f����̂�</p>
+<p>というわけで、２バイト文字の１バイト目かどうかを判断するのに</p>
 <div class="macro">
 <pre><code>if (ascii(midstr($s, #i, 1)) &amp; 0x80) {
-    // �Q�o�C�g�����̂P�o�C�g�ڂ��A���p�J�^�J�i������
+    // ２バイト文字の１バイト目か、半角カタカナだった
     
 }</code></pre>
 </div>
-<p>�Ƃ����悤�Ȃ���������(��)�R�[�h��NG�ł��B<br />
-ascii���̎d�l���炷��ƁAmidstr���ȂǂŐ؂�o���ꍇ�́A�Q�����؂�o���̂��ǂ��ł��B�i�P�����ڂ��P�o�C�g�����ł����̕�����ascii�����������Ă���܂��j<br />
-�Ƃ����킯�ŁA�ȉ��̗�̂悤�ɂ��܂��傤�B</p>
+<p>というようなかっこいい(笑)コードはNGです。<br />
+ascii文の仕様からすると、midstr文などで切り出す場合は、２文字切り出すのが良いです。（１文字目が１バイト文字でも次の文字はascii文が無視してくれます）<br />
+というわけで、以下の例のようにしましょう。</p>
 <div class="macro">
 <pre><code>if (ascii(midstr($s, #i, 2)) &gt;  0xff) {
-    // �Q�o�C�g����
+    // ２バイト文字
     
 }</code></pre>
 </div>
-<p>�܂���</p>
+<p>または</p>
 <div class="macro">
 <pre><code>if (ascii(midstr($s, #i, 2)) &amp;&amp; 0xff00 != 0) {
-    // �Q�o�C�g����
+    // ２バイト文字
     
 }</code></pre>
 </div>
-<h3 id="DOUBLE">�y�P�O�z�����񒆂̐擪�ȊO�̕������P�o�C�g�������Q�o�C�g����������ʂ���ɂ́imidstr�֐����ւ̒��ӎ����j</h3>
-<p>�O���ŁA<strong>midstr</strong>�֐����g���ĂȂɂ��Ȃ�������ϐ��̒�����ꕔ��؂�o���܂������A���͂����̕���moveto�����Ƃ͈���āA�؂�o���͈͂̐擪���Q�o�C�g�����̂Q�o�C�g�ڂ��ǂ����͔��f���Ă���܂���B<br />
-�����l������midstr�����g���ƁA�؂�o�������ʂ̕�����̐擪���Q�o�C�g�����̂Q�o�C�g�ڂ������ꍇ�A�ʂ̂P�o�C�g�����ɉ�������S�~�ɂȂ�����i�\��������Ɣ��p�̒��_�ɂȂ�j���Ă��܂��܂��B</p>
-<p>�G�ۃG�f�B�^ ver.8���A��������A�����P�ʂň����֐��Q���ǉ�����Ă��܂��B(���m�ɂ́A�������UTF-16LE�ň����֐��Q) wcsmidstr�֐����g�p���A�����P�ʂŐ؂�o���R�[�h���m�F����΂Q�o�C�g�����̔���͉\�ł��B</p>
-<p>�܂��A�؂�o���͈͂̐擪�̂P�o�C�g���̕����R�[�h���������āA�������Q�o�C�g�����̂Q�o�C�g�ڂ��ǂ����͈�ӂɌ��߂��܂���B<br />
-��ʂ�Shift_JIS�̃R�[�h�̌n�ł́A�u�Q�o�C�g�����̂Q�o�C�g�ځv�ɂȂ�R�[�h�͈̔͂ɁA�u�Q�o�C�g�����̂P�o�C�g�ځv�ɂȂ���̂��L�邽�߂ł��B</p>
-<p>�i��j�ȉ��̗�ł́A�Q�o�C�g�����̂Q�o�C�g�ڂ���n�܂�Q�o�C�g���A�ʂ̂Q�o�C�g�����ƌ딻�f���Ă��܂��܂��B<br />
-���Ꭶ�̂��߁A�@��ˑ��������g�p���Ă��܂��B���e�͂��������Bm(_ _)m</p>
+<h3 id="DOUBLE">【１０】文字列中の先頭以外の文字が１バイト文字か２バイト文字かを区別するには（midstr関数等への注意事項）</h3>
+<p>前項で、<strong>midstr</strong>関数を使ってなにげなく文字列変数の中から一部を切り出しましたが、実はこれらの文はmoveto文等とは違って、切り出す範囲の先頭が２バイト文字の２バイト目かどうかは判断してくれません。<br />
+何も考えずにmidstr等を使うと、切り出した結果の文字列の先頭が２バイト文字の２バイト目だった場合、別の１バイト文字に化けたりゴミになったり（表示させると半角の中点になる）していまいます。</p>
+<p>秀丸エディタ ver.8より、文字列を、文字単位で扱う関数群が追加されています。(正確には、文字列をUTF-16LEで扱う関数群) wcsmidstr関数を使用し、文字単位で切り出しコードを確認すれば２バイト文字の判定は可能です。</p>
+<p>また、切り出す範囲の先頭の１バイト分の文字コードだけを見て、そこが２バイト文字の２バイト目かどうかは一意に決められません。<br />
+一般にShift_JISのコード体系では、「２バイト文字の２バイト目」になるコードの範囲に、「２バイト文字の１バイト目」になるものが有るためです。</p>
+<p>（例）以下の例では、２バイト文字の２バイト目から始まる２バイトを、別の２バイト文字と誤判断してしまいます。<br />
+※例示のため、機種依存文字を使用しています。ご容赦ください。m(_ _)m</p>
 <div class="macro">
-<pre><code>$s = &quot;����͇@&quot;;
-message char(ascii(midstr($s, 6, 2))); // �@���\�������B
-$s = &quot;1��ꊇ�A&quot;;
-message char(ascii(midstr($s, 6, 2))); // �����\�������!!
-//�i&quot;��&quot;==0x8a87�A&quot;�A&quot;==0x8741�A&quot;��&quot;==0x8787�j</code></pre>
+<pre><code>$s = &quot;これは①&quot;;
+message char(ascii(midstr($s, 6, 2))); // ①が表示される。
+$s = &quot;1回一括②&quot;;
+message char(ascii(midstr($s, 6, 2))); // ㊦が表示される!!
+//（&quot;括&quot;==0x8a87、&quot;②&quot;==0x8741、&quot;㊦&quot;==0x8787）</code></pre>
 </div>
-<p>"��"��0x8787�ƁA�P�o�C�g�ڂƂQ�o�C�g�ڂ������l�ł����ɂ��Ӓn���ȗ�ł͂���܂����A�e�o�C�g�l�����ł͔��f�ł��Ȃ����Ƃ��킩��܂��B</p>
-<p>�ł́A�����񒆂̔C�ӂ̈ʒu�̕������P�o�C�g�������Q�o�C�g����������ʂ���ɂ́A�ǂ�����΂悢�̂ł��傤���B<br />
-�������@�͂������l�����܂����A������̐擪���珇�ԂɊm�F���Ă����̂���{�ł��B<br />
-���Ƃ��ẮA<a href="HMM0074A.html">[HMM0074A]��������̌�����當���������</a> ���Q�Ƃ��Ă��������B</p>
+<p>"㊦"は0x8787と、１バイト目と２バイト目が同じ値でいかにも意地悪な例ではありますが、各バイト値だけでは判断できないことがわかります。</p>
+<p>では、文字列中の任意の位置の文字が１バイト文字か２バイト文字かを区別するには、どうすればよいのでしょうか。<br />
+実現方法はいくつか考えられますが、文字列の先頭から順番に確認していくのが基本です。<br />
+一例としては、<a href="HMM0074A.html">[HMM0074A]●文字列の後方から文字列を検索</a> を参照してください。</p>
 </div>
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

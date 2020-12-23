@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��IV���`�e�L�X�g�ҏW���ɂ߂�I�I�@���K�\���ɂ���</title>
+  <title>第IV部〜テキスト編集を極める！！　正規表現について</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,400 +22,402 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��IV���`�e�L�X�g�ҏW���ɂ߂�I�I<br>�@���K�\���ɂ���</h1>
+<h1 id="TOP">第IV部〜テキスト編集を極める！！<br>　正規表現について</h1>
 <hr />
-<h2 id="REGEXP">���K�\���ɂ���</h2>
-<p>�G�ۃG�f�B�^�����łȂ��A���x�Ŏ��R�x�̍�������������ɂ͕K�{�́u<strong>���K�\��</strong>�v�B�����ł͎��p��d�v�ȗ���Ƃ肠���Ȃ���A�킩��₷��������܂��B�������炠�Ȃ��́u�����v���ς��܂��B<br />
-���K�\���Ɋւ���b��́A ���́u�y�O�z����Ƃ낾�������v�ɑ����ȉ��̂T�͂���\������Ă��܂��B</p>
-<p>�y�P�z <a href="#BASIC">��{�ҁ@�`�\�L�̃��[���ƈӖ��`</a><br />
-�y�Q�z <a href="#HAIZIN">���H�ҁ@�`���K�\���ɂ��u���̎��ہ`</a><br />
-�y�R�z <a href="#SUMMARY">�܂Ƃ�</a><br />
-�y�S�z <a href="#REFERENCE">�Q�l����</a><br />
-�y�T�z <a href="#RETURNS">(�⑫) �G�ۃG�f�B�^��ł̕����s�ɂ܂����錟���ɂ���</a></p>
+<h2 id="REGEXP">正規表現について</h2>
+<p>秀丸エディタだけでなく、高度で自由度の高い検索をするには必須の「<strong>正規表現</strong>」。ここでは実用上重要な例をとりあげながら、わかりやすく解説します。今日からあなたの「検索」が変わります。<br />
+正規表現に関する話題は、 次の「【０】いんとろだくしょん」に続く以下の５章から構成されています。</p>
+<p>【１】 <a href="#BASIC">基本編　〜表記のルールと意味〜</a><br />
+【２】 <a href="#HAIZIN">実践編　〜正規表現による置換の実際〜</a><br />
+【３】 <a href="#SUMMARY">まとめ</a><br />
+【４】 <a href="#REFERENCE">参考文献</a><br />
+【５】 <a href="#RETURNS">(補足) 秀丸エディタ上での複数行にまたがる検索について</a></p>
 <ul>
-<li><p>�ȉ��̓��e�́A�G�ۃG�f�B�^�w���v��<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" class="externallink" target="_blank">�u�����n�R�}���h�����������K�\���v</a>�̓��e�ɂ��Ă̕⑫�ł��B����ăw���v���Q�Ƃ��Ȃ���ǂ܂�鎖��z�肵�ď�����Ă��܂��B</p></li>
-<li><p>�G�ۃG�f�B�^�́AVer.3.19�܂ł͐��K�\���G���W���ɁuJRE32.DLL�v���g�p����Ă��܂������A Ver.4.00�ȍ~�́uHMJRE.DLL�v�ɕύX����Ă��܂��B<br />
-�ȉ��̓��e�́A���K�\���G���W���ɁuHMJRE.DLL�v���g�p����O��ŏ�����Ă��܂��B</p></li>
-<li><p>32bit�ł̏ꍇ�AVer.8.75�܂ł́uJRE32.DLL�v���W���Y�t����Ă��܂������A Ver.8.77�ȍ~�́A�W���Y�t����Ȃ��Ȃ�܂����B</p>
-<p>(�uJRE32.DLL�v��64bit�ł����݂��Ȃ��̂ŁA64bit�ŏG�ۃG�f�B�^�ɂ́A�ŏ�����uJRE32.DLL�v�͕W���Y�t����Ă��܂���)</p></li>
+<li><p>以下の内容は、秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" class="externallink" target="_blank" rel="noopener">「検索系コマンド→検索→正規表現」</a>の内容についての補足です。よってヘルプを参照しながら読まれる事を想定して書かれています。</p></li>
+<li><p>秀丸エディタは、Ver.3.19までは正規表現エンジンに「JRE32.DLL」が使用されていましたが、 Ver.4.00以降は「HMJRE.DLL」に変更されています。<br />
+以下の内容は、正規表現エンジンに「HMJRE.DLL」を使用する前提で書かれています。</p></li>
+<li><p>32bit版の場合、Ver.8.75までは「JRE32.DLL」も標準添付されていましたが、 Ver.8.77以降は、標準添付されなくなりました。</p>
+<p>(「JRE32.DLL」の64bit版が存在しないので、64bit版秀丸エディタには、最初から「JRE32.DLL」は標準添付されていません)</p></li>
 </ul>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="REGEXP-0">�y�O�z ����Ƃ낾�������</h3>
-<p>�����Ȃ�ł��������ŃN�C�Y�ł��B</p>
+<h3 id="REGEXP-0">【０】 いんとろだくしょん</h3>
+<p>いきなりですがここでクイズです。</p>
 <div class="box_line">
 <ol start="17" type="A">
-<li>: ��������u�����́c�ł����B�v�Ƃ������{��Ƃ��� �ςȕ���S�Ĕ����o���ɂ͂ǂ�������悢�ł��傤���H<br />
-�A���A�ȒP�̂��߂Ɍ��݂̃t�@�C���́u�P�s�ɂ��P���v�Ƃ������[���� �쐬����Ă���Ƃ��܂��B</li>
+<li>: 文書から「明日は…でした。」という日本語として 変な文を全て抜き出すにはどうしたらよいでしょうか？<br />
+但し、簡単のために現在のファイルは「１行につき１文」というルールで 作成されているとします。</li>
 </ol>
 </div>
-<p>�������������q�b�g�������̂�S�Ĕ����o����Ƃ� <a href="2_grep.html"><strong>grep�@�\</strong></a> ���g���̂͑O��Ƃ��āA�����Ŗ��Ȃ̂�<strong>�ǂ̂悤�Ȍ���������΂�����</strong> �Ƃ������ł��B�P�� "������" �� "�ł����B" ����������ƁA���������܂Ńq�b�g���Ă��܂��̂͌����܂ł��Ȃ��ł��傤�B�Ƃ肠���������Ō���������A �Y���������������o���΂����Ƃ����̂��A</p>
+<p>文書を検索しヒットしたものを全て抜き出す作業に <a href="2_grep.html"><strong>grep機能</strong></a> を使うのは前提として、ここで問題なのは<strong>どのような検索をすればいいか</strong> という事です。単に "明日は" や "でした。" を検索すると、正しい文までヒットしてしまうのは言うまでもないでしょう。とりあえずそれらで検索した後、 該当部分だけ抜き出せばいいというのも、</p>
 <div class="attention_p">
-<p>���������u����҂�[���v���g���Ă���̂�</p>
+<p>せっかく「こんぴゅーた」を使っているのに</p>
 </div>
-<p>���Ƃ����ɂ����c�B �܂�</p>
+<p>何とも口惜しい…。 まぁ</p>
 <div class="attention_p">
-<p>�u����҂�[���v�Ȃ�Ă̂͗^�������߂������s���Ȃ������ȃ�����</p>
+<p>「こんぴゅーた」なんてのは与えた命令しか実行しない無粋なモンだ</p>
 </div>
-<p>�ƌ����Ă��܂��΂���܂łł����A�t�Ɍ����΂���҂�[���Ɂu����T���������v��<strong>�K�؂�</strong>�����Ă��΁A�����Ǝd�������Ă����͂��ł��B</p>
-<p>���̗�̏ꍇ�A�T���������̂�</p>
-<div class="line-block"><span class="box_line">�u�����́v�Ŏn�܂�A�r���ɉ������������āA�u�ł����B�v�ŏI���</span></div>
-<p>�Ƃ��� <span class="font_red">�����̕��ѕ��̃��[��</span> �Ƃ��ĕ\���ł��܂����A���̂悤�Ƀ��[���Ƃ��ė^���Ă��΁A</p>
+<p>と言ってしまえばそれまでですが、逆に言えばこんぴゅーたに「何を探したいか」を<strong>適切に</strong>教えてやれば、ちゃんと仕事をしてくれるはずです。</p>
+<p>この例の場合、探したいものは</p>
+<div class="line-block"><span class="box_line">「明日は」で始まり、途中に何か文があって、「でした。」で終わる</span></div>
+<p>という <span class="font_red">文字の並び方のルール</span> として表現できますが、このようにルールとして与えてやれば、</p>
 <div class="attention_p">
-<p>���[���ʂ�ɕ������^�Ԃ��Ƃɂ����Ă͉E�ɏo����̂͂Ȃ�</p>
+<p>ルール通りに物事を運ぶことにかけては右に出るものはない</p>
 </div>
-<p>����҂�[���̂��Ƃł�����A�����Ƃ��܂�����(��)����Ă����͂��B</p>
-<p>�c�O�u���������Ȃ�܂������A��������</p>
+<p>こんぴゅーたのことですから、きっとうまいこと(笑)やってくれるはず。</p>
+<p>…前置きが長くなりましたが、こういう</p>
 <div class="attention_p">
-<p>�����̕��т̃��[���� �R���s���[�^�������ł���悤�ɕ\���������̂� �w<span class="font_red">���K�\��</span>�x</p>
+<p>文字の並びのルールを コンピュータが理解できるように表現したものが 『<span class="font_red">正規表現</span>』</p>
 </div>
-<p>�ł��B</p>
-<p>������Ɛ摖���Ă��܂��܂����A���t�ŕ\�����������̕��т̃��[���𐳋K�\�����g���ĕ\������ƁA</p>
-<div class="line-block"><span class="box_line2">^������.+�ł����B$</span></div>
-<p>�ƂȂ�܂��B ��̐��K�\���ɂ́A"������" �� "�ł����B" �Ȃǂ̂悤��<strong>�T�������������̂���</strong> �̂ق��A "<code>^</code>" �A "<code>.+</code>" �A "<code>$</code>" �Ƃ���<strong>�L��</strong> ���܂܂�Ă��܂��B������́y�P�z��{�� �Ő������܂����A�����̋L����<strong>�����̕��ѕ��̃��[����\�����邽�߂̓��ʂȈӖ�</strong>�������Ă��āA��̗�ł����Ɓu�`�Ŏn�܂�v�u�������������āv�u�`�ŏI���v�Ƃ�����<strong>���[��</strong>�ɑΉ����Ă��܂��B���̂悤�ɁA���K�\���͕����̕��т̃��[�������t�ł͂Ȃ�</p>
+<p>です。</p>
+<p>ちょっと先走ってしまいますが、言葉で表現した文字の並びのルールを正規表現を使って表現すると、</p>
+<div class="line-block"><span class="box_line2">^明日は.+でした。$</span></div>
+<p>となります。 上の正規表現には、"明日は" や "でした。" などのような<strong>探したい文字そのもの</strong> のほか、 "<code>^</code>" 、 "<code>.+</code>" 、 "<code>$</code>" という<strong>記号</strong> が含まれています。すぐ後の【１】基本編 で説明しますが、これらの記号は<strong>文字の並び方のルールを表現するための特別な意味</strong>を持っていて、上の例でいうと「〜で始まり」「何か文があって」「〜で終わる」といった<strong>ルール</strong>に対応しています。このように、正規表現は文字の並びのルールを言葉ではなく</p>
 <div class="attention_p">
-<p><span class="font_red">(���ʂ�)����</span> �{ <span class="font_red">(�����̕��т̃��[����\�����邽�߂�)�L��</span></p>
+<p><span class="font_red">(普通の)文字</span> ＋ <span class="font_red">(文字の並びのルールを表現するための)記号</span></p>
 </div>
-<p>�ŕ\���܂��B</p>
-<p>�Ȃ��A��̗�̂悤�ɐ��K�\�����g���ĕ\���������̕��т̃��[�����̂𐳋K�\���A�܂��� <span class="font_red">�p�^�[��</span>�ƌĂԂ��Ƃ�����܂��B�p��̍���������邽�߂ɁA�ȉ��̐����ł́u�p�^�[���v�ƌĂԂ��Ƃɂ��܂��B</p>
-<p>�r���ŒE�����Ă��܂��܂������A�T���������̂��R���s���[�^�ɂ��킩��悤�Ƀp�^�[���Ƃ��ĕ\�킷���Ƃ��ł�����A���Ƃ͌���������ɏ�̃p�^�[������������ŁA</p>
+<p>で表します。</p>
+<p>なお、上の例のように正規表現を使って表した文字の並びのルール自体を正規表現、または <span class="font_red">パターン</span>と呼ぶことがあります。用語の混乱を避けるために、以下の説明では「パターン」と呼ぶことにします。</p>
+<p>途中で脱線してしまいましたが、探したいものをコンピュータにもわかるようにパターンとして表わすことができたら、あとは検索文字列に上のパターンを書き込んで、</p>
 <div class="attention_p">
-<p>���ꂢ���[!!</p>
+<p>それいけー!!</p>
 </div>
-<p>�Ƃ����������Ƌ��Ɏ��s����΁A�]�ݒʂ�ςȕ������������ł��܂��B</p>
-<p>�ł́A�ȉ��̏͂ł����̋L���̈Ӗ��Ǝg�����ɂ��Đ������Ă����܂��B</p>
-<h3 id="BASIC">�y�P�z ��{�ҁ@�`�\�L�̃��[���ƈӖ��`</h3>
+<p>というかけ声と共に実行すれば、望み通り変な文だけを検索できます。</p>
+<p>では、以下の章でこれらの記号の意味と使い方について説明していきます。</p>
+<h3 id="BASIC">【１】 基本編　〜表記のルールと意味〜</h3>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="BASIC-1">[1-1] ���^�L�����N�^�ƃG�X�P�[�v�V�[�P���X</h4>
-<p>�܂��O�̗͂�̐^�񒆕ӂ�ɂ������u<strong><code>.+</code></strong>�v�ł����A����͌��t�ŕ\�����������̕��т̃��[���́u<strong>��������������</strong>�v�Ƃ��������ɑΉ����Ă��܂��B���̋L���́u<strong><code>.</code>(�s���I�h)</strong>�v�� �u<strong><code>+</code> (�v���X)</strong>�v�Ƃ̑g�ݍ��킹�ŁA ���ꂼ��</p>
-<div class="line-block"><span class="box_line2"><strong><code>.</code> (�s���I�h)</strong> �c <strong>�C�ӂ̂P����</strong></span></div>
+<h4 id="BASIC-1">[1-1] メタキャラクタとエスケープシーケンス</h4>
+<p>まず前章の例の真ん中辺りにあった「<strong><code>.+</code></strong>」ですが、これは言葉で表現した文字の並びのルールの「<strong>何か文があって</strong>」という部分に対応しています。この記号は「<strong><code>.</code>(ピリオド)</strong>」と 「<strong><code>+</code> (プラス)</strong>」との組み合わせで、 それぞれ</p>
+<div class="line-block"><span class="box_line2"><strong><code>.</code> (ピリオド)</strong> … <strong>任意の１文字</strong></span></div>
 <p><br />
 </p>
-<div class="line-block"><span class="box_line2"><strong><code>+</code> (�v���X)</strong> �c <strong>���O�̕����̂P��ȏ�̌J��Ԃ�</strong></span></div>
-<p>�Ƃ����Ӗ��������Ă��܂��B</p>
-<p>�s���I�h�́A MS-DOS �̃��C���h�J�[�h(��������(��))�ł́u<strong><code>?</code></strong>�v�ƕ\�����Ă������̂ŁA<strong>�ǂ�ȂP����</strong>�ɂ��}�b�`<a href="#index-1">(*1)</a>���܂��B�Ⴆ�� "<strong>��<code>.</code>��</strong>"�Ƃ����p�^�[���́A "<strong>����</strong>" �ɂ� "<strong>������</strong>" �ɂ� "<strong>������</strong>"�ɂ��A �ʂĂ�</p>
+<div class="line-block"><span class="box_line2"><strong><code>+</code> (プラス)</strong> … <strong>直前の文字の１回以上の繰り返し</strong></span></div>
+<p>という意味を持っています。</p>
+<p>ピリオドは、 MS-DOS のワイルドカード(懐かしい(笑))では「<strong><code>?</code></strong>」と表現していたもので、<strong>どんな１文字</strong>にもマッチ<a href="#index-1">(*1)</a>します。例えば "<strong>あ<code>.</code>た</strong>"というパターンは、 "<strong>あんた</strong>" にも "<strong>あいた</strong>" にも "<strong>あした</strong>"にも、 果ては</p>
 <div class="attention_p">
-<p>"������" �Ƃ��� ��̃_�C�C���O���b�Z�[�W</p>
+<p>"あ＃た" という 謎のダイイングメッセージ</p>
 </div>
-<p>�ɂ��}�b�`���܂�(��)�B</p>
+<p>にもマッチします(笑)。</p>
 <dl>
 <dt><span id="index-1">(*1)</span></dt>
-<dd>���K�\���ŏ����ꂽ����������őΏۂ̕���T���Ă����āA����Ɉ�v���镶��������o�����Ƃ��A�u<strong>(�p�^�[����)�}�b�`����</strong>�v�ƕ\�����܂��B
+<dd>正規表現で書かれた検索文字列で対象の文を探していって、それに一致する文字列を見出したとき、「<strong>(パターンに)マッチした</strong>」と表現します。
 </dd>
 </dl>
-<p>�v���X�L���̕��͂�����ƒ��ӂ��K�v�ŁA����P�Ƃł͈Ӗ��𐬂��܂���B<span class="font_red">�K�����O�ɕ���</span> �������āA����<span class="font_red">�P��ȏ�̌J��Ԃ�</span>�Ƀ}�b�`���܂��B�Ⴆ�� "<strong><code>�ɂ�+</code></strong>"�Ƃ����p�^�[���� "<strong>�ɂ�</strong>" �Ƃ����y���ɂ݂���</p>
+<p>プラス記号の方はちょっと注意が必要で、これ単独では意味を成しません。<span class="font_red">必ず直前に文字</span> があって、その<span class="font_red">１回以上の繰り返し</span>にマッチします。例えば "<strong><code>痛て+</code></strong>"というパターンは "<strong>痛て</strong>" という軽い痛みから</p>
 <div class="attention_p">
-<p>"�ɂĂĂĂĂĂ�"</p>
+<p>"痛てててててて"</p>
 </div>
-<p>�Ƃ���<strong>��₷��悤�Ȓɂ�</strong>�S�ĂɃ}�b�`���܂��B ���K�\�����g��Ȃ���"<strong>�ɂ�</strong>" �� "<strong>�ɂĂ�</strong>" �� "<strong>�ɂĂĂ�</strong>" �Ɓc�ƑS�Ẳ\��������������������K�v�����鏊���A ���̂悤��</p>
+<p>という<strong>悶絶するような痛み</strong>全てにマッチします。 正規表現を使わないと"<strong>痛て</strong>" と "<strong>痛てて</strong>" と "<strong>痛ててて</strong>" と…と全ての可能性をいちいち検索する必要がある所を、 このように</p>
 <div class="attention_p">
-<p>�ꔭ�I</p>
+<p>一発！</p>
 </div>
-<p>�Ŏw��ł���킯�ł��B</p>
-<p>�����������s���I�h��v���X�L���̂悤�ȁA���K�\���̒��œ���ȈӖ������L���̂��Ƃ�<span class="font_red">���^�L�����N�^</span>�ƌĂт܂��B���^�L�����N�^�͂����̑��ɂ����L�̕\�ɂ���悤�ɂ����ς�(��)����܂��B</p>
+<p>で指定できるわけです。</p>
+<p>今説明したピリオドやプラス記号のような、正規表現の中で特殊な意味を持つ記号のことを<span class="font_red">メタキャラクタ</span>と呼びます。メタキャラクタはこれらの他にも下記の表にあるようにいっぱい(笑)あります。</p>
 <table>
-<caption>�ʎw��q</caption>
+<caption>量指定子</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�ʎw�胁�^�L�����N�^</th>
-<th style="text-align: left;">�@�Ӂ@��</th>
+<th style="text-align: left;">量指定メタキャラクタ</th>
+<th style="text-align: left;">　意　味</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>*</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�̂O�ȏ�̌J��Ԃ�</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の０個以上の繰り返し</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>+</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�̂P�ȏ�̌J��Ԃ�</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の１個以上の繰り返し</strong>にマッチ</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>?</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�̂O��(���P���Ȃ�)�܂��͂P��</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の０個(＝１個もない)または１個</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>{n}</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�� n �̌J��Ԃ�</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の n 個の繰り返し</strong>にマッチ</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>{n,}</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�� n �ȏ�̌J��Ԃ�</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の n 個以上の繰り返し</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>{n,m}</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�� n ����m �̌J��Ԃ�</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の n からm 個の繰り返し</strong>にマッチ</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>*?</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�̂O�ȏ�̌J��Ԃ�(�ŒZ��v)</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の０個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>+?</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�̂P�ȏ�̌J��Ԃ�(�ŒZ��v)</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の１個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>??</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�̂O��(���P���Ȃ�)�܂��͂P��(�ŒZ��v)</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の０個(＝１個もない)または１個(最短一致)</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>{n}?</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�� n �̌J��Ԃ�(�ŒZ��v)</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の n 個の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>{n,}?</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�� n �ȏ�̌J��Ԃ�(�ŒZ��v)</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の n 個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>{n,m}?</code></strong></td>
-<td style="text-align: left;"><strong>���O�̕���(��)�� n ����m �̌J��Ԃ�(�ŒZ��v)</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>直前の文字(※)の n からm 個の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 </tbody>
 </table>
 <p><br />
 </p>
 <table>
-<caption>�A���J�[</caption>
+<caption>アンカー</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�ʒu�w�胁�^�L�����N�^</th>
-<th style="text-align: left;">�@�Ӂ@��</th>
+<th style="text-align: left;">位置指定メタキャラクタ</th>
+<th style="text-align: left;">　意　味</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>^</code></strong></td>
-<td style="text-align: left;">(�p�^�[���̐擪�ɂ��鎞�̂�)<strong>�s��</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;">(パターンの先頭にある時のみ)<strong>行頭</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>$</code></strong></td>
-<td style="text-align: left;">(�p�^�[���̖����ɂ��鎞�̂�)<strong>�s��</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;">(パターンの末尾にある時のみ)<strong>行末</strong>にマッチ</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>(?=pattern)</code></strong></td>
-<td style="text-align: left;">�����v�w��(�m���ǂ�)</td>
+<td style="text-align: left;">後方一致指定(肯定先読み)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>(?!pattern)</code></strong></td>
-<td style="text-align: left;">����s��v�w��(�ے��ǂ�)</td>
+<td style="text-align: left;">後方不一致指定(否定先読み)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>(?&lt;=pattern)</code></strong></td>
-<td style="text-align: left;">�O����v�w��(�m��߂�ǂ�)</td>
+<td style="text-align: left;">前方一致指定(肯定戻り読み)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>(?&lt;!pattern)</code></strong></td>
-<td style="text-align: left;">�O���s��v�w��(�ے�߂�ǂ�)</td>
+<td style="text-align: left;">前方不一致指定(否定戻り読み)</td>
 </tr>
 </tbody>
 </table>
 <p><br />
 </p>
 <table>
-<caption>���̑�</caption>
+<caption>その他</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">���̑����^�L�����N�^</th>
-<th style="text-align: left;">�@�Ӂ@��</th>
+<th style="text-align: left;">その他メタキャラクタ</th>
+<th style="text-align: left;">　意　味</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>.</code></strong></td>
-<td style="text-align: left;">(���s����������)<strong>�C�ӂ̂P����</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;">(改行文字を除く)<strong>任意の１文字</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>[ ]</code></strong></td>
-<td style="text-align: left;">�L�����N�^�N���X�w��(��q)</td>
+<td style="text-align: left;">キャラクタクラス指定(後述)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>( )</code></strong></td>
-<td style="text-align: left;">�O���[�s���O�w��(��q)</td>
+<td style="text-align: left;">グルーピング指定(後述)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>|</code></strong></td>
-<td style="text-align: left;">�p�^�[���̘_���a(��q)</td>
+<td style="text-align: left;">パターンの論理和(後述)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>\</code></strong></td>
-<td style="text-align: left;"><strong>�G�X�P�[�v�L�����N�^</strong></td>
+<td style="text-align: left;"><strong>エスケープキャラクタ</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>(?\tag-number)</code></strong></td>
-<td style="text-align: left;">�q�b�g���������ɂ���^�O�w��</td>
+<td style="text-align: left;">ヒットした扱いにするタグ指定</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>(?#expression)</code></strong></td>
-<td style="text-align: left;">���K�\���p�^�[���ɖ��ߍ��ރR�����g�B�����ł͖��������B</td>
+<td style="text-align: left;">正規表現パターンに埋め込むコメント。検索では無視される。</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong><code>\Q�`\E</code></strong></td>
-<td style="text-align: left;"><code>\Q</code>����<code>\E</code>�̊�(<code>\E</code>���Ȃ��ꍇ�͍Ō�܂�)�̃��^�������A�ʏ�̕����Ƃ��Ĉ����B</td>
+<td style="text-align: left;"><strong><code>\Q〜\E</code></strong></td>
+<td style="text-align: left;"><code>\Q</code>から<code>\E</code>の間(<code>\E</code>がない場合は最後まで)のメタ文字を、通常の文字として扱う。</td>
 </tr>
 </tbody>
 </table>
 <dl>
-<dt>��</dt>
-<dd>�܂��̓O���[�s���O���ꂽ�p�^�[���ł��悢(<a href="#group">��q</a>)�B
+<dt>※</dt>
+<dd>またはグルーピングされたパターンでもよい(<a href="#group">後述</a>)。
 </dd>
 </dl>
-<p>�����ȊO�ɂ��A����̏ꏊ�Ɍ��ꂽ�ꍇ�Ɍ����ē���ȈӖ������L��(�L�����N�^�N���X�w��̒��� "<code>-</code>" ��)������܂��B���Ȃ݂ɁA�����ȊO�̕��ʂɋL���ƌĂ΂�Ă��� "<code>@</code>" ���́A���K�\���ł́u���ʂ̕����v�Ƃ��Ĉ����܂��B</p>
+<p>これら以外にも、特定の場所に現れた場合に限って特殊な意味を持つ記号(キャラクタクラス指定の中の "<code>-</code>" 等)もあります。ちなみに、これら以外の普通に記号と呼ばれている "<code>@</code>" 等は、正規表現では「普通の文字」として扱われます。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="BASIC-1-1">�ʎw�胁�^�L�����N�^�Ɓu�Œ���v�v/�u�ŒZ��v�v</h5>
-<p>����������� "<strong><code>+</code></strong>" �Ƃ悭�����g���������郁�^�L�����N�^�͂���������܂��B</p>
-<p>�܂��A�X�^���X�N "<strong><code>*</code></strong>" �́u<strong>�O�ȏ�̌J��Ԃ�</strong>�v�ƂȂ��Ă��܂����A����� "<strong>�ɂ�*</strong>"�Ƃ����p�^�[�����Ɏ��ƁA "<strong>�ɂ�+</strong>" �Ɠ�������S�Ċ܂ޑ��ɁA</p>
+<h5 id="BASIC-1-1">量指定メタキャラクタと「最長一致」/「最短一致」</h5>
+<p>先程説明した "<strong><code>+</code></strong>" とよく似た使い方をするメタキャラクタはいくつかあります。</p>
+<p>まずアスタリスク "<strong><code>*</code></strong>" は「<strong>０個以上の繰り返し</strong>」となっていますが、これは "<strong>痛て*</strong>"というパターンを例に取ると、 "<strong>痛て+</strong>" と同じ物を全て含む他に、</p>
 <div class="attention_p">
-<p><span class="font_large"><span class="font_red">"��"</span></span> �Ƃ����]��̒ɂ��ɂ��̌�̐��������Ȃ����ɂ̒ɂ�</p>
+<p><span class="font_large"><span class="font_red">"痛"</span></span> という余りの痛さにその後の声が続かない究極の痛み</p>
 </div>
-<p>���܂�ł��܂�(��)�B �����ŁA"<strong><code>*</code></strong>" �Ɋւ���</p>
+<p>も含んでいます(笑)。 ここで、"<strong><code>*</code></strong>" に関して</p>
 <div class="attention_p">
-<p>�K���ƌ����Ă����قǒ��ӂ���鎖</p>
+<p>必ずと言っていいほど注意される事</p>
 </div>
-<p>�������ł��q�ׂ܂����A MS-DOS �̃��C���h�J�[�h�̏ꍇ�ƈ���āA���K�\���� "<strong><code>*</code></strong>" �� <span class="font_red">�K�����O�̕����ƃy�A��</span>�Ӗ��������܂��B�t�ɁAMS-DOS �� "<strong><code>*</code></strong>"(����܂ޔC�ӂ̕�����Ƀ}�b�`)�� ���K�\���ł�"<strong><code>.*</code></strong>" �ƂȂ�܂��B</p>
-<p>�N�G�X�`�����}�[�N "<strong><code>?</code></strong>" �́u<strong>�O��(���P���Ȃ�)�A�܂��͂P����ꍇ</strong>�v��\���Ă���̂ŁA "<strong><code>�G�f�B�^�[?</code></strong>" �Ƃ����p�^�[���� "<strong>�G�f�B�^</strong>" �ɂ�"<strong>�G�f�B�^�[</strong>" �ɂ��}�b�`���܂��B</p>
-<p>�����ŁA�u<strong>�ɂĂĂĂĂĂāI</strong>�v�Ƃ�����(�H)�ɑ΂��� "<strong><code>�ɂ�+</code></strong>"�Ƃ����p�^�[���Ō�������ƁA<strong>�P��̌����łǂ��܂ł��}�b�`�̑ΏۂɂȂ邩�H</strong>�Ƃ������Ƃ����ɂȂ�܂��B "<strong>�ɂ�</strong>" ���}�b�`���邵 "<strong>�ɂĂ�</strong>"���}�b�`���邵�c�Ƃ����킯�ŁA�u�������J��Ԃ����Ɉ����ԂɃ}�b�`���Ă����́H�v�ƍl�����l�́c�c</p>
+<p>をここでも述べますが、 MS-DOS のワイルドカードの場合と違って、正規表現の "<strong><code>*</code></strong>" は <span class="font_red">必ず直前の文字とペアで</span>意味を持ちます。逆に、MS-DOS の "<strong><code>*</code></strong>"(空を含む任意の文字列にマッチ)は 正規表現では"<strong><code>.*</code></strong>" となります。</p>
+<p>クエスチョンマーク "<strong><code>?</code></strong>" は「<strong>０個(＝１個もない)、または１個ある場合</strong>」を表しているので、 "<strong><code>エディター?</code></strong>" というパターンは "<strong>エディタ</strong>" にも"<strong>エディター</strong>" にもマッチします。</p>
+<p>ここで、「<strong>痛てててててて！</strong>」という文(？)に対して "<strong><code>痛て+</code></strong>"というパターンで検索すると、<strong>１回の検索でどこまでがマッチの対象になるか？</strong>ということが問題になります。 "<strong>痛て</strong>" もマッチするし "<strong>痛てて</strong>"もマッチするし…というわけで、「検索を繰り返す毎に1つ1つ順番にマッチしていくの？」と考えた人は……</p>
 <div class="attention_p">
-<p>�c�O�A�n�Y���ł��B</p>
+<p>残念、ハズレです。</p>
 </div>
-<p>���ۂɂ� <span class="font_blue">�P��ڂ̌����ł����Ȃ�</span> "<strong>�ɂĂĂĂĂĂ�</strong>"(<strong>�I</strong>�̒��O)�܂ł��}�b�`�̑ΏہA �܂茟�����ʂɂȂ�܂��B</p>
-<p>���̗l�ɁA���K�\���ɂ�錟����(��{�I�ɂ�)</p>
+<p>実際には <span class="font_blue">１回目の検索でいきなり</span> "<strong>痛てててててて</strong>"(<strong>！</strong>の直前)までがマッチの対象、 つまり検索結果になります。</p>
+<p>この様に、正規表現による検索は(基本的には)</p>
 <div class="attention_p">
-<p><span class="font_large">�^����ꂽ�p�^�[���Ƀ}�b�`���� <span class="font_red">�ł����������� ���������ʂƂȂ�</span></span></p>
+<p><span class="font_large">与えられたパターンにマッチする <span class="font_red">最も長い文字列 が検索結果となる</span></span></p>
 </div>
-<p>�Ƃ����K���ɂȂ��Ă��܂� (<span class="font_red">�Œ���v�̃��[��</span>)�B</p>
-<p>�����A����<span class="font_red">�Œ���v�̃��[��</span>���ƁA�s���̈����ꍇ������̂ŁA�ύX�ł��܂��B�J��Ԃ���\�킷���^�L�����N�^��<strong>"?"</strong>��ǉ�����ƁA�}�b�`����͈͂�<span class="font_red">�ŒZ��v</span>�ɂȂ�A</p>
+<p>という規則になっています (<span class="font_red">最長一致のルール</span>)。</p>
+<p>ただ、この<span class="font_red">最長一致のルール</span>だと、都合の悪い場合もあるので、変更できます。繰り返しを表わすメタキャラクタに<strong>"?"</strong>を追加すると、マッチする範囲が<span class="font_red">最短一致</span>になり、</p>
 <div class="attention_p">
-<p><span class="font_large">�^����ꂽ�p�^�[���Ƀ}�b�`���� <span class="font_red">�ł��Z�������� ���������ʂƂȂ�</span></span></p>
+<p><span class="font_large">与えられたパターンにマッチする <span class="font_red">最も短い文字列 が検索結果となる</span></span></p>
 </div>
-<p>�Ƃ�������ɂȂ�܂��B</p>
-<p>�u<strong>�ɂĂĂĂĂĂāI</strong>�v�ɑ΂��� ���x��"<strong><code>�ɂ�+?</code></strong>"�Ƃ����ŒZ��v�̃p�^�[���Ō��������ꍇ�́A<span class="font_blue">�P��ڂ̌����ł�</span> "<strong>�ɂ�</strong>"�܂ł��}�b�`�̑ΏہA �܂茟�����ʂɂȂ�܂��B</p>
-<p>�u��������s���ꍇ�A�Œ���v���ŒZ��v���ŁA���ʂ����Ȃ�قȂ�ꍇ������̂ŁA���ӂ��K�v�ł��B</p>
+<p>という動作になります。</p>
+<p>「<strong>痛てててててて！</strong>」に対して 今度は"<strong><code>痛て+?</code></strong>"という最短一致のパターンで検索した場合は、<span class="font_blue">１回目の検索では</span> "<strong>痛て</strong>"までがマッチの対象、 つまり検索結果になります。</p>
+<p>置換動作を行う場合、最長一致か最短一致かで、結果がかなり異なる場合があるので、注意が必要です。</p>
 <hr />
-<p>�J��Ԃ��̉񐔂��w�肷�郁�^�L�����N�^������܂��B</p>
+<p>繰り返しの回数を指定するメタキャラクタもあります。</p>
 <dl>
 <dt><strong>"<code>{n}</code>"</strong></dt>
-<dd><p>n�̌J��Ԃ�<br />
-<code>a{5}</code> &#8211;&gt; aaaaa �Ƀ}�b�`����</p>
-<p><img src="4_regular_01.png" width="448" height="432" alt="�J��Ԃ�5��" /><br />
+<dd><p>n個の繰り返し<br />
+<code>a{5}</code> &#8211;&gt; aaaaa にマッチする</p>
+<p><img src="4_regular_01.png" width="448" height="432" alt="繰り返し5個" /><br />
 </p>
-<p>5�ȏ�̉ӏ��ɂ��}�b�`���Ă��܂����A�ȉ���</p>
+<p>5個以上の箇所にもマッチしていますが、以下の</p>
 <ul>
-<li>10�� = 5�� �~ 2</li>
-<li>15�� = 5�� �~ 3</li>
-<li>20�� = 5�� �~ 4</li>
+<li>10個 = 5個 × 2</li>
+<li>15個 = 5個 × 3</li>
+<li>20個 = 5個 × 4</li>
 </ul>
-<p>�̂悤�ɕ����ӏ��Ƀ}�b�`���Ă����Ԃł��B</p>
+<p>のように複数箇所にマッチしている状態です。</p>
 </dd>
 <dt><strong>"<code>{n,}</code>"</strong></dt>
-<dd><p>n�ȏ�̌J��Ԃ�<br />
-<code>a{7,}</code> &#8211;&gt; aaaaaaa �� aaaaaaaaaaaaaaa �Ƀ}�b�`����</p>
-<p><img src="4_regular_02.png" width="448" height="432" alt="�J��Ԃ�7�ȏ�" /><br />
+<dd><p>n個以上の繰り返し<br />
+<code>a{7,}</code> &#8211;&gt; aaaaaaa や aaaaaaaaaaaaaaa にマッチする</p>
+<p><img src="4_regular_02.png" width="448" height="432" alt="繰り返し7個以上" /><br />
 </p>
-<p>7�ȏシ�ׂẲӏ��Ƀ}�b�`���Ă��܂��B</p>
+<p>7個以上すべての箇所にマッチしています。</p>
 </dd>
 <dt><strong>"<code>{n,m}</code>"</strong></dt>
-<dd><p>n �` m �̌J��Ԃ�<br />
-<code>a{8,12}</code> &#8211;&gt; aaaaaaaa ���� aaaaaaaaaaaa �Ƀ}�b�`����</p>
-<p><img src="4_regular_03.png" width="448" height="432" alt="�J��Ԃ�8�`12��" /><br />
+<dd><p>n 〜 m 個の繰り返し<br />
+<code>a{8,12}</code> &#8211;&gt; aaaaaaaa から aaaaaaaaaaaa にマッチする</p>
+<p><img src="4_regular_03.png" width="448" height="432" alt="繰り返し8〜12個" /><br />
 </p>
-<p>8�`12�̉ӏ��Ƀ}�b�`���Ă��܂��B 20�̕����́A12�� �� 8�̉ӏ��Ƀ}�b�`���Ă��܂��B</p>
+<p>8〜12個の箇所にマッチしています。 20個の部分は、12個 と 8個の箇所にマッチしています。</p>
 </dd>
 </dl>
-<p><strong>"<code>{n,}</code>"</strong>�A<strong>"<code>{n,m}</code>"</strong> �́A<span class="font_red">�Œ���v�̃��[��</span>���K�p�����̂ŁA�Œ��������}�b�`���܂��B�ŒZ��v�ɂ���ꍇ�́A"<strong><code>*</code></strong>"�A"<strong><code>+</code></strong>"�Ɠ�����"?"��ǉ����܂��B</p>
-<p>��قǂ̗���ŒZ��v�ɂ����ꍇ�́A�ȉ��̂悤�ɂȂ�܂��B</p>
+<p><strong>"<code>{n,}</code>"</strong>、<strong>"<code>{n,m}</code>"</strong> は、<span class="font_red">最長一致のルール</span>が適用されるので、最長部分がマッチします。最短一致にする場合は、"<strong><code>*</code></strong>"、"<strong><code>+</code></strong>"と同じく"?"を追加します。</p>
+<p>先ほどの例を最短一致にした場合は、以下のようになります。</p>
 <dl>
 <dt><strong>"<code>{n,}?</code>"</strong></dt>
-<dd><p>n�ȏ�̌J��Ԃ�(�ŒZ��v)<br />
-<code>a{7,}?</code> &#8211;&gt; aaaaaaa �Ƀ}�b�`����</p>
-<p><img src="4_regular_04.png" width="448" height="432" alt="�J��Ԃ�7�ȏ�(�ŒZ��v)" /><br />
+<dd><p>n個以上の繰り返し(最短一致)<br />
+<code>a{7,}?</code> &#8211;&gt; aaaaaaa にマッチする</p>
+<p><img src="4_regular_04.png" width="448" height="432" alt="繰り返し7個以上(最短一致)" /><br />
 </p>
-<p>14�ȏ�́A7�� �~ 2�̉ӏ��Ƀ}�b�`���Ă��܂��B</p>
+<p>14個以上は、7個 × 2個の箇所にマッチしています。</p>
 </dd>
 <dt><strong>"<code>{n,m}?</code>"</strong></dt>
-<dd><p>n �` m �̌J��Ԃ�(�ŒZ��v)<br />
-<code>a{8,12}?</code> &#8211;&gt; aaaaaaaa �Ƀ}�b�`����</p>
-<p><img src="4_regular_05.png" width="448" height="432" alt="�J��Ԃ�8�`12��(�ŒZ��v)" /><br />
+<dd><p>n 〜 m 個の繰り返し(最短一致)<br />
+<code>a{8,12}?</code> &#8211;&gt; aaaaaaaa にマッチする</p>
+<p><img src="4_regular_05.png" width="448" height="432" alt="繰り返し8〜12個(最短一致)" /><br />
 </p>
-<p>16�ȏ�́A8�� �~ 2�̉ӏ��Ƀ}�b�`���Ă��܂��B</p>
+<p>16個以上は、8個 × 2個の箇所にマッチしています。</p>
 </dd>
 </dl>
-<h5 id="BASIC-1-2">�s�̋�؂��\�킷���^�L�����N�^</h5>
-<p>"<strong><code>^</code></strong>" �� "<strong><code>$</code></strong>" �� �y�O�z�̗�ɂ��o�Ă��Ă��܂����A���ꂼ��u<strong>�s��</strong>�v�y�сu<strong>�s��</strong>�v�Ƀ}�b�`����A�ƂȂ��Ă��܂��B�ł́A�ȉ��̂悤�ȏꍇ�ɂ��āA "<strong><code>^.+$</code></strong>"�Ƃ���(�C�ӂ̋�łȂ��P�s�Ƀ}�b�`����)�p�^�[���Ō������Ă݂���A�ǂ̂悤�Ȍ��ʂɂȂ�ł��傤���H</p>
+<h5 id="BASIC-1-2">行の区切りを表わすメタキャラクタ</h5>
+<p>"<strong><code>^</code></strong>" と "<strong><code>$</code></strong>" は 【０】の例にも出てきていますが、それぞれ「<strong>行頭</strong>」及び「<strong>行末</strong>」にマッチする、となっています。では、以下のような場合について、 "<strong><code>^.+$</code></strong>"という(任意の空でない１行にマッチする)パターンで検索してみたら、どのような結果になるでしょうか？</p>
 <div class="box_line">
-<pre><code>��
-���̕��͂��̍s�̉E�[�Ő܂�Ԃ���Ă��܂��B �����̂��Ƃł���
-���̍s�̖����� [Enter] �L�[�ŉ��s����Ă��܂��B����
+<pre><code>↓
+この文はこの行の右端で折り返されています。 ここのことです→
+この行の末尾で [Enter] キーで改行されています。＃↓
 [EOF]</code></pre>
 </div>
-<p>���̏ꍇ�A�����ڂ̍s�A �܂�Q�s�ڂ���("���̕���" ���� "��"�܂�)���}�b�`�������ȏ��ł����A���ۂɂ���Ă݂��<strong>�Q�s�ڂ̐擪����R�s�ڂ̍s��("��")�܂�</strong>���}�b�`���܂��B���̗Ⴉ����킩��悤�ɁA���K�\���Ō������́u<strong>�s</strong>�v�Ƃ͏G�ۃG�f�B�^�̉�ʏ�ł́u�����ڂ̍s�v�̂��� <span class="font_blue">�ł͂Ȃ�</span>�A</p>
+<p>この場合、見た目の行、 つまり２行目だけ("この文は" から "→"まで)がマッチしそうな所ですが、実際にやってみると<strong>２行目の先頭から３行目の行末("＃")まで</strong>がマッチします。この例からもわかるように、正規表現で言う所の「<strong>行</strong>」とは秀丸エディタの画面上での「見た目の行」のこと <span class="font_blue">ではなく</span>、</p>
 <div class="attention_p">
-<p><span class="font_red">�t�@�C���̐擪</span> �܂��� <span class="font_red">���s����</span> (��) ����A ���̉��s���� �܂��� <span class="font_red">�t�@�C���̖���</span> ([EOF]) �ŋ�؂�ꂽ����</p>
+<p><span class="font_red">ファイルの先頭</span> または <span class="font_red">改行文字</span> (↓) から、 次の改行文字 または <span class="font_red">ファイルの末尾</span> ([EOF]) で区切られた部分</p>
 </div>
-<p>���w���Ă��܂�(������u<strong>�_���s</strong>�v�̂���)�B��̗�ł͌����ڂ��S�s�̃t�@�C���ł����A�_���s�Ő������</p>
+<p>を指しています(いわゆる「<strong>論理行</strong>」のこと)。上の例では見た目が４行のファイルですが、論理行で数えると</p>
 <table>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">�����ڂ̂P�s��(��ł���(^^;)</td>
-<td style="text-align: center;">��</td>
-<td style="text-align: left;"><strong>�t�@�C���̐擪</strong> �` �P�s�ڂ�<strong>���s����</strong>(�̎�O)�܂�</td>
+<td style="text-align: left;">見た目の１行目(空ですが(^^;)</td>
+<td style="text-align: center;">＝</td>
+<td style="text-align: left;"><strong>ファイルの先頭</strong> 〜 １行目の<strong>改行文字</strong>(の手前)まで</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�����ڂ̂Q�s�ڂ���R�s�ڂ̖��܂�</td>
-<td style="text-align: center;">��</td>
-<td style="text-align: left;">�P�s�ڂ�<strong>���s����</strong>(�̎�) �` �R�s�ڂ�<strong>���s����(�̎�O)</strong>�܂�</td>
+<td style="text-align: left;">見た目の２行目から３行目の末まで</td>
+<td style="text-align: center;">＝</td>
+<td style="text-align: left;">１行目の<strong>改行文字</strong>(の次) 〜 ３行目の<strong>改行文字(の手前)</strong>まで</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�����ڂ̂S�s��(�P�s�ڂƓ�������ł���)</td>
-<td style="text-align: center;">��</td>
-<td style="text-align: left;">�R�s�ڂ�<strong>���s����</strong>(�̎�) �` <strong>�t�@�C���̖���</strong>([EOF])�܂�</td>
+<td style="text-align: left;">見た目の４行目(１行目と同じく空ですが)</td>
+<td style="text-align: center;">＝</td>
+<td style="text-align: left;">３行目の<strong>改行文字</strong>(の次) 〜 <strong>ファイルの末尾</strong>([EOF])まで</td>
 </tr>
 </tbody>
 </table>
-<p>�̂R�s����Ȃ�t�@�C���A�ƌ��������o���܂��B�u<strong>�e�L�X�g�t�@�C��</strong>�v��(�����R�[�h�̌n�̈Ⴂ��������)���ʂ̕���<a href="#index-2">(*2)</a>�Ɖ��s�����̕��тō\������Ă���̂ŁA<strong>�ǂ�Ȋ��ł��_���s�͓�������</strong>�ɂȂ�܂��B���X���K�\���� sed���̃e�L�X�g���`�c�[���Ŏg���Ă������̂ł����A�����̓G�f�B�^�̗l�Ƀe�L�X�g�t�@�C�����u�\���v���邱�ƂȂ��c�[�����������ŏ��������邽�߁A<strong>�����ڂɂ͂��Ȃ��`�Ńe�L�X�g������</strong>�悤�Ȍ`���ɂȂ��Ă��Ȃ���΂Ȃ�Ȃ��킯�ł��B</p>
+<p>の３行からなるファイル、と言う事が出来ます。「<strong>テキストファイル</strong>」は(文字コード体系の違いを除けば)普通の文字<a href="#index-2">(*2)</a>と改行文字の並びで構成されているので、<strong>どんな環境でも論理行は同じもの</strong>になります。元々正規表現は sed等のテキスト整形ツールで使われていたものですが、それらはエディタの様にテキストファイルを「表示」することなくツール内部だけで処理をするため、<strong>見た目にはよらない形でテキストを扱う</strong>ような形式になっていなければならないわけです。</p>
 <dl>
 <dt><span id="index-2">(*2)</span></dt>
-<dd>�^�u�A���y�[�W�������̂�����R���g���[���������܂݂܂��B
+<dd>タブ、改ページ文字等のいわゆるコントロール文字も含みます。
 </dd>
 </dl>
-<p>�Ȃ��A"<strong><code>^</code></strong>" ("<strong><code>$</code></strong>") �́A��L�̂悤��<span class="font_red">�p�^�[���̐擪(����)�ɂ��鎞����</span>��̂悤�ȓ���ȈӖ��������܂��B�܂� "<strong><code>ab^cd$efg</code></strong>"�Ƃ����p�^�[���̒��� "<strong><code>^</code></strong>" �� "<strong><code>$</code></strong>" �́A<strong>�P�ɂ��̕���(�n�b�g��h��)���̂���</strong> ��\�����Ă��܂��B</p>
-<p>�����ł�����ƒE���ł����A"<strong><code>$</code></strong>" �� <strong>���Ĕ�Ȃ镨</strong> �Ƃ���"<strong><code>\n</code></strong>" (<strong>���s����</strong>) ������܂� (��q�́u<span class="font_red">�G�X�P�[�v�V�[�P���X</span>�v���Q��)�B���O�̘b���炷��ƁA���K�\���ł́u<strong>�s�� �� ���s����</strong>�v�Ȃ킯�ŁA���ł���ȗ]�v�Ȃ��̂�����̂��^��Ɏv���l������Ǝv���܂����A���̗��R�͂Q����܂��B</p>
-<p>�P�߂́A<strong>"<code>$</code>" �� �t�@�C���̖��� "<code>[EOF]</code>" ���܂�</strong>�Ƃ������Ƃł� ("<code>\n</code>" �͂����܂ł��u���s�������̂��́v��\��)�B�Ƃ����킯�ŁA�Ō�̍s��("��" �ł͂Ȃ�) "<code>[EOF]</code>" �� �I����Ă���ꍇ��"<code>$</code>" ���g���ΐ����������ł��܂��B</p>
-<p>�Q�߂̗��R�́A�u�����鎞�� <strong>���s�������܂߂Ēu���������ꍇ</strong>�����邩��ł��B ���̂Q�̃p�^�[��</p>
-<p><span class="box_line"><strong><code>//.*$</code></strong></span>�@�Ɓ@<span class="box_line2"><strong><code>//.*\n</code></strong></span></p>
-<p>�͂ǂ����</p>
-<p><span class="box_line">C++ ����ł� // ����s���܂ł��R�����g�Ƃ݂܂��܂��B��</span></p>
-<p>�Ƃ����s�� "<code>//</code>" ���炻��ȍ~�̕����Ƀ}�b�`���܂����A "<code>$</code>"�ōs�����w�肵���ꍇ�̓}�b�`�͈̔͂� <strong>���s����("��")���܂݂܂���</strong>�B��� "<code>\n</code>" �̕���<strong>���s�������}�b�`�͈̔͂Ɋ܂܂�܂�</strong>�B���̃}�b�`�̎d���̈Ⴂ�����܂����p�����u���̗�ɂ��ẮA ����Q&amp;A�W�� - �u<a href="HME0061A.html">���󔒍s���폜������</a>�v - �u<a href="HME0062A.html">���󔒍s�����s�����̍s�ɂ�����</a>�v�̂Q�̗�����Ă��������B�t�ɁA�����Q��g�ݍ��킹�Ďg���ꍇ�A�Ӑ}�������ʂ𓾂��Ȃ����Ƃ�����܂����A���̗�Ɖ���ɂ��Ă�<a href="#RETURNS">��T��</a>���������������B</p>
-<h5 id="BASIC-1-3">�����v�w��/����s��v�w��/�O����v�w��/�O���s��v�w��</h5>
-<p>�����<strong>"^"</strong>�A<strong>"$"</strong>�Ɠ������ʒu�}�b�`���鐳�K�\���ł��B���������܂���B</p>
+<p>なお、"<strong><code>^</code></strong>" ("<strong><code>$</code></strong>") は、上記のように<span class="font_red">パターンの先頭(末尾)にある時だけ</span>上のような特殊な意味を持ちます。つまり "<strong><code>ab^cd$efg</code></strong>"というパターンの中の "<strong><code>^</code></strong>" や "<strong><code>$</code></strong>" は、<strong>単にその文字(ハットやドル)そのもの</strong> を表現しています。</p>
+<p>ここでちょっと脱線ですが、"<strong><code>$</code></strong>" と <strong>似て非なる物</strong> として"<strong><code>\n</code></strong>" (<strong>改行文字</strong>) があります (後述の「<span class="font_red">エスケープシーケンス</span>」を参照)。直前の話からすると、正規表現では「<strong>行末 ＝ 改行文字</strong>」なわけで、何でこんな余計なものがあるのか疑問に思う人がいると思いますが、その理由は２つあります。</p>
+<p>１つめは、<strong>"<code>$</code>" は ファイルの末尾 "<code>[EOF]</code>" も含む</strong>ということです ("<code>\n</code>" はあくまでも「改行文字そのもの」を表す)。というわけで、最後の行が("↓" ではなく) "<code>[EOF]</code>" で 終わっている場合も"<code>$</code>" を使えば正しく処理できます。</p>
+<p>２つめの理由は、置換する時に <strong>改行文字も含めて置換したい場合</strong>があるからです。 次の２つのパターン</p>
+<p><span class="box_line"><strong><code>//.*$</code></strong></span>　と　<span class="box_line2"><strong><code>//.*\n</code></strong></span></p>
+<p>はどちらも</p>
+<p><span class="box_line">C++ 言語では // から行末までをコメントとみまします。↓</span></p>
+<p>という行の "<code>//</code>" からそれ以降の文字にマッチしますが、 "<code>$</code>"で行末を指定した場合はマッチの範囲に <strong>改行文字("↓")を含みません</strong>。一方 "<code>\n</code>" の方は<strong>改行文字もマッチの範囲に含まれます</strong>。</p>
+<p>このマッチの仕方の違いをうまく利用した置換の例については、 このQ&amp;A集の以下の例を見てください。 - 「<a href="HME0061A.html">●空白行を削除したい</a>」 - 「<a href="HME0062A.html">●空白行を改行だけの行にしたい</a>」</p>
+<p>逆に、これら２つを組み合わせて使う場合、意図した結果を得られないことがありますが、その例と解説については<a href="#RETURNS">第５章</a>をご覧ください。</p>
+<h5 id="BASIC-1-3">後方一致指定/後方不一致指定/前方一致指定/前方不一致指定</h5>
+<p>これは<strong>"^"</strong>、<strong>"$"</strong>と同じく位置マッチする正規表現です。幅を持ちません。</p>
 <dl>
-<dt>�����v�w��(�m���ǂ�)</dt>
-<dd><p>�w�肳�ꂽ�p�^�[���̐擪�Ƀ}�b�`���܂��B</p>
-<pre><code>���K�\���Fabc(?=xyz)
-�����ΏہFabcxyz</code></pre>
-<p>�Ƃ����ꍇ�́A"x"�̑O�Ƀ}�b�`���܂��B("x"�̑O�Ƃ������A"c"��"x"�̊�)</p>
+<dt>後方一致指定(肯定先読み)</dt>
+<dd><p>指定されたパターンの先頭にマッチします。</p>
+<pre><code>正規表現：abc(?=xyz)
+検索対象：abcxyz</code></pre>
+<p>という場合は、"x"の前にマッチします。("x"の前というか、"c"と"x"の間)</p>
 </dd>
-<dt>����s��v�w��(�ے��ǂ�)</dt>
-<dd><p>�w�肳�ꂽ�p�^�[���Ƀ}�b�`���Ȃ��擪�Ƀ}�b�`���܂��B</p>
-<pre><code>���K�\���Fabc(?!xyz)
-�����ΏہFabcdef</code></pre>
-<p>�Ƃ����ꍇ�́A"d"�̑O�Ƀ}�b�`���܂��B("d"�̑O�Ƃ������A"c"��"d"�̊�)</p>
+<dt>後方不一致指定(否定先読み)</dt>
+<dd><p>指定されたパターンにマッチしない先頭にマッチします。</p>
+<pre><code>正規表現：abc(?!xyz)
+検索対象：abcdef</code></pre>
+<p>という場合は、"d"の前にマッチします。("d"の前というか、"c"と"d"の間)</p>
 </dd>
-<dt>�O����v�w��(�m���ǂ�)</dt>
-<dd><p>�w�肳�ꂽ�p�^�[���̖����Ƀ}�b�`���܂��B</p>
-<pre><code>���K�\���F(?&lt;=abc)xyz
-�����ΏہFabcxyz</code></pre>
-<p>�Ƃ����ꍇ�́A"c"�̌�Ƀ}�b�`���܂��B("c"�̌�Ƃ������A"c"��"x"�̊�)</p>
+<dt>前方一致指定(肯定後読み)</dt>
+<dd><p>指定されたパターンの末尾にマッチします。</p>
+<pre><code>正規表現：(?&lt;=abc)xyz
+検索対象：abcxyz</code></pre>
+<p>という場合は、"c"の後にマッチします。("c"の後というか、"c"と"x"の間)</p>
 </dd>
-<dt>����s��v�w��(�ے��ǂ�)</dt>
-<dd><p>�w�肳�ꂽ�p�^�[���Ƀ}�b�`���Ȃ��擪�Ƀ}�b�`���܂��B</p>
-<pre><code>���K�\���F(?&lt;!abc)xyz
-�����ΏہFdefxyz</code></pre>
-<p>�Ƃ����ꍇ�́A"f"�̌�Ƀ}�b�`���܂��B("f"�̌�Ƃ������A"f"��"x"�̊�)</p>
+<dt>後方不一致指定(否定先読み)</dt>
+<dd><p>指定されたパターンにマッチしない先頭にマッチします。</p>
+<pre><code>正規表現：(?&lt;!abc)xyz
+検索対象：defxyz</code></pre>
+<p>という場合は、"f"の後にマッチします。("f"の後というか、"f"と"x"の間)</p>
 </dd>
 </dl>
-<p>�����v�w��(�m���ǂ�)�ƌ���s��v�w��(�ے��ǂ�)�͎g�������ɂ���ẮA�����̍i�荞�݂ɂ��g���܂��B</p>
+<p>後方一致指定(肯定先読み)と後方不一致指定(否定先読み)は使いかたによっては、条件の絞り込みにも使えます。</p>
 <div class="marginleft3">
 <pre><code>hidemaru000
 hidemaru001
@@ -430,549 +432,549 @@ hidemaru0A3
 hidemaru0A4
 hidemaru0A5</code></pre>
 </div>
-<p>�Ƃ����f�[�^����A</p>
+<p>というデータから、</p>
 <div class="marginleft3">
-<pre><code>�����v�w��@:hidemaru(?=\d{3}).+[25]$</code></pre>
+<pre><code>後方一致指定　:hidemaru(?=\d{3}).+[25]$</code></pre>
 </div>
-<p>�Ō�������ƁA"hidemaru"�̎���3���̐����ŁA������ 2 or 5 �Ƀ}�b�`����A</p>
+<p>で検索すると、"hidemaru"の次が3桁の数字で、末尾が 2 or 5 にマッチする、</p>
 <div class="marginleft3">
 <pre><code>hidemaru002
 hidemaru005</code></pre>
 </div>
-<p>�ɁA�}�b�`���܂��B</p>
+<p>に、マッチします。</p>
 <div class="marginleft3">
-<pre><code>����s��v�w��:hidemaru(?!\d{3}).+[25]$</code></pre>
+<pre><code>後方不一致指定:hidemaru(?!\d{3}).+[25]$</code></pre>
 </div>
-<p>�Ō�������ƁA"hidemaru"�̎���3���̐����łȂ��A������ 2 or 5 �Ƀ}�b�`����A</p>
+<p>で検索すると、"hidemaru"の次が3桁の数字でない、末尾が 2 or 5 にマッチする、</p>
 <div class="marginleft3">
 <pre><code>hidemaru0A2
 hidemaru0A5</code></pre>
 </div>
-<p>�ɁA�}�b�`���܂��B</p>
-<h5 id="BASIC-1-4">�G�X�P�[�v�L�����N�^�ƃG�X�P�[�v�V�[�P���X</h5>
-<p>���^�L�����N�^�̕\�̍Ō�ɂ��� "<strong>\</strong>" (<span class="font_red">�G�X�P�[�v�L�����N�^</span>)�� ���܂ł̃��^�L�����N�^�������Ɠ���ŁA���ꎩ�̂ł͈Ӗ����������A<strong>���̒���̕����ƃy�A�ɂȂ���1�̓��ꕶ��</strong> ��\�����܂��B�Ⴆ�ΑO�q�� "\n"(���s����) �͂���1�ł��B���̂悤�� "\"�ō������ꕶ���̎��� <span class="font_red">�G�X�P�[�v�V�[�P���X</span>�ƌĂт܂����A���������̕\�ɂ܂Ƃ߂Ă݂܂����B</p>
+<p>に、マッチします。</p>
+<h5 id="BASIC-1-4">エスケープキャラクタとエスケープシーケンス</h5>
+<p>メタキャラクタの表の最後にある "<strong>\</strong>" (<span class="font_red">エスケープキャラクタ</span>)は 今までのメタキャラクタよりもっと特殊で、それ自体では意味を持たず、<strong>その直後の文字とペアになって1つの特殊文字</strong> を表現します。例えば前述の "\n"(改行文字) はその1つです。このように "\"で作られる特殊文字の事を <span class="font_red">エスケープシーケンス</span>と呼びますが、それらを下の表にまとめてみました。</p>
 <table>
-<caption>�G�X�P�[�v�V�[�P���X</caption>
+<caption>エスケープシーケンス</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�G�X�P�[�v�V�[�P���X</th>
-<th style="text-align: left;">�Ӗ�</th>
+<th style="text-align: left;">エスケープシーケンス</th>
+<th style="text-align: left;">意味</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>\&lt;oct&gt;</strong></td>
-<td style="text-align: left;">&lt;oct&gt; ��8�i���Ƃ݂Ȃ��āA����𕶎��R�[�h�Ɏ�����</td>
+<td style="text-align: left;">&lt;oct&gt; を8進数とみなして、それを文字コードに持つ文字</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\x&lt;hex&gt;</strong></td>
-<td style="text-align: left;">&lt;hex&gt; ��16�i���Ƃ݂Ȃ��āA����𕶎��R�[�h�Ɏ�����</td>
+<td style="text-align: left;">&lt;hex&gt; を16進数とみなして、それを文字コードに持つ文字</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>\a</strong></td>
-<td style="text-align: left;"><strong>�x�� (\x07)</strong></td>
+<td style="text-align: left;"><strong>ベル (\x07)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\b</strong></td>
-<td style="text-align: left;">�o�b�N�X�y�[�X (\x08)</td>
+<td style="text-align: left;">バックスペース (\x08)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>\t</strong></td>
-<td style="text-align: left;"><strong>�^�u (\x09)</strong></td>
+<td style="text-align: left;"><strong>タブ (\x09)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\n</strong></td>
-<td style="text-align: left;"><strong>���s (\x0A)</strong></td>
+<td style="text-align: left;"><strong>改行 (\x0A)</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>\v</strong></td>
-<td style="text-align: left;"><strong>�����^�u (\x0B)</strong></td>
+<td style="text-align: left;"><strong>垂直タブ (\x0B)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\f</strong></td>
-<td style="text-align: left;"><strong>�t�H�[���t�B�[�h(���y�[�W) (\x0C)(��)</strong></td>
+<td style="text-align: left;"><strong>フォームフィード(改ページ) (\x0C)(※)</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>\r</strong></td>
-<td style="text-align: left;"><strong>�L�����b�W���^�[�� (\x0D)</strong></td>
+<td style="text-align: left;"><strong>キャリッジリターン (\x0D)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\z</strong></td>
-<td style="text-align: left;"><strong>EOF(End Of File) �L�� (\x1A)</strong></td>
+<td style="text-align: left;"><strong>EOF(End Of File) 記号 (\x1A)</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>\&lt;</strong></td>
-<td style="text-align: left;"><strong>�p�P��̎n�܂�Ƀ}�b�`(�����ł͂Ȃ�)</strong></td>
+<td style="text-align: left;"><strong>英単語の始まりにマッチ(文字ではない)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\&gt;</strong></td>
-<td style="text-align: left;"><strong>�p�P��̏I���Ƀ}�b�`(�����ł͂Ȃ�)</strong></td>
+<td style="text-align: left;"><strong>英単語の終わりにマッチ(文字ではない)</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>\w</strong></td>
-<td style="text-align: left;"><strong>�p�P��Ƀ}�b�`(�A���_�[�X�R�A "_" ���܂�)</strong></td>
+<td style="text-align: left;"><strong>英単語にマッチ(アンダースコア "_" を含む)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>\&lt;char&gt;</strong></td>
-<td style="text-align: left;"><strong>��L�ȊO�̕����̏ꍇ�� &lt;char&gt; ���̂���(���^�L�����N�^��<span class="font_red">�G�X�P�[�v</span>�Ɏg�p)</strong></td>
+<td style="text-align: left;"><strong>上記以外の文字の場合は &lt;char&gt; そのもの(メタキャラクタの<span class="font_red">エスケープ</span>に使用)</strong></td>
 </tr>
 </tbody>
 </table>
 <dl>
-<dt>��</dt>
-<dd>Ver.3.0 �ȍ~�̏G�ۃG�f�B�^�ł́A"<code>\f</code>" ����ʓI�ȈӖ��́u���y�[�W(\x0C)�v�ł͂Ȃ��A�u<a href="4_tagreg.html">�^�O�t�����K�\��</a>�v�ɂ������؂�q�Ƃ��ĉ��߂����悤�ɂȂ����̂ŁA�Ӗ����قȂ�܂��B�^�O�t�����K�\���̃^�O�w��́A�O���[�s�����O�Ŏg�p���銇��()�ł̎w�肪�\�Ȃ̂ŁA��������g���Ă��������B Ver.3.0 �ȍ~�̏G�ۃG�f�B�^�ŉ��y�[�W�R�[�h���w�肵�����ꍇ�́A\x0C �ƋL�q����K�v������܂��B
+<dt>※</dt>
+<dd>Ver.3.0 以降の秀丸エディタでは、"<code>\f</code>" が一般的な意味の「改ページ(\x0C)」ではなく、「<a href="4_tagreg.html">タグ付き正規表現</a>」における区切り子として解釈されるようになったので、意味が異なります。タグ付き正規表現のタグ指定は、グルーピンングで使用する括弧()での指定が可能なので、そちらを使ってください。 Ver.3.0 以降の秀丸エディタで改ページコードを指定したい場合は、\x0C と記述する必要があります。
 </dd>
 </dl>
-<p>�Ⴆ��<strong>�s�̐擪���^�u�����Ŏn�܂�s</strong>����������ɂ� "<strong><code>^\t</code></strong>"�Ƃ����p�^�[�����w�肵�܂��B�Ȃ��A"<code>\&lt;</code>" �� "<code>\&gt;</code>"�͂��̑��̕��Ƃ͈قȂ�A ���ꂼ��p�P��̐擪�A�����Ɉ�v���܂�(�s�ɂ����� "<code>^</code>"�A"<code>$</code>" �Ɠ����Ӗ�)�B�Ⴆ�� "<code>\&lt;a</code>" �� <strong>"a"�Ŏn�܂�p�P��</strong> ����������̂ŁA</p>
+<p>例えば<strong>行の先頭がタブ文字で始まる行</strong>を検索するには "<strong><code>^\t</code></strong>"というパターンを指定します。なお、"<code>\&lt;</code>" と "<code>\&gt;</code>"はその他の物とは異なり、 それぞれ英単語の先頭、末尾に一致します(行における "<code>^</code>"、"<code>$</code>" と同じ意味)。例えば "<code>\&lt;a</code>" は <strong>"a"で始まる英単語</strong> を検索するので、</p>
 <p><span class="box_line">This is a pen. That is the present of my father.</span></p>
-<p>�̂P���ڂ� "a" �ɂ̓}�b�`���܂����A �Q���ڂ� "That" �� "father" �̒���"a" �ɂ̓}�b�`���܂���B</p>
-<p>�Ō�� "\&lt;char&gt;"�́A�ŏ��������ȈӖ��������Ă��郁�^�L�����N�^�̓���ȈӖ����������߂Ɏg���܂��B�Ⴆ�� "<strong><code>*</code></strong>"(�A�X�^���X�N)���������������ɂ� "<strong><code>\*</code></strong>" �Ǝw�肵�܂��B���Ƃ悭�o�Ă���b�ł����A "<strong><code>\</code></strong>" ���g�����^�L�����N�^�Ȃ̂ŁA"<strong><code>\</code></strong>" ���̂��̂��������������� "<strong><code>\\</code></strong>" �Ǝw�肵�܂��B</p>
-<p>�܂��A<code>\Q</code>��<code>\E</code>���g�����@������܂��B<code>\Q</code>��<code>\E</code>�̊Ԃ̕����́A���^�L�����N�^�Ƃ��Ăł͂Ȃ��A�ʏ�̕����Ƃ��Ĉ����܂��B (���^�L�����N�^�̏ꍇ�A���̈Ӗ���ł�����)<br />
-"*"�Ƃ��������������������ꍇ�́A<code>\Q*\E</code>�ƋL�q���܂��B"*"�͌J��Ԃ��̃��^�L�����N�^�ł͂Ȃ��A"*"�Ƃ��������ɂȂ�܂��B<br />
-"\t\n"�Ƃ��������������������ꍇ�́A<code>\Q\t\n\E</code>�ƋL�q���܂��B"\t"�̓^�u�ł͂Ȃ��A"\t"�Ƃ��������A"\n"�͉��s�ł͂Ȃ��A"\n"�Ƃ��������ɂȂ�܂��B</p>
+<p>の１文目の "a" にはマッチしますが、 ２文目の "That" や "father" の中の"a" にはマッチしません。</p>
+<p>最後の "\&lt;char&gt;"は、最初から特殊な意味を持っているメタキャラクタの特殊な意味を消すために使います。例えば "<strong><code>*</code></strong>"(アスタリスク)を検索したい時には "<strong><code>\*</code></strong>" と指定します。あとよく出てくる話ですが、 "<strong><code>\</code></strong>" 自身もメタキャラクタなので、"<strong><code>\</code></strong>" そのものを検索したい時は "<strong><code>\\</code></strong>" と指定します。</p>
+<p>また、<code>\Q</code>と<code>\E</code>を使う方法もあります。<code>\Q</code>と<code>\E</code>の間の文字は、メタキャラクタとしてではなく、通常の文字として扱います。 (メタキャラクタの場合、その意味を打ち消す)<br />
+"*"という文字を検索したい場合は、<code>\Q*\E</code>と記述します。"*"は繰り返しのメタキャラクタではなく、"*"という文字になります。<br />
+"\t\n"という文字を検索したい場合は、<code>\Q\t\n\E</code>と記述します。"\t"はタブではなく、"\t"という文字、"\n"は改行ではなく、"\n"という文字になります。</p>
 </div>
-<h4 id="BASIC-2">[1-2] �L�����N�^�N���X�ƃO���[�s���O���̑�</h4>
+<h4 id="BASIC-2">[1-2] キャラクタクラスとグルーピングその他</h4>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="CHARACTERCLASS">�L�����N�^�N���X</h5>
-<p>�O�߂Ő����������^�L�����N�^�̂����A"<code>.</code>" (�C�ӂ̂P�����Ƀ}�b�`)�͔���<strong>�g����</strong>�\���ŁA ���ꂪ�Ȃ���ΐ��K�\����</p>
+<h5 id="CHARACTERCLASS">キャラクタクラス</h5>
+<p>前節で説明したメタキャラクタのうち、"<code>.</code>" (任意の１文字にマッチ)は非常に<strong>使える</strong>表現で、 これがなければ正規表現は</p>
 <div class="attention_p">
-<p>�S���g�����ɂȂ�Ȃ��ƌ����Ă��ߌ��ł͂Ȃ�</p>
+<p>全く使い物にならないと言っても過言ではない</p>
 </div>
-<p>�ł��傤�B �ł����A�t��</p>
+<p>でしょう。 ですが、逆に</p>
 <div class="attention_p">
-<p>���͂����Ďg���Ȃ�</p>
+<p>強力すぎて使えない</p>
 </div>
-<p>��ʂɂ����΂��Ώo��܂��B ��Ƃ��Ĉȉ��̃N�C�Y���l���Ă݂܂��傤�B</p>
+<p>場面にもしばしば出会います。 例として以下のクイズを考えてみましょう。</p>
 <div class="box_line">
 <ol start="17" type="A">
-<li>: ���{��̕����ɍ��������p�P��(���p�̃A���t�@�x�b�g�̂�)������ �T���ɂ́A�ǂ̂悤�Ȑ��K�\���������΂����ł��傤���H</li>
+<li>: 日本語の文書に混じった英単語(半角のアルファベットのみ)だけを 探すには、どのような正規表現をかけばいいでしょうか？</li>
 </ol>
 </div>
-<p>�����ŁA�u<strong>�p�P��</strong>�v�Ƃ� �u<strong>���p�� a �` z, A �` Z�݂̂���Ȃ镶���̕���</strong>�v�Ȃ킯�ł�����A�����u<strong>�C�ӂ̔��p�A���t�@�x�b�g�P�����Ƀ}�b�`���郁�^�L�����N�^</strong>�v������΁A �O�߂Ő����������^�L�����N�^ "<code>+</code>" ��</p>
+<p>ここで、「<strong>英単語</strong>」とは 「<strong>半角の a 〜 z, A 〜 Zのみからなる文字の並び</strong>」なわけですから、もし「<strong>任意の半角アルファベット１文字にマッチするメタキャラクタ</strong>」があれば、 前節で説明したメタキャラクタ "<code>+</code>" と</p>
 <div class="attention_p">
-<p>���킹�Ĉꔭ�I�I</p>
+<p>合わせて一発！！</p>
 </div>
-<p>�ł��B���A�K���s�K�����K�\���ɂ͂���ȃ��^�L�����N�^�͗p�ӂ���Ă��܂���B �� : "<code>\w</code>" �̓A���_�[�X�R�A "_" ���܂ނ��߁A���̖ړI�ɂ͎g���܂���B</p>
-<p>���A���_����̂͂܂������ł��B ���Ɛ��K�\���ɂ�<strong>�C�ӂ̃A���t�@�x�b�g</strong> �ǂ��납�A�u<span class="font_red">�����ŏ���ɒ�`�����C�ӂ̕����̏W�܂�Ƀ}�b�`���郁�^�L�����N�^</span>�v����郋�[�����p�ӂ���Ă���̂ł�(��[����[��)�I���ꂪ������<span class="font_red">�L�����N�^�N���X�w��</span> �ł��B</p>
-<p>�Ⴆ�� <strong>"a", "b", "c", "d", "�~" �̂T�����̂����̂ǂꂩ�P�����Ƀ}�b�`���郁�^�L�����N�^</strong>���~�������́A</p>
-<p><span class="box_line"><strong><code>[abcd�~]</code></strong></span></p>
-<p>�Ƃ������ɁA �܂߂��������� "<strong><code>[</code></strong>" �� "<strong><code>]</code></strong>" �ň͂ނ����ł悢�̂ł��B���^�L�����N�^ "<code>.</code>" ��(���s����������)<strong>�C�ӂ�</strong>�P�����Ƀ}�b�`����̂ɑ΂��A�L�����N�^�N���X�w��͂�����<strong>�����͈͂̕����̏W�܂�̒���</strong>�P�����Ƀ}�b�`����킯�ł��B</p>
-<p>�ł́A��̃N�C�Y�ɖ߂��āu�C�ӂ̔��p�A���t�@�x�b�g�v�Ƀ}�b�`����L�����N�^�N���X�����܂��傤�B�������</p>
+<p>です。が、幸か不幸か正規表現にはそんなメタキャラクタは用意されていません。 ※ : "<code>\w</code>" はアンダースコア "_" を含むため、今の目的には使えません。</p>
+<p>が、落胆するのはまだ早いです。 何と正規表現には<strong>任意のアルファベット</strong> どころか、「<span class="font_red">自分で勝手に定義した任意の文字の集まりにマッチするメタキャラクタ</span>」を作るルールが用意されているのです(わーいわーい)！それがいわゆる<span class="font_red">キャラクタクラス指定</span> です。</p>
+<p>例えば <strong>"a", "b", "c", "d", "×" の５文字のうちのどれか１文字にマッチするメタキャラクタ</strong>が欲しい時は、</p>
+<p><span class="box_line"><strong><code>[abcd×]</code></strong></span></p>
+<p>という風に、 含めたい文字を "<strong><code>[</code></strong>" と "<strong><code>]</code></strong>" で囲むだけでよいのです。メタキャラクタ "<code>.</code>" が(改行文字を除く)<strong>任意の</strong>１文字にマッチするのに対し、キャラクタクラス指定はそれより<strong>狭い範囲の文字の集まりの中の</strong>１文字にマッチするわけです。</p>
+<p>では、先のクイズに戻って「任意の半角アルファベット」にマッチするキャラクタクラスを作りましょう。もちろん</p>
 <p><span class="box_line"><strong><code>[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz]</code></strong></span></p>
-<p>�Ő����Ȃ̂ł����A����͈ȉ��̂悤�ɂ����ƒZ�k�����`�ŏ��������ł��܂��B</p>
+<p>で正解なのですが、これは以下のようにもっと短縮した形で書く事ができます。</p>
 <p><span class="box_line"><strong><code>[A-Za-z]</code></strong></span></p>
-<p>�����ŁA"<code>-</code>" �� (<strong>�����R�[�h�Ō���</strong>)���̑O��̊Ԃɂ��镶����S�Ċ܂߂�A�Ƃ����Ӗ��ɂȂ��Ă��܂� (�Ƃ����킯�� "<code>[Z-Az-a]</code>" �� <span class="font_blue">�ԈႢ</span>)�B</p>
+<p>ここで、"<code>-</code>" は (<strong>文字コードで見て</strong>)その前後の間にある文字を全て含める、という意味になっています (というわけで "<code>[Z-Az-a]</code>" は <span class="font_blue">間違い</span>)。</p>
 <dl>
-<dt>��</dt>
-<dd>���� "<code>-</code>" ���g�����\���͌����ɂ͋@��(�Ƃ������̗p���Ă��镶���R�[�h)�Ɉˑ����܂����A����͂���ȏ�[�������͊������܂�m(_ _)m�B
+<dt>※</dt>
+<dd>この "<code>-</code>" を使った表現は、厳密には機種(というか採用している文字コード)に依存しますが、今回はこれ以上深い説明は割愛しますm(_ _)m。
 </dd>
 </dl>
-<p>���āA�L�����N�^�N���X�w��ɂ���āu<strong>�C�ӂ̃A���t�@�x�b�g��\��</strong>�v�\�����o�����̂ŁA���Ƃ͂�����P�ȏ�J��Ԃ��A�Ƃ����w�������΂悢�킯�ł��B�Ƃ����킯�Ō��ǃN�C�Y�̓���</p>
+<p>さて、キャラクタクラス指定によって「<strong>任意のアルファベットを表す</strong>」表現が出来たので、あとはそれを１個以上繰り返す、という指定をすればよいわけです。というわけで結局クイズの答は</p>
 <p><span class="box_line"><strong><code>[A-Za-z]+</code></strong></span></p>
-<p>�Ƃ������ƂɂȂ�܂��B</p>
-<p>�����ŁA�������̓T�^�I�ȃL�����N�^�N���X�w����Љ�܂��B</p>
+<p>ということになります。</p>
+<p>ここで、いくつかの典型的なキャラクタクラス指定を紹介します。</p>
 <table>
-<caption>�L�����N�^�N���X</caption>
+<caption>キャラクタクラス</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�L�����N�^�N���X</th>
-<th style="text-align: left;">�Ӗ�</th>
+<th style="text-align: left;">キャラクタクラス</th>
+<th style="text-align: left;">意味</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong><code>[0-9]</code></strong></td>
-<td style="text-align: left;"><strong>���p�̐���</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>半角の数字</strong>にマッチ</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><strong><code>[��-��]</code></strong></td>
-<td style="text-align: left;"><strong>�S�p�Ђ炪��</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong><code>[ぁ-ん]</code></strong></td>
+<td style="text-align: left;"><strong>全角ひらがな</strong>にマッチ</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong><code>[�@-��]</code></strong></td>
-<td style="text-align: left;"><strong>�S�p�J�^�J�i</strong>�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong><code>[ァ-ヶ]</code></strong></td>
+<td style="text-align: left;"><strong>全角カタカナ</strong>にマッチ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong><code>[ -~]</code></strong></td>
-<td style="text-align: left;"><strong>�C�ӂ̂P�o�C�g����</strong>(���p��" "����"~"�܂�)�Ƀ}�b�`</td>
+<td style="text-align: left;"><strong>任意の１バイト文字</strong>(半角空白" "から"~"まで)にマッチ</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong><code>[��-&#40657;]</code></strong></td>
-<td style="text-align: left;"><strong>����</strong>�Ƀ}�b�` (�ڍׂ�<strong><a href="HME0066A.html">������������T������</a></strong>���Q��)</td>
+<td style="text-align: left;"><strong><code>[亜-&#40657;]</code></strong></td>
+<td style="text-align: left;"><strong>漢字</strong>にマッチ (詳細は<strong><a href="HME0066A.html">●漢字だけを探したい</a></strong>を参照)</td>
 </tr>
 </tbody>
 </table>
-<p>�L�����N�^�N���X�w��� �u�C�ӂ́v�Ƃ����͈͂��L������ "<code>.</code>" �ɔ�ׂāA��苷���͈͂̕����̏W�܂�Ɍ��肵�ă}�b�`��������̂ł������A���̋t�A�܂�u�w�肵���������̕���<strong>�ȊO��</strong>�P�����Ƀ}�b�`����v�悤�Ȏw��͂ł��Ȃ��̂ł��傤���H �c�Ɣ��X����(��)�l�^��U�邮�炢�Ȃ̂ł����Ƃ����������Ƃ��ł���悤�ɂȂ��Ă��āA "<code>[</code>" �� "<code>]</code>"�̑���� "<strong><code>[^</code></strong>" �� "<strong><code>]</code></strong>" �ň͂ނƁA�u<strong>���̊Ԃɂ��镶���ȊO�̂P����</strong>(���s�������܂�))�v�Ƃ����Ӗ��̎w��ɂȂ�܂� (�u<strong><code>[^0-9]</code></strong>(���p�����łȂ��P����)�vetc.)�B</p>
-<p>�����ł悭���Ⴂ�����̂Œ��ӂ��K�v�ł����A�Ⴆ�� "<strong><code>[^abc]</code></strong>"�Ƃ����w��� �u"abc" �łȂ�<strong>������</strong>�v�Ƃ����Ӗ� <span class="font_blue">�ł͂Ȃ�</span>�A�u"a"�ł� "b" �ł� "c" �ł��Ȃ�<strong>�P����</strong>�v�Ƃ����Ӗ��ɂȂ�܂��B</p>
+<p>キャラクタクラス指定は 「任意の」という範囲が広すぎる "<code>.</code>" に比べて、より狭い範囲の文字の集まりに限定してマッチさせるものでしたが、この逆、つまり「指定したいくつかの文字<strong>以外の</strong>１文字にマッチする」ような指定はできないのでしょうか？ …と白々しく(笑)ネタを振るぐらいなのでちゃんとそういうことができるようになっていて、 "<code>[</code>" と "<code>]</code>"の代わりに "<strong><code>[^</code></strong>" と "<strong><code>]</code></strong>" で囲むと、「<strong>その間にある文字以外の１文字</strong>(改行文字も含む))」という意味の指定になります (「<strong><code>[^0-9]</code></strong>(半角数字でない１文字)」etc.)。</p>
+<p>ここでよく勘違いされるので注意が必要ですが、例えば "<strong><code>[^abc]</code></strong>"という指定は 「"abc" でない<strong>文字列</strong>」という意味 <span class="font_blue">ではなく</span>、「"a"でも "b" でも "c" でもない<strong>１文字</strong>」という意味になります。</p>
 <dl>
-<dt>��</dt>
-<dd>�u"ABCDE" �łȂ��A"A" �Ŏn�܂��� "E" �ŏI���T�����̕�����v�� �w�肵������� "<code>A[^BCD]E</code>" �Ǝw�肷�� etc.
+<dt>※</dt>
+<dd>「"ABCDE" でない、"A" で始まって "E" で終わる５文字の文字列」を 指定したつもりで "<code>A[^BCD]E</code>" と指定する etc.
 </dd>
 </dl>
-<p>�c�����܂ł���ƁA �u���Ⴀ "^" �� "-"���L�����N�^�N���X�ɓ��ꂽ�����͂ǂ�����́H�v�Ƃ��������������Ă������ł����A�������������<span class="font_blue">������</span> �������āA"<strong><code>^</code></strong>" �� <strong>"<code>[</code>" �̒���ȊO</strong>�A "<strong><code>-</code></strong>" �� <strong>"<code>[</code>" (�܂���"<code>[^</code>") �̒��ォ "<code>]</code>" �̒��O</strong>�ɏ����΁A�L�����N�^�N���X�w��ɓ���邱�Ƃ��ł��܂��B</p>
-<p>���A���������B<span class="font_red">���^�L�����N�^</span>�� �L�����N�^�N���X�w��̒��ł�(�G�X�P�[�v�L�����N�^��O�ɒu���Ȃ��Ă������I��) ���̓���ȈӖ��������āA�P��<strong>���̕������g</strong>��\�킷�悤�ɂȂ�܂��B������ "<code>]</code>" �͗�O�ŁA������ "<code>\</code>" ��O�ɕt���Ȃ��Ƒʖڂł��c���ē�����O�ł���(^^;�B</p>
-<p>�܂��A�悭�g�p�����Ǝv����L�����N�^�N���X�̏ȗ��L�@������܂��B</p>
+<p>…ここまでくると、 「じゃあ "^" や "-"をキャラクタクラスに入れたい時はどうするの？」という声が聞こえてきそうですが、これもしっかり<span class="font_blue">逃げ道</span> があって、"<strong><code>^</code></strong>" は <strong>"<code>[</code>" の直後以外</strong>、 "<strong><code>-</code></strong>" は <strong>"<code>[</code>" (または"<code>[^</code>") の直後か "<code>]</code>" の直前</strong>に書けば、キャラクタクラス指定に入れることができます。</p>
+<p>あ、そうそう。<span class="font_red">メタキャラクタ</span>は キャラクタクラス指定の中では(エスケープキャラクタを前に置かなくても自動的に) その特殊な意味を失って、単に<strong>その文字自身</strong>を表わすようになります。ただし "<code>]</code>" は例外で、ちゃんと "<code>\</code>" を前に付けないと駄目です…って当たり前ですが(^^;。</p>
+<p>また、よく使用されると思われるキャラクタクラスの省略記法があります。</p>
 <table>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">\s</td>
-<td style="text-align: left;">�󔒁i[ \t\r\n]�Ɠ����j</td>
+<td style="text-align: left;">空白（[ \t\r\n]と同じ）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">\S</td>
-<td style="text-align: left;">\s�ȊO</td>
+<td style="text-align: left;">\s以外</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">\d</td>
-<td style="text-align: left;">�����i[0-9]�Ɠ����j</td>
+<td style="text-align: left;">数字（[0-9]と同じ）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">\D</td>
-<td style="text-align: left;">\d�ȊO�@�����̔ے�N���X[^0-9]</td>
+<td style="text-align: left;">\d以外　数字の否定クラス[^0-9]</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">\c</td>
-<td style="text-align: left;">�p�����Ɓu_�v�i[a-zA-Z0-9_]�Ɠ����j</td>
+<td style="text-align: left;">英数字と「_」（[a-zA-Z0-9_]と同じ）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">\C</td>
-<td style="text-align: left;">\c�ȊO</td>
+<td style="text-align: left;">\c以外</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">\i</td>
-<td style="text-align: left;">�p���Ɓu_�v�i[a-zA-Z_]�Ɠ����j</td>
+<td style="text-align: left;">英字と「_」（[a-zA-Z_]と同じ）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">\I</td>
-<td style="text-align: left;">\i�ȊO</td>
+<td style="text-align: left;">\i以外</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">\y</td>
-<td style="text-align: left;">�������܂ޒP��̋�؂�i\&lt;|\&gt;�Ǝ��Ă��邯�ǐ��������f�j</td>
+<td style="text-align: left;">数字を含む単語の区切り（\&lt;|\&gt;と似ているけど数字も判断）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">\Y</td>
-<td style="text-align: left;">\y�ȊO�̋�؂�</td>
+<td style="text-align: left;">\y以外の区切り</td>
 </tr>
 </tbody>
 </table>
-<h5 id="group">�O���[�s���O</h5>
-<p>����܂Ő����������[���ł��Ȃ�_��Ȍ����w�肪�ł���킯�ł����A�Ⴆ�΁u<strong>���Ђ��Ђ��Ђ��Ёc</strong>�v�Ƃ���</p>
+<h5 id="group">グルーピング</h5>
+<p>これまで説明したルールでかなり柔軟な検索指定ができるわけですが、例えば「<strong>うひうひうひうひ…</strong>」という</p>
 <div class="attention_p">
-<p>�I���W�̃C�����V�C�΂�</p>
+<p>オヤジのイヤラシイ笑い</p>
 </div>
-<p>�ɂ��ׂă}�b�`����悤�ȃp�^�[���͂܂������܂���B�Ⴆ��"<strong><code>����+</code></strong>" ���ƁA "<strong>����</strong>" �Ƀ}�b�`����̂͂܂������Ƃ��āA "<strong>���Ђ�</strong>" �Ƃ� "<strong>���ЂЂ�</strong>" �Ƀ}�b�`���Ă��܂��܂��c���Ă����</p>
+<p>にすべてマッチするようなパターンはまだ書けません。例えば"<strong><code>うひ+</code></strong>" だと、 "<strong>うひ</strong>" にマッチするのはまだいいとして、 "<strong>うひひ</strong>" とか "<strong>うひひひ</strong>" にマッチしてしまいます…ってこれも</p>
 <div class="attention_p">
-<p>�Ӗ��I�ɂ�OK</p>
+<p>意味的にはOK</p>
 </div>
-<p>�ł���(��)�B �c�܂���k�͂��Ēu���A���̏ꍇ �u<strong>"����"�����񂩌J��Ԃ����p�^�[��</strong>�v ���~�����킯�ł����A������������邽�߂� <strong>�O���[�s���O</strong>���g���܂��B�u�O���[�s���O�v�Ƃ����Ɖ�����������ł����A �P�� "<code>*</code>" �� "<code>+</code>"�̂悤�ȌJ��Ԃ��w��̑Ώۂ��u�P�����v����u�������̕����̕��сv�ɍL���邽�߁A�����̕������u�O���[�v�ɂ܂Ƃ߁v�Ă��������P�̕����ł��邩�̂悤�Ɉ����A���ꂾ���̂��Ƃł��B</p>
-<p>�O���[�s���O���g���ƁA���̗�͈ȉ��̂悤�ȃp�^�[�����w�肷��Ζ]�݂̌������ł��܂��B</p>
-<p><span class="box_line"><strong><code>(����)+</code></strong></span></p>
-<p>�܂�A"<strong><code>(</code></strong>" �� "<strong><code>)</code></strong>" �Ŋ���ꂽ�����ЂƂ܂Ƃ߂ɂ���(���O���[�v�ɂ܂Ƃ߂�)������J��Ԃ��A�Ƃ����w�������킯�ł��B</p>
-<p>��̐����ł́u�������̕����̕��сv�ƕ\�����܂������A��ʂɊ��ʂ̒��ɂ͕����̕��т����łȂ�<strong>�C�ӂ̃p�^�[��</strong>���������Ƃ��ł��܂��B�����āA���ʂŊ������p�^�[���ɑ΂��ČJ��Ԃ����w�肷��ƁA<strong>���̃p�^�[���̌J��Ԃ��Ƀ}�b�`����</strong>���ƂɂȂ�܂��B<br />
-�Ⴆ��</p>
-<p><span class="box_line"><strong><code>(����+)+</code></strong></span></p>
-<p>�Ƃ����p�^�[�����w�肷��ƁA</p>
+<p>ですが(笑)。 …まぁ冗談はさて置き、この場合 「<strong>"うひ"が何回か繰り返されるパターン</strong>」 が欲しいわけですが、これを実現するために <strong>グルーピング</strong>を使います。「グルーピング」というと何だか難しそうですが、 単に "<code>*</code>" や "<code>+</code>"のような繰り返し指定の対象を「１文字」から「いくつかの文字の並び」に広げるため、それらの文字を「グループにまとめ」てあたかも１つの文字であるかのように扱う、それだけのことです。</p>
+<p>グルーピングを使うと、今の例は以下のようなパターンを指定すれば望みの検索ができます。</p>
+<p><span class="box_line"><strong><code>(うひ)+</code></strong></span></p>
+<p>つまり、"<strong><code>(</code></strong>" と "<strong><code>)</code></strong>" で括られた物をひとまとめにして(＝グループにまとめて)それを繰り返す、という指定をするわけです。</p>
+<p>上の説明では「いくつかの文字の並び」と表現しましたが、一般に括弧の中には文字の並びだけでなく<strong>任意のパターン</strong>を書くことができます。そして、括弧で括ったパターンに対して繰り返しを指定すると、<strong>そのパターンの繰り返しにマッチする</strong>ことになります。<br />
+例えば</p>
+<p><span class="box_line"><strong><code>(うひ+)+</code></strong></span></p>
+<p>というパターンを指定すると、</p>
 <div class="attention_p">
-<p>���Ђ��ЂЂ��Ђ��ЂЂЂЂ�</p>
+<p>うひうひひうひうひひひひひ</p>
 </div>
-<p>�Ƃ���</p>
+<p>という</p>
 <div class="attention_p">
-<p>���͂␳�C�̍����ł͂Ȃ��΂�</p>
+<p>もはや正気の沙汰ではない笑い</p>
 </div>
-<p>�ɂ��}�b�`����悤�ɂȂ�܂�(��)�c���ď΂��Ă�ꍇ����Ȃ��ł��ˁB�����Ɛ�������ƁA"<code>����+</code>" �Ƃ����p�^�[���ɑ΂��āA�O���珇�Ɂu���Ёv�u���ЂЁv�u���Ёv�u���ЂЂЂЂЁv���}�b�`���Ă��܂��B�ŁA���ʂ̒��̃p�^�[���Ƀ}�b�`������̂�(�P�ȏ�)����ł���킯�ł�����A���̕��S�̂� "<code>(����+)+</code>" �Ƃ����p�^�[���Ƀ}�b�`����킯�ł��B</p>
-<h5 id="OR">�p�^�[���̘_���a</h5>
-<p>���āA���x�́u"<strong>����</strong>" �܂��� "<strong>����</strong>"�v�̂悤��</p>
+<p>にもマッチするようになります(笑)…って笑ってる場合じゃないですね。ちゃんと説明すると、"<code>うひ+</code>" というパターンに対して、前から順に「うひ」「うひひ」「うひ」「うひひひひひ」がマッチしています。で、括弧の中のパターンにマッチするものが(１個以上)並んでいるわけですから、この文全体が "<code>(うひ+)+</code>" というパターンにマッチするわけです。</p>
+<h5 id="OR">パターンの論理和</h5>
+<p>さて、今度は「"<strong>今日</strong>" または "<strong>明日</strong>"」のように</p>
 <div class="attention_p">
-<p>�p�^�[�����w�b�^�N�����Ȃ��A�P�Ȃ郏�K�}�}�̂悤�Ȍ�������</p>
+<p>パターンもヘッタクレもない、単なるワガママのような検索条件</p>
 </div>
-<p>�Ɏg���郋�[���ł����A ���̏ꍇ��</p>
-<p><span class="box_line2"><strong><code>����|����</code></strong></span></p>
-<p>�Ǝw�肷���OK�ł��B �����ŁA"<strong><code>|</code></strong>" (�c�_) �́u<span class="font_red">�`�܂��́`</span>�v�Ƃ����Ӗ��������A (�\�t�g�E�F�A�̐����̋�������)���ł��Ȃ��Ďw��ł��܂��B �܂�A</p>
-<p><span class="box_line"><strong><code>����|���|����|����|�����</code></strong></span></p>
-<p>�̂悤�Ȏw�肪�ł���킯�ł��B�Ȃ��A���̏ꍇ�͐�����������O���[�s���O��p���āA</p>
-<p><span class="box_line"><strong><code>(���|��|��|��)��</code></strong></span></p>
-<p>�Ƃ����w���A�����</p>
-<p><span class="box_line"><strong><code>(���|[������])��</code></strong></span></p>
-<p>�Ƃ����w����ł��܂��B</p>
-<h5 id="AND">�p�^�[���̘_����</h5>
-<p>���āA���x�͈ȉ��̂悤�ȓ��e����A�����̃L�[���[�h���܂܂��s�𒊏o���܂��B</p>
-<pre><code>�I�����W�A�A�b�v���A�p�C�i�b�v��
-�A�b�v���A�I�����W�A�p�C�i�b�v��
-�A�b�v���A�p�C�i�b�v���A�X�g���x���[
-�p�C�i�b�v���A�A�b�v���A�I�����W</code></pre>
-<p>��Ƃ��āA</p>
+<p>に使えるルールですが、 この場合は</p>
+<p><span class="box_line2"><strong><code>今日|明日</code></strong></span></p>
+<p>と指定すればOKです。 ここで、"<strong><code>|</code></strong>" (縦棒) は「<span class="font_red">〜または〜</span>」という意味を持ち、 (ソフトウェアの制限の許す限り)何個でもつなげて指定できます。 つまり、</p>
+<p><span class="box_line"><strong><code>一昨日|昨日|今日|明日|明後日</code></strong></span></p>
+<p>のような指定ができるわけです。なお、この場合は先程説明したグルーピングを用いて、</p>
+<p><span class="box_line"><strong><code>(一昨|昨|今|明)日</code></strong></span></p>
+<p>という指定や、さらに</p>
+<p><span class="box_line"><strong><code>(一昨|[昨今明])日</code></strong></span></p>
+<p>という指定もできます。</p>
+<h5 id="AND">パターンの論理積</h5>
+<p>さて、今度は以下のような内容から、複数のキーワードが含まれる行を抽出します。</p>
+<pre><code>オレンジ、アップル、パイナップル
+アップル、オレンジ、パイナップル
+アップル、パイナップル、ストロベリー
+パイナップル、アップル、オレンジ</code></pre>
+<p>例として、</p>
 <div class="attention_p">
-<p>�I�����W�A�A�b�v���A�p�C�i�b�v���̗v�f���܂܂��s�𒊏o���錟������</p>
+<p>オレンジ、アップル、パイナップルの要素が含まれる行を抽出する検索条件</p>
 </div>
-<p>���w�肵�܂��B</p>
-<p>���̏ꍇ��</p>
-<p><span class="box_line2"><strong><code>^(?=.*�p�C�i�b�v��)(?=.*�A�b�v��)(?=.*�I�����W)</code></strong></span></p>
-<p>�Ǝw�肷��΁A�����Ɉ�v����s���Ƀ}�b�`���܂��B�s���}�b�`�͈͂ɂ���ꍇ�́A�Ō�� ".*$" ��ǉ����܂��B</p>
-<p><span class="box_line2"><strong><code>^(?=.*�p�C�i�b�v��)(?=.*�A�b�v��)(?=.*�I�����W).*$</code></strong></span></p>
-<p>�����ŁA"<strong><code>(?=.*�p�C�i�b�v��)</code></strong>" �͌����v�w��(�m���ǂ�)�ŁA (�\�t�g�E�F�A�̐����̋�������)���ł��Ȃ��Ďw��ł��܂��B�܂�AAND�����𑝂₵�����ꍇ�́A"<strong>�p�C�i�b�v��</strong>"������ύX���āA�Ȃ��Ă��������ł��B (�����v�w��(�m���ǂ�) ���g�p���Ă��邽�߁AJRE32.DLL�͖��Ή��ł�)</p>
+<p>を指定します。</p>
+<p>この場合は</p>
+<p><span class="box_line2"><strong><code>^(?=.*パイナップル)(?=.*アップル)(?=.*オレンジ)</code></strong></span></p>
+<p>と指定すれば、条件に一致する行頭にマッチします。行をマッチ範囲にする場合は、最後に ".*$" を追加します。</p>
+<p><span class="box_line2"><strong><code>^(?=.*パイナップル)(?=.*アップル)(?=.*オレンジ).*$</code></strong></span></p>
+<p>ここで、"<strong><code>(?=.*パイナップル)</code></strong>" は後方一致指定(肯定先読み)で、 (ソフトウェアの制限の許す限り)何個でもつなげて指定できます。つまり、AND条件を増やしたい場合は、"<strong>パイナップル</strong>"部分を変更して、つなげていくだけです。 (後方一致指定(肯定先読み) を使用しているため、JRE32.DLLは未対応です)</p>
 <ol type="1">
-<li><p>"<code>^</code>" �͏�ɐ擪�Ƀ}�b�`���܂��B</p></li>
-<li><p>���ɁA�����v�w��(�m���ǂ�)�̏����ł��� ".*�p�C�i�b�v��" �Ƀ}�b�`���邩�`�F�b�N���܂��B</p>
+<li><p>"<code>^</code>" は常に先頭にマッチします。</p></li>
+<li><p>次に、後方一致指定(肯定先読み)の条件である ".*パイナップル" にマッチするかチェックします。</p>
 <ul>
-<li><p>�}�b�`���Ȃ��ꍇ�́A"NG����"�ƂȂ�A�����͏I�����܂��B</p></li>
-<li><p>�}�b�`�����ꍇ�́A�ȍ~�̏���������Ƀ}�b�`���邩�`�F�b�N���s���܂��B�����v�w��(�m���ǂ�)�́A�}�b�`�ӏ��𓮂����Ȃ��̂ŁA���"<code>^</code>" ���}�b�`���Ă���ӏ�����̌����ɂȂ�܂��B���ׁ̈A�w�肷�鏇�Ԃ͊֌W�Ȃ��}�b�`�����鎖���\�ł��B</p></li>
+<li><p>マッチしない場合は、"NG判定"となり、検索は終了します。</p></li>
+<li><p>マッチした場合は、以降の条件がさらにマッチするかチェックが行われます。後方一致指定(肯定先読み)は、マッチ箇所を動かさないので、常に"<code>^</code>" がマッチしている箇所からの検索になります。その為、指定する順番は関係なくマッチさせる事が可能です。</p></li>
 </ul></li>
 </ol>
 </div>
 </div>
-<h3 id="HAIZIN">�y�Q�z ���H�ҁ@�`���K�\���ɂ��u���̎��ہ`</h3>
-<p>�O�͂ł́u�����v�̂��߂̐��K�\���̏��������Љ�܂������A���̏͂ł́u�u���v�̏ꍇ�̐��K�\���̏������ƁA���̎��Ɋׂ�₷���u<strong>���Ƃ���</strong>�v�ɂ��ďЉ�܂��B</p>
+<h3 id="HAIZIN">【２】 実践編　〜正規表現による置換の実際〜</h3>
+<p>前章では「検索」のための正規表現の書き方を紹介しましたが、この章では「置換」の場合の正規表現の書き方と、その時に陥りやすい「<strong>落とし穴</strong>」について紹介します。</p>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="RULE1">[2-1] �u�u���E�폜�v�Ɓu�Œ���v�̃��[���v�c���킟�I�݂�ȏ������܂����I�I</h4>
-<p>�����ł͎��p���̍������ȗ�Ƃ���</p>
+<h4 id="RULE1">[2-1] 「置換・削除」と「最長一致のルール」…うわぁ！みんな消えちまった！！</h4>
+<p>ここでは実用性の高そうな例として</p>
 <div class="attention_p">
-<p>���񂽁[�˂��Ƃ̂ف[�ނ؂���</p>
+<p>いんたーねっとのほーむぺえじ</p>
 </div>
-<p>�� HTML �t�@�C���́A�u<strong>�^�O</strong>�v�ƌĂ΂��"&lt;"��"&gt;"�ň͂܂ꂽ�L�����폜���邱�Ƃ��l���Ă݂܂��傤�B�ȉ��́AHTML �t�@�C���̒��g���ꕔ���������o�������ł��B</p>
+<p>の HTML ファイルの、「<strong>タグ</strong>」と呼ばれる"&lt;"と"&gt;"で囲まれた記号を削除することを考えてみましょう。以下は、HTML ファイルの中身を一部だけ抜き出した物です。</p>
 <div class="box_line">
-<pre><code>&lt;PRE&gt;����Ȍ�͌����ڒʂ�̉��s�ʒu�ŉ��s����܂��B��
-&lt;FONT SIZE=5&gt;�t�H���g�T�C�Y�w��q&lt;/FONT&gt;�̗�ł��B��
-&lt;HR&gt;&lt;!-- �����������܂�(����͒��߂ł�) --&gt;��
-&lt;CENTER&gt;���������w��q&lt;/CENTER&gt;��
-&lt;/PRE&gt;����Ȍ�͉��s����������܂��B��</code></pre>
+<pre><code>&lt;PRE&gt;これ以後は見た目通りの改行位置で改行されます。↓
+&lt;FONT SIZE=5&gt;フォントサイズ指定子&lt;/FONT&gt;の例です。↓
+&lt;HR&gt;&lt;!-- 横線を引きます(これは注釈です) --&gt;↓
+&lt;CENTER&gt;中央揃え指定子&lt;/CENTER&gt;↓
+&lt;/PRE&gt;これ以後は改行が無視されます。↓</code></pre>
 </div>
-<p>�����ŁA"<strong>&lt;PRE&gt;</strong>" �� "<strong>&lt;/FONT&gt;</strong>" �� �u�^�O�v�̗�ł��B�ʏ�̒u���ł́A����ނ����邱���̃^�O�����������w�肵�ĉ�����u�����J��Ԃ����ƂɂȂ�܂����A���K�\�����g���΂����̃^�O���u�P��̒u���v�ō폜�ł��܂��B</p>
+<p>ここで、"<strong>&lt;PRE&gt;</strong>" や "<strong>&lt;/FONT&gt;</strong>" が 「タグ」の例です。通常の置換では、何種類もあるこれらのタグをいちいち指定して何回も置換を繰り返すことになりますが、正規表現を使えばこれらのタグを「１回の置換」で削除できます。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="RULE1-1">���s��</h5>
-<p>�v����Ɂu�^�O�v�Ƃ� "<strong>&lt;</strong>" �� "<strong>&gt;</strong>"�ň͂܂ꂽ���̂Ȃ킯�ŁA ���K�\���ŕ\����</p>
+<h5 id="RULE1-1">失敗例</h5>
+<p>要するに「タグ」とは "<strong>&lt;</strong>" と "<strong>&gt;</strong>"で囲まれたものなわけで、 正規表現で表すと</p>
 <p><span class="box_line"><strong><code>&lt;.*&gt;</code></strong></span></p>
-<p>�ł悳�����ł��B �Ƃ����킯�ŁA<span class="font_blue">��肠����</span></p>
+<p>でよさそうです。 というわけで、<span class="font_blue">取りあえず</span></p>
 <div class="box_line">
-<p><strong>����������F</strong> <strong><code>&lt;.*&gt;</code></strong><br />
-<strong>�u��������F</strong> <strong>(���������Ȃ�)</strong></p>
+<p><strong>検索文字列：</strong> <strong><code>&lt;.*&gt;</code></strong><br />
+<strong>置換文字列：</strong> <strong>(何も書かない)</strong></p>
 </div>
-<p>�Łu<strong>�S�u��</strong>�v�����s���Ă݂܂��傤�B �ȉ������̌��ʂł��B</p>
+<p>で「<strong>全置換</strong>」を実行してみましょう。 以下がその結果です。</p>
 <div class="box_line">
-<pre><code>����Ȍ�͌����ڒʂ�̉��s�ʒu�ŉ��s����܂��B��
-�̗�ł��B��
-��
-��
-����Ȍ�͉��s����������܂��B��</code></pre>
+<pre><code>これ以後は見た目通りの改行位置で改行されます。↓
+の例です。↓
+↓
+↓
+これ以後は改行が無視されます。↓</code></pre>
 </div>
-<p><span class="font_blue">�������(��)�B</span> �P�A�R�A�T�s�ڂ̌��ʂ͖��Ȃ��ł����A<strong>�Q�s��</strong>��<strong>�S�s��</strong>�̌��ʂ́H�H�H�ł��B</p>
-<h5 id="RULE1-2">�l�@</h5>
-<p>�����ŉ����N�������̂��𗝉����邽�߂ɁA���K�\���́u<span class="font_red">�Œ���v�̃��[��</span>�v�� �v���o���܂��傤�B����́u<strong>���K�\���ɂ�錟���ł�<span class="font_red">�^����ꂽ�p�^�[���Ɉ�v����Œ��̕�����</span>���}�b�`����</strong>�v�Ƃ������[���ł����B<br />
-��̗�ł́A �Q�s�ڂ� "<strong>&lt;FONT SIZE=5&gt;</strong>" �̎n�߂� "<strong>&lt;</strong>"����A "<strong>&lt;/FONT&gt;</strong>" �̏I���� "<strong>&gt;</strong>"�܂ł��}�b�`���Ă��邱�Ƃ� �C�����܂�(�S�s�ڂɂ��Ă����l)�B�O�͂Ő��������悤�� "<strong><code>.</code></strong>" �� �u<strong>(���s������)<span class="font_red">�C�ӂ̕���</span></strong>�v�Ƀ}�b�`���܂�����A�m���ɏ����Ƃ��Ă͐��������Ƃ����Ă��܂�(�ԈႤ�̂͂����l�� :-P)�B</p>
-<p>�ł́A�������u�^�O�v�������w�肷��ɂ͂ǂ�������悢�̂ł��傤���H���̏ꍇ�́u�^�O�v�̐������悭�l����Δ�r�I�ȒP�ɓ����킩��܂��B�u�^�O�v�Ƃ͗v����� �u"<strong>&lt;</strong>" �Ŏn�܂�A<span class="font_red">�ŏ��Ɍ��ꂽ</span>"<strong>&gt;</strong>" �ŏI���v���̂Ȃ̂ŁA�u<span class="font_red">�C��</span>�v�Ƃ����������u"<strong>&gt;</strong>" ��<span class="font_red">������</span>�C�ӂ́v�Ƃ����\���ɒu�������Ă��΂悢�킯�ł��B����𐳋K�\���ŕ\���������̂��ȉ��ł��B</p>
+<p><span class="font_blue">ありゃりゃ(笑)。</span> １、３、５行目の結果は問題ないですが、<strong>２行目</strong>と<strong>４行目</strong>の結果は？？？です。</p>
+<h5 id="RULE1-2">考察</h5>
+<p>ここで何が起こったのかを理解するために、正規表現の「<span class="font_red">最長一致のルール</span>」を 思い出しましょう。これは「<strong>正規表現による検索では<span class="font_red">与えられたパターンに一致する最長の文字列</span>がマッチする</strong>」というルールでした。<br />
+上の例では、 ２行目は "<strong>&lt;FONT SIZE=5&gt;</strong>" の始めの "<strong>&lt;</strong>"から、 "<strong>&lt;/FONT&gt;</strong>" の終わりの "<strong>&gt;</strong>"までがマッチしていることに 気がつきます(４行目についても同様)。前章で説明したように "<strong><code>.</code></strong>" は 「<strong>(改行を除く)<span class="font_red">任意の文字</span></strong>」にマッチしますから、確かに処理としては正しいことをしています(間違うのはいつも人間 :-P)。</p>
+<p>では、正しく「タグ」だけを指定するにはどうしたらよいのでしょうか？この場合は「タグ」の性質をよく考えれば比較的簡単に答がわかります。「タグ」とは要するに 「"<strong>&lt;</strong>" で始まり、<span class="font_red">最初に現れた</span>"<strong>&gt;</strong>" で終わる」ものなので、「<span class="font_red">任意</span>」という部分を「"<strong>&gt;</strong>" を<span class="font_red">除いた</span>任意の」という表現に置き換えてやればよいわけです。これを正規表現で表現したものが以下です。</p>
 <div class="box_line">
-<p><strong>����������(���ǔ�)�F</strong> <strong>&lt;[^&gt;]*&gt;</strong></p>
+<p><strong>検索文字列(改良版)：</strong> <strong>&lt;[^&gt;]*&gt;</strong></p>
 </div>
-<p>�ł͂���Œu�����Ă݂܂��傤�B�ȉ������̌��ʂł��B</p>
+<p>ではこれで置換してみましょう。以下がその結果です。</p>
 <div class="box_line">
-<pre><code>����Ȍ�͌����ڒʂ�̉��s�ʒu�ŉ��s����܂��B��
-�t�H���g�T�C�Y�w��q�̗�ł��B��
-��
-���������w��q��
-����Ȍ�͉��s����������܂��B��</code></pre>
+<pre><code>これ以後は見た目通りの改行位置で改行されます。↓
+フォントサイズ指定子の例です。↓
+↓
+中央揃え指定子↓
+これ以後は改行が無視されます。↓</code></pre>
 </div>
-<p>�c�ǂ���炤�܂��������悤�ł��B</p>
-<p>��̗�Ō����悤�ɁA"<code>.</code>" �Ƃ����\���͕֗��Ő��K�\���ɂ͖����Ă͂Ȃ�Ȃ����̂Ȃ�ł����A �u�u���v�̏ꍇ��<br />
+<p>…どうやらうまくいったようです。</p>
+<p>上の例で見たように、"<code>.</code>" という表現は便利で正規表現には無くてはならないものなんですが、 「置換」の場合は<br />
 </p>
 <div class="attention_p">
-<p>�g�������悭�l���Ȃ��Ǝv��ʌ��ʂ������N����</p>
+<p>使い方をよく考えないと思わぬ結果を引き起こす</p>
 </div>
-<p>�Ƃ����킯�ł��B</p>
-<p>�ʂ̉񓚂Ƃ��ẮA�ŒZ��v���g�����@������܂��B</p>
+<p>というわけです。</p>
+<p>別の回答としては、最短一致を使う方法もあります。</p>
 <div class="box_line">
-<p><strong>����������(���ǔ�)�F</strong> <strong><code>&lt;.*�H&gt;</code></strong></p>
+<p><strong>検索文字列(改良版)：</strong> <strong><code>&lt;.*？&gt;</code></strong></p>
 </div>
-<p>�ŒZ��v���g���Ă��������ʂɂȂ�܂��B</p>
+<p>最短一致を使っても同じ結果になります。</p>
 <div class="box_line">
-<pre><code>����Ȍ�͌����ڒʂ�̉��s�ʒu�ŉ��s����܂��B��
-�t�H���g�T�C�Y�w��q�̗�ł��B��
-��
-���������w��q��
-����Ȍ�͉��s����������܂��B��</code></pre>
+<pre><code>これ以後は見た目通りの改行位置で改行されます。↓
+フォントサイズ指定子の例です。↓
+↓
+中央揃え指定子↓
+これ以後は改行が無視されます。↓</code></pre>
 </div>
-<h5 id="RULE1-3">�⑫(�^�O�̏����̕��@�c���H��)</h5>
-<p>��̗�ł�<strong>�����s�ɂ܂�����^�O��A�R�����g�^�O�̒��ɏ����ꂽ�^�O</strong>�̂��Ƃ��l�����Ă��܂���ł����B�������l�������A�^�O���قڊ��S�ɏ�������p�^�[�����ȉ��Ɏ����Ă����܂��B</p>
+<h5 id="RULE1-3">補足(タグの消去の方法…実践編)</h5>
+<p>上の例では<strong>複数行にまたがるタグや、コメントタグの中に書かれたタグ</strong>のことを考慮していませんでした。それらも考慮した、タグをほぼ完全に消去するパターンを以下に示しておきます。</p>
 <p><span class="box_line"><strong><code>&lt;!--(.|\n)*--&gt;|&lt;[^&gt;]*&gt;</code></strong></span></p>
 <dl>
-<dt>��</dt>
-<dd>�������A���̐��K�\���ł� <span class="font_red">��R�s�ȏ�ɓn��^�O�𐳂����u���ł��܂���</span> (��q��<a href="#RETURNS">�y�T�z�G�ۃG�f�B�^��ł̕����s�ɂ܂����錟���ɂ���</a> ���Q�Ƃ��ĉ�����)�B
+<dt>※</dt>
+<dd>ただし、この正規表現では <span class="font_red">約３行以上に渡るタグを正しく置換できません</span> (後述の<a href="#RETURNS">【５】秀丸エディタ上での複数行にまたがる検索について</a> を参照して下さい)。
 </dd>
 </dl>
 </div>
-<h4 id="RULE2">[2-2] �u������̔ے�v�ɂ��āc������߂��Ɋ撣�낤�I�I</h4>
-<p>���x�͂b����̃R�����g���폜�������l���Ă݂܂��傤�B</p>
-<p>�b����̃R�����g�� "<code>/*</code>" �� "<code>*/</code>" �ň͂܂ꂽ�����ł��B���̏ꍇ���O�߂� HTML �^�O�̍폜�ł�����悤�� "<code>/*</code>" �� "<code>*/</code>" �̊Ԃ�"<code>*/</code>" ��<strong>�u�ے�v����</strong> �\�������Ă��΂悢����</p>
+<h4 id="RULE2">[2-2] 「文字列の否定」について…あきらめずに頑張ろう！！</h4>
+<p>今度はＣ言語のコメントを削除する例を考えてみましょう。</p>
+<p>Ｃ言語のコメントは "<code>/*</code>" と "<code>*/</code>" で囲まれた部分です。この場合も前節の HTML タグの削除でやったように "<code>/*</code>" と "<code>*/</code>" の間に"<code>*/</code>" を<strong>「否定」する</strong> 表現を入れてやればよい事は</p>
 <div class="attention_p">
-<p>�����ł�</p>
+<p>明白です</p>
 </div>
-<p>�c�ƌ����������ł����A ���K�\���ɂ͔ے�̃L�����N�^�N���X�w��Ƃ����u�����v�̔ے������\���͂���܂����A<strong>���ځu������v��ے肷��\���͂���܂���B</strong><br />
-�c�������킩��ł��傤���A "<strong><code>[^*/]</code></strong>" �� �u"<code>*</code>" �ł� "<code>/</code>"�ł��Ȃ� <span class="font_red">�P����</span>�v�Ƃ����Ӗ��ł���A�u"<code>*/</code>" �łȂ�<span class="font_red">������</span>�v�Ƃ����Ӗ��ɂ͂Ȃ�܂���B</p>
-<p>�ƂȂ�ƁA</p>
+<p>…と言いたい所ですが、 正規表現には否定のキャラクタクラス指定という「文字」の否定をする表現はありますが、<strong>直接「文字列」を否定する表現はありません。</strong><br />
+…もうおわかりでしょうが、 "<strong><code>[^*/]</code></strong>" は 「"<code>*</code>" でも "<code>/</code>"でもない <span class="font_red">１文字</span>」という意味であり、「"<code>*/</code>" でない<span class="font_red">文字列</span>」という意味にはなりません。</p>
+<p>となると、</p>
 <div class="attention_p">
-<p>���Ⴀ���K�\���ł͂b����̃R�����g�������Ə����Ȃ��̂��[�B <span class="font_large"><span class="font_blue">�������[+�I</span></span></p>
+<p>じゃあ正規表現ではＣ言語のコメントもちゃんと消せないのぉー。 <span class="font_large"><span class="font_blue">だっせー+！</span></span></p>
 </div>
-<p>�Ƃ��������������Ă������ł����A �ǂ��������S��(��)�B</p>
+<p>という声が聞こえてきそうですが、 どうぞご安心を(笑)。</p>
 <div class="attention_p">
-<p>�m�b�������ڂ��</p>
+<p>知恵さえしぼれば</p>
 </div>
-<p>�����Ə������Ƃ��ł��܂��B�ł́A�ȉ��̂Q�̗��<strong>�u�m�b�̂��ڂ���v</strong>���������������B</p>
+<p>ちゃんと消すことができます。では、以下の２つの例で<strong>「知恵のしぼり方」</strong>をご覧ください。</p>
 <!-- h5 -->
 <div class="marginleft">
-<h5 id="RULE2-1">�b����̃R�����g������</h5>
-<p>"<code>/*</code>" �� "<code>*/</code>" �̊Ԃɂ��镶����̃p�^�[���́A�ȉ��̂悤�ɕ\�킷���Ƃ��ł������ł��B</p>
-<div class="line-block"><span class="box_line"><strong>�u"/" �ȊO�̕����v�Ɓu���O�� "*" �ȊO�� "/"�v��g�ݍ��킹��������</strong></span></div>
-<p>�����ŁA"<code>/</code>" �̒��O�� "<code>*</code>" ���Ȃ����Ƃ��w�肵�Ď����I�Ɂu������̔ے�v�����Ă��邱�Ƃɒ��ӂ��ĉ������B</p>
-<p><span class="font_blue">���Ȃ݂ɁA</span>�����悤�ȕ\���Ǝv����</p>
-<div class="line-block"><span class="box_line"><strong>�u"*" �ȊO�̕����v�Ɓu���オ "/" �ȊO�� "*"�v��g�ݍ��킹��������</strong></span></div>
-<p>�ł͂��܂��s���܂���B���R�́A"<code>**/</code>" �̏ꍇ�� "<code>**</code>" (���オ "<code>/</code>"�ȊO�� "<code>*</code>") �� "<code>/</code>" ("<code>*</code>" �ȊO�̕���)�Ƃ������Ƀ}�b�`���Ă��܂����߁A�Ⴆ��</p>
+<h5 id="RULE2-1">Ｃ言語のコメントを消す</h5>
+<p>"<code>/*</code>" と "<code>*/</code>" の間にある文字列のパターンは、以下のように表わすことができそうです。</p>
+<div class="line-block"><span class="box_line"><strong>「"/" 以外の文字」と「直前が "*" 以外の "/"」を組み合わせた文字列</strong></span></div>
+<p>ここで、"<code>/</code>" の直前に "<code>*</code>" がないことを指定して実質的に「文字列の否定」をしていることに注意して下さい。</p>
+<p><span class="font_blue">ちなみに、</span>同じような表現と思われる</p>
+<div class="line-block"><span class="box_line"><strong>「"*" 以外の文字」と「直後が "/" 以外の "*"」を組み合わせた文字列</strong></span></div>
+<p>ではうまく行きません。理由は、"<code>**/</code>" の場合に "<code>**</code>" (直後が "<code>/</code>"以外の "<code>*</code>") と "<code>/</code>" ("<code>*</code>" 以外の文字)という風にマッチしてしまうため、例えば</p>
 <div class="line-block"><span class="box_line"><strong>/***/ /***/</strong></span></div>
-<p>�� "/***/ /***/" �S�ĂɃ}�b�`���Ă��܂�����ł��B</p>
-<p>�ȏ�̂��Ƃ��l�����āA�����ƃR�����g�Ƀ}�b�`����(�Ǝv����)�p�^�[�������������̂��ȉ��ł��B</p>
-<div class="line-block"><span class="box_line"><strong>����������F</strong> <code>/\*([^/]|[^*]/)*\*/</code></span></div>
-<p>("<code>*</code>" �� <span class="font_red">���^�L�����N�^</span>�Ȃ̂ŁA �L�����N�^�N���X�w��̒��ɂ���"<code>*</code>" �ȊO�� "<code>\</code>" �ŃG�X�P�[�v���Ă���܂�)</p>
-<p>�����<span class="font_blue">�ꌩ</span>���܂������悤�Ɏv���܂��B���A���͂��̃p�^�[���͈ȉ��̂悤�ȃR�����g(�H)�Ƀ}�b�`���܂���B</p>
+<p>の "/***/ /***/" 全てにマッチしてしまうからです。</p>
+<p>以上のことを考慮して、ちゃんとコメントにマッチする(と思われる)パターンを書いたものが以下です。</p>
+<div class="line-block"><span class="box_line"><strong>検索文字列：</strong> <code>/\*([^/]|[^*]/)*\*/</code></span></div>
+<p>("<code>*</code>" は <span class="font_red">メタキャラクタ</span>なので、 キャラクタクラス指定の中にある"<code>*</code>" 以外は "<code>\</code>" でエスケープしてあります)</p>
+<p>これで<span class="font_blue">一見</span>うまくいくように思えます。が、実はこのパターンは以下のようなコメント(？)にマッチしません。</p>
 <div class="line-block"><span class="box_line"><strong><code>/*/ */</code></strong></span></div>
-<p>��ʂɁA"<code>/*</code>" �̒���� "<code>/</code>" ������ꍇ�̓A�E�g�ł��B�Ȃ����Ƃ����ƁA ��̃p�^�[��(�� "<code>[^*]/</code>" �Ƃ�������)�ł� "<code>/</code>"��<strong>���O�ɕK���P�������݂��邱�Ƃ�v��</strong>���Ă��邩��ł��B ("<code>/*</code>"�͊��� "<code>/\*</code>" ���}�b�`���Ă���̂őΏۊO)</p>
-<p>�Ƃ����킯�ŁA���̓���ȏꍇ���l�������p�^�[�������K�v������܂��B�ŁA����͈ȉ��̂悤�ɂȂ�܂��B</p>
-<div class="line-block"><span class="box_line"><strong>����������(���ǔ�)�F</strong> <strong><code>/\*/?([^/]|[^*]/)*\*/</code></strong></span></div>
-<p>("<code>/?</code>" �Ƃ����w��ŁA(���������) "<code>/*</code>" �̒���� "<code>/</code>"�Ƀ}�b�`�����Ă��܂�)</p>
+<p>一般に、"<code>/*</code>" の直後に "<code>/</code>" がある場合はアウトです。なぜかというと、 上のパターン(の "<code>[^*]/</code>" という部分)では "<code>/</code>"の<strong>直前に必ず１文字存在することを要求</strong>しているからです。 ("<code>/*</code>"は既に "<code>/\*</code>" がマッチしているので対象外)</p>
+<p>というわけで、この特殊な場合も考慮したパターンを作る必要があります。で、それは以下のようになります。</p>
+<div class="line-block"><span class="box_line"><strong>検索文字列(改良版)：</strong> <strong><code>/\*/?([^/]|[^*]/)*\*/</code></strong></span></div>
+<p>("<code>/?</code>" という指定で、(もしあれば) "<code>/*</code>" の直後の "<code>/</code>"にマッチさせています)</p>
 <dl>
-<dt>��</dt>
-<dd><p>�������A���̕\���̂܂܂ł�<span class="font_red">�����s�ɓn��R�����g�͐������u���ł��܂���</span>�B����͂��̃p�^�[�����s���S�Ȃ̂ł͂Ȃ��A�G�ۃG�f�B�^�̐��K�\�������̎d�l�ɂ����̂ł� (��q��<a href="#RETURNS">�y�T�z�G�ۃG�f�B�^��ł̕����s�ɂ܂����錟���ɂ���</a>���Q�Ƃ��ĉ�����)�B�C�ӂ̍s���ɂ܂�����R�����g���폜���邱�Ƃ͂��̎d�l�̂��߂ɂł��Ȃ��̂ł����A�Ⴆ�΂Q�s�ȉ��̂��̂ł���Έȉ��̃p�^�[�����g���Ή\�ł��B</p>
-<div class="line-block"><span class="box_line"><strong>����������(�Q�s�܂ł̃R�����g�Ƀ}�b�`)�F</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></div>
-<p>"<code>[^/]</code>" �́u"<code>/</code>"�ȊO�̂P�����v��\���Ă���̂ŁA���̒��ɂ� "<code>\n</code>" ���܂܂�Ă��܂��B���������āA�^�񒆂̊��ʂ̒��ɓ��ꂽ"<code>\n</code>"�͐��K�\���Ƃ��Ă͕s�K�v�Ȃ��̂ł��B�������A���� "<code>\n</code>"�������邱�ƂŏG�ۃG�f�B�^�̓��삪�ς��A�����s�ɂ܂�����R�����g�������ł���悤�ɂȂ�܂��B</p>
+<dt>※</dt>
+<dd><p>ただし、この表現のままでは<span class="font_red">複数行に渡るコメントは正しく置換できません</span>。これはこのパターンが不完全なのではなく、秀丸エディタの正規表現検索の仕様によるものです (後述の<a href="#RETURNS">【５】秀丸エディタ上での複数行にまたがる検索について</a>を参照して下さい)。任意の行数にまたがるコメントを削除することはその仕様のためにできないのですが、例えば２行以下のものであれば以下のパターンを使えば可能です。</p>
+<div class="line-block"><span class="box_line"><strong>検索文字列(２行までのコメントにマッチ)：</strong> <strong><code>/\*/?(\n|[^/]|[^*]/)*\*/</code></strong></span></div>
+<p>"<code>[^/]</code>" は「"<code>/</code>"以外の１文字」を表しているので、その中には "<code>\n</code>" も含まれています。したがって、真ん中の括弧の中に入れた"<code>\n</code>"は正規表現としては不必要なものです。しかし、この "<code>\n</code>"を加えることで秀丸エディタの動作が変わり、複数行にまたがるコメントも検索できるようになります。</p>
 </dd>
 </dl>
-<h5 id="RULE2-2">�Ԉ�����w�b�_�����s��T��</h5>
-<p>�s�̐擪���� "<strong>P:XXXX</strong>"("<strong>XXXX</strong>" �ɂ͔��p�̐���������)�ƂȂ��Ă���͂����A "<strong>P</strong>" �� "<strong>p</strong>"�ɂȂ��Ă�����Y��Ă���悤�ȏꍇ��A "<strong>:</strong>" �� "<strong>;</strong>"�ɂȂ��Ă�����Y��Ă���悤�ȍs��T�����Ƃ��l���܂��B<br />
-���̏ꍇ�A�u�s�̐擪�� "<strong>P:</strong>" �ł͂Ȃ��v�Ƃ����u<strong>������̔ے�</strong>�v���ł���Θb�͊ȒP�Ȃ̂ł����A</p>
+<h5 id="RULE2-2">間違ったヘッダを持つ行を探す</h5>
+<p>行の先頭から "<strong>P:XXXX</strong>"("<strong>XXXX</strong>" には半角の数字が入る)となっているはずが、 "<strong>P</strong>" が "<strong>p</strong>"になっていたり忘れているような場合や、 "<strong>:</strong>" が "<strong>;</strong>"になっていたり忘れているような行を探すことを考えます。<br />
+この場合、「行の先頭が "<strong>P:</strong>" ではない」という「<strong>文字列の否定</strong>」ができれば話は簡単なのですが、</p>
 <div class="attention_p">
-<p>�����͖≮�������Ȃ�</p>
+<p>そうは問屋が卸さない</p>
 </div>
-<p>�̂͑O�̗�ŏq�ׂ��ʂ�ł��B�Ƃ����킯�ŁA�����ł��m�b�����ڂ��čl���邱�Ƃɂ��܂��傤�B</p>
-<p>���̏�������A��̓I�ɂǂ̂悤�ȊԈႢ���L�蓾�邩���܂��l����ƁA�s�̐擪����Q�����ɂ��Ă��ꂼ��R�ʂ�(�����������A�Ԉ���Ă��镶���A�������Ȃ�)�̉\������A�R�~�R-�P�̌v�W�ʂ�̊ԈႢ������͂��ł��B������񂻂���<span class="font_blue">�S��</span>�������ׂĂ������̂ł����A�����ł͂������������̂悢���@���Љ�܂��B</p>
-<p>�܂��A�W�̊ԈႢ���ȉ��̂S�̃O���[�v�ɂ킯���邱�Ƃ��g���܂��B</p>
+<p>のは前の例で述べた通りです。というわけで、ここでも知恵をしぼって考えることにしましょう。</p>
+<p>問題の条件から、具体的にどのような間違いが有り得るかをまず考えると、行の先頭から２文字についてそれぞれ３通り(正しい文字、間違っている文字、文字がない)の可能性あり、３×３-１の計８通りの間違いがあるはずです。もちろんそれらを<span class="font_blue">全部</span>書き並べてもいいのですが、ここではもう少し効率のよい方法を紹介します。</p>
+<p>ます、８つの間違いが以下の４つのグループにわけられることを使います。</p>
 <div class="table_waku">
 <table>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><strong>0123</strong></td>
-<td style="text-align: left;"><strong>(�����Ȃ�)</strong></td>
+<td style="text-align: left;"><strong>(何もない)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>P0123, :0123, etc.</strong></td>
-<td style="text-align: left;"><strong>(�������P���������Ȃ�)</strong></td>
+<td style="text-align: left;"><strong>(文字が１つだけしかない)</strong></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><strong>p:0123, p;0123</strong></td>
-<td style="text-align: left;"><strong>(�������Q�����Ă��擪�� "P" �łȂ�)</strong></td>
+<td style="text-align: left;"><strong>(文字が２つあっても先頭が "P" でない)</strong></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><strong>P;0123</strong></td>
-<td style="text-align: left;"><strong>(�Q�����Đ擪�� "P" �ł����� ":" �łȂ�)</strong></td>
+<td style="text-align: left;"><strong>(２つあって先頭が "P" でも次が ":" でない)</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>�ŁA�����<span class="font_blue">�f����</span> ���K�\���ŕ\�킷��</p>
-<div class="line-block"><span class="box_line"><strong>����������F</strong> <strong><code>^(|.|[^P].|P[^:])[0-9]+$</code></strong></span></div>
-<p>�ƂȂ�܂��B �Q�ԖڂƂR�ԖځA ���ɂQ�Ԗڂ� "<code>.</code>"���g�����ƂłS�̊ԈႢ�Ƀ}�b�`���Ă��܂��B</p>
-<h5 id="RULE2-3">��ʂ́u������̔ے�v�͂ǂ����邩�H</h5>
-<p>��̂Q��ɂ��Ă�<span class="font_blue">�^�ǂ�(��)</span> �𓚂�������܂������A�ł͈�ʓI�Ɂu<strong>������̔ے�</strong>�v������ɂ͂ǂ�������悢�̂ł��傤���H�����������m�Ȍ�����������΁A�u<strong>�����I�Ɂ`�Ƃ�����������܂܂Ȃ�������Ƀ}�b�`����p�^�[��</strong>�v������ʓI�ȕ��@�͂���̂ł��傤���H �c�ƁA�����Łu��ʘ_�v������ł����</p>
+<p>で、これを<span class="font_blue">素直に</span> 正規表現で表わすと</p>
+<div class="line-block"><span class="box_line"><strong>検索文字列：</strong> <strong><code>^(|.|[^P].|P[^:])[0-9]+$</code></strong></span></div>
+<p>となります。 ２番目と３番目、 特に２番目は "<code>.</code>"を使うことで４つの間違いにマッチしています。</p>
+<h5 id="RULE2-3">一般の「文字列の否定」はどうするか？</h5>
+<p>上の２例については<span class="font_blue">運良く(笑)</span> 解答が見つかりましたが、では一般的に「<strong>文字列の否定</strong>」をするにはどうしたらよいのでしょうか？もう少し正確な言い方をすれば、「<strong>部分的に〜という文字列を含まない文字列にマッチするパターン</strong>」を作る一般的な方法はあるのでしょうか？ …と、ここで「一般論」を説明できれば</p>
 <div class="attention_p">
-<p>���đf���炵������Ȃ�</p>
+<p>何て素晴らしい解説なんだ</p>
 </div>
-<p>�Ƃ͎v���܂���(��)�A �M�҂̒m�����ł�</p>
+<p>とは思いますが(笑)、 筆者の知る限りでは</p>
 <div class="attention_p">
-<p>�S�Ă̏ꍇ�ɒʗp����u��ʘ_�v�͑��݂��Ȃ�</p>
+<p>全ての場合に通用する「一般論」は存在しない</p>
 </div>
-<p>�Ǝv���܂�(���������m�̕�����������Ⴂ�܂�����A�M�҂܂ł���񂭂�����m(__)m)�B ���A�������A��Ō����悤��</p>
+<p>と思います(もしご存知の方がいらっしゃいましたら、筆者までご一報くださいm(__)m)。 が、しかし、上で見たように</p>
 <div class="attention_p">
-<p>�m�b�����ڂ��čl�����</p>
+<p>知恵をしぼって考えれば</p>
 </div>
-<p>���Ƃ��Ȃ��Ă��܂��܂�(�f��)�B �ʂ̌������������</p>
+<p>何とかなってしまいます(断言)。 別の言い方をすれば</p>
 <div class="attention_p">
-<p>�P�[�X�E�o�C�E�P�[�X</p>
+<p>ケース・バイ・ケース</p>
 </div>
-<p>�ł��ꂱ�ꎎ���Ă����΁A ���̂�����<strong>������</strong>����������܂��B</p>
+<p>であれこれ試していけば、 そのうちに<strong>きっと</strong>答が見つかります。</p>
 <dl>
-<dt>��</dt>
-<dd>���̐߂̍ŏ��̗�� ��Q�� Rev.D �܂ł́u���͖����v�ƍl���Ă��܂������A�F�X�������猋�ǉ�(�ɋ߂����́H)�����������Ⴂ�܂���(^^;�B
+<dt>※</dt>
+<dd>この節の最初の例も 第２版 Rev.D までは「答は無い」と考えていましたが、色々試したら結局解答(に近いもの？)が見つかっちゃいました(^^;。
 </dd>
 </dl>
 </div>
 </div>
-<h3 id="SUMMARY">�y�R�z �܂Ƃ�</h3>
-<p>�Ƃ����킯�ő����삯���Ő������Ă��܂������A���K�\�����g�����ɑ΂����̂̊��o�͒͂߂Ă��炦���Ǝv���܂��B���Ƃ́A���ۂɎ����ŐF�X�ȏꍇ�ɂ��ăp�^�[���������Ă݂邱�Ƃ������߂��܂��B</p>
-<p>���̎��Ɉȉ��̂��Ƃ�O���ɂ����ăp�^�[�����l���Ă݂ĉ������B</p>
+<h3 id="SUMMARY">【３】 まとめ</h3>
+<p>というわけで多少駆け足で説明してきましたが、正規表現を使う事に対する大体の感覚は掴めてもらえたと思います。あとは、実際に自分で色々な場合についてパターンを書いてみることをお勧めします。</p>
+<p>その時に以下のことを念頭においてパターンを考えてみて下さい。</p>
 <ul>
-<li>�T���������𗝘H���R�Ƃ��� �u<span class="font_red">���t</span>�v�ŕ\���ł��邩�H</li>
-<li>���́u���t�v�̊e�p�[�g�ɑΉ������p�^�[���͉����H</li>
-<li>(�u���̏ꍇ�͓���)���̃p�^�[���� <span class="font_red">�K�v�\��(�ŏ���)</span>�Ȃ��̂��H�������Ɂu�����v�݂̂ł���Ă݂�̂����������B</li>
+<li>探したい物を理路整然とした 「<span class="font_red">言葉</span>」で表現できるか？</li>
+<li>その「言葉」の各パートに対応したパターンは何か？</li>
+<li>(置換の場合は特に)そのパターンは <span class="font_red">必要十分(最小限)</span>なものか？＃試しに「検索」のみでやってみるのもいいかも。</li>
 </ul>
-<p>�Ō�ɁA�M����</p>
+<p>最後に、貴方の</p>
 <div class="attention_p">
-<p><span class="font_red"><span class="font_large">���K�\�����C�t(��)</span></span></p>
+<p><span class="font_red"><span class="font_large">正規表現ライフ(謎)</span></span></p>
 </div>
-<p>�����肠�镨�ɂȂ邱�Ƃ��F��c�B</p>
-<h3 id="REFERENCE">�y�S�z �Q�l����</h3>
-<p>���K�\���� sed �� awk �Ƃ����� UNIX �֘A�̃c�[���ɑ΂��鏑�Ђ𔃂��Α���������Ă��܂����A����Q�l�ɂ����{�������Q�l�����Ƃ��ďЉ�܂��B<br />
-�����ɂ��u���ꂪ�����I�v�Ƃ����{������܂����狳���ĉ�����m(_ _)m�B</p>
+<p>が実りある物になることを祈りつつ…。</p>
+<h3 id="REFERENCE">【４】 参考文献</h3>
+<p>正規表現は sed や awk といった UNIX 関連のツールに対する書籍を買えば大抵説明されていますが、今回参考にした本だけを参考文献として紹介します。<br />
+＃他にも「これがいい！」という本がありましたら教えて下さいm(_ _)m。</p>
 <dl>
-<dt><strong>AWK��256�{�g�����߂̖{</strong></dt>
-<dd>(�A�X�L�[���ЕҏW���ҁ@�u���@��E�h�k�@���E�������M ����)<br />
-���K�\���Ɋւ��Ă̓z���̈ꕔ������������Ă��܂����A ��(�H)���L�x�ł������΂��܂��B ����̎��M�������ɑ���Ȃ�e����^���Ă���܂����B
+<dt><strong>AWKを256倍使うための本</strong></dt>
+<dd>(アスキー書籍編集部編　志村　拓・鷲北　賢・西村克信 共著)<br />
+正規表現に関してはホンの一部だけ説明されていますが、 例(？)が豊富でしかも笑えます。 今回の執筆＆改訂に多大なる影響を与えてくれました。
 </dd>
-<dt><strong>�wsed&amp;awk�v���O���~���O�x</strong></dt>
-<dd>(�A�X�L�[�o�ŋǕҁ@Dale Dougherty ���@����r�� ��)<br />
-������u���ȏ��I�v�ȍ\���ŁA�ǂނ̂Ɍ��\���C�������ł����A ������炢�͂��������{��ǂ܂Ȃ��Ɓc��(���Ӗ��s��)�B
+<dt><strong>『sed&amp;awkプログラミング』</strong></dt>
+<dd>(アスキー出版局編　Dale Dougherty 著　福崎俊博 訳)<br />
+いわゆる「教科書的」な構成で、読むのに結構根気がいるんですが、 一冊ぐらいはこういう本を読まないと…ね(←意味不明)。
 </dd>
-<dt><strong>�w���� ���K�\�� ��3�Łx</strong></dt>
-<dd>(�I���C���[�E�W���p���@Jeffrey E.F. Friedl�@���A������Ѓ����O�e�[���^���� ���O�@��)<br />
-���K�\���ւ̗�����[�߂������B���e�͓���ł����A�Ƃ肠�����ǂ�ł����đ��͂Ȃ��ł��B
+<dt><strong>『諸説 正規表現 第3版』</strong></dt>
+<dd>(オライリー・ジャパン　Jeffrey E.F. Friedl　著、株式会社ロングテール／長尾 高弘　訳)<br />
+正規表現への理解を深める解説書。内容は難しいですが、とりあえず読んでおいて損はないです。
 </dd>
 </dl>
-<h3 id="RETURNS">�y�T�z�@(�⑫) �G�ۃG�f�B�^��ł̕����s�ɂ܂����錟���ɂ���</h3>
-<p>�G�ۃG�f�B�^�̐��K�\�������͈ȉ��̎菇�ōs���Ă��܂��B</p>
+<h3 id="RETURNS">【５】　(補足) 秀丸エディタ上での複数行にまたがる検索について</h3>
+<p>秀丸エディタの正規表現検索は以下の手順で行われています。</p>
 <ol type="1">
-<li>�G�ۃG�f�B�^�̐��K�\�������͊O���c�[���ł��� <code>HMJRE.DLL</code> �ɁA�����p���K�\��������ƁA�ҏW���̃e�L�X�g�̈ꕔ��n�����Ŏ��s���Ă���B</li>
-<li>�G�ۃG�f�B�^�́A<code>HMJRE.DLL</code>�ɓn���e�L�X�g�͈̔͂�<strong>���݂̃J�[�\���ʒu�̎��̕������猟�������Ɋ܂܂�� "\n" �̌��{�P�s��</strong>�A�ƌ��ߑł����Ă���B</li>
-<li><code>HMJRE.DLL</code> �́A �n���ꂽ�e�L�X�g���A���K�\���Ƀ}�b�`���邩��Ԃ��܂��B</li>
+<li>秀丸エディタの正規表現検索は外部ツールである <code>HMJRE.DLL</code> に、検索用正規表現文字列と、編集中のテキストの一部を渡す事で実行している。</li>
+<li>秀丸エディタは、<code>HMJRE.DLL</code>に渡すテキストの範囲を<strong>現在のカーソル位置の次の文字から検索文字に含まれる "\n" の個数＋１行分</strong>、と決め打ちしている。</li>
+<li><code>HMJRE.DLL</code> は、 渡されたテキストが、正規表現にマッチするかを返します。</li>
 </ol>
-<p>�G�ۃG�f�B�^�̃w���v������ƁA�u�����n�R�}���h�v�̒��ɂ���u\n ���g���������s�����̍ۂ̐����ɂ��āv�ɂ���Ȃ��Ƃ������Ă���܂��B</p>
+<p>秀丸エディタのヘルプを見ると、「検索系コマンド」の中にある「\n を使った複数行検索の際の制限について」にこんなことが書いてあります。</p>
 <blockquote>
-<p>�G�ۃG�f�B�^�ł� ������������̒��Ɂu\n�v�������܂܂�Ă��邩���v�Z���A���̐�+1�̍s�܂Ō����Ńq�b�g�\�ɂ��܂��B������������Ȏd�g�݂̂��߁A\n ���̂�C�ӂ̉񐔌J��Ԃ��悤�Ȑ��K�\���́A���Ғʂ�ɓ��삵�Ȃ����Ƃ�����܂��B</p>
+<p>秀丸エディタでは 検索元文字列の中に「\n」がいくつ含まれているかを計算し、その数+1の行まで検索でヒット可能にします。そういう特殊な仕組みのため、\n 自体を任意の回数繰り返すような正規表現は、期待通りに動作しないことがあります。</p>
 </blockquote>
-<p>��)("��"�͉��s�����������܂�)</p>
+<p>例)("↓"は改行文字を示します)</p>
 <div class="macro">
-<pre><code>a��
-��
-��
-d��</code></pre>
+<pre><code>a↓
+↓
+↓
+d↓</code></pre>
 </div>
-<p>�Ƃ������e�ɑ΂��āA�u^a\n+d�v�Ƃ������K�\���Ō��������ꍇ���l���܂��B</p>
-<p>�w���v�̐����ɏ]���ƁA<code>HMJRE.DLL</code>�ɓn���Ώە�����́A1("\n"�̌�) + 1 = 2 �s�ł��B�擪���猟������ꍇ�́A</p>
+<p>という内容に対して、「^a\n+d」という正規表現で検索した場合を考えます。</p>
+<p>ヘルプの説明に従うと、<code>HMJRE.DLL</code>に渡す対象文字列は、1("\n"の個数) + 1 = 2 行です。先頭から検索する場合は、</p>
 <div class="macro">
-<pre><code>a��
-��</code></pre>
+<pre><code>a↓
+↓</code></pre>
 </div>
-<p>�Ƃ���2�s�������ΏۂƂȂ�܂��B���ׁ̈A�u^a\n+d�v�Ƃ������K�\���ɂ̓}�b�`���܂���B����ȍ~�A�����J�n�ʒu�����炵�Ȃ���A�t�@�C���̍Ō�܂�2�s�Â����Ώۂɂ��Ă����܂����A 2�s�Â̂��߁A�u^a\n+d�v�Ƀ}�b�`���鎖�͂���܂���B</p>
-<p>���ꂪ�u\n ���g���������s�����̍ۂ̐����v�ɂȂ�܂��B</p>
-<p>���̐������������ɂ́A</p>
+<p>という2行が検索対象となります。その為、「^a\n+d」という正規表現にはマッチしません。これ以降、検索開始位置をずらしながら、ファイルの最後まで2行づつ検索対象にしていきますが、 2行づつのため、「^a\n+d」にマッチする事はありません。</p>
+<p>これが「\n を使った複数行検索の際の制限」になります。</p>
+<p>この制限を回避するには、</p>
 <div class="attention_p">
-<p>(?#maxlines:���l)</p>
+<p>(?#maxlines:数値)</p>
 </div>
-<p>�Ƃ����w��𐳋K�\���ɒǉ����܂��B</p>
+<p>という指定を正規表現に追加します。</p>
 <div class="attention_p">
-<p>�u^a\n+d�v�� �u^a\n+d(?#maxlines:10)�v</p>
+<p>「^a\n+d」→ 「^a\n+d(?#maxlines:10)」</p>
 </div>
-<p>���̗�ł́A�������������"\n"�̌��𖳎����āA�J�[�\���ʒu����10�s�������Ώۂɂ��܂��B <code>(?#maxlines:10)</code>�Ƃ����L�q�́A���K�\���Ƃ��Ă̓R�����g�̈����ɂȂ�̂ŁA�����ɂ͉e�����܂���B</p>
-<p>�Ƃ����킯�ŁA�����s�ɂ܂����錟���̌��ʂ͊��Ғʂ�ɂ͍s���Ȃ��ꍇ������̂ŁA��������Ƃ����������ǂ����Ă��K�v�ł���΁A���K�\�������i�u���j�����ɗ��炸�� �}�N���AWSH�Aperl���̃X�N���v�g�ŏ������܂��傤�B</p>
+<p>この例では、検索文字列内の"\n"の個数を無視して、カーソル位置から10行を検査対象にします。 <code>(?#maxlines:10)</code>という記述は、正規表現としてはコメントの扱いになるので、検索には影響しません。</p>
+<p>というわけで、複数行にまたがる検索の結果は期待通りには行かない場合があるので、きっちりとした処理がどうしても必要であれば、正規表現検索（置換）だけに頼らずに マクロ、WSH、perl等のスクリプトで処理しましょう。</p>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

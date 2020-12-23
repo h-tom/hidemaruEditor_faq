@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@CSV/TSV���[�h</title>
+  <title>第II部〜知っていると便利な秀丸の機能　CSV/TSVモード</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,180 +22,180 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\<br>�@CSV/TSV���[�h</h1>
+<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　CSV/TSVモード</h1>
 <hr />
-<h2 id="CSVMODE">CSV/TSV���[�h</h2>
-<p>�G�ۃG�f�B�^ Ver.8.00�ȍ~�ł́A�u<strong>CSV/TSV���[�h</strong>�v���g�p�ł��܂��B</p>
-<p>�G�f�B�^��ʏ�ŁACSV(�J���}��؂�e�L�X�g)�ATSV(�^�u��؂�e�L�X�g)���A�\�v�Z�\�t�g�̗l��<span class="attention_red">�\�����郂�[�h</span>�ł��B�\�v�Z�\�t�g�̂悤�Ɍv�Z����@�\�͂���܂���B</p>
-<p>�G�ۃG�f�B�^ Ver.8.89 ���A<strong>�u�Z�����ł̉��s�v</strong> �ɂ��Ή����Ă��܂��B�ڍׂ́u<a href="#SUPPLEMENTATION">�⑫</a>�v�́u<a href="#SUPPLEMENTATION-5">�Z�����ł̉��s</a>�v���Q�ƁB</p>
-<p>TSV/CSV���[�h�̏ꍇ�A���삪�ς������A�g���Ȃ��@�\������܂��B�ڍׂ́A�G�ۃG�f�B�^�̃w���v�[<a href="https://help.maruo.co.jp/hidemaru/html/080_Config_FormTab_TsvCsv.html" class="externallink" target="_blank">�uTSV���[�h/CSV���[�h�v</a>���Q�Ƃ��Ă��������B</p>
+<h2 id="CSVMODE">CSV/TSVモード</h2>
+<p>秀丸エディタ Ver.8.00以降では、「<strong>CSV/TSVモード</strong>」が使用できます。</p>
+<p>エディタ画面上で、CSV(カンマ区切りテキスト)、TSV(タブ区切りテキスト)を、表計算ソフトの様に<span class="attention_red">表示するモード</span>です。表計算ソフトのように計算する機能はありません。</p>
+<p>秀丸エディタ Ver.8.89 より、<strong>「セル内での改行」</strong> にも対応しています。詳細は「<a href="#SUPPLEMENTATION">補足</a>」の「<a href="#SUPPLEMENTATION-5">セル内での改行</a>」を参照。</p>
+<p>TSV/CSVモードの場合、動作が変わったり、使えない機能があります。詳細は、秀丸エディタのヘルプー<a href="https://help.maruo.co.jp/hidemaru/html/080_Config_FormTab_TsvCsv.html" class="externallink" target="_blank" rel="noopener">「TSVモード/CSVモード」</a>を参照してください。</p>
 <ul>
-<li><a href="#EXPLANATION">���</a>
+<li><a href="#EXPLANATION">解説</a>
 <ul>
-<li><a href="#EXPLANATION-1">�ݒ�</a></li>
+<li><a href="#EXPLANATION-1">設定</a></li>
 </ul></li>
-<li><a href="#SUPPLEMENTATION">�⑫</a>
+<li><a href="#SUPPLEMENTATION">補足</a>
 <ul>
-<li><a href="#SUPPLEMENTATION-1">�������̒��ӓ_</a></li>
-<li><a href="#SUPPLEMENTATION-2">�w�肵����̂݌����Ώۂɂ������ꍇ</a></li>
-<li><a href="#SUPPLEMENTATION-3">��؂蕶����colorcode</a></li>
-<li><a href="#SUPPLEMENTATION-4">��؂蕶���̕\��</a></li>
-<li><a href="#SUPPLEMENTATION-5">�Z�����ł̉��s</a></li>
+<li><a href="#SUPPLEMENTATION-1">検索時の注意点</a></li>
+<li><a href="#SUPPLEMENTATION-2">指定した列のみ検索対象にしたい場合</a></li>
+<li><a href="#SUPPLEMENTATION-3">区切り文字のcolorcode</a></li>
+<li><a href="#SUPPLEMENTATION-4">区切り文字の表示</a></li>
+<li><a href="#SUPPLEMENTATION-5">セル内での改行</a></li>
 </ul></li>
 </ul>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="EXPLANATION">[���]</h3>
-<p>���ʂ̐ݒ�ŁACSV�t�@�C�����J������Ԃł��B</p>
-<p><img src="2_csv_tsv_01.png" width="501" height="270" alt="�ʏ탂�[�h" /><br />
+<h3 id="EXPLANATION">[解説]</h3>
+<p>普通の設定で、CSVファイルを開いた状態です。</p>
+<p><img src="2_csv_tsv_01.png" width="501" height="270" alt="通常モード" /><br />
 </p>
-<p>�uCSV���[�h�v��CSV�t�@�C�����J������Ԃł��B(<span class="attention_red">�c�Ɖ��̃K�C�h���C����\��</span>)<br />
-�J���}��^�u����؂蕶���Ƃ��āA�\�v�Z�\�t�g�̂悤��<span class="attention_red">�\�����鎖���\</span>�ł��B</p>
-<p><img src="2_csv_tsv_02.png" width="571" height="277" alt="CSV���[�h" /><br />
+<p>「CSVモード」でCSVファイルを開いた状態です。(<span class="attention_red">縦と横のガイドラインを表示</span>)<br />
+カンマやタブを区切り文字として、表計算ソフトのように<span class="attention_red">表示する事が可能</span>です。</p>
+<p><img src="2_csv_tsv_02.png" width="571" height="277" alt="CSVモード" /><br />
 </p>
-<p>CSV���[�h�ɂ���ɂ́A�u���j���[�v����ݒ肷����@�ƁA�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v����ύX������@������܂��B</p>
+<p>CSVモードにするには、「メニュー」から設定する方法と、「<span class="filetype">ファイルタイプ別の設定</span>」から変更する方法があります。</p>
 <ul>
-<li><p>���j���[�́u�\���v�|�u�^�u�X�g�b�v�v�|�uCSV���[�h(�J���}��؂�)�v�Őݒ肵�܂��B</p>
-<p><img src="2_csv_tsv_03.png" width="605" height="561" alt="���j���[����ݒ�" /><br />
+<li><p>メニューは「表示」−「タブストップ」−「CSVモード(カンマ区切り)」で設定します。</p>
+<p><img src="2_csv_tsv_03.png" width="605" height="561" alt="メニューから設定" /><br />
 </p></li>
-<li><p>�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v�́u�̍فv�[�u�^�u�v�|�u�^�u�̕������v�Őݒ肵�܂��B TSV���[�h��CSV���[�h��I��ł��������B</p>
-<p><img src="2_csv_tsv_04.png" width="632" height="451" alt="�t�@�C���^�C�v�ʂ̐ݒ肩��ݒ�" /><br />
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」は「体裁」ー「タブ」−「タブの文字数」で設定します。 TSVモードかCSVモードを選んでください。</p>
+<p><img src="2_csv_tsv_04.png" width="632" height="451" alt="ファイルタイプ別の設定から設定" /><br />
 </p></li>
 </ul>
-<p>�ꎞ�I�ɕ\����ύX�������ꍇ�ɂ̓��j���[����ύX�����������y�ł��B</p>
+<p>一時的に表示を変更したい場合にはメニューから変更する方がお手軽です。</p>
 <hr />
-<p>CSV/TSV���[�h���L�̓���Ƃ��āA���[�����̃J�������N���b�N���鎖�ŁA��S�̂�I���ł��܂��B���̂܂܃h���b�O���āA����ړ������邱�Ƃ��\�ł��B</p>
-<p><img src="2_csv_tsv_11.png" width="560" height="260" alt="��̑I��" /><br />
+<p>CSV/TSVモード特有の動作として、ルーラ部のカラムをクリックする事で、列全体を選択できます。そのままドラッグして、列を移動させることも可能です。</p>
+<p><img src="2_csv_tsv_11.png" width="560" height="260" alt="列の選択" /><br />
 </p>
-<p>�܂��A���[�����̃J�������E�N���b�N���邱�ƂŁA���̗���L�[�ɂ����\�[�g���\�ł��B</p>
-<p><img src="2_csv_tsv_15.png" width="502" height="307" alt="��̃L�[�ɂ����\�[�g" /><br />
+<p>また、ルーラ部のカラムを右クリックすることで、その列をキーにしたソートが可能です。</p>
+<p><img src="2_csv_tsv_15.png" width="502" height="307" alt="列のキーにしたソート" /><br />
 </p>
 <!-- h4 -->
 <section id="EXPLANATION-1" class="marginleft">
-<h4>�ݒ�</h4>
-<p>�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v�ł͂Ȃ��A�u<span class="env">�����</span>�v�Ƃ��������ł��B�ݒ肪�\������Ȃ��ꍇ�́A�u<strong>�㋉�Ҍ����ݒ�</strong>�v�Ƀ`�F�b�N�����Ă��������B</p>
+<h4>設定</h4>
+<p>「<span class="filetype">ファイルタイプ別の設定</span>」ではなく、「<span class="env">動作環境</span>」という扱いです。設定が表示されない場合は、「<strong>上級者向け設定</strong>」にチェックを入れてください。</p>
 <ul>
-<li><p>�u<strong>TSV/CSV���[�h�̏ڍ�</strong>�v<br />
-�u<span class="env">�����</span>�v�|�u�ҏW�v�|�uTSV/CSV�v�Őݒ肵�܂��B</p>
-<p>�ڍׂ�<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Edit_TsvCsv.html" class="externallink" target="_blank">�w���v�FTSV/CSV���[�h�̏ڍ�</a>���Q�Ƃ��Ă��������B</p>
-<p><img src="2_csv_tsv_05.png" width="469" height="220" alt="TSV/CSV���[�h�̏ڍ�" /><br />
+<li><p>「<strong>TSV/CSVモードの詳細</strong>」<br />
+「<span class="env">動作環境</span>」−「編集」−「TSV/CSV」で設定します。</p>
+<p>詳細は<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Edit_TsvCsv.html" class="externallink" target="_blank" rel="noopener">ヘルプ：TSV/CSVモードの詳細</a>を参照してください。</p>
+<p><img src="2_csv_tsv_05.png" width="469" height="220" alt="TSV/CSVモードの詳細" /><br />
 </p></li>
-<li><p>�u<strong>���[���̏ڍ�</strong>�v<br />
-TSV/CSV���[�h�̃J�����\�����@��ݒ�ł��܂��B�u<span class="env">�����</span>�v�|�u�\��/����v�|�u���[���[�v�ɂ���uTSV/CSV���[�h�̂Ƃ��v�Őݒ肵�܂��B</p>
-<p>�ڍׂ�<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_User_Cursor2.html" class="externallink" target="_blank">�w���v�F���[���̏ڍ�</a>���Q�Ƃ��Ă��������B</p>
-<p><img src="2_csv_tsv_06.png" width="408" height="392" alt="���[���̏ڍ�" /><br />
+<li><p>「<strong>ルーラの詳細</strong>」<br />
+TSV/CSVモードのカラム表示方法を設定できます。「<span class="env">動作環境</span>」−「表示/操作」−「ルーラー」にある「TSV/CSVモードのとき」で設定します。</p>
+<p>詳細は<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_User_Cursor2.html" class="externallink" target="_blank" rel="noopener">ヘルプ：ルーラの詳細</a>を参照してください。</p>
+<p><img src="2_csv_tsv_06.png" width="408" height="392" alt="ルーラの詳細" /><br />
 </p>
-<p>�u�ڐ���v�́A���p1�������̖ڐ����\�����܂��A</p>
-<p>ABC�̐ݒ�</p>
-<p><img src="2_csv_tsv_07.png" width="550" height="136" alt="���[���̏ڍ�(A,B)" /><br />
+<p>「目盛り」は、半角1文字ずつの目盛りを表示します、</p>
+<p>ABCの設定</p>
+<p><img src="2_csv_tsv_07.png" width="550" height="136" alt="ルーラの詳細(A,B)" /><br />
 </p>
-<p>123�̐ݒ�</p>
-<p><img src="2_csv_tsv_08.png" width="550" height="136" alt="���[���̏ڍ�(1,2)" /><br />
+<p>123の設定</p>
+<p><img src="2_csv_tsv_08.png" width="550" height="136" alt="ルーラの詳細(1,2)" /><br />
 </p>
-<p>����</p>
-<p><img src="2_csv_tsv_09.png" width="550" height="136" alt="���[���̏ڍ�(����)" /><br />
+<p>桁数</p>
+<p><img src="2_csv_tsv_09.png" width="550" height="136" alt="ルーラの詳細(桁数)" /><br />
 </p></li>
-<li><p>�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v�́u�f�U�C���v�Łu�K�C�h���C��(�c)�v�Ɓu�K�C�h���C��(��)�v���A�\������悤�ɂ���ƁAExcel�̃Z�����ۂ��\�����邱�Ƃ��o���܂��B</p>
-<p><img src="2_csv_tsv_10.png" width="480" height="219" alt="�K�C�h���C���̕\��" /><br />
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」の「デザイン」で「ガイドライン(縦)」と「ガイドライン(横)」を、表示するようにすると、Excelのセルっぽく表示することが出来ます。</p>
+<p><img src="2_csv_tsv_10.png" width="480" height="219" alt="ガイドラインの表示" /><br />
 </p></li>
 </ul>
 </section>
-<h3 id="SUPPLEMENTATION">[�⑫]</h3>
+<h3 id="SUPPLEMENTATION">[補足]</h3>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="SUPPLEMENTATION-1">�������̒��ӓ_</h4>
-<p>�Ⴆ�΁A�ȉ��̏�ԂŁA����(�Z��)���́u�ō��C���v��������������ꍇ���l���܂��B(�u�ō��C�����v�ɂ̓}�b�`�����Ȃ�)</p>
-<p><img src="2_csv_tsv_14.png" width="662" height="175" alt="CSV���[�h�\����2" /><br />
+<h4 id="SUPPLEMENTATION-1">検索時の注意点</h4>
+<p>例えば、以下の状態で、項目(セル)内の「最高気温」だけを検索する場合を考えます。(「最高気温時」にはマッチさせない)</p>
+<p><img src="2_csv_tsv_14.png" width="662" height="175" alt="CSVモード表示例2" /><br />
 </p>
 <ul>
-<li><p>�P���Ɂu�ō��C���v�Ō��������ꍇ�́A�u�ō��C���v�Ɓu�ō��C�����v�Ƀ}�b�`���Ă��܂��܂��B</p></li>
-<li><p>����(�Z��)���̓��e�Ƃ������ƂŁA���K�\�����g�p���u^�ō��C��$�v�Ō������Ă��A�}�b�`���܂���B</p>
-<p>����́A���ۂɂ�</p>
+<li><p>単純に「最高気温」で検索した場合は、「最高気温」と「最高気温時」にマッチしてしまいます。</p></li>
+<li><p>項目(セル)内の内容ということで、正規表現を使用し「^最高気温$」で検索しても、マッチしません。</p>
+<p>これは、実際には</p>
 <!-- macro -->
 <div class="macro">
-<pre><code>��,�ō��C��,�ō��C���N��,�Œ�C��,�Œ�C���N��,���ϋC��,���ƐώZ��</code></pre>
+<pre><code>日,最高気温,最高気温起時,最低気温,最低気温起時,平均気温,日照積算量</code></pre>
 </div>
-<p>�Ƃ������e���������Ă��邽�߁A<code>^</code>��<code>$</code>�́A�s���ƍs���ɂȂ邽�߃}�b�`���܂���B (���ړ��̐擪�A�����ɂ͂Ȃ�Ȃ�)</p></li>
+<p>という内容を検索しているため、<code>^</code>と<code>$</code>は、行頭と行末になるためマッチしません。 (項目内の先頭、末尾にはならない)</p></li>
 </ul>
-<p>����(�Z��)���̂݃}�b�`������ɂ́A���K�\���́A�O����v(�߂�ǂ�)�ƌ����v(��ǂ�)���g���܂��B</p>
+<p>項目(セル)内のみマッチさせるには、正規表現の、前方一致(戻り読み)と後方一致(先読み)を使います。</p>
 <!-- macro -->
 <div class="macro">
-<pre><code>(?&lt;=^|,)�ō��C��(?=$|,)</code></pre>
+<pre><code>(?&lt;=^|,)最高気温(?=$|,)</code></pre>
 </div>
-<p>���K�\�����g�p���邽�߁A�������e�ɐ��K�\���̃��^����������ꍇ�̓G�X�P�[�v����K�v������܂��B</p>
-<p>�܂��́A</p>
+<p>正規表現を使用するため、検索内容に正規表現のメタ文字がある場合はエスケープする必要があります。</p>
+<p>または、</p>
 <!-- macro -->
 <div class="macro">
-<pre><code>(?&lt;=^|,)\Q�ō��C��\E(?=$|,)</code></pre>
+<pre><code>(?&lt;=^|,)\Q最高気温\E(?=$|,)</code></pre>
 </div>
-<p>�Ƃ��������ŁA�������������e���A<code>\Q</code>��<code>\E</code>�ň݂͂܂��B</p>
-<p>CSV�̏ꍇ�� <code>","</code> ����؂蕶���ƂȂ�܂����ATSV�̏ꍇ�́A<code>"\t"</code> ���g���܂��B</p>
+<p>という感じで、検索したい内容を、<code>\Q</code>と<code>\E</code>で囲みます。</p>
+<p>CSVの場合は <code>","</code> が区切り文字となりますが、TSVの場合は、<code>"\t"</code> を使います。</p>
 <!-- macro -->
 <div class="macro">
-<pre><code>(?&lt;=^|\t)\Q�ō��C��\E(?=$|\t)</code></pre>
+<pre><code>(?&lt;=^|\t)\Q最高気温\E(?=$|\t)</code></pre>
 </div>
-<h4 id="SUPPLEMENTATION-2">�w�肵����̂݌����Ώۂɂ������ꍇ</h4>
-<p>�w�肵����̂݌����Ώۂɂ������ꍇ�́A�����̕��@������܂��B</p>
+<h4 id="SUPPLEMENTATION-2">指定した列のみ検索対象にしたい場合</h4>
+<p>指定した列のみ検索対象にしたい場合は、複数の方法があります。</p>
 <ul>
-<li>�J���[�}�[�J�[���g��</li>
-<li>�����I�����g��(Ver.8.94�ȍ~���Ώ�)</li>
+<li>カラーマーカーを使う</li>
+<li>複数選択を使う(Ver.8.94以降が対象)</li>
 </ul>
-<p>�����I�����g�����@�́AVer.8.94�ȍ~���K�v�ł��B</p>
-<h4 id="�J���[�}�[�J�[���g�����@">�J���[�}�[�J�[���g�����@</h4>
+<p>複数選択を使う方法は、Ver.8.94以降が必要です。</p>
+<h4 id="カラーマーカーを使う方法">カラーマーカーを使う方法</h4>
 <ol type="1">
-<li><p>�����Ώۂɂ�������S�̂�I�����܂��B(���[���[�������N���b�N����΁A��S�̂�I���ł��܂�)</p></li>
-<li><p>���j���[�́u�����v�|�u�J���[�}�[�J�[�v�|�u�ꎞ�I�ȃJ���[�}�[�J�[��t����v��I�сA�J���[�}�[�J�[��t���܂��B</p></li>
-<li><p>�Ώۂɂ�������ɑ΂��A1.�`2.���J��Ԃ��܂��B</p></li>
-<li><p>�����_�C�A���O��\�������A�u�ǉ��̏����v�Ƀ`�F�b�N�����A�͈͂��u<strong>�u�ꎞ�I�ȃJ���[�}�[�J�[�v�͈̔�</strong>�v�ɐݒ肵�܂��B�u�ǉ��̏����v�Ɋւ��ẮA<a href="2_find.html">�u��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�����v</a>�ɂ���A<a href="2_find.html#SUPPLEMENTATION-1">�u�ǉ��̏����v</a>���Q�Ƃ��Ă��������B</p>
+<li><p>検索対象にしたい列全体を選択します。(ルーラー部分をクリックすれば、列全体を選択できます)</p></li>
+<li><p>メニューの「検索」−「カラーマーカー」−「一時的なカラーマーカーを付ける」を選び、カラーマーカーを付けます。</p></li>
+<li><p>対象にしたい列に対し、1.〜2.を繰り返します。</p></li>
+<li><p>検索ダイアログを表示させ、「追加の条件」にチェックを入れ、範囲を「<strong>「一時的なカラーマーカー」の範囲</strong>」に設定します。「追加の条件」に関しては、<a href="2_find.html">「第II部〜知っていると便利な秀丸の機能　検索」</a>にある、<a href="2_find.html#SUPPLEMENTATION-1">「追加の条件」</a>を参照してください。</p>
 <div style="position:relative;">
-<p><img src="2_find_101.png" width="433" height="244" alt="�����_�C�A���O" /> <img src="2_csv_tsv_12.png" width="433" height="244" alt="�����_�C�A���O-�ǉ��̏���" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /> <img src="2_csv_tsv_12.png" width="433" height="244" alt="検索ダイアログ-追加の条件" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
-<li><p>����Ō�������΁A�w�肵����(�J���[�}�[�J�[��t������)�݂̂��A�����̑Ώۂɏo���܂��B</p></li>
+<li><p>これで検索すれば、指定した列(カラーマーカーを付けた列)のみを、検索の対象に出来ます。</p></li>
 </ol>
-<h4 id="�����I�����g�����@ver.8.94�ȍ~���Ώ�">�����I�����g�����@(Ver.8.94�ȍ~���Ώ�)</h4>
+<h4 id="複数選択を使う方法ver.8.94以降が対象">複数選択を使う方法(Ver.8.94以降が対象)</h4>
 <ol type="1">
-<li><p>�����Ώۂɂ�������S�̂�I�����܂��B(���[���[�������N���b�N����΁A��S�̂�I���ł��܂�)</p></li>
-<li><p>���j���[�́u���̑��v�|�u�R�}���h�ꗗ�v����u�N���b�v�{�[�h�n�v�|�u�����I�����v��I�сA�����I����Ԃɂ��܂��B</p></li>
-<li><p>�Ώۂɂ�������ɑ΂��A1.�`2.���J��Ԃ��܂��B</p></li>
-<li><p>�����_�C�A���O��\�������A�u�I�������͈́v�Ƀ`�F�b�N�����A�u<span class="attention_red">�����P��</span>�v�ɐݒ肵�܂��B</p>
-<p>�u�I�������͈́v�̏ڍׂɂ��ẮA<a href="HME0083A.html"><strong>[HME0083A]</strong>������/�u���́u�I�������͈́v�̓���</a>���Q�Ƃ��Ă��������B</p>
+<li><p>検索対象にしたい列全体を選択します。(ルーラー部分をクリックすれば、列全体を選択できます)</p></li>
+<li><p>メニューの「その他」−「コマンド一覧」から「クリップボード系」−「複数選択化」を選び、複数選択状態にします。</p></li>
+<li><p>対象にしたい列に対し、1.〜2.を繰り返します。</p></li>
+<li><p>検索ダイアログを表示させ、「選択した範囲」にチェックを入れ、「<span class="attention_red">文字単位</span>」に設定します。</p>
+<p>「選択した範囲」の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong>●検索/置換の「選択した範囲」の動作</a>を参照してください。</p>
 <div style="position:relative;">
-<p><img src="2_find_101.png" width="433" height="244" alt="�����_�C�A���O" /> <img src="2_find_105.png" width="433" height="244" alt="�����_�C�A���O-�I�������͈�" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" /> <img src="2_find_105.png" width="433" height="244" alt="検索ダイアログ-選択した範囲" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
-<li><p>����Ō�������΁A�w�肵����(�͈͑I��������)�݂̂��A�����̑Ώۂɏo���܂��B</p></li>
+<li><p>これで検索すれば、指定した列(範囲選択した列)のみを、検索の対象に出来ます。</p></li>
 </ol>
-<h4 id="SUPPLEMENTATION-3">��؂蕶����colorcode</h4>
-<p>CSV���[�h�ł��A��؂蕶���ł��� "," �� <code>colorcode</code> �́A"0x00000020(�^�u)"���Z�b�g����܂��B</p>
-<h4 id="SUPPLEMENTATION-4">��؂蕶���̕\��</h4>
-<p>TSV/CSV���[�h�̏ꍇ�A�ݒ�ɂ���Ă͋�؂蕶��(CSV�̏ꍇ�F","�ATSV�̏ꍇ�F�^�u����)�͕\������܂���B<br />
-�\������ꍇ�́A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v-�u�f�U�C���v-�u�ꏊ�̈ꗗ�v�ɂ���u�^�u�����v�Ƀ`�F�b�N�����܂��B (CSV�̏ꍇ���A�u�^�u�����v�Ƀ`�F�b�N�����Ă�������)</p>
-<p><img src="2_csv_tsv_17.png" width="465" height="128" alt="�ꏊ�̈ꗗ-�^�u����" /><br />
+<h4 id="SUPPLEMENTATION-3">区切り文字のcolorcode</h4>
+<p>CSVモードでも、区切り文字である "," の <code>colorcode</code> は、"0x00000020(タブ)"がセットされます。</p>
+<h4 id="SUPPLEMENTATION-4">区切り文字の表示</h4>
+<p>TSV/CSVモードの場合、設定によっては区切り文字(CSVの場合：","、TSVの場合：タブ文字)は表示されません。<br />
+表示する場合は、「<span class="filetype">ファイルタイプ別の設定</span>」-「デザイン」-「場所の一覧」にある「タブ文字」にチェックを入れます。 (CSVの場合も、「タブ文字」にチェックを入れてください)</p>
+<p><img src="2_csv_tsv_17.png" width="465" height="128" alt="場所の一覧-タブ文字" /><br />
 </p>
-<p>CSV���[�h�ŁA�u�^�u�����v�Ƀ`�F�b�N�����A��؂蕶����\�������ꍇ<br />
-<img src="2_csv_tsv_16.png" width="485" height="109" alt="��؂蕶���̕\��" /><br />
+<p>CSVモードで、「タブ文字」にチェックを入れ、区切り文字を表示した場合<br />
+<img src="2_csv_tsv_16.png" width="485" height="109" alt="区切り文字の表示" /><br />
 </p>
-<h4 id="SUPPLEMENTATION-5">�Z�����ł̉��s</h4>
-<p>�G�ۃG�f�B�^ Ver.8.89 ���A�u�Z�����ł̉��s�v �ɂ��Ή����Ă��܂��B Excel�ƈႢ�A�Z�����ŕ����s��\������`���ł͂Ȃ��A�Z�������s����ꕶ���Ƃ���1�s�ɕ\�����܂��B</p>
-<p>Ver.8.94���A�u<span class="filetype">�t�@�C���^�C�v�ʂ̐ݒ�</span>�v-�u�̍فv-�u�^�u�v�Ɂu�Z�������s�̕ϊ��v���ǉ�����A�t�@�C���^�C�v���ɁA�����Łu�Z�������s�̓��ꕶ���ւ̕ϊ��v���s�����Ƃ��ł��܂��B</p>
-<p>�Z�����̉��s������̂����o����ƁA��ʏ㕔�ɒ��ӏ������\������܂��B</p>
-<p><img src="2_csv_tsv_21.png" width="721" height="250" alt="�Z�����ł̉��s-�ύX" /><br />
+<h4 id="SUPPLEMENTATION-5">セル内での改行</h4>
+<p>秀丸エディタ Ver.8.89 より、「セル内での改行」 にも対応しています。 Excelと違い、セル内で複数行を表示する形式ではなく、セル内改行を特殊文字として1行に表示します。</p>
+<p>Ver.8.94より、「<span class="filetype">ファイルタイプ別の設定</span>」-「体裁」-「タブ」に「セル内改行の変換」が追加され、ファイルタイプ毎に、自動で「セル内改行の特殊文字への変換」を行うことができます。</p>
+<p>セル内の改行があるのを検出すると、画面上部に注意書きが表示されます。</p>
+<p><img src="2_csv_tsv_21.png" width="721" height="250" alt="セル内での改行-変更" /><br />
 </p>
-<p>���ӏ����������N���b�N����ƁA�u�Z�������s�̕ϊ��v�_�C�A���O���\������A�Z�������s�̓��ꕶ���ւ̕ϊ����@��I���ł��܂��B</p>
-<p><img src="2_csv_tsv_22.png" width="483" height="336" alt="�Z�����ł̉��s-�ύX" /><br />
+<p>注意書き部分をクリックすると、「セル内改行の変換」ダイアログが表示され、セル内改行の特殊文字への変換方法を選択できます。</p>
+<p><img src="2_csv_tsv_22.png" width="483" height="336" alt="セル内での改行-変更" /><br />
 </p>
-<p>���ꕶ���ւ̕ϊ����@�͈ȉ���2��ނɂȂ�܂��B</p>
+<p>特殊文字への変換方法は以下の2種類になります。</p>
 <ul>
-<li><p>���p�̖��ɕϊ�</p>
-<p><img src="2_csv_tsv_24.png" width="790" height="62" alt="�Z�����ł̉��s-���p�̖��ɕϊ�" /><br />
+<li><p>半角の矢印に変換</p>
+<p><img src="2_csv_tsv_24.png" width="790" height="62" alt="セル内での改行-半角の矢印に変換" /><br />
 </p></li>
-<li><p>������s�ɕϊ�</p>
-<p><img src="2_csv_tsv_25.png" width="631" height="62" alt="�Z�����ł̉��s-������s�ɕϊ�" /><br />
+<li><p>特殊改行に変換</p>
+<p><img src="2_csv_tsv_25.png" width="631" height="62" alt="セル内での改行-特殊改行に変換" /><br />
 </p></li>
 </ul>
-<p>�t�@�C���́u���e���m�F���邾���v�Ȃ�A�ǂ���ł����Ȃ��ł��傤�B���̃A�v���P�[�V�����ɓ\��t�����肷��ꍇ�́A�u������s�ɕϊ��v�ɂ����ق��������ł��傤�B</p>
+<p>ファイルの「内容を確認するだけ」なら、どちらでも問題ないでしょう。他のアプリケーションに貼り付けたりする場合は、「特殊改行に変換」にしたほうがいいでしょう。</p>
 </div>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

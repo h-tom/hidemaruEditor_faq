@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�u��</title>
+  <title>第II部〜知っていると便利な秀丸の機能　置換</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,266 +22,266 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\<br>�@�u��</h1>
+<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　置換</h1>
 <hr />
-<h2 id="REPLACE">�u��</h2>
-<p>�ҏW���̃t�@�C���ɂ����ς�����A����̕���(��)��ʂ̕���(��)�ɒu�������������ɂ́A�G�ۃG�f�B�^�́u<strong>�u��</strong>�v�@�\���g���ΊȒP�ɂł��܂��B<br />
-�u<strong>�u��</strong>�v�Ƃ́A</p>
+<h2 id="REPLACE">置換</h2>
+<p>編集中のファイルにいっぱいある、特定の文字(列)を別の文字(列)に置き換えたい時には、秀丸エディタの「<strong>置換</strong>」機能を使えば簡単にできます。<br />
+「<strong>置換</strong>」とは、</p>
 <ol type="1">
-<li>�u���������������<strong>����</strong>����</li>
-<li>����������������w�肵���������<strong>�u��������</strong></li>
+<li>置換したい文字列を<strong>検索</strong>する</li>
+<li>見つかった文字列を指定した文字列に<strong>置き換える</strong></li>
 </ol>
-<p>�Ƃ���2�̍�Ƃ���x�ɍs�����ł��B</p>
+<p>という2つの作業を一度に行う事です。</p>
 <ul>
-<li><a href="#EXPLANATION">[���]</a></li>
-<li><a href="#SUPPLEMENTATION">[�⑫]</a>
+<li><a href="#EXPLANATION">[解説]</a></li>
+<li><a href="#SUPPLEMENTATION">[補足]</a>
 <ul>
-<li><a href="#SUPPLEMENTATION-1">[�u���m�F�̃_�C�A���O]</a></li>
-<li><a href="#SUPPLEMENTATION-2">[�u���Ɋւ���ݒ�]</a></li>
-<li><a href="#SUPPLEMENTATION-3">[�ϊ����W���[�����g�����u��]</a></li>
-<li><a href="#SUPPLEMENTATION-4">�q�X�g���ɏ풓</a></li>
-<li><a href="#SUPPLEMENTATION-5">����/�u���������̏��</a></li>
+<li><a href="#SUPPLEMENTATION-1">[置換確認のダイアログ]</a></li>
+<li><a href="#SUPPLEMENTATION-2">[置換に関する設定]</a></li>
+<li><a href="#SUPPLEMENTATION-3">[変換モジュールを使った置換]</a></li>
+<li><a href="#SUPPLEMENTATION-4">ヒストリに常駐</a></li>
+<li><a href="#SUPPLEMENTATION-5">検索/置換文字数の上限</a></li>
 </ul></li>
 </ul>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="EXPLANATION">[���]</h3>
-<p>�ҏW���̃t�@�C���ɂ���u<strong>over</strong>�v�Ƃ�����������u<strong>upper</strong>�v�Ƃ���������ɒu�����������Ƃ��܂��B</p>
+<h3 id="EXPLANATION">[解説]</h3>
+<p>編集中のファイルにある「<strong>over</strong>」という文字列を「<strong>upper</strong>」という文字列に置き換えたいとします。</p>
 <ol type="1">
-<li><p>�G�ۃG�f�B�^�́u<strong>����</strong>�v���j���[����(�������̓c�[���o�[��t�@���N�V�����L�[��)�u<strong>�u��</strong>�v��I�����āA�ȉ��̗l�ɓ��͂��܂��B</p>
+<li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>置換</strong>」を選択して、以下の様に入力します。</p>
 <ul>
-<li>�u<strong><span class="font_blue">����</span></strong>�v�̃G�f�B�b�g�{�b�N�X�Ɂu<strong>over</strong>�v�Ɠ��͂���</li>
-<li>�u<strong><span class="font_blue">�u��</span></strong>�v�̃G�f�B�b�g�{�b�N�X�Ɂu<strong>upper</strong>�v�Ɠ��͂���</li>
+<li>「<strong><span class="font_blue">検索</span></strong>」のエディットボックスに「<strong>over</strong>」と入力する</li>
+<li>「<strong><span class="font_blue">置換</span></strong>」のエディットボックスに「<strong>upper</strong>」と入力する</li>
 </ul>
-<p>�u<strong><span class="font_blue">����</span></strong>�v���u<strong><span class="font_blue">�u��</span></strong>�v�́A�ʏ��1�s�݂̂ł����A<strong>�����s����͉\</strong>�ɂł��܂��B�ڍׂ́u<a href="#SUPPLEMENTATION">�⑫</a>�v���Q�Ƃ��Ă��������B</p>
-<p><img src="2_replace_01.png" width="433" height="272" alt="�u���_�C�A���O" /><br />
+<p>「<strong><span class="font_blue">検索</span></strong>」も「<strong><span class="font_blue">置換</span></strong>」は、通常は1行のみですが、<strong>複数行を入力可能</strong>にできます。詳細は「<a href="#SUPPLEMENTATION">補足</a>」を参照してください。</p>
+<p><img src="2_replace_01.png" width="433" height="272" alt="置換ダイアログ" /><br />
 </p></li>
-<li><p>���ɓK�X�I�v�V�������w�肷��킯�ł����A�e�I�v�V�����̈Ӗ��͈ȉ��̒ʂ�ł��B</p>
+<li><p>次に適宜オプションを指定するわけですが、各オプションの意味は以下の通りです。</p>
 <ul>
-<li><p><strong>�u<span class="font_blue">�啶���^�������̋��</span>�v�`�F�b�N�{�b�N�X�F</strong><br />
-����������̑啶���Ə���������ʂ��Č������܂��B���̍��ڂ�OFF�̏ꍇ�A��̗�Łu<strong>OVER</strong>�v��u<strong>Over</strong>�v���u���ΏۂɂȂ�܂��B</p></li>
-<li><p><strong>�u<span class="font_blue">�P��̌���</span>�v�`�F�b�N�{�b�N�X�F</strong><br />
-���̍��ڂ�ON�ɂȂ��Ă���ƁA�u<strong>Lovers</strong>�v��u<strong>fover</strong>�v���́A�����̈ꕔ�ɂȂ��Ă���ꍇ�͒u���ΏۂɂȂ�܂���B�����Ō����u<strong>�P��</strong>�v�Ƃ́A<strong>���p�p���ƃA���_�[�X�R�A("_")�݂̂ō\�����ꂽ����(��)</strong>���w���܂��B</p></li>
-<li><p><strong>�u<span class="font_blue">���K�\��</span>�v�`�F�b�N�{�b�N�X�F</strong><br />
-�u<strong>���K�\��</strong>�v�́u<a href="4_regular.html">���K�\���ɂ���</a>�v���Q�Ƃ��ĉ������B<br />
-�����s�Ƀ}�b�`���錟���Ɋւ��Ă͐��������݂��܂��B�ȉ��̃����N����Q�Ƃ��Ă��������B</p>
+<li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
+検索文字列の大文字と小文字を区別して検索します。この項目がOFFの場合、上の例で「<strong>OVER</strong>」や「<strong>Over</strong>」も置換対象になります。</p></li>
+<li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
+この項目がONになっていると、「<strong>Lovers</strong>」や「<strong>fover</strong>」等の、ある語の一部になっている場合は置換対象になりません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
+<li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
+「<strong>正規表現</strong>」は「<a href="4_regular.html">正規表現について</a>」を参照して下さい。<br />
+複数行にマッチする検索に関しては制限が存在します。以下のリンク先を参照してください。</p>
 <ul>
-<li>�G�ۃG�f�B�^�w���v<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" class="externallink" target="_blank">\n���g���������s�����̍ۂ̐����ɂ���</a></li>
-<li>�u<a href="4_regular.html">���K�\���ɂ���</a>-<a href="4_regular.html#RETURNS">�y�T�z (�⑫) �G�ۃG�f�B�^��ł̕����s�ɂ܂����錟���ɂ���</a>�v</li>
+<li>秀丸エディタヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_ReturnCodeLimit.html" class="externallink" target="_blank" rel="noopener">\nを使った複数行検索の際の制限について</a></li>
+<li>「<a href="4_regular.html">正規表現について</a>-<a href="4_regular.html#RETURNS">【５】 (補足) 秀丸エディタ上での複数行にまたがる検索について</a>」</li>
 </ul></li>
-<li><p><strong>�u<span class="font_blue">�����܂�����</span>�v�`�F�b�N�{�b�N�X�F</strong><br />
-�u���K�\���v������ɕ֗��ɂ����u<strong>�����܂�</strong>�v�Ȍ������\�ɂȂ�܂�(�S���p���ꎋ��)�B<br />
-�u<strong>�����܂�����</strong>�v�́u<a href="2_fuzzy.html">�����܂������ɂ���</a>�v���Q�Ƃ��ĉ������B</p></li>
-<li><p><strong>�u<span class="font_blue">�I�������͈�</span>�v�`�F�b�N�{�b�N�X�F</strong><br />
-�u���͈͂��u<strong>�͈͑I��</strong>�v���ꂽ�����Ɍ��肳��܂��B�͈͑I������Ă��Ȃ��ꍇ�A���̍��ڂ�ݒ�ł��܂���B</p>
-<p>�����̈ꕔ����I������uBOX�͈͑I���v�̏ꍇ�A�u<strong>�I�������͈�</strong>�v�͗L���ɂȂ�܂���B (Ver.8.94�����̏ꍇ�͗L���ɂȂ�܂��񂪁AVer.8.94�ȍ~���ƗL���ɂȂ�) �����̃I�v�V�����̓���̏ڍׂɂ��ẮA<a href="HME0083A.html"><strong>[HME0083A]</strong>������/�u���́u�I�������͈́v�̓���</a>���Q�Ƃ��Ă��������B</p></li>
-<li><p><strong>�u<span class="font_blue">���̏G�ۃG�f�B�^�������Ēu��</span>�v�`�F�b�N�{�b�N�X</strong><br />
-���ݕҏW���̏G�ۃG�f�B�^�E�B���h�E�̑��ɂ��G�ۃG�f�B�^���J���Ă����ꍇ�A���̏G�ۃG�f�B�^�E�B���h�E�̓��e�ɑ΂��Ă��u�����܂��B</p></li>
-<li><p><strong>�u<span class="font_blue">�������</span>�v�`�F�b�N�{�b�N�X</strong><br />
-�������̏ꍇ�A�t�@�C���̈�ԉ��܂Ō������I������ꍇ�A�t�@�C���̐擪�ɖ߂��Č����𑱍s���܂��B�㌟���̏ꍇ�͋t�ɂȂ�܂��B</p></li>
-<li><p><strong>�u<span class="font_blue">�ǉ��̏���</span>�v�`�F�b�N�{�b�N�X</strong><br />
-�ǉ��̏����ɏ]���Č�������͈͂𐧌��ł��܂��B<br />
-<a href="2_find.html">����</a>��<a href="2_find.html#SUPPLEMENTATION-1">�u�ǉ��̏����v�ɂ���</a>���Q�Ƃ��Ă��������B</p></li>
-<li><p><strong>�u<span class="font_blue">���������������</span>�v�`�F�b�N�{�b�N�X</strong><br />
-�u�����s���A�����ɊY�����镶����������\�����܂��B</p></li>
-<li><p><strong>�u<span class="font_blue">�u���̑O�Ɋm�F</span>�v�`�F�b�N�{�b�N�X</strong><br />
-�m�F�_�C�A���O��\�����A�u������O�ɖ{���ɒu�����邩�ǂ����̊m�F�����܂��B<br />
-�u���̊m�F�_�C�A���O�́u���̑���<span class="env">�����</span>�������������_�C�A���O�v�́u�u���̊m�F�̎�ށv�ŁA��ނ�ύX�ł��܂��B</p></li>
+<li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
+「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視等)。<br />
+「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">あいまい検索について</a>」を参照して下さい。</p></li>
+<li><p><strong>「<span class="font_blue">選択した範囲</span>」チェックボックス：</strong><br />
+置換範囲が「<strong>範囲選択</strong>」された部分に限定されます。範囲選択されていない場合、この項目を設定できません。</p>
+<p>文書の一部分を選択する「BOX範囲選択」の場合、「<strong>選択した範囲</strong>」は有効になりません。 (Ver.8.94未満の場合は有効になりませんが、Ver.8.94以降だと有効になる) ※このオプションの動作の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong>●検索/置換の「選択した範囲」の動作</a>を参照してください。</p></li>
+<li><p><strong>「<span class="font_blue">次の秀丸エディタも続けて置換</span>」チェックボックス</strong><br />
+現在編集中の秀丸エディタウィンドウの他にも秀丸エディタが開いていた場合、その秀丸エディタウィンドウの内容に対しても置換します。</p></li>
+<li><p><strong>「<span class="font_blue">一周する</span>」チェックボックス</strong><br />
+下検索の場合、ファイルの一番下まで検索し終わった場合、ファイルの先頭に戻って検索を続行します。上検索の場合は逆になります。</p></li>
+<li><p><strong>「<span class="font_blue">追加の条件</span>」チェックボックス</strong><br />
+追加の条件に従って検索する範囲を制限できます。<br />
+<a href="2_find.html">検索</a>の<a href="2_find.html#SUPPLEMENTATION-1">「追加の条件」について</a>を参照してください。</p></li>
+<li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
+置換実行時、検索に該当する文字列を強調表示します。</p></li>
+<li><p><strong>「<span class="font_blue">置換の前に確認</span>」チェックボックス</strong><br />
+確認ダイアログを表示し、置換する前に本当に置換するかどうかの確認をします。<br />
+置換の確認ダイアログは「その他→<span class="env">動作環境</span>→検索→検索ダイアログ」の「置換の確認の種類」で、種類を変更できます。</p></li>
 </ul></li>
-<li><p>�Ō�Ɏ��s���@��I�����鎖�Łu<strong>�u��</strong>�v���s���܂��B</p>
+<li><p>最後に実行方法を選択する事で「<strong>置換</strong>」が行われます。</p>
 <ul>
-<li><p>�u<strong><span class="font_blue">�㌟��</span></strong>�v(���݂̃J�[�\���ʒu����ɂ��镶����u��)</p></li>
-<li><p>�u<strong><span class="font_blue">������</span></strong>�v(���݂̃J�[�\���ʒu��艺�ɂ��镶����u��)</p></li>
-<li><p>�u<strong><span class="font_blue">�S�u��</span></strong>�v(�ҏW���̃t�@�C���̑S�Ă̕�����u��)</p>
-<p>Ver.8.85���A�u�S�u���v�{�^���́u���v�}�[�N����A�u�N�C�b�N�S�u���v�����s�ł��܂��B</p>
-<p><img src="2_replace_10.png" width="224" height="132" alt="�N�C�b�N�S�u��" /><br />
+<li><p>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上にある文字を置換)</p></li>
+<li><p>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下にある文字を置換)</p></li>
+<li><p>「<strong><span class="font_blue">全置換</span></strong>」(編集中のファイルの全ての文字を置換)</p>
+<p>Ver.8.85より、「全置換」ボタンの「▼」マークから、「クイック全置換」が実行できます。</p>
+<p><img src="2_replace_10.png" width="224" height="132" alt="クイック全置換" /><br />
 </p>
-<p>�ʏ�́u�S�u���v�Ɓu�N�C�b�N�S�u���v�̈Ⴂ�ɂ��ẮA<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank">�G�ۃG�f�B�^�w���v�́u�u���v</a>���Q�Ƃ��Ă��������B</p>
-<p>�ȒP�ɐ������Ă����ƁA�ϊ����W���[�����g������ԂƓ����ŁA�Ώ۔͈͂��܂邲�Ɠ���ւ���悤�ȓ���ɂȂ�܂��B���ׁ̈A�u�������ӏ��̔c���ł��܂���B�܂��A�J���[�}�[�J�[��܂肽���݂Ȃǂ͕ێ����ꂸ�ɔj������܂��B���K�\���Ɋւ��Ă���������̈Ⴂ������悤�ł��B�v�́A�G�f�B�^��ʏ�̕\���֘A�̏�������؏Ȃ��āA�����ɓ��삳���Ă��܂��B</p></li>
+<p>通常の「全置換」と「クイック全置換」の違いについては、<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank" rel="noopener">秀丸エディタヘルプの「置換」</a>を参照してください。</p>
+<p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。その為、置換した箇所の把握できません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。正規表現に関しても多少動作の違いがあるようです。要は、エディタ画面上の表示関連の処理を一切省いて、高速に動作させています。</p></li>
 </ul>
-<p>�̂����ꂩ��I��ŉ������B</p></li>
+<p>のいずれかを選んで下さい。</p></li>
 </ol>
-<h3 id="SUPPLEMENTATION">[�⑫]</h3>
+<h3 id="SUPPLEMENTATION">[補足]</h3>
 <ul>
-<li><p>���������́A<a href="2_find.html">����</a>�́u<a href="2_find.html#SUPPLEMENTATION-2">����������̎�荞�݂ɂ���</a>�v�Ɠ��������\�ł��B</p></li>
-<li><p>�u�����v�u�u���v�����́A<strong>�����s����</strong>�ɑΉ����Ă��܂��B�u�����v�u�u���v���͕��̉��ɂ���<span class="rotate90">��</span>�}�[�N�̃��j���[����u<span class="attention_red">�����s</span>�v��I�����Ă��������B</p>
-<p><img src="2_replace_02.png" width="433" height="412" alt="�u���_�C�A���O-�����I��" /><br />
+<li><p>検索部分は、<a href="2_find.html">検索</a>の「<a href="2_find.html#SUPPLEMENTATION-2">検索文字列の取り込みについて</a>」と同じ事が可能です。</p></li>
+<li><p>「検索」「置換」部分は、<strong>複数行入力</strong>に対応しています。「検索」「置換」入力部の横にある<span class="rotate90">▲</span>マークのメニューから「<span class="attention_red">複数行</span>」を選択してください。</p>
+<p><img src="2_replace_02.png" width="433" height="412" alt="置換ダイアログ-複数選択" /><br />
 </p>
-<p>�u�����v�ŕ\������郁�j���[��<a href="2_find.html#SUPPLEMENTATION-4">�����_�C�A���O</a> �Ɠ����ł��B<br />
-�u�u���v�ŕ\������郁�j���[�͈ȉ��ɂȂ�܂��B<br />
-<img src="2_replace_08.png" width="407" height="288" alt="�u�����j���[" /><br />
+<p>「検索」で表示されるメニューは<a href="2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。<br />
+「置換」で表示されるメニューは以下になります。<br />
+<img src="2_replace_08.png" width="407" height="288" alt="置換メニュー" /><br />
 </p></li>
-<li><p>�u�u���v�_�C�A���O�̃^�C�g���o�[�����ɂ���u���v�}�[�N�������ƁA���j���[���\������܂��B�u<strong>����������̒ǉ��擾</strong>�v�u<strong>�����̓����</strong>�v���J������A�u<strong>�����_�C�A���O</strong>�v�ɐ؂�ւ��鎖���\�ł��B</p>
-<p><img src="2_replace_03.png" width="433" height="412" alt="�u���_�C�A���O�̃��j���[���̂Q" /><br />
+<li><p>「置換」ダイアログのタイトルバー部分にある「▼」マークを押すと、メニューが表示されます。「<strong>検索文字列の追加取得</strong>」「<strong>検索の動作環境</strong>」を開いたり、「<strong>検索ダイアログ</strong>」に切り替える事も可能です。</p>
+<p><img src="2_replace_03.png" width="433" height="412" alt="置換ダイアログのメニューその２" /><br />
 </p></li>
-<li><p>�u�S�u���v�{�^���ł����A�ݒ�ɂ��@�\��ύX�ł��܂��B</p>
-<p>�{�^�����́u���v�}�[�N���������Ƃ��W������郁�j���[�́u�{�^���`���v����ύX�ł��܂��B</p>
-<p><img src="2_replace_11.png" width="470" height="154" alt="�S�u���{�^���̃��j���[���̂Q" /><br />
+<li><p>「全置換」ボタンですが、設定により機能を変更できます。</p>
+<p>ボタン横の「▼」マークを押すことより標示されるメニューの「ボタン形式」から変更できます。</p>
+<p><img src="2_replace_11.png" width="470" height="154" alt="全置換ボタンのメニューその２" /><br />
 </p>
 <ul>
-<li>�u�S�u���v(�S�u������)</li>
-<li>�u�K�p�v (�e�������K�p���ă_�C�A���O�����)</li>
+<li>「全置換」(全置換する)</li>
+<li>「適用」 (各種条件を適用してダイアログを閉じる)</li>
 </ul>
-<p>��I���ł��܂��B</p></li>
+<p>を選択できます。</p></li>
 </ul>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="SUPPLEMENTATION-1">[�u���m�F�̃_�C�A���O]</h4>
-<p>�u<span class="font_blue">�u���̑O�Ɋm�F</span>�v���`�F�b�N����ƁA�m�F�p�_�C�A���O���\������܂��B���̃_�C�A���O�͕�������A�ݒ�ɂ��؂�ւ��\�ł��B</p>
-<p>�]���̃_�C�A���O<br />
-<img src="2_replace_04.png" width="453" height="59" alt="�m�F�_�C�A���O�]���^�C�v" /><br />
+<h4 id="SUPPLEMENTATION-1">[置換確認のダイアログ]</h4>
+<p>「<span class="font_blue">置換の前に確認</span>」をチェックすると、確認用ダイアログが表示されます。このダイアログは複数あり、設定により切り替え可能です。</p>
+<p>従来のダイアログ<br />
+<img src="2_replace_04.png" width="453" height="59" alt="確認ダイアログ従来タイプ" /><br />
 </p>
-<p>�V�����_�C�A���O(�^�C�v2)<br />
-<img src="2_replace_05.png" width="453" height="59" alt="�m�F�_�C�A���O�^�C�v2" /><br />
+<p>新しいダイアログ(タイプ2)<br />
+<img src="2_replace_05.png" width="453" height="59" alt="確認ダイアログタイプ2" /><br />
 </p>
-<p>�V�����_�C�A���O(�^�C�v3)<br />
-<img src="2_replace_06.png" width="348" height="59" alt="�m�F�_�C�A���O�^�C�v3" /><br />
+<p>新しいダイアログ(タイプ3)<br />
+<img src="2_replace_06.png" width="348" height="59" alt="確認ダイアログタイプ3" /><br />
 </p>
-<p>�ȑO���ƁA�u<span class="font_blue">�������</span>�v���I�t�̏�Ԃŏ㌟���܂��͉��������s���A�t�@�C���̏���������ɒB���Č����o���Ȃ��Ȃ�Ɗm�F�_�C�A���O�������܂������A����ł́u�L�����Z���v���Ȃ��ƕ\�����ꂽ�܂܂ɂȂ�܂��B (�ړ��ł��Ȃ������̌����{�^���͖��������ꂽ��ԂɂȂ�)</p>
-<p>�]���̃_�C�A���O�ł̕\����<br />
-<img src="2_replace_07.png" width="453" height="59" alt="�m�F�_�C�A���O�]���^�C�v����2" /><br />
+<p>以前だと、「<span class="font_blue">一周する</span>」がオフの状態で上検索または下検索を行い、ファイルの上限か下限に達して検索出来なくなると確認ダイアログが消えましたが、現状では「キャンセル」しないと表示されたままになります。 (移動できない方向の検索ボタンは無効化された状態になる)</p>
+<p>従来のダイアログでの表示例<br />
+<img src="2_replace_07.png" width="453" height="59" alt="確認ダイアログ従来タイプその2" /><br />
 </p>
-<p>����́A�Ⴆ�΁u�������v���s���ɁA�t�@�C�������܂Ō��������ꍇ�A���̂܂܁u�㌟���v�����s�\�ɂ���ׂł��B�ȑO�̂悤�ɁA�}�b�`���Ȃ��Ȃ����ꍇ�A�_�C�A���O�������悤�ύX�ł��܂��B (�u�u���̊m�F�̎�ށv���u�]���̌݊�(���[�Ŏ����I�ɏ���)�v�ɐݒ�)</p>
-<h4 id="SUPPLEMENTATION-2">[�u���Ɋւ���ݒ�]</h4>
-<p>�u���Ɋւ���ݒ��2�ӏ�����܂��B�e�@�\�Ɋւ��ẮA�e�_�C�A���O�́u�w���v�v���Q�Ƃ̎��B�ǂ���ł��A�u�u���m�F�̃_�C�A���O�v��I���\�ł��B</p>
+<p>これは、例えば「下検索」実行時に、ファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。以前のように、マッチしなくなった場合、ダイアログを消すよう変更できます。 (「置換の確認の種類」を「従来の互換(末端で自動的に消す)」に設定)</p>
+<h4 id="SUPPLEMENTATION-2">[置換に関する設定]</h4>
+<p>置換に関する設定は2箇所あります。各機能に関しては、各ダイアログの「ヘルプ」を参照の事。どちらでも、「置換確認のダイアログ」を選択可能です。</p>
 <ul>
-<li><p>�u�����v�́u�u���̓���v</p>
-<p><img src="2_replace_setting01.png" width="605" height="433" alt="�����-����" /><br />
+<li><p>「検索」の「置換の動作」</p>
+<p><img src="2_replace_setting01.png" width="605" height="433" alt="動作環境-検索" /><br />
 </p></li>
-<li><p>�u�㋉�Ҍ����ݒ�v���`�F�b�N����ƕ\�������u�����_�C�A���O�v�́u�u���_�C�A���O�{�b�N�X�v</p>
-<p><img src="2_replace_setting02.png" width="605" height="433" alt="�����-����-�����_�C�A���O" /><br />
+<li><p>「上級者向け設定」をチェックすると表示される「検索ダイアログ」の「置換ダイアログボックス」</p>
+<p><img src="2_replace_setting02.png" width="605" height="433" alt="動作環境-検索-検索ダイアログ" /><br />
 </p></li>
 </ul>
-<h4 id="SUPPLEMENTATION-3">[�ϊ����W���[�����g�����u��]</h4>
-<p>�G�ۃG�f�B�^ Ver.8.13���A�u�����A�������ʂɑ΂��A�ϊ����W���[���̋@�\�����s�ł���悤�ɂȂ�܂����B</p>
-<p>����ŉ����ł��邩�Ƃ����ƁA�����Ń}�b�`�����ӏ���啶��/������/�S�p/���p�֕ϊ��ł��܂��B (�����Ń}�b�`�����ӏ��ɁA�ϊ����W���[�������e��ϊ������s�ł���)</p>
-<p>���̋@�\���g�p����ꍇ�́A<strong>�u<span class="font_blue">���K�\��</span>�v</strong> ��L���ɂ���K�v������܂��B</p>
-<p>�W���Y�t����Ă���ϊ����W���[���̋@�\�͈ȉ��ɂȂ�܂��B</p>
+<h4 id="SUPPLEMENTATION-3">[変換モジュールを使った置換]</h4>
+<p>秀丸エディタ Ver.8.13より、置換時、検索結果に対し、変換モジュールの機能を実行できるようになりました。</p>
+<p>これで何ができるかというと、検索でマッチした箇所を大文字/小文字/全角/半角へ変換できます。 (検索でマッチした箇所に、変換モジュールが持つ各種変換を実行できる)</p>
+<p>この機能を使用する場合は、<strong>「<span class="font_blue">正規表現</span>」</strong> を有効にする必要があります。</p>
+<p>標準添付されている変換モジュールの機能は以下になります。</p>
 <div class="table_border">
 <table>
-<caption>�W���Y�t�̕ϊ����W���[��</caption>
+<caption>標準添付の変換モジュール</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�֐���</th>
-<th style="text-align: left;">�@�\</th>
+<th style="text-align: left;">関数名</th>
+<th style="text-align: left;">機能</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">ToUpper</td>
-<td style="text-align: left;">UPPER CASE(�啶����)</td>
+<td style="text-align: left;">UPPER CASE(大文字へ)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ToLower</td>
-<td style="text-align: left;">lower case(��������)</td>
+<td style="text-align: left;">lower case(小文字へ)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ToHankaku</td>
-<td style="text-align: left;">�n���J�N</td>
+<td style="text-align: left;">ハンカク</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ToZenkakuHira</td>
-<td style="text-align: left;">�S�p�Ђ炪��</td>
+<td style="text-align: left;">全角ひらがな</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ToZenkakuKata</td>
-<td style="text-align: left;">�S�p�J�^�J�i</td>
+<td style="text-align: left;">全角カタカナ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ToSpace</td>
-<td style="text-align: left;">TAB -&gt; ��</td>
+<td style="text-align: left;">TAB -&gt; 空白</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ToTab</td>
-<td style="text-align: left;">�� -&gt; TAB</td>
+<td style="text-align: left;">空白 -&gt; TAB</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ToHankakuAlnum</td>
-<td style="text-align: left;">�p����/�L��/�󔒂̂ݔ��p��</td>
+<td style="text-align: left;">英数字/記号/空白のみ半角に</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ToZenkakuAlnum</td>
-<td style="text-align: left;">�p����/�L��/�󔒂̂ݑS�p��</td>
+<td style="text-align: left;">英数字/記号/空白のみ全角に</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ToHankakuKataOnly</td>
-<td style="text-align: left;">�J�^�J�i�̂ݔ��p��</td>
+<td style="text-align: left;">カタカナのみ半角に</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ToZenkakuKataOnly</td>
-<td style="text-align: left;">�J�^�J�i�̂ݑS�p��</td>
+<td style="text-align: left;">カタカナのみ全角に</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Indent</td>
-<td style="text-align: left;">�C���f���g</td>
+<td style="text-align: left;">インデント</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">UnIndent</td>
-<td style="text-align: left;">�t�C���f���g</td>
+<td style="text-align: left;">逆インデント</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Sort</td>
-<td style="text-align: left;">�\�[�g</td>
+<td style="text-align: left;">ソート</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>�u���̃G�f�B�b�g�{�b�N�X�Ɉȉ��̃t�H�[�}�b�g�ŋL�����邱�ƁB</p>
+<p>置換のエディットボックスに以下のフォーマットで記入すること。</p>
 <div class="box_line">
 <div class="macro">
-<pre><code>\(�^�O�ԍ�, �֐���, �ϊ����W���[����)</code></pre>
+<pre><code>\(タグ番号, 関数名, 変換モジュール名)</code></pre>
 </div>
 <dl>
-<dt>�^�O�ԍ�</dt>
-<dd>0 �̓}�b�`�����S�́B<br />
-1�`15 �́A�^�O�t�����K�\�����g�p�����ꍇ�̃^�O�ԍ��B
+<dt>タグ番号</dt>
+<dd>0 はマッチした全体。<br />
+1〜15 は、タグ付き正規表現を使用した場合のタグ番号。
 </dd>
-<dt>�֐���</dt>
-<dd>�g�p�������@�\���w��B<br />
-�u�n���J�N�v�����s�������ꍇ�� "ToHankaku" ���w�肷��B
+<dt>関数名</dt>
+<dd>使用したい機能を指定。<br />
+「ハンカク」を実行したい場合は "ToHankaku" を指定する。
 </dd>
-<dt>�ϊ����W���[����</dt>
-<dd>�W���Y�t�̕ϊ����W���[���͏ȗ��\�B�W���Y�t�ȊO�̕ϊ����W���[�����g���ꍇ�͎w�肷��K�v������B<br />
-<span class="attention_red">�G�ۃG�f�B�^�{�̂Ɠ����ꏊ�ɕϊ����W���[��������ꍇ�ȊO�́A�t���p�X�Ŏw�肷�鎖�B</span>
+<dt>変換モジュール名</dt>
+<dd>標準添付の変換モジュールは省略可能。標準添付以外の変換モジュールを使う場合は指定する必要がある。<br />
+<span class="attention_red">秀丸エディタ本体と同じ場所に変換モジュールがある場合以外は、フルパスで指定する事。</span>
 </dd>
 </dl>
 </div>
 <dl>
-<dt>��)hidemaru �� editor ��啶���ɕϊ��������ꍇ</dt>
-<dd><p>�ʏ�̒u���ōs���ꍇ�́A</p>
-<pre><code>�u������
-�����Fhidemaru
-�u���FHIDEMARU
+<dt>例)hidemaru と editor を大文字に変換したい場合</dt>
+<dd><p>通常の置換で行う場合は、</p>
+<pre><code>置換一回目
+検索：hidemaru
+置換：HIDEMARU
 
-�u������
-�����Feditor
-�u���FEDITOR</code></pre>
-<p>�̂悤��2��̒u�����s���K�v�����邪�A�ϊ����W���[���̋@�\���g���Έ��̒u���ŉ\�B</p>
-<pre><code>�����F(hidemaru|editor)
-�u���F\(0,ToUpper)
+置換二回目
+検索：editor
+置換：EDITOR</code></pre>
+<p>のように2回の置換を行う必要があるが、変換モジュールの機能を使えば一回の置換で可能。</p>
+<pre><code>検索：(hidemaru|editor)
+置換：\(0,ToUpper)
 
-���s�O�Fhidemaru editor
-���s��FHIDEMARU EDITOR</code></pre>
-<p>�ϊ����W���[���̋@�\��g�ݍ��킹�邱�Ƃ��\�ŁA�啶���ɕϊ����āA����ɑS�p�֕ϊ��Ƃ��������ł��܂��B</p>
-<pre><code>�����F(hidemaru|editor)
-�u���F\((0,ToUpper),ToZenkakuAlnum)
+実行前：hidemaru editor
+実行後：HIDEMARU EDITOR</code></pre>
+<p>変換モジュールの機能を組み合わせることも可能で、大文字に変換して、さらに全角へ変換という事もできます。</p>
+<pre><code>検索：(hidemaru|editor)
+置換：\((0,ToUpper),ToZenkakuAlnum)
 
-���s�O�Fhidemaru editor
-���s��F�g�h�c�d�l�`�q�t �d�c�h�s�n�q</code></pre>
+実行前：hidemaru editor
+実行後：ＨＩＤＥＭＡＲＵ ＥＤＩＴＯＲ</code></pre>
 </dd>
 </dl>
-<p>�ڍׂ̓w���v<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" class="externallink" target="_blank">�u���̎��́A�ϊ����W���[���ɂ��ϊ��̎w��</a>���Q�Ƃ��Ă��������B</p>
-<h4 id="SUPPLEMENTATION-4">�q�X�g���ɏ풓</h4>
-<p>�u�����v�͌����Ƌ��ʂł����A�u�u���v�͒P�ƂŐݒ�\�ł��B</p>
-<p>�u<strong>�q�X�g���ɏ풓</strong>�v�̐ݒ���@�́A<a href="2_find.html">�u�����v</a>��<a href="2_find.html#SUPPLEMENTATION-6">�u�q�X�g���ɏ풓�v</a>���Q�Ƃ��Ă��������B</p>
-<h4 id="SUPPLEMENTATION-5">����/�u���������̏��</h4>
-<p><strong><span class="font_blue">�����s�́u�����v�Ɓu�u���v</span></strong>�G�f�B�b�g�{�b�N�X�ɓ��͂��A����/�u���Ɏw��ł��镶����ɂ͏��������A��4000����������ƂȂ�܂��B</p>
-<p>����𒴂���ƁA<span class="attention_red">�x�����\��</span>����܂��B</p>
-<p><img src="2_replace_09.png" width="433" height="95" alt="�u���_�C�A���O�̌x��" /><br />
+<p>詳細はヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_Replace_Filter.html" class="externallink" target="_blank" rel="noopener">置換の時の、変換モジュールによる変換の指定</a>を参照してください。</p>
+<h4 id="SUPPLEMENTATION-4">ヒストリに常駐</h4>
+<p>「検索」は検索と共通ですが、「置換」は単独で設定可能です。</p>
+<p>「<strong>ヒストリに常駐</strong>」の設定方法は、<a href="2_find.html">「検索」</a>の<a href="2_find.html#SUPPLEMENTATION-6">「ヒストリに常駐」</a>を参照してください。</p>
+<h4 id="SUPPLEMENTATION-5">検索/置換文字数の上限</h4>
+<p><strong><span class="font_blue">複数行の「検索」と「置換」</span></strong>エディットボックスに入力し、検索/置換に指定できる文字列には上限があり、約4000文字が上限となります。</p>
+<p>上限を超えると、<span class="attention_red">警告が表示</span>されます。</p>
+<p><img src="2_replace_09.png" width="433" height="95" alt="置換ダイアログの警告" /><br />
 </p>
 </div>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�O���v���O�����̎��s�ɂ���</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　外部プログラムの実行について</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,107 +22,107 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�O���v���O�����̎��s�ɂ���</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　外部プログラムの実行について</h1>
 <hr />
-<h2 id="INDEX">�O���v���O�����̎��s�ɂ���</h2>
-<p>�y�O�z<a href="#ABOUT">�͂��߂�</a><br />
-�y�P�z<a href="#COMMON">run�n���ߕ��̋��ʎ���</a><br />
-�y�Q�z<a href="#COMMAND">�ʂ̖��ߕ��ɂ���</a><br />
+<h2 id="INDEX">外部プログラムの実行について</h2>
+<p>【０】<a href="#ABOUT">はじめに</a><br />
+【１】<a href="#COMMON">run系命令文の共通事項</a><br />
+【２】<a href="#COMMAND">個別の命令文について</a><br />
 </p>
 <div class="marginleft">
-<h3 id="ABOUT">�͂��߂�</h3>
-<p>�G�ۃG�f�B�^�̃}�N�����瑼�̃v���O����(���s�t�@�C��)���N��������@�͕�������A�g�p���閽�ߕ��ɂ���āA�o���邱��/�o���Ȃ����Ƃ�����܂��B</p>
-<p>����(2020/11/03����)�ł͒P���Ƀv���O���������s���邾���Ȃ� run�� �ł������ł����A���G�Ȏ�������ꍇ�́A�����̎w�肪����ł��� runex���������߂��܂��B</p>
+<h3 id="ABOUT">はじめに</h3>
+<p>秀丸エディタのマクロから他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
+<p>現状(2020/12/14現在)では単純にプログラムを実行するだけなら run文 でもいいですが、複雑な事をする場合は、引数の指定が難しいですが runex文をお勧めします。</p>
 <div class="table_border">
 <table>
-<caption>���ߕ��ɂ��Ⴂ</caption>
+<caption>命令文による違い</caption>
 <thead>
 <tr class="header">
-<th style="text-align: center;">���ߕ�</th>
-<th style="text-align: center;">�������s</th>
-<th style="text-align: center;">���_�C���N�g</th>
+<th style="text-align: center;">命令文</th>
+<th style="text-align: center;">同期実行</th>
+<th style="text-align: center;">リダイレクト</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">run</td>
-<td style="text-align: center;">�~</td>
-<td style="text-align: center;">��</td>
+<td style="text-align: center;">×</td>
+<td style="text-align: center;">△</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">runsync/runsync2</td>
-<td style="text-align: center;">��</td>
-<td style="text-align: center;">�~</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">×</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">runex</td>
-<td style="text-align: center;">��</td>
-<td style="text-align: center;">��</td>
+<td style="text-align: center;">○</td>
+<td style="text-align: center;">▽</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>��:���Ȃ��B<br />
-��:��������B�W�����o�͂��g���ꍇ�� Shift_JIS �ɕϊ������B<br />
-��:��������B�W�����o�͂́AShift_JIS�AUTF-8�AUTF-16LE�ɑΉ��B<br />
-�~:�s�B<br />
+<p>○:問題なし。<br />
+△:制限あり。標準入出力を使う場合は Shift_JIS に変換される。<br />
+▽:制限あり。標準入出力は、Shift_JIS、UTF-8、UTF-16LEに対応。<br />
+×:不可。<br />
 </p>
 <hr />
 <dl>
-<dt>�������s</dt>
-<dd>�v���O�������I������܂őҋ@����B(�v���O�����̖߂�l���擾�\)
+<dt>同期実行</dt>
+<dd>プログラムが終了するまで待機する。(プログラムの戻り値を取得可能)
 </dd>
-<dt>���_�C���N�g</dt>
-<dd>�t�@�C���̓��e��W�����֑͂�������A�W���o�͂��t�@�C���֎�荞�ށB�W�����o�͂��g���ꍇ�́A��������B�t�@�C��������͂���ꍇ�́A�ۑ����Ă���G���R�[�h�ɂȂ�܂��B
+<dt>リダイレクト</dt>
+<dd>ファイルの内容を標準入力へ送ったり、標準出力をファイルへ取り込む。標準入出力を使う場合は、制限あり。ファイルから入力する場合は、保存してあるエンコードになります。
 </dd>
 </dl>
-<h3 id="COMMON">run�n���ߕ��̋��ʎ���</h3>
+<h3 id="COMMON">run系命令文の共通事項</h3>
 <ul>
-<li><p><a href="./2_program.html">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�v���O�������s</a>��<a href="./2_program.html#NOTICE">�y�P�z���ʂ̒��ӓ_</a>���Q�Ƃ��Ă��������B</p></li>
-<li><p>run�n�����s���� result �́A�v���O�����̎��s�ɐ��������ꍇ�� <code>false</code>�ȊO�� �A���s�����ꍇ�� <code>false</code> �ɂȂ�܂��B <code>true</code> ���ǂ����ł͂Ȃ��A<code>false</code>�ł͂Ȃ������m�F���������ǂ��ł��傤�B</p>
+<li><p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#NOTICE">【１】共通の注意点</a>を参照してください。</p></li>
+<li><p>run系文実行時の result は、プログラムの実行に成功した場合は <code>false</code>以外に 、失敗した場合は <code>false</code> になります。 <code>true</code> かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
 <div class="macro">
 <pre><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
 if(!result){
-    //���s�����ꍇ�̏���
+    //失敗した場合の処理
 
 }</code></pre>
 </div></li>
-<li><p>�v���O�������s�ɐ������A�������s�̏ꍇ�́A���s�����v���O�������Ԃ��u�I���X�e�[�^�X�v���擾�\�ł��B�擾�ɂ́A<code>getresultex</code>�֐��ŁA�����Ɂu9�v���w�肵�܂��B</p>
+<li><p>プログラム実行に成功し、同期実行の場合は、実行したプログラムが返す「終了ステータス」を取得可能です。取得には、<code>getresultex</code>関数で、引数に「9」を指定します。</p>
 <div class="macro">
 <pre><code>runsync &quot;xxxx.exe&quot;;
 #ret = getresultex(9);</code></pre>
 </div>
-<p>run���̏ꍇ�́A�������s�ɑΉ����Ă��Ȃ����߁A<code>getresultex(9)</code> �� ��Ɂu259�v(�������Ȃ�����)��Ԃ��܂��B</p></li>
+<p>run文の場合は、同期実行に対応していないため、<code>getresultex(9)</code> は 常に「259」(同期しなかった)を返します。</p></li>
 </ul>
-<h3 id="COMMAND">�ʂ̖��ߕ��ɂ���</h3>
+<h3 id="COMMAND">個別の命令文について</h3>
 <div class="marginleft">
 <h4 id="run">run</h4>
-<p>�񓯊��Ńv���O�����̎��s���܂��B(�v���O���������s���Ă��A�I����҂��Ȃ��Ŏ��̖��߂ɐi�݂܂�) �񓯊��Ȃ̂ŁA�v���O�����́u�I���X�e�[�^�X�v���󂯎�邱�Ƃ͏o���܂���B</p>
-<p>�����ɁA"&lt;con" �A"&gt;con" �A"&lt;�t�@�C����"�A"&gt;�t�@�C����" �Ȃǂ�t���邱�Ƃɂ��A�W�����o�͂̃��_�C���N�g���\�ł��B</p>
-<p><a href="./2_program.html">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�v���O�������s</a>��<a href="./2_program.html#PROGRAM1">�y�Q�z�v���O�������s�̕��@����1</a>���Q�Ƃ��Ă��������B</p>
+<p>非同期でプログラムの実行します。(プログラムを実行しても、終了を待たないで次の命令に進みます) 非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
+<p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
+<p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a>を参照してください。</p>
 <h4 id="runsyncrunsync2">runsync,runsync2</h4>
-<p>�����Ńv���O�����̎��s���܂��B(�v���O���������s����ƁA�I������܂őҋ@���܂�) �����Ȃ̂Ńv���O�����́u�I���X�e�[�^�X�v���󂯎�邱�Ƃ��\�ł��B<span class="attention_red">���_�C���N�g�͎g�p�ł��܂���B</span></p>
-<p>runsync�́A�G�ۃG�f�B�^�{�̂��ŏ�����Ԃɂ��đҋ@���܂��B</p>
-<p>runsync2�́A�G�ۃG�f�B�^�{�̂͂��̂܂܂̏�Ԃőҋ@���܂��B</p>
+<p>同期でプログラムの実行します。(プログラムを実行すると、終了するまで待機します) 同期なのでプログラムの「終了ステータス」を受け取ることが可能です。<span class="attention_red">リダイレクトは使用できません。</span></p>
+<p>runsyncは、秀丸エディタ本体を最小化状態にして待機します。</p>
+<p>runsync2は、秀丸エディタ本体はそのままの状態で待機します。</p>
 <h4 id="runex">runex</h4>
-<p>run��/runsync���̊g���łŁA�������ƂĂ�����(14��)�ł����A�ׂ������s��Ԃ��w��ł��܂��B�ڍׂ͈ȉ��̃����N����Q�Ƃ̎��B</p>
+<p>run文/runsync文の拡張版で、引数がとても多い(14個)ですが、細かく実行状態を指定できます。詳細は以下のリンク先を参照の事。</p>
 <ul>
-<li>�}�N���w���v��<a href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html" class="externallink" target="_blank">runex��</a></li>
-<li>�G�ۃG�f�B�^�w���v��<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank">�u�v���O�������s�̏ڍׁi�I�v�V�����w�莞�j�v</a></li>
-<li><a href="./2_program.html">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@�v���O�������s</a>- <a href="./2_program.html#PROGRAM1">�y�Q�z�v���O�������s�̕��@����1</a></li>
+<li>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html" class="externallink" target="_blank" rel="noopener">runex文</a></li>
+<li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank" rel="noopener">「プログラム実行の詳細（オプション指定時）」</a></li>
+<li><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>- <a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a></li>
 </ul>
-<p>�����͈ȉ��ɂȂ�܂��B</p>
-<p><strong>runex</strong> ���s�t�@�C����, �����t���O, �W�����̓t���O, �W�����̓t�@�C����, �W���o�̓t���O, �W���o�̓t�@�C����, �W���G���[�o�̓t���O, �W���G���[�o�̓t�@�C����, ��ƃt�H���_�t���O, ��ƃt�H���_��, �\���t���O, ��`��t���O, �G���R�[�h, �g���t���O;</p>
+<p>書式は以下になります。</p>
+<p><strong>runex</strong> 実行ファイル名, 同期フラグ, 標準入力フラグ, 標準入力ファイル名, 標準出力フラグ, 標準出力ファイル名, 標準エラー出力フラグ, 標準エラー出力ファイル名, 作業フォルダフラグ, 作業フォルダ名, 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>
 <ul>
-<li><p>�����t���O�ŁA�񓯊����s/�������s���w��ł��܂��B</p></li>
-<li><p>���_�C���N�g���s���ꍇ�́A�W�����́A�W���o�́A�W���G���[�o�͂̊e�t���O�ƁA�e�t�@�C������ݒ肷�邱�ƁB</p></li>
-<li><p>�\���t���O�ŁA3�ȍ~�̈Ӗ��́A <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank">ShellExecuteA function (shellapi.h)</a> �́unShowCmd�v���Q�Ƃ̎��B</p></li>
-<li><p>�G���R�[�h�ŁA�����R�[�h���w��ł��܂��B����́AANSI(Shift_JIS)�AUTF16-LE�AUTF-8 ���w��ł��܂��B</p></li>
-<li><p>�g���t���O�ŁA"%f" ���̕ϊ���}���ł��܂�</p></li>
-<li><p>��ƃt�H���_�̎g����</p>
-<p>��ƃt�H���_�́A���s�t�@�C���̎��s���̃t�H���_���w�肵�܂��B</p>
-<p>�킩��₷���Ⴞ�ƁA�R�}���h�v�����v�g(cmd.exe)�����s����ꍇ�A��ƃt�H���_���w�肷��ƁA���̃t�H���_���J�����g�ɂ����R�}���h�v�����v�g���J�����Ƃ��ł��܂��B PowerShell(powershell.exe�Apwsh.exe)�ł��L���ł��B</p>
-<p>�R�}���h�v�����v�g���A�}�N���t�H���_���J�����g�ɂ�����ԂŊJ���}�N��</p>
+<li><p>同期フラグで、非同期実行/同期実行を指定できます。</p></li>
+<li><p>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</p></li>
+<li><p>表示フラグで、3以降の意味は、 <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank" rel="noopener">ShellExecuteA function (shellapi.h)</a> の「nShowCmd」を参照の事。</p></li>
+<li><p>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</p></li>
+<li><p>拡張フラグで、"%f" 等の変換を抑制できます</p></li>
+<li><p>作業フォルダの使い方</p>
+<p>作業フォルダは、実行ファイルの実行時のフォルダを指定します。</p>
+<p>わかりやすい例だと、コマンドプロンプト(cmd.exe)を実行する場合、作業フォルダを指定すると、そのフォルダをカレントにしたコマンドプロンプトを開くことができます。 PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
+<p>コマンドプロンプトを、マクロフォルダをカレントにした状態で開くマクロ</p>
 <div class="macro">
 <pre><code>runex &quot;cmd.exe&quot;
 //sync   0:async, 1:sync
@@ -146,24 +146,24 @@ if(!result){
 ;</code></pre>
 </div>
 <ul>
-<li><p>���܂�</p>
-<p>�R�}���h�v�����v�g�APowerShell�AWindows Terminal �́A�N���I�v�V�������w�肷�邱�ƂŁA�C�ӂ̃t�H���_���J�����Ƃ��\�ł��B(runex���ł͂Ȃ��Arun���ł��\)</p>
+<li><p>おまけ</p>
+<p>コマンドプロンプト、PowerShell、Windows Terminal は、起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
 <ul>
-<li><p>�R�}���h�v�����v�g</p>
+<li><p>コマンドプロンプト</p>
 <div class="macro">
-<pre><code>cmd.exe /k cd /d &quot;�J�������t�H���_&quot;</code></pre>
+<pre><code>cmd.exe /k cd /d &quot;開きたいフォルダ&quot;</code></pre>
 </div></li>
 <li><p>PowerShell(Ver.5)</p>
 <div class="macro">
-<pre><code>powershell.exe -noexit -command Set-Location -literalPath &#39;�J�������t�H���_&#39;</code></pre>
+<pre><code>powershell.exe -noexit -command Set-Location -literalPath &#39;開きたいフォルダ&#39;</code></pre>
 </div></li>
 <li><p>PowerShell(Ver.7)</p>
 <div class="macro">
-<pre><code>pwsh.exe -WorkingDirectory &quot;�J�������t�H���_&quot;</code></pre>
+<pre><code>pwsh.exe -WorkingDirectory &quot;開きたいフォルダ&quot;</code></pre>
 </div></li>
 <li><p>Windows Terminal</p>
 <div class="macro">
-<pre><code>wt.exe new-tab --startingDirectory &quot;�J�������t�H���_&quot;</code></pre>
+<pre><code>wt.exe new-tab --startingDirectory &quot;開きたいフォルダ&quot;</code></pre>
 </div></li>
 </ul></li>
 </ul></li>
@@ -171,6 +171,6 @@ if(!result){
 </div>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>
