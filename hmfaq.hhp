@@ -2,13 +2,17 @@
 Compatibility=1.1 or later
 Compiled file=hmeqa.chm
 Contents file=Table of Contents.hhc
+Default Window=hmeqa
 Default topic=hmindex0.html
 Display compile progress=Yes
 Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
-Language=0x411 “ú–{Œê (“ú–{)
-Title=GŠÛƒGƒfƒBƒ^‚p•‚`W(‘æ8.8”Å)
+Language=0x411 æ—¥æœ¬èª (æ—¥æœ¬)
+Title=ç§€ä¸¸ã‚¨ãƒ‡ã‚£ã‚¿ï¼±ï¼†ï¼¡é›†(ç¬¬8.8ç‰ˆ)
+
+[WINDOWS]
+hmeqa="ç§€ä¸¸ã‚¨ãƒ‡ã‚£ã‚¿ï¼±ï¼†ï¼¡é›†(ç¬¬8.8ç‰ˆ)","Table of Contents.hhc","hmfaq.hhk","hmindex0.html","hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
 
 
 [FILES]
