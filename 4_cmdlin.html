@@ -26,24 +26,32 @@
 <hr />
 <h2 id="option">起動オプションを使ってみよう</h2>
 <p>秀丸エディタに限らず、Windowsのアプリケーションの多くで、「<span class="font_red_bold">起動オプション</span>」を使うことができます。これによって、そのアプリケーションをどんな状態で起動させるかや、起動してすぐに実行したい処理などを指示できます。起動オプションをうまく使うと、単にアプリケーションを起動するだけとはひとあじ違う使い方ができるわけで、こんなイイものを使わない手はないでしょう。(^_^)</p>
+<p>秀丸エディタの場合は、</p>
 <table>
-<thead>
-<tr class="header">
-<th style="text-align: left;">秀丸エディタの場合</th>
-<th style="text-align: left;">は、</th>
-</tr>
-</thead>
+<caption>秀丸エディタ 起動オプションの例</caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 77%" />
+</colgroup>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">/b</td>
 <td style="text-align: left;">秀丸エディタを閲覧モードで起動します。</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">/j行番号,桁番号</td>
+<td style="text-align: left;">ファイルを開いてから，指定された行にカーソルを移動します。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">/xマクロ名</td>
+<td style="text-align: left;">秀丸エディタ起動と同時にマクロを実行します。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/fe /fj など</td>
+<td style="text-align: left;">オープンするファイルの文字コードを指定します。</td>
+</tr>
 </tbody>
 </table>
-<p>/j行番号,桁番号 ファイルを開いてから，指定された行にカーソルを移動します。</p>
-<p>/xマクロ名 秀丸エディタ起動と同時にマクロを実行します。</p>
-<p>/fe /fj など オープンするファイルの文字コードを指定します。 ―――――- ―――――――――――――――――――-</p>
-<p>Table:秀丸エディタ 起動オプションの例</p>
 <p>のような起動オプションを利用できます。（詳しくは秀丸エディタヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/230_Option.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ起動時のオプション</a>を参照してください）</p>
 <p>この起動オプションは、「<strong>コマンドライン</strong>」で利用できます。コマンドラインというのは、起動したいアプリケーション名とその起動オプション・開きたいファイル名を『<strong>文字で</strong>』記述することで、そのアプリケーションを起動できるモノを指します（←ちょっといい加減な説明(^^;)）。<br />
 例えば、「ファイル名を指定して実行(R)」がそれに当たります。</p>
@@ -54,11 +62,15 @@
 例えば、ショートカットの場合、ショートカットのプロパティの「<strong>リンク先</strong>」がコマンドラインになっています。<br />
 ショートカットは、デスクトップ上に置いて使う以外にも、右クリックメニューの中の「<strong>送る</strong>」の機能を追加するために使うことができます。「送る」の送り先は、ユーザーフォルダ内のフォルダに置かれたショートカットなので、そこへショートカットを作成すれば「送る」に追加されます。 (「ファイル名を指定して実行(R)」や「送る」のフォルダを開く方法は「<a href="#SUPPLEMENT">補足</a>」-「<a href="#SUPPLEMENT-1">「送る」のフォルダを開く方法</a>」を参照)</p>
 <p>ということは、ショートカットの「<strong>リンク先</strong>」のところに起動オプションを書き加えておいて、そこにファイルを<strong>ドラッグ&amp;ドロップ</strong>すれば（または「<strong>送る</strong>」）、いつもと一味違う秀丸エディタが立ち上がって便利便利、ということになるはずです。</p>
-<p>【１】<a href="#DRAGDROP">ショートカットへの「ドラッグ&amp;ドロップ」の場合</a><br />
-【２】<a href="#REG">「アプリケーションとの関連付け」の場合</a><br />
-【３】<a href="#info">注意点など</a><br />
-【４】<a href="#CMD">コマンドプロンプトでの応用</a><br />
-【５】<a href="#SUPPLEMENT">補足</a></p>
+<div class="title-li">
+<ul>
+<li>【１】<a href="#DRAGDROP">ショートカットへの「ドラッグ&amp;ドロップ」の場合</a></li>
+<li>【２】<a href="#REG">「アプリケーションとの関連付け」の場合</a></li>
+<li>【３】<a href="#info">注意点など</a></li>
+<li>【４】<a href="#CMD">コマンドプロンプトでの応用</a></li>
+<li>【５】<a href="#SUPPLEMENT">補足</a></li>
+</ul>
+</div>
 <!-- h3 -->
 <div class="marginleft">
 <h3 id="DRAGDROP">【１】ショートカットへの「ドラッグ&amp;ドロップ」の場合</h3>
@@ -90,7 +102,7 @@
 <pre><code>例)秀丸エディタの標準的なインストール先
 　 C:\Program Files\Hidemaru\Hidemaru.exe</code></pre>
 </div>
-<p>この<code>C:\Program Files\Hidemaru\Hidemaru.exe</code> を単純に半角スペースで分割すると、</p>
+<p>この <code>C:\Program Files\Hidemaru\Hidemaru.exe</code> を単純に半角スペースで分割すると、</p>
 <div class="box_line2">
 <pre><code>「C:\Program」と「Files\Hidemaru\Hidemaru.exe」</code></pre>
 </div>

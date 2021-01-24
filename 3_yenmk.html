@@ -25,12 +25,15 @@
 <h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　マクロ内での「\」や特殊文字の使い方</h1>
 <hr />
 <h2 id="INDEX">マクロ内での「\」や特殊文字の使い方</h2>
-<p>【０】<a href="#MAEGAKI">まえがき 〜 「\」や特殊文字を表記するために 〜</a><br />
-【１】<a href="#YENMARK">「\」の意味</a><br />
-【２】<a href="#EXAMPLE">「\」の使用例</a><br />
-【３】<a href="#REGULAR">正規表現で使用する場合</a><br />
-└【３．１】<a href="#QUOTE">Ver.8.54以降の場合</a><br />
-【４】<a href="#STRINGLITERAL">Ver.8.66以降の場合</a></p>
+<div class="title-li">
+<ul>
+<li>【０】<a href="#MAEGAKI">まえがき 〜 「\」や特殊文字を表記するために 〜</a></li>
+<li>【１】<a href="#YENMARK">「\」の意味</a></li>
+<li>【２】<a href="#EXAMPLE">「\」の使用例</a></li>
+<li>【３】<a href="#REGULAR">正規表現で使用する場合</a></li>
+<li>【４】<a href="#SUPPLEMENT">補足</a></li>
+</ul>
+</div>
 <!-- h3 -->
 <div class="marginleft">
 <h3 id="MAEGAKI">【０】まえがき 〜 「\」や特殊文字を表記するために 〜</h3>
@@ -41,7 +44,7 @@
 <p>逆にいうと、「\」の文字を書きたいときに、単に「\」と書くとよろしくない、ということになります。</p>
 <p>以下では、これらの特殊文字や、「\」自体を表記したい時の書き方を簡単にまとめてあります。</p>
 <p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルや、C#の逐語的リテラル文字列 記法が使用出来るようになりました。この記法を使用すれば、「\」によるエスケープなしで、記述した文字列をそのまま、変数に入力できます。<br />
-(記法によっては制限があります。「【４】<a href="#STRINGLITERAL">Ver.8.66以降の場合</a>」を参照)</p>
+(記法によっては制限があります。「<a href="#STRINGLITERAL">Ver.8.66以降の場合</a>」を参照)</p>
 <h3 id="YENMARK">【１】「\」の意味</h3>
 <p>「\」を使う場合として、次のものが挙げられます。</p>
 <div class="table_border1">
@@ -125,7 +128,7 @@ endmacro;
 <p>では、実際に「\」が出てくるマクロをいくつか書いてみましょう。</p>
 <p><strong>(a)ファイル「c:\test.txt」をオープンするマクロ</strong></p>
 <div class="macro">
-<pre><code>//---- ファイルをオープンするテストマクロ ------------------\
+<pre><code>//---- ファイルをオープンするテストマクロ ------------------
 openfile &quot;c:\\test.txt&quot;;
 endmacro;
 //---- ここまで --------------------------------------------</code></pre>
@@ -179,9 +182,14 @@ endmacro;
 <pre><code>searchdown &quot;\\\&quot;&quot;, regular;</code></pre>
 </div>
 <p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。表示される内容が、HMJRE.DLLに渡される文字列となるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
-<!-- h4 -->
-<section id="QUOTE" class="marginleft">
-<h4>【３．１】Ver.8.54以降の場合</h4>
+<h3 id="SUPPLEMENT">【４】補足</h3>
+<ul>
+<li><a href="#QUOTE">Ver.8.54以降の場合</a></li>
+<li><a href="#STRINGLITERAL">Ver.8.66以降の場合</a></li>
+</ul>
+<!-- h3 -->
+<div class="marginleft">
+<h4 id="QUOTE">Ver.8.54以降の場合</h4>
 <p>秀丸エディタ Ver.8.54以降では、 <a href="https://help.maruo.co.jp/hidemac/html/070_Function_quote.html" class="externallink" target="_blank" rel="noopener">quote 関数</a>が使えます。</p>
 <p>この関数は、<span class="attention_red">正規表現</span>で使用されるメタ文字の前に"\"を追加し、エスケープします。 (正規表現で、その文字そのものとして扱われるようにする。秀丸エディタのヘルプ-<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" class="externallink" target="_blank" rel="noopener">正規表現</a>の後半を参照)</p>
 <p>現状では、以下の文字が対象になっています。</p>
@@ -201,8 +209,7 @@ endmacro;
 <pre><code>C:\\Program Files\\Hidemaru\\Hidemaru\.exe</code></pre>
 </div>
 <p>この戻り値を正規表現の検索で使用すれば、"<code>C:\Program Files\Hidemaru\Hidemaru.exe</code>" を、間違いなく検索可能になります。</p>
-</section>
-<h3 id="STRINGLITERAL">【４】Ver.8.66以降の場合</h3>
+<h4 id="STRINGLITERAL">Ver.8.66以降の場合</h4>
 <p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルや、C#の逐語的リテラル文字列 の記法が使用出来るようになりました。この記法を使えば、文字列を見やすく記述可能になります。</p>
 <div class="mark_dt">
 <dl>
@@ -302,6 +309,7 @@ message @&quot;&quot;&quot;Raw文字列
 <p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>
 <div class="macro">
 <pre><code>openfile @&quot;C:\Program Files\Hidemaru\HIDEMARU.TXT&quot;;</code></pre>
+</div>
 </div>
 </div>
 <hr />
