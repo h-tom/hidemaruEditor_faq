@@ -413,6 +413,7 @@ li {
 
 .BlockScroll{
   overflow      : auto;
+  word-wrap     : normal;
 }
 
 .hme0016c_01 {
@@ -445,9 +446,9 @@ li {
 }
 
 div.mark_dt > dl > dt {
-  margin-left   : 0.5em;
-  font-weight   : bold;
-  /*color       : white;*/
+  margin-left      : 0.5em;
+  font-weight      : bold;
+  /*color          : white;*/
   background-color : thistle;
 }
 
@@ -456,8 +457,8 @@ div.mark_dt > dl > dd {
 }
 
 .mark_dt3 {
-  font-weight    :bold;
-  background: linear-gradient(transparent 70%, greenyellow 70%);
+  font-weight    : bold;
+  background     : linear-gradient(transparent 70%, greenyellow 70%);
   /*
   border-bottom  :solid 3px lime
   text-decoration:underline double darkblue;
@@ -610,7 +611,11 @@ header#title-block-header{
 }
 /* 640px*/
 @media screen and (max-width: 640px) {
-  h1,h2,h3,h4,h5,h6 {
+  body {
+    margin: 1em;
+  } 
+  
+h1,h2,h3,h4,h5,h6 {
     font-size :1em ;
   }
   
@@ -643,5 +648,19 @@ header#title-block-header{
   .flex-container > ul > li{
     display:block;
     padding-right   :0em;
+  }
+  ul,ol{
+    padding-inline-start: 0.5em;
+  }
+  li{
+    padding-inline-start: 0.5em;
+  }
+  /*  
+  div.mark_dt > dl > dd{
+    margin-left      : 20px;
+  }
+  */
+  dd {
+      margin-inline-start: 10px;
   }
 }
