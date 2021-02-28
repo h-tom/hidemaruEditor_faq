@@ -159,20 +159,7 @@ file1.txt を開き test.mac を実行するが、file2.txt は開かない。</
 </div>
 <h3 id="CMD">【４】コマンドプロンプトでの応用</h3>
 <p>コマンドプロンプトを使うと、複数のファイルにマクロを実行できます。 (実行するマクロはチョットした注意点があります)</p>
-<p>以下は、ワイルドカードで指定したファイルに対し、マクロを実行するバッチファイルです。<br />
-秀丸エディタのパスや、実行するマクロ名 "実行するマクロ.mac" は、適宜書き換えてください。</p>
-<div class="macro">
-<pre><code>@echo off
-if not &quot;%1&quot; == &quot;&quot; goto MAIN
-echo 検索するファイルのワイルドカードを指定してください。
-goto :EOF
-
-:MAIN
-for %%a in (%1) do start &quot;&quot; /wait &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x 実行するマクロ.mac &quot;%%a&quot;</code></pre>
-</div>
-<p>上記内容をバッチファイルとして保存しワイルドカードを引数に指定して実行すると、ワイルドカードにマッチしたファイルに対しマクロ(実行するマクロ.mac)を実行します。</p>
-<p>ただし、開いた秀丸エディタを閉じないと、次のファイルに進みません。自動処理で使用する場合には、マクロ内でファイルを閉じる操作が必要です。 (exit文 または quit文 を使う)</p>
-<p>バッチファイルだと「<code>start "" /wait</code>」は不要ですが、確実に終了待ちを行うため追加しています。コマンドプロンプトで、for文を直接実行する場合には、「<code>start "" /wait</code>」は必ず必要になります。</p>
+<p>詳細は、[HMM0084A]<a href="./HMM0084A.html">●フォルダにある複数のファイルにマクロを実行したい</a>を参照してください。</p>
 <h3 id="SUPPLEMENT">【５】補足</h3>
 <!-- h4 -->
 <section id="SUPPLEMENT-1" class="marginleft">
