@@ -62,6 +62,7 @@
 <li><a href="#V894">秀丸エディタVer.8.94 マクロ関連の変更履歴</a></li>
 <li><a href="#V895">秀丸エディタVer.8.95 マクロ関連の変更履歴</a></li>
 <li><a href="#V896">秀丸エディタVer.8.96 マクロ関連の変更履歴</a></li>
+<li><a href="#V897">秀丸エディタVer.8.97 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの紹介（Ver8.00対応版）</a>を参照してください。</p>
@@ -1165,6 +1166,31 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>createobjectで管理者によるRegSvr32やRegAsmの登録なしに、DLLファイル名でCOMオブジェクトを作成できるように修正。</li>
 <li>正規表現の秀丸エディタのコメントの(?#maxlines:数値)は9999までの上限に増やした。</li>
+</ul>
+</div>
+<h2 id="V897">秀丸エディタVer.8.97 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V897">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.97</a></p>
+<p>【２】<a href="#SPEC_V897">仕様変更 - 「秀丸エディタ」Ver.8.97</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V897">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.97</h3>
+<ul>
+<li>変更、パラメータ追加等
+<ul>
+<li>evalでsetcompatiblemodeは現在の状態を引き継ぐように変更。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>filtermenu文がマクロ開始後1秒以上経過するとうまく動作しない問題修正。</li>
+<li>浮動小数点数版のsetfloatmode 1;でnewfileやsetactivehidemaruで実行対象が切り替わると状態がリセットされる問題修正。（setfloatmodeの状態を維持するように変更）</li>
+<li>createobjectのアウトプロセスサーバーがうまく動作しない問題修正。(Ver.8.96)</li>
+<li>.net 5で作成したCOMサーバーでcreateobjectに失敗する問題の対策。(VEr.8.96以前からある問題)</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V897">【２】仕様変更 - 「秀丸エディタ」Ver.8.97</h3>
+<ul>
+<li>「すべてを選択」コマンド実行時に直前の位置を「前のカーソル位置」として覚えるように修正</li>
+<li>キー操作の記録で「指定行…」で入力した行番号を記録するように修正。</li>
 </ul>
 </div>
 <hr />
