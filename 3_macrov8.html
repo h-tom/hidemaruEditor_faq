@@ -974,7 +974,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>マクロ実行中のエラーは、マクロエラーだけでなく一般のエラーでも逆コンパイル内容を表示するように修正（ただしexecmacroについては実行した次の行が対象）</li>
 <li>writeinistrwでパスの区切りをスラッシュで書いた場合の対応（念のための対応で、他の処理はパスをスラッシュで区切ることは対応していません）</li>
 <li>マクロの変数格納の速度の改善</li>
-<li>マクロのconfig “s数値”で、サイズ変更した後にフォンとサイズの記憶状態がおかしい場合がある問題修正</li>
+<li>マクロの config “s数値”でサイズ変更した後に、フォントサイズの記憶状態がおかしい場合がある問題修正</li>
 <li>config文でフォントを変更してsaveconfigするとき、Unicodeのファイルで記憶されない問題修正</li>
 <li>crateobject後に他の秀丸エディタにアクティブ切り替えしたままマクロを終了するとメモリリークする場合がある問題修正</li>
 <li>nextoutlineitem/prevoutlineitemで、resultが得られるように修正。</li>
@@ -1014,8 +1014,8 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>変更、パラメータ追加等
 <ul>
 <li>setcompatiblemode でマクロ実行中にカーソル行の下線や縦線を描画できるフラグを追加。</li>
-<li>saveconfig 文のパラメータで指定した設定名で保存できるように追加。</li>
-<li>gettitle の第２パラメータを追加して、他の秀丸エディタからの取得もできるように修正。</li>
+<li>saveconfig 文のパラメータを追加し、指定した設定名で保存できるように修正。</li>
+<li>gettitle の第２パラメータを追加し、他の秀丸エディタからの取得もできるように修正。</li>
 <li>clearallmark 文のパラメータ追加。1で「現在のファイルのマークを解除」を行う。</li>
 <li>showvars も debuginfo で 2 を指定している場合はアウトプット枠へ出力するように修正。</li>
 <li>codepageキーワードのUTF-32は12000(UTF-32LE)と12001(UTF-32BE)に変更。</li>
@@ -1068,7 +1068,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>colormarkerallfound パラメータで範囲を指定できるように修正。</li>
 <li>colormarker 種類フラグ 0x10のビットで、改行以降の余白にも背景色を指定できるように修正。</li>
 <li>split関数 区切り文字に""を指定して一文字ずつに分割に対応。</li>
-<li>openfile文 複数ファイル指定のときはファイル検索パスは働かないようにして、getresultex(20)と(21)を追加。</li>
+<li>openfile文 複数ファイル指定時、ファイル検索パスは働かないようにして、getresultex(20)と(21)を追加。</li>
 <li>colormarker文、colormarkerallfound文で、種類のパラメータの上位16ビットで強調表示としての動作とできるように修正。</li>
 <li>colormarkerallfoundでレイヤー付きの場合は検索の色付け一覧ダイアログには入れないように修正や、範囲指定時にうまくいかない問題などの修正。</li>
 <li>openfile用のseterrormodeの値を追加して、ファイルが無い場合の問い合わせ、ファイル検索パスの問い合わせを指定できるように修正。 getresultex(22)の追加。</li>
@@ -1150,11 +1150,11 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>変更、パラメータ追加等
 <ul>
 <li>split -1;のパラメータで動作環境による自動判定を追加。</li>
-<li>charcount関数で第２パラメータで対象文字列を指定可能にする対応と、0x00000088でカーソル移動単位の指定の追加。</li>
+<li>charcount関数で、第２パラメータに対象文字列を指定可能にする対応と、0x00000088でカーソル移動単位の指定の追加。</li>
 <li>fontmodeで結合文字やカラー絵文字の設定状態の取得の追加。</li>
 <li>title文のUnicode対応。</li>
 <li>message文で位置指定のパラメータ追加。</li>
-<li>multiselectingで複数選択で全ての幅がゼロのときに2となるように修正。</li>
+<li>multiselectingは、複数選択で全ての幅がゼロのときに2となるように修正。</li>
 </ul></li>
 <li>その他
 <ul>
@@ -1184,7 +1184,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>filtermenu文がマクロ開始後1秒以上経過するとうまく動作しない問題修正。</li>
 <li>浮動小数点数版のsetfloatmode 1;でnewfileやsetactivehidemaruで実行対象が切り替わると状態がリセットされる問題修正。（setfloatmodeの状態を維持するように変更）</li>
 <li>createobjectのアウトプロセスサーバーがうまく動作しない問題修正。(Ver.8.96)</li>
-<li>.net 5で作成したCOMサーバーでcreateobjectに失敗する問題の対策。(VEr.8.96以前からある問題)</li>
+<li>.net 5を使って作成したCOMサーバーで、createobjectに失敗する問題の対策。(VEr.8.96以前からある問題)</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V897">【２】仕様変更 - 「秀丸エディタ」Ver.8.97</h3>
