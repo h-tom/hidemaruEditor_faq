@@ -108,7 +108,7 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 例えば、デフォルトでは「<kbd>[Ctrl]</kbd>+<kbd>[F]</kbd>」で検索ダイアログがでますよね。こうした使い方でマクロを実行させたいわけです。そして、これこそがこのセクションの最大のポイントです。<br />
 そこで改めてマクロ登録数に関する仕様内容を読み返してみましょう。「80個まで登録できます」です。おおっ。「80個までのマクロを実行できます」ではなかったんですね。つまり「登録の制限」があるだけで「80個しかマクロを実行できないわけではない」のです。この仕様の隙間に注目すれば、無限のマクロ登録が実現します！</p>
 <h4 id="PRINCIPLE">登録数の制限突破への原理</h4>
-<p>あうん？　「登録の制限」があるだけで……、んで、「実行できないわけではない」……。なんだか、わかったようでわからないような…。これじゃ、まるで怪しげな結婚詐欺師。持って回った言い回しになってスイマセンです。要は「登録できるマクロは80個までだが、80個のマクロしか実行できないわけではない」という事です。</p>
+<p>あうん？　「登録の制限」があるだけで…、んで、「実行できないわけではない」…。なんだか、わかったようでわからないような…。これじゃ、まるで怪しげな結婚詐欺師。持って回った言い回しになってスイマセンです。要は「登録できるマクロは80個までだが、80個のマクロしか実行できないわけではない」という事です。</p>
 <p>最大のポイントは「登録できるマクロ数には80という制限があるが、キー割り当てには制限がない」という仕様に注目するところです。実際のマクロ作成では、次のようなステップで目的を実現します。</p>
 <ol type="1">
 <li><p><strong>複数のキー割り当てから1つのマクロを呼び出す</strong><br />
@@ -117,7 +117,7 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 でも、1.まででは複数のキー入力によって1つのマクロの実行しかできません。そこで、呼び出されたマクロ（この例ではaaa.mac）では、押されているキーの状態を読みとります。 <kbd>Ctrl</kbd>キーは押されているのか、<kbd>Shift</kbd>キーはどうか、アルファベットキーはどうなのか、などをiskeydown関数を用いて調べます。</p>
 <p>例えば、ここでは、<kbd>[Ctrl]</kbd>+<kbd>[A]</kbd>、<kbd>[Ctrl]</kbd>+<kbd>[Shift]</kbd>+<kbd>[A]</kbd>、<kbd>[Alt]</kbd>+<kbd>[A]</kbd>のキー状態を判別します。</p></li>
 <li><p><strong>キーの状態に応じたマクロを呼び出して実行させる</strong><br />
-2.で得られたキーの状態に応じたマクロを呼び出せば、キーボードからさまざまなマクロを実質的に無限に実行できるようになります。（もっともこの場合、どのキーにどんなマクロを割り当てたかを覚えておく必要があります）</p></li>
+2.で得られたキーの状態に応じたマクロを呼び出せば、キーボードからさまざまなマクロを実行できます。（もっともこの場合、どのキーにどんなマクロを割り当てたかを覚えておく必要があります）。</p></li>
 </ol>
 <h4 id="SAMPLE">具体的なマクロ作例</h4>
 <p>秀丸エディタでマクロ登録数の制限を克服するための原理の説明は以上でおしまいです。実際にどのようなマクロをこれを実現するか、２つの例を紹介することにします。</p>
@@ -128,7 +128,7 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <p>●マクロ登録数の限界を破る</p>
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><span class="font_bold">秀丸エディタのマクロをショートカットキーやメニューに登録して使っています。でも登録は、最高で80個まで（ショートカットキーを割り当てられるのは50個まで）しかできませんよね。しかし、雑誌の付録などで集めた小さいマクロも含めていろいろ登録していると、これではとても収まらなくなってきました。あふれたマクロを「マクロの実行」メニューから呼び出す方式はわずらわしいのでイヤなのですが、なんとかなりませんか。</span>
+<dd><strong>秀丸エディタのマクロをショートカットキーやメニューに登録して使っています。でも登録は、最高で80個までしかできませんよね。しかし、雑誌の付録などで集めた小さいマクロも含めていろいろ登録していると、これではとても収まらなくなってきました。あふれたマクロを「マクロの実行」メニューから呼び出す方式はわずらわしいのでイヤなのですが、なんとかなりませんか。</strong>
 </dd>
 </dl>
 <hr />
@@ -185,46 +185,46 @@ endmacroall;</code></pre>
 <caption>表1　主なキーコード一覧（10進数表記）</caption>
 <thead>
 <tr class="header">
-<th style="text-align: center;">キー</th>
-<th style="text-align: left;">キーコード</th>
+<th style="text-align: right;">キー キー</th>
+<th style="text-align: left;">コード</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;">Shift</td>
+<td style="text-align: right;">Shift</td>
 <td style="text-align: left;">16</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">Ctrl</td>
+<td style="text-align: right;">Ctrl</td>
 <td style="text-align: left;">17</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">Alt</td>
+<td style="text-align: right;">Alt</td>
 <td style="text-align: left;">18</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">左</td>
-<td style="text-align: left;">37</td>
+<td style="text-align: right;">左 3</td>
+<td style="text-align: left;">7</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">上</td>
-<td style="text-align: left;">38</td>
+<td style="text-align: right;">上 3</td>
+<td style="text-align: left;">8</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">右</td>
-<td style="text-align: left;">39</td>
+<td style="text-align: right;">右 3</td>
+<td style="text-align: left;">9</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">下</td>
-<td style="text-align: left;">40</td>
+<td style="text-align: right;">下 4</td>
+<td style="text-align: left;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">0〜9</td>
-<td style="text-align: left;">48〜57</td>
+<td style="text-align: right;">0〜9 4</td>
+<td style="text-align: left;">8〜57</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">A〜Z</td>
-<td style="text-align: left;">65〜90</td>
+<td style="text-align: right;">A〜Z 6</td>
+<td style="text-align: left;">5〜90</td>
 </tr>
 </tbody>
 </table>

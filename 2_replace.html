@@ -87,18 +87,18 @@
 確認ダイアログを表示し、置換する前に本当に置換するかどうかの確認をします。<br />
 置換の確認ダイアログは「その他→<span class="env">動作環境</span>→検索→検索ダイアログ」の「置換の確認の種類」で、種類を変更できます。</p></li>
 </ul></li>
-<li><p>最後に実行方法を選択する事で「<strong>置換</strong>」が行われます。</p>
+<li><p>最後に実行方法を選択する事で「<strong>置換</strong>」が行われます。<br />
+以下のいずれかを選んで下さい。</p>
 <ul>
 <li><p>「<strong><span class="font_blue">上検索</span></strong>」(現在のカーソル位置より上にある文字を置換)</p></li>
 <li><p>「<strong><span class="font_blue">下検索</span></strong>」(現在のカーソル位置より下にある文字を置換)</p></li>
 <li><p>「<strong><span class="font_blue">全置換</span></strong>」(編集中のファイルの全ての文字を置換)</p>
-<p>Ver.8.85より、「全置換」ボタンの「▼」マークから、「クイック全置換」が実行できます。「クイック全置換」は、エディタ画面上の表示関連の処理を省くことで、高速に動作します。</p>
+<p>Ver.8.85より、「全置換」ボタンの「▼」マークから、「クイック全置換」が実行できます。</p>
 <p><img src="2_replace_10.png" width="224" height="132" alt="クイック全置換" /><br />
 </p>
 <p>通常の「全置換」と「クイック全置換」の違いについては、<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank" rel="noopener">秀丸エディタヘルプの「置換」</a>を参照してください。</p>
 <p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。その為、置換した箇所の把握はできません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。</p></li>
-</ul>
-<p>のいずれかを選んで下さい。</p></li>
+</ul></li>
 </ol>
 <h3 id="SUPPLEMENTATION">[補足]</h3>
 <ul>
@@ -136,7 +136,7 @@
 <p>新しいダイアログ(タイプ3)<br />
 <img src="2_replace_06.png" width="348" height="59" alt="確認ダイアログタイプ3" /><br />
 </p>
-<p>以前だと、「<span class="font_blue">一周する</span>」がオフの状態で上検索または下検索を行い、ファイルの上限か下限に達して検索出来なくなると確認ダイアログが消えましたが、現状では「キャンセル」しないと表示されたままになります。 (移動できない方向の検索ボタンは無効化された状態になる)</p>
+<p>以前だと、「<span class="font_blue">一周する</span>」がオフの状態で上検索または下検索して、ファイルの上限か下限に達して検索出来なくなると確認ダイアログが消えましたが、現状では「キャンセル」しないと表示されたままになります。 (移動できない方向の検索ボタンは無効化された状態になる)</p>
 <p>従来のダイアログでの表示例<br />
 <img src="2_replace_07.png" width="453" height="59" alt="確認ダイアログ従来タイプその2" /><br />
 </p>
@@ -161,66 +161,66 @@
 <caption>標準添付の変換モジュール</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">関数名</th>
-<th style="text-align: left;">機能</th>
+<th>関数名 機能</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">ToUpper</td>
-<td style="text-align: left;">UPPER CASE(大文字へ)</td>
+<td>ToUpper</td>
+<td>UPPER CASE(大文字へ)</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ToLower</td>
-<td style="text-align: left;">lower case(小文字へ)</td>
+<td>ToLower</td>
+<td>lower case(小文字へ)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ToHankaku</td>
-<td style="text-align: left;">ハンカク</td>
+<td>ToHankaku</td>
+<td>ハンカク</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ToZenkakuHira</td>
-<td style="text-align: left;">全角ひらがな</td>
+<td>ToZenkakuHira</td>
+<td>全角ひらがな</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ToZenkakuKata</td>
-<td style="text-align: left;">全角カタカナ</td>
+<td>ToZenkakuKata</td>
+<td>全角カタカナ</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ToSpace</td>
-<td style="text-align: left;">TAB -&gt; 空白</td>
+<td>ToSpace</td>
+<td>TAB -&gt; 空白</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ToTab</td>
-<td style="text-align: left;">空白 -&gt; TAB</td>
+<td>ToTab</td>
+<td>空白 -&gt; TAB</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ToHankakuAlnum</td>
-<td style="text-align: left;">英数字/記号/空白のみ半角に</td>
+<td>ToHankakuAlnum</td>
+<td>英数字/記号/空白のみ半角に</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ToZenkakuAlnum</td>
-<td style="text-align: left;">英数字/記号/空白のみ全角に</td>
+<td>ToZenkakuAlnum</td>
+<td>英数字/記号/空白のみ全角に</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">ToHankakuKataOnly</td>
-<td style="text-align: left;">カタカナのみ半角に</td>
+<td>ToHankakuKataOnly</td>
+<td>カタカナのみ半角に</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">ToZenkakuKataOnly</td>
-<td style="text-align: left;">カタカナのみ全角に</td>
+<td>ToZenkakuKataOnly</td>
+<td>カタカナのみ全角に</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Indent</td>
-<td style="text-align: left;">インデント</td>
+<td>Indent</td>
+<td>インデント</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">UnIndent</td>
-<td style="text-align: left;">逆インデント</td>
+<td>UnIndent</td>
+<td>逆インデント</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Sort</td>
-<td style="text-align: left;">ソート</td>
+<td>Sort</td>
+<td>ソート</td>
 </tr>
 </tbody>
 </table>
@@ -247,14 +247,21 @@
 </div>
 <dl>
 <dt>例)hidemaru と editor を大文字に変換したい場合</dt>
-<dd><p>通常の置換では、以下のように置換を2回実行する必要がある。</p>
-<pre><code>置換一回目
-検索：hidemaru
+<dd><p>通常の置換では、置換を2回実行する必要があります。</p>
+<ul>
+<li><p>置換一回目</p>
+<pre><code>検索：hidemaru
 置換：HIDEMARU
 
-置換二回目
-検索：editor
-置換：EDITOR</code></pre>
+実行前：hidemaru editor
+実行後：HIDEMARU editor</code></pre></li>
+<li><p>置換二回目</p>
+<pre><code>検索：editor
+置換：EDITOR
+
+実行前：HIDEMARU editor
+実行後：HIDEMARU EDITOR</code></pre></li>
+</ul>
 <p>変換モジュールの機能を使えば一回の置換で可能。</p>
 <pre><code>検索：(hidemaru|editor)
 置換：\(0,ToUpper)

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\�@grep���Ēu��</title>
+  <title>第II部〜知っていると便利な秀丸の機能　grepして置換</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,54 +22,54 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��II���`�m���Ă���ƕ֗��ȏG�ۂ̋@�\<br>�@grep���Ēu��</h1>
+<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　grepして置換</h1>
 <hr />
-<h2 id="grep">grep���Ēu��</h2>
-<p>�ugrep���Ēu���v��grep�����s���āA�}�b�`�����ӏ��̒u�����s���A�㏑���ۑ����܂��B</p>
-<p>�ݒ莟��ł́A�o�b�N�A�b�v����炸�ɏ㏑���ۑ����Ă��܂����Ƃ�����̂ŁA���ӂ��K�v�ł��B (�ʏ�̒u���ƈႢ�A<span class="attention_red">�u��蒼���v�Ŗ߂����Ƃ͂ł��܂���</span>)</p>
+<h2 id="grep">grepして置換</h2>
+<p>「grepして置換」はgrepを実行して、マッチ箇所を置換し上書き保存します。</p>
+<p>設定次第では、バックアップを取らずに上書き保存してしまうこともあるので、注意が必要です。 (通常の置換と違い、<span class="attention_red">「やり直し」で戻すことはできません</span>)</p>
 <ul>
-<li><a href="#process">[�菇]</a></li>
+<li><a href="#process">[手順]</a></li>
 </ul>
 <!-- h3 -->
 <section id="process" class="marginleft">
-<h3>[�菇]</h3>
-<p>��{�I�Ȏg����(�I�v�V������)�́A<a href="./2_grep.html">�ugrep�v</a>�Ɠ����Ȃ̂ŁA��������Q�Ƃ��Ă��������B</p>
-<p>grep�Ɣ�r���A�ȉ��̉ӏ����قȂ�܂��B</p>
+<h3>[手順]</h3>
+<p>基本的な使い方(オプション等)は、<a href="./2_grep.html">「grep」</a>と同じなので、そちらを参照してください。</p>
+<p>grepと比較し、以下の箇所が異なります。</p>
 <ul>
-<li>�u�u�����镶����v�̓��͗��������Ă��܂��B</li>
-<li>�u�q�b�g���Ȃ��s�v�u����������̋����v�͎g���܂���B</li>
-<li>�u�o�b�N�A�b�v���쐬�v�u�ۑ��̑O�Ɋm�F�v���ǉ�����Ă���B</li>
+<li>「置換する文字列」の入力欄が増えています。</li>
+<li>「ヒットしない行」「検索文字列の強調」は使えません。</li>
+<li>「バックアップを作成」「保存の前に確認」が追加されている。</li>
 </ul>
-<p>�u�u���v�Ɠ������A<span class="font_blue">�u�������镶����v</span>��<span class="font_blue">�u�u�����镶����v</span>�́A�����s����͉\�ɂł��܂��B�ڍׂ�<a href="2_replace.html">�u�u���v</a>-�u<a href="2_replace.html#SUPPLEMENTATION">�⑫</a>�v���Q�Ƃ��Ă��������B</p>
-<p><img src="2_grepreplace_01.png" width="464" height="364" alt="grep���Ēu���_�C�A���O" /><br />
+<p>「置換」と同じく、<span class="font_blue">「検索する文字列」</span>と<span class="font_blue">「置換する文字列」</span>は、複数行を入力可能にできます。詳細は<a href="2_replace.html">「置換」</a>-「<a href="2_replace.html#SUPPLEMENTATION">補足</a>」を参照してください。</p>
+<p><img src="2_grepreplace_01.png" width="464" height="364" alt="grepして置換ダイアログ" /><br />
 </p>
 <ul>
-<li><p><strong><span class="font_blue">�u�o�b�N�A�b�v���쐬�v�`�F�b�N�{�b�N�X</span>:</strong><br />
-�u�����t�@�C�����㏑������ꍇ�A�o�b�N�A�b�v�t�@�C�����쐬���邩�ǂ�����ݒ肵�܂��B</p></li>
-<li><p><strong><span class="font_blue">�u�ۑ��̑O�Ɋm�F�v�`�F�b�N�{�b�N�X</span>:</strong><br />
-�u�����t�@�C�����㏑������ꍇ�A�₢���킹�_�C�A���O��\�����邩�ǂ�����ݒ肵�܂��B</p>
-<p><img src="2_grepreplace_03.png" width="405" height="146" alt="grep���Ēu���㏑���ۑ��m�F�_�C�A���O" /><br />
+<li><p><strong><span class="font_blue">「バックアップを作成」チェックボックス</span>:</strong><br />
+置換しファイルを上書きする場合、バックアップファイルを作成するかどうかを設定します。</p></li>
+<li><p><strong><span class="font_blue">「保存の前に確認」チェックボックス</span>:</strong><br />
+置換しファイルを上書きする場合、問い合わせダイアログを表示するかどうかを設定します。</p>
+<p><img src="2_grepreplace_03.png" width="405" height="146" alt="grepして置換上書き保存確認ダイアログ" /><br />
 </p></li>
-<li><p><strong><span class="font_blue">�u�����v�{�^��</span>:</strong><br />
-�ʏ��grep�_�C�A���O�ɐ؂�ւ��܂��B</p></li>
-<li><p><strong><span class="font_blue">�u�u���v�{�^��</span>:</strong><br />
-�{�^���������ƁA�ȉ��̃_�C�A���O���\������܂��B<br />
-<span class="font_red">(�ŏ��̃��b�Z�[�W�́A�I�v�V�����̐ݒ�ɂ��ւ��B�摜�́u�o�b�N�A�b�v���쐬�v��ON�̏ꍇ)</span></p>
-<p><img src="2_grepreplace_02.png" width="336" height="296" alt="grep���Ēu���m�F�_�C�A���O" /><br />
+<li><p><strong><span class="font_blue">「検索」ボタン</span>:</strong><br />
+通常のgrepダイアログに切り替わります。</p></li>
+<li><p><strong><span class="font_blue">「置換」ボタン</span>:</strong><br />
+ボタンを押すと、以下のダイアログが表示されます。<br />
+<span class="font_red">(最初のメッセージは、オプションの設定により替わる。画像は「バックアップを作成」がONの場合)</span></p>
+<p><img src="2_grepreplace_02.png" width="336" height="296" alt="grepして置換確認ダイアログ" /><br />
 </p>
-<p>�e��m�F(�`�F�b�N�{�b�N�X��ON)��A<strong><span class="font_red">�uOK�v</span></strong>�������Ǝ��ۂɌ���/�u�����n�܂�܂��B</p>
-<p>���ʂƂ��Ĉȉ��̂悤�ȓ��e���\������܂��B�u�������ӏ��Ƀ^�O�W�����v���\�ł��B</p>
+<p>各種確認(チェックボックスをON)後、<strong><span class="font_red">「OK」</span></strong>を押すと実際に検索/置換が始まります。</p>
+<p>結果として以下のような内容が表示されます。置換した箇所にタグジャンプも可能です。</p>
 <div class="macro">
 <pre><code>2_grepreplace.md(1):
 2_grepreplace.md(7):
 ----------------
-2 �̃t�@�C�����������܂����B
-1 �̃t�@�C����S�Ēu�����āA�㏑���ۑ����܂����B
-2 �̒u�����s�Ȃ��܂����B</code></pre>
+2 個のファイルを検索しました。
+1 個のファイルを全て置換して、上書き保存しました。
+2 個の置換を行ないました。</code></pre>
 </div></li>
 </ul>
 </section>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

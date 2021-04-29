@@ -449,13 +449,33 @@ li {
     background-color    :gray;
 }
 
+/* 定義リスト 変更 2021/03/27
 div.mark_dt > dl > dt {
     margin-left         : 0.5em;
     font-weight         : bold;
-    /*color               : white;*/
     background-color    : thistle;
 }
 
+div.mark_dt > dl > dd {
+    margin-bottom   : 0.5em;
+}
+/*
+
+/* 定義リスト2 */
+div.mark_dt > dl{
+    border-left         : solid 3px navy;
+}
+div.mark_dt > dl > dt {
+    color               : White;
+    margin-left         : 0.5em;
+    font-weight         : bold;
+    /* 変更 2021/03/27
+    background-color    : thistle;
+    */
+    /* 変更 2021/03/27*/
+    background-color    : lightsteelblue;
+    border-left         : solid 5px navy;
+}
 div.mark_dt > dl > dd {
     margin-bottom   : 0.5em;
 }
@@ -472,6 +492,13 @@ div.mark_dt > dl > dd {
     padding-left    : 4px;
     padding-right : 4px;
     */
+}
+
+div.mark_dl > dl > dt{
+    font-weight         : bold;
+    color               : White;
+    background-color    : #00BFFF;
+    border-left         : solid 5px navy;
 }
 
 .outline_marker1{

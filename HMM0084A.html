@@ -37,7 +37,7 @@
 <dd><p>秀丸マクロ単独では、フォルダ内のファイルをリストアップする方法はありません。<br />
 対象のファイルが少なければ、個別にファイルを開いてマクロを実行するのが簡単です。</p>
 <p><strong>秀丸マクロ単独では無理ですが、外部プログラム、DLL、COMコンポーネントを使えば、指定したフォルダ内ファイルをリストアップすることは可能です。</strong></p>
-<ol type="1">
+<ul>
 <li><p>外部プログラムを使う方法　その1</p>
 <p>コマンドプロンプトからバッチファイルを使います。(Windows 10 20H2 の コマンドプロンプトで確認)</p>
 <p>バッチファイルで対象ファイルをリストアップし、起動オプションを指定して秀丸エディタを起動します。ただし、実行するマクロ内で秀丸エディタを閉じないと次のファイルに進みません。 (自動で連続実行させたい場合は、マクロ内で exit や quit 等を使い、秀丸エディタを閉じる必要がある)</p>
@@ -304,18 +304,18 @@ $Searchfile = &quot;txt&quot;;</code></pre>
 <p>実行したいマクロは以下の「//ここから」、「//ここまで」の間に記述するか、 <code>execmacro</code> で呼び出すか、<code>call</code> でサブルーチンとして呼び出してください。</p>
 <p>コメントにも書きましたが、秀丸エディタを閉じる命令があると、その時点で止まるので注意してください。</p>
 <div class="macro">
-<pre><code>    //実行したいマクロを記述する。
-    //ただし exit、quit、endmacroal、saveexit、saveexitall、等マクロを終了させる命令は含ませないこと。
-    //ここから
-    execmacro &quot;_test.mac&quot;;
+<pre><code>//実行したいマクロを記述する。
+//ただし exit、quit、endmacroal、saveexit、saveexitall、等マクロを終了させる命令は含ませないこと。
+//ここから
+execmacro &quot;_test.mac&quot;;
 
-    //ここまで</code></pre>
+//ここまで</code></pre>
 </div>
 <p>デフォルトでは、読み取り専用ファイル、隠しファイル、システムファイルはリストアップしません。 ##Check_attr を変更すればリストアップできます。</p>
 <div class="macro">
 <pre><code>##Check_attr = (##ATTR_HIDDEN | ##ATTR_READONLY | ##ATTR_SYSTEM);</code></pre>
 </div></li>
-</ol>
+</ul>
 </dd>
 </dl>
 </div>

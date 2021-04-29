@@ -330,7 +330,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li><p>変更、パラメータ追加等</p>
 <ul>
-<li>undo命令のパラメータで数値の3を指定したら、「動作環境・編集・全置換のやり直し」で指定した方法でundoするようにした。</li>
+<li>undo命令のパラメータで数値の3を指定したら、「動作環境・編集・全置換のやり直し」の方法で undo するようにした。</li>
 <li>nextoutlineitem,prevoutlineitemで、パラメータを指定して「自動的な選択/部分編集の対象」がOFFの見出しにもジャンプできるようにする。</li>
 <li>platform キーワードで、持ち出しキットで動作中かどうかのビット追加。</li>
 <li>copyword にパラメータを指定して連続した単語を指定可能にする。</li>
@@ -530,7 +530,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li><p>searchdown等に incolormarker パラメータを追加</p></li>
 <li><p>searchoption2 で追加の条件で「指定の範囲/カラーマーカー内」が有効かどうかの判定を追加</p></li>
-<li><p>replaceallなどでaskオプション指定時、置換を実行した回数をresultに入れるように修正。</p></li>
+<li><p>replaceallなどでaskオプション指定時、置換回数を result に入れるように修正。</p></li>
 <li><p>searchdownなどの文で、数値として検索オプションを書く書き方で、2つ連続して書くと searchoption2相当も記述できるように修正。</p>
 <pre><code>例：searchdown &quot;a&quot;, #searchoption1, #searchoption2;</code></pre></li>
 </ul></li>
@@ -547,7 +547,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>setcompatiblemode で「前のカーソル位置」を変更させないフラグを追加。</li>
 <li>saveas文とappendsave文にselectionオプションを追加</li>
-<li>appendsave文で、ファイルが無いときは自動的に作成するように変更。</li>
+<li>appendsave文で、ファイルが無いときは自動作成するように変更。</li>
 <li>appendsave文でselectionオプションを付けているとき通常の範囲選択でないときはエラーになるように修正。</li>
 <li>localgrep文でもoutputsingleとoutputsametabが働くように修正。</li>
 <li>setcompatiblemodeの「貼り付け後のカーソル位置」のフラグを、insertfileでも適用するように修正。</li>
@@ -579,7 +579,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>その他
 <ul>
-<li>openbyshell文でダブルクォーテーションでくくった場合に動作しないバグ修正。</li>
+<li>openbyshell文で、ダブルクォーテーションでくくった場合に動作しないバグ修正。</li>
 </ul></li>
 </ul>
 </section>
@@ -618,7 +618,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>setcompatiblemode に0x00800000を追加してdisabledraw時の検索後のカーソル状態が正しくなるように修正。</li>
 <li>seltopxなどで添え字を付けて複数選択の各選択の場所を得られるように修正。</li>
 <li>execmacroでパラメータを配列と数で指定できる方式を追加。</li>
-<li>config文のxColorCommentで指定できるものに自動判定に相当するものを追加。</li>
+<li>config文の xColorComment で指定で自動判定に相当するものを追加。</li>
 <li>getclipboardとgetfocusはパラメータなしの関数の書き方として呼び出してもいいように修正。</li>
 <li>input関数で第１パラメータの文字数や行が多い場合ある程度ダイアログを大きくするように修正。</li>
 <li>変換モジュールまたはDLL向けの秀丸エディタへのメッセージでファイル名を取得できるHIDEMARUINFO_GETFILEFULLPATHを追加。</li>
@@ -626,7 +626,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>その他
 <ul>
 <li>マクロで#a=#b #c;のような記述間違いで警告を出すように修正。</li>
-<li>filename3などがUnicodeを含むファイル名のときに短縮ファイル名にならない問題修正。</li>
+<li>filename3 などがUnicodeを含むファイル名のとき、短縮ファイル名にならない問題修正。</li>
 <li>マクロの文字列で意味の無いエスケープ文字で警告を出すように修正。</li>
 <li>マクロで式がおかしいときのエラーで英数字だけでなく表示できる文字はエラーのメッセージ内に表示する修正。</li>
 <li>sprintf関数で64bit版の場合は%lldや%I64dなどの書き方は制限しないように修正。</li>
@@ -749,7 +749,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>その他
 <ul>
 <li>run文で引数の文字数が多くて切れるようなケースではエラーとなるように修正。</li>
-<li>colormarkerallfound文で見出しバーが無いとき画面全体がちらつく問題修正。</li>
+<li>colormarkerallfound文 で見出しバーが無いとき、画面全体がちらつく問題修正。</li>
 </ul></li>
 </ul>
 </section>
@@ -881,13 +881,13 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li>その他
 <ul>
-<li>seterrormodeの指定でcallでラベルが見つからないときにエラーを無視できるように修正。</li>
+<li>seterrormode の指定で、callでラベルが見つからないときにエラーを無視できるように修正。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V885">【２】仕様変更 - 「秀丸エディタ」Ver.8.85</h3>
 <ul>
 <li>マクロファイル用のフォルダと設定ファイル用のフォルダは、インストール直後の初期状態は%APPDATA%という環境変数を使って表現するように変更。</li>
-<li>マクロ実行中はautocomplete -1;による操作はリアルタイム入力は無効となるように変更。</li>
+<li>マクロ実行中は <code>autocomplete -1;</code> による操作は、リアルタイム入力無効となるように変更。</li>
 </ul>
 </div>
 <h2 id="V886">秀丸エディタVer.8.86 マクロ関連の変更履歴</h2>
@@ -927,13 +927,13 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>その他
 <ul>
 <li>マクロに書く固定の文字列の長さの最大は64KBから128KBまでに変更。</li>
-<li>runexで表示フラグで非表示を指定の場合は、実行後に秀丸エディタ本体を再アクティブにしないように変更。</li>
+<li>runex で表示フラグに非表示を指定の場合、実行後に秀丸エディタ本体を再アクティブにしないように変更。</li>
 <li>config “xAutoAdjustOrikaeshi:0”;で折り返しを固定にするとき、ウィンドウ幅や最大による現在の折り返しではなく、記憶されていた固定の折り返し文字数となるように変更。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V888">【２】仕様変更 - 「秀丸エディタ」Ver.8.88</h3>
 <ul>
-<li>filter文/filter関数で変換モジュールが見つからない場合や、指定された関数がみつからない場合に、 filter文では、デフォルトでエラー表示し、エラーが出ない場合やfilter関数では、getresultexで取得可能にした。</li>
+<li>filter文/filter関数で変換モジュールが見つからない場合や、指定された関数がみつからない場合に、 filter文ではデフォルトでエラー表示し、エラーが出ない場合やfilter関数では、getresultexで取得可能にした。</li>
 <li>filter文で、変換モジュール名が拡張子なしの場合、[動作環境]→[編集]→[変換]で登録されていたフルパスを読み込むように修正。 (登録済みのモジュール内に、マッチするものがあればそれを使うようにした)</li>
 <li>setfiletypeでファイルタイプを変更している場合、新規作成状態の名前を付けて保存のデフォルトの拡張子は、 setfiletypeで指定したものとなるように変更。</li>
 <li>起動オプション/rr /bbを追加(それぞれ/r /b 相当でファイルを閉じるまでは維持するモード)。</li>
@@ -969,14 +969,14 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 </ul></li>
 <li>その他
 <ul>
-<li>grep文でoutputsingleのとき一部の検索オプションが反映されない場合があるバグ修正</li>
-<li>openbyshellでUnicode独自の文字が含まれる場合の対応</li>
-<li>マクロ実行中のエラーは、マクロエラーだけでなく一般のエラーでも逆コンパイル内容を表示するように修正（ただしexecmacroについては実行した次の行が対象）</li>
+<li>grep文で outputsingle のとき、一部の検索オプションが反映されないバグ修正。</li>
+<li>openbyshellでUnicode独自の文字が含まれる場合の対応。</li>
+<li>マクロ実行中のエラーは、マクロエラーだけでなく一般のエラーでも逆コンパイル内容を表示するように修正。（ただしexecmacroについては実行した次の行が対象）</li>
 <li>writeinistrwでパスの区切りをスラッシュで書いた場合の対応（念のための対応で、他の処理はパスをスラッシュで区切ることは対応していません）</li>
-<li>マクロの変数格納の速度の改善</li>
-<li>マクロの config “s数値”でサイズ変更した後に、フォントサイズの記憶状態がおかしい場合がある問題修正</li>
-<li>config文でフォントを変更してsaveconfigするとき、Unicodeのファイルで記憶されない問題修正</li>
-<li>crateobject後に他の秀丸エディタにアクティブ切り替えしたままマクロを終了するとメモリリークする場合がある問題修正</li>
+<li>マクロの変数格納の速度の改善。</li>
+<li>マクロの config “s数値”でサイズ変更した後に、フォントサイズの記憶状態がおかしい問題修正。</li>
+<li>config文でフォントを変更してsaveconfigするとき、Unicodeのファイルで記憶されない問題修正。</li>
+<li>crateobject後に他の秀丸エディタにアクティブ切り替えしたままマクロを終了するとメモリリークする場合がある問題修正。</li>
 <li>nextoutlineitem/prevoutlineitemで、resultが得られるように修正。</li>
 <li>deleteregの第３パラメータで64bit/32bitの明示指定が動作していない問題修正。</li>
 </ul></li>
@@ -1145,7 +1145,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>追加
 <ul>
-<li>ucs4len、ucs4leftstr、ucs4rightstr、ucs4midstr、ucs4strstr、ucs4strrstr、ucs4index_to_charindex、charindex_to_ucs4index moveto_wcs、 moveto_ucs4などの各種UCS-2/UCS-4単位の文、cmulenやmoveto_cmuなどのカーソル移動単位、gculenやmoveto_gcuなどの、書記素クラスター単位の文/キーワード/関数の追加</li>
+<li>ucs4len ucs4leftstr ucs4rightstr ucs4midstr ucs4strstr ucs4strrstr ucs4index_to_charindex charindex_to_ucs4index moveto_wcs moveto_ucs4 などの各種UCS-2/UCS-4単位の文、cmulen や moveto_cmu などのカーソル移動単位、gculen や moveto_gcuなどの、書記素クラスター単位の文/キーワード/関数の追加</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
