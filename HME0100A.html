@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>[HME0100A] ●範囲選択中にスクロースさせると範囲選択が広がってしまう - 秀丸エディタＱ＆Ａ集</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><span class="link_navigate"><a href="HME0099A.html">←前へ</a> <a href="HMM0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<hr />
+<h1 id="hme0100a">[HME0100A]</h1>
+<h2 id="HME0100A_01">●範囲選択中に画面をスクロースさせると範囲選択が広がってしまう</h2>
+<!-- H2 -->
+<div class="marginleft">
+<dl>
+<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
+<dd><strong>範囲選択中に画面をスクロースさせると、範囲選択が広がってしまうのですが？</strong>
+</dd>
+</dl>
+<hr />
+<dl>
+<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
+<dd><p>デフォルト状態では、マウスホイールやマウスでスクロールバーを操作し画面をスクロールさせた場合でも、エディタ画面上のカーソル位置は変化しません(赤の縦線がカーソルになります)。</p>
+<div class="monospace">
+<div class="table_border3">
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">スクロール前</th>
+<th style="text-align: left;">下にスクロール</th>
+<th style="text-align: left;">上にスクロール</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">line7</td>
+<td style="text-align: left;">line10</td>
+<td style="text-align: left;">line3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">line8</td>
+<td style="text-align: left;">line11</td>
+<td style="text-align: left;">line4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">line9</td>
+<td style="text-align: left;">line12</td>
+<td style="text-align: left;">line5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">line<span class="Cursor">1</span>0</td>
+<td style="text-align: left;">line<span class="Cursor">1</span>3</td>
+<td style="text-align: left;">line<span class="Cursor">6</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">line11</td>
+<td style="text-align: left;">line14</td>
+<td style="text-align: left;">line7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">line12</td>
+<td style="text-align: left;">line15</td>
+<td style="text-align: left;">line8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">line13</td>
+<td style="text-align: left;">line16</td>
+<td style="text-align: left;">line9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">line14</td>
+<td style="text-align: left;">line17</td>
+<td style="text-align: left;">line10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>結果的に、スクロールさせるとカーソルが移動する事になります。</p>
+<p>その為、範囲選択中にマウスでスクロールさせると、カーソル移動にともない選択範囲が変化してしまいます。</p>
+<p>この動作は、「その他」-<span class="env">「動作環境」</span>-「表示/操作」-「カーソル移動」にある、「スクロールしてもカーソル位置は固定」で変更できます。</p>
+<p><img src="HME0100A_01.png" width="423" height="147" alt="スクロールしてもカーソル位置は固定" /><br />
+</p>
+<p>「スクロール」とはマウスによるスクロールバーの操作や、マウスホイールによる操作になります。基本的に「PgUp」 「PgDn」はカーソル移動になるので対象外です。</p>
+</dd>
+</dl>
+</div>
+<hr />
+<p><span class="link_navigate"><a href="HME0099A.html">←前へ</a> <a href="HMM0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</body>
+</html>

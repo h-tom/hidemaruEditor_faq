@@ -207,6 +207,11 @@ div.table_border2 table{
     border-top      : solid 2px #000000;
 }
 
+div.table_border3  table{
+    table-layout: fixed;
+    width: 400px;
+}
+
 .table_no_border{
     border          : none 0px #000000;
 }
@@ -616,6 +621,11 @@ div.img_border img{
     background     : #fff8e8;
     border-left    : solid 10px #ffc06e;
 }
+
+.Cursor{
+    border-left:solid 3px red;
+}
+
 
 /* モバイル用 640px 以下の設定*/
 @media screen and (max-width: 640px) {
