@@ -50,7 +50,7 @@
 <p><img src="2_csv_tsv_01.png" width="501" height="270" alt="通常モード" /><br />
 </p>
 <p>「CSVモード」でCSVファイルを開いた状態です。(<span class="attention_red">縦と横のガイドラインを表示</span>)<br />
-カンマやタブを区切り文字として、表計算ソフトのように<span class="attention_red">表示する事が可能</span>です。</p>
+カンマやタブを区切り文字として、表計算ソフトのように<span class="attention_red">表示できます。</span></p>
 <p><img src="2_csv_tsv_02.png" width="571" height="277" alt="CSVモード" /><br />
 </p>
 <p>CSVモードにするには、「メニュー」から設定する方法と、「<span class="filetype">ファイルタイプ別の設定</span>」から変更する方法があります。</p>
@@ -123,12 +123,11 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 <pre><code>(?&lt;=^|,)最高気温(?=$|,)</code></pre>
 </div>
 <p>正規表現を使用するため、検索内容に正規表現のメタ文字がある場合はエスケープする必要があります。</p>
-<p>または、</p>
+<p>または、以下のように検索したい内容を <code>\Q</code> と <code>\E</code> で囲みます。</p>
 <!-- macro -->
 <div class="macro">
 <pre><code>(?&lt;=^|,)\Q最高気温\E(?=$|,)</code></pre>
 </div>
-<p>という感じで、検索したい内容を、<code>\Q</code>と<code>\E</code>で囲みます。</p>
 <p>CSVの場合は <code>","</code> が区切り文字となりますが、TSVの場合は、<code>"\t"</code> を使います。</p>
 <!-- macro -->
 <div class="macro">

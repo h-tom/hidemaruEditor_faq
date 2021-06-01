@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�G�ۃG�f�B�^Ver.3.00 �}�N���֘A�̕ύX����</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　秀丸エディタVer.3.00 マクロ関連の変更履歴</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,59 +22,59 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�G�ۃG�f�B�^Ver.3.00 �}�N���֘A�̕ύX����</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタVer.3.00 マクロ関連の変更履歴</h1>
 <hr />
-<h2 id="V3">�G�ۃG�f�B�^Ver.3.00 �}�N���֘A�̕ύX����</h2>
-<p>�G�� ver.3.00�ɂȂ��āA�@�\�����ɔ����}�N�������ǉ����ꂽ��A�d�l�ύX���s���܂����B�܂��A�������̃o�O�C�����s���Ă��܂��B<br />
-���̂��߁A����Ԃ��� ver.2.x�Ƃ̊ԂŃ}�N���Ɉꕔ��݊����������Ă��܂��B<br />
-���̏͂ł́A�}�N���̔�݊����𒆐S�ɁA�}�N���֘A�̕ύX�����̏����W�߂܂����B</p>
-<p>�y�P�z<a href="#LIST">�}�N���֘A�̕ύX���� - �u�G�ۃG�f�B�^�vVer. 3.00</a><br />
-�y�Q�z<a href="#GOKAKKO">gokakko, goleftkakko, gorightkakko �̎d�l�ύX</a><br />
-�y�R�z<a href="#STEALTH">�X�e���X�G�ۂ̏���</a><br />
-�y�S�z<a href="#ESCAPE">escape;��result</a><br />
-�y�T�z<a href="#HHANDLE">hidemaruhandle(0) �̎��Ⴆ</a></p>
+<h2 id="V3">秀丸エディタVer.3.00 マクロ関連の変更履歴</h2>
+<p>秀丸 ver.3.00になって、機能強化に伴いマクロ文が追加されたり、仕様変更が行われました。また、いくつかのバグ修正も行われています。<br />
+そのため、裏を返せば ver.2.xとの間でマクロに一部非互換が発生しています。<br />
+この章では、マクロの非互換情報を中心に、マクロ関連の変更履歴の情報を集めました。</p>
+<p>【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 3.00</a><br />
+【２】<a href="#GOKAKKO">gokakko, goleftkakko, gorightkakko の仕様変更</a><br />
+【３】<a href="#STEALTH">ステルス秀丸の処理</a><br />
+【４】<a href="#ESCAPE">escape;のresult</a><br />
+【５】<a href="#HHANDLE">hidemaruhandle(0) の取り違え</a></p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="LIST">�y�P�z�}�N���֘A�̕ύX���� - �u�G�ۃG�f�B�^�vVer. 3.00</h3>
+<h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 3.00</h3>
 <ul>
-<li>loadhilight ���Ahilighttitle �֐��Acolorcode �֐��Acopy2���Aopenbyhidemaru ���Aopenbyshell ���Anextmark ���A prevmark �����ǉ����ꂽ�B</li>
-<li>�t�@�C���n���� result �Ɋւ��āAtrue�ŏ����l��^���A�G���[���������ꂳ�ꂽ�B<br />
+<li>loadhilight 文、hilighttitle 関数、colorcode 関数、copy2文、openbyhidemaru 文、openbyshell 文、nextmark 文、 prevmark 文が追加された。</li>
+<li>ファイル系文の result に関して、trueで初期値を与え、エラー処理も統一された。<br />
 ( saveas, insertfile, changename, appendsave, etc. )</li>
-<li>�_�C�A���O�{�b�N�X���o�͂���t�@�C���n���ŁA���s������L�����Z�����ꂽ�ꍇ�́Aresult �� false ��Ԃ��悤�ɓ��ꂳ�ꂽ�B<br />
+<li>ダイアログボックスを出力するファイル系文で、失敗したりキャンセルされた場合は、result は false を返すように統一された。<br />
 ( CHANGENAME, INSERTFILE, etc. )</li>
-<li>gokakko, goleftkakko, gorightkakko �Ɋւ��āA�u�R�����g/�����萔�v���̍l����������ꂽ�B</li>
-<li>��] % �Ɋւ��āA�������l�������v�Z���@�ɕύX���ꂽ�B</li>
-<li>�}�N�����I�������Ƃ��A /h �ŃI�[�v�����ꂽ�����J�����d�l�ɂȂ����B</li>
-<li>config �����s����ƁAdisabledraw �������ɂȂ�o�O���C���B</li>
-<li>totab; �� \" �ŃG�X�P�[�v�������ԈႦ��o�O���C���B</li>
-<li>���̑��A�}�N���̃o�O���C�����ꂽ�B</li>
+<li>gokakko, goleftkakko, gorightkakko に関して、「コメント/文字定数」内の考慮が加えられた。</li>
+<li>剰余 % に関して、符号を考慮した計算方法に変更された。</li>
+<li>マクロが終了したとき、 /h でオープンされた窓が開かれる仕様になった。</li>
+<li>config を実行すると、disabledraw が無効になるバグを修正。</li>
+<li>totab; が \" でエスケープ処理を間違えるバグを修正。</li>
+<li>その他、マクロのバグが修正された。</li>
 </ul>
-<h3 id="GOKAKKO">�y�Q�zgokakko, goleftkakko, gorightkakko �̎d�l�ύX</h3>
-<pre><code>gokakko      �Ή����銇�ʂɈړ�
-goleftkakko  &#39;{&#39;�Ɉړ�
-gorightkakko &#39;}&#39;�Ɉړ�</code></pre>
-<p>������ 3 �̃}�N���A�R�}���h�� Ver. 3.00 ����d�l���ύX����܂����B<br />
-�u�t�@�C���^�C�v�ʂ̐ݒ�v�Łu�R�����g/�����萔�̃J���[�\���v���w�肵�Ȃ��ꍇ�ɂ͏]���̈ړ��Ɠ����ł��B�܂��A������w�肵���ꍇ�ɂ́A�ȉ��̓���ɂȂ�܂��B</p>
+<h3 id="GOKAKKO">【２】gokakko, goleftkakko, gorightkakko の仕様変更</h3>
+<pre><code>gokakko      対応する括弧に移動
+goleftkakko  &#39;{&#39;に移動
+gorightkakko &#39;}&#39;に移動</code></pre>
+<p>これらの 3 個のマクロ、コマンドは Ver. 3.00 から仕様が変更されました。<br />
+「ファイルタイプ別の設定」で「コメント/文字定数のカラー表示」を指定しない場合には従来の移動と同じです。また、これを指定した場合には、以下の動作になります。</p>
 <ol type="1">
-<li>gokakko �́A�u�R�����g/�����萔�v�̒��ɂ��銇�ʂł͈ړ����܂���B</li>
-<li>goleftkakko, gorightkakko �́A�u�R�����g/�����萔�v�̒��ɂ��銇�� { } �𖳎����Ĉړ����܂��B</li>
+<li>gokakko は、「コメント/文字定数」の中にある括弧では移動しません。</li>
+<li>goleftkakko, gorightkakko は、「コメント/文字定数」の中にある括弧 { } を無視して移動します。</li>
 </ol>
-<h3 id="STEALTH">�y�R�z�X�e���X�G�ۂ̏���</h3>
-<p>�}�N�����I�������Ƃ��A /h �ŃI�[�v�����ꂽ�����J�����d�l�ɂȂ�܂����B</p>
-<p>���Ȃ݂ɂ��̎d�l�ɂ��ẮA�}�N���̃o�O�Ń}�N�����ُ�I�������Ƃ��́A�L���ł͂���܂���B</p>
-<p>�u���͕⊮�v�Ƃ��u���������v�̃}�N�����ł́A�Ӑ}���� /h �Ŏc���ꍇ������܂������AVer. 3.0x �ł͂��ꂪ�ł��܂���B</p>
-<h3 id="ESCAPE">�y�S�zescape;��result</h3>
+<h3 id="STEALTH">【３】ステルス秀丸の処理</h3>
+<p>マクロが終了したとき、 /h でオープンされた窓が開かれる仕様になりました。</p>
+<p>ちなみにこの仕様については、マクロのバグでマクロが異常終了したときは、有効ではありません。</p>
+<p>「入力補完」とか「辞書引き」のマクロ等では、意図して /h で残す場合がありましたが、Ver. 3.0x ではそれができません。</p>
+<h3 id="ESCAPE">【４】escape;のresult</h3>
 <div class="macro">
 <pre><code>escape;
 message str(result);</code></pre>
 </div>
-<p>���� (Ver. 3.0x) �ł��Aescape; �� result = 0 �ƂȂ�܂��B<br />
-���R�A���̎d�l�ł��邪�����͕s���ł��A<br />
-�}�N���̃e�X�g�ɂׂ͂��ł����A�P�v�I�ȃR�[�h�����邱�Ƃ͂����߂ł͂Ȃ��ł��B</p>
-<h3 id="HHANDLE">�y�T�zhidemaruhandle(0) �̎��Ⴆ</h3>
-<p>���L�̂悤�ȗ�Ŕ������� hidemaruhandle(0) �̎��Ⴆ�͎����Ă��܂��񂪁A�傫�Ȗ��ł͂���܂���B�d�l�ɂ�������ł��傤�B</p>
-<p>�u�풓�G�ۂ̏I�� (C) �v�̌�ɁA�}�N�� c1. mac ���u�}�N�����s�v����A<br />
-���̌�ŁAc2.mac �Ŋm�F����ƁAhidemaruhandle(0) �̖������킩��܂��B</p>
+<p>現在 (Ver. 3.0x) でも、escape; は result = 0 となります。<br />
+偶然、この仕様であるが将来は不明です、<br />
+マクロのテストにはべんりですが、恒久的なコードをすることはお勧めではないです。</p>
+<h3 id="HHANDLE">【５】hidemaruhandle(0) の取り違え</h3>
+<p>下記のような例で発生する hidemaruhandle(0) の取り違えは治っていませんが、大きな問題ではありません。仕様にも見えるでしょう。</p>
+<p>「常駐秀丸の終了 (C) 」の後に、マクロ c1. mac を「マクロ実行」する、<br />
+その後で、c2.mac で確認すると、hidemaruhandle(0) の矛盾がわかります。</p>
 <div class="macro">
 <pre><code>// c1.mac
 saveas &quot;a1.txt&quot;;
@@ -83,9 +83,9 @@ $wk1 = filename;
 message str(#ii);
 $wk2 = &quot;a2.txt&quot;;
 openfile &quot;/h &quot; + $wk2;
-#jj = hidemaruhandle(0); // �������� !!!
+#jj = hidemaruhandle(0); // おいおい !!!
 message str(#jj);
-#kk = hidemaruhandle(findhidemaru($wk1)); // �i�C�i�C !!!
+#kk = hidemaruhandle(findhidemaru($wk1)); // ナイナイ !!!
 message str(#kk);
 
 endmacro;</code></pre>
@@ -99,10 +99,10 @@ message str(#i);
 
 endmacro;</code></pre>
 </div>
-<p>�����̓��e�͏G�ۃG�f�B�^ ver.3.01�̓��e�����ɏ�����Ă��܂��B<br />
-����̃o�[�W�����A�b�v�ɂ���ẮA��L�̓��e���K���������Ă͂܂�Ȃ��ꍇ�����邩������܂���B</p>
+<p>※この内容は秀丸エディタ ver.3.01の内容を元に書かれています。<br />
+今後のバージョンアップによっては、上記の内容が必ずしも当てはまらない場合もあるかもしれません。</p>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

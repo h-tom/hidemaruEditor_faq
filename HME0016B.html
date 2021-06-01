@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0016B] ���G�ۂ̉�ʂ����������i���̂Q�j - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0016B] ●秀丸の画面だけが乱れる（その２） - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,35 +21,35 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0016A.html">���O��</a> <a href="HME0016C.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0016A.html">←前へ</a> <a href="HME0016C.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0016b">[HME0016B]</h1>
-<h2 id="HME0016B_01">���G�ۂ̉�ʂ����������i���̂Q�j</h2>
+<h2 id="HME0016B_01">●秀丸の画面だけが乱れる（その２）</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>��ʂ��X�N���[���������Ƃ��ɃJ�[�\���̂���s�̕\�������ꂽ��A���[���[�̕\�������ꂽ�肵�܂��B<br />
-���̃A�v���P�[�V�����͂܂���������Ȃ̂ŁA�G�ۃG�f�B�^�̃o�O���Ǝv����ł����H</strong>
+<dd><strong>画面をスクロールさせたときにカーソルのある行の表示が乱れたり、ルーラーの表示が乱れたりします。<br />
+他のアプリケーションはまったく正常なので、秀丸エディタのバグだと思うんですが？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���L�̐ݒ�������Ă݂Ă��������B���ۂ����P����悤�ł���΁A�f�B�X�v���C�h���C�o���̃o�O���l�����܂��B</p>
-<p><strong>�G�ۃG�f�B�^�̓���ݒ�</strong><br />
-�u���̑��v �� �u<span class="env">�����</span>�v �� �u�g���u���΍�v�̑΍􃌃x���𒲐����Ă݂Ă��������B</p>
-<p><img src="HME0016B_01.png" width="613" height="437" alt="�����-�g���u���΍�" /><br />
+<dd><p>下記の設定を試してみてください。現象が改善するようであれば、ディスプレイドライバ側のバグが考えられます。</p>
+<p><strong>秀丸エディタの動作設定</strong><br />
+「その他」 → 「<span class="env">動作環境</span>」 → 「トラブル対策」の対策レベルを調整してみてください。</p>
+<p><img src="HME0016B_01.png" width="613" height="437" alt="動作環境-トラブル対策" /><br />
 </p>
-<p>�܂��A�u�ڍׁv�{�^���ŕ\���������e�Ɋւ��Ă��`�F�b�N�{�b�N�X��ON/OFF��؂�ւ��Ă݂Ă��������B</p>
-<p><img src="HME0016B_02.png" width="413" height="293" alt="�����-�g���u���΍�-�ڍ�" /><br />
+<p>また、「詳細」ボタンで表示される内容に関してもチェックボックスのON/OFFを切り替えてみてください。</p>
+<p><img src="HME0016B_02.png" width="420" height="318" alt="動作環境-トラブル対策-詳細" /><br />
 </p>
-<p><strong>�����\�������������Ȃ�̂��A���{��Ȃǔ��p�p�����ȊO�̏ꍇ�A�t�@�C���̕����R�[�h�ƕ\�������R�[�h���H������Ă���ꍇ������܂��B</strong><br />
+<p><strong>もし表示がおかしくなるのが、日本語など半角英数字以外の場合、ファイルの文字コードと表示文字コードが食い違っている場合があります。</strong><br />
 </p>
-<p>���̏ꍇ�́A<a href="HME0051A.html">[HME0051A]�������R�[�h�̎g������</a>���Q�l�ɕ����R�[�h�̐H���Ⴂ���N���Ȃ��悤�ɂ��Ă��������B</p>
+<p>この場合は、<a href="HME0051A.html">[HME0051A]●漢字コードの使い分け</a>を参考に文字コードの食い違いが起きないようにしてください。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0016A.html">���O��</a> <a href="HME0016C.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0016A.html">←前へ</a> <a href="HME0016C.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

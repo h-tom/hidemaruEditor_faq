@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�r�b�g���Z���ɂ߂�</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　ビット演算を極める</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,64 +22,67 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�r�b�g���Z���ɂ߂�</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　ビット演算を極める</h1>
 <hr />
-<h2 id="INDEX">�r�b�g���Z���ɂ߂�</h2>
-<p>�y�O�z<a href="#ABOUT">�����ɏ����Ă��邱��</a><br />
-�y�P�z<a href="#OPERATOR">�͂��߂� �| �G�ۃ}�N���Ŏg����r�b�g���Z�q</a><br />
-�y�Q�z<a href="#BIN_AND_HEX">2�i���A16�i���Ƃ�</a><br />
-�y�R�z<a href="#HEX_WRITE">�G�ۃ}�N���ł�16�i���̋L�q���@</a><br />
-�y�S�z<a href="#CONCEPT">�r�b�g���Z�̊T�O</a><br />
-�y�T�z<a href="#DETAIL">�r�b�g���Z�̏ڍ�</a><br />
-�y�U�z<a href="#CANBE">�r�b�g���Z�łł��邱��</a><br />
-�y�V�z<a href="#EXAMPLES">�G�ۃ}�N���ł̎g�p��</a></p>
+<h2 id="INDEX">ビット演算を極める</h2>
+<div class="title-li">
+<ul>
+<li>【０】<a href="#ABOUT">ここに書いてあること</a></li>
+<li>【１】<a href="#OPERATOR">はじめに − 秀丸マクロで使えるビット演算子</a></li>
+<li>【２】<a href="#BIN_AND_HEX">2進数、16進数とは</a></li>
+<li>【３】<a href="#HEX_WRITE">秀丸マクロでの16進数の記述方法</a></li>
+<li>【４】<a href="#CONCEPT">ビット演算の概念</a></li>
+<li>【５】<a href="#DETAIL">ビット演算の詳細</a></li>
+<li>【６】<a href="#CANBE">ビット演算でできること</a></li>
+<li>【７】<a href="#EXAMPLES">秀丸マクロでの使用例</a></li>
+</ul>
+</div>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="ABOUT">�y�O�z�����ɏ����Ă��邱��</h3>
-<p>�G�ۃG�f�B�^�̃}�N���̒��ł��A���p�I�ȋ@�\�̒��ɂ́A2�i���̊T�O��r�b�g���Z���g�p���鎖������܂��B</p>
-<p>�Ⴆ�΁A</p>
+<h3 id="ABOUT">【０】ここに書いてあること</h3>
+<p>秀丸エディタのマクロの中でも、応用的な機能の中には、2進数の概念やビット演算を使用する事があります。</p>
+<p>例えば、以下の物があります。</p>
 <ul>
-<li>�������@��ݒ肷��setsearch��</li>
-<li>.hilight�t�@�C�����̃t���O�̋L�q</li>
+<li>検索方法を設定するsetsearch文</li>
+<li>.hilightファイル内のフラグの記述</li>
 </ul>
-<p>�ł��B</p>
-<p>C����ȂǁA���̌���ł����̊T�O�≉�Z�q�𗝉�����Ă�����͂܂������A���߂Ă̕��͂Ƃ����ɂ������������邩�Ǝv���܂��B���̏͂ł́A�r�b�g���Z�̂����݂ƏG�ۃ}�N���ł̎g�����ɂ��Đ������܂��B</p>
-<h3 id="OPERATOR">�y�P�z�͂��߂� �| �G�ۃ}�N���Ŏg����r�b�g���Z�q</h3>
-<p>�G�ۃ}�N���Ŏg����r�b�g���Z�q�͈ȉ���3��ނ�����܂��B</p>
+<p>C言語など、他の言語でこれらの概念や演算子を理解されている方はまだしも、初めての方はとっつきにくい部分があります。この章では、ビット演算のしくみと秀丸マクロでの使い方について説明します。</p>
+<h3 id="OPERATOR">【１】はじめに − 秀丸マクロで使えるビット演算子</h3>
+<p>秀丸マクロで使えるビット演算子は以下の3種類があります。</p>
 <table>
-<caption>�r�b�g���Z�q</caption>
+<caption>ビット演算子</caption>
 <tbody>
 <tr class="odd">
 <td><strong>&amp;</strong></td>
-<td style="text-align: left;">�r�b�g����AND</td>
+<td style="text-align: left;">ビット毎のAND</td>
 </tr>
 <tr class="even">
 <td><strong>|</strong></td>
-<td style="text-align: left;">�r�b�g����OR</td>
+<td style="text-align: left;">ビット毎のOR</td>
 </tr>
 <tr class="odd">
 <td><strong>^</strong></td>
-<td style="text-align: left;">�r�b�g����XOR</td>
+<td style="text-align: left;">ビット毎のXOR</td>
 </tr>
 </tbody>
 </table>
-<p>�ƌ����āA���������Ƃ������́A�ȉ��̐����͑����K�v�Ȃ��ł��傤�B�uAND���Ăǂ��������ƁH�v�u�r�b�g�����ĉ��H�v�Ǝv����������������邱�ƂƎv���܂��B�r�b�g���Z�̂����݂��������ɂ������āA�܂��֘A�̐[���u2�i���v�u16�i���v�ɂ��Đ������܂��B���̌�A�r�b�g���Z�q�̈Ӗ��Ǝg�����ɂ��Đ������Ă����܂��B</p>
+<p>と言われて、分かったという方は、以下の説明は多分必要ないでしょう。「ANDってどういうこと？」「ビット毎って何？」と思われる方もいるでしょう。ビット演算のしくみを説明するにあたって、まず関連の深い「2進数」「16進数」について説明します。その後、ビット演算子の意味と使い方について説明していきます。</p>
 <dl>
-<dt>[�⑫]</dt>
-<dd>^ �́ABASIC�n�̌���ł́A�ׂ���v�Z�̉��Z�q�ł��B�ԈႦ�Ȃ��悤�ɂ��܂��傤�B
+<dt>[補足]</dt>
+<dd>^ は、BASIC系の言語では、べき乗計算の演算子です。間違えないようにしましょう。
 </dd>
 </dl>
-<h3 id="BIN_AND_HEX">�y�Q�z2�i���A16�i���Ƃ�</h3>
-<p>10�i���Ƃ́A0�`9�̐�����1���Ƃ��ĕ\�����l�̕\�����@���w���܂��B���l�ɍl����΁A2�i���Ƃ́A0�`1�̐�����1���Ƃ��ĕ\�����l�̕\���ł��B</p>
-<p>2�i���́A��ʂɃR���s���[�^�Ő��l��\�����̊�{�ƂȂ�\�L���@�ł��B�X�C�b�`�� ON �� OFF �����ꂼ�� 1��0�Ɍ����āA���̃X�C�b�`�𕡐��W�߂邱�ƂŁA�傫�Ȓl�̌����\���܂��B</p>
-<p>[��] 10�i���A2�i���A16�i���̑Ή��\�B</p>
+<h3 id="BIN_AND_HEX">【２】2進数、16進数とは</h3>
+<p>10進数とは、0〜9の数字を1桁として表す数値の表現方法を指します。同様に考えれば、2進数とは、0〜1の数字を1桁として表す数値の表現です。</p>
+<p>2進数は、一般にコンピュータで数値を表す時の基本となる表記方法です。スイッチの ON と OFF をそれぞれ 1と0に見立て、そのスイッチを複数集めることで、大きな値の桁も表します。</p>
+<p>[例] 10進数、2進数、16進数の対応表。</p>
 <table>
-<caption>�Ή��\</caption>
+<caption>対応表</caption>
 <thead>
 <tr class="header">
-<th style="text-align: right;">10�i��</th>
-<th style="text-align: right;">2�i��</th>
-<th style="text-align: right;">16�i��</th>
+<th style="text-align: right;">10進数</th>
+<th style="text-align: right;">2進数</th>
+<th style="text-align: right;">16進数</th>
 </tr>
 </thead>
 <tbody>
@@ -170,63 +173,63 @@
 </tr>
 </tbody>
 </table>
-<p>10�i���ł́A1�̌� 10�̌� 100�̌��A�c�Ƒ����܂����A����������ƁA10<sup>0</sup>�̌� 10<sup>1</sup>�̌� 10<sup>2</sup>�̌��A�c�ƂȂ�܂��B</p>
-<p>2�i���ł́A2<sup>0</sup>�̌��A2<sup>1</sup>�̌��A2<sup>2</sup>�̌��A�c�Ƒ����܂��B</p>
-<p>2�i��4���i10�i���ł�����0�`15�j��1���ɂ܂Ƃ߂������̕\����16�i���ɂȂ�܂��B</p>
+<p>10進数では 1の桁 10の桁 100の桁 …と続きますが、言い換えると 10<sup>0</sup>の桁 10<sup>1</sup>の桁 10<sup>2</sup>の桁 …となります。</p>
+<p>2進数では 2<sup>0</sup>の桁 2<sup>1</sup>の桁 2<sup>2</sup>の桁 …と続きます。</p>
+<p>2進数4桁（10進数でいえば0〜15）を1桁にまとめた数字の表現が16進数になります。</p>
 <dl>
-<dt>[�⑫]</dt>
-<dd>�u2�i���E10�i���v�Ƃ����\�L�ɂ��āB�G�ۃG�f�B�^�w���v�Ɍ��炸�A�v�Z�@�֌W�̕����ł��̂悤�ȗp�ꂪ�悭�o�܂����A�����ɂ͐����̂ɂ���������ʂ��L��킯�ł͂���܂���B�������́u��i�i�@�ɂ���āj�\�L�������v�ȂǂƂ��ׂ����̂ł����A�����ł͕֋X�ケ�̕\�L���g���Đ��������Ă��炤���Ƃɂ��܂��B
+<dt>[補足]</dt>
+<dd>「2進数・10進数」という表記について。秀丸エディタヘルプに限らず、計算機関係の文献でこのような用語がよく出ますが、厳密には数自体にこうした種別が有るわけではありません。正しくは「二進（法によって）表記した数」などとすべきものですが、ここでは便宜上この表記を使って説明させてもらうことにします。
 </dd>
 </dl>
-<h3 id="HEX_WRITE">�y�R�z�G�ۃ}�N���ł�16�i���̋L�q���@</h3>
-<p>�G�ۃ}�N���ł́A2�i���𒼐ڋL�q������@�͗L��܂���̂ŁA10�i����16�i���̂ǂ��炩�̕\�L���g�����ƂɂȂ�܂��B</p>
-<p>�G�ۃ}�N���i����ш�ʂ�C����j�ł́A16�i���̐����ɂ͓��� 0x �Ƃ���������t���A10�i���ł���10�`15�̐��l������킷�����Ƃ��� A�`F �����蓖�Ă܂��B�i���p�������g�p�A�啶��/����������ʂ��܂���j</p>
+<h3 id="HEX_WRITE">【３】秀丸マクロでの16進数の記述方法</h3>
+<p>秀丸マクロでは、2進数を直接記述する方法は有りませんので、10進数か16進数のどちらかの表記を使うことになります。</p>
+<p>秀丸マクロ（および一般にC言語）では、16進数の数字には頭に 0x という文字を付け、10進数でいう10〜15の数値をあらわす文字として A〜F を割り当てます。（半角文字を使用、大文字/小文字を区別しません）</p>
 <dl>
-<dt>[��]</dt>
-<dd><p>10�i����11�̒l���A16�i���ŋL�q���ϐ��ɑ������B</p>
+<dt>[例]</dt>
+<dd><p>10進数で11の値を、16進数で記述し変数に代入する。</p>
 <pre><code>#a = 0x0b;</code></pre>
 </dd>
-<dt>[�⑫]</dt>
-<dd><p>�������A����͈ȉ��̂悤�ɏ����̂Ɠ����Ӗ��ł��B</p>
+<dt>[補足]</dt>
+<dd><p>もちろん、これは以下のように書くのと同じ意味です。</p>
 <pre><code>#a = 11;</code></pre>
-<p>�G�ۃG�f�B�^�̑����猩��ƁA�ǂ���̕��@�ŋL�q���Ă��l�Ƃ��Ă͓����ł��邽�߁A���ʂ͕ς��܂���B�t�ɂ����΁A16�i���\�L�́A�r�b�g���Z���s���ꍇ�ɁA�R�[�h���������̐l�Ԃ��A�R�[�h���������₷���Ȃ��ĕ֗��ȋL�q���@�ł���Ƃ������܂��B</p>
+<p>秀丸エディタの側から見ると、どちらの方法で記述しても値としては同じであるため、結果は変わりません。逆にいえば、16進数表記は、ビット演算を行う場合に、コードを書く側の人間が、コードが理解しやすくなって便利な記述方法であるとも言えます。</p>
 </dd>
 </dl>
-<p>�r�b�g�Ƃ́A2�i���ł͂���1���ɑ������܂��B 2�i��8���i16�i��2���j�̒P�ʂ��o�C�g�Ƃ����A10�i���ł�0�`255�͈̔͂�\�����Ƃ��ł��܂��B</p>
+<p>ビットとは、2進数ではその1桁に相当します。 2進数8桁（16進数2桁）の単位をバイトといい、10進数では0〜255の範囲を表すことができます。</p>
 <dl>
-<dt>[�⑫]</dt>
-<dd>��ʂɂ́A�ŏ�ʃr�b�g���}�C�i�X�����ƍl���āA�l�̕\���͈͂�ς��镄���t���\�L���L��܂��B�G�ۃ}�N���̏ꍇ�A���l�Ɛ��l�ϐ��̕\�L�́A4�o�C�g�i32�r�b�g�j�̕����t�������ɂȂ�܂��B1�o�C�g��2�o�C�g���̕\�L���ƁA���������Ɠ��l�ɂȂ�܂��B
+<dt>[補足]</dt>
+<dd>一般には、最上位ビットをマイナス符号と考えて、値の表す範囲を変える符号付き表記も有ります。秀丸マクロの場合、数値と数値変数の表記は、4バイト（32ビット）の符号付き整数になります。1バイトや2バイト分の表記だと、符号無しと同様になります。
 </dd>
 </dl>
-<h3 id="CONCEPT">�y�S�z�r�b�g���Z�̊T�O</h3>
-<p>���Ƀr�b�g���Z�̊T�O��������܂��B</p>
-<p>AND�AOR�AXOR�́A���ꂼ��ȉ��̌��ʂɂȂ�܂��B</p>
+<h3 id="CONCEPT">【４】ビット演算の概念</h3>
+<p>次にビット演算の概念を説明します。</p>
+<p>AND、OR、XORは、それぞれ以下の結果になります。</p>
 <dl>
-<dt>[�⑫]</dt>
-<dd>AND�AOR�AXOR�Ƃ������O�̉��Z�q�͏G�ۃ}�N���ɂ͗L��܂���B�����ł́A���Z�̊T�O�̐����̂��߂ɂ��̕\�L���g���Ă��܂��B
+<dt>[補足]</dt>
+<dd>AND、OR、XORという名前の演算子は秀丸マクロには有りません。ここでは、演算の概念の説明のためにこの表記を使っています。
 </dd>
 </dl>
 <ul>
 <li><p>AND(&amp;)</p>
-<p>�����Ƃ�1�̏ꍇ�������ʂƂ���1���Ԃ�A���̑��̏ꍇ��0�ɂȂ�܂��B</p>
+<p>両方とも1の場合だけ結果として1が返り、その他の場合は0になります。</p>
 <pre><code>1 AND 1 = 1
 1 AND 0 = 0
 0 AND 1 = 0
 0 AND 0 = 0</code></pre></li>
 <li><p>OR(|)</p>
-<p>���Ȃ��Ƃ��ǂ��炩��1�̏ꍇ�Ɍ��ʂƂ���1���Ԃ�A�����Ƃ�0�̏ꍇ��0�ɂȂ�܂��B</p>
+<p>少なくともどちらかが1の場合に結果として1が返り、両方とも0の場合は0になります。</p>
 <pre><code>1 OR 1 = 1
 1 OR 0 = 1
 0 OR 1 = 1
 0 OR 0 = 0</code></pre></li>
 <li><p>XOR(^)</p>
-<p>�����̃r�b�g���قȂ�ꍇ�ɂ������ʂƂ���1���Ԃ�A���̑��̏ꍇ��0�ɂȂ�܂��B</p>
+<p>両方のビットが異なる場合にだけ結果として1が返り、その他の場合は0になります。</p>
 <pre><code>1 XOR 1 = 0
 1 XOR 0 = 1
 0 XOR 1 = 1
 0 XOR 0 = 0</code></pre></li>
 </ul>
-<p>�ł́A���ۂɏG�ۃ}�N���̃r�b�g���Z�q���g���Ċm�F���Ă݂܂��傤�B�ȉ��̃}�N�������s���āA�_�C�A���O�ɕ\������鉉�Z���ʂ����Ă��������B</p>
+<p>では、実際に秀丸マクロのビット演算子を使って確認してみましょう。以下のマクロを実行して、ダイアログに表示される演算結果を見てください。</p>
 <div class="macro">
 <pre><code>#a = 1 &amp; 1;
 #b = 1 &amp; 0;
@@ -258,23 +261,23 @@ message &quot;1 XOR 0 = &quot; + str(#j);
 message &quot;0 XOR 1 = &quot; + str(#k);
 message &quot;0 XOR 0 = &quot; + str(#l);</code></pre>
 </div>
-<h3 id="DETAIL">�y�T�z�r�b�g���Z�̏ڍ�</h3>
-<p>�`���ŁA &amp;, | , ^ �́u�r�b�g���́v�Ə����܂������A�����r�b�g����Ȃ�l���m���v�Z����ƃr�b�g���ɉ��Z���s���܂��B������������Ă݂܂��傤�B</p>
+<h3 id="DETAIL">【５】ビット演算の詳細</h3>
+<p>冒頭で、 &amp;, | , ^ は「ビット毎の」と書きましたが、複数ビットからなる値同士を計算するとビット毎に演算が行われます。いくつか例を見てみましょう。</p>
 <dl>
-<dt>[��]</dt>
+<dt>[例]</dt>
 <dd><table>
 <thead>
 <tr style="text-align:center">
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -334,13 +337,13 @@ AND)
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -400,13 +403,13 @@ BE
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -458,7 +461,7 @@ XOR)
 </tr>
 </tbody>
 </table>
-<p>��������ۂɏG�ۃ}�N���ŋL�q����ƈȉ��̂悤�ɂȂ�܂��B</p>
+<p>これを実際に秀丸マクロで記述すると以下のようになります。</p>
 <div class="macro">
 <pre><code>#a = 0xb6 &amp; 0x88;
 #b = 0xb6 | 0x88;
@@ -470,30 +473,30 @@ message &quot;0xb6 XOR 0x88 = &quot; + str(#c);</code></pre>
 </div>
 </dd>
 </dl>
-<h3 id="CANBE">�y�U�z�r�b�g���Z�łł��邱��</h3>
-<p>�����̉��Z�q���g���ĉ����ł��邩�B</p>
-<p>�����̉��Z�q�𗘗p���āA�G�ۃ}�N���̒��ł�16�i���̒l�i�����R�[�h���j�̕��ނ��ł�����A�t���O�̒l�Ƃ��Ďg�p�����l�̈ꕔ�r�b�g�𑀍삵����ł��܂��B</p>
+<h3 id="CANBE">【６】ビット演算でできること</h3>
+<p>これらの演算子を使って何ができるか。</p>
+<p>これらの演算子を利用して、秀丸マクロの中では16進数の値（文字コード等）の分類ができたり、フラグの値として使用される値の一部ビットを操作したりできます。</p>
 <!-- h4 -->
 <div class="marginleft">
-<h4 id="and_operator">�y�U-�P�zAND���Z</h4>
-<p>AND���Z���g���ƁA�}�X�L���O�i���C�ӂ̃r�b�g��0�ɂ����l���o�́j���ł��܂��B 0�ɂ������r�b�g��0�ɁA���̒l���c�������r�b�g��1�ɂ����l���쐬����AND���Z���邱�ƂŎ����ł��܂��B</p>
+<h4 id="and_operator">【６-１】AND演算</h4>
+<p>AND演算を使うと、マスキング（＝任意のビットを0にした値を出力）ができます。 0にしたいビットを0に、元の値を残したいビットを1にした値を作成してAND演算することで実現できます。</p>
 <dl>
-<dt>[��]</dt>
-<dd><p>AND��(2�i���ɂ�����)�C�ӂ̌���0��1���𒲂ׂ�B</p>
-<p>���ׂ�����������1�ɂ��A����ȊO��0�ɂ�����(���̒l�̂��Ƃ��}�X�N�ȂǂƂ������܂�)��AND���Z���āA���ʂ��}�X�N�Ɠ��������1�ŁA�������Ȃ����0�ł���Ɣ���܂��B</p>
+<dt>[例]</dt>
+<dd><p>ANDで(2進数における)任意の桁が0か1かを調べる。</p>
+<p>調べたい桁だけを1にし、それ以外を0にした数(この値のことをマスクなどともいいます)とAND演算して、結果がマスクと等しければ1で、等しくなければ0であると判ります。</p>
 <table>
 <thead>
 <tr style="text-align:center">
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -545,20 +548,20 @@ AND)
 </tr>
 </tbody>
 </table>
-<p>�����̌�����C�ɔ��肷�邱�Ƃ��ł��܂��B</p>
+<p>複数の桁を一気に判定することもできます。</p>
 <table>
 <thead>
 <tr style="text-align:center">
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -612,25 +615,25 @@ AND)
 </table>
 </dd>
 </dl>
-<h4 id="or_operator">�y�U-�Q�zOR���Z</h4>
-<p>OR���Z���g���ƁA�C�ӂ̃r�b�g��1�ɕύX�ł��܂��B</p>
-<p>1�ɂ������r�b�g��1�ɁA���̒l���c�������r�b�g��0�ɂ����l���쐬����OR���Z���邱�ƂŎ����ł��܂��B</p>
+<h4 id="or_operator">【６-２】OR演算</h4>
+<p>OR演算を使うと、任意のビットを1に変更できます。</p>
+<p>1にしたいビットを1に、元の値を残したいビットを0にした値を作成してOR演算することで実現できます。</p>
 <dl>
-<dt>[��]</dt>
-<dd><p>2<sup>0</sup>�r�b�g�`2<sup>3</sup>�r�b�g(����4�r�b�g)��1�ɂ������ꍇ�B</p>
+<dt>[例]</dt>
+<dd><p>2<sup>0</sup>ビット〜2<sup>3</sup>ビット(下位4ビット)を1にしたい場合。</p>
 <table>
 <thead>
 <tr style="text-align:center">
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -684,24 +687,24 @@ BF
 </table>
 </dd>
 </dl>
-<h4 id="xor_operator">�y�U-�R�zXOR���Z</h4>
-<p>XOR���Z���g���ƁA�C�ӂ̃r�b�g�̒l�𔽓]�ł��܂��B</p>
+<h4 id="xor_operator">【６-３】XOR演算</h4>
+<p>XOR演算を使うと、任意のビットの値を反転できます。</p>
 <dl>
-<dt>[��]</dt>
-<dd>2<sup>0</sup>�r�b�g�`2<sup>7</sup>�r�b�g�����ׂĔ��]�������ꍇ�B
+<dt>[例]</dt>
+<dd>2<sup>0</sup>ビット〜2<sup>7</sup>ビットをすべて反転したい場合。
 <table>
 <thead>
 <tr style="text-align:center">
 <th>
 </th>
 <th>
-2�i��
+2進数
 </th>
 <th>
-16�i��
+16進数
 </th>
 <th>
-10�i��
+10進数
 </th>
 </tr>
 </thead>
@@ -756,12 +759,12 @@ FF
 </dd>
 </dl>
 </div>
-<h3 id="EXAMPLES">�y�V�z�G�ۃ}�N���ł̎g�p��</h3>
+<h3 id="EXAMPLES">【７】秀丸マクロでの使用例</h3>
 <dl>
-<dt>[��1] encode(charset)�L�[���[�h�̑���</dt>
-<dd><p>encode(charset)�L�[���[�h �́A�r�b�g0�`5�܂ł������R�[�h�������A�r�b�g6�`7�����s�R�[�h�������܂��B</p>
+<dt>[例1] encode(charset)キーワードの操作</dt>
+<dd><p>encode(charset)キーワード は、ビット0〜5までが文字コードを示し、ビット6〜7が改行コードを示します。</p>
 <div class="macro">
-<pre><code>$encode[0]=&quot;�V�K�쐬����&quot;;
+<pre><code>$encode[0]=&quot;新規作成直後&quot;;
 $encode[1]=&quot;Shift-JIS&quot;;
 $encode[2]=&quot;Unicode&quot;;
 $encode[3]=&quot;EUC&quot;;
@@ -769,25 +772,25 @@ $encode[4]=&quot;JIS&quot;;
 $encode[5]=&quot;UTF-7&quot;;
 $encode[6]=&quot;UTF-8&quot;;
 $encode[7]=&quot;Unicode (Big-Endian)&quot;;
-$encode[8]=&quot;����&quot;;
-$encode[9]=&quot;�ȑ̎�������&quot;;
-$encode[10]=&quot;�ɑ̎�������&quot;;
-$encode[11]=&quot;�؍���&quot;;
-$encode[12]=&quot;�؍���(Johab)&quot;;
-$encode[13]=&quot;�������[���b�p����&quot;;
-$encode[14]=&quot;�o���g��&quot;;
-$encode[15]=&quot;�M���V����&quot;;
-$encode[16]=&quot;�L��������&quot;;
-$encode[17]=&quot;�V���{��&quot;;
-$encode[18]=&quot;�g���R��&quot;;
-$encode[19]=&quot;�w�u���C��&quot;;
-$encode[20]=&quot;�A���r�A��&quot;;
-$encode[21]=&quot;�^�C��&quot;;
-$encode[22]=&quot;�x�g�i����&quot;;
+$encode[8]=&quot;欧文&quot;;
+$encode[9]=&quot;簡体字中国語&quot;;
+$encode[10]=&quot;繁体字中国語&quot;;
+$encode[11]=&quot;韓国語&quot;;
+$encode[12]=&quot;韓国語(Johab)&quot;;
+$encode[13]=&quot;中央ヨーロッパ言語&quot;;
+$encode[14]=&quot;バルト語&quot;;
+$encode[15]=&quot;ギリシャ語&quot;;
+$encode[16]=&quot;キリル言語&quot;;
+$encode[17]=&quot;シンボル&quot;;
+$encode[18]=&quot;トルコ語&quot;;
+$encode[19]=&quot;ヘブライ語&quot;;
+$encode[20]=&quot;アラビア語&quot;;
+$encode[21]=&quot;タイ語&quot;;
+$encode[22]=&quot;ベトナム語&quot;;
 $encode[23]=&quot;Macintosh&quot;;
 $encode[24]=&quot;OEM/DOS&quot;;
-$encode[25]=&quot;���̑�&quot;;
-$encode[26]=&quot;�o�C�i�����[�h&quot;;
+$encode[25]=&quot;その他&quot;;
+$encode[26]=&quot;バイナリモード&quot;;
 $encode[27]=&quot;UTF-32&quot;;
 $encode[28]=&quot;UTF-32 (Big-Endian)&quot;;
 
@@ -796,27 +799,27 @@ $newline[1]=&quot;LF&quot;;
 $newline[2]=&quot;CR&quot;;
 $newline[3]=&quot;CR+LF&quot;;
 
-// encode �̍\��(���2�r�b�g�����s�A����6�r�b�g���G���R�[�h������)
-// 76543210 �r�b�g��
-// XXxxxxxx 2�i��
+// encode の構造(上位2ビットが改行、下位6ビットがエンコードを示す)
+// 76543210 ビット順
+// XXxxxxxx 2進数
 
-// �G���R�[�h�����̂ݐ؂�o��
-//     XXxxxxxx:encode�L�[���[�h�̒l
+// エンコード部分のみ切り出し
+//     XXxxxxxx:encodeキーワードの値
 //AND) 00111111:0x3F
 //--------------
-//     00xxxxxx:�����R�[�h
+//     00xxxxxx:文字コード
 #encode = encode &amp; 0x3F;
 
-// ���s�����̂ݐ؂�o��
-//     XXxxxxxx:encode�L�[���[�h�̒l
+// 改行部分のみ切り出し
+//     XXxxxxxx:encodeキーワードの値
 //AND) 11000000:0xC0
 //--------------
-//     XX000000:���s�R�[�h
-//     ���łɃr�b�g�V�t�g����̊���Z(6�r�b�g�E�V�t�g)
+//     XX000000:改行コード
+//     ついでにビットシフト代わりの割り算(6ビット右シフト)
 #newline = (encode &amp; 0xC0) / 64;
 
-message &quot;�G���R�[�h�́u&quot; + $encode[#encode] + &quot;�v�ł��B\n&quot; +
-        &quot;���s�R�[�h�́u&quot; + $newline[#newline] + &quot;�v�ł��B&quot;;
+message &quot;エンコードは「&quot; + $encode[#encode] + &quot;」です。\n&quot; +
+        &quot;改行コードは「&quot; + $newline[#newline] + &quot;」です。&quot;;
 endmacro;</code></pre>
 </div>
 </dd>
@@ -824,45 +827,45 @@ endmacro;</code></pre>
 <p><br />
 </p>
 <dl>
-<dt>[��2] .hilight�t�@�C�����̒l</dt>
-<dd><p>.hilight�t�@�C�����ŁA�����\�������̐ݒ��\������B</p>
+<dt>[例2] .hilightファイル内の値</dt>
+<dd><p>.hilightファイル内で、強調表示部分の設定を表示する。</p>
 <div class="macro">
-<pre><code>//�J�[�\���̂���s����荞��
+<pre><code>//カーソルのある行を取り込む
 $line = gettext2(0, lineno, linelen2, lineno);
 #pos = strstr($line, &quot;,&quot;);
 if(#pos == -1) endmacro;
-//�l�̂ݐ؂�o��
+//値のみ切り出し
 #check = val(leftstr($line, #pos));
-//�\�����@�̂ݐ؂�o��
+//表示方法のみ切り出し
 #hilifgt1 = #check &amp; ((0x08 | 0x10 | 0x20) ^ 0xFFFFFFFF);
-//�������@�̂ݐ؂�o��
+//検索方法のみ切り出し
 #hilifgt2 = #check &amp;  (0x08 | 0x10 | 0x20);
-//���ʂ�������
+//結果を初期化
 $hilight  = &quot;&quot;;
 
-//�\�����@(�l)���`�F�b�N
-if     (#hilifgt1 == 0x001) $hilight = &quot;����1&quot;;
-else if(#hilifgt1 == 0x041) $hilight = &quot;����2&quot;;
-else if(#hilifgt1 == 0x081) $hilight = &quot;����3&quot;;
-else if(#hilifgt1 == 0x0C1) $hilight = &quot;����4&quot;;
-else if((#hilifgt1 == 0x101) || (#hilifgt1 == 0x103)) $hilight = &quot;����5&quot;;
-else if((#hilifgt1 == 0x141) || (#hilifgt1 == 0x143)) $hilight = &quot;����6&quot;;
-else if((#hilifgt1 == 0x181) || (#hilifgt1 == 0x183)) $hilight = &quot;����7&quot;;
-else if((#hilifgt1 == 0x1C1) || (#hilifgt1 == 0x1C3)) $hilight = &quot;����8&quot;;
-else if(#hilifgt1 == 0x005) $hilight = &quot;�s�̋���1&quot;;
-else if(#hilifgt1 == 0x045) $hilight = &quot;�s�̋���2&quot;;
-else if(#hilifgt1 == 0x085) $hilight = &quot;�s�̋���3&quot;;
-else if(#hilifgt1 == 0x0C5) $hilight = &quot;�s�̋���4&quot;;
-else if(#hilifgt1 == 0x003) $hilight = &quot;���ɋ���1&quot;;
-else if(#hilifgt1 == 0x043) $hilight = &quot;���ɋ���2&quot;;
-else if(#hilifgt1 == 0x083) $hilight = &quot;���ɋ���3&quot;;
-else if(#hilifgt1 == 0x0C3) $hilight = &quot;���ɋ���4&quot;;
+//表示方法(値)をチェック
+if     (#hilifgt1 == 0x001) $hilight = &quot;強調1&quot;;
+else if(#hilifgt1 == 0x041) $hilight = &quot;強調2&quot;;
+else if(#hilifgt1 == 0x081) $hilight = &quot;強調3&quot;;
+else if(#hilifgt1 == 0x0C1) $hilight = &quot;強調4&quot;;
+else if((#hilifgt1 == 0x101) || (#hilifgt1 == 0x103)) $hilight = &quot;強調5&quot;;
+else if((#hilifgt1 == 0x141) || (#hilifgt1 == 0x143)) $hilight = &quot;強調6&quot;;
+else if((#hilifgt1 == 0x181) || (#hilifgt1 == 0x183)) $hilight = &quot;強調7&quot;;
+else if((#hilifgt1 == 0x1C1) || (#hilifgt1 == 0x1C3)) $hilight = &quot;強調8&quot;;
+else if(#hilifgt1 == 0x005) $hilight = &quot;行の強調1&quot;;
+else if(#hilifgt1 == 0x045) $hilight = &quot;行の強調2&quot;;
+else if(#hilifgt1 == 0x085) $hilight = &quot;行の強調3&quot;;
+else if(#hilifgt1 == 0x0C5) $hilight = &quot;行の強調4&quot;;
+else if(#hilifgt1 == 0x003) $hilight = &quot;特に強調1&quot;;
+else if(#hilifgt1 == 0x043) $hilight = &quot;特に強調2&quot;;
+else if(#hilifgt1 == 0x083) $hilight = &quot;特に強調3&quot;;
+else if(#hilifgt1 == 0x0C3) $hilight = &quot;特に強調4&quot;;
 
-//�������@(�r�b�g)���`�F�b�N
-if((#hilifgt2 &amp; 0x008) == 0x008) $hilight = $hilight + &quot;,�啶��/����������ʂ��Ȃ�&quot;;
-if((#hilifgt2 &amp; 0x010) == 0x010) $hilight = $hilight + &quot;,���K�\��&quot;;
-if((#hilifgt2 &amp; 0x020) == 0x020) $hilight = $hilight + &quot;,�P��&quot;;
-//���ʂ�\��
+//検索方法(ビット)をチェック
+if((#hilifgt2 &amp; 0x008) == 0x008) $hilight = $hilight + &quot;,大文字/小文字を区別しない&quot;;
+if((#hilifgt2 &amp; 0x010) == 0x010) $hilight = $hilight + &quot;,正規表現&quot;;
+if((#hilifgt2 &amp; 0x020) == 0x020) $hilight = $hilight + &quot;,単語&quot;;
+//結果を表示
 message $hilight;
 endmacro;</code></pre>
 </div>
@@ -871,15 +874,15 @@ endmacro;</code></pre>
 <p><br />
 </p>
 <dl>
-<dt>[��3] searchoption�L�[���[�h�̑���</dt>
-<dd><p>searchoption ���擾���A�K�v�Ȑݒ���s����������B</p>
+<dt>[例3] searchoptionキーワードの操作</dt>
+<dd><p>searchoption を取得し、必要な設定を行い検索する。</p>
 <div class="macro">
-<pre><code>//�����I�v�V�����擾
+<pre><code>//検索オプション取得
 #SEARCH_OPT  = searchoption;
-//�u�啶��/�������̋�ʁv��OFF�Ȃ�L���ɂ���B
+//「大文字/小文字の区別」がOFFなら有効にする。
 if((#SEARCH_OPT &amp; 0x00000002) != 0x00000002) #SEARCH_OPT  = #SEARCH_OPT | 0x00000002;
 
-//�u�u�����ǂ����v�u���Ȃ�OFF�ɂ���B
+//「置換かどうか」置換ならOFFにする。
 if((#SEARCH_OPT &amp; 0x00000004) == 0x00000004) #SEARCH_OPT  = #SEARCH_OPT ^ 0x00000004;
 
 setsearch searchbuffer, #SEARCH_OPT;</code></pre>
@@ -889,8 +892,8 @@ setsearch searchbuffer, #SEARCH_OPT;</code></pre>
 <p><br />
 </p>
 <dl>
-<dt>[��4] existfile�֐��̖߂�l����</dt>
-<dd><p>existfile�֐��́A��2�����Ɂu1�v���w�肷��ƁA�t�@�C���������擾�ł��܂��B���̖߂�l���`�F�b�N���A�t�H���_(�f�B���N�g��)�����肵�Ă��܂��B</p>
+<dt>[例4] existfile関数の戻り値判定</dt>
+<dd><p>existfile関数は、第2引数に「1」を指定すると、ファイル属性を取得できます。その戻り値をチェックし、フォルダ(ディレクトリ)か判定しています。</p>
 <div class="macro">
 <pre><code>#ATTRIBUTE_READONLY  = 0x00000001;
 #ATTRIBUTE_HIDDEN    = 0x00000002;
@@ -901,7 +904,7 @@ setsearch searchbuffer, #SEARCH_OPT;</code></pre>
 $CHECK = macrodir;
 #FILE_ATTRIBUTE = existfile($CHECK, 1);
 if((#FILE_ATTRIBUTE &amp; #ATTRIBUTE_DIRECTORY) == #ATTRIBUTE_DIRECTORY){
-    message &quot;[&quot; + $CHECK + &quot;]�̓t�H���_�ł��B&quot;;
+    message &quot;[&quot; + $CHECK + &quot;]はフォルダです。&quot;;
 }
 endmacro;</code></pre>
 </div>
@@ -909,6 +912,6 @@ endmacro;</code></pre>
 </dl>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>
