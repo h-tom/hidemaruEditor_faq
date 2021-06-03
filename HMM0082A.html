@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0082A] ���J�[�\���̂���s�̓��e�𕶎���^�ϐ��Ɏ�荞�ޕ��@ - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0082A] ●カーソルのある行の内容を文字列型変数に取り込む方法 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,53 +21,53 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0081A.html">���O��</a> <a href="HMM0083A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0081A.html">←前へ</a> <a href="HMM0083A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0082a">[HMM0082A]</h1>
-<h2 id="HMM0082A_01">���J�[�\���̂���s�̓��e�𕶎���^�ϐ��Ɏ�荞�ޕ��@</h2>
+<h2 id="HMM0082A_01">●カーソルのある行の内容を文字列型変数に取り込む方法</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd>�J�[�\���̂���s�̓��e���A������^�ϐ��Ɏ�荞�ޕ��@�͂���܂��񂩁H
+<dd>カーソルのある行の内容を、文字列型変数に取り込む方法はありませんか？
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���@�͕�������܂��B</p>
+<dd><p>方法は複数あります。</p>
 <ol class="example" type="1">
-<li><p>�s�I�����s���A�I��͈͂���荞��</p>
+<li><p>行選択を行い、選択範囲を取り込む</p>
 <div class="macro">
 <pre><code>selectline;
 $line = gettext(seltopx, seltopy, selendx, selendy);
 message $line;</code></pre>
 </div></li>
-<li><p>gettext2�֐��ƁA�L�[���[�h��g�ݍ��킹�Ď�荞��</p>
+<li><p>gettext2関数と、キーワードを組み合わせて取り込む</p>
 <div class="macro">
 <pre><code>$line = gettext2(0,lineno,linelen2, lineno);
 message $line;</code></pre>
 </div></li>
 </ol>
 <dl>
-<dt><span class="mark_dt3">[���]</span></dt>
-<dd><p>(1)�̃}�N���́A�s�I�����s���A�I��͈͂̕��������荞��ł��܂��B�s�I���̕���p�ŃJ�[�\�����}�N�����s�O��ŁA�Ⴄ�ʒu�Ɉړ����Ă��܂��ꍇ������܂��B</p>
-<p>(2)�̃}�N����</p>
+<dt><span class="mark_dt3">[解説]</span></dt>
+<dd><p>(1)のマクロは、行選択を行い、選択範囲の文字列を取り込んでいます。行選択の副作用でカーソルがマクロ実行前後で、違う位置に移動してしまう場合があります。</p>
+<p>(2)のマクロは</p>
 <ul>
-<li>lineno �L�[���[�h</li>
-<li>linelen2 �L�[���[�h</li>
+<li>lineno キーワード</li>
+<li>linelen2 キーワード</li>
 </ul>
-<p>���g�p���A�͈͑I���Ȃ��Ŏ�荞��ł��܂��B</p>
-<p>�s�̐擪�́A"0"�ƌ��܂��Ă���̂Œ��ڋL�q���A�s�̒����� linelen2 �L�[���[�h�A�s���́Alineno �L�[���[�h ���g���͈͂����ߎ擾���Ă��܂��B</p>
-<p>���ʂ͓����ł����A�J�[�\�����ړ�����/���Ȃ��̈Ⴂ������܂��B</p>
+<p>を使用し、範囲選択なしで取り込んでいます。</p>
+<p>行の先頭は、"0"と決まっているので直接記述し、行の長さは linelen2 キーワード、行数は、lineno キーワード を使い範囲を求め取得しています。</p>
+<p>結果は同じですが、カーソルが移動する/しないの違いがあります。</p>
 </dd>
-<dt><span class="mark_dt3">[�⑫]</span></dt>
-<dd>(2)�́Agettext�֐��ł����Ȃ��悤�Ɍ����܂����A�܂�Ԃ�������ꍇ��A�^�u�R�[�h������ꍇ�A gettext�֐��ł͐���ɓ��e��(�ȒP�ɂ�)�擾�ł��܂���B
+<dt><span class="mark_dt3">[補足]</span></dt>
+<dd>(2)は、gettext関数でも問題ないように見えますが、折り返しがある場合や、タブコードがある場合、 gettext関数では正常に内容を(簡単には)取得できません。
 </dd>
 </dl>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0081A.html">���O��</a> <a href="HMM0083A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0081A.html">←前へ</a> <a href="HMM0083A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0018A] ��openfile �� /(x,y,cx,xy) �I�v�V�����ł̃}�N���̓��쎞�̒��� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0018A] ●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,20 +21,20 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0017A.html">���O��</a> <a href="HMM0019A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0017A.html">←前へ</a> <a href="HMM0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0018a">[HMM0018A]</h1>
-<h2 id="HMM0018A_01">��openfile �� /(x,y,cx,xy) �I�v�V�����ł̃}�N���̓��쎞�̒���</h2>
+<h2 id="HMM0018A_01">●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>openfile�Ŏ��R�Ȉʒu�ɃE�B���h�E���J�������̂ł����A�v�����悤�ɓ����܂���B</strong>
+<dd><strong>openfileで自由な位置にウィンドウを開きたいのですが、思ったように動きません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>openfile���̈����ux,y,cx,xy�v�ɂ́A������Ő��l���w�肵�܂��B �]���āu<code>openfile"/(100,200,300,400)";</code>�v�͐������������ł����A �u<code>openfile "/(#XX,#YY,#CX,#CY)";</code>�v�͌��ł��B ���l�^�ϐ����g���ďG�ۃG�f�B�^�̊J���ʒu���R���g���[������ɂ́A���l�^�ϐ��𕶎��^�ϐ��ɕϊ����Ă��������B ���ɂ��̗�������܂��B</p>
+<dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。従って「<code>openfile"/(100,200,300,400)";</code>」は正しい書き方ですが、「<code>openfile "/(#XX,#YY,#CX,#CY)";</code>」は誤りです。数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。次にその例を示します。</p>
 <div class="macro">
 <pre><code>openfile &quot;/(&quot;+str(#XX)+&quot;,&quot;+str(#YY)+&quot;,&quot;+str(#CX)+&quot;,&quot;+str(#CY)+&quot;)&quot;;</code></pre>
 </div>
@@ -41,6 +42,6 @@
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0017A.html">���O��</a> <a href="HMM0019A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0017A.html">←前へ</a> <a href="HMM0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

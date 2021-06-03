@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0087A] ���قȂ�t�H���_�̏G�ۂ����s����Ă���̂ŋN���ł��܂��� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0087A] ●異なるフォルダの秀丸が実行されているので起動できません - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,53 +21,53 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0086A.html">���O��</a> <a href="HME0088A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0086A.html">←前へ</a> <a href="HME0088A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0087a">[HME0087A]</h1>
-<h2 id="HME0087A_01">���قȂ�t�H���_�̏G�ۂ����s����Ă���̂ŋN���ł��܂���</h2>
+<h2 id="HME0087A_01">●異なるフォルダの秀丸が実行されているので起動できません</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃG�f�B�^�Ɋ֘A�t���Ă����t�@�C�����J�����Ƃ��Ă��A �u�قȂ�t�H���_�̏G�ۃG�f�B�^�����s����Ă���̂ŋN���ł��܂���B�v�Ƃ����G���[�_�C�A���O���o�ĊJ�����Ƃ��ł��܂���B</strong>
+<dd><strong>秀丸エディタに関連付けていたファイルを開こうとしても、「異なるフォルダの秀丸エディタが実行されているので起動できません。」というエラーダイアログが出て開くことができません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�G�ۃG�f�B�^�͎������g�ƈႤ�G�ۃG�f�B�^�����Ɏ��s����Ă���Ƃ��ɁA�ȉ��̃_�C�A���O���o�āA �ォ��N�����悤�Ƃ���G�ۃG�f�B�^�����s����Ȃ��悤�ɂȂ��Ă���͎̂d�l�ł��B</p>
-<p><img src="HME0087A_01.png" width="382" height="232" alt="�x���_�C�A���O" /><br />
+<dd><p>秀丸エディタは自分自身と違う秀丸エディタが既に実行されているときに、以下のダイアログが出て、後から起動しようとする秀丸エディタが実行されないようになっているのは仕様です。</p>
+<p><img src="HME0087A_01.png" width="382" height="232" alt="警告ダイアログ" /><br />
 </p>
-<p>���ۂɂ́A��肪�������钼�ڂ̌����́A�ȉ��̂悤�ɕ�������܂��B</p>
+<p>実際には、問題が発生する直接の原因は、以下のように複数あります。</p>
 <ul>
-<li><p>�g���Ă��Ȃ��G�ۃG�f�B�^���폜����<br />
-�o���Ă��Ȃ��t�H���_�ɌÂ��o�[�W�����̏G�ۃG�f�B�^���c���Ă��Ȃ����O�̂��ߌ������āA������΍폜���܂��傤�B OS��64bit�̏ꍇ�A32bit��64bit�ł��C���X�g�[�����鎖���\�Ȃ̂ŁA32bit��64bit��2�̃o�[�W���������Ă��܂��ƁA �����󋵂ɂȂ�܂��B</p></li>
-<li><p>�V���[�g�J�b�g�̃����N����m�F����<br />
-���ɃX�^�[�g�A�b�v��f�X�N�g�b�v�Ɏ����ō쐬�����V���[�g�J�b�g���A�����N�悪�Â��t�H���_���w���Ă���ꍇ������܂��B ���̏ꍇ�͐V�����t�H���_�ɍ쐬���Ȃ����Ă��������B</p></li>
-<li><p>�������蓮�Ŋ֘A�t�������Ă����ꍇ<br />
-HMSETUP.EXE�łȂ�Windows���g�̋@�\�Ŋ֘A�t�������g���q�́A���̌�G�ۃG�f�B�^���Ⴄ�t�H���_�Ƀo�[�W�����A�b�v�C���X�g�[������ƁA �����I�ɂ͍X�V����܂���B<br />
-(HMSETUP.EXE��HMSETUP.EXE�Ŋ֘A�t�����s�����g���q�����Ǘ����Ă��邽�߂ł�) ���̏ꍇ�A�G�ۃG�f�B�^����֘A�t������蒼���Ă��������B</p></li>
-<li><p>�֘A�t�����s�����@�ɒ���<br />
-�G�ۃG�f�B�^���o�[�W�����A�b�v�C���X�g�[������Ƃ��A����܂łƂ͈Ⴄ�t�H���_�ɂ��ăC���X�g�[������ƁA �u�t�@�C�����J���A�v���P�[�V�����̑I���v�i�֘A�t������Ă��Ȃ��t�@�C�����_�u���N���b�N�����Ƃ��ɊJ���j��ʂ� �u���̃t�@�C�����J���A�v���P�[�V�����v�ɏo�Ă��� Hidemaru�ɓo�^����Ă���G�ۃG�f�B�^�̃p�X�����ύX���ꂸ�A ���̂��߁A���̉�ʂ���֘A�t�����s���ƁA���t�H���_�̃p�X���Ŋ֘A�t������Ă��܂����Ƃ�����܂��B</p>
-<p>���̖���������邽�߂ɂ��A�G�ۃG�f�B�^����֘A�t�����s���悤�ɏK���Â��邱�Ƃ��������߂��܂��B</p></li>
-<li><p>�����I�ɈႤ�t�H���_�ɃC���X�g�[�����Ă��Ȃ��Ă��A�t�@�C���̃��l�[���ɒ���<br />
-HIDEMARU.EXE�̃t�@�C������ύX����i�o�b�N�A�b�v�ړI��A���������_���ŏG�ۃG�f�B�^�Ƃ̐؂�ւ��Ȃǂ̂��߁j�ƁA ���W�X�g���̊֘A�t���̒l���A�ύX�����t�@�C�����ɍ��킹��Windows�������I�ɏ��������Ă��܂����Ƃ�����悤�ł��B</p>
-<p>���̏ꍇ���A�G�ۃG�f�B�^�Ŋ֘A�t������蒼���Ă��������B</p></li>
-<li><p>�u�G�ۃG�f�B�^�����o���L�b�g�v���g�p���Ă���ꍇ<br />
-�u�G�ۃG�f�B�^�����o���L�b�g�v���g�p���Ă����ԂŁA �p�\�R���{�̂ɕʓr�C���X�g�[������Ă���G�ۃG�f�B�^���A�֘A�Â��ŋN�������Ă��܂��Ƃ��̏�ԂɂȂ�܂��B</p>
-<p>�u�G�ۃG�f�B�^�����o���L�b�g�v���g�p���Ă���ꍇ�́A�󋵂ɉ����āA�G�ۃG�f�B�^�Ƀt�@�C�����h���b�v���ĊJ���ȂǁA �g�����ɍH�v���K�v�ȏꍇ������܂��B</p></li>
-<li><p>�u�G�ۃG�f�B�^(�X�g�A�A�v����)�v���g�p���Ă���ꍇ<br />
-�u�G�ۃG�f�B�^(�f�X�N�g�b�v��)�v�Ɓu�G�ۃG�f�B�^(�X�g�A�A�v����)�v�𓯎��ɋN���������ꍇ���A�ȉ��̖₢���킹�_�C�A���O���\������܂��B</p>
-<p><img src="HME0087A_02.png" width="441" height="255" alt="�֖ؑ₢���킹�_�C�A���O" /><br />
+<li><p>使っていない秀丸エディタを削除する<br />
+覚えていないフォルダに古いバージョンの秀丸エディタが残っていないか念のため検索して、見つかれば削除しましょう。 OSが64bitの場合、32bitと64bit版をインストールする事が可能なので、32bitと64bitの2つのバージョンを入れてしまうと、同じ状況になります。</p></li>
+<li><p>ショートカットのリンク先を確認する<br />
+特にスタートアップやデスクトップに自分で作成したショートカットが、リンク先が古いフォルダを指している場合があります。その場合は新しいフォルダに作成しなおしてください。</p></li>
+<li><p>自分が手動で関連付けをしていた場合<br />
+HMSETUP.EXEでなくWindows自身の機能で関連付けした拡張子は、その後秀丸エディタを違うフォルダにバージョンアップインストールすると、自動的には更新されません。<br />
+(HMSETUP.EXEはHMSETUP.EXEで関連付けを行った拡張子だけ管理しているためです) この場合、秀丸エディタから関連付けをやり直してください。</p></li>
+<li><p>関連付けを行う方法に注意<br />
+秀丸エディタをバージョンアップインストールするとき、それまでとは違うフォルダにしてインストールすると、「ファイルを開くアプリケーションの選択」（関連付けされていないファイルをダブルクリックしたときに開く）画面の「このファイルを開くアプリケーション」に出てくる Hidemaruに登録されている秀丸エディタのパス名が変更されず、そのため、この画面から関連付けを行うと、旧フォルダのパス名で関連付けされてしまうことがあります。</p>
+<p>この問題を回避するためにも、秀丸エディタから関連付けを行うように習慣づけることをおすすめします。</p></li>
+<li><p>明示的に違うフォルダにインストールしていなくても、ファイルのリネームに注意<br />
+HIDEMARU.EXEのファイル名を変更する（バックアップ目的や、浮動小数点数版秀丸エディタとの切り替えなどのため）と、レジストリの関連付けの値を、変更したファイル名に合わせてWindowsが自動的に書き換えてしまうことがあるようです。</p>
+<p>この場合も、秀丸エディタで関連付けをやり直してください。</p></li>
+<li><p>「秀丸エディタ持ち出しキット」を使用している場合<br />
+「秀丸エディタ持ち出しキット」を使用している状態で、パソコン本体に別途インストールされている秀丸エディタを、関連づけで起動させてしまうとこの状態になります。</p>
+<p>「秀丸エディタ持ち出しキット」を使用している場合は、状況に応じて、秀丸エディタにファイルをドロップして開くなど、使い方に工夫が必要な場合があります。</p></li>
+<li><p>「秀丸エディタ(ストアアプリ版)」を使用している場合<br />
+「秀丸エディタ(デスクトップ版)」と「秀丸エディタ(ストアアプリ版)」を同時に起動させた場合も、以下の問い合わせダイアログが表示されます。</p>
+<p><img src="HME0087A_02.png" width="441" height="255" alt="切替問い合わせダイアログ" /><br />
 </p>
-<p>�������A�����N�����\�ɂ���ݒ������܂��B</p>
-<p>�u<span class="env">�����</span>�v�́u32bit��/64bit�Łv�ɐݒ肪����܂��B���̐ݒ��ON�ɂ��Ă����΁A�����N���͉\�ɂȂ�܂��B</p>
-<p><img src="HME0087A_03.png" width="328" height="73" alt="�����N���̐ݒ�" /><br />
+<p>ただし、同時起動を可能にする設定もあります。</p>
+<p>「<span class="env">動作環境</span>」の「32bit版/64bit版」に設定があります。この設定をONにしておけば、同時起動は可能になります。</p>
+<p><img src="HME0087A_03.png" width="328" height="73" alt="同時起動の設定" /><br />
 </p></li>
 </ul>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0086A.html">���O��</a> <a href="HME0088A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0086A.html">←前へ</a> <a href="HME0088A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

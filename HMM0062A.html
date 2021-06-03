@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0062A] ���t�H���_�̑��݂��m�F������ - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0062A] ●フォルダの存在を確認したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,35 +21,35 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0061A.html">���O��</a> <a href="HMM0063A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0061A.html">←前へ</a> <a href="HMM0063A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0062a">[HMM0062A]</h1>
-<h2 id="HMM0062A_01">���t�H���_�̑��݂��m�F������</h2>
+<h2 id="HMM0062A_01">●フォルダの存在を確認したい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>existfile() �֐����g���΃t�@�C���̑��݂��m�F�ł���悤�ł����A�t�H���_�̑��݂��m�F���鎖�͂ł��Ȃ��ł����H</strong>
+<dd><strong>existfile() 関数を使えばファイルの存在を確認できるようですが、フォルダの存在を確認する事はできないですか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�G�ۃG�f�B�^ Ver.7.00��3���Aexistfile�֐����g������A�t�@�C���̑������擾�ł���悤�ɂȂ�܂����B</p>
-<p>��2�������ǉ�����A1 ���w�肷��ƁA��1�����Ŏw�肳�ꂽ�t�@�C��/�t�H���_�̑������擾�Ă��܂��B existfile�֐��̖߂�l�𒲂ׂ�΁A�t�H���_(�f�B���N�g��) ���ǂ������m�F�ł��܂��B</p>
+<dd><p>秀丸エディタ Ver.7.00β3より、existfile関数が拡張され、ファイルの属性が取得できるようになりました。</p>
+<p>第2引数が追加され、1 を指定すると、第1引数で指定されたファイル/フォルダの属性が取得てきます。 existfile関数の戻り値を調べれば、フォルダ(ディレクトリ) かどうかを確認できます。</p>
 <div class="macro">
 <pre><code>#ATTRIBUTE_READONLY  = 0x00000001;
 #ATTRIBUTE_HIDDEN    = 0x00000002;
 #ATTRIBUTE_SYSTEM    = 0x00000004;
-#ATTRIBUTE_DIRECTORY = 0x00000010; //�t�H���_�̏ꍇ�Z�b�g�����r�b�g
+#ATTRIBUTE_DIRECTORY = 0x00000010; //フォルダの場合セットされるビット
 #ATTRIBUTE_ARCHIVE   = 0x00000020;
 if((existfile(macrodir,1) &amp; #ATTRIBUTE_DIRECTORY) == #ATTRIBUTE_DIRECTORY){
-  message macrodir + &quot;�̓t�H���_�ł��B&quot;;
+  message macrodir + &quot;はフォルダです。&quot;;
 }</code></pre>
 </div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0061A.html">���O��</a> <a href="HMM0063A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0061A.html">←前へ</a> <a href="HMM0063A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

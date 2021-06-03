@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0032A] ���u�����ł̕\���v�̐ݒ�ɂ�铮��̈Ⴂ{ - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0032A] ●「検索での表示」の設定による動作の違い{ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,64 +21,64 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0031A.html">���O��</a> <a href="HMM0033A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0032a">[HMM0032A]</h1>
-<h2 id="HMM0032A_01">���u�����ł̕\���v�̐ݒ�ɂ�铮��̈Ⴂ</h2>
+<h2 id="HMM0032A_01">●「検索での表示」の設定による動作の違い</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>���镶��������������ď����������̂ł������܂������܂���B</strong>
+<dd><strong>ある文字列を検索させて消去したいのですがうまくいきません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���Ƃ��΁A</p>
+<dd><p>たとえば、</p>
 <div class="macro">
-<pre><code>�G�ۃG�f�B�^</code></pre>
+<pre><code>秀丸エディタ</code></pre>
 </div>
-<p>�Ƃ������e�ŁA"�G��"���������폜����ׂɁA</p>
+<p>という内容で、"秀丸"を検索し削除する為に、</p>
 <div class="macro">
 <pre><code>gofiletop;
-searchdown2 &quot;�G��&quot;;
+searchdown2 &quot;秀丸&quot;;
 if(result){
-    message &quot;�폜���܂�&quot;;
+    message &quot;削除します&quot;;
     delete;
 }
 endmacro;</code></pre>
 </div>
-<p>�Ƃ����}�N����������ꍇ�A�폜�����̂�"�G��"�ł͂Ȃ��A "�G"�Ƃ����ꕶ�������폜�ł��Ȃ��Ƃ����󋵂̑Ώ����@�ł��B</p>
-<p>�u���̑��v���u<span class="env">�����</span>�v���u�����v���u�����̓���-�����ł̕\���v���m<strong>�_��</strong>�n�ɂȂ��Ă���ƁA�����Ƀ}�b�`�����ӏ����폜�ł��܂���B�m<strong>�͈͑I��</strong>�n�ɂ���K�v������܂��B</p>
-<p>�u�����ł̕\���v���A�m�_�Łn�ɂȂ��Ă���ꍇ�A�I������Ă���悤�Ɍ�����܂����A���ۂ͑I������Ă��܂���B���ׁ̈A�udelete;�v���̖��߂����s���Ă��A�J�[�\���ʒu�ɂ��镶�������������̓���ɂȂ�܂��B (�͈͑I�����Ă���΁A�I��͈͂��폜����܂����A�͈͑I������Ă��Ȃ��̂ŁA�Ώۂ��J�[�\���ʒu�݂̂ɂȂ��Ă���)</p>
-<p>�usetcompatiblemode���v���g���΁A�}�N�����s���Ɂu�����ł̕\���v�̐ݒ���A�ꎞ�I�ɕύX�ł��܂��B</p>
+<p>というマクロを作った場合、削除されるのが"秀丸"ではなく、 "秀"という一文字しか削除できないという状況の対処方法です。</p>
+<p>「その他」→「<span class="env">動作環境</span>」→「検索」→「検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、検索にマッチした箇所を削除できません。［<strong>範囲選択</strong>］にする必要があります。</p>
+<p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている)</p>
+<p>「setcompatiblemode文」を使えば、マクロ実行時に「検索での表示」の設定を、一時的に変更できます。</p>
 <div class="macro">
-<pre><code>setcompatiblemode 0x00000200�G</code></pre>
+<pre><code>setcompatiblemode 0x00000200；</code></pre>
 </div>
-<p>setcompatiblemode���̐ݒ蔲��</p>
+<p>setcompatiblemode文の設定抜粋</p>
 <table>
 <tbody>
 <tr class="odd">
 <td>0x00000000</td>
-<td style="text-align: center;">�}�N���̕W������i������ɏ]���j</td>
+<td style="text-align: center;">マクロの標準動作（動作環境に従う）</td>
 </tr>
 <tr class="even">
 <td>0x00000100</td>
-<td style="text-align: center;">�_�ŕ\��</td>
+<td style="text-align: center;">点滅表示</td>
 </tr>
 <tr class="odd">
 <td>0x00000200</td>
-<td style="text-align: center;">�͈͑I��</td>
+<td style="text-align: center;">範囲選択</td>
 </tr>
 </tbody>
 </table>
-<p>�ȉ��̂悤�Ƀ}�N����ύX����΁A�u�����ł̕\���v�̐ݒ��ύX���Ȃ��Ă��A"�G��"�Ƃ��������Ƀ}�b�`�����������폜�ł��܂��B</p>
+<p>以下のようにマクロを変更すれば、「検索での表示」の設定を変更しなくても、"秀丸"という検索にマッチした文字を削除できます。</p>
 <div class="macro">
-<pre><code>setcompatiblemode 0x00000200�G
+<pre><code>setcompatiblemode 0x00000200；
 gofiletop;
-searchdown2 &quot;�G��&quot;;
+searchdown2 &quot;秀丸&quot;;
 if(result){
-    message &quot;�폜���܂�&quot;;
+    message &quot;削除します&quot;;
     delete;
 }
 endmacro;</code></pre>
@@ -87,6 +87,6 @@ endmacro;</code></pre>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0031A.html">���O��</a> <a href="HMM0033A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0031A] �������R�[�h�̐ݒ肪�w���H - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0031A] ●文字コードの設定がヘン？ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,29 +21,29 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0030A.html">���O��</a> <a href="HME0032A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0030A.html">←前へ</a> <a href="HME0032A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0031a">[HME0031A]</h1>
-<h2 id="HME0031A_01">�������R�[�h�̐ݒ肪�w���H</h2>
+<h2 id="HME0031A_01">●文字コードの設定がヘン？</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃG�f�B�^�ŁA�e�L�X�g�t�@�C���̓ǂݍ��݂ƏI�����J��Ԃ��Ă���ƁA���̂܂ɂ��Q�o�C�g�n���{�ꕶ�����L����A���t�@�x�b�g�ɉ����Ă��܂��ēǂ߂Ȃ��Ȃ��Ă��܂��܂����B�܂��A�G�ۃG�f�B�^��Shift_JIS�ȊO�̕����R�[�h�������ꍇ�ɁA���ӂ��ׂ��_�͂���܂����H</strong>
+<dd><strong>秀丸エディタで、テキストファイルの読み込みと終了を繰り返していると、いつのまにか２バイト系日本語文字が記号やアルファベットに化けてしまって読めなくなってしまいました。また、秀丸エディタでShift_JIS以外の文字コードを扱う場合に、注意すべき点はありますか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>��ʂɕ����R�[�h�̔��ʂɊւ��ẮA100%�̑Ή��͂ǂ�ȃ\�t�g�E�F�A�ł�����̂ŁA�ŏI�I�ɂ͖ڂŌ��Ċm�F����̂��x�X�g�ł��B<br />
+<dd><p>一般に文字コードの判別に関しては、100%の対応はどんなソフトウェアでも難しいので、最終的には目で見て確認するのがベストです。<br />
 </p>
-<p>�W���� Shift_JIS�R�[�h�������g���Ă���ꍇ�ɂ͖��͋N���܂���B���������̕����R�[�h���g���Ă���ꍇ�ɂ́A�㏑���ۑ��������ɗ\�����ʕ����R�[�h�ɕϊ�����Ă��܂����Ƃ�����܂��B�ꌩ���Ă����������Ȃ������ɖ��ł�(^^;)�B</p>
+<p>標準の Shift_JISコードだけを使っている場合には問題は起きません。しかし他の文字コードも使っている場合には、上書き保存した時に予期せぬ文字コードに変換されてしまうことがあります。一見しても見分けられないだけに厄介です(^^;)。</p>
 <dl>
-<dt><span class="mark_dt3">[�⑫]</span></dt>
-<dd><p>�G�ۃG�f�B�^�Ŏ����F����L���ɂ���ɂ́B�u���̑��v���u<span class="env">�����</span>�v���u�t�@�C���v���u�G���R�[�h�P�v�ɂ���A<span class="marker1">�u�t�@�C���̓��e����͂��ăG���R�[�h�̎�ނ������F������v</span>��ON�ɂ��ĉ������B<br />
-(�u<strong>�G���R�[�h1</strong>�v���\������Ă��Ȃ��ꍇ�́A�u������v��ʍ����ɂ���u<span class="attention_red">�㋉�Ҍ����ݒ�</span>�v��ON�ɂ��Ă�������)</p>
-<p>�u��ցv�A�u���ցv�̃{�^���ŁA�G���R�[�h�̗D�揇��ύX�\�ł��B�܂��A�V�K�t�@�C���쐬���̃G���R�[�h���w�肷�鎖���\�ł��B</p>
+<dt><span class="mark_dt3">[補足]</span></dt>
+<dd><p>秀丸エディタで自動認識を有効にするには。「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード１」にある、<span class="marker1">「ファイルの内容を解析してエンコードの種類を自動認識する」</span>をONにして下さい。<br />
+(「<strong>エンコード1</strong>」が表示されていない場合は、「動作環境」画面左下にある「<span class="attention_red">上級者向け設定</span>」をONにしてください)</p>
+<p>「上へ」、「下へ」のボタンで、エンコードの優先順を変更可能です。また、新規ファイル作成時のエンコードを指定する事も可能です。</p>
 <div style="position:relative;">
-<p><img src="HME0051A_01.png" width="613" height="437" alt="�G���R�[�h1" /> <img src="HME0031A_01.png" width="613" height="437" alt="�����-�G���R�[�h1" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="HME0051A_01.png" width="613" height="437" alt="エンコード1" /> <img src="HME0031A_01.png" width="613" height="437" alt="動作環境-エンコード1" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div>
 </dd>
 </dl>
@@ -51,6 +51,6 @@
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0030A.html">���O��</a> <a href="HME0032A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0030A.html">←前へ</a> <a href="HME0032A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

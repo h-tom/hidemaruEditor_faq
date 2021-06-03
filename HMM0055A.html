@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0055A] �����͍쐬������}������ɂ́H - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0055A] ●文章作成日時を挿入するには？ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,24 +21,24 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0054A.html">���O��</a> <a href="HMM0056A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0054A.html">←前へ</a> <a href="HMM0056A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0055a">[HMM0055A]</h1>
-<h2 id="HMM0055A_01">�����͍쐬������}������ɂ́H</h2>
+<h2 id="HMM0055A_01">●文章作成日時を挿入するには？</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�ҏW���̃t�@�C���Ɍ��݂̓�����}���������̂ł����A�����ȒP�ȕ��@�͂Ȃ��ł��傤���H�i��ŏ����̂ł͕s�ւł��j</strong>
+<dd><strong>編集中のファイルに現在の日時を挿入したいのですが、何か簡単な方法はないでしょうか？（手で書くのでは不便です）</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�G�ۃG�f�B�^ Ver5.00��1����A�}���n�̃R�}���h�Ɂu���t�Ǝ����v���ǉ�����Ă��܂��B date + " " + time; �Ƃ����`���ł��B</p>
-<div class="line-block">��) 07/04/22(��) 22:50:18</div>
-<p>�C�ӂ̌`���ő}������ɂ́A�}�N�����쐬����K�v������܂��B�ȉ��̂悤�ȃ}�N�����g���ΊȒP�Ɏ����ł��܂��B</p>
+<dd><p>秀丸エディタ Ver5.00β1から、挿入系のコマンドに「日付と時刻」が追加されています。 date + " " + time; という形式です。</p>
+<div class="line-block">例) 07/04/22(日) 22:50:18</div>
+<p>任意の形式で挿入するには、マクロを作成する必要があります。以下のようなマクロを使えば簡単に実現できます。</p>
 <div class="macro">
-<pre><code>//------- �T���v���}�N�� -------//
+<pre><code>//------- サンプルマクロ -------//
 insert date + &quot; &quot; + time + &quot;\n&quot;;
 endmacro;
 // ---------------------------- //</code></pre>
@@ -47,6 +47,6 @@ endmacro;
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0054A.html">���O��</a> <a href="HMM0056A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0054A.html">←前へ</a> <a href="HMM0056A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

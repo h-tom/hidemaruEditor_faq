@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0027A] ���N�����ɏG�ۂ�����Ďז��� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0027A] ●起動時に秀丸が現れて邪魔だ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,38 +21,38 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0026A.html">���O��</a> <a href="HME0028A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0026A.html">←前へ</a> <a href="HME0028A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0027a">[HME0027A]</h1>
-<h2 id="HME0027A_01">���N�����ɏG�ۂ�����Ďז���</h2>
+<h2 id="HME0027A_01">●起動時に秀丸が現れて邪魔だ</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>Windows���N����������Ɂi����j�̏G�ۃG�f�B�^������ɊJ���A�����Ă��܂��B</strong>
+<dd><strong>Windowsが起動した直後に（無題）の秀丸エディタが勝手に開き、困っています。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�u�X�^�[�g�A�b�v�t�H���_�v�ɂ���A�G�ۃG�f�B�^�̃V���[�g�J�b�g�ݒ肪���������̂������ł��B</p>
-<p>�{���͍ŏ�����ԂŋN������A�ʒm�̈�Ɋi�[����܂��B</p>
-<p>�u���̑��v���u<span class="env">�����</span>�v���u�풓�@�\�v �� <span class="marker1">�u�G�ۃG�f�B�^�̏풓�v</span>�̐ݒ�𑀍삷�鎖�ŁA �������V���[�g�J�b�g���쐬���鎖���o���܂��B</p>
-<p>������_�C�A���O���uOK�v�ŕ���ۂɁA���̐ݒ�ɏ]���u�X�^�[�g�A�b�v�t�H���_�v�փV���[�g�J�b�g�̍쐬/�폜���s����ׁA �ȉ��̑�����s���΁A�V���[�g�J�b�g����x�폜����A�V�����V���[�g�J�b�g���č쐬����܂��B (Ver.8.89���A�u�X�^�[�g�A�b�v�Ƀ����N�쐬�v�{�^�����ǉ��ɂȂ��Ă��āA��������u�V���[�g�J�b�g�̍쐬�v���\�ł�)</p>
+<dd><p>「スタートアップフォルダ」にある、秀丸エディタのショートカット設定がおかしいのが原因です。</p>
+<p>本来は最小化状態で起動され、通知領域に格納されます。</p>
+<p>「その他」→「<span class="env">動作環境</span>」→「常駐機能」 → <span class="marker1">「秀丸エディタの常駐」</span>の設定を操作する事で、正しいショートカットを作成する事が出来ます。</p>
+<p>動作環境ダイアログを「OK」で閉じる際に、この設定に従い「スタートアップフォルダ」へショートカットの作成/削除が行われる為、以下の操作を行えば、ショートカットが一度削除され、新しいショートカットが再作成されます。 (Ver.8.89より、「スタートアップにリンク作成」ボタンが追加になっていて、そこから「ショートカットの作成」が可能です)</p>
 <ol type="1">
-<li>�u�G�ۃG�f�B�^�̏풓�v��OFF�ɂ��āA������_�C�A���O���uOK�v�ŕ���B</li>
-<li>�u�G�ۃG�f�B�^�̏풓�v��ON�ɂ��āA������_�C�A���O���uOK�v�ŕ���B</li>
+<li>「秀丸エディタの常駐」をOFFにして、動作環境ダイアログを「OK」で閉じる。</li>
+<li>「秀丸エディタの常駐」をONにして、動作環境ダイアログを「OK」で閉じる。</li>
 </ol>
-<p><img src="HME0017A_01.png" width="468" height="141" alt="�G�ۃG�f�B�^�̏풓" /><br />
+<p><img src="HME0017A_01.png" width="468" height="141" alt="秀丸エディタの常駐" /><br />
 </p>
 <dl>
-<dt><span class="mark_dt3">[�⑫]</span></dt>
-<dd>�u�X�^�[�g�A�b�v�t�H���_�v�ɍ쐬�����V���[�g�J�b�g�́AVer.8.50����G�ۃG�f�B�^�{��(hidemaru.exe)�ł͂Ȃ��A �ʂ̃v���O����(HmResident.exe)�ɂȂ��Ă��܂��B
+<dt><span class="mark_dt3">[補足]</span></dt>
+<dd>「スタートアップフォルダ」に作成されるショートカットは、Ver.8.50から秀丸エディタ本体(hidemaru.exe)ではなく、別のプログラム(HmResident.exe)になっています。
 </dd>
 </dl>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0026A.html">���O��</a> <a href="HME0028A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0026A.html">←前へ</a> <a href="HME0028A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

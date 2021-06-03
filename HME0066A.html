@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0066A] ������������T������ - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0066A] ●漢字だけを探したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,39 +21,39 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0065A.html">���O��</a> <a href="HME0067A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0065A.html">←前へ</a> <a href="HME0067A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0066a">[HME0066A]</h1>
-<h2 id="HME0066A_01">������������T������</h2>
+<h2 id="HME0066A_01">●漢字だけを探したい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>���p�̉p�������Ɗ������������Ă��镶���ŁA���������������������̂ł����A�ǂ������炢���̂ł��傤���H</strong>
+<dd><strong>半角の英数文字と漢字が混ざっている文書で、漢字だけを検索したいのですが、どうしたらいいのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
 <dd><ul>
-<li><p>Shift_JIS�̏ꍇ<br />
-���K�\���Łu[��-&#40657;]�v���������ĉ������B���̎w��ŁA�u���v����u&#40657;�v�̊Ԃ̕����R�[�h���������������ł��܂��B�܂�A���ׂĂ̊����������ł���킯�ł��B</p>
+<li><p>Shift_JISの場合<br />
+正規表現で「[亜-&#40657;]」を検索して下さい。この指定で、「亜」から「&#40657;」の間の文字コードをもつ文字が検索できます。つまり、すべての漢字が検索できるわけです。</p>
 <dl>
-<dt><span class="mark_dt3">[���]</span></dt>
-<dd><p>�Ȃ��A�Ō�̊����͋�_�R�[�h�Ŏ��̂悤�ɂȂ��Ă���悤�ł��B</p>
+<dt><span class="mark_dt3">[解説]</span></dt>
+<dd><p>なお、最後の漢字は区点コードで次のようになっているようです。</p>
 <table>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">�̌n</td>
-<td style="text-align: left;">�Ō�̊����i��_�R�[�h�A</td>
-<td style="text-align: left;">�����j</td>
+<td style="text-align: left;">体系</td>
+<td style="text-align: left;">最後の漢字（区点コード、</td>
+<td style="text-align: left;">漢字）</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�V�i�h�r�̂��߂̕ύX</td>
+<td style="text-align: left;">新ＪＩＳのための変更</td>
 <td style="text-align: left;">8406</td>
-<td style="text-align: left;">��</td>
+<td style="text-align: left;">煕</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�X�W�g������</td>
+<td style="text-align: left;">９８拡張漢字</td>
 <td style="text-align: left;">9278</td>
 <td style="text-align: left;">&#40657;</td>
 </tr>
@@ -61,26 +61,26 @@
 </table>
 </dd>
 </dl></li>
-<li><p>unicode�̏ꍇ<br />
-Unicode���g�p���Ă���ꍇ�́A�u[��-&#40657;]�v�ł́A�S�Ă̊������������邱�Ƃ͂ł��܂���B Unicode�Ŋ����݂̂��������K�\���́A���Ȃ蒷���Ȃ�܂��B</p>
+<li><p>unicodeの場合<br />
+Unicodeを使用している場合は、「[亜-&#40657;]」では、全ての漢字を検索することはできません。 Unicodeで漢字のみを示す正規表現は、かなり長くなります。</p>
 <div class="macro">
 <pre><code>[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DB5\u4E00-\u9FC3\uF900-\uFA2D\uFA30-\uFA6A\uFA70-\uFAD9]</code></pre>
 </div>
-<p>�T���Q�[�g�y�A�̈�́A</p>
+<p>サロゲートペア領域は、</p>
 <div class="macro">
 <pre><code>[\u{20000}-\u{2A6D6}\u{2F800}-\u{2FA1D}]</code></pre>
 </div>
-<p>�ɂȂ�܂��B</p>
-<p>����ł͒����̂ŁA�K���ɏȗ����Ă݂܂����B</p>
+<p>になります。</p>
+<p>これでは長いので、適当に省略してみました。</p>
 <div class="macro">
 <pre><code>[\u3400-\u9FC3\uF900-\uFAD9\u{20000}-\u{2A6D6}\u{2F800}-\u{2FA1D}]</code></pre>
 </div>
-<p>�J�^�J�i�A�Ђ炪�Ȃ��܂߂�ꍇ�́AIME�̕����p���b�g�����Q�l�ɃR�[�h��ǉ����Ă��������B</p></li>
+<p>カタカナ、ひらがなも含める場合は、IMEの文字パレット等を参考にコードを追加してください。</p></li>
 </ul>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0065A.html">���O��</a> <a href="HME0067A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0065A.html">←前へ</a> <a href="HME0067A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

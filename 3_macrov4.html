@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>��III���`�G�ۃ}�N���̂���͂ɂقւƁ@�G�ۃG�f�B�^Ver.4.00 �}�N���֘A�̕ύX����</title>
+  <title>第III部〜秀丸マクロのいろはにほへと　秀丸エディタVer.4.00 マクロ関連の変更履歴</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,43 +22,43 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">��III���`�G�ۃ}�N���̂���͂ɂقւ�<br>�@�G�ۃG�f�B�^Ver.4.00 �}�N���֘A�̕ύX����</h1>
+<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタVer.4.00 マクロ関連の変更履歴</h1>
 <hr />
-<h2 id="V4">�G�ۃG�f�B�^Ver.4.00 �}�N���֘A�̕ύX����</h2>
-<p>�y�P�z<a href="#LIST">�}�N���֘A�̕ύX���� - �u�G�ۃG�f�B�^�vVer. 4.00</a><br />
-�y�Q�z<a href="#spec">�d�l�ύX</a><br />
+<h2 id="V4">秀丸エディタVer.4.00 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 4.00</a><br />
+【２】<a href="#spec">仕様変更</a><br />
 </p>
 <!-- h3 -->
 <div class="marginleft">
-<h3 id="LIST">�y�P�z�}�N���֘A�̕ύX���� - �u�G�ۃG�f�B�^�vVer. 4.00</h3>
+<h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 4.00</h3>
 <ul>
-<li><p>�}�N���w���v����p�̃w���v�t�@�C����ǉ�</p></li>
-<li><p>replaceall��inselect�L�^�Ή�</p></li>
-<li><p>loadhilight�Ŕ��f����Ȃ��o�O�̏C��</p></li>
-<li><p>�}�N�� getconfig, config �̏c���n�Ή�</p></li>
-<li><p>enabledraw;�Ȃǂ��ł��Ȃ��o�O�C��</p></li>
-<li><p>�}�N��grep���̃p�����[�^��fullpath��ǉ�</p></li>
-<li><p>execmacro�Ń��������[�N�̃o�O�C��</p></li>
-<li><p>currentmacrobasename���������ɂȂ�Ȃ��Ƃ�������</p></li>
-<li><p>disabledraw���Ă�Ƃ�windowwidth�����������Ȃ�</p></li>
-<li><p>getcofig��config "x.."�Ŏw��ł�����̂�CurLineColor��CurLineColorEx��ǉ�</p></li>
-<li><p>findwindow���s�̑΍�</p></li>
-<li><p>run���ŕ����񂪒�������Ɨ�����</p></li>
-<li><p>movetilineno�ŃG���[���b�Z�[�W���o�邱�Ƃ�����ꍇ�̑Ώ�</p></li>
-<li><p>�}�N���w���v�ŁA�����n����noregular, nocasesense��ǉ�</p></li>
-<li><p>replaceall��linknext�Ōł܂��Ă��܂��o�O�C��</p></li>
-<li><p>title���̓����\����蒼��</p></li>
-<li><p>loadhilight, savehilight�Ńt���p�X�w��Ή�</p></li>
-<li><p>foundtopx,foundtopy,foundendx,foundendy ��ǉ�</p></li>
-<li><p>searchoption��setsearch�Ƀr�b�g�W�`�P�O��ǉ�</p></li>
-<li><p>grepfilebuffer, setgrepfile�ǉ�</p></li>
-<li><p>grep��localgrep�ł�noregular�ɑΉ�</p></li>
-<li><p>getsearchhist, getreplacehist, setsearchhist, setreplacehist��ǉ�</p></li>
-<li><p>gettagsfile��ǉ�</p></li>
-<li><p>searchdialog, replacedialog,�ǉ�</p></li>
-<li><p>find2�ǉ�</p></li>
-<li><p>searchoption�̃r�b�g11</p></li>
-<li><p>�}�N��getcofig��config "x"�Ŏw��ł�����̂Ɉȉ��̂��̂�ǉ�</p>
+<li><p>マクロヘルプ入門用のヘルプファイルを追加</p></li>
+<li><p>replaceallのinselect記録対応</p></li>
+<li><p>loadhilightで反映されないバグの修正</p></li>
+<li><p>マクロ getconfig, config の縦線系対応</p></li>
+<li><p>enabledraw;などができないバグ修正</p></li>
+<li><p>マクロgrep文のパラメータにfullpathを追加</p></li>
+<li><p>execmacroでメモリリークのバグ修正</p></li>
+<li><p>currentmacrobasenameが小文字にならないときがある</p></li>
+<li><p>disabledrawしてるときwindowwidthがおかしくなる</p></li>
+<li><p>getcofigとconfig "x.."で指定できるものにCurLineColorとCurLineColorExを追加</p></li>
+<li><p>findwindow失敗の対策</p></li>
+<li><p>run文で文字列が長すぎると落ちる</p></li>
+<li><p>movetilinenoでエラーメッセージが出ることがある場合の対処</p></li>
+<li><p>マクロヘルプで、検索系文にnoregular, nocasesenseを追加</p></li>
+<li><p>replaceallのlinknextで固まってしまうバグ修正</p></li>
+<li><p>title文の内部構造作り直し</p></li>
+<li><p>loadhilight, savehilightでフルパス指定対応</p></li>
+<li><p>foundtopx,foundtopy,foundendx,foundendy を追加</p></li>
+<li><p>searchoptionとsetsearchにビット８〜１０を追加</p></li>
+<li><p>grepfilebuffer, setgrepfile追加</p></li>
+<li><p>grepとlocalgrepでもnoregularに対応</p></li>
+<li><p>getsearchhist, getreplacehist, setsearchhist, setreplacehistを追加</p></li>
+<li><p>gettagsfileを追加</p></li>
+<li><p>searchdialog, replacedialog,追加</p></li>
+<li><p>find2追加</p></li>
+<li><p>searchoptionのビット11</p></li>
+<li><p>マクロgetcofigとconfig "x"で指定できるものに以下のものを追加</p>
 <ul>
 <li>AutoAdjustOrikaeshi</li>
 <li>BquoteItemized</li>
@@ -70,46 +70,46 @@
 <li>Xml</li>
 <li>ColorIfdef</li>
 </ul></li>
-<li><p>getconfig��FontSize�̕Ԃ�l���}�C�i�X�������̂��C��<br />
-getconfig��FontCharSet�͂ł���悤�ɂ���iconfig "x"�ł̐ݒ�͂ł��Ȃ��܂܁j</p></li>
-<li><p>menu���̈ʒu�␳�̏C��</p></li>
-<li><p>envchanged�Ńt�H���g���ς���Ă��܂��o�O�C��</p></li>
-<li><p>inputchar�ō����v����������C��</p></li>
-<li><p>setfilehist getfilehist setpathhist getpathhist ��ǉ�</p></li>
-<li><p>��O�ɂ���E�B���h�E�ł� setactivehidemaru���A�G�ۊǗ����ł���悤�ɂ���</p></li>
-<li><p>config "xFontCharset:����"�͂���ς�ł���悤�ɂ���</p></li>
-<li><p>config���Ńt�H���g�̕����Z�b�g���ς��ƃG���R�[�h�̎�ނ��؂�ւ��悤�ɂ���</p></li>
-<li><p>V4.10��1����ł��Ȃ��Ȃ��Ă���setfontchangemode���ł���悤�ɂ���</p></li>
-<li><p>�}�N���w���v��closenew���L��</p></li>
-<li><p>alwaystopswitch�ǉ�</p></li>
-<li><p>envchanged�Ń^�u�̏�Ԃ����܂����f����Ȃ����C��</p></li>
-<li><p>�@forceinselect, inselecting ��ǉ�</p></li>
-<li><p>�b��I��searchoption�̃r�b�g11���u�I�������͈͂̂݁v�������̂���߂ɂ���</p></li>
-<li><p>setencode�ǉ�</p></li>
-<li><p>�^�u���[�h�̂Ƃ��� showwindow 0;����Ă����Ԃ�setactivehidemaru���Ă� showwindow 0; ����������Ȃ��悤�ɂ���</p></li>
-<li><p>showwindow 0;�ƌ�showwindow 1;���Ă��^�u�Ɍ���Ȃ����C��</p></li>
-<li><p>copyurl��ǉ�</p></li>
-<li><p>savekeyassign �ǉ�</p></li>
-<li><p>windowstate�Ŕz��\�L�ő��̏G�ۂɂ��Ή�</p></li>
-<li><p>windowstate2�ǉ�</p></li>
-<li><p>config "xHilightList�c"���T�|�[�g</p></li>
-<li><p>openfile�Ń��C���h�J�[�h���܂ޏꍇ�A�t�@�C�����J�����̂ɐV�K�t�@�C���ƂȂ��Ă��܂����C��</p></li>
-<li><p>openfile�Ń��C���h�J�[�h���܂ޏꍇ�A�J���Ă���t�@�C���̊g���q�������I�ɒǉ����Ȃ��悤�ɂ���</p></li>
-<li><p>searchdown�ŁAinselect���w�肵�ĂȂ��̂ɈȑO��inselect�t���Ō��������ꍇ�A�����p����Ă��܂����C��</p></li>
-<li><p>openfile�ő��݂��Ȃ��t�@�C�����w�肵���Ƃ��A�V�K�쐬�ƂȂ炸����ɂȂ���C��</p></li>
+<li><p>getconfigのFontSizeの返り値がマイナスだったのを修正<br />
+getconfigのFontCharSetはできるようにする（config "x"での設定はできないまま）</p></li>
+<li><p>menu文の位置補正の修正</p></li>
+<li><p>envchangedでフォントが変わってしまうバグ修正</p></li>
+<li><p>inputcharで砂時計を解除する修正</p></li>
+<li><p>setfilehist getfilehist setpathhist getpathhist を追加</p></li>
+<li><p>手前にあるウィンドウでも setactivehidemaru等、秀丸管理ができるようにする</p></li>
+<li><p>config "xFontCharset:数字"はやっぱりできるようにする</p></li>
+<li><p>config文でフォントの文字セットが変わるとエンコードの種類が切り替わるようにする</p></li>
+<li><p>V4.10β1からできなくなっていたsetfontchangemodeもできるようにする</p></li>
+<li><p>マクロヘルプにclosenewを記載</p></li>
+<li><p>alwaystopswitch追加</p></li>
+<li><p>envchangedでタブの状態がうまく反映されない問題修正</p></li>
+<li><p>　forceinselect, inselecting を追加</p></li>
+<li><p>暫定的にsearchoptionのビット11が「選択した範囲のみ」だったのをやめにする</p></li>
+<li><p>setencode追加</p></li>
+<li><p>タブモードのときに showwindow 0;されている状態でsetactivehidemaruしても showwindow 0; が解除されないようにする</p></li>
+<li><p>showwindow 0;と後showwindow 1;してもタブに現れない問題修正</p></li>
+<li><p>copyurlを追加</p></li>
+<li><p>savekeyassign 追加</p></li>
+<li><p>windowstateで配列表記で他の秀丸にも対応</p></li>
+<li><p>windowstate2追加</p></li>
+<li><p>config "xHilightList..."をサポート</p></li>
+<li><p>openfileでワイルドカードを含む場合、ファイルを開いたのに新規ファイルとなってしまう問題修正</p></li>
+<li><p>openfileでワイルドカードを含む場合、開いているファイルの拡張子を自動的に追加しないようにする</p></li>
+<li><p>searchdownで、inselectを指定してないのに以前にinselect付きで検索した場合、引き継がれてしまう問題修正</p></li>
+<li><p>openfileで存在しないファイルを指定したとき、新規作成とならず無題になる問題修正</p></li>
 </ul>
-<h3 id="spec">�y�Q�z�d�l�ύX</h3>
+<h3 id="spec">【２】仕様変更</h3>
 <ul>
-<li>config "w����"������Ɓu�����ŃE�B���h�E���ɍ��킹��v��off�ɂ���悤�ɏC��</li>
-<li>config���ŃI�v�V����f��x��()���g���ĕ�������w�肷��Ƃ��A\�ŃG�X�P�[�v�\�ɂ���<br />
-�e)�f�𕶎��񒆂ɓ��ꂽ���Ƃ��� config "x���O:(�`�a\)�b�c)"<br />
-�f\�f�𕶎��񒆂ɓ��ꂽ���Ƃ��� config "x���O:(�`�a\\�b�c)"</li>
-<li>configcolor�́u�}�[�N���Ă��Ă���ɕҏW�����s�v�͔p�~<br />
-�w���v��colorcode��configcolor��ǉ��C��</li>
-<li>menu�n�̕��̍��ڂ̏����400��</li>
+<li>config "w数字"をすると「自動でウィンドウ幅に合わせる」をoffにするように修正</li>
+<li>config文でオプションfやxで()を使って文字列を指定するとき、\でエスケープ可能にする<br />
+')'を文字列中に入れたいときは config "x名前:(ＡＢ\)ＣＤ)"<br />
+'\'を文字列中に入れたいときは config "x名前:(ＡＢ\\ＣＤ)"</li>
+<li>configcolorの「マークしていてさらに編集した行」は廃止<br />
+ヘルプのcolorcodeとconfigcolorを追加修正</li>
+<li>menu系の文の項目の上限を400個へ</li>
 </ul>
 </div>
 <hr />
-<p><a href="hmindex0.html">�ڎ��ɖ߂�</a></p>
+<p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

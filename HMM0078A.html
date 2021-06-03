@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0078A] ���������̃}�N���̓��삾�����x�� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0078A] ●ある特定のマクロの動作だけが遅い - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,32 +21,32 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0077A.html">���O��</a> <a href="HMM0079A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0077A.html">←前へ</a> <a href="HMM0079A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0078a">[HMM0078A]</h1>
-<h2 id="HMM0078A_01">���������̃}�N���̓��삾�����x��</h2>
+<h2 id="HMM0078A_01">●ある特定のマクロの動作だけが遅い</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃG�f�B�^�̂������̃}�N���̓��삾�����ɒ[�ɒx���悤�Ȃ̂ł����A�Ȃ��ł��傤���H</strong>
+<dd><strong>秀丸エディタのある特定のマクロの動作だけが極端に遅いようなのですが、なぜでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���炩�̃A���`�E�B���X�\�t�g���C���X�g�[������Ă���A����̃t�@�C���ւ̃A�N�Z�X��p�ɂɍs���}�N�������s����ƁA���̃}�N���̓��삪���̃}�N���Ɣ�ׂĖ��炩�ɑ̊��ł���قǒx�����Ƃ�����܂��B</p>
-<p>�Ⴆ�΁A�g���q��.INI�̃t�@�C���ւ̈ꎞ�f�[�^�̓ǂݏ����� writeinistr���ŕp�ɂɍs���Ă�����A�p�ɂɃ}�N���t�@�C���� execmacro�ŌĂяo���Ă���ꍇ�Ȃǂ��Y�����܂��B</p>
-<p>.INI�t�@�C��������������E�B���X���o����Ă���ȏ�A��{�I�ɂ͂��̏󋵂͉䖝���邵������܂��񂪁A�A���`�E�B���X�\�t�g�̎�ނɂ���Ă̓t�H���_��t�@�C�����Ƃɂ��̋@�\�𖳌����邱�Ƃ��o���܂��B���̂悤�Ȑݒ肪�\�ȏꍇ�́A���̓��삪�x���Ȃ��Ă���}�N�����A�N�Z�X����t�@�C�����A���A���^�C���̃X�L�����Ώۂ��珜�O����ƁA���x���P�ł��邱�Ƃ�����܂��B<br />
-�C���^�[�l�b�g���Ō��J����Ă���}�N�����g�p���Ă���ꍇ�́A INI�t�@�C����}�N���t�@�C���̊i�[��t�H���_����t�@�C������t���̃h�L�������g�ȂǂŊm�F���Ă��������B<br />
-�����̏ꍇ�͏G�ۃG�f�B�^���C���X�g�[�������t�H���_���A�}�N���t�H���_�ɂ���܂��B</p>
-<p>����L�ݒ�ύX�́A��{�I�ɃE�B���X�ɑ΂���K�[�h�������邱�ƂɂȂ�̂ŁA�����܂Ŏ��ȐӔC�ł��肢���܂��B���ɂ���ɂ���ăE�C���X�ɂ���Q���L�����Ă��A��ؐӔC���Ă܂���B�܂����ۂ̐ݒ���@�Ȃǂ́A���g���̃A���`�E�C���X�\�t�g�̐��������������������B<br />
+<dd><p>何らかのアンチウィルスソフトがインストールされており、特定のファイルへのアクセスを頻繁に行うマクロを実行すると、そのマクロの動作が他のマクロと比べて明らかに体感できるほど遅いことがあります。</p>
+<p>例えば、拡張子が.INIのファイルへの一時データの読み書きを writeinistr等で頻繁に行っていたり、頻繁にマクロファイルを execmacroで呼び出している場合などが該当します。</p>
+<p>.INIファイルを書き換えるウィルスも出回っている以上、基本的にはこの状況は我慢するしかありませんが、アンチウィルスソフトの種類によってはフォルダやファイルごとにこの機能を無効することが出来ます。そのような設定が可能な場合は、その動作が遅くなっているマクロがアクセスするファイルを、リアルタイムのスキャン対象から除外すると、速度改善できることがあります。<br />
+インターネット等で公開されているマクロを使用している場合は、 INIファイルやマクロファイルの格納先フォルダ名やファイル名を付属のドキュメントなどで確認してください。<br />
+多くの場合は秀丸エディタをインストールしたフォルダか、マクロフォルダにあります。</p>
+<p>＃上記設定変更は、基本的にウィルスに対するガードを下げることになるので、あくまで自己責任でお願いします。仮にこれによってウイルスによる被害が広がっても、一切責任もてません。また実際の設定方法などは、お使いのアンチウイルスソフトの説明書をご覧ください。<br />
 </p>
-<p>���A���^�C���̃X�L�����Ώۂ��珜�O����ݒ���s�����ꍇ�́A���S�̂��ߏ��O�����t�@�C����ʓr�X�L��������X�P�W���[����ݒ肷�邱�Ƃ����E�߂��܂��B</p>
-<p>���̃}�N�����C���^�[�l�b�g���Ō��J����Ă��镨�̏ꍇ�A�}�N���̍�҂ɘA������.INI�t�@�C����}�N���t�@�C���ւ̃A�N�Z�X�񐔂����点�Ȃ����΍���˗����Ă݂�̂���@�ł��B:-)</p>
+<p>リアルタイムのスキャン対象から除外する設定を行った場合は、安全のため除外したファイルを別途スキャンするスケジュールを設定することをお薦めします。</p>
+<p>そのマクロがインターネット等で公開されている物の場合、マクロの作者に連絡して.INIファイルやマクロファイルへのアクセス回数が減らせないか対策を依頼してみるのも一法です。:-)</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0077A.html">���O��</a> <a href="HMM0079A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0077A.html">←前へ</a> <a href="HMM0079A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

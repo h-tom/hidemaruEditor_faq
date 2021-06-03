@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0067A] ���}�N���ň��p�����擾����ɂ� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0067A] ●マクロで引用符を取得するには - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,22 +21,22 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0066A.html">���O��</a> <a href="HMM0068A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0066A.html">←前へ</a> <a href="HMM0068A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0067a">[HMM0067A]</h1>
-<h2 id="HMM0067A_01">���}�N���ň��p�����擾����ɂ�</h2>
+<h2 id="HMM0067A_01">●マクロで引用符を取得するには</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃ}�N���̒��ŁA�G�ۃG�f�B�^�Őݒ肳��Ă�����p���𕶎���Ƃ��Ď擾�������̂ł����A�ǂ�����΂����ł����H</strong>
+<dd><strong>秀丸マクロの中で、秀丸エディタで設定されている引用符を文字列として取得したいのですが、どうすればいいですか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���݂̏G�ۃG�f�B�^(Windows 95 �ȍ~�Ή��o�[�W����)�ł́A�ݒ�͑S�ă��W�X�g���ɕۑ�����Ă��܂��B ini�t�@�C���֘A�̊֐��ŁA"HIDEMARU.INI"�ɃA�N�Z�X����ƁA�����I�Ƀ��W�X�g�����A�N�Z�X����悤�� �Ȃ��Ă��܂����A�����16bit�ŏG�ۃG�f�B�^�Ƃ�(�}�N����)�݊����̂��߂̓���ł��B����ł́A���W�X�g���A�N�Z�X�֐��ŁA���W�X�g������l���擾������������ł��傤�B</p>
+<dd><p>現在の秀丸エディタ(Windows 95 以降対応バージョン)では、設定は全てレジストリに保存されています。 iniファイル関連の関数で、"HIDEMARU.INI"にアクセスすると、自動的にレジストリをアクセスするように なっていますが、これは16bit版秀丸エディタとの(マクロの)互換性のための動作です。現状では、レジストリアクセス関数で、レジストリから値を取得する方がいいでしょう。</p>
 <div class="macro">
-<pre><code>// �i��j ���p�����擾����}�N���T���v�� ---------------------
+<pre><code>// （例） 引用符を取得するマクロサンプル ---------------------
 openreg &quot;CURRENTUSER&quot;, &quot;Software\\Hidemaruo\\Hidemaru\\Env&quot;;
 if(result){
     $inyoufuini = getregstr(&quot;RefMark&quot;);
@@ -49,15 +49,15 @@ if(result){
     }
     message $inyoufu;
 }else{
-    message &quot;���p�}�[�N�̎擾�Ɏ��s���܂����B\n�}�N�����I�����܂��B&quot;;
+    message &quot;引用マークの取得に失敗しました。\nマクロを終了します。&quot;;
 }
 endmacro;
-// �i�����܂Łj-----------------------------------------------</code></pre>
+// （ここまで）-----------------------------------------------</code></pre>
 </div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0066A.html">���O��</a> <a href="HMM0068A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0066A.html">←前へ</a> <a href="HMM0068A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

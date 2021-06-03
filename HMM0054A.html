@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0054A] ��16bit�ŏG�ۂ�movetolineno�̃o�O - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0054A] ●16bit版秀丸のmovetolinenoのバグ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,38 +21,38 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0053A.html">���O��</a> <a href="HMM0055A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0053A.html">←前へ</a> <a href="HMM0055A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0054a">[HMM0054A]</h1>
-<p>�Â����Ȃ̂ō폜</p>
+<p>古い情報なので削除</p>
 <section id="HMM0054A_01" class="old_information">
-<h2>��16bit�ŏG�ۂ�movetolineno�̃o�O</h2>
+<h2>●16bit版秀丸のmovetolinenoのバグ</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>16bit�ŏG�ۃG�f�B�^�ŁAmovetolineno���Ńe�L�X�g�̍ŏI�s�ɔ�΂��悤�Ɏw�肵�Ă��A���̂P�O�̍s�ɔ��ł��܂��܂��B</strong>
+<dd><strong>16bit版秀丸エディタで、movetolineno文でテキストの最終行に飛ばすように指定しても、その１つ前の行に飛んでしまいます。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�����16bit�ŏG�ۃG�f�B�^�̈ꕔ�̃o�[�W�����ɂ������o�O�ł��B �G�ۃG�f�B�^�ł͋N���Ȃ��̂ł����A�G�ۃG�f�B�^�ł�16bit�ŏG�ۃG�f�B�^�ł����삷��ėp�̃}�N������낤�Ƃ���Ɣ����Ēʂ�܂���B(^^;)</p>
-<p>�@���̃o�O�̉����@�̗���ȉ��Ɏ����܂��B</p>
+<dd><p>これは16bit版秀丸エディタの一部のバージョンにあったバグです。秀丸エディタでは起きないのですが、秀丸エディタでも16bit版秀丸エディタでも動作する汎用のマクロを作ろうとすると避けて通れません。(^^;)</p>
+<p>　このバグの回避方法の例を以下に示します。</p>
 <ol type="1">
-<li><p>���s�s���ւ̈ړ��i��Fmovetolineno 0, lineno + 1;�j�̏ꍇ<br />
-�ȉ��̂R�s��g�ݍ��킹�đ�p�ł��܂��B</p>
+<li><p>次行行頭への移動（例：movetolineno 0, lineno + 1;）の場合<br />
+以下の３行を組み合わせて代用できます。</p>
 <pre><code>golineend2;
 down;
 golinetop2;</code></pre>
-<p>�O�s�s���ւ̈ړ��������l�ɂł��܂��B</p></li>
-<li><p>�ŏI�s�ɂ�����ׂȂ���ł�����A�������̂��ƍŏI�s�ɉ��s���P�}�����ă}�N���̍Ō�ō폜����A�Ƃ����肪����܂��B</p></li>
-<li><p>�u��΂ɍŏI�s�ɂ͔�΂��Ȃ��v�Ƃ������M������ꍇ�͂��̂܂܎g���܂�(^^;)</p></li>
+<p>前行行頭への移動等も同様にできます。</p></li>
+<li><p>最終行にだけ飛べないんですから、いっそのこと最終行に改行を１つ挿入してマクロの最後で削除する、という手があります。</p></li>
+<li><p>「絶対に最終行には飛ばさない」という自信がある場合はそのまま使えます(^^;)</p></li>
 </ol>
 </dd>
 </dl>
 </div>
 </section>
 <hr />
-<p><span class="link_navigate"><a href="HMM0053A.html">���O��</a> <a href="HMM0055A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0053A.html">←前へ</a> <a href="HMM0055A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

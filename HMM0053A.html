@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0053A] �����[�h���b�v�Ɛ܂�Ԃ� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0053A] ●ワードラップと折り返し - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,35 +21,35 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0052A.html">���O��</a> <a href="HMM0054A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0052A.html">←前へ</a> <a href="HMM0054A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0053a">[HMM0053A]</h1>
-<h2 id="HMM0053A_01">�����[�h���b�v�Ɛ܂�Ԃ�</h2>
+<h2 id="HMM0053A_01">●ワードラップと折り返し</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃG�f�B�^�ɂ���Đ܂�Ԃ��������̂Ƃ���Ő܂�Ԃ��ꂽ�s���̂Ƃ���ŋ󔒂�}�����悤�Ƃ��Ă��A �}������Ȃ����Ƃ�����悤�Ȃ̂ł����c�c�B</strong>
+<dd><strong>秀丸エディタによって折り返し文字数のところで折り返された行頭のところで空白を挿入しようとしても、挿入されないことがあるようなのですが……。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���[�h���b�v�@�\�ɂ���Đ܂�Ԃ���Ă���ꍇ�́A�}�������󔒂��O�s�̍s���ɕt���܂��̂ŁA���ꂪ����ȓ���ł��B ���[�h���b�v�̐ݒ肪����Ă��邩�ǂ����̓L�[���[�h�ł͕�����Ȃ��̂ŁA�ȉ��̂悤�Ƀ��W�X�g������Q�Ƃ��܂��B</p>
+<dd><p>ワードラップ機能によって折り返されている場合は、挿入した空白が前行の行末に付きますので、それが正常な動作です。ワードラップの設定がされているかどうかはキーワードでは分からないので、以下のようにレジストリから参照します。</p>
 <div class="macro">
-<pre><code>//�i��j
+<pre><code>//（例）
 openreg &quot;CURRENTUSER&quot;, &quot;Software\\Hidemaruo\\Hidemaru\\Env&quot;;
 if(result){
     #Wordwrap = getregnum(&quot;Wordwrap&quot;);
 }
 closereg;
 if(#Wordwrap==1){
-    // ���[�h���b�v���̏���
+    // ワードラップ時の処理
 }</code></pre>
 </div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0052A.html">���O��</a> <a href="HMM0054A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0052A.html">←前へ</a> <a href="HMM0054A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

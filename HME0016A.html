@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0016A] ���G�ۂ̉�ʂ���������� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0016A] ●秀丸の画面だけが乱れる - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,30 +21,30 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0015A.html">���O��</a> <a href="HME0016B.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0015A.html">←前へ</a> <a href="HME0016B.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0016a">[HME0016A]</h1>
-<p><a href="HME0016B.html">HME0016B</a>�֏W��</p>
+<p><a href="HME0016B.html">HME0016B</a>へ集約</p>
 <section id="HME0016A_01" class="old_information">
-<h2>���G�ۂ̉�ʂ����������</h2>
+<h2>●秀丸の画面だけが乱れる</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃG�f�B�^�̉�ʂ������A�X�N���[��������Ɨ���܂��B���ɕ����̍Ō�ɃJ�[�\����������[PageUp]�L�[����������A�A������[PageUp]�L�[��[PageDown]�L�[�������ƁA��ʂ��o���o���ɂȂ����悤�Ȍ�����������������܂��B���̃A�v���P�[�V�����͂܂���������Ȃ̂ŁA�G�ۃG�f�B�^�̃o�O���Ǝv����ł����H</strong>
+<dd><strong>秀丸エディタの画面だけが、スクロールさせると乱れます。特に文書の最後にカーソルをおいて[PageUp]キーを押したり、連続して[PageUp]キーや[PageDown]キーを押すと、画面がバラバラになったような激しい乱れ方を示します。他のアプリケーションはまったく正常なので、秀丸エディタのバグだと思うんですが？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�G�ۃG�f�B�^�́A�u�Ǝ���BitBlt�e�N�m���W�[�ɂ�鍂���X�N���[�������v���s���Ă���A���̋Z�p�ɂ�荂���ȕ`����������Ă��܂��B�������A�u�Ǝ��v�ƌ����Ă��A���S�� Windows 95�v���O�����d�l�͈͓̔��ōs���Ă��萳���ȋZ�p�ł��B�������A���������̃r�f�I�{�[�h�i�r�f�I�h���C�o�j�ł́A���́i�����ȁj�����ɖ��Ή��Ȃ��̂�����܂��B���̏ꍇ�A�G�ۃG�f�B�^�̉�ʂ͗���A������g�p�ł��܂���B<br />
+<dd><p>秀丸エディタは、「独自のBitBltテクノロジーによる高速スクロール処理」を行っており、この技術により高速な描画を実現しています。ただし、「独自」と言っても、完全に Windows 95プログラム仕様の範囲内で行われており正統な技術です。しかし、ごく少数のビデオボード（ビデオドライバ）では、その（正統な）処理に未対応なものがあります。この場合、秀丸エディタの画面は乱れ、事実上使用できません。<br />
 </p>
-<p>�ŐV�̃f�B�X�v���C�h���C�o����肵�ăC���X�g�[������A�f�X�N�g�b�v�^�p�\�R���ł���΃r�f�I�{�[�h�����ւ���A�Ȃǂ̑Ή����l�����܂����A�G�ۃG�f�B�^���g�������Ƃ���������]������ꍇ�́A���i���w���O�ɏG�ۃG�f�B�^�����Ȃ����삷�邩�ǂ��������Њm���߂�悤�ɂ��Ă��������B<br />
+<p>最新のディスプレイドライバを入手してインストールする、デスクトップ型パソコンであればビデオボードを取り替える、などの対応が考えられますが、秀丸エディタを使いたいという強い希望がある場合は、製品を購入前に秀丸エディタが問題なく動作するかどうかをぜひ確かめるようにしてください。<br />
 </p>
-<p>���Ȃ��A�G�ۃG�f�B�^(Ver.2.15)����̓X�N���[��������ύX�������߁A���̏�Q�͔������Ȃ��悤�ł��B�ŐV�ł���肷��Ɨǂ��ł��傤�B</p>
+<p>※なお、秀丸エディタ(Ver.2.15)からはスクロール方式を変更したため、この障害は発生しないようです。最新版を入手すると良いでしょう。</p>
 <dl>
-<dt><span class="mark_dt3">[�⑫]</span></dt>
-<dd>ver.3.00�ȍ~�ŉ�ʕ\���ɖ�肪�o���ꍇ�A�u���̑��v�|�u<span class="env">�����</span>�v�|�u�X�N���[���v�́u���S�ȃJ�[�\���s�̐F�t������(��)�v��ON�ɂ���Ɖ��P�����ꍇ������܂��B<br />
-(��)ver.3.13�ȉ��ł́uPERMEDIA2�ł��o�O��Ȃ��J�[�\���s�̐F�t�������v�Ƃ������̂ł��B
+<dt><span class="mark_dt3">[補足]</span></dt>
+<dd>ver.3.00以降で画面表示に問題が出た場合、「その他」−「<span class="env">動作環境</span>」−「スクロール」の「安全なカーソル行の色付け方式(※)」をONにすると改善される場合があります。<br />
+(※)ver.3.13以下では「PERMEDIA2でもバグらないカーソル行の色付け方式」という名称です。
 </dd>
 </dl>
 </dd>
@@ -52,6 +52,6 @@
 </div>
 </section>
 <hr />
-<p><span class="link_navigate"><a href="HME0015A.html">���O��</a> <a href="HME0016B.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0015A.html">←前へ</a> <a href="HME0016B.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

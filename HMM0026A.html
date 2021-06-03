@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0026A] ��setsearch�̃t���O - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0026A] ●setsearchのフラグ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,209 +21,209 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0025A.html">���O��</a> <a href="HMM0027A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0025A.html">←前へ</a> <a href="HMM0027A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0026a">[HMM0026A]</h1>
-<h2 id="HMM0026A_01">��setsearch�̃t���O</h2>
+<h2 id="HMM0026A_01">●setsearchのフラグ</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>setsearch�̃t���O���ĉ��ł����H</strong>
+<dd><strong>setsearchのフラグって何ですか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�����_�C�A���O�{�b�N�X�̐ݒ��Ԃ��}�N�����ōČ����邽�߂̂��̂ł��B���L�̐��l(�̘a)���w�肵�܂��B<br />
-�Ⴆ�΁u�P��ł������啶���������̋�ʂ���v�̏ꍇ��(1 + 2 =) 3 ���w�肵�܂��B</p>
-<p>�r�b�g���Z�Ɋւ��ẮA�u<a href="./hmindex3.html">�G�ۃ}�N���̂���͂ɂقւ�</a>�@<a href="./3_bit.html">�r�b�g���Z���ɂ߂�</a>�v���Q�l�ɂ��Ă��������B</p>
-<p>Ver.8�ȍ~����́A�t���O2(<code>searchoption2</code> ����)���ǉ�����Ă��܂��B�t���O�Q�͏ȗ��ł��܂��B</p>
+<dd><p>検索ダイアログボックスの設定状態をマクロ文で再現するためのものです。下記の数値(の和)を指定します。<br />
+例えば「単語でしかも大文字小文字の区別あり」の場合は(1 + 2 =) 3 を指定します。</p>
+<p>ビット演算に関しては、「<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a>　<a href="./3_bit.html">ビット演算を極める</a>」を参考にしてください。</p>
+<p>Ver.8以降からは、フラグ2(<code>searchoption2</code> 相当)が追加されています。フラグ２は省略できます。</p>
 <div class="macro">
-<pre><code>setsearch &quot;������&quot;, �t���O1 [, �t���O2]</code></pre>
+<pre><code>setsearch &quot;文字列&quot;, フラグ1 [, フラグ2]</code></pre>
 </div>
 <ul>
-<li><p>�t���O1</p>
+<li><p>フラグ1</p>
 <table>
-<caption>�t���O1�̓��e</caption>
+<caption>フラグ1の内容</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�����I�v�V����</th>
-<th style="text-align: left;">�t���O</th>
-<th style="text-align: left;">���̑�</th>
+<th style="text-align: left;">検索オプション</th>
+<th style="text-align: left;">フラグ</th>
+<th style="text-align: left;">その他</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">�P��̌���</td>
-<td style="text-align: left;">0x00000001 (�r�b�g0)</td>
+<td style="text-align: left;">単語の検索</td>
+<td style="text-align: left;">0x00000001 (ビット0)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�啶��/�������̋��</td>
-<td style="text-align: left;">0x00000002 (�r�b�g1)</td>
+<td style="text-align: left;">大文字/小文字の区別</td>
+<td style="text-align: left;">0x00000002 (ビット1)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�u�����ǂ���</td>
-<td style="text-align: left;">0x00000004 (�r�b�g2) (�u���̏ꍇ��1)</td>
+<td style="text-align: left;">置換かどうか</td>
+<td style="text-align: left;">0x00000004 (ビット2) (置換の場合に1)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�u���̏ꍇ�A�₢���킹�̗L��</td>
-<td style="text-align: left;">0x00000008 (�r�b�g3)</td>
+<td style="text-align: left;">置換の場合、問い合わせの有無</td>
+<td style="text-align: left;">0x00000008 (ビット3)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">���K�\��</td>
-<td style="text-align: left;">0x00000010 (�r�b�g4)</td>
+<td style="text-align: left;">正規表現</td>
+<td style="text-align: left;">0x00000010 (ビット4)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�����܂�����</td>
-<td style="text-align: left;">0x00000020 (�r�b�g5)</td>
+<td style="text-align: left;">あいまい検索</td>
+<td style="text-align: left;">0x00000020 (ビット5)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�t�@�C�����ꗗ�����쐬</td>
-<td style="text-align: left;">0x00000040 (�r�b�g6) (grep�p)</td>
+<td style="text-align: left;">ファイル名一覧だけ作成</td>
+<td style="text-align: left;">0x00000040 (ビット6) (grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">���̏G�ۃG�f�B�^�������Č���</td>
-<td style="text-align: left;">0x00000080 (�r�b�g7)</td>
+<td style="text-align: left;">次の秀丸エディタも続けて検索</td>
+<td style="text-align: left;">0x00000080 (ビット7)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�T�u�t�H���_������</td>
-<td style="text-align: left;">0x00000100 (�r�b�g8) (grep�p)</td>
+<td style="text-align: left;">サブフォルダも検索</td>
+<td style="text-align: left;">0x00000100 (ビット8) (grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ŏ�����ԂŎ��s</td>
-<td style="text-align: left;">0x00000200 (�r�b�g9) (grep�p)</td>
+<td style="text-align: left;">最小化状態で実行</td>
+<td style="text-align: left;">0x00000200 (ビット9) (grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�t�@�C�������t���p�X�ŏo��</td>
-<td style="text-align: left;">0x00000400 (�r�b�g10)(grep�p)</td>
+<td style="text-align: left;">ファイル名をフルパスで出力</td>
+<td style="text-align: left;">0x00000400 (ビット10)(grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">����������̋���</td>
-<td style="text-align: left;">0x00000800 (�r�b�g11)(�����Cgrep�p)</td>
-<td style="text-align: left;">Ver.5.00�ȍ~</td>
+<td style="text-align: left;">検索文字列の強調</td>
+<td style="text-align: left;">0x00000800 (ビット11)(検索，grep用)</td>
+<td style="text-align: left;">Ver.5.00以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">����������̋���</td>
-<td style="text-align: left;">0x00001000 (�r�b�g12)(�u���p�j</td>
-<td style="text-align: left;">Ver.5.00�ȍ~</td>
+<td style="text-align: left;">検索文字列の強調</td>
+<td style="text-align: left;">0x00001000 (ビット12)(置換用）</td>
+<td style="text-align: left;">Ver.5.00以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">����������̋�����ύX</td>
-<td style="text-align: left;">0x00002000 (�r�b�g13)</td>
-<td style="text-align: left;">Ver.5.00�ȍ~</td>
+<td style="text-align: left;">検索文字列の強調を変更</td>
+<td style="text-align: left;">0x00002000 (ビット13)</td>
+<td style="text-align: left;">Ver.5.00以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�ǉ��̏����i���ʂ̕����j</td>
-<td style="text-align: left;">0x00010000 (�r�b�g16)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（普通の文字）</td>
+<td style="text-align: left;">0x00010000 (ビット16)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ǉ��̏����i�R�����g�j</td>
-<td style="text-align: left;">0x00020000 (�r�b�g17)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（コメント）</td>
+<td style="text-align: left;">0x00020000 (ビット17)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�ǉ��̏����i#ifdef���̖��������j</td>
-<td style="text-align: left;">0x00040000 (�r�b�g18)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（#ifdef等の無効部分）</td>
+<td style="text-align: left;">0x00040000 (ビット18)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ǉ��̏����i�X�N���v�g�����j</td>
-<td style="text-align: left;">0x00080000 (�r�b�g19)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（スクリプト部分）</td>
+<td style="text-align: left;">0x00080000 (ビット19)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�ǉ��̏����i������j</td>
-<td style="text-align: left;">0x00100000 (�r�b�g20)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（文字列）</td>
+<td style="text-align: left;">0x00100000 (ビット20)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ǉ��̏����iHTML/XML�^�O�j</td>
-<td style="text-align: left;">0x00200000 (�r�b�g21)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（HTML/XMLタグ）</td>
+<td style="text-align: left;">0x00200000 (ビット21)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�ǉ��̏����i�u�̂݁v�j</td>
-<td style="text-align: left;">0x00400000 (�r�b�g22)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件（「のみ」）</td>
+<td style="text-align: left;">0x00400000 (ビット22)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ǉ��̏������L���ł��邩�ǂ���</td>
-<td style="text-align: left;">0x00800000 (�r�b�g23)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">追加の条件が有効であるかどうか</td>
+<td style="text-align: left;">0x00800000 (ビット23)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�������</td>
-<td style="text-align: left;">0x01000000 (�r�b�g24)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">一周する</td>
+<td style="text-align: left;">0x01000000 (ビット24)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�������������</td>
-<td style="text-align: left;">0x02000000 (�r�b�g25)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">検索したら閉じる</td>
+<td style="text-align: left;">0x02000000 (ビット25)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�o�b�N�A�b�v</td>
-<td style="text-align: left;">0x04000000 (�r�b�g26)(grep���Ēu���p)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">バックアップ</td>
+<td style="text-align: left;">0x04000000 (ビット26)(grepして置換用)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ۑ��̑O�Ɋm�F</td>
-<td style="text-align: left;">0x08000000 (�r�b�g27)(grep���Ēu���p)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">保存の前に確認</td>
+<td style="text-align: left;">0x08000000 (ビット27)(grepして置換用)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">�o�͐�</td>
-<td style="text-align: left;">0x30000000 (�r�b�g28,29)(grep�p)</td>
-<td style="text-align: left;">Ver.6.50�ȍ~</td>
+<td style="text-align: left;">出力先</td>
+<td style="text-align: left;">0x30000000 (ビット28,29)(grep用)</td>
+<td style="text-align: left;">Ver.6.50以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">searchoption2���L�����ǂ���</td>
-<td style="text-align: left;">0x80000000 (�r�b�g31)</td>
-<td style="text-align: left;">Ver.8.00�ȍ~</td>
+<td style="text-align: left;">searchoption2が有効かどうか</td>
+<td style="text-align: left;">0x80000000 (ビット31)</td>
+<td style="text-align: left;">Ver.8.00以降</td>
 </tr>
 </tbody>
 </table></li>
-<li><p>�t���O2<br />
-�t���O2�́AVer.8.00�ȍ~����g�����ꂽ�t���O�ŁAsearchoption2�ɑ�������t���O��ݒ肵�܂��B<br />
-<span class="font_red_bold">�t���O2��L���ɂ��邽�߂ɂ́A�t���O1�́u�ǉ��̏������L���ł��邩�ǂ���(0x80000000)�v�̃r�b�g�𗧂Ă�K�v������܂��B</span></p>
+<li><p>フラグ2<br />
+フラグ2は、Ver.8.00以降から拡張されたフラグで、searchoption2に相当するフラグを設定します。<br />
+<span class="font_red_bold">フラグ2を有効にするためには、フラグ1の「追加の条件が有効であるかどうか(0x80000000)」のビットを立てる必要があります。</span></p>
 <table>
-<caption>�t���O2�̓��e</caption>
+<caption>フラグ2の内容</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">�����I�v�V����</th>
-<th style="text-align: left;">�t���O</th>
-<th style="text-align: left;">���̑�</th>
+<th style="text-align: left;">検索オプション</th>
+<th style="text-align: left;">フラグ</th>
+<th style="text-align: left;">その他</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">�q�b�g���Ȃ��s</td>
-<td style="text-align: left;">0x00000001 (�r�b�g0)(grep�p)</td>
-<td style="text-align: left;">Ver.8.00�ȍ~</td>
+<td style="text-align: left;">ヒットしない行</td>
+<td style="text-align: left;">0x00000001 (ビット0)(grep用)</td>
+<td style="text-align: left;">Ver.8.00以降</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">�ǉ��̏����Łu�w��͈̔�/�J���[�}�[�J�[���v���L�����ǂ���</td>
-<td style="text-align: left;">0x00000002 (�r�b�g1)(����,�u���p)</td>
-<td style="text-align: left;">Ver.8.56�ȍ~<a href="#exp1">(��1)</a></td>
+<td style="text-align: left;">追加の条件で「指定の範囲/カラーマーカー内」が有効かどうか</td>
+<td style="text-align: left;">0x00000002 (ビット1)(検索,置換用)</td>
+<td style="text-align: left;">Ver.8.56以降<a href="#exp1">(注1)</a></td>
 </tr>
 </tbody>
 </table>
 <hr />
 <dl>
-<dt><span id="exp1">��1</span></dt>
-<dd>�ΏۂƂȂ�͈͂́A<code>settargetcolormarker</code> �Ŏw�肵�܂��B
+<dt><span id="exp1">注1</span></dt>
+<dd>対象となる範囲は、<code>settargetcolormarker</code> で指定します。
 </dd>
 </dl></li>
 </ul>
@@ -231,6 +231,6 @@
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0025A.html">���O��</a> <a href="HMM0027A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0025A.html">←前へ</a> <a href="HMM0027A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

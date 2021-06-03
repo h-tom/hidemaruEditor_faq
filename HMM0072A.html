@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0072A] ���Q�o�C�g�����̔��f���@ - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0072A] ●２バイト文字の判断方法 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,60 +21,60 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0071A.html">���O��</a> <a href="HMM0073A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0071A.html">←前へ</a> <a href="HMM0073A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0072a">[HMM0072A]</h1>
-<h2 id="HMM0072A_01">���Q�o�C�g�����̔��f���@</h2>
+<h2 id="HMM0072A_01">●２バイト文字の判断方法</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�J�[�\���ʒu�ɂ��镶�����A�P�o�C�g�������Q�o�C�g�������𔻒f����ɂ͂ǂ������炢���ł��傤���H</strong>
+<dd><strong>カーソル位置にある文字が、１バイト文字か２バイト文字かを判断するにはどうしたらいいでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�G�ۃG�f�B�^�̓����L�[���[�h�ucode�v���g���A�r�b�g���Z���g���ĂQ�o�C�g�������ǂ����𔻒f�ł��܂��B</p>
+<dd><p>秀丸エディタの内部キーワード「code」を使い、ビット演算を使って２バイト文字かどうかを判断できます。</p>
 <div class="macro">
-<pre><code>// �T���v���}�N���i��������j
+<pre><code>// サンプルマクロ（ここから）
 #Code = code;
 if( #Code == 0 )
-{ // �t���[�J�[�\���ŉ��s�ȍ~
-    message &quot;���s�ȍ~&quot;;
+{ // フリーカーソルで改行以降
+    message &quot;改行以降&quot;;
 }
 else if( #Code == 0x09 )
-{ // �^�u
-    message &quot;�^�u&quot;;
+{ // タブ
+    message &quot;タブ&quot;;
 }
 else if( #Code == 0x0d )
-{ // ���s
-    message &quot;���s&quot;;
+{ // 改行
+    message &quot;改行&quot;;
 }
 else if( #Code == eof )
 { // EOF
     message &quot;EOF&quot;;
 }
 else if( ( code &amp; 0xff00 ) != 0 )
-{ // �Q�o�C�g����
-    message &quot;�Q�o�C�g����&quot;;
+{ // ２バイト文字
+    message &quot;２バイト文字&quot;;
 }
 else
 {
-    message &quot;�P�o�C�g����&quot;;
+    message &quot;１バイト文字&quot;;
 }
 endmacro;
-// �T���v���}�N���i�����܂Łj</code></pre>
+// サンプルマクロ（ここまで）</code></pre>
 </div>
-<p>������ϐ��̒��̕�������o�C�g�P�ʂł͂Ȃ������P�ʂň��������ꍇ�́A <a href="HMM0073A.html">[HMM0073A]����������o�C�g�P�ʂł͂Ȃ������P�ʂň���</a>���Q�Ƃ��ĉ������B</p>
+<p>文字列変数の中の文字列をバイト単位ではなく文字単位で扱いたい場合は、 <a href="HMM0073A.html">[HMM0073A]●文字列をバイト単位ではなく文字単位で扱う</a>を参照して下さい。</p>
 <dl>
-<dt><span class="mark_dt3">[�⑫]</span></dt>
-<dd><code>code</code> �͊�{�I�ɁAShift_JIS��Ԃ��܂��Bunicode�ɂ���AShift_JIS�ɂȂ������̏ꍇ�́A<code>code</code>��"0"��Ԃ��܂��B
+<dt><span class="mark_dt3">[補足]</span></dt>
+<dd><code>code</code> は基本的に、Shift_JISを返します。unicodeにあり、Shift_JISにない文字の場合は、<code>code</code>は"0"を返します。
 </dd>
 </dl>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0071A.html">���O��</a> <a href="HMM0073A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0071A.html">←前へ</a> <a href="HMM0073A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

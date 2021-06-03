@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0020A] ������������� message �\�� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0020A] ●長い文字列を message 表示 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,25 +21,25 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0019A.html">���O��</a> <a href="HMM0021A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0019A.html">←前へ</a> <a href="HMM0021A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0020a">[HMM0020A]</h1>
-<h2 id="HMM0020A_01">������������� message �\��</h2>
+<h2 id="HMM0020A_01">●長い文字列を message 表示</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�����������\�������̂ł����Amessage ���ł͖�肪����悤�ł��B</strong>
+<dd><strong>長い文字列を表示したのですが、message 文では問題があるようです。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�m���ɏG�ۃG�f�B�^V2.14������܂ł́A��500�o�C�g�A�G�ۃG�f�B�^V2.15�ł���4000�o�C�g���x�Ŗ�肪��������悤�ł��B �\����������e�����炩���߂킩���Ă���ꍇ�ł���΁A�������Z������Ƃ��A message���𕡐��p�ӂ���Ƃ������Ή����@������܂��B</p>
-<p>�������A�}�N���̓r���ȂǂŁA���ʂ��������ɂȂ邩�킩��Ȃ��ꍇ�́Amessage���͕s�K���ł��B ������ menuarray���g�����@������܂��B���ꂾ�Ƃǂꂾ���Ȃ����Ȃ��Ă����Ȃ��Ƃ��\���͂ł��܂��B ���_�Ƃ��ẮA���������Ȃ�ƉE�Ő؂�܂��B�]���Ăǂ����Ă���������\�����������ꍇ�ɂ́A ���i������j��K���ɐ؂���menuarray�̔z��q�ɂ����ƌ��h�����ǂ��Ȃ�܂��B �������A�������������������message ���� menuarray ���ŏ�������̂͌����I�ɔ�����ׂ��ł��B</p>
+<dd><p>確かに秀丸エディタV2.14あたりまでは、約500バイト、秀丸エディタV2.15でも約4000バイト程度で問題が発生するようです。表示させる内容があらかじめわかっている場合であれば、文字列を短くするとか、 message文を複数用意するといった対応方法があります。</p>
+<p>しかし、マクロの途中などで、多量かつ何文字になるかわからない場合は、message文は不適当です。そこで menuarrayを使う方法があります。これだとどれだけながくなっても少なくとも表示はできます。欠点としては、幅が長くなると右で切れます。従ってどうしても長い情報を表示させたい場合には、情報（文字列）を適当に切ってmenuarrayの配列子にいれると見栄えが良くなります。ただし、こうした長い文字列をmessage 文や menuarray 文で処理するのは原則的に避けるべきです。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0019A.html">���O��</a> <a href="HMM0021A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0019A.html">←前へ</a> <a href="HMM0021A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

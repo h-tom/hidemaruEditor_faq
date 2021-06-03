@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0073A] ����������o�C�g�P�ʂł͂Ȃ������P�ʂň��� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0073A] ●文字列をバイト単位ではなく文字単位で扱う - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,20 +21,20 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0072A.html">���O��</a> <a href="HMM0074A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0072A.html">←前へ</a> <a href="HMM0074A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0073a">[HMM0073A]</h1>
-<h2 id="HMM0073A_01">����������o�C�g�P�ʂł͂Ȃ������P�ʂň���</h2>
+<h2 id="HMM0073A_01">●文字列をバイト単位ではなく文字単位で扱う</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�ustrlen�v���̕����񑀍�֐��̓o�C�g�P�ʂƂȂ��Ă��܂����A�����P�ʂň������Ƃ͂ł��Ȃ��ł��傤���H�P�o�C�g�����ƂQ�o�C�g���������݂��Ă��鎞�ɁA�ƂĂ�����܂��B</strong>
+<dd><strong>「strlen」等の文字列操作関数はバイト単位となっていますが、文字単位で扱うことはできないでしょうか？１バイト文字と２バイト文字が混在している時に、とても困ります。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�G�ۃG�f�B�^ Ver.8�ȍ~�́A�������Unicode(UTF-16LE)�Ƃ��Ĉ����֐��Q���ǉ�����Ă��܂��B</p>
+<dd><p>秀丸エディタ Ver.8以降は、文字列をUnicode(UTF-16LE)として扱う関数群が追加されています。</p>
 <ul>
 <li>wcslen</li>
 <li>wcsleftstr</li>
@@ -43,19 +43,19 @@
 <li>wcsstrstr</li>
 <li>wcsstrrstr</li>
 </ul>
-<p>���̊֐��Q���g�p����΁A���p�A�S�p��킸�ɕ����P�ʂŁA������𑀍�\�ł��B</p>
-<p>�������AUTF-16LE(16bit 0x0000 to 0xFFFF)�Ȃ̂ŁA�R�[�h�|�C���g�� U+10000 ���z����ƃT���Q�[�g�y�A���g���ĕ\������K�v������ׁA��L�֐��Q�ł��A1�����ł�2���������ɂȂ�܂��B</p>
-<p>Unicode(UTF-16LE)�x�[�X�ŕ����P�ʂň����ɂ́A</p>
+<p>この関数群を使用すれば、半角、全角問わずに文字単位で、文字列を操作可能です。</p>
+<p>ただし、UTF-16LE(16bit 0x0000 to 0xFFFF)なので、コードポイントが U+10000 を越えるとサロゲートペアを使って表現する必要がある為、上記関数群でも、1文字でも2文字扱いになります。</p>
+<p>Unicode(UTF-16LE)ベースで文字単位で扱うには、</p>
 <ul>
-<li>�T���Q�[�g�y�A</li>
-<li>����������(��ꕶ�� + ��������)</li>
-<li>�َ��̃Z���N�^(���� + �َ��̃Z���N�^(SVS�FU+FE00 to U+FE0F�AIVS�FU+E0100 to U+E01EF))</li>
+<li>サロゲートペア</li>
+<li>結合文字列(基底文字 + 結合文字)</li>
+<li>異字体セレクタ(文字 + 異字体セレクタ(SVS：U+FE00 to U+FE0F、IVS：U+E0100 to U+E01EF))</li>
 </ul>
-<p>��������̂ŁA�S�čl�����悤�Ƃ���Ƃ��Ȃ������ɂȂ�܂��B</p>
+<p>等があるので、全て考慮しようとするとかなり難しい事になります。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0072A.html">���O��</a> <a href="HMM0074A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0072A.html">←前へ</a> <a href="HMM0074A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>
