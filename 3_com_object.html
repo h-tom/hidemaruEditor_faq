@@ -37,7 +37,7 @@
 <div class="marginleft">
 <h3 id="ABOUT">【０】COMオブジェクトとは</h3>
 <p>COMとは、Component Object Modelの略です。 Windowsでソフトウェアの機能を部品化して外部から呼び出して利用する仕組みを定めた技術仕様になります。</p>
-<p>ただし、現状(2021/06/03現在)では、古い技術になっています。とはいえ、使えなくなったという事ではなく Word Excel などの Office製品や、「Windows Script Host」などOSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>ただし、現状(2021/06/19現在)では、古い技術になっています。とはいえ、使えなくなったという事ではなく Word Excel などの Office製品や、「Windows Script Host」などOSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
 <p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
 <p>ここでは、OSに標準搭載されている「Windows Script Host」等を使って説明します。</p>
 <h3 id="SETTING">【１】使用前の準備</h3>
@@ -45,7 +45,7 @@
 <p>今回は以下のCOMオブジェクトを使用します。</p>
 <ol type="1">
 <li><p>「Windows Script Host」の各種オブジェクト</p>
-<p>以前は、chm形式の日本語ヘルプがダウンロードできましたが、現時点(2021/06/03)ではダウンロード出来なくなっています。</p>
+<p>以前は、chm形式の日本語ヘルプがダウンロードできましたが、現時点(2021/06/19)ではダウンロード出来なくなっています。</p>
 <p>その為、Microsoftのwebサイトを参照します。</p>
 <p>トップページは<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Microsoft Windows スクリプト テクノロジ</a>になります。今回使用する<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Windows Script Host</a>を選び、<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank" rel="noopener">リファレンス</a>から、<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank" rel="noopener">オブジェクト</a>を選びます。</p>
 <p>このページにある各種オブジェクトを使用します。</p>
@@ -335,15 +335,18 @@ releaseobject #WshFso;
 
 endmacro;</code></pre>
 </div>
-<h4 id="MACRO-3">【２．３】COM関連の特殊な命令</h4>
-<dl>
-<dt>allowobjparam 文</dt>
-<dd><p>秀丸エディタマクロで使用できるのは 数値・文字列 だけですが、メソッド・プロパティの戻り値がバイナリデータの場合や、引数にオブジェクト・バイナリデータを指定する場合もあります。</p>
+<h4 id="MACRO-3">【２．３】COM関連の特殊な動作</h4>
+<!-- h5 -->
+<div class="marginleft">
+<h5 id="MACRO-3-1">allowobjparam 文</h5>
+<p>秀丸エディタマクロで使用できるのは 数値・文字列 だけですが、メソッド・プロパティの戻り値がバイナリデータの場合や、引数にオブジェクト・バイナリデータを指定する場合もあります。</p>
 <p>そのような場合に、allowobjparam 文を使用します。</p>
-<p>引数に「1」を指定すると、数値をオブジェクトとして解釈する事を許可します。<br />
-引数に「2」を指定すると、文字列をバイト配列(バイナリデータ)として解釈する事を許可します。<br />
-引数に「0」を指定すると、「1」、「２」の許可を無効化します。<br />
-第二引数以降を指定すると、呼び出すメソッド等のパラメータに対し、対象を個別に指定することが出来ます。</p>
+<ul>
+<li>引数に「1」を指定すると、数値をオブジェクトとして解釈する事を許可します。</li>
+<li>引数に「2」を指定すると、文字列をバイト配列(バイナリデータ)として解釈する事を許可します。</li>
+<li>引数に「0」を指定すると、「1」 「2」の許可を無効化します。</li>
+</ul>
+<p>第二引数以降を指定すると、呼び出すメソッド等のパラメータに対し、対象を個別に指定することが出来ます。</p>
 <div class="mark_dt">
 <dl>
 <dt>オブジェクトを引数に渡す場合</dt>
@@ -358,13 +361,13 @@ endmacro;</code></pre>
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
 </div>
 <p>第一引数に「#array」を指定して、オブジェクトを指定しているように見えますが、上記マクロは正常に動作しません。</p>
-<p>createobject、callmethod_returnobj、getpropobj で、戻り値を数値変数で受け取っていますが、これは、「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。</p>
+<p>createobject callmethod_returnobj getpropobj で戻り値を数値変数で受け取っていますが、これは「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。</p>
 <p>つまり、以下の"GetArrayListDataType"メソッド呼び出しは、第一引数に「オブジェクト」を要求しているのに、「数値」を渡していることになるので失敗します(呼び出すメソッドやプロパティ次第ですが)。</p>
 <div class="macro">
 <pre><code>$ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
 </div>
 <p>引数に「オブジェクト」を渡したい場合は、allowobjparam 文 を使い、オブジェクトそのものを渡すように指示します。</p>
-<p>使い方は2通りありますが、後者の方法を推奨します。</p>
+<p>使い方は2通りありますが、引数に指定する場合は後者の方法を推奨します。</p>
 <ul>
 <li><p>使い方その1</p>
 <p>allowobjparam 文の引数として、「1」を指定します。</p>
@@ -377,16 +380,16 @@ allowobjparam 0;</code></pre>
 <p>気をつけないといけないのは、<strong>callmethod_returnstr 文の呼び出しが失敗しない場合、再実行されない</strong>事です。</p></li>
 <li><p>使い方その2</p>
 <p>対象となるパラメータを指定します。</p>
-<p>allowobjparam 文で、<strong>第二引数以降を指定すると、対象になるパラメータを指定できます。</strong>呼び出すメソッドの引数の数に応じて、解釈する方法を順に指定します。引数の意味を変換しない場合は、「0」を指定します。</p>
+<p>allowobjparam 文で、<strong>第二引数以降を指定すると、対象になるパラメータの扱いを指定できます。</strong>呼び出すメソッドの引数の数に応じて、解釈する方法を順に指定します。引数の意味を変換しない場合は、「0」を指定します。</p>
 <p>オブジェクトはパラメータとして渡すので、第一引数は"0"でもかまいません。 (メソッドの戻り値が、バイト配列の場合、第一引数に"2"を指定する必要があります)</p>
-<p>"GetArrayListDataType" の場合、引数は2個で、最初はオブジェクトを渡すので「1」を、次の引数は変換しないので「0」を、第二引数以降に順次指定していきます。</p>
+<p>"GetArrayListDataType" の場合、引数は2個で、最初はオブジェクトを渡すので「1」を、次の引数は変換しないので「0」を、第二引数に指定していきます。</p>
 <div class="macro">
 <pre><code>allowobjparam 0,1,0;
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
 allowobjparam 0;</code></pre>
 </div></li>
 </ul>
-<p>変換を有効にした場合は、解除するのを忘れないようにしましょう。</p>
+<p>allowobjparamで変換を有効にした場合は、<span class="attention_red">解除する</span>のを忘れないようにしましょう。解除しない場合は、他のメソッドやプロパティにも影響してしまします。</p>
 </dd>
 <dt>バイト配列を引数に渡したし、戻り値で受け取る場合</dt>
 <dd><p>戻り値として「バイト配列」を受け取る場合は、第1引数のみ指定します。</p>
@@ -399,7 +402,8 @@ callmethod #objStream, &quot;LoadFromFile&quot;, $target;
 //バイナリデータとして扱うように設定
 allowobjparam 2;
 //先頭から512バイト読み込み
-$buff = callmethod_returnstr(#objStream, &quot;Read&quot;, 512);</code></pre>
+$buff = callmethod_returnstr(#objStream, &quot;Read&quot;, 512);
+allowobjparam 0;</code></pre>
 </div>
 <p>引数として指定する場合は、オブジェクトと同じ方法が使えますが、指定する値は「2」になります。</p>
 <div class="macro">
@@ -411,8 +415,53 @@ allowobjparam 0;</code></pre>
 </dd>
 </dl>
 </div>
-</dd>
-</dl>
+<h5 id="MACRO-3-2">戻り値が配列(SAFEARRAY)の場合</h5>
+<p>秀丸エディタ Ver.8.98以降では、戻り値が配列(SAFEARRAY)のメソッドに対応しています。</p>
+<p>戻り値が配列(SAFEARRAY)の場合、自動的にオブジェクトに変換されます。オブジェクトにある以下のプロパティを使用し、各要素を取得します。</p>
+<ul>
+<li>Count プロパティ<br />
+配列の大きさ、要素数を返す。</li>
+<li>Item プロパティ<br />
+インデックス(数値)を指定し、要素を取得する。</li>
+</ul>
+<p>使い方は多少複雑です。マクロヘルプのサンプルで説明します。</p>
+<p>秀丸エディタマクロでは戻り値により命令を使い分けていますが、「<strong>配列</strong>」という表現はないので <span class="attention_red">member 関数</span>を使い、戻り値はオブジェクトになるので<strong>数値型変数</strong>で受け取ります。</p>
+<div class="macro">
+<pre><code>#objDic = createobject(&quot;Scripting.Dictionary&quot;);
+callmethod #objDic, &quot;add&quot;, &quot;Key1&quot;, &quot;Value1&quot;;
+callmethod #objDic, &quot;add&quot;, &quot;Key2&quot;, 2;
+callmethod #objDic, &quot;add&quot;, 3, &quot;Value3&quot;;
+
+#objKeys = member(#objDic, &quot;Keys&quot;); //ここでオブジェクトに変換される</code></pre>
+</div>
+<p>「Count プロパティ」は数値を返すので、「getpropnum」を使用し、配列の要素数を取得します。</p>
+<div class="macro">
+<pre><code>#c = getpropnum(#objKeys, &quot;Count&quot;); //&quot;Count&quot;で要素数</code></pre>
+</div>
+<p>「Item プロパティ」を使用して要素を取得しますが、要素自体の型があらかじめわかっていれば対応した命令を使用します。</p>
+<ul>
+<li>数値なら「getpropnum」</li>
+<li>文字列なら「getpropstr」</li>
+</ul>
+<p>要素の型がわからない場合は、プロパティ取得の成功/失敗( getresultex(10) )をみて判断しするしかありません。</p>
+<p>最初に戻り値が文字列という前提で「getpropstr」を使っています。失敗した場合は、戻り値が数値と判断し「getpropnum」を使います。</p>
+<div class="macro">
+<pre><code>$key = getpropstr(#objKeys, &quot;Item&quot;, #i); //&quot;Item&quot;で要素
+if(getresultex(10)!=false){
+    //「getpropstr」が成功した場合
+    &lt;省略&gt;
+    #i=#i+1;
+    continue;
+}
+#key = getpropnum(#objKeys, &quot;Item&quot;, #i); //&quot;Item&quot;で要素
+if(getresultex(10)!=false){
+    //「getpropnum」が成功した場合
+    &lt;省略&gt;
+    #i=#i+1;
+    continue;
+}</code></pre>
+</div>
+</div>
 </div>
 <h3 id="OTHERS">【３】その他</h3>
 <!-- h4 -->
