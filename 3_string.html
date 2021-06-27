@@ -204,7 +204,7 @@ endmacro;</code></pre>
 </div>
 <p><img src="3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>動作的にはおかしいが、現状（2021/03/02）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+<p>動作的にはおかしいが、現状（2021/06/09）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto、movetolineno、mooveto2、goline〜のコマンド)</p>
 <p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、解除されない場合はカーソル移動すると思わぬ結果になるので注意すること。</p>
 <p>この動作を回避するには、範囲選択終了後に、一度カーソルを動かせばいい。(left、right等)</p>
@@ -293,6 +293,22 @@ $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
 <dd>複数選択中であるかどうかを表します。(Ver.8.40以降)
 </dd>
 </dl>
+<!-- h4 -->
+<section id="SELECTING-1" class="marginleft">
+<h4>「検索系文を使って検索する」の補足説明</h4>
+<p>検索系文を使った場合は、検索に成功したか失敗したかで判断します。</p>
+<p>検索の成否は、「<span class="attention_red">result</span>」キーワードで判定可能です。</p>
+<div class="macro">
+<pre><code>searchdown &quot;検索文字列&quot;,regular;
+if(result){
+    //検索に成功した場合は、文字変数に取り込む
+    $s = gettext(foundtopx, foundtopy, foundendx, foundendy);
+    message &quot;マッチした文字は、&quot; + $s + &quot;です&quot;;
+} else {
+    message &quot;見つからない&quot;;
+}</code></pre>
+</div>
+</section>
 <h3 id="CLIPBOARD">【８】文字列型変数に取り込むには：その２（クリップボード経由）</h3>
 <p>クリップボードを経由して行う方法もあります。大まかには、以下の流れになります。</p>
 <ol type="1">

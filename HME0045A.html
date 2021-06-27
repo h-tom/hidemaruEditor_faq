@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0045A] ���V���[�g�J�b�g�̋N���I�v�V�����������Ȃ� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0045A] ●ショートカットの起動オプションが効かない - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,36 +21,36 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0044A.html">���O��</a> <a href="HME0046A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0044A.html">←前へ</a> <a href="HME0046A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0045a">[HME0045A]</h1>
-<p>�Â����Ȃ̂ō폜(Windows 2000�ȍ~��OS�ł́A���Ȃ��B�V���[�g�J�b�g�Ɏw�肵���N���I�v�V�����͗L��)</p>
+<p>古い情報なので削除(Windows 2000以降のOSでは、問題ない。ショートカットに指定した起動オプションは有効)</p>
 <section id="HME0045A_01" class="old_information">
-<h2>���V���[�g�J�b�g�̋N���I�v�V�����������Ȃ�</h2>
+<h2>●ショートカットの起動オプションが効かない</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>Windows 95�̃V���[�g�J�b�g�Ɏw�肵���G�ۃG�f�B�^�̋N�����I�v�V��������������Ă��܂��܂��B</strong>
+<dd><strong>Windows 95のショートカットに指定した秀丸エディタの起動時オプションが無視されてしまいます。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>����͏G�ۃG�f�B�^���̖��ł͂Ȃ��AWindows 95�́w�d�l�x�ł��B�V���[�g�J�b�g�̃R�}���h���C���Ɂi�t�@�C�����ȊO�́j�N�����I�v�V�������w�肵�����A���̃V���[�g�J�b�g�Ƀh���b�O&amp;�h���b�v����ƁA�w�肵�Ă����N�����I�v�V�������A�v���P�[�V�������ɓn����Ȃ��w�d�l�x�ɂȂ��Ă��܂��B�i�u����v�ɂ��Ă����l�ł��j<br />
-��Microsoft����ɂ́A���ЂƂ��w�d�l�̊g���x�����肢���������̂ł��B(^^;)</p>
-<p>�N�����I�v�V�������L���ȃV���[�g�J�b�g���쐬�������ꍇ�A�ȉ��̂悤�ɂ��ăo�b�`�t�@�C����������@������܂��B</p>
-<p>�G�ۃG�f�B�^���̃G�f�B�^���g���ăo�b�`�t�@�C���i�g���q�� BAT�̃t�@�C���j�����܂��B�e�L�X�g�̖{���ɂ́A�V���[�g�J�b�g�̃R�}���h���C���ɖ{�����������R�}���h���L�q���܂��B�Ⴆ�΁A�{�����[�h�Ńt�@�C�����J�������ꍇ��</p>
+<dd><p>これは秀丸エディタ側の問題ではなく、Windows 95の『仕様』です。ショートカットのコマンドラインに（ファイル名以外の）起動時オプションを指定した時、そのショートカットにドラッグ&amp;ドロップすると、指定していた起動時オプションがアプリケーション側に渡されない『仕様』になっています。（「送る」についても同様です）<br />
+＃Microsoftさんには、ぜひとも『仕様の拡張』をお願いしたいものです。(^^;)</p>
+<p>起動時オプションも有効なショートカットを作成したい場合、以下のようにしてバッチファイルをつくる方法があります。</p>
+<p>秀丸エディタ等のエディタを使ってバッチファイル（拡張子が BATのファイル）を作ります。テキストの本文には、ショートカットのコマンドラインに本来書きたいコマンドを記述します。例えば、閲覧モードでファイルを開きたい場合は</p>
 <div class="box">
-<pre><code>&quot;*�G�ۃG�f�B�^���C���X�g�[������Ă���p�X*\\hidemaru.exe&quot; /B %1</code></pre>
+<pre><code>&quot;*秀丸エディタがインストールされているパス*\\hidemaru.exe&quot; /B %1</code></pre>
 </div>
-<p>�Ə����܂�(�Q�d���p�� " ���K�v�ł�)�B</p>
-<p>������o�b�`�t�@�C���ɑ΂���V���[�g�J�b�g���쐬���܂��B�V���[�g�J�b�g�̃v���p�e�B���J���A�u�v���O�����v�^�O�́u�v���O�����I�����ɃE�B���h�E�����v�Ƀ`�F�b�N�����Ă����܂��B�܂��A�u���̑��v�^�O�́u�o�b�N�O���E���h���̐ݒ�v-�u�˂Ɏ��s�𒆒f�v���I�t�i�`�F�b�N���Ȃ��j�ɂ��܂��B</p>
-<p>�ł����V���[�g�J�b�g�𓮍�`�F�b�N���āA�G�ۃG�f�B�^�������ƋN�����邱�Ƃ��m�F������A�V���[�g�J�b�g�̃v���p�e�B�́u�v���O�����v�^�O�́u�N�����̑傫���v���u�ŏ����̏�ԁv�ɂ��܂��B</p>
+<p>と書きます(２重引用符 " も必要です)。</p>
+<p>作ったバッチファイルに対するショートカットを作成します。ショートカットのプロパティを開き、「プログラム」タグの「プログラム終了時にウィンドウを閉じる」にチェックを入れておきます。また、「その他」タグの「バックグラウンド時の設定」-「つねに実行を中断」をオフ（チェックしない）にします。</p>
+<p>できたショートカットを動作チェックして、秀丸エディタがちゃんと起動することを確認したら、ショートカットのプロパティの「プログラム」タグの「起動時の大きさ」を「最小化の状態」にします。</p>
 </dd>
 </dl>
 </div>
 </section>
 <hr />
-<p><span class="link_navigate"><a href="HME0044A.html">���O��</a> <a href="HME0046A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0044A.html">←前へ</a> <a href="HME0046A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

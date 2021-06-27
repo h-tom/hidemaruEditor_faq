@@ -63,6 +63,7 @@
 <li><a href="#V895">秀丸エディタVer.8.95 マクロ関連の変更履歴</a></li>
 <li><a href="#V896">秀丸エディタVer.8.96 マクロ関連の変更履歴</a></li>
 <li><a href="#V897">秀丸エディタVer.8.97 マクロ関連の変更履歴</a></li>
+<li><a href="#V898">秀丸エディタVer.8.98 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V8">秀丸エディタVer.8.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemaru8/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの紹介（Ver8.00対応版）</a>を参照してください。</p>
@@ -499,7 +500,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>macrohelp文で、パラメータにキーワードを指定して開くことができるように修正。</li>
 <li>insert文の第２パラメータに2を指定可能にして、自動アンインデントの対応。</li>
 <li>saveconfig文で「折りたたみ用の余白」の一時的な状態を解除されるように修正。</li>
-<li>insert文のパラメータ2またはoverwrite文の改行コードの処理は、 insert文のパラメータなしと同様に“0d0a”を１つの改行として解釈するように修正。</li>
+<li>insert文のパラメータ2またはoverwrite文の改行コードの処理は、 insert文のパラメータなしと同様に"0d0a"を１つの改行として解釈するように修正。</li>
 <li>overwriteとinsert $a,2;のサロゲートペア対応。</li>
 <li>goto文、call文のラベルに文字列変数を指定して、文字列変数をラベル名にジャンプできるように修正。</li>
 </ul></li>
@@ -660,7 +661,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>その他
 <ul>
 <li>seltopx[n]など複数選択のとき、タブ文字の計算がずれるバグ修正。</li>
-<li>UTF-8のマクロファイルで$a=hex(‘あ’);などを実行するとエラーになるバグ修正。</li>
+<li>UTF-8のマクロファイルで$a=hex('あ');などを実行するとエラーになるバグ修正。</li>
 <li>getautocompitemのバグ修正。</li>
 <li>getconfig("AutocompFlag2")の誤り修正。</li>
 </ul></li>
@@ -928,7 +929,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <ul>
 <li>マクロに書く固定の文字列の長さの最大は64KBから128KBまでに変更。</li>
 <li>runex で表示フラグに非表示を指定の場合、実行後に秀丸エディタ本体を再アクティブにしないように変更。</li>
-<li>config “xAutoAdjustOrikaeshi:0”;で折り返しを固定にするとき、ウィンドウ幅や最大による現在の折り返しではなく、記憶されていた固定の折り返し文字数となるように変更。</li>
+<li>config "xAutoAdjustOrikaeshi:0";で折り返しを固定にするとき、ウィンドウ幅や最大による現在の折り返しではなく、記憶されていた固定の折り返し文字数となるように変更。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V888">【２】仕様変更 - 「秀丸エディタ」Ver.8.88</h3>
@@ -974,7 +975,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>マクロ実行中のエラーは、マクロエラーだけでなく一般のエラーでも逆コンパイル内容を表示するように修正。（ただしexecmacroについては実行した次の行が対象）</li>
 <li>writeinistrwでパスの区切りをスラッシュで書いた場合の対応（念のための対応で、他の処理はパスをスラッシュで区切ることは対応していません）</li>
 <li>マクロの変数格納の速度の改善。</li>
-<li>マクロの config “s数値”でサイズ変更した後に、フォントサイズの記憶状態がおかしい問題修正。</li>
+<li>マクロの config "s数値"でサイズ変更した後に、フォントサイズの記憶状態がおかしい問題修正。</li>
 <li>config文でフォントを変更してsaveconfigするとき、Unicodeのファイルで記憶されない問題修正。</li>
 <li>crateobject後に他の秀丸エディタにアクティブ切り替えしたままマクロを終了するとメモリリークする場合がある問題修正。</li>
 <li>nextoutlineitem/prevoutlineitemで、resultが得られるように修正。</li>
@@ -1003,7 +1004,7 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>追加
 <ul>
 <li>setsplitinfo 文</li>
-<li>prevposhistback prevposhistforward 文(「前のカーソル位置(戻る)」「前のカーソル位置(進む)」コマンドに相当する)</li>
+<li>prevposhistback prevposhistforward 文(「前のカーソル位置(戻る)」「前のカーソル位置(進む)」コマンド相当)</li>
 <li>settabstop 文</li>
 <li>gettabstop 関数</li>
 <li>Hidemaru_AnalyzeEncoding 関数(DLL側から呼び出す秀丸エディタの関数)</li>
@@ -1184,13 +1185,66 @@ loaddll関数,dllfunc等で複数扱えるように</code></pre></li>
 <li>filtermenu文がマクロ開始後1秒以上経過するとうまく動作しない問題修正。</li>
 <li>浮動小数点数版のsetfloatmode 1;でnewfileやsetactivehidemaruで実行対象が切り替わると状態がリセットされる問題修正。（setfloatmodeの状態を維持するように変更）</li>
 <li>createobjectのアウトプロセスサーバーがうまく動作しない問題修正。(Ver.8.96)</li>
-<li>.net 5を使って作成したCOMサーバーで、createobjectに失敗する問題の対策。(VEr.8.96以前からある問題)</li>
+<li>.net 5を使って作成したCOMサーバーで、createobjectに失敗する問題の対策。(Ver.8.96以前からある問題)</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V897">【２】仕様変更 - 「秀丸エディタ」Ver.8.97</h3>
 <ul>
 <li>「すべてを選択」コマンド実行時に直前の位置を「前のカーソル位置」として覚えるように修正</li>
-<li>キー操作の記録で「指定行…」で入力した行番号を記録するように修正。</li>
+<li>キー操作の記録で「指定行...」で入力した行番号を記録するように修正。</li>
+</ul>
+</div>
+<h2 id="V898">秀丸エディタVer.8.98 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V898">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.98</a></p>
+<p>【２】<a href="#SPEC_V898">仕様変更 - 「秀丸エディタ」Ver.8.98</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V898">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.8.98</h3>
+<ul>
+<li>追加
+<ul>
+<li>sendmessage 文</li>
+<li>OutputW 関数(HmOutputPane.dllのdllfuncw用の関数)</li>
+<li>setcomdetachmethod 文</li>
+<li>Hidemaru_DebugInfo 関数(DLL側から呼び出す秀丸エディタの関数)</li>
+<li>keepdll 文</li>
+<li>selectinselect、setinselect2</li>
+<li>enumregkey</li>
+<li>updatecount キーワード</li>
+<li>「列の幅の自動調整を一時停止」コマンドに相当する refreshtabstop_pause 文</li>
+<li>「列の幅を全て狭める」コマンドに相当する refreshtabstop_shrink 文</li>
+<li>「この列のテキスト幅揃えを更新」コマンドに相当する refreshtabstop_current 文</li>
+<li>tabcolumnmax キーワード</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>keepobjectの第２パラメータの1は、2と同等となるように変更。</li>
+<li>deletecolormarkerでレイヤー名がまだ無いときに範囲を指定すると異常終了する問題修正。</li>
+<li>gettitle(3,#handle)で取得できない場合がある問題修正。</li>
+<li>createobjectでファイル名指定した場合にファイルを開いたままにならないように修正。</li>
+<li>colormarker文で強調表示としての振る舞い指定に「数値」を追加。</li>
+<li>setcomdetachmethodで呼ばれるメソッドは数値パラメータに呼ばれる理由を指定して呼ぶように修正。</li>
+<li>Hidemaru_EvalMacroでマクロの文法上のエラーなどのとき、返り値にFALSEを返すように修正。</li>
+<li>keepdllで0を指定するときはsetdlldetachfuncの関数の後にFreeLibraryでDLLを解放するように修正。</li>
+<li>linelenやlinelen2等に、[]を付けて指定した行の情報を得られるように修正。</li>
+<li>charcountは0x7fffffffまでに制限するように変更。</li>
+<li>prevposxがプロポーショナルフォントのときに正しくない問題修正。</li>
+<li>「単語の検索の状態を覚える」がOFFのとき、grepdialog2文の0x0001のビット指定が効かない問題修正。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>autocompstate &amp; 0x0004でマクロ実行と同時に単語補完が消えたかどうかを判定可能なフラグを追加。</li>
+<li>loaddllやkeepobjectを使った後の場合は、瞬間起動のためにプロセスの再利用をしないように修正。</li>
+<li>複数選択時のoverwrite文（setcompatiblemode 0x00100000;の状態）ができない問題修正。</li>
+<li>creatobjectでCOMオブジェクト作成時、bool X64MACRO()というメソッドがあって0以外を返す場合、そのCOMオブジェクトの数値パラーメータは64bit版では64bitの数値を渡すようにした。</li>
+<li>COMオブジェクトの返り値がいわゆるSafeArrayのときに自動的にオブジェクトに変換するように修正。</li>
+<li>除算の最小値/-1でオーバーフロー扱いにしてマクロ停止するように修正。</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V898">【２】仕様変更 - 「秀丸エディタ」Ver.8.98</h3>
+<ul>
+<li>マクロでコンパイル可能なメモリの上限を増やした。</li>
+<li>文字数計算ダイアログの32bitより大きい数の対応</li>
 </ul>
 </div>
 <hr />

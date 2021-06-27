@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0021A] ���T�u���[�`���ւ̈��� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0021A] ●サブルーチンへの引数 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,22 +21,22 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0020A.html">���O��</a> <a href="HMM0022A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0020A.html">←前へ</a> <a href="HMM0022A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0021a">[HMM0021A]</h1>
-<h2 id="HMM0021A_01">���T�u���[�`���ւ̈���</h2>
+<h2 id="HMM0021A_01">●サブルーチンへの引数</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�T�u���[�`���ֈ��������܂������n���܂���B</strong>
+<dd><strong>サブルーチンへ引数がうまく引き渡せません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�����́u���v�Ɓu�^�v�Ɓu���ԁv�����킹��K�v������܂��B ���̗�́A�R�̕�����^�ϐ��ƂQ�̐��l�^�ϐ����utest�v�Ƃ����T�u���[�`���֓n���Ă��܂��B �����̏��Ԃɒ��ӂ��܂��傤�B ���ɃT�u���[�`�����ł̈����̎Q�Ə��ɗ��ӂ��Ă��������B</p>
+<dd><p>引数の「数」と「型」と「順番」を合わせる必要があります。次の例は、３つの文字列型変数と２つの数値型変数を「test」というサブルーチンへ渡しています。引数の順番に注意しましょう。特にサブルーチン側での引数の参照順に留意してください。</p>
 <div class="macro">
-<pre><code>//------- �T���v���}�N�� -------//\
+<pre><code>//------- サンプルマクロ -------//\
 call test #n1,$s1,$s2,#n2,$s3;
 endmacro;
 test:
@@ -44,7 +45,7 @@ test:
     $$ukestr2 = $$3;
     ##ukenum2 = ##4;
     $$ukestr3 = $$5;
-    //...����
+    //...処理
 return;
 // ---------------------------- //</code></pre>
 </div>
@@ -52,6 +53,6 @@ return;
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0020A.html">���O��</a> <a href="HMM0022A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0020A.html">←前へ</a> <a href="HMM0022A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

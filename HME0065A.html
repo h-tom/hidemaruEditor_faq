@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HME0065A] �����s�����̍s���폜������ - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HME0065A] ●改行だけの行を削除したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -21,44 +21,44 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0064A.html">���O��</a> <a href="HME0066A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0064A.html">←前へ</a> <a href="HME0066A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hme0065a">[HME0065A]</h1>
-<h2 id="HME0065A_01">�����s�����̍s���폜������</h2>
+<h2 id="HME0065A_01">●改行だけの行を削除したい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>���s�����̋�s����菜�������̂ł����A�\�ł��傤���H</strong>
+<dd><strong>改行だけの空行を取り除きたいのですが、可能でしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�u�������u���v�ŁA�ȉ��̓��e(������̓��͂́u�v�Ɉ͂܂ꂽ����)����͂��āA�u�����ĉ������B</p>
+<dd><p>「検索→置換」で、以下の内容(文字列の入力は「」に囲まれた部分)を入力して、置換して下さい。</p>
 <ul>
-<li>����������F �u^\n�v</li>
-<li>�u��������F �u�v(�����L�����Ȃ�)</li>
-<li>�u���K�\���v�̃`�F�b�N�{�b�N�X�Ƀ`�F�b�N������</li>
+<li>検索文字列： 「^\n」</li>
+<li>置換文字列： 「」(何も記入しない)</li>
+<li>「正規表現」のチェックボックスにチェックをする</li>
 </ul>
-<p>�}�N�����g�p����ꍇ�́A</p>
+<p>マクロを使用する場合は、</p>
 <div class="macro">
 <pre><code>replaceall &quot;^\\n&quot;, &quot;&quot;, regular;</code></pre>
 </div>
-<p>�ŏo���܂��B</p>
-<p>�G�ۃG�f�B�^ Ver.8.66�ȍ~�̏ꍇ�́A</p>
+<p>で出来ます。</p>
+<p>秀丸エディタ Ver.8.66以降の場合は、</p>
 <div class="macro">
 <pre><code>replaceall R&quot;(^\n)&quot;, &quot;&quot;, regular;</code></pre>
 </div>
-<p>��A</p>
+<p>や、</p>
 <div class="macro">
 <pre><code>replaceall @&quot;^\n&quot;, &quot;&quot;, regular;</code></pre>
 </div>
-<p>�Ƃ����\�L���\�ł��B</p>
-<p>�ڂ����́A�w<a href="hmindex3.html">��III���`�G�ۃ}�N���̂���͂ɂقւ�</a>�x�́w<a href="3_yenmk.html">�}�N�����ł́u\�v����ꕶ���̎g����</a>�x���������������B</p>
+<p>という表記も可能です。</p>
+<p>詳しくは、『<a href="hmindex3.html">第III部〜秀丸マクロのいろはにほへと</a>』の『<a href="3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a>』をご覧ください。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0064A.html">���O��</a> <a href="HME0066A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HME0064A.html">←前へ</a> <a href="HME0066A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

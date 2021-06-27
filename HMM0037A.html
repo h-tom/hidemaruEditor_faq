@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0037A] ��IME�̃}�N�����A����OFF - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0037A] ●IMEのマクロ中、強制OFF - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,20 +21,20 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0036A.html">���O��</a> <a href="HMM0038A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0036A.html">←前へ</a> <a href="HMM0038A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0037a">[HMM0037A]</h1>
-<h2 id="HMM0037A_01">��IME�̃}�N�����A����OFF</h2>
+<h2 id="HMM0037A_01">●IMEのマクロ中、強制OFF</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>keypressed���ɂ��l�Ń��[�v������}�N����������̂ł����A��IME��ON/OFF�L�[��������Ă��܂��A���삪�ςɂȂ�܂��B</strong>
+<dd><strong>keypressed文による値でループさせるマクロを作ったのですが、ついIMEのON/OFFキーをさわってしまい、動作が変になります。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>����ăL�[���������Ƃ͂悭���邱�Ƃł��B keypressed���[�v���ŏ��ON/OFF�𒲍����āA�ύX������΂��̓s�x�C�����܂��B ���̗�́AIME��ON����Ă��A���OFF���ێ�����܂��B</p>
+<dd><p>誤ってキーを押すことはよくあることです。 keypressedループ中で常にON/OFFを調査して、変更があればその都度修正します。次の例は、IMEがONされても、常にOFFが維持されます。</p>
 <div class="macro">
 <pre><code>disablebreak;
 while(1){
@@ -42,7 +43,7 @@ while(1){
         #k=keypressed;
         if(#k=27)break;
         else if(#k=...
-        // else�ɂ�镪�򂪑���
+        // elseによる分岐が続く
 
     }
     if(imestate)imeswitch;
@@ -52,6 +53,6 @@ while(1){
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0036A.html">���O��</a> <a href="HMM0038A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0036A.html">←前へ</a> <a href="HMM0038A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

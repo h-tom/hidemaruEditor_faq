@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0048A] ���㏑���֎~�E�{�����[�h���̃}�N���̓��� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0048A] ●上書き禁止・閲覧モード時のマクロの動作 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -20,30 +21,30 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0047A.html">���O��</a> <a href="HMM0049A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0047A.html">←前へ</a> <a href="HMM0049A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0048a">[HMM0048A]</h1>
-<h2 id="HMM0048A_01">���㏑���֎~�E�{�����[�h���̃}�N���̓���</h2>
+<h2 id="HMM0048A_01">●上書き禁止・閲覧モード時のマクロの動作</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�㏑���֎~��{�����[�h���Ƀe�L�X�g�̕ҏW������}�N�������s����ƁA�ҏW���ʂ������Ⴎ����ɂȂ��Ă��܂��܂��B</strong>
+<dd><strong>上書き禁止や閲覧モード時にテキストの編集をするマクロを実行すると、編集結果がぐちゃぐちゃになってしまいます。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�}�N�����߂̒��ɁA�㏑���֎~��{�����[�h�ɂȂ��Ă��Ă�����ɉe��������������ł��܂����̂ƁA �������ݓ�����s��Ȃ��Ȃ���̂̂Q��ނ����݂��邽�߂ł��B</p>
-<p>�㏑���֎~��{�����[�h�ɂȂ��Ă�����A�x���_�C�A���O���o���ă}�N�����I�������邩�A�������̓��[�h��ύX���邩���܂��傤�B</p>
+<dd><p>マクロ命令の中に、上書き禁止や閲覧モードになっていても動作に影響せず書き込んでしまうものと、書き込み動作を行わなくなるものの２種類が存在するためです。</p>
+<p>上書き禁止や閲覧モードになっていたら、警告ダイアログを出してマクロを終了させるか、もしくはモードを変更するかしましょう。</p>
 <div class="macro">
-<pre><code>//�i��j
+<pre><code>//（例）
 if(readonly){
-    message &quot;�u�㏑���֎~�v�Ȃ̂Ŏ��s�𒆎~���܂��B&quot;;
+    message &quot;「上書き禁止」なので実行を中止します。&quot;;
     endmacro;
 }
 
 if(browsemode){
-    message &quot;�u�{�����[�h�v�Ȃ̂Ŏ��s�𒆎~���܂��B&quot;;
+    message &quot;「閲覧モード」なので実行を中止します。&quot;;
     endmacro;
 }</code></pre>
 </div>
@@ -51,6 +52,6 @@ if(browsemode){
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0047A.html">���O��</a> <a href="HMM0049A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0047A.html">←前へ</a> <a href="HMM0049A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

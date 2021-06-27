@@ -13,6 +13,7 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -33,7 +34,7 @@
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>自動インデント（キーワード indentstate）が無し以外の場合に、 insertreturn文で改行挿入する時、その行の先頭に空白があると自動インデントされて次の行の行頭に空白が挿入されます。 テキスト整形等をするときにインデントがじゃまになる場合は、マクロの先頭でインデントをオフにして最後で戻しましょう。 indentstate と config の i の値とが違うのでちょっと複雑ですが(^^;)</p>
+<dd><p>自動インデント（キーワード indentstate）が無し以外の場合に、 insertreturn文で改行挿入する時、その行の先頭に空白があると自動インデントされて次の行の行頭に空白が挿入されます。テキスト整形等をするときにインデントがじゃまになる場合は、マクロの先頭でインデントをオフにして最後で戻しましょう。 indentstate と config の i の値とが違うのでちょっと複雑ですが(^^;)</p>
 <div class="macro">
 <pre><code>//（例）
 //　マクロの先頭
