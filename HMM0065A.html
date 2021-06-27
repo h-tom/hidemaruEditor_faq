@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0065A] ��menuarray ���̈��������R�ɐݒ肵���� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0065A] ●menuarray 文の引数を自由に設定したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -20,45 +20,45 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0064A.html">���O��</a> <a href="HMM0066A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0064A.html">←前へ</a> <a href="HMM0066A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0065a">[HMM0065A]</h1>
-<h2 id="HMM0065A_01">��menuarray ���̈��������R�ɐݒ肵����</h2>
+<h2 id="HMM0065A_01">●menuarray 文の引数を自由に設定したい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>menuarray �����ŁA��P�����̔z��̎w���r��(ex.$a[2])���炵����A �r���Ŏ~�߂��肷�鎖�͂ł��܂��񂩁H</strong>
+<dd><strong>menuarray 文等で、第１引数の配列の指定を途中(ex.$a[2])からしたり、 途中で止めたりする事はできませんか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�܂��A</p>
+<dd><p>まず、</p>
 <div class="macro">
 <pre><code>menuarray $a[2], 2;</code></pre>
 </div>
-<p>�̗l�ɔz��̓r������w�肷�鎖�͂ł��܂���B �r���Ŏ~�߂�ɂ́A��Q�����̔z��̐��𒲐�����΂ł��܂��B</p>
+<p>の様に配列の途中から指定する事はできません。 途中で止めるには、第２引数の配列の数を調整すればできます。</p>
 <div class="macro">
-<pre><code>//------- �T���v���}�N�� -------//
+<pre><code>//------- サンプルマクロ -------//
 $a[0] = &quot;1.\tTest 1&quot;;
 $a[1] = &quot;2.\tTest 2&quot;;
 $a[2] = &quot;3.\tTest 3&quot;;
-menuarray $a, 2; //�u2. Test 2�v�܂ł����\������Ȃ�
+menuarray $a, 2; //「2. Test 2」までしか表示されない
 endmacro;
 // ---------------------------- //</code></pre>
 </div>
-<p>�@</p>
+<p>　</p>
 <dl>
-<dt><span class="mark_dt3">[�Q�l]</span></dt>
-<dd><p>���܂�g�����͂Ȃ��ł��傤��(^^;�A�Q�����z����g���Έȉ��̗l�Ȏ����ł��܂��B</p>
+<dt><span class="mark_dt3">[参考]</span></dt>
+<dd><p>あまり使う事はないでしょうが(^^;、２次元配列を使えば以下の様な事もできます。</p>
 <div class="macro">
-<pre><code>//------- �T���v���}�N�� -------//
-$a[0][0] = &quot;���j���[�P�̍��ڂP&quot;;
-$a[0][1] = &quot;���j���[�P�̍��ڂQ&quot;;
-$a[1][0] = &quot;���j���[�Q�̍��ڂP&quot;;
-$a[1][1] = &quot;���j���[�Q�̍��ڂQ&quot;;
-menuarray $a[0], 2; //�u���j���[�P�v�̕\��
-menuarray $a[1], 2; //�u���j���[�Q�v�̕\��
+<pre><code>//------- サンプルマクロ -------//
+$a[0][0] = &quot;メニュー１の項目１&quot;;
+$a[0][1] = &quot;メニュー１の項目２&quot;;
+$a[1][0] = &quot;メニュー２の項目１&quot;;
+$a[1][1] = &quot;メニュー２の項目２&quot;;
+menuarray $a[0], 2; //「メニュー１」の表示
+menuarray $a[1], 2; //「メニュー２」の表示
 endmacro;
 // ---------------------------- //</code></pre>
 </div>
@@ -68,6 +68,6 @@ endmacro;
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0064A.html">���O��</a> <a href="HMM0066A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0064A.html">←前へ</a> <a href="HMM0066A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

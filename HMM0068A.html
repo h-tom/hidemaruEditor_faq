@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0068A] ���}�N�����̉��Z�q�̈Ӗ��́H - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0068A] ●マクロ中の演算子の意味は？ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -20,89 +20,89 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0067A.html">���O��</a> <a href="HMM0069A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0067A.html">←前へ</a> <a href="HMM0069A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0068a">[HMM0068A]</h1>
-<h2 id="HMM0068A_01">���}�N�����̉��Z�q�̈Ӗ��́H</h2>
+<h2 id="HMM0068A_01">●マクロ中の演算子の意味は？</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃ}�N���Ɏg���鉉�Z�q���w���v�ɏ����Ă���܂����A���͂b�����m��Ȃ��̂ŁA���Z�q�̈Ӗ����킩��܂���B(^^;)</strong>
+<dd><strong>秀丸マクロに使える演算子がヘルプに書いてありますが、私はＣ言語を知らないので、演算子の意味がわかりません。(^^;)</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�ȉ��̕\�ƃ}�N������Q�l�ɂ��Ă݂Ă��������B</p>
+<dd><p>以下の表とマクロ例を参考にしてみてください。</p>
 <table>
-<caption>���Z�q</caption>
+<caption>演算子</caption>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><strong>�Z�p���Z�q</strong></td>
+<td style="text-align: left;"><strong>算術演算子</strong></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">+</td>
-<td>���Z</td>
+<td>加算</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">-</td>
-<td>���Z</td>
+<td>減算</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">*</td>
-<td>��Z</td>
+<td>乗算</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">/</td>
-<td>���Z�i���j</td>
+<td>除算（商）</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">%</td>
-<td>��](MOD)</td>
+<td>剰余(MOD)</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>�_�����Z�q</strong></td>
+<td style="text-align: left;"><strong>論理演算子</strong></td>
 <td></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">&lt;=</td>
-<td>(�E��)��(����)�ȏ�</td>
+<td>(右辺)は(左辺)以上</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">&gt;=</td>
-<td>(�E��)��(����)�ȉ�</td>
+<td>(右辺)は(左辺)以下</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">&lt;</td>
-<td>(�E��)��(����)���傫��</td>
+<td>(右辺)は(左辺)より大きい</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">&gt;</td>
-<td>(�E��)��(����)��菬����</td>
+<td>(右辺)は(左辺)より小さい</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">!=</td>
-<td>(�E��)��(����)�ƈႤ</td>
+<td>(右辺)は(左辺)と違う</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">==</td>
-<td>(�E��)��(����)�Ɠ���</td>
+<td>(右辺)は(左辺)と同じ</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">&amp;&amp;</td>
-<td>AND�F(����)����(�E��)</td>
+<td>AND：(左辺)かつ(右辺)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">||</td>
-<td>OR�F(����)�܂���(�E��)</td>
+<td>OR：(左辺)または(右辺)</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">!</td>
-<td>NOT�F(�E��)�ł͂Ȃ�</td>
+<td>NOT：(右辺)ではない</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><strong>�r�b�g���Z�q</strong></td>
+<td style="text-align: left;"><strong>ビット演算子</strong></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -120,80 +120,80 @@
 </tbody>
 </table>
 <ul>
-<li><p><strong>�Z�p���Z�q�̗�</strong></p>
-<p>�G�ۃG�f�B�^�̐��l�ϐ��͐����^�Ȃ̂ŁA/�i���Z�j�͗]���؂�̂Ă����̒l�ɂȂ�܂��B</p>
+<li><p><strong>算術演算子の例</strong></p>
+<p>秀丸エディタの数値変数は整数型なので、/（除算）は余りを切り捨てた商の値になります。</p>
 <div class="macro">
-<pre><code>// ���Z�̃}�N����i��������j
+<pre><code>// 除算のマクロ例（ここから）
 #a = 17;
 #b = 5;
 #c = #a / #b;
 #d = #a % #b;
-message str(#c); // 3���\�������
-message str(#d); // 2���\�������
+message str(#c); // 3が表示される
+message str(#d); // 2が表示される
 endmacro;
-// �i�����܂Łj</code></pre>
+// （ここまで）</code></pre>
 </div>
-<p>+�i���Z�j�͕����ϐ��ɂ��g���܂��B �G�ۃ}�N������͕����ϐ��ɂ��Ă͂b�������BASIC ���ɋ߂��ƌ����܂��B</p>
+<p>+（加算）は文字変数にも使えます。 秀丸マクロ言語は文字変数についてはＣ言語よりもBASIC 等に近いと言えます。</p>
 <div class="macro">
-<pre><code>// ��������Z�̃}�N����i��������j
-$a = &quot;�G�ۃG�f�B�^���C���X�g�[������Ă���t�H���_�́A&quot;;
+<pre><code>// 文字列加算のマクロ例（ここから）
+$a = &quot;秀丸エディタがインストールされているフォルダは、&quot;;
 $b = hidemarudir;
 $c = $a + $b;
 message $c;
 endmacro;
-// �i�����܂Łj</code></pre>
+// （ここまで）</code></pre>
 </div></li>
-<li><p><strong>�_�����Z�q�̗�</strong></p>
+<li><p><strong>論理演算子の例</strong></p>
 <div class="macro">
-<pre><code>// �_�����Z�q�̃}�N����i��������j
-// ���݂̃J�[�\���ʒu�̕�����𔻒肵�܂��B
+<pre><code>// 論理演算子のマクロ例（ここから）
+// 現在のカーソル位置の文字種を判定します。
 #c = code;
-if (#c �� 0xff) {
-    message &quot;�Q�o�C�g�����ł�&quot;;
+if (#c ＞ 0xff) {
+    message &quot;２バイト文字です&quot;;
 } else if (#c == 32) {
-    message &quot;���p�X�y�[�X�ł�&quot;;
+    message &quot;半角スペースです&quot;;
 } else if ((#c &gt;= 0x41) &amp;&amp; (#c &lt;= 0x5a)) {
-    // #c��41�i16�i�j�ȏ�A����#c��5a�i16�i�j�ȉ�
-    message &quot;���p�A���t�@�x�b�g�̑啶���ł�&quot;;
+    // #cが41（16進）以上、かつ#cが5a（16進）以下
+    message &quot;半角アルファベットの大文字です&quot;;
 } else {
-    message &quot;���̑��̂P�o�C�g�����ł�&quot;;
+    message &quot;その他の１バイト文字です&quot;;
 }
 endmacro;
-// �i�����܂Łj</code></pre>
+// （ここまで）</code></pre>
 </div>
-<p>��r���Z�q�͕����ϐ��ɑ΂��Ă��g�����Ƃ��ł��܂��B</p>
+<p>比較演算子は文字変数に対しても使うことができます。</p>
 <div class="macro">
-<pre><code>// �_�����Z�q�̃}�N����Q�i��������j
-// ���݂̃J�[�\���ʒu�̕�����𔻒肵�܂��B
+<pre><code>// 論理演算子のマクロ例２（ここから）
+// 現在のカーソル位置の文字種を判定します。
 $c = char(code);
 if ($c == &quot; &quot;) {
-    message &quot;���p�X�y�[�X�ł�&quot;;
+    message &quot;半角スペースです&quot;;
 } else if (($c &gt;= &quot;A&quot;) &amp;&amp; ($c &lt;= &quot;Z&quot;)) {
-    message &quot;���p�A���t�@�x�b�g�̑啶���ł�&quot;;
+    message &quot;半角アルファベットの大文字です&quot;;
 } else {
-    message &quot;���̑��̕����ł�&quot;;
+    message &quot;その他の文字です&quot;;
 }
 endmacro;
-// �i�����܂Łj</code></pre>
+// （ここまで）</code></pre>
 </div></li>
-<li><p><strong>�r�b�g���Z�q�̗�</strong></p>
+<li><p><strong>ビット演算子の例</strong></p>
 <div class="macro">
-<pre><code>// �r�b�g���Z�q�̗�i��������j
-// ���݂̕����R�[�h�𔻒肵�܂��B
+<pre><code>// ビット演算子の例（ここから）
+// 現在の文字コードを判定します。
 #c = charset &amp; 63;
 if ((#c == 0) || (#c == 1)) {
-    message &quot;Shift_JIS�ł�&quot;;
+    message &quot;Shift_JISです&quot;;
 } else {
-    message &quot;Shift_JIS�ȊO�̕����R�[�h�ł�&quot;;
+    message &quot;Shift_JIS以外の文字コードです&quot;;
 }
 endmacro;
-// �i�����܂Łj</code></pre>
+// （ここまで）</code></pre>
 </div></li>
 </ul>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0067A.html">���O��</a> <a href="HMM0069A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0067A.html">←前へ</a> <a href="HMM0069A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

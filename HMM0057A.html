@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0057A] ���G�ۃE�B���h�E������� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0057A] ●秀丸ウィンドウを閉じたい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -20,38 +20,38 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0056A.html">���O��</a> <a href="HMM0058A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0056A.html">←前へ</a> <a href="HMM0058A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0057a">[HMM0057A]</h1>
-<h2 id="HMM0057A_01">���G�ۃE�B���h�E�������</h2>
+<h2 id="HMM0057A_01">●秀丸ウィンドウを閉じたい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�}�N������J�����E�B���h�E����Č��̃E�B���h�E�ɖ߂肽���̂ł����B</strong>
+<dd><strong>マクロから開いたウィンドウを閉じて元のウィンドウに戻りたいのですが。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>�菇�Ƃ��ẮA���̃E�B���h�E�ɖ߂��Ă���E�B���h�E�����A�ƂȂ�܂��B���L�̃T���v�����Q�l�ɂ��ĉ������B</p>
+<dd><p>手順としては、元のウィンドウに戻ってからウィンドウを閉じる、となります。下記のサンプルを参考にして下さい。</p>
 <div class="macro">
-<pre><code>//------- �T���v���}�N�� -------//
-#hwnd = hidemaruhandle( 0 ); //���E�B���h�E�̃n���h�����擾����
-openfile &quot;c:\\hidemaru\\install.txt&quot;; //�ʃt�@�C�����J��
-#hwnd_new = hidemaruhandle( 0 ); //�E�B���h�E�n���h���̎擾
+<pre><code>//------- サンプルマクロ -------//
+#hwnd = hidemaruhandle( 0 ); //元ウィンドウのハンドルを取得する
+openfile &quot;c:\\hidemaru\\install.txt&quot;; //別ファイルを開く
+#hwnd_new = hidemaruhandle( 0 ); //ウィンドウハンドルの取得
 
-    //������ c:\\hidemaru\\install.txt ��ł̏���������B
+    //ここに c:\\hidemaru\\install.txt 上での処理が入る。
 
-setactivehidemaru #hwnd; //���E�B���h�E�ɖ߂�
-closehidemaru #hwnd_new; //�ʃE�B���h�E�����
+setactivehidemaru #hwnd; //元ウィンドウに戻る
+closehidemaru #hwnd_new; //別ウィンドウを閉じる
 endmacro;
 // ---------------------------- //</code></pre>
 </div>
-<p>�� closehidemaru ���̑���� closehidemaruforced�����g���΁A �ҏW���̃E�B���h�E��(�ҏW���e��j������)�����I�ɕ��鎖���ł��܂��B</p>
+<p>※ closehidemaru 文の代わりに closehidemaruforced文を使えば、 編集中のウィンドウも(編集内容を破棄して)強制的に閉じる事ができます。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0056A.html">���O��</a> <a href="HMM0058A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0056A.html">←前へ</a> <a href="HMM0058A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

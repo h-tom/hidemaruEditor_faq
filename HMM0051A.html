@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0051A] ��version �L�[���[�h�̎g�����́H - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0051A] ●version キーワードの使い道は？ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -20,36 +20,36 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0050A.html">���O��</a> <a href="HMM0052A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0050A.html">←前へ</a> <a href="HMM0052A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0051a">[HMM0051A]</h1>
-<h2 id="HMM0051A_01">��version �L�[���[�h�̎g�����́H</h2>
+<h2 id="HMM0051A_01">●version キーワードの使い道は？</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>�G�ۃ}�N���̐V�����o�[�W�����̋@�\���������Ă��邩�ǂ������ׂ邽�߂�version �L�[���[�h���g���Ă݂܂������A ���@�G���[������ł��܂���B</strong>
+<dd><strong>秀丸マクロの新しいバージョンの機能を実装しているかどうか調べるためにversion キーワードを使ってみましたが、 文法エラーが回避できません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>version �L�[���[�h���g���āA����o�[�W��������������ꂽ�}�N�����߂��g�����ǂ����U�蕪���邱�Ƃ́A �ł������Ɏv���܂����ł��܂���B</p>
-<p>�G�ۃG�f�B�^�}�N���̌��݂̎d�l�ł́A�}�N���̓R���p�C����Ɏ��s����邽�߁A version �L�[���[�h ���g���Ă��A�o�[�W�������ʃ��[�`�������s����邱�Ɩ����A �R���p�C�����ɕ��@�G���[������Ƃ����_�C�A���O���o���Ď~�܂��Ă��܂��܂��B</p>
-<p>�ł� version �̎g�������������Ƃ����Ƃ����ł��Ȃ��A ����o�[�W�����̏G�ۃG�f�B�^�œ��Y�̃}�N�����s�ɒv���I�ȃo�O�����邱�Ƃ����ɕ������Ă���ꍇ�ɁA ���̃o�[�W�����̏G�ۃG�f�B�^�ł̎��s���֎~�����邽�߂Ɏg�����Ƃ��ł��܂��B</p>
-<p>�܂��A�}�N���̍\���t�@�C���������Ă��܂��܂����A�ȉ��̂悤�Ƀt�@�C���𕪂�����@������܂��B (�o�[�W��������}�N����P���ȓ��e�ɂ��āA�ǂ̃o�[�W�����ł������悤�ɂ���K�v������܂�)</p>
+<dd><p>version キーワードを使って、あるバージョンから実装されたマクロ命令を使うかどうか振り分けることは、 できそうに思えますができません。</p>
+<p>秀丸エディタマクロの現在の仕様では、マクロはコンパイル後に実行されるため、 version キーワード を使っても、バージョン判別ルーチンが実行されること無く、 コンパイル時に文法エラーがあるというダイアログを出して止まってしまいます。</p>
+<p>では version の使い道が無いかというとそうでもなく、 あるバージョンの秀丸エディタで当該のマクロ実行に致命的なバグがあることが既に分かっている場合に、 そのバージョンの秀丸エディタでの実行を禁止させるために使うことができます。</p>
+<p>また、マクロの構成ファイルが増えてしまいますが、以下のようにファイルを分ける方法もあります。 (バージョン判定マクロを単純な内容にして、どのバージョンでも動くようにする必要があります)</p>
 <ul>
-<li>�o�[�W�������肵�ă}�N���{�̂����s����}�N��</li>
-<li>���ۂɏ������s���}�N��</li>
+<li>バージョン判定してマクロ本体を実行するマクロ</li>
+<li>実際に処理を行うマクロ</li>
 </ul>
-<p>�o�[�W�������肵�ă}�N���{�̂����s����}�N���̗�</p>
+<p>バージョン判定してマクロ本体を実行するマクロの例</p>
 <div class="macro">
-<pre><code>//�o�[�W�������肵�ă}�N���{�̂����s����}�N��
+<pre><code>//バージョン判定してマクロ本体を実行するマクロ
 if(version &gt; 800){
-    //�}�N�����Ăяo��
-    exexmacro &quot;���ۂɏ������s���}�N���t�@�C����&quot;;
+    //マクロを呼び出し
+    exexmacro &quot;実際に処理を行うマクロファイル名&quot;;
 }else{
-    //�������Ȃ�
-    message &quot;���݂̏G�ۃG�f�B�^�̃o�[�W�����ł͎��s�ł��܂���B&quot;;
+    //処理しない
+    message &quot;現在の秀丸エディタのバージョンでは実行できません。&quot;;
 }
 endmacro;</code></pre>
 </div>
@@ -57,6 +57,6 @@ endmacro;</code></pre>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0050A.html">���O��</a> <a href="HMM0052A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0050A.html">←前へ</a> <a href="HMM0052A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>[HMM0056A] �������̃E�B���h�E�Ԃ��ړ������� - �G�ۃG�f�B�^�p���`�W</title>
+  <title>[HMM0056A] ●複数のウィンドウ間を移動したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -20,37 +20,37 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0055A.html">���O��</a> <a href="HMM0057A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0055A.html">←前へ</a> <a href="HMM0057A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <h1 id="hmm0056a">[HMM0056A]</h1>
-<h2 id="HMM0056A_01">�������̃E�B���h�E�Ԃ��ړ�������</h2>
+<h2 id="HMM0056A_01">●複数のウィンドウ間を移動したい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>openfile���Ńt�@�C�����J���ƁA���̌�̏����͍��J�����t�@�C���ɑ΂��čs���܂����A ���̃t�@�C���ɖ߂�ɂ͂ǂ�������悢�̂ł��傤���H</strong>
+<dd><strong>openfile文でファイルを開くと、その後の処理は今開いたファイルに対して行われますが、 元のファイルに戻るにはどうしたらよいのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>���ɊJ����Ă���G�ۃG�f�B�^�̃E�B���h�E���A�N�e�B�u�ɂ���(��ʂ̈�Ԏ�O�Ɏ����Ă���)�ɂ́Asetactivehidemaru�����g���܂��B</p>
+<dd><p>既に開かれている秀丸エディタのウィンドウをアクティブにする(画面の一番手前に持ってくる)には、setactivehidemaru文を使います。</p>
 <div class="macro">
-<pre><code>//------- �T���v���}�N�� -------//
-// ���̃t�@�C���ɖ߂�
-#hwnd = hidemaruhandle( 0 ); //���E�B���h�E�̃n���h�����擾����
-openfile &quot;c:\\hidemaru\\install.txt&quot;; //�ʃt�@�C�����J��
+<pre><code>//------- サンプルマクロ -------//
+// 元のファイルに戻る
+#hwnd = hidemaruhandle( 0 ); //元ウィンドウのハンドルを取得する
+openfile &quot;c:\\hidemaru\\install.txt&quot;; //別ファイルを開く
 
-    //������ c:\\hidemaru\\install.txt ��ł̏���������B
+    //ここに c:\\hidemaru\\install.txt 上での処理が入る。
 
-setactivehidemaru #hwnd; //���̃E�B���h�E�ɖ߂�
+setactivehidemaru #hwnd; //元のウィンドウに戻る
 endmacro;
 // ---------------------------- //</code></pre>
 </div>
-<p>�� hidemaruhandle()�֐��ɂ��Ă̓}�N���w���v�� <a href="https://help.maruo.co.jp/hidemac/html/160_Management.html" class="externallink" target="_blank">�G�ۃG�f�B�^�Ǘ�</a> �̐����Ɓu<a href="HMM0058A.html">��setactivehidemaru���̈���</a>�v���Q�Ƃ��ĉ������B</p>
+<p>※ hidemaruhandle()関数についてはマクロヘルプの <a href="https://help.maruo.co.jp/hidemac/html/160_Management.html" class="externallink" target="_blank">秀丸エディタ管理</a> の説明と「<a href="HMM0058A.html">●setactivehidemaru文の引数</a>」を参照して下さい。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0055A.html">���O��</a> <a href="HMM0057A.html">���ց�</a> <a href="qa_kinou.html">�@�\�ʂp���`</a> <a href="qa_order.html">����ԍ����p���`</a></span></p>
+<p><span class="link_navigate"><a href="HMM0055A.html">←前へ</a> <a href="HMM0057A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </body>
 </html>
