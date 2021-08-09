@@ -9,10 +9,10 @@ Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
 Language=0x411 日本語 (日本)
-Title=秀丸エディタＱ＆Ａ集(第8.9版)
+Title=秀丸エディタＱ＆Ａ集(第8.10版)
 
 [WINDOWS]
-hmeqa="秀丸エディタＱ＆Ａ集(第8.9版)","hmfaq.hhc","hmfaq.hhk","hmindex0.html","hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
+hmeqa="秀丸エディタＱ＆Ａ集(第8.10版)","hmfaq.hhc","hmfaq.hhk","hmindex0.html","hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
 
 
 [FILES]
