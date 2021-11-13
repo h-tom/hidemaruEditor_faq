@@ -1272,6 +1272,15 @@
 		<param name="Local" value="HMM0058A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="setcompatiblemode">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　setcompatiblemode文 について">
+		<param name="Local" value="3_setcompatiblemode.html">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　変換モジュール">
+		<param name="Local" value="2_convert.html">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　アウトライン関連 見出し・折りたたみ・部分編集">
+		<param name="Local" value="2_outline_functions.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="setsearch">
 		<param name="Name" value="[HMM0026A]●setsearchのフラグ">
 		<param name="Local" value="HMM0026A.html">
