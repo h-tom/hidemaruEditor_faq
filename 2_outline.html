@@ -39,12 +39,6 @@
 <li><a href="#EXPLANATION-2-3">ツリー表示の分類について</a></li>
 <li><a href="#EXPLANATION-2-4">ツリーの操作</a></li>
 </ul></li>
-<li><a href="#EXPLANATION-3">アウトラインに関連する機能</a>
-<ul>
-<li><a href="#EXPLANATION-3-1">見出し</a></li>
-<li><a href="#EXPLANATION-3-2">折りたたみ</a></li>
-<li><a href="#EXPLANATION-3-3">部分編集</a></li>
-</ul></li>
 </ul></li>
 </ul>
 <!-- h3 -->
@@ -343,81 +337,6 @@ n.n   --&gt; 1.2、2.1、3.4</code></pre>
 <p>「ツリー操作」では、見出しのレベル上げたり、下げたりも可能です。「ツリーそのものをコピー」では「アウトライン解析の枠」の内容をクリップボードにコピーします。ツリーの場合は罫線(?)ではなく、レベルの数だけTABコード(0x09)が入ります。</p>
 <p><img src="2_outline_041.png" width="578" height="332" alt="ツリーの右クリックメニュー3" /><br />
 </p>
-</div>
-<h4 id="EXPLANATION-3">アウトラインに関連する機能</h4>
-<p>アウトライン解析に関連する機能として以下の機能があります。</p>
-<ul>
-<li><a href="#EXPLANATION-3-1">見出し</a></li>
-<li><a href="#EXPLANATION-3-2">折りたたみ</a></li>
-<li><a href="#EXPLANATION-3-3">部分編集</a></li>
-</ul>
-<p>標準では非表示になっていて、表示するには以下の "&gt;&gt;" を押す事で表示可能です。</p>
-<p><img src="2_outline_026.png" width="450" height="248" alt="各種表示切替1" /><br />
-</p>
-<p>もう一度 "&gt;&gt;" を押す事で非表示になります。</p>
-<p><img src="2_outline_027.png" width="524" height="223" alt="各種表示切替2" /><br />
-</p>
-<!-- h5 -->
-<div class="marginleft">
-<h5 id="EXPLANATION-3-1">見出しバー</h5>
-<p>カーソルが今どこにあるかを表示します。設定により表示しない事も可能です。 (<a href="#option-9">「見出しバーに表示する対象」</a>)</p>
-<p><img src="2_outline_028.png" width="591" height="262" alt="見出しの表示" /><br />
-</p>
-<p>見出しバーの矢印を押す事で、見出しの移動が可能です。</p>
-<p><img src="2_outline_029.png" width="420" height="115" alt="見出しの移動" /><br />
-</p>
-<h5 id="EXPLANATION-3-2">折りたたみ</h5>
-<p>エディタ上の本文を、見出し単位で折りたたむ事が出来ます。折りたたみ可能な箇所は、<img src="2_outline_030.png" width="12" height="12" alt="折りたたみのマーク1" /> で示されます。</p>
-<p><img src="2_outline_031.png" width="418" height="454" alt="折りたたみ前" /><br />
-</p>
-<p>「レベル3-3」で折りたたむと、それ以下のレベルまで折りたたまれます。<img src="2_outline_032.png" width="12" height="12" alt="折りたたみのマーク1" /> をクリックすると展開されます。</p>
-<p><img src="2_outline_033.png" width="414" height="332" alt="折りたたみ後" /><br />
-</p>
-<p>アウトラインの見出しだけではなく、<span class="attention_red">選択範囲を折りたたむ</span>事も可能です。「見出し」ではないので、マーカーが異なります。</p>
-<p><img src="2_outline_034.png" width="417" height="338" alt="範囲選択の折りたたみ前" /><br />
-</p>
-<p>範囲選択すると範囲を示すマーカーが出るので、クリックすると折りたたまれます。</p>
-<p><img src="2_outline_035.png" width="417" height="203" alt="範囲選択の折りたたみ前" /><br />
-</p>
-<ul>
-<li><p>折りたたみの設定</p>
-<p>折りたたみに関する設定は、「<strong><span class="filetype">ファイルタイプ別の設定</span></strong>」-「アウトライン」-「<strong>折りたたみ</strong>」で変更が可能です。</p>
-<p><img src="2_outline_045.png" width="460" height="248" alt="折りたたみの設定" /><br />
-</p>
-<p>「折りたたみ可能な条件」にある「折りたたみ可能な条件の設定」を押すと詳細設定も可能です。</p>
-<p><img src="2_outline_046.png" width="420" height="473" alt="折りたたみ可能な条件" /><br />
-</p></li>
-</ul>
-<h5 id="EXPLANATION-3-3">部分編集</h5>
-<p>エディタ上の本文を、見出し単位で部分編集状態にする事が出来ます。部分編集になると、グレーアウトされた箇所は編集できません。<strong>検索や置換も、部分編集内に限定</strong>されます。</p>
-<p>部分編集可能な箇所は、<img src="2_outline_030.png" width="12" height="12" alt="折りたたみのマーク1" /> で示され、範囲は点線で示されます。</p>
-<p><img src="2_outline_036.png" width="417" height="331" alt="部分編集前" /><br />
-</p>
-<p>「レベル3-1」にカーソルがある状態で、見出しバーにある <img src="2_outline_037.png" width="15" height="15" alt="部分編集のチェック" /> をクリックすると部分編集モードになります。</p>
-<p><img src="2_outline_038.png" width="418" height="334" alt="部分編集後" /><br />
-</p>
-<p>折りたたみと同様に、<span class="attention_red">選択範囲を部分編集</span>にできます。</p>
-<ul>
-<li><p>部分編集対象外部分の表示方法</p>
-<p>デフォルト状態では、部分編集の対象外部分はグレーアウトしますが、表示方法は「<strong><span class="filetype">ファイルタイプ別の設定</span></strong>」-「アウトライン」-「部分編集」-「<strong>部分編集の表示</strong>」で変更が可能です。</p>
-<p><img src="2_outline_042.png" width="411" height="205" alt="部分編集後" /><br />
-</p>
-<div class="mark_dt">
-<dl>
-<dt>制限モード</dt>
-<dd><p>デフォルトは「制限モード」になっていて、対象外部分はグレーアウトします。「半透明」にチェックを入れると、対象外部分が半透明になりますが、白背景だとわかりにくいので黒背景に変えてみます。<br />
-画面配色の関係で、グレーアウトでは見にくい場合は半透明を使う方法もあります。</p>
-<p><img src="2_outline_043.png" width="574" height="345" alt="グレーアウトと半透明" /><br />
-</p>
-</dd>
-<dt>ローカル編集モード</dt>
-<dd><p>ローカル編集モードは、部分編集部分のみ表示され、あたかも別の文章のように表示されます。 (行番号も先頭が1から表示される)</p>
-<p><img src="2_outline_044.png" width="417" height="227" alt="ローカル編集モード" /><br />
-</p>
-</dd>
-</dl>
-</div></li>
-</ul>
 </div>
 </div>
 </section>

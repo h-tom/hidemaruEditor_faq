@@ -114,6 +114,14 @@
 <dd><p>「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。</p>
 <p>起動オプション "/b" は「ファイル名のみ出力」です。 "/on" を追加するとファイル名でソートされ出力されます。</p>
 </dd>
+<dt><strong>powershell -c "<span class="math inline">$input | Sort-Object {$</span>_.Length}" &lt;con &gt;con</strong></dt>
+<dd><p>選択範囲を行の長さでソートする。</p>
+<p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。 (標準入力の内容が入っている)</p>
+<p>逆順にソートしたい場合は、<code>Sort-Object</code> のオプションに <code>-descending</code> を指定します。</p>
+<div class="macro">
+<pre><code>powershell -c &quot;$input|Sort-Object -descending { $_.Length }&quot;  &lt;con &gt;con</code></pre>
+</div>
+</dd>
 </dl>
 </div>
 <hr />
