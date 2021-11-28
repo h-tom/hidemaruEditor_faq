@@ -34,11 +34,11 @@
 <hr />
 <dl>
 <dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>「選択した範囲」チェックボックスが有効になるのは、<span class="attention_red">範囲選択</span>している場合だけです。<br />
-<strong>BOX範囲選択</strong>は、文字単位の選択になるので、「選択した範囲」は有効になりません。<br />
-<strong>複数選択</strong>している場合は、カーソルのある行が対象になります。</p>
+<dd><p>「選択した範囲」チェックボックスが有効になるのは、<span class="attention_red">範囲選択</span>している場合だけです。</p>
+<p>秀丸エディタのバージョンにより動作が異なります。</p>
 <ul>
-<li><p>Ver.8.94以降の場合、検索/置換の範囲を「<strong>行単位</strong>」にするか「<strong>文字単位</strong>」にするか選択可能です。</p>
+<li><p>Ver.8.94以降の場合</p>
+<p>検索/置換の範囲を「<strong>行単位</strong>」にするか「<strong>文字単位</strong>」にするか選択可能です。 <strong>BOX範囲選択</strong>、<strong>複数選択</strong> 状態の場合は、「<strong>文字単位</strong>」がデフォルトで選択されます、</p>
 <p><img src="HME0083A_02.png" width="225" height="68" alt="選択した範囲の選択" /><br />
 </p>
 <dl>
@@ -46,11 +46,13 @@
 <dd>Ver.8.94未満と同じ動作。選択範囲を含む先頭の行頭から、末尾の行末まで。
 </dd>
 <dt>文字単位</dt>
-<dd>選択範囲部分のみ (Ver.8.94未満は、追加の条件で「カラーマーカ」を使う必要がある)
+<dd>選択範囲部分のみ
 </dd>
 </dl></li>
 <li><p>Ver.8.94未満の場合</p>
 <p>検索/置換の「選択した範囲」の機能は「<strong>行単位</strong>」のみ。</p>
+<p><strong>BOX範囲選択</strong>は、文字単位の選択になるので、「選択した範囲」は有効になりません。<br />
+<strong>複数選択</strong>している場合は、カーソルのある行が対象になります。</p>
 <p>選択範囲の始まりが行頭でない/選択範囲の終わりが行末でない状態で「選択した範囲内」をONにし、「行単位」で検索/置換を実行した場合は、範囲は行単位になると、メッセージが表示されます。</p>
 <p><img src="HME0083A_01.png" width="438" height="160" alt="選択した範囲の警告表示" /><br />
 </p></li>
@@ -100,7 +102,7 @@ ABCDEFGHIJKLMNOPQRSTUVWXYZ↓
 <dt><span class="mark_dt3">[補足]</span></dt>
 <dd><ul>
 <li><p>マクロの検索系文で使用する「inselect」オプションは、複数行の選択でなくても有効です。行内の一部分のみを選択していても、範囲を拡張して1行を選択した状態で実行されます。</p></li>
-<li><p>検索の範囲を任意に指定したい場合や、BOX範囲選択を対象にしたい場合は、<a href="2_colormarker.html">「カラーマーカー」</a>を使います。(Ver.8.94未満の場合)<br />
+<li><p>Ver.8.94未満の場合、検索の範囲を任意に指定したい場合や、BOX範囲選択を対象にしたい場合は、<a href="2_colormarker.html">「カラーマーカー」</a>を使います。<br />
 <a href="hmindex2.html">「第II部〜知っていると便利な秀丸の機能」</a>の<a href="2_find.html">「検索」</a>-<a href="2_find.html#SUPPLEMENTATION-1">「「追加の条件」について」</a>を参照してください。</p></li>
 </ul>
 </dd>

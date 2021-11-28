@@ -6,7 +6,7 @@
 </HEAD><BODY>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="秀丸エディタＱ＆Ａ集第８．９版">
+		<param name="Name" value="秀丸エディタＱ＆Ａ集第８．１０版">
 		<param name="Local" value="hmindex0.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
@@ -97,6 +97,10 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="アウトライン解析の枠">
 			<param name="Local" value="2_outline.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="アウトライン関連 見出し・折りたたみ・部分編集">
+			<param name="Local" value="2_outline_functions.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="アウトプット枠">
@@ -213,6 +217,10 @@
 			<param name="Local" value="3_run.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="setcompatiblemode文 について">
+			<param name="Local" value="3_setcompatiblemode.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴 ">
 			<param name="Local" value="3_macrov3.html">
 			</OBJECT>
@@ -235,6 +243,10 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタVer.8.00 マクロ関連の変更履歴">
 			<param name="Local" value="3_macrov8.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="秀丸エディタVer.9.00 マクロ関連の変更履歴">
+			<param name="Local" value="3_macrov9.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">

@@ -56,15 +56,11 @@ insertreturn文は、「改行キーを押したのと全く同じ働き」を�
 上書きモードの場合、「<span class="env">動作環境</span>」-「編集」-「高度な編集1」-「挿入/上書モード」の「上書きモード時のリターン」の設定によって動作が変わります。「カーソル移動する」が選択されていると、改行は挿入されずカーソルが次行行頭に移動します。<br />
 また「<span class="filetype">ファイルタイプ別の設定</span>」-「体裁」-「インデント」の、「自動インデント」で設定した動作になります。</p>
 <p>「改行キーを押したのと全く同じ働き」をさせたい場合は、insertreturn文が便利ですが、上書きモード・挿入モードのどちらでも必ず改行を挿入したい場合は <strong>insert</strong>文で改行文字を挿入するのが簡単です。 (自動インデントは働きません)</p>
-<p>（例） 改行を挿入するには</p>
-<div class="macro">
-<pre><code>insert &quot;\n&quot;;</code></pre>
-</div>
-<p>または</p>
-<div class="macro">
-<pre><code>insert &quot;\x0a&quot;;</code></pre>
-</div>
-<p>になります。</p>
+<p>（例） 改行を挿入するには、以下のどちらかになります。</p>
+<ol type="1">
+<li><code>insert "\n";</code></li>
+<li><code>insert "\x0a";</code></li>
+</ol>
 <p>または、上書きモードの時一旦挿入モードへ変更し、insertreturn してまた上書きモードに戻してあげる方法もあります。<br />
 この場合、インデントの設定に従った動作となります。</p>
 <div class="macro">
@@ -165,9 +161,24 @@ if (code == ascii(&quot;\r&quot;)) { // これもなぜか ascii(&quot;\r&quot;)
 <!-- h4 -->
 <section id="BEGINSEL-1" class="marginleft">
 <h4>「検索系文を使って検索する」の補足説明</h4>
-<p>現状(Ver.4.10以降)では、「<span class="env">動作環境</span>」-「検索」-「検索の動作」-「検索での表示」が「点滅表示」でも取り込む事は可能です。</p>
-<p>foundtopx、foundtopy、foundendx、foundendy キーワードが追加され、それぞれに検索でマッチした座標がセットされます。検索にマッチした事を確認して、foundtopx、foundtopy、foundendx、foundendy キーワードを使い、gettext文で文字変数に取り込む事が可能です。</p>
-<p>また、「setcompatiblemode文」が追加され(Ver.6.00以降)、マクロ内で一時的に「検索での表示」の動作を切り替える事も可能になっています。その為、「<span class="env">動作環境</span>」に関係なく使用したい「検索での表示」の設定で、マクロを実行できます。</p>
+<ul>
+<li><p>現状(Ver.4.10以降)では、「<span class="env">動作環境</span>」-「検索」-「検索の動作」-「検索での表示」が「点滅表示」でも取り込む事は可能です。</p>
+<p>foundtopx、foundtopy、foundendx、foundendy キーワードが追加され、それぞれに検索でマッチした座標がセットされます。検索にマッチした事を確認して、foundtopx、foundtopy、foundendx、foundendy キーワードを使い、gettext文で文字変数に取り込む事が可能です。</p></li>
+<li><p>「setcompatiblemode文」が追加され(Ver.6.00以降)、マクロ内で一時的に「検索での表示」の動作を切り替える事も可能になっています。その為、「<span class="env">動作環境</span>」に関係なく「範囲選択」状態でマクロを実行できます。</p>
+<p>「<a href="./3_setcompatiblemode.html">第III部〜秀丸マクロのいろはにほへと　setcompatiblemode文 について</a>」を参照。</p></li>
+<li><p>検索系文を使った場合は、範囲選択しているかどうかは検索に成功したか失敗したかで判断します。</p>
+<p>検索の成否は、「<span class="attention_red">result</span>」キーワードで判定可能です。</p>
+<div class="macro">
+<pre><code>searchdown &quot;検索文字列&quot;,regular;
+if(result){
+    //検索に成功した場合は、文字変数に取り込む
+    $s = gettext(foundtopx, foundtopy, foundendx, foundendy);
+    message &quot;マッチした文字は、&quot; + $s + &quot;です&quot;;
+} else {
+    message &quot;見つからない&quot;;
+}</code></pre>
+</div></li>
+</ul>
 </section>
 <h3 id="ESCAPE">【５】範囲選択を解除するには</h3>
 <p>範囲選択を解除するには<strong>escape</strong>文を使用します。<br />
@@ -177,7 +188,7 @@ if (code == ascii(&quot;\r&quot;)) { // これもなぜか ascii(&quot;\r&quot;)
 <section id="endsel" class="marginleft">
 <h4>endsel使用時の注意点</h4>
 <p>選択モードを終了しても範囲選択状態でカーソル移動コマンドを使うと、移動した場所まで範囲選択状態になります。 (範囲選択が広がってしまう)</p>
-<p>確認用マクロ</p>
+<p>確認用マクロです。</p>
 <div class="macro">
 <pre><code>//新規ファイル作成
 newfile;
@@ -204,7 +215,7 @@ endmacro;</code></pre>
 </div>
 <p><img src="3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>動作的にはおかしいが、現状（2021/06/09）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+<p>動作的にはおかしいが、現状（2021/11/27）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto、movetolineno、mooveto2、goline〜のコマンド)</p>
 <p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、解除されない場合はカーソル移動すると思わぬ結果になるので注意すること。</p>
 <p>この動作を回避するには、範囲選択終了後に、一度カーソルを動かせばいい。(left、right等)</p>
@@ -243,11 +254,16 @@ endmacro;</code></pre>
 <div class="macro">
 <pre><code>$s = gettext(seltopx,seltopy,selendx,selendy);</code></pre>
 </div>
-<p>秀丸マクロでは、範囲選択された文字列を直接文字変数に取り込むマクロ文は有りません。画面上の任意の範囲の文字列を文字変数に取り込む<strong>gettext</strong>文と、現在の選択範囲の座標値を示す<strong>seltopx</strong>〜<strong>selendy</strong>キーワード（範囲選択関連キーワード）を併用します。 (秀丸エディタVer5.00以降は、座標系がカラム位置、エディタ的に計算した行番号になっている<strong>gettext2</strong>文と、 <strong>seltopcolumn</strong>、<strong>seltoplineno</strong>、<strong>selendcolumn</strong>、<strong>selendlineno</strong> キーワードが追加されています)</p>
-<p>但し注意が必要なのは、seltopx〜selendyキーワードに値が入っているといって、その値どおり範囲選択されているとは限らないことです。<br />
-マクロヘルプの「範囲選択関連キーワード」の説明にもあるように、範囲選択が解除された後も、以前の値を保持しているためです。<br />
-ということは、上記のコーディングで文字列型変数に取得する場合は、現在本当に範囲選択されているかを確認する必要があります。</p>
-<p>gettext文は実行すると範囲選択を解除する仕様でしたが、秀丸エディタVer5.00 より第5引数が追加され範囲選択を解除するかどうかの設定が可能になってます。(gettext2文も同じ仕様)</p>
+<p>秀丸マクロでは、範囲選択された文字列を直接文字変数に取り込むマクロ文は有りません。画面上の任意の範囲の文字列を文字変数に取り込む<strong>gettext</strong>文と、現在の選択範囲の座標値を示す<strong>seltopx</strong>〜<strong>selendy</strong>キーワード（範囲選択関連キーワード）を併用します。<br />
+(秀丸エディタVer5.00以降は、座標系がカラム位置、エディタ的に計算した行番号になっている<strong>gettext2</strong>文と、 <strong>seltopcolumn</strong>、<strong>seltoplineno</strong>、<strong>selendcolumn</strong>、<strong>selendlineno</strong> キーワードが追加されています)</p>
+<p>注意が必要なのは、各キーワードに値が入っているといって、その値どおり範囲選択されているとは限らないことです。<br />
+マクロヘルプの「<a href="https://help.maruo.co.jp/hidemac/html/060_Keyword_Selection.html" class="externallink" target="_blank" rel="noopener">範囲選択関連キーワード</a>」の説明にもあるように、範囲選択が解除された後も、キーワードは以前の値を保持しているためです。<br />
+上記のコーディングで文字列型変数に取得する場合は、現在本当に範囲選択されているかを確認したほうがいいでしょう。</p>
+<!-- h4 -->
+<section id="GETTEXT-1" class="marginleft">
+<h4>gettext文,gettext2文 の補足</h4>
+<ul>
+<li><p>gettext(getetxt2)文を実行すると範囲選択が解除される仕様でしたが、秀丸エディタVer5.00 より第5引数が追加され、範囲選択を解除するかどうかの設定が可能になってます。</p>
 <ul>
 <li>第5引数に 0 を設定した場合は範囲選択を解除します。</li>
 <li>第5引数に 1 を設定した場合は範囲選択を保持します。</li>
@@ -258,10 +274,20 @@ endmacro;</code></pre>
 $s = gettext(seltopx,seltopy,selendx,selendy, 0);
 //範囲選択を解除しない場合
 $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
-</div>
+</div></li>
+<li><p>gettext(getetxt2)文で取り込んだ内容に改行が含まれる場合、改行コードは必ず「CR(0x0d)+LF(0x0a)」になります。エディタ本体側の改行設定には影響されません。エディタ本体側がCRでも、LFでも「CR(0x0d)+LF(0x0a)」になります。</p>
+<p>「改行は"\n(LF(0x0a))"」と思って処理を行うと、うまくいかない場合もあるので注意してください。</p>
+<p>秀丸エディタ Ver8.94 より第6引数が追加され、改行コードを「LF(0x0a)」として取り込むことが可能です。</p>
+<ul>
+<li>第6引数に 0 を設定した場合、改行コードは必ず「CR(0x0d)+LF(0x0a)」になります。</li>
+<li>第6引数に 1 を設定した場合、改行コードは必ず「LF(0x0a)」になります。</li>
+</ul>
+<p>第6引数を省略した場合は、0 を設定したと同じ状態になります。秀丸エディタマクロの仕様上、途中の引数は省略できません。第6引数を指定する場合は、第5引数まで指定してください。</p></li>
+</ul>
+</section>
 <h3 id="SELECTING">【７】範囲選択されているか判断するには（selectingキーワード）</h3>
 <p>秀丸マクロから、現在範囲選択されているか判断するには、<strong>selecting</strong>キーワードを使います。</p>
-<p>（例） 範囲選択された場所を文字列変数に取得する</p>
+<p>（例） 範囲選択された場所を文字列変数に取得する。</p>
 <div class="macro">
 <pre><code>if(selecting) {
     $s = gettext(seltopx,seltopy,selendx,selendy);
@@ -293,22 +319,6 @@ $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre>
 <dd>複数選択中であるかどうかを表します。(Ver.8.40以降)
 </dd>
 </dl>
-<!-- h4 -->
-<section id="SELECTING-1" class="marginleft">
-<h4>「検索系文を使って検索する」の補足説明</h4>
-<p>検索系文を使った場合は、検索に成功したか失敗したかで判断します。</p>
-<p>検索の成否は、「<span class="attention_red">result</span>」キーワードで判定可能です。</p>
-<div class="macro">
-<pre><code>searchdown &quot;検索文字列&quot;,regular;
-if(result){
-    //検索に成功した場合は、文字変数に取り込む
-    $s = gettext(foundtopx, foundtopy, foundendx, foundendy);
-    message &quot;マッチした文字は、&quot; + $s + &quot;です&quot;;
-} else {
-    message &quot;見つからない&quot;;
-}</code></pre>
-</div>
-</section>
 <h3 id="CLIPBOARD">【８】文字列型変数に取り込むには：その２（クリップボード経由）</h3>
 <p>クリップボードを経由して行う方法もあります。大まかには、以下の流れになります。</p>
 <ol type="1">
@@ -317,21 +327,24 @@ if(result){
 <li><strong>beginclipboardread</strong>文で、クリップボードからの読み込み開始を宣言する</li>
 <li><strong>getclipboard</strong>文で、クリップボードから１行（改行文字で区切られた範囲）を読み込む。</li>
 </ol>
-<p>使い方の詳細は、秀丸マクロヘルプの「クリップボードと変数のやりとり」を参照してください。</p>
+<p>使い方の詳細は、秀丸マクロヘルプの「<a href="https://help.maruo.co.jp/hidemac/html/190_Clipboard.html" class="externallink" target="_blank" rel="noopener">クリップボードと変数のやりとり</a>」を参照してください。</p>
 <p>gettext文とクリップボード系文との利点と弱点を比べて、自分が行う処理に合ったものを使いましょう。</p>
 <ul>
 <li><p>クリップボードを使うということは、マクロで処理した文字列がクリップボードに残ってしまうことを意味します。 (クリップボード履歴を使用している時は、履歴に保存されてしまいます)<br />
 gettext文はクリップボードを消費しません。</p></li>
 <li><p>BOX範囲選択された範囲を文字列変数に取り込む場合は、クリップボードを使うのが簡単です。</p></li>
 </ul>
-<h3 id="ASCII">【９】変数内の文字が何かを知るには（ascii関数）</h3>
-<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。</p>
-<p>秀丸エディタ Ver.8β6 より ascii関数の仕様が変更され、１バイトだけの場合はマルチバイト文字の上位バイト範囲内でも、そのまま文字コードを返します。 ２バイト以上で、Shift_JIS範囲内の場合は、Shift_JISコードを返します。</p>
+<h3 id="ASCII">【９】変数内の文字が何かを知るには（ascii関数、unicode関数）</h3>
+<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数 <strong>unicode</strong>関数 が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。 ascii関数 はShift_JIS範囲内しか対応していないので、unicode関数を使うのがいいでしょう。</p>
+<p>秀丸エディタ Ver.8β6 より ascii関数の仕様が変更され、１バイトだけの場合はマルチバイト文字の上位バイト範囲内でもそのまま文字コードを返します。２バイト以上で、Shift_JIS範囲内の場合は、Shift_JISコードを返します。また、Shift_JISにないUnicode文字の場合は、半角幅相当の場合は「?」と同じ0x3Fを返します。全角幅相当の場合は「？」と同じ0x8148を返します。 (codeキーワードと同じく、Shift_JIS範囲外の文字は 0 を返すようにする事も可能)</p>
 <p>ascii関数で判定するために、midstr文などで切り出す場合は、２文字以上切り出すのが良いでしょう。</p>
 <p>実験マクロ。</p>
 <div class="macro">
 <pre><code>debuginfo 1;
 $test = &quot;012３４５6７&quot;;
+//３:0x8252
+//４:0x8253
+//５:0x8254
 ##len = strlen($test);
 ##cnt = 0;
 while(##cnt &amp;lt; ##len){
@@ -399,37 +412,6 @@ check = 6・hex = 36
 check = ７ hex = 8256
 check = V  hex = 56</code></pre>
 </div>
-<p>以下の内容は古いバージョンが対象になります。</p>
-<hr />
-<p>変数内の文字のコードを調べるために、<strong>ascii</strong>関数が用意されています。これは引数として与えた文字列の最初の文字のコードを返します。また２バイト文字を引数に与えられていると、２バイトのコードが返る便利な関数ですが、逆にそれゆえの落とし穴もあります。<br />
-ascii関数を２バイト文字に対して適用した場合、２バイト分をまとめて16bit整数として返す、という仕様ですが、以下のようにわざと２バイト文字の１バイト目(コード=0x??)を切り出した（１文字からなる）文字列に適用すると、なんと0x??00という値が返ってきます！</p>
-<div class="macro">
-<pre><code>$a = midstr(&quot;あ&quot;, 0, 1); // ２バイト文字の１バイト目を切り出す\
-message str(ascii($a)); // == 33280 == 0x8200 が返る</code></pre>
-</div>
-<p>というわけで、２バイト文字の１バイト目かどうかを判断するのに</p>
-<div class="macro">
-<pre><code>if (ascii(midstr($s, #i, 1)) &amp; 0x80) {
-    // ２バイト文字の１バイト目か、半角カタカナだった
-    
-}</code></pre>
-</div>
-<p>というようなかっこいい(笑)コードはNGです。<br />
-ascii文の仕様からすると、midstr文などで切り出す場合は、２文字切り出すのが良いです。（１文字目が１バイト文字でも次の文字はascii文が無視してくれます）<br />
-というわけで、以下の例のようにしましょう。</p>
-<div class="macro">
-<pre><code>if (ascii(midstr($s, #i, 2)) &gt;  0xff) {
-    // ２バイト文字
-    
-}</code></pre>
-</div>
-<p>または</p>
-<div class="macro">
-<pre><code>if (ascii(midstr($s, #i, 2)) &amp;&amp; 0xff00 != 0) {
-    // ２バイト文字
-    
-}</code></pre>
-</div>
 <h3 id="DOUBLE">【１０】文字列中の先頭以外の文字が１バイト文字か２バイト文字かを区別するには（midstr関数等への注意事項）</h3>
 <p>前項で、<strong>midstr</strong>関数を使ってなにげなく文字列変数の中から一部を切り出しましたが、実はこれらの文はmoveto文等とは違って、切り出す範囲の先頭が２バイト文字の２バイト目かどうかは判断してくれません。<br />
 何も考えずにmidstr等を使うと、切り出した結果の文字列の先頭が２バイト文字の２バイト目だった場合、別の１バイト文字に化けたりゴミになったり（表示させると半角の中点になる）していまいます。</p>
@@ -448,7 +430,7 @@ message char(ascii(midstr($s, 6, 2))); // ㊦が表示される!!
 <p>"㊦"は0x8787と、１バイト目と２バイト目が同じ値でいかにも意地悪な例ではありますが、各バイト値だけでは判断できないことがわかります。</p>
 <p>では、文字列中の任意の位置の文字が１バイト文字か２バイト文字かを区別するには、どうすればよいのでしょうか。<br />
 実現方法はいくつか考えられますが、文字列の先頭から順番に確認していくのが基本です。<br />
-一例としては、<a href="HMM0074A.html">[HMM0074A]●文字列の後方から文字列を検索</a> を参照してください。</p>
+一例としては、<a href="./HMM0074A.html">[HMM0074A]●文字列の後方から文字列を検索</a> を参照してください。</p>
 </div>
 <p><a href="hmindex0.html">目次に戻る</a></p>
 </body>
