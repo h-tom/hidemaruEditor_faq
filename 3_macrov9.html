@@ -28,7 +28,7 @@
 <li><a href="#V900">秀丸エディタVer.9.00 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V900">秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
-<p>秀丸エディタ本体の更新内容に関しては、秀丸エディタの紹介（Ver9.00対応版）を参照してください。</p>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v900_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ 新機能の紹介</a>を参照してください。</p>
 <p>【１】<a href="#LIST_V900">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.00</a></p>
 <p>【２】<a href="#SPEC_V900">仕様変更 - 「秀丸エディタ」Ver.9.00</a></p>
 <!-- h3 -->
@@ -37,6 +37,8 @@
 <ul>
 <li>追加
 <ul>
+<li>getgrepfilehist 関数</li>
+<li>keepdde 文</li>
 <li>enumregvalue</li>
 <li>大文字の FIND文 を追加して、「検索...」コマンド相当ですぐマクロを終了するものを追加。</li>
 </ul></li>
@@ -53,9 +55,15 @@
 <li>replacedialog で置換文字列の指定ができていない問題修正。</li>
 <li>replaceallquick で複数選択で動作させると異常終了する問題修正。</li>
 <li>TSV/CSVモードの settabstop で横スクロール可能な上限が更新されない問題修正。</li>
+<li>setmenudelay,setsplitinfo,settabstopがあるとcallのラベルへのジャンプやif文がうまくいかない問題修正。</li>
 </ul></li>
 </ul>
 <h3 id="SPEC_V900">【２】仕様変更 - 「秀丸エディタ」Ver.9.00</h3>
+<ul>
+<li>disabledrawでタイトルやメニュー等の描画もしないように変更。</li>
+<li>openbyshellで、動作環境でブラウザを指定している場合、範囲選択した内容でも適用するように変更。</li>
+<li>openfileでオプションでない単一のファイル指定であってもダブルクォーテーションでくくる書き方に対応。</li>
+</ul>
 </div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
