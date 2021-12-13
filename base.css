@@ -478,6 +478,7 @@ div.mark_dt > dl > dt {
     background-color    : thistle;
     */
     /* 変更 2021/03/27*/
+    padding-left        : 0.2em;
     background-color    : lightsteelblue;
     border-left         : solid 5px navy;
 }
