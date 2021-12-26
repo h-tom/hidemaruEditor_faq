@@ -26,6 +26,7 @@
 <hr />
 <ul>
 <li><a href="#V900">秀丸エディタVer.9.00 マクロ関連の変更履歴</a></li>
+<li><a href="#V910">秀丸エディタVer.9.10 マクロ関連の変更履歴</a></li>
 </ul>
 <h2 id="V900">秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
 <p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v900_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ 新機能の紹介</a>を参照してください。</p>
@@ -63,6 +64,35 @@
 <li>disabledrawでタイトルやメニュー等の描画もしないように変更。</li>
 <li>openbyshellで、動作環境でブラウザを指定している場合、範囲選択した内容でも適用するように変更。</li>
 <li>openfileでオプションでない単一のファイル指定であってもダブルクォーテーションでくくる書き方に対応。</li>
+</ul>
+</div>
+<h2 id="V910">秀丸エディタVer.9.10 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V910">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.10</a></p>
+<p>【２】<a href="#SPEC_V910">仕様変更 - 「秀丸エディタ」Ver.9.10</a></p>
+<!-- h3 -->
+<div class="marginleft">
+<h3 id="LIST_V910">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.10</h3>
+<ul>
+<li>追加
+<ul>
+<li>return_in_cell_modeキーワード追加</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>setcompatiblemode 0x20000;では、カラーマーカーの対象も復元するように修正。</li>
+<li>input関数の第３パラメータで、0x100で複数行入力を可能にした。</li>
+<li>colormarker文のRGB値を "#ffffff" といった感じのRGB順の文字列でもできるように修正。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>basename3が取得できない問題修正。</li>
+<li>Webブラウズモードで260文字を超えるURLでもfilename2で取得できるように修正。</li>
+</ul></li>
+</ul>
+<h3 id="SPEC_V910">【２】仕様変更 - 「秀丸エディタ」Ver.9.10</h3>
+<ul>
+<li>カレントフォルダ移動しない設定であっても、runsync runsync2 で実行したプログラムのカレントフォルダはファイルのあるフォルダとなる互換を維持するように修正。</li>
+<li>updatecount は検索したときは上がらないように修正。</li>
 </ul>
 </div>
 <hr />
