@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　縦書き</h1>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　縦書き</h1>
 <hr />
-<h2 id="VERTICAL">縦書き</h2>
+<section id="VERTICAL" class="level2">
+<h2>縦書き</h2>
 <p>秀丸エディタ Ver.5.00以降では、「縦書き」ができます。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a>
@@ -34,9 +36,8 @@
 </ul></li>
 <li><a href="#SUPPLEMENTATION">補足</a></li>
 </ul>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="EXPLANATION">[解説]</h3>
+<section id="EXPLANATION" class="level3">
+<h3>[解説]</h3>
 <p>「縦書き」は、<strong>現状の設定を一時的に縦書きにする方法</strong>と、縦書き用の「<span class="filetype">ファイルタイプ別の設定</span>」を作る方法があります。</p>
 <p>縦書き用にフォント 行間 文字間等細かい箇所まで設定したい場合は、「<span class="filetype">ファイルタイプ別の設定</span>」を作るのがいいでしょう。</p>
 <p>「<span class="filetype">ファイルタイプ別の設定</span>」は拡張子と関連付ける必要があります。全てのテキストファイルを縦書きにするなら、".txt" と「縦書き用設定」を関連付けすればいいのですが、そうでない場合は、縦書き用の拡張子を別途決めて関連付けしてください。</p>
@@ -44,9 +45,8 @@
 <li><p>一時的に縦書きにする方法</p>
 <p>メニューの「表示」から「縦書きモード」を選択すると、現状の「<span class="filetype">ファイルタイプ別の設定</span>」で、「縦書き」を有効にした状態となります。</p></li>
 </ul>
-<!-- h4 -->
-<div class="marginleft">
-<h4 id="EXPLANATION-1">設定</h4>
+<section id="EXPLANATION-1" class="level4">
+<h4>設定</h4>
 <p>「縦書き」の設定は、「<span class="filetype">ファイルタイプ別の設定</span>」で行います。</p>
 <p><img src="2_vertical_01.png" width="428" height="288" alt="縦書きの設定" /><br />
 </p>
@@ -89,26 +89,30 @@
 </p></li>
 </ul>
 </div>
-<h4 id="EXPLANATION-2">印刷</h4>
+</section>
+<section id="EXPLANATION-2" class="level4">
+<h4>印刷</h4>
 <p>秀丸エディタから縦書きで印刷したい場合は、「秀丸パブリッシャー」が必要です。</p>
 <p>「秀丸パブリッシャー」の詳細は、「<a href="6_publisher.html">第VI部〜秀丸エディタ拡張モジュール　秀丸パブリッシャー</a>」を参照してください。</p>
 <p>テンプレートの「本文BOX」-「縦書き」設定で、縦書きモードが「秀丸エディタと同じ」であれば、秀丸エディタ本体側の横書き・縦書きの状態が反映されます。</p>
 <p><img src="2_vertical_21.png" width="295" height="175" alt="秀丸パブリッシャー−秀丸エディタと同じ" /><br />
 </p>
-</div>
-<h3 id="SUPPLEMENTATION">[補足]</h3>
-<!-- h4 -->
-<div class="marginleft">
-<h4 id="縦書きが変な場合">縦書きが変な場合</h4>
+</section>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>[補足]</h3>
+<section id="縦書きが変な場合" class="level4">
+<h4>縦書きが変な場合</h4>
 <ul>
 <li>フォントを変えてみましょう。</li>
 <li>「<span class="env">動作環境</span>」-「表示/操作」-「文字の描画」にある「3Dグラフィックスアクセラレータによる文字の描画」を有効にすれば改善するかもしれません。ただし、縦書きの場合は Windows 10 以降が必要です。(Windows 7、8、8.1では縦書き時は無効)</li>
 </ul>
-<h4 id="SUPPLEMENTATION-2">マクロで縦書き用の設定に切り替える方法</h4>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>マクロで縦書き用の設定に切り替える方法</h4>
 <p>マクロを使えば、一時的な縦書きにしたり、拡張子に関連付けしなくても縦書き用の「<span class="filetype">ファイルタイプ別の設定</span>」へ切り替える事ができます。</p>
-<!-- h5 -->
-<div class="marginleft">
-<h5 id="SUPPLEMENTATION-2-1">マクロの例1</h5>
+<section id="SUPPLEMENTATION-2-1" class="level5">
+<h5>マクロの例1</h5>
 <p>ファイルの先頭に縦書きであることを示す文字列がある場合、縦書き用の「<span class="filetype">ファイルタイプ別の設定</span>」を設定します。</p>
 <ul>
 <li>条件
@@ -144,7 +148,9 @@ if(filetype == &quot;.txt&quot;){
 }
 endmacro;</code></pre>
 </div>
-<h5 id="SUPPLEMENTATION-2-2">マクロの例2</h5>
+</section>
+<section id="SUPPLEMENTATION-2-2" class="level5">
+<h5>マクロの例2</h5>
 <p>ファイルが特定のフォルダ以下にある場合、縦書き用の「<span class="filetype">ファイルタイプ別の設定</span>」を設定します。</p>
 <ul>
 <li>条件
@@ -175,7 +181,9 @@ if(filetype == &quot;.txt&quot;){
 }
 endmacro;</code></pre>
 </div>
-<h5 id="SUPPLEMENTATION-2-3">マクロの例3</h5>
+</section>
+<section id="SUPPLEMENTATION-2-3" class="level5">
+<h5>マクロの例3</h5>
 <p>一時的な縦書きにする場合は、上記2つのマクロの一部を変更します。</p>
 <ul>
 <li><p>修正前</p>
@@ -192,10 +200,12 @@ configset $FileTypeName;</code></pre>
 #n = sendmessage(#main, #WM_COMMAND, #tategaki_switch, 0);</code></pre>
 </div></li>
 </ul>
-</div>
-</div>
-</div>
 <hr />
 <p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

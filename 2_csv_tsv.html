@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　CSV/TSVモード</h1>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　CSV/TSVモード</h1>
 <hr />
-<h2 id="CSVMODE">CSV/TSVモード</h2>
+<section id="CSVMODE" class="level2">
+<h2>CSV/TSVモード</h2>
 <p>秀丸エディタ Ver.8.00以降では、「<strong>CSV/TSVモード</strong>」が使用できます。</p>
 <p>エディタ画面上で、CSV(カンマ区切りテキスト)、TSV(タブ区切りテキスト)を、表計算ソフトの様に<span class="attention_red">表示するモード</span>です。表計算ソフトのように計算する機能はありません。</p>
 <p>秀丸エディタ Ver.8.89 より、<strong>「セル内での改行」</strong> にも対応しています。詳細は「<a href="#SUPPLEMENTATION">補足</a>」の「<a href="#SUPPLEMENTATION-5">セル内での改行</a>」を参照。</p>
@@ -43,9 +45,8 @@
 <li><a href="#SUPPLEMENTATION-5">セル内での改行</a></li>
 </ul></li>
 </ul>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="EXPLANATION">[解説]</h3>
+<section id="EXPLANATION" class="level3">
+<h3>[解説]</h3>
 <p>普通の設定で、CSVファイルを開いた状態です。</p>
 <p><img src="2_csv_tsv_01.png" width="501" height="270" alt="通常モード" /><br />
 </p>
@@ -70,8 +71,7 @@
 <p>また、ルーラ部のカラムを右クリックすることで、その列をキーにしたソートが可能です。</p>
 <p><img src="2_csv_tsv_15.png" width="502" height="307" alt="列のキーにしたソート" /><br />
 </p>
-<!-- h4 -->
-<section id="EXPLANATION-1" class="marginleft">
+<section id="EXPLANATION-1" class="level4">
 <h4>設定</h4>
 <p>「<span class="filetype">ファイルタイプ別の設定</span>」ではなく、「<span class="env">動作環境</span>」という扱いです。設定が表示されない場合は、「<strong>上級者向け設定</strong>」にチェックを入れてください。</p>
 <ul>
@@ -100,10 +100,11 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 </p></li>
 </ul>
 </section>
-<h3 id="SUPPLEMENTATION">[補足]</h3>
-<!-- h4 -->
-<div class="marginleft">
-<h4 id="SUPPLEMENTATION-1">検索時の注意点</h4>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>[補足]</h3>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>検索時の注意点</h4>
 <p>例えば、以下の状態で、項目(セル)内の「最高気温」だけを検索する場合を考えます。(「最高気温時」にはマッチさせない)</p>
 <p><img src="2_csv_tsv_14.png" width="662" height="175" alt="CSVモード表示例2" /><br />
 </p>
@@ -133,14 +134,18 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 <div class="macro">
 <pre><code>(?&lt;=^|\t)\Q最高気温\E(?=$|\t)</code></pre>
 </div>
-<h4 id="SUPPLEMENTATION-2">指定した列のみ検索対象にしたい場合</h4>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>指定した列のみ検索対象にしたい場合</h4>
 <p>指定した列のみ検索対象にしたい場合は、複数の方法があります。</p>
 <ul>
 <li>カラーマーカーを使う</li>
 <li>複数選択を使う(Ver.8.94以降が対象)</li>
 </ul>
 <p>複数選択を使う方法は、Ver.8.94以降が必要です。</p>
-<h4 id="カラーマーカーを使う方法">カラーマーカーを使う方法</h4>
+</section>
+<section id="カラーマーカーを使う方法" class="level4">
+<h4>カラーマーカーを使う方法</h4>
 <ol type="1">
 <li><p>検索対象にしたい列全体を選択します。(ルーラー部分をクリックすれば、列全体を選択できます)</p></li>
 <li><p>メニューの「検索」−「カラーマーカー」−「一時的なカラーマーカーを付ける」を選び、カラーマーカーを付けます。</p></li>
@@ -151,7 +156,9 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 </div></li>
 <li><p>これで検索すれば、指定した列(カラーマーカーを付けた列)のみを、検索の対象に出来ます。</p></li>
 </ol>
-<h4 id="複数選択を使う方法ver.8.94以降が対象">複数選択を使う方法(Ver.8.94以降が対象)</h4>
+</section>
+<section id="複数選択を使う方法ver.8.94以降が対象" class="level4">
+<h4>複数選択を使う方法(Ver.8.94以降が対象)</h4>
 <ol type="1">
 <li><p>検索対象にしたい列全体を選択します。(ルーラー部分をクリックすれば、列全体を選択できます)</p></li>
 <li><p>メニューの「その他」−「コマンド一覧」から「クリップボード系」−「複数選択化」を選び、複数選択状態にします。</p></li>
@@ -163,9 +170,13 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 </div></li>
 <li><p>これで検索すれば、指定した列(範囲選択した列)のみを、検索の対象に出来ます。</p></li>
 </ol>
-<h4 id="SUPPLEMENTATION-3">区切り文字のcolorcode</h4>
+</section>
+<section id="SUPPLEMENTATION-3" class="level4">
+<h4>区切り文字のcolorcode</h4>
 <p>CSVモードでも、区切り文字である "," の <code>colorcode</code> は、"0x00000020(タブ)"がセットされます。</p>
-<h4 id="SUPPLEMENTATION-4">区切り文字の表示</h4>
+</section>
+<section id="SUPPLEMENTATION-4" class="level4">
+<h4>区切り文字の表示</h4>
 <p>TSV/CSVモードの場合、設定によっては区切り文字(CSVの場合：","、TSVの場合：タブ文字)は表示されません。<br />
 表示する場合は、「<span class="filetype">ファイルタイプ別の設定</span>」-「デザイン」-「場所の一覧」にある「タブ文字」にチェックを入れます。 (CSVの場合も、「タブ文字」にチェックを入れてください)</p>
 <p><img src="2_csv_tsv_17.png" width="465" height="128" alt="場所の一覧-タブ文字" /><br />
@@ -173,7 +184,9 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 <p>CSVモードで、「タブ文字」にチェックを入れ、区切り文字を表示した場合<br />
 <img src="2_csv_tsv_16.png" width="485" height="109" alt="区切り文字の表示" /><br />
 </p>
-<h4 id="SUPPLEMENTATION-5">セル内での改行</h4>
+</section>
+<section id="SUPPLEMENTATION-5" class="level4">
+<h4>セル内での改行</h4>
 <p>秀丸エディタ Ver.8.89 より、「セル内での改行」 にも対応しています。 Excelと違い、セル内で複数行を表示する形式ではなく、セル内改行を特殊文字として1行に表示します。</p>
 <p>Ver.8.94より、「<span class="filetype">ファイルタイプ別の設定</span>」-「体裁」-「タブ」に「セル内改行の変換」が追加され、ファイルタイプ毎に、自動で「セル内改行の特殊文字への変換」を行うことができます。</p>
 <p>セル内の改行があるのを検出すると、画面上部に注意書きが表示されます。</p>
@@ -192,9 +205,11 @@ TSV/CSVモードのカラム表示方法を設定できます。「<span class="
 </p></li>
 </ul>
 <p>ファイルの「内容を確認するだけ」なら、どちらでも問題ないでしょう。他のアプリケーションに貼り付けたりする場合は、「特殊改行に変換」にしたほうがいいでしょう。</p>
-</div>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

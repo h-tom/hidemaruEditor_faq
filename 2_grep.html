@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　grep/タグジャンプ</h1>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　grep/タグジャンプ</h1>
 <hr />
-<h2 id="grep">grep/タグジャンプ</h2>
+<section id="grep" class="level2">
+<h2>grep/タグジャンプ</h2>
 <p>現在編集しているファイルの内容や、あるフォルダに置かれている複数のファイルから、特定の文字列を含んだ行を全て調べる事ができます(<strong>grep("ぐれっぷ"と読む(^^;)機能</strong>)。<br />
 また、調べた結果の出力ファイルを使って、文字列の見つかった行(ファイル)へ直接移動ができます(<strong>タグジャンプ機能</strong>)。</p>
 <ul>
@@ -39,9 +41,8 @@
 <li><a href="#SUPPLEMENTATION-6">補助メニュー</a></li>
 </ul></li>
 </ul>
-<!-- h2 -->
-<div class="marginleft">
-<h3 id="process">[手順]</h3>
+<section id="process" class="level3">
+<h3>[手順]</h3>
 <p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>txt</strong> という拡張子を持つファイルから、「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
 <ol type="1">
 <li><p>メニューバーから「<strong>検索→grepの実行</strong>」を選択して下さい。</p>
@@ -69,13 +70,16 @@
 <p>上記の例では、</p>
 <dl>
 <dt><code>*.txt</code></dt>
-<dd>任意文字列が前にある<code>".txt"</code>というファイル = 拡張子が <code>".txt"</code> のファイル
+<dd>
+任意文字列が前にある<code>".txt"</code>というファイル = 拡張子が <code>".txt"</code> のファイル
 </dd>
 <dt><code>file\_?.man</code></dt>
-<dd>fileフォルダにある、<code>"_"</code> の後に0または1文字がある、拡張子が <code>".man"</code> というファイル
+<dd>
+fileフォルダにある、<code>"_"</code> の後に0または1文字がある、拡張子が <code>".man"</code> というファイル
 </dd>
 <dt><code>a.doc</code></dt>
-<dd><code>a.doc</code> というファイル
+<dd>
+<code>a.doc</code> というファイル
 </dd>
 </dl>
 <p>の3つから検索することになります。</p>
@@ -109,7 +113,7 @@
 例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
 <p>となります。</p>
 <p>除外するフォルダの入力をアシストする機能もあります。<a href="#SUPPLEMENTATION-6">補助メニュー</a>を参照してください。</p></li>
-<li><p>右側にあるチェックボックスの内、該当する物にチェックをします。</p>
+<li><p>チェックボックスの内、該当する物にチェックをします。</p>
 <ul>
 <li><p><strong>「<span class="font_blue">大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。この項目がOFFの場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
@@ -132,13 +136,19 @@
 この項目がONの時、指定されたフォルダにサブフォルダがある場合そのサブフォルダの中のファイルも検索します。</p></li>
 <li><p><strong>「<span class="font_blue">最小化状態で実行</span>」チェックボックス：</strong><br />
 grepの実行時は実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、この結果表示ウィンドウをアイコン化します。</p></li>
-<li><p><strong>「<span class="font_blue">ファイル名一覧だけ作成</span>」チェックボックス：</strong><br />
+<li><p><strong>「<span class="font_blue">出力形式</span>」メニュー：</strong><br />
+grep結果の出力形式を横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから設定します。</p>
+<p><img src="2_grep_12.png" width="484" height="163" alt="出力形式の設定" /><br />
 </p>
-<ol start="7" type="1">
-<li>の出力結果の違いをご覧下さい。</li>
-</ol></li>
-<li><p><strong>「<span class="font_blue">ファイル名をフルパスで出力</span>」チェックボックス：</strong><br />
-この項目がONの時、検索文字列が見つかったファイルのファイル名をフルパスで出力します。 OFFの場合はファイル名だけを出力します。</p></li>
+<p>チェック付きのメニューになっていて、個別にON/OFFできます。全部チェックがOFFだと「標準」となりますが、チェックをONにすると、その項目が表示されます。</p>
+<p>「出力形式」は7.を参照</p>
+<ul>
+<li>「ファイル名一覧だけ作成」</li>
+<li>「ファイル名をフルパスで出力」</li>
+<li>「桁表示」</li>
+<li>「ヒット文字列のみ」</li>
+<li>「日付順」</li>
+</ul></li>
 <li><p><strong>「<span class="font_blue">エンコードの種類</span>」コンボボックス：</strong><br />
 検索するファイルのエンコードを指定します。「自動判定」で不都合がある場合には、指定してみてください。ただし、検索対象が全部同じエンコードでないと、誤判定します。</p></li>
 <li><p><strong>「<span class="font_blue">出力先</span>」コンボボックス：</strong><br />
@@ -151,25 +161,64 @@ grep結果の出力先を指定します。</p>
 </ul></li>
 </ul></li>
 <li><p>右上の「OK」ボタンを押すと検索が始まります。</p></li>
-<li><p>実行が終わると結果を表示するウィンドウができています。その内容は「<strong>ファイル名一覧だけ作成</strong>」チェックボックスのON/OFFによって少し違います。</p>
+<li><p>実行が終わると結果を表示するウィンドウができています。その内容は「<strong>出力形式]</strong>」によって少し違います。わかりやすいよう各項目を個別に有効にしましたが、組み合わせることも可能です。</p>
 <ul>
-<li><p><strong>「ファイル名一覧だけ作成」が「OFF」の時の動作</strong><br />
-この項目がOFFの時は、検索文字列が見つかった全てのファイル名と行を結果として書き出します。</p>
+<li><p><strong>「ファイル名一覧だけ作成」</strong><br />
+この項目がONの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]</p>
 <div class="macro">
-<pre><code>file1.txt(2): ファイル１の２行目
-file1.txt(20): ファイル１の２０行目
-file2.txt(1): ファイル２の１行目
-file2.txt(2): ファイル２の２行目
-(以下略)</code></pre>
-</div></li>
-<li><p><strong>「ファイル名一覧だけ作成」が「ON」の時の動作</strong><br />
-この項目がONの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。 [実行結果の例("file?.txt"について"２"を検索)]</p>
-<div class="macro">
 <pre><code>file1.txt(2)
-file2.txt(1)
+file2.txt(2)
 file3.txt(2)
 file4.txt(2)
+(以下略)</code></pre>
+</div></li>
+<li><p><strong>「ファイル名をフルパスで出力」</strong><br />
+検索文字列が見つかった場合、ファイル名だけではなくフルパスで表示します。</p>
+<p>[実行結果の例("file?.txt"について"２"を検索)]</p>
+<div class="macro">
+<pre><code>C:\TEMP\file1.txt(2): ファイル1の２行目
+C:\TEMP\file1.txt(12): ファイル1の１２行目
+C:\TEMP\file1.txt(20): ファイル1の２０行目
+C:\TEMP\file2.txt(2): ファイル2の２行目
+C:\TEMP\file2.txt(12): ファイル2の１２行目
+C:\TEMP\file2.txt(20): ファイル2の２０行目
+(以下略)</code></pre>
+</div></li>
+<li><p><strong>「桁表示」</strong><br />
+検索文字列が見つかった場合、行数と桁数(Unicode(UTF-16)として数えた桁数)を出力します。</p>
+<p>[実行結果の例("file?.txt"について"２"を検索)]</p>
+<div class="macro">
+<pre><code>file1.txt(2,7): ファイル1の２行目
+file1.txt(12,8): ファイル1の１２行目
+file1.txt(20,7): ファイル1の２０行目
+file2.txt(2,7): ファイル2の２行目
+file2.txt(12,8): ファイル2の１２行目
+file2.txt(20,7): ファイル2の２０行目
+(以下略)</code></pre>
+</div></li>
+<li><p><strong>「ヒット文字列のみ」</strong><br />
+マッチした文字を含む行ではなく、マッチした文字列のみ出力します。</p>
+<p>[実行結果の例("file?.txt"について"２"を検索)]</p>
+<div class="macro">
+<pre><code>file1.txt(2): ２
+file1.txt(12): ２
+file1.txt(20): ２
+file2.txt(2): ２
+file2.txt(12): ２
+file2.txt(20): ２
+(以下略)</code></pre>
+</div></li>
+<li><p><strong>「日付順」</strong><br />
+出力順をファイルの日付順(新しいファイルが早い)にします。 (file1.txt をコピー・編集して file2.txt を作成したので、 file2.txt が先に出力される)</p>
+<p>[実行結果の例("file?.txt"について"２"を検索)]</p>
+<div class="macro">
+<pre><code>file2.txt(2): ファイル2の２行目
+file2.txt(12): ファイル2の１２行目
+file2.txt(20): ファイル2の２０行目
+file1.txt(2): ファイル1の２行目
+file1.txt(12): ファイル1の１２行目
+file1.txt(20): ファイル1の２０行目
 (以下略)</code></pre>
 </div></li>
 </ul></li>
@@ -178,27 +227,32 @@ file4.txt(2)
 <p>また、「<strong>バックタグジャンプ</strong>」で元の結果ウィンドウに戻る事もできます。</p>
 <p>さらに、この結果ウィンドウをファイルとして保存もできて、上記の「<strong>タグジャンプ</strong>」も後から使用できます。 (ファイル名がフルパスでない場合は、ファイルを開いた箇所からの相対パスになるので、「<strong>検索するフォルダ</strong>」に結果を保存する必要があります)</p></li>
 </ol>
-<h3 id="SUPPLEMENTATION">[補足]</h3>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>[補足]</h3>
 <p>grepに関係する「<strong>動作環境</strong>」です。</p>
 <p><img src="2_grep_02.png" width="613" height="437" alt="動作環境−grepダイアログ" /><br />
 </p>
 <p><img src="2_grep_03.png" width="613" height="437" alt="動作環境−grepの動作" /><br />
 </p>
-<!-- h3 -->
-<div class="marginleft">
-<h4 id="SUPPLEMENTATION-1">タグジャンプ</h4>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>タグジャンプ</h4>
 <p>設定により、結果ウィンドウのファイル名の部分をダブルクリックする事で、タグジャンプさせる事も可能です。「<span class="env">動作環境</span>−検索−grepの動作」にある、「grep結果」の「<strong>grep結果上ではダブルクリック=タグジャンプとする</strong>」に、チェックを入れてください。</p>
 <p>「タグジャンプ」は秀丸エディタが出力した形式のみ有効ですが、ファイル名と行番号の判定方法をカスタマイズできます。<br />
 「<span class="env">動作環境</span>−その他のコマンド−タグジャンプ」にある、「タグジャンプ」の「<strong>タグジャンプ対象を正規表現で指定</strong>」をONにし、「ファイル名部分」と「行番号部分」を正規表現で指定できます。</p>
 <p><img src="2_grep_11.png" width="578" height="194" alt="動作環境−タグジャンプ対象を正規表現で指定" /><br />
 </p>
-<h4 id="SUPPLEMENTATION-2">grepのダイアログ</h4>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>grepのダイアログ</h4>
 <p>grepダイアログの種類は2種類あります。</p>
 <p><strong>新タイプ</strong>は、<a href="#process">[手順]</a>にあるダイアログで、<strong>普通タイプ</strong>は、フォルダ選択画面と一体になっています。</p>
 <p><img src="2_grep_04.png" width="503" height="388" alt="動作環境−grepダイアログ普通タイプ" /><br />
 </p>
 <p><strong>新タイプ</strong>はフォルダ選択ダイアログが別になっている事もあり、種類も変更可能です。好みに応じて設定を変更してください。</p>
-<h4 id="SUPPLEMENTATION-3">検索するフォルダ</h4>
+</section>
+<section id="SUPPLEMENTATION-3" class="level4">
+<h4>検索するフォルダ</h4>
 <p>通常、grep実行時に開いているファイルの場所を「検索するフォルダ」に自動的にセットしますが、前回grep実行時のフォルダを最初からセットできます。</p>
 <p>「<span class="env">動作環境</span> − 検索 − grepダイアログ − grepのダイアログボックス」にある、「<strong>前回のフォルダを使う</strong>」にチェックを入れてください。</p>
 <p>Ver.8.71より、「grepダイアログ」の「検索するフォルダ」の横に<span class="attention_red">ピン留めアイコン</span>が追加され、「<strong>前回のフォルダを使う</strong>」の設定を「grepダイアログ」から変更可能です。</p>
@@ -206,7 +260,9 @@ file4.txt(2)
 </p>
 <p>「<span class="attention_red">ピン留めアイコン</span>」自体を表示するかしないかも、「<span class="env">動作環境</span> − 検索 − grepダイアログ − grepのダイアログボックス」にある「ピン止めボタン表示」のチェックボックスで設定可能です。</p>
 <p>「検索するフォルダ」は、「検索するファイル」と違い、複数箇所の指定は出来ません。</p>
-<h4 id="SUPPLEMENTATION-4">検索するファイル</h4>
+</section>
+<section id="SUPPLEMENTATION-4" class="level4">
+<h4>検索するファイル</h4>
 <p>「<span class="env">動作環境</span> − 検索 − grepダイアログ − grepの動作」で、検索するファイルの設定が可能です。</p>
 <ul>
 <li><p>「検索するファイル」の指定にマッチするファイルに対し、「除外」する方向の設定。</p>
@@ -277,7 +333,9 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </ul></li>
 </ul></li>
 </ul>
-<h4 id="SUPPLEMENTATION-5">文字数制限の設定</h4>
+</section>
+<section id="SUPPLEMENTATION-5" class="level4">
+<h4>文字数制限の設定</h4>
 <p><img src="2_grep_05.png" width="455" height="344" alt="動作環境−grepの動作−文字数制限の設定" /><br />
 </p>
 <p>処理の都合上、マッチした行が長いと全部を表示しない場合や、正規表現の対象となる一行の文字数の上限があります。その制限に関する設定をします。</p>
@@ -285,15 +343,19 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 <ul>
 <li>"<span class="font_blue">制限を超えたとき確認メッセージを表示</span>"にチェックを入れておくと、「制限なし」以外のとき、制限にかかった場合は警告を表示します。</li>
 </ul>
-<h4 id="SUPPLEMENTATION-6">補助メニュー</h4>
+</section>
+<section id="SUPPLEMENTATION-6" class="level4">
+<h4>補助メニュー</h4>
 <p>「検索する文字列」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューは、<a href="2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。</p>
 <p>「検索するファイル」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューです。</p>
 <p><img src="2_grep_10.png" width="302" height="234" alt="検索するファイルのメニュー" /><br />
 </p>
 <p>前半には、「<span class="env">動作環境</span> − ファイル − 「開く」のダイアログボックス」にある「ファイルの種類の編集」で、「「開く」のダイアログ」に設定した内容が表示されます。後半には「除外の設定」や、「除外する拡張子」「除外するサブフォルダ」の指定をアシストする機能もあります。</p>
-</div>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

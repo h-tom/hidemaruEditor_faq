@@ -22,18 +22,19 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　他の秀丸エディタと内容比較</h1>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　他の秀丸エディタと内容比較</h1>
 <hr />
-<h2 id="compfile">他の秀丸エディタと内容比較</h2>
+<section id="compfile" class="level2">
+<h2>他の秀丸エディタと内容比較</h2>
 <p>メニューの「ウィンドウ」-「<strong>他の秀丸エディタと内容比較</strong>」を使うと、編集中の秀丸エディタと、他の秀丸エディタの内容を比較できます。</p>
 <p>以前のバージョンでは、違う箇所にカーソルが移動するだけでしたが、Ver.8以降は相違部分がカラーマーカーで表示されます。</p>
 <ul>
 <li><a href="#PROCESS">解説</a></li>
 <li><a href="#SUPPLEMENTATION">補足</a></li>
 </ul>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="PROCESS">解説</h3>
+<section id="PROCESS" class="level3">
+<h3>解説</h3>
 <p>「他の秀丸エディタと内容比較」を実行するには、最低でも2つの秀丸エディタ(比較元と比較先)が開いている必要があります。ファイルを1つしか開いていない場合、「他の秀丸エディタと内容比較」は<span class="attention_red">無効</span>になり、実行できません。</p>
 <hr />
 <p>「他の秀丸エディタと内容比較」を実行すると、「比較先の指定」ダイアログが開きます。(この動作は設定で変更可能)</p>
@@ -51,7 +52,9 @@
 </p>
 <p>設定に関してはヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Other_Compare.html" class="externallink" target="_blank" rel="noopener">比較</a>を参照してください。</p>
 <p>「比較先の指定」ダイアログで設定を変更すると<span class="env">「動作環境」</span>-「その他のコマンド」-「比較」の設定も変更されます(一時的に設定を変えるという意味ではありません)。</p>
-<h3 id="SUPPLEMENTATION">補足</h3>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>補足</h3>
 <ul>
 <li><p>Ver.8.94から、「比較先の指定」ダイアログに、「横に並べる」「同時スクロール」が追加されています。</p>
 <p>「横に並べる」は実行時に比較対象ファイルを自動で横に並べます。カーソルも同時に移動するので、「同時スクロール」もチェックしておくと便利でしょう。</p>
@@ -62,15 +65,18 @@
 <li><p><span class="btn-push">「比較の動作環境」</span>ボタンを押すと、<span class="env">「動作環境」</span>-「その他のコマンド」-「比較」が開きます。「比較先の指定」ダイアログを開いたときの状態を設定できます。</p>
 <p>「比較対象のダイアログを常に出す」がOFFで「他の秀丸エディタと内容比較」を実行した場合、他の秀丸エディタが１つしかないときは、設定された内容で自動的に比較が始まります。</p></li>
 </ul>
-<h4 id="SUPPLEMENTATION-1">マクロ関連</h4>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>マクロ関連</h4>
 <ul>
 <li><p>「他の秀丸エディタと内容比較」を実行すると以下のキーワードにウィンドウハンドルが設定されます。 (実行していない場合は0になっている)</p>
 <dl>
 <dt>compfilehandle</dt>
-<dd>比較対象の秀丸エディタのウィンドウハンドル
+<dd>
+比較対象の秀丸エディタのウィンドウハンドル
 </dd>
 <dt>scrolllinkhandle</dt>
-<dd>「同時スクロール」がONの場合は、比較対象の秀丸エディタのウィンドウハンドル。 (compfilehandleと同じになる)
+<dd>
+「同時スクロール」がONの場合は、比較対象の秀丸エディタのウィンドウハンドル。 (compfilehandleと同じになる)
 </dd>
 </dl>
 <p>ウィンドウハンドルが設定されていても、「他の秀丸エディタと内容比較」を一度でも実行するとウィンドウハンドルがセットされたままになるので、「他の秀丸エディタと内容比較」が実行中かどうかの判断には使えません。</p></li>
@@ -82,8 +88,11 @@
 <li>"diff"レイヤーのカラーマーカーが存在している。</li>
 </ol></li>
 </ul>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

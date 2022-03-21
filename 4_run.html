@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="top">第IV部〜テキスト編集を極める！！<br>　プログラム実行を利用したテキストの加工</h1>
+<section id="top" class="level1">
+<h1>第IV部〜テキスト編集を極める！！<br>　プログラム実行を利用したテキストの加工</h1>
 <hr />
-<h2 id="INTRODUCTION">プログラム実行を利用したテキストの加工</h2>
+<section id="INTRODUCTION" class="level2">
+<h2>プログラム実行を利用したテキストの加工</h2>
 <p>秀丸エディタでは「プログラム実行」を使うことにより、標準入力・標準出力を利用するプログラムを利用して、テキストを加工できます。</p>
 <p>昔はlinuxのような便利なコマンドが少なくて活用しづらい機能でしたが、現在はWindowsでも便利なコマンドが増えたり、 PowerShellが導入されたことで色々な編集に活用できます。</p>
 <p>メニューの「その他→プログラム実行」から使用できます。</p>
@@ -34,9 +36,8 @@
 <li>【２】<a href="#EXAMPLES">実用例</a></li>
 </ul>
 </div>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="PROGRAM">【１】プログラム実行の方法</h3>
+<section id="PROGRAM" class="level3">
+<h3>【１】プログラム実行の方法</h3>
 <p>「プログラム実行」で標準入出力を使うを使う方法は、２通りあります。</p>
 <p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>にある、</p>
 <div class="title-li">
@@ -56,12 +57,15 @@
 <li>範囲選択をしないで、カーソル位置に標準出力を挿入できます。<br />
 「オプション」-「詳細設定」で、「標準出力」を有効にし、「挿入」を選んでください。</li>
 </ul>
-<h3 id="EXAMPLES">【２】実用例</h3>
+</section>
+<section id="EXAMPLES" class="level3">
+<h3>【２】実用例</h3>
 <p>OSに標準であるコマンドでの実行例です。</p>
 <p>"&lt;con"、"&gt;con" を使っているので、「詳細設定」を有効にする場合は、「標準入力」「標準出力」も有効にし「自動」を選んでください。</p>
 <dl>
 <dt><strong>sort &lt;con &gt;con</strong></dt>
-<dd><p>選択範囲を並び替える。</p>
+<dd>
+<p>選択範囲を並び替える。</p>
 <p>起動オプションに "/R" を指定すると、逆順で出力されます。</p>
 <div class="macro">
 <pre><code>sort /R &lt;con &gt;con</code></pre>
@@ -73,7 +77,8 @@
 <p>上記例では、5文字目から比較を行います。</p>
 </dd>
 <dt><strong>findstr "hoge" &lt;con &gt;con</strong></dt>
-<dd><p>hogeという文字が入った行だけを抜き出す。</p>
+<dd>
+<p>hogeという文字が入った行だけを抜き出す。</p>
 <p>起動オプションに "/I" を指定すると、大文字小文字を無視します。</p>
 <div class="macro">
 <pre><code>findstr /I &quot;hoge&quot; &lt;con &gt;con</code></pre>
@@ -82,11 +87,13 @@
 </p>
 </dd>
 <dt><strong>powershell -c "$input | Get-Unique" &lt;con &gt;con</strong></dt>
-<dd><p>選択範囲の重複行を削除する。(事前にソートしておく必要があります)</p>
+<dd>
+<p>選択範囲の重複行を削除する。(事前にソートしておく必要があります)</p>
 <p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。 (標準入力の内容が入っている)</p>
 </dd>
 <dt><strong>powershell -c "1..5" &gt;con</strong></dt>
-<dd><p>以下のような連番を選択範囲に書き出す。(「詳細設定」有効、「標準出力」を有効にして「挿入」に設定すれば、範囲選択は不要)</p>
+<dd>
+<p>以下のような連番を選択範囲に書き出す。(「詳細設定」有効、「標準出力」を有効にして「挿入」に設定すれば、範囲選択は不要)</p>
 <p>出力結果</p>
 <div class="macro">
 <pre><code>1
@@ -111,11 +118,13 @@
 </p>
 </dd>
 <dt><strong>cmd /c "dir /b c:\hoge" &gt;con</strong></dt>
-<dd><p>「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。</p>
+<dd>
+<p>「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。</p>
 <p>起動オプション "/b" は「ファイル名のみ出力」です。 "/on" を追加するとファイル名でソートされ出力されます。</p>
 </dd>
 <dt><strong>powershell -c "<span class="math inline">$input | Sort-Object {$</span>_.Length}" &lt;con &gt;con</strong></dt>
-<dd><p>選択範囲を行の長さでソートする。</p>
+<dd>
+<p>選択範囲を行の長さでソートする。</p>
 <p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。 (標準入力の内容が入っている)</p>
 <p>逆順にソートしたい場合は、<code>Sort-Object</code> のオプションに <code>-descending</code> を指定します。</p>
 <div class="macro">
@@ -123,8 +132,10 @@
 </div>
 </dd>
 </dl>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
 </body>
 </html>

@@ -22,17 +22,18 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　HMJRE.DLLを使う場合の注意点</h1>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　HMJRE.DLLを使う場合の注意点</h1>
 <hr />
-<h2 id="INDEX">HMJRE.DLLを使う場合の注意点</h2>
+<section id="INDEX" class="level2">
+<h2>HMJRE.DLLを使う場合の注意点</h2>
 <ul>
 <li><a href="#ABOUT">はじめに</a></li>
 <li><a href="#UNICODE">文字変数にShift_JISに含まれない、Unicode文字がある場合</a></li>
 <li><a href="#FOREIGNLANGUAGE">外国語を対象とする場合</a></li>
 </ul>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="ABOUT">はじめに</h3>
+<section id="ABOUT" class="level3">
+<h3>はじめに</h3>
 <p>秀丸エディタの正規表現エンジンであるHMJRE.DLLは、マクロから呼び出すことが可能です。 (<a href="https://help.maruo.co.jp/hmjre/html/0008_API_MACRO.html" class="externallink" target="_blank" rel="noopener">マクロからのdllfunc呼び出し</a>)<br />
 </p>
 <p>文字変数や文字列に対して、正規表現を使った検索、置換が実行できますが、使用する場合には注意点があります。</p>
@@ -41,14 +42,15 @@
 <li>外国語を対象とする場合</li>
 </ul>
 <p>秀丸エディタ本体で検索する場合は秀丸エディタがつじつまを合わせてくれますが、マクロで使う場合は呼び出した側が注意しないといけない場合があります。</p>
-<h3 id="UNICODE">文字変数にShift_JISに含まれない、Unicode文字がある場合</h3>
+</section>
+<section id="UNICODE" class="level3">
+<h3>文字変数にShift_JISに含まれない、Unicode文字がある場合</h3>
 <ul>
 <li><a href="#UNICODE-1">Unicode文字が含まれる場合の問題点</a></li>
 <li><a href="#UNICODE-2">対処法</a></li>
 </ul>
-<!-- h4 -->
-<div class="marginleft">
-<h4 id="UNICODE-1">Unicode文字が含まれる場合の問題点</h4>
+<section id="UNICODE-1" class="level4">
+<h4>Unicode文字が含まれる場合の問題点</h4>
 <p>秀丸エディタの内部的な事情を少し説明します。</p>
 <ul>
 <li>秀丸エディタの内部コードはShift_JISがベース。</li>
@@ -151,7 +153,9 @@ $a = &quot;hidemaruXXXXYYYYa&quot;;</code></pre>
 </div>
 <p>「<span class="attention_red">マクロでは、常に漢字は2バイトとして扱われる</span>」ということになっていますが、 HMJRE.DLLの関数使用時に「<strong>特殊な文字コード</strong>」が含まれると、<span class="attention_red">漢字1文字でも最大で8バイト</span>になる事もあるため、マクロ関数と一致しません。マクロ1、マクロ2で、"取得文字($b2)"がおかしいのは、この不一致が原因です。</p>
 <p>HMJRE.DLL内の関数で戻り値をマクロの関数で使用する場合は、ズレの有無をチェックし補正しないと、正確な位置・長さを取得出来ません。</p>
-<h4 id="UNICODE-2">対処法</h4>
+</section>
+<section id="UNICODE-2" class="level4">
+<h4>対処法</h4>
 <p>HMJRE.DLL Ver.3.13(秀丸エディタ Ver.8に添付)から、<code>"SetUnicodeIndexAutoConvert関数"</code>が追加されています。</p>
 <div class="macro">
 <pre><code>//#flg = 0 自動変換無効、#flg = 1 自動変換有効
@@ -215,27 +219,34 @@ endmacro;</code></pre>
 <li>各関数を呼び出す。</li>
 </ol>
 <p>確実に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」がないと判っているなら不要ですが、 HMJRE.DLLをマクロから使用する場合には、<code>SetUnicodeIndexAutoConvert関数</code> を実行することを推奨します。</p>
-</div>
-<h3 id="FOREIGNLANGUAGE">外国語を対象とする場合</h3>
+</section>
+</section>
+<section id="FOREIGNLANGUAGE" class="level3">
+<h3>外国語を対象とする場合</h3>
 <p>マクロでは、基本的に日本語(Shift_JIS)を対象にしているため、日本語以外の言語使用する場合、検索に失敗する場合があります。</p>
 <p>Shift_JISの文字コードに関係する話です。</p>
 <p>Shift_JISの文字コードの割り当ては以下のようになっています。</p>
 <div class="marginleft">
 <dl>
 <dt>0x00〜0x1f、0x7f</dt>
-<dd>この範囲は制御コードが割り当てられている。
+<dd>
+この範囲は制御コードが割り当てられている。
 </dd>
 <dt>0x20〜0x7e</dt>
-<dd>ASCII文字が割り当てられている。ASCII文字とは英数字と記号になります。
+<dd>
+ASCII文字が割り当てられている。ASCII文字とは英数字と記号になります。
 </dd>
 <dt>0xa1〜0xdf</dt>
-<dd>半角カタカナです。
+<dd>
+半角カタカナです。
 </dd>
 <dt>0x81〜0x9f、0xe0〜0xef</dt>
-<dd>Shift_JISの上位バイト。
+<dd>
+Shift_JISの上位バイト。
 </dd>
 <dt>0x40〜0x7e、0x80〜0xfc</dt>
-<dd>Shift_JISの下位バイト。
+<dd>
+Shift_JISの下位バイト。
 </dd>
 </dl>
 </div>
@@ -253,8 +264,10 @@ endmacro;</code></pre>
 <li>NotifyEncode関数に、対象のエンコード値を指定して呼び出す。</li>
 <li>各関数を呼び出す。</li>
 </ol>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
 </body>
 </html>

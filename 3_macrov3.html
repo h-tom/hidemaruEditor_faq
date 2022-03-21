@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタVer.3.00 マクロ関連の変更履歴</h1>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタVer.3.00 マクロ関連の変更履歴</h1>
 <hr />
-<h2 id="V3">秀丸エディタVer.3.00 マクロ関連の変更履歴</h2>
+<section id="V3" class="level2">
+<h2>秀丸エディタVer.3.00 マクロ関連の変更履歴</h2>
 <p>秀丸 ver.3.00になって、機能強化に伴いマクロ文が追加されたり、仕様変更が行われました。また、いくつかのバグ修正も行われています。<br />
 そのため、裏を返せば ver.2.xとの間でマクロに一部非互換が発生しています。<br />
 この章では、マクロの非互換情報を中心に、マクロ関連の変更履歴の情報を集めました。</p>
@@ -33,9 +35,8 @@
 【３】<a href="#STEALTH">ステルス秀丸の処理</a><br />
 【４】<a href="#ESCAPE">escape;のresult</a><br />
 【５】<a href="#HHANDLE">hidemaruhandle(0) の取り違え</a></p>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="LIST">【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 3.00</h3>
+<section id="LIST" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 3.00</h3>
 <ul>
 <li>loadhilight 文、hilighttitle 関数、colorcode 関数、copy2文、openbyhidemaru 文、openbyshell 文、nextmark 文、 prevmark 文が追加された。</li>
 <li>ファイル系文の result に関して、trueで初期値を与え、エラー処理も統一された。<br />
@@ -49,7 +50,9 @@
 <li>totab; が \" でエスケープ処理を間違えるバグを修正。</li>
 <li>その他、マクロのバグが修正された。</li>
 </ul>
-<h3 id="GOKAKKO">【２】gokakko, goleftkakko, gorightkakko の仕様変更</h3>
+</section>
+<section id="GOKAKKO" class="level3">
+<h3>【２】gokakko, goleftkakko, gorightkakko の仕様変更</h3>
 <pre><code>gokakko      対応する括弧に移動
 goleftkakko  &#39;{&#39;に移動
 gorightkakko &#39;}&#39;に移動</code></pre>
@@ -59,11 +62,15 @@ gorightkakko &#39;}&#39;に移動</code></pre>
 <li>gokakko は、「コメント/文字定数」の中にある括弧では移動しません。</li>
 <li>goleftkakko, gorightkakko は、「コメント/文字定数」の中にある括弧 { } を無視して移動します。</li>
 </ol>
-<h3 id="STEALTH">【３】ステルス秀丸の処理</h3>
+</section>
+<section id="STEALTH" class="level3">
+<h3>【３】ステルス秀丸の処理</h3>
 <p>マクロが終了したとき、 /h でオープンされた窓が開かれる仕様になりました。</p>
 <p>ちなみにこの仕様については、マクロのバグでマクロが異常終了したときは、有効ではありません。</p>
 <p>「入力補完」とか「辞書引き」のマクロ等では、意図して /h で残す場合がありましたが、Ver. 3.0x ではそれができません。</p>
-<h3 id="ESCAPE">【４】escape;のresult</h3>
+</section>
+<section id="ESCAPE" class="level3">
+<h3>【４】escape;のresult</h3>
 <div class="macro">
 <pre><code>escape;
 message str(result);</code></pre>
@@ -71,7 +78,9 @@ message str(result);</code></pre>
 <p>現在 (Ver. 3.0x) でも、escape; は result = 0 となります。<br />
 偶然、この仕様であるが将来は不明です、<br />
 マクロのテストにはべんりですが、恒久的なコードをすることはお勧めではないです。</p>
-<h3 id="HHANDLE">【５】hidemaruhandle(0) の取り違え</h3>
+</section>
+<section id="HHANDLE" class="level3">
+<h3>【５】hidemaruhandle(0) の取り違え</h3>
 <p>下記のような例で発生する hidemaruhandle(0) の取り違えは治っていませんが、大きな問題ではありません。仕様にも見えるでしょう。</p>
 <p>「常駐秀丸の終了 (C) 」の後に、マクロ c1. mac を「マクロ実行」する、<br />
 その後で、c2.mac で確認すると、hidemaruhandle(0) の矛盾がわかります。</p>
@@ -101,8 +110,10 @@ endmacro;</code></pre>
 </div>
 <p>※この内容は秀丸エディタ ver.3.01の内容を元に書かれています。<br />
 今後のバージョンアップによっては、上記の内容が必ずしも当てはまらない場合もあるかもしれません。</p>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
 </body>
 </html>

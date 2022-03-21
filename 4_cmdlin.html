@@ -22,16 +22,18 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="top">第IV部〜テキスト編集を極める！！<br>　起動オプションを使ってみよう</h1>
+<section id="top" class="level1">
+<h1>第IV部〜テキスト編集を極める！！<br>　起動オプションを使ってみよう</h1>
 <hr />
-<h2 id="option">起動オプションを使ってみよう</h2>
+<section id="option" class="level2">
+<h2>起動オプションを使ってみよう</h2>
 <p>秀丸エディタに限らず、Windowsのアプリケーションの多くで、「<span class="font_red_bold">起動オプション</span>」を使うことができます。これによって、そのアプリケーションをどんな状態で起動させるかや、起動してすぐに実行したい処理などを指示できます。起動オプションをうまく使うと、単にアプリケーションを起動するだけとはひとあじ違う使い方ができるわけで、こんなイイものを使わない手はないでしょう。(^_^)</p>
 <p>秀丸エディタの場合は、</p>
-<table>
+<table style="width:15%;">
 <caption>秀丸エディタ 起動オプションの例</caption>
 <colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
+<col style="width: 3%" />
+<col style="width: 11%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -71,9 +73,8 @@
 <li>【５】<a href="#SUPPLEMENT">補足</a></li>
 </ul>
 </div>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="DRAGDROP">【１】ショートカットへの「ドラッグ&amp;ドロップ」の場合</h3>
+<section id="DRAGDROP" class="level3">
+<h3>【１】ショートカットへの「ドラッグ&amp;ドロップ」の場合</h3>
 <p>ここでは例題として、デスクトップ上に「秀丸エディタを閲覧モードで開く」ショートカットを作成して、そこにファイルをドラッグ&amp;ドロップするとそのファイルが閲覧モードで開くようにしてみましょう。</p>
 <p>試しに、秀丸エディタのショートカットを作成して、そのプロパティの「リンク先」の最後に</p>
 <pre><code>...\Hidemaru.exe /b</code></pre>
@@ -83,19 +84,23 @@
 <div class="box_line">
 <dl>
 <dt>※ショートカットの簡単な作り方：</dt>
-<dd>エクスプローラで秀丸エディタをインストールしたフォルダを開きます。 Hidemaru.exe を右ドラッグ（Hidemaru.exe の上でマウスの右ボタンを押してボタンを離さずにマウスを移動させる）して、デスクトップ上でボタンから手を離します。メニューから「ショートカットをここに作成(S)」を選べば作れます。
+<dd>
+エクスプローラで秀丸エディタをインストールしたフォルダを開きます。 Hidemaru.exe を右ドラッグ（Hidemaru.exe の上でマウスの右ボタンを押してボタンを離さずにマウスを移動させる）して、デスクトップ上でボタンから手を離します。メニューから「ショートカットをここに作成(S)」を選べば作れます。
 </dd>
 </dl>
 </div>
 <p>できたショートカットをダブルクリックすると、新規作成の秀丸エディタが閲覧モードで起動します。何にもない画面を閲覧モードで開いてもちっとも嬉しくありませんが(^^;)、とりあえずちゃんと起動オプションは効いているようです。</p>
 <p>今回は"/b"を指定し閲覧モードで開くようにしましたが、grepを起動するようにしたり、「デスクトップ復元」を行うようにできます。</p>
-<h3 id="REG">【２】「アプリケーションとの関連付け」の場合</h3>
+</section>
+<section id="REG" class="level3">
+<h3>【２】「アプリケーションとの関連付け」の場合</h3>
 <p>残念ながら Windows Vista以降、"開く"アプリケーションの変更はできますが、右クリックメニューにユーザー独自の「閲覧モードで開く」等の追加が、簡単にはできなくなっています。 (レジストリエディタで直接レジストリを編集すれば可能)</p>
 <p>起動オプションを指定したい場合には、ショートカットで指定するか、ファイルの種類によって切り換えることはできませんが「送る」を使うのが簡単です。</p>
-<h3 id="info">【３】注意点など</h3>
-<!-- h3 -->
-<div class="marginleft">
-<h4 id="info-1">ファイル名に空白を含む場合</h4>
+</section>
+<section id="info" class="level3">
+<h3>【３】注意点など</h3>
+<section id="info-1" class="level4">
+<h4>ファイル名に空白を含む場合</h4>
 <p>コマンドラインは、他のアプリケーションを起動したり他のアプリケーションから起動されたり等、色々使われているので簡単に注意点を示します。</p>
 <p>コマンドラインで、各パラメータ(/b 等)の区切りには、半角スペースが使用されます。また、Windowsではファイルやフォルダの名前に半角スペースが使用可能です。その為、半角スペースを含む名前を指定する場合には、注意が必要です。</p>
 <div class="box_line2">
@@ -136,7 +141,9 @@
 <li><p>方法2 ファイル名をフルパスで指定する。(ダブルクォートが無くてもファイルの区切りが認識可能)</p>
 <pre><code>&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; C:\TEMP\file1.txt C:\TEMP\file2.txt</code></pre></li>
 </ul>
-<h4 id="info-2">オプションを指定する場所</h4>
+</section>
+<section id="info-2" class="level4">
+<h4>オプションを指定する場所</h4>
 <p>オプションを指定する場合、記述する場所も重要になります。</p>
 <div class="box_line2">
 <pre><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい。
@@ -156,13 +163,16 @@
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x test.mac  &quot;file1.txt&quot; &quot;file2.txt&quot;
 file1.txt を開き test.mac を実行するが、file2.txt は開かない。</code></pre>
 </div>
-</div>
-<h3 id="CMD">【４】コマンドプロンプトでの応用</h3>
+</section>
+</section>
+<section id="CMD" class="level3">
+<h3>【４】コマンドプロンプトでの応用</h3>
 <p>コマンドプロンプトを使うと、複数のファイルにマクロを実行できます。 (実行するマクロはチョットした注意点があります)</p>
 <p>詳細は、[HMM0084A]<a href="./HMM0084A.html">●フォルダにある複数のファイルにマクロを実行したい</a>を参照してください。</p>
-<h3 id="SUPPLEMENT">【５】補足</h3>
-<!-- h4 -->
-<section id="SUPPLEMENT-1" class="marginleft">
+</section>
+<section id="SUPPLEMENT" class="level3">
+<h3>【５】補足</h3>
+<section id="SUPPLEMENT-1" class="level4">
 <h4>「送る」のフォルダを開く方法</h4>
 <p>「送る」は「ユーザーフォルダ内のフォルダ」と説明しましたが、そのフォルダを開く方法です。</p>
 <ul>
@@ -174,9 +184,11 @@ file1.txt を開き test.mac を実行するが、file2.txt は開かない。</
 <pre><code>explorer shell:sendto</code></pre>
 </div></li>
 </ul>
-</section>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

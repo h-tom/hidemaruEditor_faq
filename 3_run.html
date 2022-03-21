@@ -21,23 +21,21 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88"
-height="32" alt="Hidemaru Q and A" /></a></p>
-<h1
-id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　外部プログラムの実行について</h1>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　外部プログラムの実行について</h1>
 <hr />
-<h2 id="INDEX">外部プログラムの実行について</h2>
+<section id="INDEX" class="level2">
+<h2>外部プログラムの実行について</h2>
 <ul>
 <li><a href="#ABOUT">はじめに</a></li>
 <li><a href="#COMMON">run系命令文の共通事項</a></li>
 <li><a href="#COMMAND">個別の命令文について</a></li>
 </ul>
-<div class="marginleft">
-<h3 id="ABOUT">はじめに</h3>
+<section id="ABOUT" class="level3">
+<h3>はじめに</h3>
 <p>秀丸エディタのマクロから他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2022/02/12現在)では単純にプログラムを実行するだけなら run文
-でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文
-をお勧めします。</p>
+<p>現状(2022/03/21現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -83,15 +81,12 @@ id="TOP">第III部〜秀丸マクロのいろはにほへと<br>　外部プロ�
 ファイルの内容を標準入力へ送ったり、標準出力をファイルへ取り込む。標準入出力を使う場合は、制限あり。ファイルから入力する場合は、保存してあるエンコードになります。
 </dd>
 </dl>
-<h3 id="COMMON">run系命令文の共通事項</h3>
+</section>
+<section id="COMMON" class="level3">
+<h3>run系命令文の共通事項</h3>
 <ul>
-<li><p><a
-href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a
-href="./2_program.html#NOTICE">【１】共通の注意点</a>を参照してください。</p></li>
-<li><p>run系文実行時の result は、プログラムの実行に成功した場合は
-<code>false</code>以外に 、失敗した場合は <code>false</code>
-になります。 <code>true</code>
-かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
+<li><p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#NOTICE">【１】共通の注意点</a>を参照してください。</p></li>
+<li><p>run系文実行時の result は、プログラムの実行に成功した場合は <code>false</code>以外に 、失敗した場合は <code>false</code> になります。 <code>true</code> かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
 <div class="macro">
 <pre><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
 if(!result){
@@ -104,59 +99,42 @@ if(!result){
 <pre><code>runsync &quot;xxxx.exe&quot;;
 #ret = getresultex(9);</code></pre>
 </div>
-<p>run文の場合は、同期実行に対応していないため、<code>getresultex(9)</code>
-は 常に「259」(同期しなかった)を返します。</p></li>
+<p>run文の場合は、同期実行に対応していないため、<code>getresultex(9)</code> は 常に「259」(同期しなかった)を返します。</p></li>
 </ul>
-<h3 id="COMMAND">個別の命令文について</h3>
-<div class="marginleft">
-<h4 id="run">run</h4>
-<p>非同期でプログラムの実行します。(プログラムを実行しても、終了を待たないで次の命令に進みます)
-非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
-<p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名"
-などを付けることにより、標準入出力のリダイレクトが可能です。</p>
-<p><a
-href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a
-href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a>を参照してください。</p>
-<h4 id="runsyncrunsync2">runsync,runsync2</h4>
-<p>同期でプログラムの実行します。(プログラムを実行すると、終了するまで待機します)
-同期なのでプログラムの「終了ステータス」を受け取ることが可能です。<span
-class="attention_red">リダイレクトは使用できません。</span></p>
+</section>
+<section id="COMMAND" class="level3">
+<h3>個別の命令文について</h3>
+<section id="run" class="level4">
+<h4>run</h4>
+<p>非同期でプログラムの実行します。(プログラムを実行しても、終了を待たないで次の命令に進みます) 非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
+<p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
+<p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a>を参照してください。</p>
+</section>
+<section id="runsyncrunsync2" class="level4">
+<h4>runsync,runsync2</h4>
+<p>同期でプログラムの実行します。(プログラムを実行すると、終了するまで待機します) 同期なのでプログラムの「終了ステータス」を受け取ることが可能です。<span class="attention_red">リダイレクトは使用できません。</span></p>
 <p>runsyncは、秀丸エディタ本体を最小化状態にして待機します。</p>
 <p>runsync2は、秀丸エディタ本体はそのままの状態で待機します。</p>
-<h4 id="runex">runex</h4>
+</section>
+<section id="runex" class="level4">
+<h4>runex</h4>
 <p>run文/runsync文の拡張版で、引数がとても多い(14個)ですが、細かく実行状態を指定できます。詳細は以下のリンク先を参照の事。</p>
 <ul>
-<li>マクロヘルプの<a
-href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html"
-class="externallink" target="_blank" rel="noopener">runex文</a></li>
-<li>秀丸エディタヘルプの<a
-href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html"
-class="externallink" target="_blank"
-rel="noopener">「プログラム実行の詳細（オプション指定時）」</a></li>
-<li><a
-href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>-
-<a
-href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a></li>
+<li>マクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/100_ProgramStatement_runex.html" class="externallink" target="_blank" rel="noopener">runex文</a></li>
+<li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank" rel="noopener">「プログラム実行の詳細（オプション指定時）」</a></li>
+<li><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>- <a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a></li>
 </ul>
 <p>書式は以下になります。</p>
-<p><strong>runex</strong> 実行ファイル名, 同期フラグ, 標準入力フラグ,
-標準入力ファイル名, 標準出力フラグ, 標準出力ファイル名,
-標準エラー出力フラグ, 標準エラー出力ファイル名, 作業フォルダフラグ,
-作業フォルダ名, 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>
+<p><strong>runex</strong> 実行ファイル名, 同期フラグ, 標準入力フラグ, 標準入力ファイル名, 標準出力フラグ, 標準出力ファイル名, 標準エラー出力フラグ, 標準エラー出力ファイル名, 作業フォルダフラグ, 作業フォルダ名, 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>
 <ul>
 <li><p>同期フラグで、非同期実行/同期実行を指定できます。</p></li>
 <li><p>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</p></li>
-<li><p>表示フラグで、3以降の意味は、 <a
-href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea"
-class="externallink" target="_blank" rel="noopener">ShellExecuteA
-function (shellapi.h)</a> の「nShowCmd」を参照の事。</p></li>
-<li><p>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8
-を指定できます。</p></li>
+<li><p>表示フラグで、3以降の意味は、 <a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank" rel="noopener">ShellExecuteA function (shellapi.h)</a> の「nShowCmd」を参照の事。</p></li>
+<li><p>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</p></li>
 <li><p>拡張フラグで、"%f" 等の変換を抑制できます</p></li>
 <li><p>作業フォルダの使い方</p>
 <p>作業フォルダは、実行ファイルの実行時のフォルダを指定します。</p>
-<p>わかりやすい例だと、コマンドプロンプト(cmd.exe)実行時に作業フォルダを指定すると、そのフォルダをカレントにしたコマンドプロンプトを開くことができます。
-PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
+<p>わかりやすい例だと、コマンドプロンプト(cmd.exe)実行時に作業フォルダを指定すると、そのフォルダをカレントにしたコマンドプロンプトを開くことができます。 PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
 <p>コマンドプロンプトを、マクロフォルダをカレントにした状態で開くマクロ</p>
 <div class="macro">
 <pre><code>runex &quot;cmd.exe&quot;
@@ -182,8 +160,7 @@ PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
 </div>
 <ul>
 <li><p>おまけ</p>
-<p>コマンドプロンプト、PowerShell、Windows Terminal
-は、起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
+<p>コマンドプロンプト、PowerShell、Windows Terminal は、起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
 <ul>
 <li><p>コマンドプロンプト</p>
 <div class="macro">
@@ -204,9 +181,11 @@ PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
 </ul></li>
 </ul></li>
 </ul>
-</div>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

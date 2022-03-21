@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="TOP">第II部〜知っていると便利な秀丸の機能<br>　検索</h1>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　検索</h1>
 <hr />
-<h2 id="find">検索</h2>
+<section id="find" class="level2">
+<h2>検索</h2>
 <p>編集中のテキストファイルの中から、ある文字列を探したい時には、秀丸エディタの「検索」機能を使えば簡単にできます。</p>
 <p>※文字列をあるだけ探したい場合は、<strong>grep 機能</strong>を使った方が効率的です。詳しくは「<a href="2_grep.html">●grep/タグジャンプ</a>」を参照して下さい。</p>
 <ul>
@@ -40,9 +42,8 @@
 <li><a href="#SUPPLEMENTATION-7">検索文字数の上限</a></li>
 </ul></li>
 </ul>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="EXPLANATION">[解説]</h3>
+<section id="EXPLANATION" class="level3">
+<h3>[解説]</h3>
 <p>編集中のファイルにある「<strong>Love</strong>」という文字列を探したいとします。</p>
 <ol type="1">
 <li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、<strong><span class="font_blue">「検索」</span></strong>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
@@ -164,7 +165,8 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 <div class="mark_dt">
 <dl>
 <dt>ボタンの種類</dt>
-<dd><p>ボタンの動作を設定します。(標準=xx を選んだ場合、ボタン表示が"xx"になります)</p>
+<dd>
+<p>ボタンの動作を設定します。(標準=xx を選んだ場合、ボタン表示が"xx"になります)</p>
 <ul>
 <li>ドロップダウンのみ</li>
 <li>ドロップダウン付き(標準=適用)</li>
@@ -174,7 +176,8 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 </ul>
 </dd>
 <dt>「 「すべて検索 - 色付け」実行時、検索文字列更新」 「 「すべて検索 - 複数選択」実行時、検索文字列更新」</dt>
-<dd>セットされている検索バッファを更新するか、しないかの設定です。有効にした場合は、「すべて検索」を実行した条件で上検索/下検索できます。
+<dd>
+セットされている検索バッファを更新するか、しないかの設定です。有効にした場合は、「すべて検索」を実行した条件で上検索/下検索できます。
 </dd>
 </dl>
 </div></li>
@@ -182,10 +185,12 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 <div class="mark_dt">
 <dl>
 <dt>ヒット候補が無いとき上/下検索ボタンをグレー表示</dt>
-<dd>候補が無いときは、上/下検索ボタンを無効化します。
+<dd>
+候補が無いときは、上/下検索ボタンを無効化します。
 </dd>
 <dt>上/下検索ボタンに個数表示</dt>
-<dd><ul>
+<dd>
+<ul>
 <li><p>表示方法</p>
 <p>以下の設定があります。表示状態は<a href="#HITCOUNT">「上/下検索ボタンに個数表示」</a>を参照してください。</p>
 <ul>
@@ -205,7 +210,8 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 </ul>
 </dd>
 <dt>スクロールバーにマップ</dt>
-<dd><ul>
+<dd>
+<ul>
 <li><p>表示方法</p>
 <p>スクロールバーに表示するタイミングを設定します。</p>
 <ul>
@@ -221,10 +227,11 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 </ul></li>
 </ul></li>
 </ol>
-<h3 id="SUPPLEMENTATION">[補足]</h3>
-<!-- h4 -->
-<div class="marginleft">
-<h4 id="SUPPLEMENTATION-1">「追加の条件」について</h4>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>[補足]</h3>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>「追加の条件」について</h4>
 <p><img src="2_find_01.png" width="368" height="386" alt="追加の条件ダイアログ" /><br />
 </p>
 <p>「追加の条件」を使うと、検索の対象にする箇所を、限定したり除外できます。</p>
@@ -275,7 +282,9 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 </p></li>
 </ol></li>
 </ul>
-<h4 id="SUPPLEMENTATION-2">検索文字列の取り込みについて</h4>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>検索文字列の取り込みについて</h4>
 <p>検索ダイアログを開くとき、<strong>範囲選択していない場合</strong>は、カーソル位置から後の単語部分を「検索内容」として取り込みます。</p>
 <p>ファイルの先頭部分にカーソルがある時に、検索ダイアログを開いた場合<br />
 <img src="2_find_11.png" width="493" height="368" alt="検索ダイアログの取り込み文字" /><br />
@@ -299,23 +308,31 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 <p><img src="2_find_12.png" width="500" height="190" alt="検索ダイアログの取り込み2回目" /> <img src="2_find_15.png" width="500" height="190" alt="検索ダイアログの取り込み5回目" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
 </ul>
-<h4 id="SUPPLEMENTATION-3">複数行</h4>
+</section>
+<section id="SUPPLEMENTATION-3" class="level4">
+<h4>複数行</h4>
 <p>検索ダイアログの「検索」入力部分は通常1行のみですが、複数行を入力可能にできます。「検索」入力部の横にある<span class="rotate90">▲</span>マークを押すと、メニューが表示されます。</p>
 <p><img src="2_find_18.png" width="650" height="169" alt="検索ダイアログのメニュー" /><br />
 </p>
 <p>メニューの「<span class="font_red_bold">複数行</span>」を選択すると、ダイアログの「検索」部分が広がります。複数行にわたる範囲選択をしている場合は、「<span class="font_red_bold">範囲選択の取り込み</span>」で取り込む事も出来ます。</p>
 <p><img src="2_find_102.png" width="433" height="314" alt="複数行の検索ダイアログ" /><br />
 </p>
-<h4 id="SUPPLEMENTATION-4">補助メニューその１</h4>
+</section>
+<section id="SUPPLEMENTATION-4" class="level4">
+<h4>補助メニューその１</h4>
 <p>「検索」入力部の横にある<span class="rotate90">▲</span>マークを押すと、表示されるメニューです。正規表現などの説明になっているので、困ったときは押してみましょう。</p>
 <p><img src="2_find_menu01.png" width="355" height="790" alt="検索ダイアログのメニューその１" /><br />
 </p>
-<h4 id="SUPPLEMENTATION-5">補助メニューその２</h4>
+</section>
+<section id="SUPPLEMENTATION-5" class="level4">
+<h4>補助メニューその２</h4>
 <p>「検索」ダイアログのタイトルバー部分にある「▼」マークを押すと、メニューが表示されます。キーからも出来ますが、「<strong>検索文字列の追加取得</strong>」等もマウスから可能です。「<strong>検索の動作環境</strong>」を開いたり、「<strong>置換ダイアログ</strong>」に切り替える事も可能です。</p>
 <p><img src="2_find_103.png" width="448" height="434" alt="検索ダイアログのメニューその２" /><br />
 </p>
 <p>マクロの searchdialog 文を使ってダイアログを表示させた場合は「<strong>置換ダイアログ</strong>」 に切り替える事は出来ません。これはマクロ使用時の制限になります。Ver.9.00から追加された FIND文 を使えば表示させたダイアログから「<strong>置換ダイアログ</strong>」 に切り替える事は可能ですが、FIND文以降のマクロは中断されます。</p>
-<h4 id="SUPPLEMENTATION-6">ヒストリに常駐</h4>
+</section>
+<section id="SUPPLEMENTATION-6" class="level4">
+<h4>ヒストリに常駐</h4>
 <p>検索すると、検索内容が履歴(ヒストリ)に保存されていきますが、上限があるため、検索を繰り返すと履歴の古いものから順に削除されていきます。</p>
 <p>検索内容に「<strong>ヒストリに常駐</strong>」を設定すると、検索が行われても、履歴から削除される事がなくなります。「<strong>ヒストリに常駐</strong>」は「<span class="rotate90"><strong>&gt;</strong></span>」を押し履歴を表示させ、常駐させたい内容のところで右クリックメニューを使って設定します。<br />
 <img src="2_find_19.png" width="433" height="152" alt="ヒストリに常駐" /><br />
@@ -324,14 +341,18 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 <img src="2_find_20.png" width="290" height="159" alt="ヒストリに常駐その２" /><br />
 </p>
 <p>「ヒストリに常駐」は検索だけではなく、置換やgrepでも設定可能です。</p>
-<h4 id="SUPPLEMENTATION-7">検索文字数の上限</h4>
+</section>
+<section id="SUPPLEMENTATION-7" class="level4">
+<h4>検索文字数の上限</h4>
 <p><strong><span class="font_blue">複数行の「検索」</span></strong>エディットボックスに入力し、検索に指定できる文字列には上限があり、約4000文字が上限となります。</p>
 <p>上限を超えると、<span class="attention_red">警告が表示</span>されます。</p>
 <p><img src="2_find_104.png" width="433" height="113" alt="検索ダイアログの警告" /><br />
 </p>
-</div>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
+</section>
 </body>
 </html>

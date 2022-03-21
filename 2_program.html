@@ -22,9 +22,11 @@
 </head>
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
-<h1 id="top">第II部〜知っていると便利な秀丸の機能<br>　プログラム実行</h1>
+<section id="top" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　プログラム実行</h1>
 <hr />
-<h2 id="INTRODUCTION">プログラム実行</h2>
+<section id="INTRODUCTION" class="level2">
+<h2>プログラム実行</h2>
 <p>秀丸エディタでは、メニューの「その他→プログラム実行」から、外部プログラムの実行が可能です。</p>
 <p>編集しているhtmlファイルをwebブラウザで開いたり等、開いているファイルを指定して別のアプリケーションを呼び出すこともできます。</p>
 <p>「プログラム実行」ダイアログにある「オプション」を展開すると表示される「詳細設定」のON/OFFにより、多少動作が異なります。<br />
@@ -42,9 +44,8 @@
 <li>【４】<a href="#SUPPLEMENT">補足</a></li>
 </ul>
 </div>
-<!-- h3 -->
-<div class="marginleft">
-<h3 id="NOTICE">【１】共通の注意点</h3>
+<section id="NOTICE" class="level3">
+<h3>【１】共通の注意点</h3>
 <ul>
 <li><p>コマンドラインに指定する文字列について</p>
 <p>文字列内に</p>
@@ -61,34 +62,40 @@
 <p><strong><code>"C:\Program Files\Hidemaru\HIDEMARU.TXT"</code></strong> を秀丸エディタで開いている状態では、以下の内容に置換されます。</p>
 <dl>
 <dt>%f</dt>
-<dd><p>開いているファイルのフルパス</p>
+<dd>
+<p>開いているファイルのフルパス</p>
 <div class="macro">
 <pre><code>C:\Program Files\Hidemaru\HIDEMARU.TXT</code></pre>
 </div>
 </dd>
 <dt>%d</dt>
-<dd><p>開いているファイルのフォルダ名</p>
+<dd>
+<p>開いているファイルのフォルダ名</p>
 <div class="macro">
 <pre><code>C:\Program Files\Hidemaru</code></pre>
 </div>
 </dd>
 <dt>%b</dt>
-<dd><p>開いているファイルのファイル名</p>
+<dd>
+<p>開いているファイルのファイル名</p>
 <div class="macro">
 <pre><code>HIDEMARU.TXT</code></pre>
 </div>
 </dd>
 <dt>%n</dt>
-<dd><p>開いているファイルのファイル名から拡張子を除いたもの</p>
+<dd>
+<p>開いているファイルのファイル名から拡張子を除いたもの</p>
 <div class="macro">
 <pre><code>HIDEMARU</code></pre>
 </div>
 </dd>
 <dt>%l</dt>
-<dd>カーソル位置の行番号(先頭が1)
+<dd>
+カーソル位置の行番号(先頭が1)
 </dd>
 <dt>%c</dt>
-<dd>カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。
+<dd>
+カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。
 </dd>
 </dl>
 <p>例えば、以下の Vbscript を "argv.vbs" というファイル名で保存し、 "%8C %B4 %88 %F6 %8B %86 %96 %BE" という文字列を引数として wscript.exe で実行してみます。</p>
@@ -142,7 +149,9 @@ OK
 <li>NULL文字の変換</li>
 </ul></li>
 </ul>
-<h3 id="PROGRAM1">【２】プログラム実行の方法その1</h3>
+</section>
+<section id="PROGRAM1" class="level3">
+<h3>【２】プログラム実行の方法その1</h3>
 <p>秀丸エディタ Ver.8未満か、「詳細設定」がチェックされていない状態で実行する場合の動作になります。<br />
 <strong>「その他→<span class="env">動作環境</span>→その他のコマンド→プログラム実行」</strong> にある「標準エラー出力も出力する」の設定が影響します。</p>
 <p>コマンドラインを使ってリダイレクトの指定が可能で、編集中のファイルを標準入力に指定したり、標準出力を指定したファイルに出力できます。</p>
@@ -164,7 +173,9 @@ OK
 "&lt;ファル名"の場合は、保存しているエンコードのまま、標準入力に送ります。</p></li>
 <li><p>「アウトプット枠」への出力はできません。</p></li>
 </ul>
-<h3 id="PROGRAM2">【３】プログラム実行の方法その2</h3>
+</section>
+<section id="PROGRAM2" class="level3">
+<h3>【３】プログラム実行の方法その2</h3>
 <ul>
 <li>「詳細設定」がチェックされている状態で実行する場合。</li>
 <li>秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/210_CmdOther_ExecProgram_Ex.html" class="externallink" target="_blank" rel="noopener">「プログラム実行の詳細（オプション指定時）」</a>も参照</li>
@@ -225,12 +236,16 @@ OK
 <li>Unicode(UTF-8)</li>
 </ul></li>
 </ul>
-<h3 id="SUPPLEMENT">【４】補足</h3>
+</section>
+<section id="SUPPLEMENT" class="level3">
+<h3>【４】補足</h3>
 <ul>
 <li>コマンドラインのヒストリから以前に実行した内容を選択した場合は、コマンドライン文字列だけではなく、「オプション」-「詳細設定」の内容まで復元出来ます。</li>
 </ul>
-</div>
 <hr />
 <p><a href="hmindex0.html">目次に戻る</a></p>
+</section>
+</section>
+</section>
 </body>
 </html>

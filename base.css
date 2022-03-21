@@ -627,6 +627,9 @@ div.img_border img{
     border-left:solid 3px red;
 }
 
+.level3, .level4, .level5, .level6{
+    padding-left : 2em;
+}
 
 /* モバイル用 640px 以下の設定*/
 @media screen and (max-width: 640px) {
@@ -675,5 +678,9 @@ div.img_border img{
     
     dd {
         margin-inline-start: 10px;
+    }
+    
+    .level3, .level4, .level5, .level6{
+        padding-left : 0em;
     }
 }

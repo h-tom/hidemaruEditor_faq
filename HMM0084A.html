@@ -21,13 +21,12 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0083A.html">←前へ</a> <a
-href="HME0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a>
-<a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="HMM0083A.html">←前へ</a> <a href="HME0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0084a">[HMM0084A]</h1>
-<h2
-id="HMM0084A_01">●フォルダにある複数のファイルにマクロを実行したい</h2>
+<section id="hmm0084a" class="level1">
+<h1>[HMM0084A]</h1>
+<section id="HMM0084A_01" class="level2">
+<h2>●フォルダにある複数のファイルにマクロを実行したい</h2>
 <div class="marginleft">
 <dl>
 <dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
@@ -44,11 +43,8 @@ id="HMM0084A_01">●フォルダにある複数のファイルにマクロを実
 <p><strong>秀丸マクロ単独では無理ですが、外部プログラム、DLL、COMコンポーネントを使えば、指定したフォルダ内ファイルをリストアップすることは可能です。</strong></p>
 <ul>
 <li><p>外部プログラムを使う方法　その1</p>
-<p>コマンドプロンプトからバッチファイルを使います。(Windows 10 20H2 の
-コマンドプロンプトで確認)</p>
-<p>バッチファイルで対象ファイルをリストアップし、起動オプションを指定して秀丸エディタを起動します。ただし、実行するマクロ内で秀丸エディタを閉じないと次のファイルに進みません。
-(自動で連続実行させたい場合は、マクロ内で exit や quit
-等を使い、秀丸エディタを閉じる必要がある)</p>
+<p>コマンドプロンプトからバッチファイルを使います。(Windows 10 20H2 の コマンドプロンプトで確認)</p>
+<p>バッチファイルで対象ファイルをリストアップし、起動オプションを指定して秀丸エディタを起動します。ただし、実行するマクロ内で秀丸エディタを閉じないと次のファイルに進みません。 (自動で連続実行させたい場合は、マクロ内で exit や quit 等を使い、秀丸エディタを閉じる必要がある)</p>
 <div class="macro">
 <pre><code>@echo off
 @rem 拡張機能を有効にする。
@@ -77,17 +73,12 @@ if &quot;%SEARCHFILES%&quot; == &quot;&quot; set SEARCHFILES=*.txt
 set HIDEMARU=C:\Program Files\Hidemaru\Hidemaru.exe
 set MACRO=_test.mac</code></pre>
 </div>
-<p>デフォルトでは フォルダ 読み取り専用ファイル 隠しファイル
-をリストアップしません。 for文にある <code>dir</code> の <code>/A</code>
-オプション部分を変更するとリストアップするファイルを変更できます。詳細は
-コマンドプロンプトで <code>dir /?</code>
-を実行して表示される内容を確認してください。</p>
+<p>デフォルトでは フォルダ 読み取り専用ファイル 隠しファイル をリストアップしません。 for文にある <code>dir</code> の <code>/A</code> オプション部分を変更するとリストアップするファイルを変更できます。詳細は コマンドプロンプトで <code>dir /?</code> を実行して表示される内容を確認してください。</p>
 <div class="macro">
 <pre><code>dir /b /A-D-R-H</code></pre>
 </div>
 <p>編集した内容を、「macro_files.cmd」という名前で保存します。</p>
-<p>バッチファイルを実行する時は、引数を指定します。指定しない場合は、"*.txt"
-を指定した事になります。指定したマクロを「C:\temp」にある拡張子が「txt」のファイル全てに実行したい場合は、コマンドプロンプトへ以下のように入力します。</p>
+<p>バッチファイルを実行する時は、引数を指定します。指定しない場合は、"*.txt" を指定した事になります。指定したマクロを「C:\temp」にある拡張子が「txt」のファイル全てに実行したい場合は、コマンドプロンプトへ以下のように入力します。</p>
 <div class="cmdprompt">
 <pre><code>&gt;macro_files.cmd C:\temp\*.txt</code></pre>
 </div>
@@ -102,11 +93,8 @@ set MACRO=_test.mac</code></pre>
 </div>
 <p>変更後、バッチファイルを実行すると、リストアップされるファイル名が表示されます。</p></li>
 <li><p>外部プログラムを使う方法　その2</p>
-<p>PowerShellから、PowerShellスクリプトを使います。(Windows 10 20H2 の
-PowerShell 7.1.2 で動作確認済み)</p>
-<p>PowerShellスクリプトで対象ファイルをリストアップし、起動オプションを指定して秀丸エディタを起動します。ただし、実行するマクロ内で秀丸エディタを閉じないと次のファイルに進みません。
-(自動で連続実行させたい場合は、マクロ内で exit や quit
-等を使い、秀丸エディタを閉じる必要がある)</p>
+<p>PowerShellから、PowerShellスクリプトを使います。(Windows 10 20H2 の PowerShell 7.1.2 で動作確認済み)</p>
+<p>PowerShellスクリプトで対象ファイルをリストアップし、起動オプションを指定して秀丸エディタを起動します。ただし、実行するマクロ内で秀丸エディタを閉じないと次のファイルに進みません。 (自動で連続実行させたい場合は、マクロ内で exit や quit 等を使い、秀丸エディタを閉じる必要がある)</p>
 <p>PowerShellは、バージョンによりスクリプトを実行ができない場合があります。その場合は、スクリプトを実行できるようにPowerShellを設定してください。</p>
 <div class="macro">
 <pre><code>Param(
@@ -132,10 +120,7 @@ foreach($files in $list){
 $hidemaru = &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;
 $macro    = &quot;_test.mac&quot;</code></pre>
 </div>
-<p>デフォルトでは、フォルダ、読み取り専用ファイル、隠しファイル、システムファイルはリストアップしません。
-for文にある <code>Get-ChildItem</code> の <code>-Attributes</code>
-オプション部分を変更するとリストアップするファイルを変更できます。詳細は
-PowerShellで <code>Help Get-ChildItem</code> を実行してください。</p>
+<p>デフォルトでは、フォルダ、読み取り専用ファイル、隠しファイル、システムファイルはリストアップしません。 for文にある <code>Get-ChildItem</code> の <code>-Attributes</code> オプション部分を変更するとリストアップするファイルを変更できます。詳細は PowerShellで <code>Help Get-ChildItem</code> を実行してください。</p>
 <div class="macro">
 <pre><code>$list = Get-ChildItem -File -Path $FilePath -Filter $FileFilter -Attributes !D+!H+!R+!S</code></pre>
 </div>
@@ -160,8 +145,7 @@ PowerShellで <code>Help Get-ChildItem</code> を実行してください。</p>
 </div>
 <p>変更後、スクリプトを実行すると、リストアップされるファイルが表示されます。</p></li>
 <li><p>COMコンポーネントを使う方法</p>
-<p>秀丸エディタのマクロから、標準でOSにある FilesytemObject
-を使ってファイルをリストアップしマクロを実行します。</p>
+<p>秀丸エディタのマクロから、標準でOSにある FilesytemObject を使ってファイルをリストアップしマクロを実行します。</p>
 <div class="macro">
 <pre><code>//  ファイル一覧を取得するサンプルマクロ
 
@@ -321,9 +305,7 @@ $Searchfolder = @&quot;C:\TEMP&quot;;
 //全てのファイルを対象にする場合は&quot;&quot;にする。
 $Searchfile = &quot;txt&quot;;</code></pre>
 </div>
-<p>実行したいマクロは以下の「//ここから」、「//ここまで」の間に記述するか、
-<code>execmacro</code> で呼び出すか、<code>call</code>
-でサブルーチンとして呼び出してください。</p>
+<p>実行したいマクロは以下の「//ここから」、「//ここまで」の間に記述するか、 <code>execmacro</code> で呼び出すか、<code>call</code> でサブルーチンとして呼び出してください。</p>
 <p>コメントにも書きましたが、秀丸エディタを閉じる命令があると、その時点で止まるので注意してください。</p>
 <div class="macro">
 <pre><code>//実行したいマクロを記述する。
@@ -333,8 +315,7 @@ execmacro &quot;_test.mac&quot;;
 
 //ここまで</code></pre>
 </div>
-<p>デフォルトでは、読み取り専用ファイル、隠しファイル、システムファイルはリストアップしません。
-##Check_attr を変更すればリストアップできます。</p>
+<p>デフォルトでは、読み取り専用ファイル、隠しファイル、システムファイルはリストアップしません。 ##Check_attr を変更すればリストアップできます。</p>
 <div class="macro">
 <pre><code>##Check_attr = (##ATTR_HIDDEN | ##ATTR_READONLY | ##ATTR_SYSTEM);</code></pre>
 </div></li>
@@ -343,8 +324,8 @@ execmacro &quot;_test.mac&quot;;
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0083A.html">←前へ</a>｜<a
-href="HME0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a>
-<a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="HMM0083A.html">←前へ</a>｜<a href="HME0001A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>
