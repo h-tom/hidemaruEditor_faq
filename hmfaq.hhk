@@ -86,6 +86,11 @@
 		<param name="Local" value="HMM0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="EditorConfig">
+		<param name="Name" value="EditorConfig">
+		<param name="Local" value="2_editorconfig.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EOF">
 		<param name="Name" value="[HME0096A]●[EOF]の色を変えるには">
 		<param name="Local" value="HME0096A.html">
