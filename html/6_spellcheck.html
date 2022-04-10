@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第VI部〜秀丸エディタ拡張モジュール　秀丸スペルチェックアドイン</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第VI部〜秀丸エディタ拡張モジュール<br>　秀丸スペルチェックアドイン</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>秀丸スペルチェックアドインとは?</h2>
+<p>このアドインは、秀丸エディタにスペルチェック機能を追加します。このアドイン自体はフリーソフトウェアになります。</p>
+<p>動作条件は以下の通りで、古い秀丸エディタ・OSでは動作しません。</p>
+<ul>
+<li>秀丸エディタ： <span class="attention_red">Ver.8.50以降</span> Ver.2以降の場合は<span class="attention_red">Ver.9.12以降</span></li>
+<li>OS：<span class="attention_red">Windows XP以降</span></li>
+</ul>
+<p>このアドイン自体はスペルチェック機能を持っていません。別途、以下のスペルチェッカーが必要になります。</p>
+<ul>
+<li>GNU Aspell</li>
+<li>Windows10以降の場合は、OSのスペルチェックエンジン</li>
+</ul>
+<p>このアドインが秀丸エディタとスペルチェッカーを連携させることで、秀丸エディタ上でスペルチェックが可能になります。</p>
+<ul>
+<li><p>OSのスペルチェックエンジンを使う場合は、言語パックによってインストールされている言語のスペルチェックが使用できます。
+OSの「設定」→「時刻と言語」→「言語」から言語パックをインストールしてください。</p></li>
+<li><p>GNU Aspellを使う場合は、以下の作業が必要です。</p>
+<ol type="1">
+<li>GNU Aspell(スペルチェッカ本体)のインストール</li>
+<li>スペルチェックする言語のGNU Aspell用辞書のインストール</li>
+</ol>
+<ul>
+<li>GNU Aspell は、GNU LGPL でライセンスされていて、フリーソフトウェアです。</li>
+<li>GNU Aspell 自体は、コンソールプログラムで32bit版ですが、64bit OS /秀丸エディタ 64bit版でも使用できます。</li>
+<li>GNU Aspell が 既にインストールされている場合には、「秀丸スペルチェックアドイン」のインストールだけになります。</li>
+</ul></li>
+</ul>
+<p>手順の詳細は以下の項目を参照してください。</p>
+<div class="title-li">
+<ul>
+<li>【1】<a href="#INSTALL">ダウンロード、インストール</a></li>
+<li>【2】<a href="#SPELLCHECK">スペルチェックを行うには</a></li>
+<li>【3】<a href="#SPELLMISS">スペルミスの修正</a></li>
+<li>【4】<a href="#SUPPLEMENTATION">補足</a></li>
+</ul>
+</div>
+<section id="INSTALL" class="level3">
+<h3>【1】ダウンロード、インストール</h3>
+<p>Windows10以降で、OSのスペルチェックエンジンを使う場合は、アドインのインストールのみです。
+GNU Aspell を使う場合は、プログラム本体/辞書ファイルのインストールを行います。</p>
+<section id="INSTALL1" class="level4">
+<h4>【1.1】GNU Aspell のダウンロード、インストール</h4>
+<p>Windows用のGNU Aspellは以下の場所からダウンロード可能です。</p>
+<ul>
+<li><p><a href="http://aspell.net/win32/" class="externallink" target="_blank" rel="noopener">GNU Aspell (Win32 version)</a></p>
+<p>「<strong>Binaries</strong>」にある、「<strong>Full installer</strong>」をクリックすれば「GNU Aspell」がダウンロード出来ます。<br />
+(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2022/04/05現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
+<div class="img_border">
+<p><img src="6_spellcheck_01.png" width="425" height="205" alt="Aspellダウンロード先" /><br />
+</p>
+</div>
+<p><span class="attention_red">GNU Aspell は、プログラム本体だけでは使用できません。チェックする言語に対応した辞書ファイルが必要です。</span></p>
+<p>ここでは例として「<strong>英語用辞書</strong>」をダウンロードします。プログラム本体と同じ場所で、辞書ファイルもダウンロード出来ます。「<strong>英語用辞書</strong>」なので、「Precompiled dictionaries:」にある「<strong>English</strong>」のファイルをダウンロードしてください。<br />
+(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2022/04/05現在、「Aspell-en-0.50-2-3.exe」です)</p>
+<div class="img_border">
+<p><img src="6_spellcheck_02.png" width="452" height="465" alt="Aspell辞書ダウンロード先" /><br />
+</p>
+</div></li>
+</ul>
+<p>インストールは、GNU Aspell のプログラム本体から行い、次に英語辞書ファイルをインストールしてください。</p>
+</section>
+<section id="INSTALL2" class="level4">
+<h4>【1.2】秀丸スペルチェックアドイン のダウンロード、インストール</h4>
+<p>「秀丸スペルチェックアドイン」をダウンロード/インストールを行います。(<span class="attention_red">ストアアプリ版は不要</span>)<br />
+インストールする前に、秀丸エディタが起動していれば、常駐秀丸を含め終了させておいた方が良いでしょう。
+(常駐秀丸の終了方法は、「<a href="HME0053A.html">[HME0053A]●「常駐秀丸の終了」がわかりません</a>」を参照)</p>
+<ul>
+<li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank" rel="noopener">ソフトウェア</a> -
+<a href="https://hide.maruo.co.jp/software/hmspell.html" class="externallink" target="_blank" rel="noopener">秀丸スペルチェックアドイン</a></p>
+<p>2022/04/05現在、以下のバージョンが公開されています。</p>
+<ul>
+<li>Ver.2.02</li>
+</ul></li>
+</ul>
+<p>32bit/64bit共通のインストーラーになっていて、実行後に32bit/64bitの選択が可能です。</p>
+<p>32/64bit 両方の秀丸エディタがインストールされていなければ両方有効になる事はありませんが、使用している秀丸エディタと同じ bit数 を選択し、インストールを行ってください。</p>
+<p><img src="6_spellcheck_03.png" width="434" height="233" alt="秀丸スペルチェックアドインインストール" /><br />
+</p>
+<p>以上で、秀丸エディタ上でスペルチェックを行うためのソフトのインストールは終了です。</p>
+</section>
+</section>
+<section id="SPELLCHECK" class="level3">
+<h3>【2】スペルチェックを行うには</h3>
+<p>以降は、英語の辞書ファイルを使用している場合の説明になります。</p>
+<p>スペルチェックを実行するには、「表示」メニューにある「自動スペルチェック」で設定します。
+(「表示」メニューにない場合は、「<span class="filetype">ファイルタイプ別の設定</span>」から行ってください)</p>
+<p><img src="6_spellcheck_04.png" width="407" height="330" alt="自動スペルチェックメニュー" /><br />
+</p>
+<p>また、「<span class="filetype">ファイルタイプ別の設定</span>」からも「自動スペルチェック」をON/OFF可能です。</p>
+<p><img src="6_spellcheck_05.png" width="534" height="262" alt="ファイルタイプ別設定-スペルチェック" /><br />
+</p>
+<p>例えば、以下のように「Hidemaru Editor」と入力し、「自動スペルチェック」を有効にします。すると、辞書に登録されている「Editor」は問題ありませんが、辞書にない「Hidemaru」の部分に<span class="ul_red_wave"><strong>赤い波線状の下線</strong></span>が引かれます。</p>
+<p><img src="6_spellcheck_08.png" width="247" height="129" alt="スペルミスの例" /><br />
+</p>
+<p>この状態になれば、<span class="attention_red">スペルチェックが正常に動作している</span>ことになります。ならない場合は、「<span class="filetype">ファイルタイプ別の設定</span>」から「秀丸スペルチェックアドインの設定」を開き、「aspell.exeの場所指定」を「個別指定」で直接指定してみてください。</p>
+<p>スペルチェックの詳細設定は、「<span class="filetype">ファイルタイプ別の設定</span>」から行います。</p>
+<ul>
+<li><p>自動スペルチェック」のON/OFF</p></li>
+<li><p>スペルチェックを行う言語の指定</p></li>
+<li><p>「秀丸スペルチェックアドインの設定」</p>
+<p><img src="6_spellcheck_06.png" width="445" height="371" alt="秀丸スペルチェックアドインの設定" /><br />
+</p>
+<ul>
+<li><p>スペルチェックエンジン</p>
+<p>使用するスペルチェックエンジンを選択します。</p>
+<p>Aspellの場合は別途設定がありますが、
+Aspellを選択しないと<span class="btn-push">「Aspellについての設定」</span>ボタンは有効になりません。</p>
+<p><img src="6_spellcheck_11.png" width="448" height="277" alt="Aspellについての設定" /><br />
+</p>
+<ul>
+<li>トラブル対策　aspell.exeの場所指定<br />
+通常はレジストリ情報などから自動的にインストール先を検索しますが、手動でインストールした場合などは、見つける事が出来ずにスペルチェックが動作しません。スペルチェックが動作しない場合は、aspell.exe の場所を指定してください。</li>
+</ul></li>
+<li><p>個人辞書ファイルのファイル名<br />
+辞書ファイルにない単語を、個人辞書に登録可能です。
+(使用しているスペルチェックエンジンによりパスは切り替わります)</p>
+<p><span class="btn-push">「個人辞書ファイルを開く」</span> ボタンで、個人辞書ファイルを秀丸エディタで開く事が可能です。言語が表示されるので、編集する言語を選択してください。</p></li>
+<li><p>スペルミス修正ダイアログのフォントサイズ<br />
+ダイアログのフォントサイズを設定します。</p></li>
+<li><p>スペルミス修正ダイアログ位置を固定する<br />
+ダイアログの位置を固定したい場合は、チェックをONにしてください。</p></li>
+</ul></li>
+<li><p>「スペルミスの色」<br />
+スペルミス部分を示す方法を設定できます。デフォルトは赤の波線のアンダーラインになります。</p>
+<p><img src="6_spellcheck_07.png" width="259" height="209" alt="スペルミスの色設定" /> <img src="6_spellcheck_08.png" width="247" height="129" alt="スペルミスの例" /><br />
+</p></li>
+<li><p>「スペルチェックの対象」<br />
+チェックした箇所を、スペルチェック対象にする/しない を設定します。<br />
+(画像は加工してつなげた状態。実際は小さいダイアログで表示されます)</p>
+<p>個別設定は無理で、まとめてしか設定できません。(チェックした箇所を、対象にするか除外するかのどちらかに設定)</p>
+<p><img src="6_spellcheck_09.png" width="308" height="565" alt="スペルチェック対象設定" /><br />
+</p></li>
+</ul>
+</section>
+<section id="SPELLMISS" class="level3">
+<h3>【3】スペルミスの修正</h3>
+<p>スペルチェックのミスがある箇所に対して、修正が出来ます。</p>
+<p>「その他」メニューから「スペルミスの修正」を選ぶと、カーソル位置から後ろにあるスペルミス部分を検索・移動し、「スペルミスの修正」ダイアログが表示されます。
+(カーソル以降にスペルミスがない場合は、ファイルの先頭から検索)</p>
+<p>頻繁に「スペルミスの修正」を使う場合は、「スペルミスの修正」を「ショートカットキー」や「ツールバー」に登録しておくのが良いでしょう。
+(登録方法は、「<a href="3_macro.html">秀丸マクロのいろはにほへと　マクロを実行してみよう</a>」を参照。「ツールバー」に登録する場合は、「すべてのコマンドを表示」にチェックを入れ「その他」から選択する事)</p>
+<p>例えば、以下のようなスペルミスがある状態で、「スペルミスの修正」を実行してみます。</p>
+<p><img src="6_spellcheck_08.png" width="247" height="129" alt="スペルミスの例" /><br />
+</p>
+<p>「スペルミスの修正」を実行すると、「Hidemaru」が検索され、「スペルミスの修正」ダイアログに「修正の候補」を表示します。スペルミス対象になっている単語に対し、各種処理を行う事が出来ます。</p>
+<p><img src="6_spellcheck_10.png" width="640" height="443" alt="スペルミスの修正" /><br />
+</p>
+<dl>
+<dt><span class="btn-push">無視</span></dt>
+<dd>
+スペルミス対象の単語を無視して(修正しないで)、次のスペルミス箇所に移動します。
+</dd>
+<dt><span class="btn-push">すべて無視</span></dt>
+<dd>
+スペルミス対象の単語と同じ単語があっても、以降は全て無視する(修正しない)対象にします。
+</dd>
+<dt><span class="btn-push">置換</span></dt>
+<dd>
+スペルミス対象の単語を、選択した「候補」と置換します。リストから選択した内容だけではなく、「候補」に自分で入力した内容にも置換可能です。
+</dd>
+<dt><span class="btn-push">すべて置換</span></dt>
+<dd>
+現在の位置以降にある、スペルミス対象の単語を、全て選択した「候補」と置換します。
+</dd>
+<dt><span class="btn-push">個人辞書に追加</span></dt>
+<dd>
+スペルミス対象の単語を、個人辞書へ追加します。個人辞書へ追加すると、今後はスペルミスではなくなります。
+</dd>
+<dt><span class="btn-push">小文字で追加(小文字で個人辞書に追加)</span></dt>
+<dd>
+スペルミス対象の単語を、小文字に変換して個人辞書に追加します。小文字で登録しておくと、先頭が大文字の場合や全部大文字の場合も、同じ単語と認識します。
+</dd>
+<dt><span class="btn-push">中断</span></dt>
+<dd>
+スペルミスの修正を終了します。
+</dd>
+<dt><span class="btn-push">個人辞書の編集</span></dt>
+<dd>
+個人辞書ファイルを秀丸エディタで開きます。
+</dd>
+</dl>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>【4】補足</h3>
+<div class="mark_dt">
+<dl>
+<dt>スペルチェックアドインのアンインストール</dt>
+<dd>
+<p>インストーラからインストールを行いましたが、アンインストールは手動で行う必要があります。「プログラムと機能」や「アプリと機能」からはアンインストールできません。手動でアンインストールするには準備が必要なので、「スペルチェックアドイン」のヘルプをよく読む必要があります。</p>
+<p>始めに、秀丸エディタを全て終了させた状態にします。</p>
+<p>「スペルチェック用の個人辞書ファイル」を必要に応じて削除してください。</p>
+<p>他で使っていない場合は、GNU Aspellと辞書を削除します。「プログラムと機能」や「アプリと機能」からアンインストールしてください。</p>
+<p>メニューにある「自動スペルチェック」等を表示しないようにするには、レジストリを編集する必要があります。編集箇所は、「スペルチェックアドイン」のヘルプに記載されています。レジストリの編集に自信のない方や、そもそもレジストリの編集方法がわからない場合は、そのままにしておいてください。</p>
+<p>最後に、秀丸エディタ本体と同じ場所にある、「HmSpell.dll」、「HmSpell.chm」を削除します。</p>
+<p>これでメニューに「自動スペルチェック」等が表示されていても、スペルチェックは動作しません。</p>
+</dd>
+<dt>スペルチェックアドインの設定について</dt>
+<dd>
+<p>スペルチェックアドイン単独で設定をインポート/エクスポートする方法はありません。秀丸エディタの「設定内容の保存/復元」を行えば、秀丸エディタ本体の設定と一緒に、保存/復元出来ます。</p>
+<p>設定内容も多くないので、「秀丸スペルチェックアドインの設定」ダイアログを表示させ、設定画面をキャプチャーして保存し、同じように設定すればいいでしょう。</p>
+<p>設定画面をキャプチャーするには、ダイアログがアクティブな状態で、<kbd>[Alt]</kbd>+<kbd>[Print Screen]</kbd>キーを押します。クリップボードにキャプチャされているので、ペイント等に貼り付けて保存してください。</p>
+</dd>
+<dt>ストアアプリ版のスペルチェックアドインのバージョンアップ</dt>
+<dd>
+スペルチェックアドイン単独をバージョンアップすることは出来ません。ストアアプリ版秀丸エディタのアップデート時に最新版の「スペルチェックアドイン」が同梱されます。
+</dd>
+</dl>
+</div>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

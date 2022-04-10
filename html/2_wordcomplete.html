@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第II部〜知っていると便利な秀丸の機能　単語補完</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　単語補完</h1>
+<hr />
+<section id="WORDCOMPLETE" class="level2">
+<h2>単語補完</h2>
+<p>秀丸エディタ Ver.7.00以降では、「<strong>単語補完</strong>」が使用可能です。</p>
+<p>「単語補完」は、入力された文字から始まる単語をリストアップする機能です。</p>
+<p>補完の元となるデータは、以下を指定できます。</p>
+<ul>
+<li>現在編集中のファイル</li>
+<li>あらかじめ用意している辞書ファイル</li>
+</ul>
+<p>追加の辞書としては、以下が指定可能です。</p>
+<ul>
+<li>直前の秀丸エディタ</li>
+<li>強調表示の定義</li>
+<li>tagsファイル</li>
+<li>クリップボード</li>
+<li>クリップボード履歴</li>
+<li>ファイル名</li>
+</ul>
+<p>候補を表示する方法も複数用意されているので、好みで設定してください。</p>
+<ul>
+<li><p>ツールチップ(標準)</p>
+<div class="img_border">
+<p><img src="2_wordcomplete_05.png" width="280" height="200" alt="ツールチップ表示" /><br />
+</p>
+</div></li>
+<li><p>リスト</p>
+<div class="img_border">
+<p><img src="2_wordcomplete_06.png" width="439" height="217" alt="リスト表示" /><br />
+</p>
+</div>
+<p>リストはマウスでサイズを変更できます。</p></li>
+<li><p>ステータスバーに表示</p>
+<div class="img_border">
+<p><img src="2_wordcomplete_07.png" width="355" height="187" alt="ステータスバー表示" /><br />
+</p>
+</div>
+<p>ステータスバー自体の表示領域が狭いと、候補が見えない事もあります。</p></li>
+</ul>
+<hr />
+<ul>
+<li><a href="#EXPLANATION">解説</a></li>
+<li><a href="#SUPPLEMENTATION">補足</a></li>
+</ul>
+<section id="EXPLANATION" class="level3">
+<h3>[解説]</h3>
+<p>「単語補完」の設定は、以下の2箇所あります。</p>
+<ul>
+<li>共通の設定である「<span class="env">動作環境</span>」</li>
+<li>ファイルタイプ別に設定する、「<span class="filetype">ファイルタイプ別の設定</span>」</li>
+</ul>
+<section id="EXPLANATION-1" class="level4">
+<h4>「動作環境」-「編集」-「単語補完」</h4>
+<p><img src="2_wordcomplete_01.png" width="613" height="437" alt="編集-単語補完" /><br />
+</p>
+<div class="mark_dt">
+<dl>
+<dt>自動表示関連の設定</dt>
+<dd>
+<ul>
+<li>入力してから候補を表示するまでの待ち時間を、「ミリ秒単位」で設定します。<br />
+入力してからこの時間が経過すると、候補を表示します。</li>
+<li>候補表示開始する入力文字数<br />
+設定した文字数を入力すると、候補を表示します。文字数が少ないと候補が多くなります。文字数が多ければ、候補は絞り込まれます。</li>
+<li>自動表示の表示方法がツールチップの場合、ツールチップに表示する最大個数を設定します。</li>
+</ul>
+</dd>
+<dt>特殊なキー操作</dt>
+<dd>
+<p>本来、「単語補完上キー」「単語補完下キー」はリスト表示されている場合、選択を上下移動させるキー操作です。補完対象リストが表示されていない状態では無効になるはすですが、別途機能を割り当てることが出来ます。</p>
+<ul>
+<li><p>標準 （リスト表示）<br />
+「リスト表示」と同じです。</p></li>
+<li><p>リスト表示<br />
+設定が「リスト」以外でも、リスト表示を行います。</p></li>
+<li><p>リストを非表示のまま選択<br />
+リストは表示されませんが、キーを押すたびに、候補リストの内容に切り替わります。</p></li>
+<li><p>現在の内容の上下検索<br />
+設定にかかわらず、「現在の内容」から候補を検索します。</p>
+<ul>
+<li>「単語補完上キー」の場合はカーソルキーより上方向を検索。</li>
+<li>「単語補完下キー」の場合はカーソルキーより下方向を検索。</li>
+</ul></li>
+<li><p>現在の内容の上下検索と他の候補<br />
+「現在の内容の上下検索」だけではなく、「<span class="filetype">ファイルタイプ別の設定</span>」で「追加の対象」に設定された内容から、候補を検索します。</p></li>
+<li><p>タブキーの割り当て<br />
+タブキーと同じ動作にします。</p></li>
+</ul>
+<p>数字キーによる候補の選択について設定します。</p>
+<ul>
+<li>Alt+1〜9 (キー割り当て有効)<br />
+Alt+1〜9に、キー割り当てがあればその機能を優先し、リストの選択を行いません。</li>
+<li>Alt+1〜9 (キー割り当て無効)<br />
+Alt+1〜9に、キー割り当てで機能が割り当てられても無視して、リストの候補選択を行います。</li>
+<li>1〜9 (リスト表示時,数字の挿入無効)<br />
+リスト表示されている場合、数字キー単独入力で、候補を選択します。</li>
+</ul>
+</dd>
+<dt>各種ダイアログ</dt>
+<dd>
+<p>秀丸エディタで使用される各種ダイアログでも、単語補完を有効にするか設定します。</p>
+<p><img src="2_wordcomplete_02.png" width="448" height="296" alt="各種ダイアログでの単語補完" /><br />
+</p>
+</dd>
+</dl>
+</div>
+</section>
+<section id="EXPLANATION-2" class="level4">
+<h4>「ファイルタイプ別の設定」-「その他」-「単語補完」</h4>
+<p><img src="2_wordcomplete_03.png" width="632" height="451" alt="その他-単語補完" /><br />
+</p>
+<div class="mark_dt">
+<dl>
+<dt>単語補完の自動表示</dt>
+<dd>
+<ul>
+<li><p>自動表示<br />
+ONにすると、自動で候補を表示します。(待ち時間は「<span class="env">動作環境</span>」で設定)</p></li>
+<li><p>表示方法<br />
+候補リストの表示方法を設定します。</p>
+<ul>
+<li>リスト</li>
+<li>ツールチップ(標準)</li>
+<li>ステータスバー</li>
+</ul></li>
+<li><p><span class="btn-push">「単語補間の動作環境」</span>ボタンは、「<span class="env">動作環境</span>」の「単語補完」を開きます。</p></li>
+</ul>
+</dd>
+<dt>単語補完の検索対象</dt>
+<dd>
+<p>補完用データの検索先を指定します。</p>
+<ul>
+<li><p>現在編集中のテキスト<br />
+編集中のファイルから補完内容を検索します。</p></li>
+<li><p>辞書ファイル<br />
+指定された辞書ファイルから、補完内容を検索します。ワイルドカードのアスタリクス"*"が使用できるので、"*.txt"とすれば、複数ファイルも対象にする事が可能ですが、余計なファイルを読み込む場合もあります。(補完辞書ファイル専用フォルダを用意すると良いかもしれません)</p></li>
+<li><p>「詳細」ボタンで、詳細設定が出来ます。</p>
+<p><img src="2_wordcomplete_04.png" width="399" height="366" alt="単語補完の検索対象の詳細" /><br />
+</p>
+<ul>
+<li><p>辞書ファイルの種類</p>
+<ul>
+<li><p>フリーフォーマット は通常のテキスト文書を辞書にします。</p></li>
+<li><p>行単位 は専用の辞書ファイルで、1行毎に候補を記述しておきます。<br />
+行単位の場合、コメントを記述できます。</p>
+<ul>
+<li><p>&#9745;コメントあり</p>
+<p>チェックをオンにすると、行中に「//」があるとそれ以降をコメントとみなし候補対象にしません。
+(Ver.8.92以降。Ver.8.98未満は行頭に「//」があってもコメントと認識しない)</p></li>
+</ul></li>
+</ul>
+<p><a href="#SUPPLEMENTATION">[補足]</a>も参照してください。</p></li>
+<li><p>補完候補を検索するための「検索方法」</p>
+<ul>
+<li><p>大/小文字の区別</p>
+<dl>
+<dt>区別しない</dt>
+<dd>
+大文字/小文字を区別しないで検索します。
+</dd>
+<dt>候補だけ区別<strong>(標準の設定)</strong></dt>
+<dd>
+表示する候補のみ大/小文字を区別します。
+</dd>
+<dt>候補も入力も区別</dt>
+<dd>
+入力も候補も、大/小文字を区別して、検索します。
+</dd>
+</dl></li>
+<li><p>優先順位<br />
+候補を表示する順序を設定します。</p>
+<p>「カーソルから近い順」は検索対象が「現在編集中のテキスト」または「直前の秀丸エディタ」の場合のみ有効な設定です。</p>
+<dl>
+<dt>カーソルから近い順<strong>(標準の設定)</strong></dt>
+<dd>
+候補は、カーソル位置に近い順に表示します。
+</dd>
+<dt>アルファベット順</dt>
+<dd>
+候補は、アルファベット順に表示します。
+</dd>
+<dt>長い文字順</dt>
+<dd>
+候補が長い順に表示します
+</dd>
+<dt>辞書優先</dt>
+<dd>
+辞書の内容を先に表示します。それ以降は「カーソルから近い順」になります。
+</dd>
+</dl></li>
+<li><p>単語の種類<br />
+単語と認識する内容を設定します。</p>
+<dl>
+<dt>一般的な単語<strong>(標準の設定)</strong></dt>
+<dd>
+半角英字からはじまって、数字を含む単語
+</dd>
+<dt>ドットシンタックス</dt>
+<dd>
+"."で連結された「一般的な単語」をひとかたまりの単語として扱います。
+</dd>
+<dt>HTML/XML</dt>
+<dd>
+「&lt;html&gt;」とか「&lt;/body&gt;」等、HTML/XML出使われている記法も、ひとかたまりの単語として扱います。
+</dd>
+<dt>カスタム</dt>
+<dd>
+単語の構成内容を自分で定義します。
+</dd>
+</dl></li>
+<li><p>単語の途中も検索<br />
+通常は先頭マッチのみですが、入力を「単語の途中」でもマッチさせる場合は、「ON」にする。</p></li>
+<li><p>候補が一つの場合は自動的に決定<br />
+通常は、候補が一つでも候補の選択を行いますが、候補を表示しないでそのまま決定したい場合は、「ON」にする。</p></li>
+</ul></li>
+<li><p>追加の検索対象<br />
+指定された辞書ファイルとは別に、候補の検索対象を指定できます。</p>
+<dl>
+<dt>直前の秀丸エディタ</dt>
+<dd>
+直前までアクティブだった秀丸エディタも検索対象にする。
+</dd>
+<dt>強調表示の定義</dt>
+<dd>
+強調表示の内容を検索対象にする。正規表現で指定している定義は無視します。
+</dd>
+<dt>tagsファイル</dt>
+<dd>
+tagsファイルも対象にします。あらかじめtagsファイルを作成しておく必要があります。
+</dd>
+<dt>クリップボード</dt>
+<dd>
+現在のクリップボードの内容も対象にする。
+</dd>
+<dt>クリップボード履歴</dt>
+<dd>
+常駐秀丸があり、クリップボード履歴を使っている場合は、クリップボード履歴も対象にします。
+</dd>
+<dt>ファイル名</dt>
+<dd>
+カレントフォルダにあるファイルも対象にする。カレントがリムーバブルディスク、ネットワークドライブの場合は動作しません。
+</dd>
+</dl></li>
+</ul>
+<p>また、「検索方法」にある「さらに」ボタンを押すと、「単語の種類」をカスタムにした場合の設定も可能です。</p>
+<p><img src="2_wordcomplete_08.png" width="315" height="368" alt="単語補完の検索対象の詳細2" /><br />
+</p></li>
+</ul>
+</dd>
+<dt>単語補完の類似検索</dt>
+<dd>
+<p>通常は、入力内容にマッチする候補のみ表示しますが、</p>
+<p>&#9745;「もしかして」の表示</p>
+<p>をチェックしている場合は、マッチする候補がない場合は、入力内容に似た候補をリストアップします。
+(入力をミスしていたり、あいまいな場合に有効です)</p>
+<p>ただし、3文字以上の文字が入力されている必要があります。また、<strong>先頭文字が一致していないと、類似とみなしません。</strong></p>
+<ul>
+<li><p>類似度合い<br />
+どの程度まで合っている候補を表示するかを設定します。</p>
+<p>以下の設定から選択します。</p>
+<ul>
+<li>2/3(66%)</li>
+<li>3/4(75%)</li>
+<li>4/5(80%)</li>
+</ul>
+<p>66% では、最低の3文字の場合、2文字まで一致していれば、類似と判定します。</p></li>
+<li><p>ミスの上限<br />
+「類似度合い」で類似度合いを指定できますが、それとは別に類似判定(?)の上限を設定します。</p>
+<ul>
+<li>1〜4の値を選択します。</li>
+</ul>
+<p>正確にいうと、二つの文字列がどの程度異なっているかを示す「レーベンシュタイン距離」の上限になります。
+(二つの文字列を同じにするに必要な、1文字の挿入・削除・置換作業の最小回数)</p></li>
+</ul>
+<p>詳細については、
+HMJRE.DLLのヘルプ-「<a href="https://help.maruo.co.jp/hmjre/html/ABOUT_SIMILAR.html" class="externallink" target="_blank" rel="noopener">類似検索の詳細</a>」を参照してください。</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>[補足]</h3>
+<ul>
+<li><p>補完用辞書ファイルは、<span class="attention_red">Shift_JISで記述する</span>必要があります。(2022/04/05現在)</p></li>
+<li><p>「辞書ファイルの種類」ですが、「フリーフォーマット」だと特に指定はなく、通常の文書やテキストファイルから柔軟に補完対象を検索します。<br />
+「行単位」の場合は、候補を1行毎に記述してください。マッチした場合は、1行まるごと候補として表示されます。
+(マッチ自体は、先頭一致だけではなく、行内の途中にもマッチします)</p>
+<p>「辞書ファイルの種類」の設定による、補完動作の違いです。辞書ファイルの内容が以下のような場合、</p>
+<div class="macro">
+<pre><code>foundtopx, foundtopy, foundendx, foundendy</code></pre>
+</div>
+<p>「found」まで入力し、単語補完が動作した場合、以下のような違いがあります。</p>
+<ul>
+<li><p>フリーフォーマットの場合<br />
+各単語が個別に候補表示されます。(秀丸エディタ側が「検索方法」に従い、マッチした箇所を列挙する)</p>
+<div class="img_border">
+<p><img src="2_wordcomplete_09.png" width="485" height="135" alt="単語補完-フリーフォーマット" /><br />
+</p>
+</div></li>
+<li><p>行単位の場合<br />
+マッチした箇所を含む行全体が、候補表示されます。
+(選択すると行の内容が挿入される)</p>
+<div class="img_border">
+<p><img src="2_wordcomplete_10.png" width="539" height="129" alt="単語補完-行単位" /><br />
+</p>
+</div></li>
+</ul></li>
+<li><p>初期状態では、日本語は対象ではありませんが、設定を変更すれば対象にできます。ただ、IME(日本語入力ソフト)にも似たような機能があるので、日本語の場合はそちらを使った方が良いでしょう。</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

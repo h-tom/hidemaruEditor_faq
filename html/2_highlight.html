@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第II部〜知っていると便利な秀丸の機能　強調表示</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　強調表示</h1>
+<hr />
+<section id="highlight" class="level2">
+<h2>強調表示</h2>
+<p>秀丸エディタでは、「<strong>強調表示</strong>」が可能です。</p>
+<p>「<strong>強調表示</strong>」とは、文書中にある指定された<span class="attention_red">文字列(キーワード)</span>に対し、文字色を指定したり修飾する機能です。対象が含まれる行全体を強調する「<strong>行の強調表示</strong>」も可能です。</p>
+<p>ユーザーで設定可能な強調表示には、文字列(キーワード)用の強調表示が12種類。</p>
+<ul>
+<li>強調表示1〜8</li>
+<li>特に強調表示1〜4</li>
+</ul>
+<p>行単位で強調する「行の強調表示」が4種類。</p>
+<ul>
+<li>行の強調表示1〜4</li>
+</ul>
+<p>全部で、16種類の強調表示が可能です。</p>
+<ul>
+<li><a href="#PROCESS">設定手順</a>
+<ul>
+<li><a href="#PROCESS-1">強調表示の種類</a></li>
+<li><a href="#PROCESS-2">強調表示の設定</a></li>
+<li><a href="#PROCESS-3">強調表示したいキーワードの設定方法</a>
+<ul>
+<li><a href="#PROCESS-3-1">自動判定と言語指定の場合</a></li>
+<li><a href="#PROCESS-3-2">ユーザー定義</a></li>
+<li><a href="#PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む</a></li>
+<li><a href="#PROCESS-3-4">「強調表示定義ファイル」の直接指定モード</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#SUPPLEMENTATION">補足</a>
+<ul>
+<li><a href="#SUPPLEMENTATION-1">強調表示定義ファイル使用時の注意点</a></li>
+<li><a href="#SUPPLEMENTATION-2">強調表示がうまくいかない場合の注意点</a></li>
+<li><a href="#SUPPLEMENTATION-3">秀丸エディタに内蔵されている強調表示設定を取り出す</a></li>
+<li><a href="#SUPPLEMENTATION-4">任意の色やスタイルで強調表示を行いたい</a></li>
+<li><a href="#SUPPLEMENTATION-5">強調表示内容の合成</a></li>
+</ul></li>
+</ul>
+<section id="PROCESS" class="level3">
+<h3>設定手順</h3>
+<p>強調表示を設定するには、以下の操作が必要です。</p>
+<ul>
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」の「場所の一覧」で、各強調表示の「プロパティ」から、文字色、背景色、スタイルを設定する。</p>
+<p><img src="2_highlight_01.png" width="595" height="314" alt="デザイン、場所の一覧" /><br />
+</p></li>
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」→「デザイン」→「強調表示」で、強調表示する内容を設定する。</p>
+<p><img src="2_highlight_02.png" width="587" height="264" alt="デザイン、強調表示" /><br />
+</p></li>
+</ul>
+<p>「強調表示したい文字列」を、<span class="attention_red">任意の文字色、背景色、スタイルに設定する事は出来ません</span>。<br />
+「強調表示したい文字列」を、「場所の一覧」で設定した、どの<span class="attention_red">「強調表示」に割り当てるかを選ぶ</span> 事になります。</p>
+<section id="PROCESS-1" class="level4">
+<h4>強調表示の種類</h4>
+<p>強調表示の種類は、全部で16種類あり、優先順位があります。</p>
+<p>優先が<span class="attention_red">高い方</span>から、以下の順番になります。</p>
+<ol type="1">
+<li>特に強調表示1〜4</li>
+<li>行の強調表示1〜4</li>
+<li>強調表示1〜8</li>
+</ol>
+<ul>
+<li>優先度が高い。　→　強調する箇所が重複した場合、表示が上になる。　→　実際に表示される状態。</li>
+</ul>
+<p>同じ項目内(例えば、強調表示1〜8)で競合/重複した場合は、どの強調表示が優先されるかは不定とのこと。</p>
+</section>
+<section id="PROCESS-2" class="level4">
+<h4>強調表示の設定</h4>
+<p>「場所の一覧」から各強調表示を選択し、プロパティで以下の項目を設定します。</p>
+<ul>
+<li>文字色</li>
+<li>背景色</li>
+<li>スタイル</li>
+</ul>
+<p>「文字色」「背景色」は任意の色だけではなく、「透明」も設定出来ます。「透明」に設定した場合、色の変更は行われません。現状の表示色のままです。
+(スタイルだけ適応させたい場合は、透明を使う)</p>
+<p>「スタイル」は以下のような設定が可能です。<br />
+<img src="common_style.png" width="419" height="363" alt="スタイルの一覧" /><br />
+</p>
+</section>
+<section id="PROCESS-3" class="level4">
+<h4>強調表示したいキーワードの設定方法</h4>
+<p>強調表示したい文字列(キーワード)の設定方法は、以下になります。</p>
+<ul>
+<li><p><a href="#PROCESS-3-1">自動判定</a></p>
+<p>秀丸エディタが拡張子から言語を判定して、強調表示を行います。秀丸エディタに内蔵されている強調表示設定を使用するため、強調表示する内容を変更する事は出来ません。</p></li>
+<li><p><a href="#PROCESS-3-1">言語指定</a></p>
+<p>言語を指定して、強調表示を行います。秀丸エディタに内蔵されている強調表示設定を使用するため、強調表示する内容を変更する事は出来ません。</p></li>
+<li><p><a href="#PROCESS-3-2">ユーザー定義</a></p>
+<p>強調表示する内容をユーザーで設定します。</p></li>
+<li><p>なし</p>
+<p>強調表示を行わない。</p></li>
+<li><p><a href="#PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む</a></p>
+<p><a href="https://hide.maruo.co.jp/lib/hilight/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの強調表示定義ファイルライブラリ</a>にある「強調表示定義ファイル」や、
+webサイトで公開されている「強調表示定義ファイル」の内容を取り込み、「ユーザー定義」にセットします。</p></li>
+<li><p><a href="#PROCESS-3-4">「強調表示定義ファイル」の直接指定モード</a>　(Ver.8.89以降)</p>
+<p>「ユーザー定義」の場合、指定された「強調表示定義ファイル」の内容を直接参照します。</p></li>
+</ul>
+<section id="PROCESS-3-1" class="level5">
+<h5>自動判定と言語指定の場合</h5>
+<p>自動判定や言語指定でサポートしている言語は、以下になります。</p>
+<ul>
+<li>HTML/XML</li>
+<li>CSS</li>
+<li>C言語/Java/JavaScript</li>
+<li>VisualBasic</li>
+<li>Pascal/Delphi</li>
+<li>アセンブリ語</li>
+<li>Perl</li>
+<li>Ruby</li>
+<li>Python</li>
+<li>VHDL</li>
+<li>Verilog</li>
+<li>AutoLISP</li>
+<li>TeX</li>
+<li>PL/SQL</li>
+<li>秀丸マクロ</li>
+<li>秀Termスクリプト</li>
+<li>FORTRAN77</li>
+<li>FORTRAN90</li>
+<li>UNIXシェルスクリプト</li>
+<li>Hidemarnet Explorer</li>
+</ul>
+<p>自動判定の場合は、ファイルの拡張子から自動的に判定されます。言語指定する場合は、リストから言語を選択してください。</p>
+<p>自動判定/言語指定 の場合、秀丸エディタに内蔵されている強調表示設定を使用するため、強調表示する内容を変更する事は出来ません。「デザイン」で、各強調表示の色/スタイルの変更は可能です。</p>
+<p>また、各言語の最新バージョンの内容が反映されている保証はありません。</p>
+<p>各言語の最新バージョンや標準でサポートしていない言語の場合、<a href="https://hide.maruo.co.jp/lib/hilight/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの強調表示定義ファイルライブラリ</a>で、その言語用の強調表示定義ファイルが公開されていないか探してみてください。</p>
+</section>
+<section id="PROCESS-3-2" class="level5">
+<h5>ユーザー定義</h5>
+<p>「<span class="attention_red">ユーザー定義</span>」を選択すると、右側にある各種ボタンが有効になり、強調表示一覧が表示されます。</p>
+<p><img src="2_highlight_03.png" width="447" height="259" alt="強調表示-ユーザー定義" /><br />
+</p>
+<dl>
+<dt>プロパティ</dt>
+<dd>
+選択した強調表示設定を変更します。
+</dd>
+<dt>追加</dt>
+<dd>
+新規に強調表示設定を追加します。
+</dd>
+<dt>削除</dt>
+<dd>
+選択した強調表示設定を削除します。
+</dd>
+<dt>全削除</dt>
+<dd>
+設定されている全ての強調表示設定を削除します。
+</dd>
+<dt>保存</dt>
+<dd>
+現在の内容を強調表示定義ファイルに保存します。
+</dd>
+</dl>
+<p><span class="btn-push">「追加」</span>ボタンを押すと、「強調表示文字列の追加」ダイアログが表示されます。</p>
+<p><img src="2_highlight_04.png" width="385" height="242" alt="強調表示文字列の追加" /><br />
+</p>
+<dl>
+<dt>文字列</dt>
+<dd>
+検索する文字列を入力します。<br />
+入力文字数には制限があります。Ver.8.21以下までは半角文字で約249文字まで、Ver.8.22からは999文字まで。
+</dd>
+<dt>検索方法</dt>
+<dd>
+<p>通常の検索と同じで、検索条件を設定します。以下の条件を設定可能です。</p>
+<ul>
+<li>大文字小文字の区別</li>
+<li>単語の検索</li>
+<li>正規表現<br />
+改行文字を示す <code>\n</code> を含めることは出来ません。</li>
+</ul>
+</dd>
+<dt>表示方法</dt>
+<dd>
+<p>検索にマッチした箇所に対し、どの強調表示を適用させるか選択します。<br />
+完全ではありませんが、ドロップダウンリストに、「デザイン」で設定した色やスタイルで表示されます。</p>
+<p><img src="2_highlight_05.png" width="343" height="298" alt="表示方法の選択" /><br />
+</p>
+</dd>
+</dl>
+<p>既存の項目を選んで<span class="btn-push">「プロパティ」</span>ボタンを押すと、「強調表示文字列のプロパティ」ダイアログが表示され、設定の変更が可能です。</p>
+</section>
+<section id="PROCESS-3-3" class="level5">
+<h5>「強調表示定義ファイル」の内容を取り込む</h5>
+<p><span class="attention_red">注意</span>　<a href="#SUPPLEMENTATION-1">強調表示定義ファイル使用時の注意点</a>を最初に見ておいてください。</p>
+<p>「強調表示定義ファイル」の内容を取り込み、「ユーザー定義」にセットします。
+(ファイルの内容を取り込み、レジストリにセットするだけなので、この操作以降、強調表示定義ファイルを編集しても反映されません。レジストリのデータが本体になります)</p>
+<p>ダウンロードした「強調表示定義ファイル」を「設定ファイル用のフォルダ」に入れておくと、多少手間が省けます。
+(ZIP形式で圧縮されている場合は、解凍して、hilightファイルを「設定ファイル用のフォルダ」に入れてください)</p>
+<p><span class="btn-push">「読込み」</span>ボタンを押すと、「強調表示などの読込ダイアログ」が表示されます。</p>
+<p><img src="2_highlight_06.png" width="448" height="396" alt="強調表示定義ファイルの読み込み" /><br />
+</p>
+<p>デフォルトでは、「<span class="env">動作環境</span>」にある「設定ファイル用のフォルダ」で設定されているフォルダ内の「強調表示定義ファイル」が一覧に表示されます。他のフォルダにある「強調表示定義ファイル」を読み込む場合は、<span class="btn-push">「参照」</span>ボタンからファイルを選択してください。</p>
+<p>ファイルを選ぶと、そのファイルに含まれている項目が「読み込む対象部分」に反映(チェックボックスが有効/無効)されます。
+(強調表示から呼び出したので、強調表示のチェックはデフォルトでON状態になります)</p>
+<p>一覧に表示されているファイルを選択し、<span class="btn-push">「OK」</span>ボタンを押すか、ファイル一覧のダブルクリックで、選択した内容が読み込まれます。「強調表示定義ファイル」を読み込んだ場合は、強調表示の設定は「ユーザー定義」になります。</p>
+</section>
+<section id="PROCESS-3-4" class="level5">
+<h5>「強調表示定義ファイル」から直接読み込むモード</h5>
+<p>Ver.8.89以降、「強調表示定義ファイル」から直接設定を読み込むモードが追加されています。<br />
+(この設定画面上からは「強調表示」部分のみ読み込み可能)</p>
+<p><a href="#PROCESS-3-3">「強調表示定義ファイル」の内容を取り込む」</a>との違いは、指定された「強調表示定義ファイル」の内容を直接参照する事です。</p>
+<p>その為、ダイアログを使った設定変更はできません。強調表示設定を変更する場合は、「強調表示定義ファイル」を直接編集する必要があります。</p>
+<p>「メニュー」から「hilightファイル直接指定モード」を選択してください。<br />
+<img src="2_highlight_12.png" width="591" height="122" alt="hilightファイル直接指定モード" /><br />
+</p>
+<p>このモードでは「ユーザー定義」の場合、以下のような動作になります。</p>
+<ul>
+<li><p>「ユーザー定義」は強調表示定義ファイルを指定する画面に切り替わります。使用する強調表示定義ファイルを指定してください。<br />
+<img src="2_highlight_13.png" width="446" height="107" alt="hilightファイル指定" /><br />
+</p></li>
+<li><p>ファイルを開くときに、指定された「強調表示定義ファイル」から強調表示の設定内容を読み込みます。
+(「強調表示定義ファイル」の内容を読み取るが、「<span class="filetype">ファイルタイプ別の設定</span>」に保存しない)</p></li>
+<li><p>「強調表示定義ファイル」を直接編集する事で、強調表示定義の設定を変更可能です。<span class="btn-push">「編集」</span>ボタンで、「強調表示定義ファイル」を秀丸エディタで開く事が出来ます。</p>
+<p>「<span class="filetype">ファイルタイプ別の設定</span>」を<span class="btn-push">「キャンセル」</span>ボタン以外で閉じると、保存した編集内容が反映されます。</p>
+<p>直接編集する場合は、「強調表示定義ファイル」のフォーマットを理解する必要があります。詳細は<a href="https://help.maruo.co.jp/hidemac/html/150_ConfigStatement_loadhilight.html" class="externallink" target="_blank" rel="noopener">「マクロヘルプ−設定系−loadhilight文」</a>を参照してください。</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>補足</h3>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>強調表示定義ファイル使用時の注意点</h4>
+<p>「強調表示定義ファイル」を読み込む場合、既に設定してある内容は<span class="attention_red">全て破棄</span>されます。現状の強調表示に追加されるのではなく、「強調表示定義ファイル」の内容と<span class="attention_red">入れ替わる</span>ことになります。</p>
+<p>元の内容を保存しておきたい場合は、事前に<span class="btn-push">「保存」</span>ボタンを使用し、ファイルに保存しておいてください。</p>
+<p>もし、元も強調表示を保存しないで「強調表示定義ファイル」を読み込んでしまっても、「<span class="filetype">ファイルタイプ別の設定</span>」を<span class="btn-push">「キャンセル」</span>や<span class="btn-push">「保存しないで更新」</span>で閉じてしまえば変更内容は保存されません。(他の設定も変更していた場合は、それもなしになってしまいますが)</p>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>強調表示がうまくいかない場合の注意点</h4>
+<p>優先度が低い「強調表示1〜8」の場合、秀丸エディタが行っている、「デザイン」-「場所の一覧」の強調表示以外の条件にマッチしてしまい、思ったように強調されない場合があります。</p>
+<p>これは「場所の一覧」内の優先度の問題なので、対処としては以下になります。</p>
+<ul>
+<li>「強調表示1〜8」ではなく、「特に強調表示」を使う</li>
+<li>競合している設定が、ON/OFF出来る場合、OFFにして問題なければOFFにする</li>
+<li>諦める</li>
+</ul>
+<p>「デザイン」 - 「場所の一覧」の優先順位は、以下の順になります。
+(スクロールバーでスクロール出来ます)</p>
+<!-- hme0016c_01 -->
+<div class="hme0016c_01">
+<p><img src="2_highlight_07.png" width="271" height="560" alt="場所の一覧" /><br />
+</p>
+</div>
+</section>
+<section id="SUPPLEMENTATION-3" class="level4">
+<h4>秀丸エディタに内蔵されている強調表示設定を取り出す</h4>
+<p>秀丸エディタに内蔵されている強調表示設定を少し変更したい場合の方法です。</p>
+<ol type="1">
+<li><p>新規ファイルを開き、「<span class="filetype">ファイルタイプ別の設定</span>」-「デザイン」-「強調表示」で、「言語指定」を選択し、取り出したい言語を選択します。(例は秀丸マクロ)</p>
+<p><img src="2_highlight_08.png" width="441" height="258" alt="言語指定を選択" /><br />
+</p></li>
+<li><p><span class="btn-push">「保存しないで更新」</span>ボタンを押し、「<span class="filetype">ファイルタイプ別の設定</span>」を一度閉じます。</p></li>
+<li><p>再度、「<span class="filetype">ファイルタイプ別の設定</span>」を開き、「デザイン」-「強調表示」で、「ユーザー定義」を選択します。そうすると、言語指定で設定されていた内容が、そのまま強調表示一覧に表示されます。</p>
+<p><img src="2_highlight_09.png" width="473" height="204" alt="ユーザー定義を選択" /><br />
+</p></li>
+<li><p><span class="btn-push">「保存」</span>ボタンで「強調表示定義ファイル」として保存できます。</p></li>
+<li><p>設定したい拡張子のファイルを開き、「強調表示定義ファイル」を読み込めば、編集が可能です。</p></li>
+</ol>
+</section>
+<section id="SUPPLEMENTATION-4" class="level4">
+<h4>任意の色やスタイルで強調表示を行いたい</h4>
+<p>秀丸エディタの「強調表示」の機能だけでは無理です。「場所の一覧」で設定した強調表示の中から選ぶ必要があります。</p>
+<p>秀丸エディタ Ver.8.92(2022/04/05現在β版)より、マクロを使う必要がありますが、カラーマーカーで指定した部分を任意の「強調表示」と同じ扱いにできます。
+(カラーマーカーで選択した範囲を、「コメント」や「行の強調表示」として扱うことができる)</p>
+<p>自動起動マクロを使えば、ある程度「強調表示」と同じようなことは可能ですが、結構大変です。</p>
+<p>マクロには、「すべての候補を色付け」コマンド相当の「<code>colormarkerallfound</code>文」があります。この命令と、自動起動マクロの「ファイルを開いた直後」「編集後タイマー」を使えば、検索にマッチした箇所を、(カラーマーカーで設定できる範囲ですが)任意の色やスタイル、強調表示にする事が出来ます。</p>
+<section id="SUPPLEMENTATION-4-1" class="level5">
+<h5>カラーマーカーで色付けするマクロの例</h5>
+<p>「編集後タイマー」に、以下のマクロを指定します。(ある程度、時間経過させた方が良いでしょう)</p>
+<p>編集していた行に「ファイルタイプ別の設定」という文字があれば、カラーマーカーで色付けし、「強調1」に設定します。
+(「強調1」ですが、設定とは別の色、スタイルに設定も可能です)</p>
+<p>範囲を限定しているのは、対象ファイルが大きい場合、全体を検索するには時間がかかるので、その対策です。</p>
+<p>実際には、外部にデータファイルを持たせたり、もう少し着色する範囲を広くした方が良いでしょう。</p>
+<div class="macro">
+<pre><code>//秀丸エディタVer.8.92が必要
+//検索条件を保持
+setcompatiblemode 0x120000;
+//各種座標を保存
+#x = x; #y = y;
+#topy = screentopy;
+//検索範囲を設定
+//デフォルトでは、カーソル行の先頭から、カール位置まで。
+//範囲を広げたい場合は以下の変数を変更する
+#find_top_lineno = lineno;
+#find_top_column = 1;
+#find_end_lineno = lineno;
+#find_end_column = column;
+//画面更新停止
+disabledraw;
+//検索内容設定
+setsearch &quot;ファイルタイプ別の設定&quot;, 0;
+//検索して色付け
+colormarkerallfound 0x0000ff,-1, 3, 0x00040002, 0, &quot;&quot;, #find_top_lineno, #find_top_column, #find_end_lineno, #find_end_column;
+//座標を元に戻し、画面更新
+moveto #x, #y;
+enabledraw #topy;
+endmacro;</code></pre>
+</div>
+</section>
+</section>
+<section id="SUPPLEMENTATION-5" class="level4">
+<h4>強調表示内容の合成</h4>
+<p>既存の強調表示内容に、強調表示定義ファイルの内容を追加する方法は標準では用意されていませんが、方法がないわけではありません。</p>
+<p>強調表示定義ファイルはテキストファイルです。その為、秀丸エディタ自身で編集が可能です。</p>
+<ol type="1">
+<li>既存の強調表示をファイルへ保存。</li>
+<li>保存したファイルの内容を、追加したい強調表示定義ファイルに追加。</li>
+<li>編集した強調表示定義ファイルを読み込む。</li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

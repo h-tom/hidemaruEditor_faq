@@ -8,1362 +8,1369 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="(無題)秀丸からのマクロ実行">
 		<param name="Name" value="[HMM0043A]●(無題)秀丸からのマクロ実行">
-		<param name="Local" value="HMM0043A.html">
+		<param name="Local" value="html\HMM0043A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value=".hilight">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　強調表示">
-		<param name="Local" value="2_highlight.html">
+		<param name="Local" value="html\2_highlight.html">
 		<param name="Name" value="[HME0079A]●.hilight に \t や \n は使えるか？">
-		<param name="Local" value="HME0079A.html">
+		<param name="Local" value="html\HME0079A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="@niftyのログ形式">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="\">
 		<param name="Name" value="[HMM0014A]●「\」の使い方">
-		<param name="Local" value="HMM0014A.html">
+		<param name="Local" value="html\HMM0014A.html">
 		<param name="Name" value="マクロ内での「\」や特殊文字の使い方">
-		<param name="Local" value="3_yenmk.html">
+		<param name="Local" value="html\3_yenmk.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="２バイト文字">
 		<param name="Name" value="[HMM0072A]●２バイト文字の判断方法 ">
-		<param name="Local" value="HMM0072A.html">
+		<param name="Local" value="html\HMM0072A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ascii">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ATOK9">
 		<param name="Name" value="[HME0036A]●ATOK9で「、」が「，」になる">
-		<param name="Local" value="HME0036A.html">
+		<param name="Local" value="html\HME0036A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="BOX範囲選択">
 		<param name="Name" value="[HME0077A]●BOX範囲選択の方法">
-		<param name="Local" value="HME0077A.html">
+		<param name="Local" value="html\HME0077A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="code">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="COM">
 		<param name="Name" value="COMオブジェクト操作関連">
-		<param name="Local" value="3_com_object.html">
+		<param name="Local" value="html\3_com_object.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="config &quot;w&quot;">
 		<param name="Name" value="[HMM0040A]●config ">
-		<param name="Local" value="HMM0040A.html">
+		<param name="Local" value="html\HMM0040A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="CSV">
 		<param name="Name" value="CSV/TSVモード">
-		<param name="Local" value="2_csv_tsv.html">
+		<param name="Local" value="html\2_csv_tsv.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="C言語">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="DLL">
 		<param name="Name" value="第V部〜マクロから呼び出すＤＬＬの作り方">
-		<param name="Local" value="make_dll.html">
+		<param name="Local" value="html\make_dll.html">
 		<param name="Name" value="[HMM0081A] ●「DLLがロードされてないのにdllfunc関数が使われました」と表示される">
-		<param name="Local" value="HMM0081A.html">
+		<param name="Local" value="html\HMM0081A.html">
 		<param name="Name" value="[HMM0083A] ●外部DLLのロードに失敗する">
-		<param name="Local" value="HMM0083A.html">
+		<param name="Local" value="html\HMM0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EditorConfig">
 		<param name="Name" value="EditorConfig">
-		<param name="Local" value="2_editorconfig.html">
+		<param name="Local" value="html\2_editorconfig.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EOF">
 		<param name="Name" value="[HME0096A]●[EOF]の色を変えるには">
-		<param name="Local" value="HME0096A.html">
+		<param name="Local" value="html\HME0096A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="EUC">
 		<param name="Name" value="[HME0074B]●ファイルがなぜかEUCコードとして開かれる">
-		<param name="Local" value="HME0074B.html">
+		<param name="Local" value="html\HME0074B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Excel">
 		<param name="Name" value="[HME0044A]●出力（Excelの表にすぐ利用できる形の出力）">
-		<param name="Local" value="HME0044A.html">
+		<param name="Local" value="html\HME0044A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="findwindow">
 		<param name="Name" value="[HMM0031A]●findwindow()の秀丸ファイル名指定時の注意事項">
-		<param name="Local" value="HMM0031A.html">
+		<param name="Local" value="html\HMM0031A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="gettext">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		<param name="Name" value="[HMM0082A]●カーソルのある行の内容を文字列型変数に取り込む方法">
-		<param name="Local" value="HMM0082A.html">
+		<param name="Local" value="html\HMM0082A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grep/タグジャンプ">
 		<param name="Name" value="grepして置換">
-		<param name="Local" value="2_grep.html">
+		<param name="Local" value="html\2_grep.html">
 		<param name="Name" value="grep">
-		<param name="Local" value="2_grepreplace.html">
+		<param name="Local" value="html\2_grepreplace.html">
 		<param name="Name" value="[HME0080A]●grepが動作しない？">
-		<param name="Local" value="HME0080A.html">
+		<param name="Local" value="html\HME0080A.html">
 		<param name="Name" value="[HME0068A]●「grepの実行」って何ですか？">
-		<param name="Local" value="HME0068A.html">
+		<param name="Local" value="html\HME0068A.html">
 		<param name="Name" value="[HME0085A]●grepで文字コードの自動認識">
-		<param name="Local" value="HME0085A.html">
+		<param name="Local" value="html\HME0085A.html">
 		<param name="Name" value="[HME0091A]●ファイルタイプ別の設定の方法">
-		<param name="Local" value="HME0091A.html">
+		<param name="Local" value="html\HME0091A.html">
 		<param name="Name" value="[HMM0042A]●grepのダイアログボックスを出す">
-		<param name="Local" value="HMM0042A.html">
+		<param name="Local" value="html\HMM0042A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grep/タグジャンプ">
 		<param name="Name" value="grep/タグジャンプ">
-		<param name="Local" value="2_grep.html">
+		<param name="Local" value="html\2_grep.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grepして置換">
 		<param name="Name" value="grepして置換">
-		<param name="Local" value="2_grepreplace.html">
+		<param name="Local" value="html\2_grepreplace.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grepで文字コードの自動認識">
 		<param name="Name" value="[HME0085A]●grepで文字コードの自動認識">
-		<param name="Local" value="HME0085A.html">
+		<param name="Local" value="html\HME0085A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grepのダイアログボックス">
 		<param name="Name" value="[HMM0042A]●grepのダイアログボックスを出す">
-		<param name="Local" value="HMM0042A.html">
+		<param name="Local" value="html\HMM0042A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grepの結果">
 		<param name="Name" value="[HME0091A]●ファイルタイプ別の設定の方法">
-		<param name="Local" value="HME0091A.html">
+		<param name="Local" value="html\HME0091A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grepの実行">
 		<param name="Name" value="[HME0068A]●「grepの実行」って何ですか？">
-		<param name="Local" value="HME0068A.html">
+		<param name="Local" value="html\HME0068A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0001A">
 		<param name="Name" value="●パスワードが来ない">
-		<param name="Local" value="HME0001A.html">
+		<param name="Local" value="html\HME0001A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0002A">
 		<param name="Name" value="●送金したのにまだ「送金について」が出る">
-		<param name="Local" value="HME0002A.html">
+		<param name="Local" value="html\HME0002A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0003A">
 		<param name="Name" value="●「送金登録作業」の手順">
-		<param name="Local" value="HME0003A.html">
+		<param name="Local" value="html\HME0003A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0004A">
 		<param name="Name" value="●パスワードを忘れた/紛失した">
-		<param name="Local" value="HME0004A.html">
+		<param name="Local" value="html\HME0004A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0005A">
 		<param name="Name" value="●パスワードを書いても良いの？">
-		<param name="Local" value="HME0005A.html">
+		<param name="Local" value="html\HME0005A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0006A">
 		<param name="Name" value="●質問したい時にはどうするの？">
-		<param name="Local" value="HME0006A.html">
+		<param name="Local" value="html\HME0006A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0007A">
 		<param name="Name" value="●問い合わせ時の必要事項">
-		<param name="Local" value="HME0007A.html">
+		<param name="Local" value="html\HME0007A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0008A">
 		<param name="Name" value="●発言タイトルの付け方は？">
-		<param name="Local" value="HME0008A.html">
+		<param name="Local" value="html\HME0008A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0009A">
 		<param name="Name" value="●発言にレスがつかない">
-		<param name="Local" value="HME0009A.html">
+		<param name="Local" value="html\HME0009A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0010A">
 		<param name="Name" value="●会議室では誰が回答してくれるの？">
-		<param name="Local" value="HME0010A.html">
+		<param name="Local" value="html\HME0010A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0011A">
 		<param name="Name" value="●アンインストール方法［秀丸95］">
-		<param name="Local" value="HME0011A.html">
+		<param name="Local" value="html\HME0011A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0012A">
 		<param name="Name" value="●アンインストール失敗？［秀丸95］">
-		<param name="Local" value="HME0012A.html">
+		<param name="Local" value="html\HME0012A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0013A">
 		<param name="Name" value="●入力した文字が消える">
-		<param name="Local" value="HME0013A.html">
+		<param name="Local" value="html\HME0013A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0013B">
 		<param name="Name" value="●スペースキーで文字が消える">
-		<param name="Local" value="HME0013B.html">
+		<param name="Local" value="html\HME0013B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0013C">
 		<param name="Name" value="●カーソルのカタチがヘンだ">
-		<param name="Local" value="HME0013C.html">
+		<param name="Local" value="html\HME0013C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0013D">
 		<param name="Name" value="●リターンキーの動作がヘンだ">
-		<param name="Local" value="HME0013D.html">
+		<param name="Local" value="html\HME0013D.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0014A">
 		<param name="Name" value="●上書きモードを解除したい">
-		<param name="Local" value="HME0014A.html">
+		<param name="Local" value="html\HME0014A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0015A">
 		<param name="Name" value="●スクロールで画面が乱れる">
-		<param name="Local" value="HME0015A.html">
+		<param name="Local" value="html\HME0015A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0016A">
 		<param name="Name" value="●秀丸の画面だけが乱れる">
-		<param name="Local" value="HME0016A.html">
+		<param name="Local" value="html\HME0016A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0016B">
 		<param name="Name" value="●秀丸の画面だけが乱れる（その２）">
-		<param name="Local" value="HME0016B.html">
+		<param name="Local" value="html\HME0016B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0016C">
 		<param name="Name" value="●表示できない記号がある">
-		<param name="Local" value="HME0016C.html">
+		<param name="Local" value="html\HME0016C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0016D">
 		<param name="Name" value="●改行、EOF が表示されない">
-		<param name="Local" value="HME0016D.html">
+		<param name="Local" value="html\HME0016D.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0016E">
 		<param name="Name" value="●カラー設定が上手くいかない">
-		<param name="Local" value="HME0016E.html">
+		<param name="Local" value="html\HME0016E.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0017A">
 		<param name="Name" value="●知らない秀丸がメモリー上に残っている">
-		<param name="Local" value="HME0017A.html">
+		<param name="Local" value="html\HME0017A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0018A">
 		<param name="Name" value="●秀丸終了後もメモリー上に残骸がある">
-		<param name="Local" value="HME0018A.html">
+		<param name="Local" value="html\HME0018A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0018B">
 		<param name="Name" value="●瞬間起動機能がメモリやシステムリソースを圧迫する">
-		<param name="Local" value="HME0018B.html">
+		<param name="Local" value="html\HME0018B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0019A">
 		<param name="Name" value="●マウスポインタが消えてしまう">
-		<param name="Local" value="HME0019A.html">
+		<param name="Local" value="html\HME0019A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0020A">
 		<param name="Name" value="●正規表現の上検索がヘン!?">
-		<param name="Local" value="HME0020A.html">
+		<param name="Local" value="html\HME0020A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0021A">
 		<param name="Name" value="●正規表現の複数「*」で障害">
-		<param name="Local" value="HME0021A.html">
+		<param name="Local" value="html\HME0021A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0022A">
 		<param name="Name" value="●フロッピーに保存できない？">
-		<param name="Local" value="HME0022A.html">
+		<param name="Local" value="html\HME0022A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0023A">
 		<param name="Name" value="●「全角文字を意識する」がない">
-		<param name="Local" value="HME0023A.html">
+		<param name="Local" value="html\HME0023A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0024A">
 		<param name="Name" value="●行頭に空白が勝手に入って困る">
-		<param name="Local" value="HME0024A.html">
+		<param name="Local" value="html\HME0024A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0025A">
 		<param name="Name" value="●起動するとともに常駐させたい">
-		<param name="Local" value="HME0025A.html">
+		<param name="Local" value="html\HME0025A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0026A">
 		<param name="Name" value="●スタートアップフォルダが見つからない">
-		<param name="Local" value="HME0026A.html">
+		<param name="Local" value="html\HME0026A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0027A">
 		<param name="Name" value="●起動時に秀丸が現れて邪魔だ">
-		<param name="Local" value="HME0027A.html">
+		<param name="Local" value="html\HME0027A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0028A">
 		<param name="Name" value="●メニューバーに「ヘルプ」がない">
-		<param name="Local" value="HME0028A.html">
+		<param name="Local" value="html\HME0028A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0029A">
 		<param name="Name" value="●微妙に異なるウィンドウ幅">
-		<param name="Local" value="HME0029A.html">
+		<param name="Local" value="html\HME0029A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0030A">
 		<param name="Name" value="●勝手に横スクロール">
-		<param name="Local" value="HME0030A.html">
+		<param name="Local" value="html\HME0030A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0031A">
 		<param name="Name" value="●文字コードの設定がヘン？">
-		<param name="Local" value="HME0031A.html">
+		<param name="Local" value="html\HME0031A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0032A">
 		<param name="Name" value="●VJE-Deltaでの再変換がおかしい">
-		<param name="Local" value="HME0032A.html">
+		<param name="Local" value="html\HME0032A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0033A">
 		<param name="Name" value="●印刷ができません">
-		<param name="Local" value="HME0033A.html">
+		<param name="Local" value="html\HME0033A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0034A">
 		<param name="Name" value="●印刷で行末が揃わない">
-		<param name="Local" value="HME0034A.html">
+		<param name="Local" value="html\HME0034A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0035A">
 		<param name="Name" value="●縦書きや段組の印刷がしたい">
-		<param name="Local" value="HME0035A.html">
+		<param name="Local" value="html\HME0035A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0036A">
 		<param name="Name" value="●ATOK9で「、」が「，」になる">
-		<param name="Local" value="HME0036A.html">
+		<param name="Local" value="html\HME0036A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0037A">
 		<param name="Name" value="●TOVER31.COMの実行方法は？">
-		<param name="Local" value="HME0037A.html">
+		<param name="Local" value="html\HME0037A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0038A">
 		<param name="Name" value="●TOVER31.COMの実行で常駐秀丸の終了が面倒">
-		<param name="Local" value="HME0038A.html">
+		<param name="Local" value="html\HME0038A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0039A">
 		<param name="Name" value="●TOVER31.COMが動かない">
-		<param name="Local" value="HME0039A.html">
+		<param name="Local" value="html\HME0039A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0040A">
 		<param name="Name" value="●バックアップファイルを作りたくない">
-		<param name="Local" value="HME0040A.html">
+		<param name="Local" value="html\HME0040A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0041A">
 		<param name="Name" value="●速いはずの秀丸が遅い！？">
-		<param name="Local" value="HME0041A.html">
+		<param name="Local" value="html\HME0041A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0042A">
 		<param name="Name" value="●拡張子が「KEY」のファイルは何？">
-		<param name="Local" value="HME0042A.html">
+		<param name="Local" value="html\HME0042A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0043A">
 		<param name="Name" value="●他人に分からない様に暗号化して保存したい">
-		<param name="Local" value="HME0043A.html">
+		<param name="Local" value="html\HME0043A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0044A">
 		<param name="Name" value="●出力（Excelの表にすぐ利用できる形の出力）">
-		<param name="Local" value="HME0044A.html">
+		<param name="Local" value="html\HME0044A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0045A">
 		<param name="Name" value="●ショートカットの起動オプションが効かない">
-		<param name="Local" value="HME0045A.html">
+		<param name="Local" value="html\HME0045A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0046A">
 		<param name="Name" value="●単語辞書登録の起動方法">
-		<param name="Local" value="HME0046A.html">
+		<param name="Local" value="html\HME0046A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0047A">
 		<param name="Name" value="●外部ヘルプファイルの起動方法">
-		<param name="Local" value="HME0047A.html">
+		<param name="Local" value="html\HME0047A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0048A">
 		<param name="Name" value="●「ワード」や「一太郎」等のファイルを開きたい">
-		<param name="Local" value="HME0048A.html">
+		<param name="Local" value="html\HME0048A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0049A">
 		<param name="Name" value="●「ワード」や「一太郎」等のファイルにgrep">
-		<param name="Local" value="HME0049A.html">
+		<param name="Local" value="html\HME0049A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0050A">
 		<param name="Name" value="●MS-Wordの「切り取り」で異常">
-		<param name="Local" value="HME0050A.html">
+		<param name="Local" value="html\HME0050A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0051A">
 		<param name="Name" value="●漢字コードの使い分け">
-		<param name="Local" value="HME0051A.html">
+		<param name="Local" value="html\HME0051A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0052A">
 		<param name="Name" value="●テキストファイルは常に秀丸で開きたい">
-		<param name="Local" value="HME0052A.html">
+		<param name="Local" value="html\HME0052A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0053A">
 		<param name="Name" value="●「常駐秀丸の終了」がわかりません">
-		<param name="Local" value="HME0053A.html">
+		<param name="Local" value="html\HME0053A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0054A">
 		<param name="Name" value="●他のエディタと同じキー操作を再現したい">
-		<param name="Local" value="HME0054A.html">
+		<param name="Local" value="html\HME0054A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0055A">
 		<param name="Name" value="●複数マシンに同じ「キー割り当て」をしたい">
-		<param name="Local" value="HME0055A.html">
+		<param name="Local" value="html\HME0055A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0056A">
 		<param name="Name" value="●画面の色を変更したい">
-		<param name="Local" value="HME0056A.html">
+		<param name="Local" value="html\HME0056A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0057A">
 		<param name="Name" value="●純色以外の色を使いたい">
-		<param name="Local" value="HME0057A.html">
+		<param name="Local" value="html\HME0057A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0058A">
 		<param name="Name" value="●１行の長さをそろえたい">
-		<param name="Local" value="HME0058A.html">
+		<param name="Local" value="html\HME0058A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0059A">
 		<param name="Name" value="●行と行の間隔を変えたい">
-		<param name="Local" value="HME0059A.html">
+		<param name="Local" value="html\HME0059A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0060A">
 		<param name="Name" value="●カーソル行を下線で強調表示したい">
-		<param name="Local" value="HME0060A.html">
+		<param name="Local" value="html\HME0060A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0061A">
 		<param name="Name" value="●空白行を削除したい">
-		<param name="Local" value="HME0061A.html">
+		<param name="Local" value="html\HME0061A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0062A">
 		<param name="Name" value="●空白行を改行だけの行にしたい">
-		<param name="Local" value="HME0062A.html">
+		<param name="Local" value="html\HME0062A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0063A">
 		<param name="Name" value="●行頭の空白を削除したい">
-		<param name="Local" value="HME0063A.html">
+		<param name="Local" value="html\HME0063A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0064A">
 		<param name="Name" value="●行末の空白を削除したい">
-		<param name="Local" value="HME0064A.html">
+		<param name="Local" value="html\HME0064A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0065A">
 		<param name="Name" value="●改行だけの行を削除したい">
-		<param name="Local" value="HME0065A.html">
+		<param name="Local" value="html\HME0065A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0066A">
 		<param name="Name" value="●漢字だけを探したい">
-		<param name="Local" value="HME0066A.html">
+		<param name="Local" value="html\HME0066A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0067A">
 		<param name="Name" value="●ある文字列を含むファイルと存在する位置を知りたい">
-		<param name="Local" value="HME0067A.html">
+		<param name="Local" value="html\HME0067A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0067B">
 		<param name="Name" value="●ある文字列を含むファイルを見つけたい">
-		<param name="Local" value="HME0067B.html">
+		<param name="Local" value="html\HME0067B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0067C">
 		<param name="Name" value="●編集中の文書中から特定の文字列をすべて見つけたい">
-		<param name="Local" value="HME0067C.html">
+		<param name="Local" value="html\HME0067C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0068A">
 		<param name="Name" value="●「grepの実行」って何ですか？">
-		<param name="Local" value="HME0068A.html">
+		<param name="Local" value="html\HME0068A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0069A">
 		<param name="Name" value="●規則性のある文字列を検出したい">
-		<param name="Local" value="HME0069A.html">
+		<param name="Local" value="html\HME0069A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0070A">
 		<param name="Name" value="●正規表現の設定はどうやるの">
-		<param name="Local" value="HME0070A.html">
+		<param name="Local" value="html\HME0070A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0071A">
 		<param name="Name" value="●正規表現による置換をしたい">
-		<param name="Local" value="HME0071A.html">
+		<param name="Local" value="html\HME0071A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0072A">
 		<param name="Name" value="●「その他→ファイルタイプ別の設定」で設定した内容が反映されない">
-		<param name="Local" value="HME0072A.html">
+		<param name="Local" value="html\HME0072A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0073A">
 		<param name="Name" value="●拡張子別や、grepの結果で秀丸の設定を変更する">
-		<param name="Local" value="HME0073A.html">
+		<param name="Local" value="html\HME0073A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0074A">
 		<param name="Name" value="●特定のファイルを開くと文字化けする">
-		<param name="Local" value="HME0074A.html">
+		<param name="Local" value="html\HME0074A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0074B">
 		<param name="Name" value="●ファイルがなぜかEUCコードとして開かれる">
-		<param name="Local" value="HME0074B.html">
+		<param name="Local" value="html\HME0074B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0075A">
 		<param name="Name" value="●VirusScan併用時の問題">
-		<param name="Local" value="HME0075A.html">
+		<param name="Local" value="html\HME0075A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0075B">
 		<param name="Name" value="●Windows98にしてから右クリックメニューが遅い">
-		<param name="Local" value="HME0075B.html">
+		<param name="Local" value="html\HME0075B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0076A">
 		<param name="Name" value="●Windows98でウィンドウがアクティブにならない">
-		<param name="Local" value="HME0076A.html">
+		<param name="Local" value="html\HME0076A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0077A">
 		<param name="Name" value="●BOX範囲選択の方法">
-		<param name="Local" value="HME0077A.html">
+		<param name="Local" value="html\HME0077A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0078A">
 		<param name="Name" value="●各種設定を移行するためファイルに保存したい">
-		<param name="Local" value="HME0078A.html">
+		<param name="Local" value="html\HME0078A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0078B">
 		<param name="Name" value="●設定を他のマシンに移行したい">
-		<param name="Local" value="HME0078B.html">
+		<param name="Local" value="html\HME0078B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0079A">
 		<param name="Name" value="●.hilight に \t や \n は使えるか？">
-		<param name="Local" value="HME0079A.html">
+		<param name="Local" value="html\HME0079A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0080A">
 		<param name="Name" value="●grepが動作しない？">
-		<param name="Local" value="HME0080A.html">
+		<param name="Local" value="html\HME0080A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0081A">
 		<param name="Name" value="●秀丸でハイパーリンク">
-		<param name="Local" value="HME0081A.html">
+		<param name="Local" value="html\HME0081A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0082A">
 		<param name="Name" value="●設定変更後に「やり直し」が効かない">
-		<param name="Local" value="HME0082A.html">
+		<param name="Local" value="html\HME0082A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0083A">
 		<param name="Name" value="●検索/置換の「選択した範囲内のみ」の動作">
-		<param name="Local" value="HME0083A.html">
+		<param name="Local" value="html\HME0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0084A">
 		<param name="Name" value="●行をソートすることは出来ませんか？">
-		<param name="Local" value="HME0084A.html">
+		<param name="Local" value="html\HME0084A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0085A">
 		<param name="Name" value="●grepで文字コードの自動認識">
-		<param name="Local" value="HME0085A.html">
+		<param name="Local" value="html\HME0085A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0086A">
 		<param name="Name" value="●mailto URLをクリックした時の動作がおかしい">
-		<param name="Local" value="HME0086A.html">
+		<param name="Local" value="html\HME0086A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0087A">
 		<param name="Name" value="●異なるフォルダの秀丸が実行されているので起動できません">
-		<param name="Local" value="HME0087A.html">
+		<param name="Local" value="html\HME0087A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0088A">
 		<param name="Name" value="●スクロールバーをドラッグしてもスクロールしない">
-		<param name="Local" value="HME0088A.html">
+		<param name="Local" value="html\HME0088A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0089A">
 		<param name="Name" value="●IEのソース表示に秀丸を使いたい">
-		<param name="Local" value="HME0089A.html">
+		<param name="Local" value="html\HME0089A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0090A">
 		<param name="Name" value="●IEのHTML編集用エディタに秀丸を使いたい">
-		<param name="Local" value="HME0090A.html">
+		<param name="Local" value="html\HME0090A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0091A">
 		<param name="Name" value="●ファイルタイプ別の設定の方法">
-		<param name="Local" value="HME0091A.html">
+		<param name="Local" value="html\HME0091A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0092A">
 		<param name="Name" value="●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0093A">
 		<param name="Name" value="●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0094A">
 		<param name="Name" value="●TeXとの連携">
-		<param name="Local" value="HME0094A.html">
+		<param name="Local" value="html\HME0094A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0095A">
 		<param name="Name" value="●検索した単語を全て強調表示したい">
-		<param name="Local" value="HME0095A.html">
+		<param name="Local" value="html\HME0095A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0096A">
 		<param name="Name" value="●[EOF]の色を変えるには">
-		<param name="Local" value="HME0096A.html">
+		<param name="Local" value="html\HME0096A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0097A">
 		<param name="Name" value="●ファイルを秀丸エディタで編集したのに、反映されていない">
-		<param name="Local" value="HME0097A.html">
+		<param name="Local" value="html\HME0097A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0098A">
 		<param name="Name" value="●ファイルの改行コードを変更したい">
-		<param name="Local" value="HME0098A.html">
+		<param name="Local" value="html\HME0098A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HME0099A">
 		<param name="Name" value="●秀丸エディタのバージョンアップ方法">
-		<param name="Local" value="HME0099A.html">
+		<param name="Local" value="html\HME0099A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMJRE">
 		<param name="Name" value="●HMJRE.DLLを使う場合の注意点">
-		<param name="Local" value="3_hmjre.html">
+		<param name="Local" value="html\3_hmjre.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0001A">
 		<param name="Name" value="●マクロファイルとは？">
-		<param name="Local" value="HMM0001A.html">
+		<param name="Local" value="html\HMM0001A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0002A">
 		<param name="Name" value="●マクロはどこで入手できるの？">
-		<param name="Local" value="HMM0002A.html">
+		<param name="Local" value="html\HMM0002A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0003A">
 		<param name="Name" value="●マクロファイルの置き場所">
-		<param name="Local" value="HMM0003A.html">
+		<param name="Local" value="html\HMM0003A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0004A">
 		<param name="Name" value="●マクロファイルの管理">
-		<param name="Local" value="HMM0004A.html">
+		<param name="Local" value="html\HMM0004A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0005A">
 		<param name="Name" value="●マクロファイル用のフォルダは必須か？">
-		<param name="Local" value="HMM0005A.html">
+		<param name="Local" value="html\HMM0005A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0006A">
 		<param name="Name" value="●マクロを動かす方法">
-		<param name="Local" value="HMM0006A.html">
+		<param name="Local" value="html\HMM0006A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0007A">
 		<param name="Name" value="●「マクロ実行」はめんどう">
-		<param name="Local" value="HMM0007A.html">
+		<param name="Local" value="html\HMM0007A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0008A">
 		<param name="Name" value="●マクロ登録方法">
-		<param name="Local" value="HMM0008A.html">
+		<param name="Local" value="html\HMM0008A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0009A">
 		<param name="Name" value="●マクロを「キー割り当て」して使いたい">
-		<param name="Local" value="HMM0009A.html">
+		<param name="Local" value="html\HMM0009A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0010A">
 		<param name="Name" value="●マクロ実行でエラー">
-		<param name="Local" value="HMM0010A.html">
+		<param name="Local" value="html\HMM0010A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0011A">
 		<param name="Name" value="●バッファが溢れるとは？">
-		<param name="Local" value="HMM0011A.html">
+		<param name="Local" value="html\HMM0011A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0012A">
 		<param name="Name" value="●登録したマクロがメニューにない">
-		<param name="Local" value="HMM0012A.html">
+		<param name="Local" value="html\HMM0012A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0013A">
 		<param name="Name" value="●マクロを登録する位置はどこが最適？">
-		<param name="Local" value="HMM0013A.html">
+		<param name="Local" value="html\HMM0013A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0014A">
 		<param name="Name" value="●「￥」の使い方">
-		<param name="Local" value="HMM0014A.html">
+		<param name="Local" value="html\HMM0014A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0015A">
 		<param name="Name" value="●拡張子の認識">
-		<param name="Local" value="HMM0015A.html">
+		<param name="Local" value="html\HMM0015A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0016A">
 		<param name="Name" value="●openfile のオプションでの注意項目">
-		<param name="Local" value="HMM0016A.html">
+		<param name="Local" value="html\HMM0016A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0017A">
 		<param name="Name" value="●openfile の /(x,y,cx,xy) オプション">
-		<param name="Local" value="HMM0017A.html">
+		<param name="Local" value="html\HMM0017A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0018A">
 		<param name="Name" value="●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意">
-		<param name="Local" value="HMM0018A.html">
+		<param name="Local" value="html\HMM0018A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0019A">
 		<param name="Name" value="●windowwidth と width の注意点">
-		<param name="Local" value="HMM0019A.html">
+		<param name="Local" value="html\HMM0019A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0020A">
 		<param name="Name" value="●長い文字列を message 表示">
-		<param name="Local" value="HMM0020A.html">
+		<param name="Local" value="html\HMM0020A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0021A">
 		<param name="Name" value="●サブルーチンへの引数">
-		<param name="Local" value="HMM0021A.html">
+		<param name="Local" value="html\HMM0021A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0022A">
 		<param name="Name" value="●サブルーチンからの戻り値(文字列)">
-		<param name="Local" value="HMM0022A.html">
+		<param name="Local" value="html\HMM0022A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0023A">
 		<param name="Name" value="●サブルーチンからの戻り値(数値)">
-		<param name="Local" value="HMM0023A.html">
+		<param name="Local" value="html\HMM0023A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0024A">
 		<param name="Name" value="●サブルーチンからの戻り値($$return,##return)をそのまま使う">
-		<param name="Local" value="HMM0024A.html">
+		<param name="Local" value="html\HMM0024A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0025A">
 		<param name="Name" value="●サブルーチンからの戻り値(複数の戻り値)">
-		<param name="Local" value="HMM0025A.html">
+		<param name="Local" value="html\HMM0025A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0026A">
 		<param name="Name" value="●setsearchのフラグ">
-		<param name="Local" value="HMM0026A.html">
+		<param name="Local" value="html\HMM0026A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0027A">
 		<param name="Name" value="●検索フラグの適用">
-		<param name="Local" value="HMM0027A.html">
+		<param name="Local" value="html\HMM0027A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0028A">
 		<param name="Name" value="●マクロファイル用フォルダの存在">
-		<param name="Local" value="HMM0028A.html">
+		<param name="Local" value="html\HMM0028A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0028B">
 		<param name="Name" value="●マクロで秀丸マクロフォルダを取得するには">
-		<param name="Local" value="HMM0028B.html">
+		<param name="Local" value="html\HMM0028B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0029A">
 		<param name="Name" value="●マクロファイルの存在確認">
-		<param name="Local" value="HMM0029A.html">
+		<param name="Local" value="html\HMM0029A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0030A">
 		<param name="Name" value="●ファイルの存在確認">
-		<param name="Local" value="HMM0030A.html">
+		<param name="Local" value="html\HMM0030A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0031A">
 		<param name="Name" value="●findwindow()の秀丸ファイル名指定時の注意事項">
-		<param name="Local" value="HMM0031A.html">
+		<param name="Local" value="html\HMM0031A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0032A">
 		<param name="Name" value="●「検索での表示」の設定による動作の違い">
-		<param name="Local" value="HMM0032A.html">
+		<param name="Local" value="html\HMM0032A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0033A">
 		<param name="Name" value="●insertreturnの上書き/挿入MODEでの動き">
-		<param name="Local" value="HMM0033A.html">
+		<param name="Local" value="html\HMM0033A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0034A">
 		<param name="Name" value="●rollup等の動き">
-		<param name="Local" value="HMM0034A.html">
+		<param name="Local" value="html\HMM0034A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0035A">
 		<param name="Name" value="●時間待ちサブルーチン">
-		<param name="Local" value="HMM0035A.html">
+		<param name="Local" value="html\HMM0035A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0036A">
 		<param name="Name" value="●IMEのマクロ動作中切断方法">
-		<param name="Local" value="HMM0036A.html">
+		<param name="Local" value="html\HMM0036A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0037A">
 		<param name="Name" value="●IMEのマクロ中、強制OFF">
-		<param name="Local" value="HMM0037A.html">
+		<param name="Local" value="html\HMM0037A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0038A">
 		<param name="Name" value="●検索ダイアログボックスを出す">
-		<param name="Local" value="HMM0038A.html">
+		<param name="Local" value="html\HMM0038A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0039A">
 		<param name="Name" value="●単語の検索">
-		<param name="Local" value="HMM0039A.html">
+		<param name="Local" value="html\HMM0039A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0040A">
 		<param name="Name" value="●config ">
-		<param name="Local" value="HMM0040A.html">
+		<param name="Local" value="html\HMM0040A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0040B">
 		<param name="Name" value="●マクロ実行後に「やり直し」が効かない">
-		<param name="Local" value="HMM0040B.html">
+		<param name="Local" value="html\HMM0040B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0041A">
 		<param name="Name" value="●文字列型変数の扱う文字列の限界">
-		<param name="Local" value="HMM0041A.html">
+		<param name="Local" value="html\HMM0041A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0042A">
 		<param name="Name" value="●grepのダイアログボックスを出す">
-		<param name="Local" value="HMM0042A.html">
+		<param name="Local" value="html\HMM0042A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0043A">
 		<param name="Name" value="●(無題)秀丸からのマクロ実行">
-		<param name="Local" value="HMM0043A.html">
+		<param name="Local" value="html\HMM0043A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0044A">
 		<param name="Name" value="●文字列型変数中の半角小文字を大文字に">
-		<param name="Local" value="HMM0044A.html">
+		<param name="Local" value="html\HMM0044A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0045A">
 		<param name="Name" value="●文字列型変数中の半角大文字を小文字に">
-		<param name="Local" value="HMM0045A.html">
+		<param name="Local" value="html\HMM0045A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0046A">
 		<param name="Name" value="●keypressed文による分岐のスケルトン">
-		<param name="Local" value="HMM0046A.html">
+		<param name="Local" value="html\HMM0046A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0047A">
 		<param name="Name" value="●特定のファイルを開く">
-		<param name="Local" value="HMM0047A.html">
+		<param name="Local" value="html\HMM0047A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0048A">
 		<param name="Name" value="●上書き禁止・閲覧モード時のマクロの動作">
-		<param name="Local" value="HMM0048A.html">
+		<param name="Local" value="html\HMM0048A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0049A">
 		<param name="Name" value="●検索系コマンドを使う場合は">
-		<param name="Local" value="HMM0049A.html">
+		<param name="Local" value="html\HMM0049A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0050A">
 		<param name="Name" value="●自動インデントとinsertreturn">
-		<param name="Local" value="HMM0050A.html">
+		<param name="Local" value="html\HMM0050A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0051A">
 		<param name="Name" value="●version キーワードの使い道は？">
-		<param name="Local" value="HMM0051A.html">
+		<param name="Local" value="html\HMM0051A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0052A">
 		<param name="Name" value="●秀丸95のレジストリ操作と16bit版秀丸の共通化">
-		<param name="Local" value="HMM0052A.html">
+		<param name="Local" value="html\HMM0052A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0053A">
 		<param name="Name" value="●ワードラップと折り返し">
-		<param name="Local" value="HMM0053A.html">
+		<param name="Local" value="html\HMM0053A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0054A">
 		<param name="Name" value="●16bit版秀丸のmovetolinenoのバグ">
-		<param name="Local" value="HMM0054A.html">
+		<param name="Local" value="html\HMM0054A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0055A">
 		<param name="Name" value="●文章作成日時を挿入するには？">
-		<param name="Local" value="HMM0055A.html">
+		<param name="Local" value="html\HMM0055A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0056A">
 		<param name="Name" value="●複数のウィンドウ間を移動したい">
-		<param name="Local" value="HMM0056A.html">
+		<param name="Local" value="html\HMM0056A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0057A">
 		<param name="Name" value="●秀丸ウィンドウを閉じたい">
-		<param name="Local" value="HMM0057A.html">
+		<param name="Local" value="html\HMM0057A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0058A">
 		<param name="Name" value="●setactivehidemaru 文の引数">
-		<param name="Local" value="HMM0058A.html">
+		<param name="Local" value="html\HMM0058A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0059A">
 		<param name="Name" value="●ウィンドウを見えなくしたい">
-		<param name="Local" value="HMM0059A.html">
+		<param name="Local" value="html\HMM0059A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0060A">
 		<param name="Name" value="●「キーワード」とは？">
-		<param name="Local" value="HMM0060A.html">
+		<param name="Local" value="html\HMM0060A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0061A">
 		<param name="Name" value="●「キーワード」の使い方">
-		<param name="Local" value="HMM0061A.html">
+		<param name="Local" value="html\HMM0061A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0062A">
 		<param name="Name" value="●フォルダの存在を確認したい">
-		<param name="Local" value="HMM0062A.html">
+		<param name="Local" value="html\HMM0062A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0063A">
 		<param name="Name" value="●メニュー項目を揃えたい">
-		<param name="Local" value="HMM0063A.html">
+		<param name="Local" value="html\HMM0063A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0064A">
 		<param name="Name" value="●メニューに色を付けたい">
-		<param name="Local" value="HMM0064A.html">
+		<param name="Local" value="html\HMM0064A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0065A">
 		<param name="Name" value="●menuarray 文の引数を自由に設定したい">
-		<param name="Local" value="HMM0065A.html">
+		<param name="Local" value="html\HMM0065A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0066A">
 		<param name="Name" value="●Windows3.1で動いたマクロがWindows95で動かない？">
-		<param name="Local" value="HMM0066A.html">
+		<param name="Local" value="html\HMM0066A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0067A">
 		<param name="Name" value="●マクロで引用符を取得するには">
-		<param name="Local" value="HMM0067A.html">
+		<param name="Local" value="html\HMM0067A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0068A">
 		<param name="Name" value="●マクロ中の演算子の意味は？">
-		<param name="Local" value="HMM0068A.html">
+		<param name="Local" value="html\HMM0068A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0069A">
 		<param name="Name" value="●マクロ処理中にダイアログボックスを出す方法">
-		<param name="Local" value="HMM0069A.html">
+		<param name="Local" value="html\HMM0069A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0070A">
 		<param name="Name" value="●入力チェック、変数チェックを簡単に行う方法">
-		<param name="Local" value="HMM0070A.html">
+		<param name="Local" value="html\HMM0070A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0071A">
 		<param name="Name" value="●入力が数値、整数であるかのチェック方法">
-		<param name="Local" value="HMM0071A.html">
+		<param name="Local" value="html\HMM0071A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0072A">
 		<param name="Name" value="●２バイト文字の判断方法 ">
-		<param name="Local" value="HMM0072A.html">
+		<param name="Local" value="html\HMM0072A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0073A">
 		<param name="Name" value="●文字列をバイト単位ではなく文字単位で扱う">
-		<param name="Local" value="HMM0073A.html">
+		<param name="Local" value="html\HMM0073A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0074A">
 		<param name="Name" value="●文字列の後方から文字列を検索">
-		<param name="Local" value="HMM0074A.html">
+		<param name="Local" value="html\HMM0074A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0075A">
 		<param name="Name" value="●浮動小数点数版秀丸との互換性">
-		<param name="Local" value="HMM0075A.html">
+		<param name="Local" value="html\HMM0075A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0076A">
 		<param name="Name" value="●重複行の削除">
-		<param name="Local" value="HMM0076A.html">
+		<param name="Local" value="html\HMM0076A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0077A">
 		<param name="Name" value="●マクロでの文字列の比較">
-		<param name="Local" value="HMM0077A.html">
+		<param name="Local" value="html\HMM0077A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0078A">
 		<param name="Name" value="●ある特定のマクロの動作だけが遅い">
-		<param name="Local" value="HMM0078A.html">
+		<param name="Local" value="html\HMM0078A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0079A">
 		<param name="Name" value="●16bit版秀丸との数値型変数の互換性">
-		<param name="Local" value="HMM0079A.html">
+		<param name="Local" value="html\HMM0079A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0080A">
 		<param name="Name" value="●16進数表記文字列を取得する方法">
-		<param name="Local" value="HMM0080A.html">
+		<param name="Local" value="html\HMM0080A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0081A">
 		<param name="Name" value="●「DLLがロードされてないのにdllfunc関数が使われました」と表示される">
-		<param name="Local" value="HMM0081A.html">
+		<param name="Local" value="html\HMM0081A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0082A">
 		<param name="Name" value="●カーソルのある行の内容を文字列型変数に取り込む方法">
-		<param name="Local" value="HMM0082A.html">
+		<param name="Local" value="html\HMM0082A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0083A">
 		<param name="Name" value="[HMM0083A] ●外部DLLのロードに失敗する">
-		<param name="Local" value="HMM0083A.html">
+		<param name="Local" value="html\HMM0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="HMM0084A">
 		<param name="Name" value="[HMM0084A] ●フォルダにある複数のファイルにマクロを実行したい">
-		<param name="Local" value="HMM0084A.html">
+		<param name="Local" value="html\HMM0084A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="iesrcview">
 		<param name="Name" value="[HME0089A]●IEのソース表示に秀丸を使いたい">
-		<param name="Local" value="HME0089A.html">
+		<param name="Local" value="html\HME0089A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="IMEの強制OFF">
 		<param name="Name" value="[HMM0037A]●IMEのマクロ中、強制OFF">
-		<param name="Local" value="HMM0037A.html">
+		<param name="Local" value="html\HMM0037A.html">
 		<param name="Name" value="[HMM0036A]●IMEのマクロ動作中切断方法">
-		<param name="Local" value="HMM0036A.html">
+		<param name="Local" value="html\HMM0036A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="insert &quot;\n&quot;">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="insertreturn">
 		<param name="Name" value="[HMM0033A]●insertreturnの上書き/挿入MODEでの動き">
-		<param name="Local" value="HMM0033A.html">
+		<param name="Local" value="html\HMM0033A.html">
 		<param name="Name" value="[HMM0050A]●自動インデントとinsertreturn">
-		<param name="Local" value="HMM0050A.html">
+		<param name="Local" value="html\HMM0050A.html">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Internet Explorer のHTMLエディタ">
 		<param name="Name" value="[HME0090A]●IEのHTML編集用エディタに秀丸を使いたい">
-		<param name="Local" value="HME0090A.html">
+		<param name="Local" value="html\HME0090A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Internet Explorerで開いているページを編集">
 		<param name="Name" value="[HME0090A]●IEのHTML編集用エディタに秀丸を使いたい">
-		<param name="Local" value="HME0090A.html">
+		<param name="Local" value="html\HME0090A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="Internet Explorerの「表示」−「ソース」">
 		<param name="Name" value="[HME0089A]●IEのソース表示に秀丸を使いたい">
-		<param name="Local" value="HME0089A.html">
+		<param name="Local" value="html\HME0089A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="KEY">
 		<param name="Name" value="[HME0042A]●拡張子が「KEY」のファイルは何？">
-		<param name="Local" value="HME0042A.html">
+		<param name="Local" value="html\HME0042A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="keypressed文による分岐">
 		<param name="Name" value="[HMM0046A]●keypressed文による分岐のスケルトン">
-		<param name="Local" value="HMM0046A.html">
+		<param name="Local" value="html\HMM0046A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="mailto URL">
 		<param name="Name" value="[HME0086A]●mailto URLをクリックした時の動作がおかしい">
-		<param name="Local" value="HME0086A.html">
+		<param name="Local" value="html\HME0086A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="menuarray">
 		<param name="Name" value="[HMM0065A]●menuarray 文の引数を自由に設定したい">
-		<param name="Local" value="HMM0065A.html">
+		<param name="Local" value="html\HMM0065A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="message">
 		<param name="Name" value="[HMM0020A]●長い文字列を message 表示">
-		<param name="Local" value="HMM0020A.html">
+		<param name="Local" value="html\HMM0020A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="midstr">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="moveto">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="movetolineno">
 		<param name="Name" value="[HMM0054A]●16bit版秀丸のmovetolinenoのバグ">
-		<param name="Local" value="HMM0054A.html">
+		<param name="Local" value="html\HMM0054A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="MS-Wordの「切り取り」で異常">
 		<param name="Name" value="[HME0050A]●MS-Wordの「切り取り」で異常">
-		<param name="Local" value="HME0050A.html">
+		<param name="Local" value="html\HME0050A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="openfile">
 		<param name="Name" value="[HMM0017A]●openfile の /(x,y,cx,xy) オプション">
-		<param name="Local" value="HMM0017A.html">
+		<param name="Local" value="html\HMM0017A.html">
 		<param name="Name" value="[HMM0018A]●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意">
-		<param name="Local" value="HMM0018A.html">
+		<param name="Local" value="html\HMM0018A.html">
 		<param name="Name" value="[HMM0016A]●openfile のオプションでの注意項目">
-		<param name="Local" value="HMM0016A.html">
+		<param name="Local" value="html\HMM0016A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="PowerShell">
 		<param name="Name" value="[HMM0084A] ●フォルダにある複数のファイルにマクロを実行したい">
-		<param name="Local" value="HMM0084A.html">
+		<param name="Local" value="html\HMM0084A.html">
 		<param name="Name" value="第IV部〜テキスト編集を極める！！　プログラム実行を利用したテキストの加工">
-		<param name="Local" value="4_run.html">
+		<param name="Local" value="html\4_run.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="rollup">
 		<param name="Name" value="[HMM0034A]●rollup等の動き">
-		<param name="Local" value="HMM0034A.html">
+		<param name="Local" value="html\HMM0034A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="refcall">
+		<param name="Name" value="[HMM0025A]●サブルーチンからの戻り値(複数の戻り値)">
+		<param name="Local" value="html\HMM0025A.html">
+		<param name="Name" value="サブルーチンについて">
+		<param name="Local" value="html\3_sub.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="selecting">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
-		<param name="Local" value="3_string.html">
+		<param name="Local" value="html\3_string.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="setactivehidemaru">
 		<param name="Name" value="[HMM0058A]●setactivehidemaru 文の引数">
-		<param name="Local" value="HMM0058A.html">
+		<param name="Local" value="html\HMM0058A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="setcompatiblemode">
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　setcompatiblemode文 について">
-		<param name="Local" value="3_setcompatiblemode.html">
+		<param name="Local" value="html\3_setcompatiblemode.html">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　変換モジュール">
-		<param name="Local" value="2_convert.html">
+		<param name="Local" value="html\2_convert.html">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　アウトライン関連 見出し・折りたたみ・部分編集">
-		<param name="Local" value="2_outline_functions.html">
+		<param name="Local" value="html\2_outline_functions.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="setsearch">
 		<param name="Name" value="[HMM0026A]●setsearchのフラグ">
-		<param name="Local" value="HMM0026A.html">
+		<param name="Local" value="html\HMM0026A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TeX">
 		<param name="Name" value="[HME0094A]●TeXとの連携">
-		<param name="Local" value="HME0094A.html">
+		<param name="Local" value="html\HME0094A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TOVER31.COM">
 		<param name="Name" value="[HME0039A]●TOVER31.COMが動かない">
-		<param name="Local" value="HME0039A.html">
+		<param name="Local" value="html\HME0039A.html">
 		<param name="Name" value="[HME0038A]●TOVER31.COMの実行で常駐秀丸の終了が面倒">
-		<param name="Local" value="HME0038A.html">
+		<param name="Local" value="html\HME0038A.html">
 		<param name="Name" value="[HME0037A]●TOVER31.COMの実行方法は？">
-		<param name="Local" value="HME0037A.html">
+		<param name="Local" value="html\HME0037A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="TSV">
 		<param name="Name" value="CSV/TSVモード">
-		<param name="Local" value="2_csv_tsv.html">
+		<param name="Local" value="html\2_csv_tsv.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="version">
 		<param name="Name" value="[HMM0051A]●version キーワードの使い道は？">
-		<param name="Local" value="HMM0051A.html">
+		<param name="Local" value="html\HMM0051A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="VirusScan">
 		<param name="Name" value="[HME0075A]●VirusScan併用時の問題">
-		<param name="Local" value="HME0075A.html">
+		<param name="Local" value="html\HME0075A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="VisualBasic">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="VJE-Delta">
 		<param name="Name" value="[HME0032A]●VJE-Deltaでの再変換がおかしい">
-		<param name="Local" value="HME0032A.html">
+		<param name="Local" value="html\HME0032A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="windowwidthとwidth">
 		<param name="Name" value="[HMM0019A]●windowwidth と width の注意点">
-		<param name="Local" value="HMM0019A.html">
+		<param name="Local" value="html\HMM0019A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アウトプット枠">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　アウトプット枠">
-		<param name="Local" value="2_output.html">
+		<param name="Local" value="html\2_output.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アウトライン">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　アウトライン解析の枠">
-		<param name="Local" value="2_outline.html">
+		<param name="Local" value="html\2_outline.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アップデート">
 		<param name="Name" value="●秀丸エディタのバージョンアップ方法">
-		<param name="Local" value="HME0099A.html">
+		<param name="Local" value="html\HME0099A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アドイン">
 		<param name="Name" value="秀丸パブリッシャーについて">
-		<param name="Local" value="6_publisher.html">
+		<param name="Local" value="html\6_publisher.html">
 		<param name="Name" value="秀丸スペルチェックアドイン">
-		<param name="Local" value="6_spellcheck.html">
+		<param name="Local" value="html\6_spellcheck.html">
 		<param name="Name" value="秀丸エディタ持ち出しキット">
-		<param name="Local" value="6_takeout.html">
+		<param name="Local" value="html\6_takeout.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="アンインストール">
 		<param name="Name" value="[HME0012A]●アンインストール失敗？［秀丸95］">
-		<param name="Local" value="HME0012A.html">
+		<param name="Local" value="html\HME0012A.html">
 		<param name="Name" value="[HME0011A]●アンインストール方法［秀丸95］">
-		<param name="Local" value="HME0011A.html">
+		<param name="Local" value="html\HME0011A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="インストール・アンインストール">
@@ -1373,384 +1380,389 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ウィンドウがアクティブにならない">
 		<param name="Name" value="[HME0076A]●Windows98でウィンドウがアクティブにならない">
-		<param name="Local" value="HME0076A.html">
+		<param name="Local" value="html\HME0076A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ウィンドウを見えなくしたい">
 		<param name="Name" value="[HMM0059A]●ウィンドウを見えなくしたい">
-		<param name="Local" value="HMM0059A.html">
+		<param name="Local" value="html\HMM0059A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ウィンドウを閉じる">
 		<param name="Name" value="[HMM0057A]●秀丸ウィンドウを閉じたい">
-		<param name="Local" value="HMM0057A.html">
+		<param name="Local" value="html\HMM0057A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ウィンドウ間を移動">
 		<param name="Name" value="[HMM0056A]●複数のウィンドウ間を移動したい">
-		<param name="Local" value="HMM0056A.html">
+		<param name="Local" value="html\HMM0056A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ウィンドウ幅">
 		<param name="Name" value="[HME0029A]●微妙に異なるウィンドウ幅">
-		<param name="Local" value="HME0029A.html">
+		<param name="Local" value="html\HME0029A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="カーソル">
 		<param name="Name" value="[HME0013C]●カーソルのカタチがヘンだ">
-		<param name="Local" value="HME0013C.html">
+		<param name="Local" value="html\HME0013C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="カラー">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		<param name="Name" value="[HME0096A]●[EOF]の色を変えるには">
-		<param name="Local" value="HME0096A.html">
+		<param name="Local" value="html\HME0096A.html">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　カラーマーカー">
-		<param name="Local" value="2_colormarker.html">
+		<param name="Local" value="html\2_colormarker.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="カラーマーカー">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　カラーマーカー">
-		<param name="Local" value="2_colormarker.html">
+		<param name="Local" value="html\2_colormarker.html">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　検索　「追加の条件」について">
 		<param name="Local" value="2_find.html#SUPPLEMENTATION-1">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="カラー設定">
 		<param name="Name" value="[HME0016E]●カラー設定が上手くいかない">
-		<param name="Local" value="HME0016E.html">
+		<param name="Local" value="html\HME0016E.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="キーワード">
 		<param name="Name" value="[HMM0060A]●「キーワード」とは？">
-		<param name="Local" value="HMM0060A.html">
+		<param name="Local" value="html\HMM0060A.html">
 		<param name="Name" value="[HMM0061A]●「キーワード」の使い方">
-		<param name="Local" value="HMM0061A.html">
+		<param name="Local" value="html\HMM0061A.html">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="キー割り当て">
 		<param name="Name" value="[HMM0009A]●マクロを「キー割り当て」して使いたい">
-		<param name="Local" value="HMM0009A.html">
+		<param name="Local" value="html\HMM0009A.html">
 		<param name="Name" value="[HME0055A]●複数マシンに同じ「キー割り当て」をしたい">
-		<param name="Local" value="HME0055A.html">
+		<param name="Local" value="html\HME0055A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="キー操作">
 		<param name="Name" value="[HME0054A]●他のエディタと同じキー操作を再現したい">
-		<param name="Local" value="HME0054A.html">
+		<param name="Local" value="html\HME0054A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="このヘルプの内容">
 		<param name="Name" value="このヘルプの内容">
-		<param name="Local" value="s_naiyou.html">
+		<param name="Local" value="html\s_naiyou.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="コメント行">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="サブルーチン">
 		<param name="Name" value="[HMM0024A]●サブルーチンからの戻り値($$return,##return)をそのまま使う">
-		<param name="Local" value="HMM0024A.html">
+		<param name="Local" value="html\HMM0024A.html">
 		<param name="Name" value="[HMM0023A]●サブルーチンからの戻り値(数値)">
-		<param name="Local" value="HMM0023A.html">
+		<param name="Local" value="html\HMM0023A.html">
 		<param name="Name" value="[HMM0025A]●サブルーチンからの戻り値(複数の戻り値)">
-		<param name="Local" value="HMM0025A.html">
+		<param name="Local" value="html\HMM0025A.html">
 		<param name="Name" value="[HMM0022A]●サブルーチンからの戻り値(文字列)">
-		<param name="Local" value="HMM0022A.html">
+		<param name="Local" value="html\HMM0022A.html">
 		<param name="Name" value="[HMM0021A]●サブルーチンへの引数">
-		<param name="Local" value="HMM0021A.html">
+		<param name="Local" value="html\HMM0021A.html">
 		<param name="Name" value="サブルーチンについて">
-		<param name="Local" value="3_sub.html">
+		<param name="Local" value="html\3_sub.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="システムリソース">
 		<param name="Name" value="[HME0018B]●瞬間起動機能がメモリやシステムリソースを圧迫する">
-		<param name="Local" value="HME0018B.html">
+		<param name="Local" value="html\HME0018B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="スクロールバー">
 		<param name="Name" value="[HME0088A]●スクロールバーをドラッグしてもスクロールしない">
-		<param name="Local" value="HME0026A.html">
+		<param name="Local" value="html\HME0026A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="スタートアップフォルダ">
 		<param name="Name" value="[HME0026A]●スタートアップフォルダが見つからない">
-		<param name="Local" value="HME0026A.html">
+		<param name="Local" value="html\HME0026A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="スタイル">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ストアアプリ版">
 		<param name="Name" value="パスワードを忘れた/紛失した">
-		<param name="Local" value="HME0004A.html">
+		<param name="Local" value="html\HME0004A.html">
 		<param name="Name" value="異なるフォルダの秀丸が実行されているので起動できません">
-		<param name="Local" value="HME0087A.html">
+		<param name="Local" value="html\HME0087A.html">
 		<param name="Name" value="秀丸エディタの最新版">
-		<param name="Local" value="s_saisin.html">
+		<param name="Local" value="html\s_saisin.html">
 		<param name="Name" value="[HMM0083A] ●外部DLLのロードに失敗する">
-		<param name="Local" value="HMM0083A.html">
+		<param name="Local" value="html\HMM0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="スペルチェック">
 		<param name="Name" value="第VI部〜秀丸エディタ拡張モジュール　秀丸スペルチェックアドイン">
-		<param name="Local" value="6_spellcheck.html">
+		<param name="Local" value="html\6_spellcheck.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ダイアログボックス">
 		<param name="Name" value="[HMM0069A]●マクロ処理中にダイアログボックスを出す方法">
-		<param name="Local" value="HMM0069A.html">
+		<param name="Local" value="html\HMM0069A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="タグ付き正規表現">
 		<param name="Name" value="タグ付き正規表現とは？">
-		<param name="Local" value="4_tagreg.html">
+		<param name="Local" value="html\4_tagreg.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="タブモード">
 		<param name="Name" value="秀丸エディタウィンドウの管理(タブモード編)">
-		<param name="Local" value="3_tabmode.html">
+		<param name="Local" value="html\3_tabmode.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="テキストファイルは常に秀丸で">
 		<param name="Name" value="[HME0052A]●テキストファイルは常に秀丸で開きたい">
-		<param name="Local" value="HME0052A.html">
+		<param name="Local" value="html\HME0052A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="デスクトップ">
 		<param name="Name" value="デスクトップ保存と復元">
-		<param name="Local" value="2_desktop.html">
+		<param name="Local" value="html\2_desktop.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="デバッグ">
 		<param name="Name" value="マクロのデバッグについて">
-		<param name="Local" value="3_debug.html">
+		<param name="Local" value="html\3_debug.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ではでは">
 		<param name="Name" value="ではでは">
-		<param name="Local" value="byebye.html">
+		<param name="Local" value="html\byebye.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="バージョンアップ">
 		<param name="Name" value="●秀丸エディタのバージョンアップ方法">
-		<param name="Local" value="HME0099A.html">
+		<param name="Local" value="html\HME0099A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ハイパーリンク">
 		<param name="Name" value="[HME0081A]●秀丸でハイパーリンク">
-		<param name="Local" value="HME0081A.html">
+		<param name="Local" value="html\HME0081A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="パスワード">
 		<param name="Name" value="[HME0001A]●パスワードが来ない">
-		<param name="Local" value="HME0001A.html">
+		<param name="Local" value="html\HME0001A.html">
 		<param name="Name" value="[HME0005A]●パスワードを書いても良いの？">
-		<param name="Local" value="HME0005A.html">
+		<param name="Local" value="html\HME0005A.html">
 		<param name="Name" value="[HME0004A]●パスワードを忘れた/紛失した">
-		<param name="Local" value="HME0004A.html">
+		<param name="Local" value="html\HME0004A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="バックアップファイル">
 		<param name="Name" value="[HME0040A]●バックアップファイルを作りたくない">
-		<param name="Local" value="HME0040A.html">
+		<param name="Local" value="html\HME0040A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="バッファ">
 		<param name="Name" value="[HMM0011A]●バッファが溢れるとは？">
-		<param name="Local" value="HMM0011A.html">
+		<param name="Local" value="html\HMM0011A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ファイルタイプ別の設定">
 		<param name="Name" value="[HME0072A]●「その他→ファイルタイプ別の設定」で設定した内容が反映されない">
-		<param name="Local" value="HME0072A.html">
+		<param name="Local" value="html\HME0072A.html">
 		<param name="Name" value="[HME0091A]●ファイルタイプ別の設定の方法">
-		<param name="Local" value="HME0091A.html">
+		<param name="Local" value="html\HME0091A.html">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ファイルの存在確認">
 		<param name="Name" value="[HMM0030A]●ファイルの存在確認">
-		<param name="Local" value="HMM0030A.html">
+		<param name="Local" value="html\HMM0030A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ファイルマネージャ枠">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　ファイルマネージャ枠">
-		<param name="Local" value="2_filemanager.html">
+		<param name="Local" value="html\2_filemanager.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="フォルダの存在確認">
 		<param name="Name" value="[HMM0062A]●フォルダの存在を確認したい">
-		<param name="Local" value="HMM0062A.html">
+		<param name="Local" value="html\HMM0062A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="フロッピー">
 		<param name="Name" value="[HME0022A]●フロッピーに保存できない？">
-		<param name="Local" value="HME0022A.html">
+		<param name="Local" value="html\HME0022A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ヘルプ">
 		<param name="Name" value="[HME0028A]●メニューバーに「ヘルプ」がない">
-		<param name="Local" value="HME0028A.html">
+		<param name="Local" value="html\HME0028A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マウスポインタ">
 		<param name="Name" value="[HME0019A]●マウスポインタが消えてしまう">
-		<param name="Local" value="HME0019A.html">
+		<param name="Local" value="html\HME0019A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロがWindows95で動かない">
 		<param name="Name" value="[HMM0066A]●Windows3.1で動いたマクロがWindows95で動かない？">
-		<param name="Local" value="HMM0066A.html">
+		<param name="Local" value="html\HMM0066A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロファイル">
 		<param name="Name" value="[HMM0001A]●マクロファイルとは？">
-		<param name="Local" value="HMM0001A.html">
+		<param name="Local" value="html\HMM0001A.html">
 		<param name="Name" value="[HMM0029A]●マクロファイルの存在確認">
-		<param name="Local" value="HMM0029A.html">
+		<param name="Local" value="html\HMM0029A.html">
 		<param name="Name" value="[HMM0004A]●マクロファイルの管理">
-		<param name="Local" value="HMM0004A.html">
+		<param name="Local" value="html\HMM0004A.html">
 		<param name="Name" value="[HMM0003A]●マクロファイルの置き場所">
-		<param name="Local" value="HMM0003A.html">
+		<param name="Local" value="html\HMM0003A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロファイル用のフォルダ">
 		<param name="Name" value="[HMM0005A]●マクロファイル用のフォルダは必須か？">
-		<param name="Local" value="HMM0005A.html">
+		<param name="Local" value="html\HMM0005A.html">
 		<param name="Name" value="[HMM0028B]●マクロで秀丸マクロフォルダを取得するには">
-		<param name="Local" value="HMM0028B.html">
+		<param name="Local" value="html\HMM0028B.html">
 		<param name="Name" value="[HMM0028A]●マクロファイル用フォルダの存在">
-		<param name="Local" value="HMM0028A.html">
+		<param name="Local" value="html\HMM0028A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロ関連の変更履歴">
 		<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴">
-		<param name="Local" value="3_macrov3.html">
+		<param name="Local" value="html\3_macrov3.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロ実行">
 		<param name="Name" value="マクロを実行してみよう">
-		<param name="Local" value="3_macro.html">
+		<param name="Local" value="html\3_macro.html">
 		<param name="Name" value="[HMM0006A]●マクロを動かす方法">
-		<param name="Local" value="HMM0006A.html">
+		<param name="Local" value="html\HMM0006A.html">
 		<param name="Name" value="[HMM0007A]●「マクロ実行」はめんどう">
-		<param name="Local" value="HMM0007A.html">
+		<param name="Local" value="html\HMM0007A.html">
 		<param name="Name" value="[HMM0010A]●マクロ実行でエラー">
-		<param name="Local" value="HMM0010A.html">
+		<param name="Local" value="html\HMM0010A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロ登録">
 		<param name="Name" value="[HMM0013A]●マクロを登録する位置はどこが最適？">
-		<param name="Local" value="HMM0013A.html">
+		<param name="Local" value="html\HMM0013A.html">
 		<param name="Name" value="[HMM0008A]●マクロ登録方法">
-		<param name="Local" value="HMM0008A.html">
+		<param name="Local" value="html\HMM0008A.html">
 		<param name="Name" value="[HMM0012A]●登録したマクロがメニューにない">
-		<param name="Local" value="HMM0012A.html">
+		<param name="Local" value="html\HMM0012A.html">
 		<param name="Name" value="マクロ登録数の制限突破大作戦">
-		<param name="Local" value="3_moremacro.html">
+		<param name="Local" value="html\3_moremacro.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロ内での「\」や特殊文字の使い方">
 		<param name="Name" value="マクロ内での「\」や特殊文字の使い方">
-		<param name="Local" value="3_yenmk.html">
+		<param name="Local" value="html\3_yenmk.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="マクロ入手">
 		<param name="Name" value="[HMM0002A]●マクロはどこで入手できるの？">
-		<param name="Local" value="HMM0002A.html">
+		<param name="Local" value="html\HMM0002A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="メニュー">
 		<param name="Name" value="[HMM0064A]●メニューに色を付けたい">
-		<param name="Local" value="HMM0064A.html">
+		<param name="Local" value="html\HMM0064A.html">
 		<param name="Name" value="[HMM0063A]●メニュー項目を揃えたい">
-		<param name="Local" value="HMM0063A.html">
+		<param name="Local" value="html\HMM0063A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="メモリー上に残っている">
 		<param name="Name" value="[HME0018A]●秀丸終了後もメモリー上に残骸がある">
-		<param name="Local" value="HME0018A.html">
+		<param name="Local" value="html\HME0018A.html">
 		<param name="Name" value="[HME0017A]●知らない秀丸がメモリー上に残っている">
-		<param name="Local" value="HME0017A.html">
+		<param name="Local" value="html\HME0017A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="メモ帳トラッパー">
 		<param name="Name" value="[HME0089A]●IEのソース表示に秀丸を使いたい">
-		<param name="Local" value="HME0089A.html">
+		<param name="Local" value="html\HME0089A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="もしかして">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　単語補完">
-		<param name="Local" value="2_wordcomplete.html">
+		<param name="Local" value="html\2_wordcomplete.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="やり直し">
 		<param name="Name" value="[HMM0040B]●マクロ実行後に「やり直し」が効かない">
-		<param name="Local" value="HMM0040B.html">
+		<param name="Local" value="html\HMM0040B.html">
 		<param name="Name" value="[HME0082A]●設定変更後に「やり直し」が効かない">
-		<param name="Local" value="HME0082A.html">
+		<param name="Local" value="html\HME0082A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="よくある質問">
 		<param name="Name" value="よくある質問">
-		<param name="Local" value="yokuaru.html">
+		<param name="Local" value="html\yokuaru.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="リターンキー">
 		<param name="Name" value="[HME0013D]●リターンキーの動作がヘンだ">
-		<param name="Local" value="HME0013D.html">
+		<param name="Local" value="html\HME0013D.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="レジストリ操作">
 		<param name="Name" value="[HMM0052A]●秀丸95のレジストリ操作と16bit版秀丸の共通化">
-		<param name="Local" value="HMM0052A.html">
+		<param name="Local" value="html\HMM0052A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="テンプレート">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　テンプレート">
+		<param name="Local" value="html\2_template.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ワードや一太郎等のファイル">
 		<param name="Name" value="[HME0048A]●「ワード」や「一太郎」等のファイルを開きたい">
-		<param name="Local" value="HME0048A.html">
+		<param name="Local" value="html\HME0048A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ワードや一太郎等のファイルにgrep">
 		<param name="Name" value="[HME0049A]●「ワード」や「一太郎」等のファイルにgrep">
-		<param name="Local" value="HME0049A.html">
+		<param name="Local" value="html\HME0049A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="ワードラップと折り返し">
 		<param name="Name" value="[HMM0053A]●ワードラップと折り返し">
-		<param name="Local" value="HMM0053A.html">
+		<param name="Local" value="html\HMM0053A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="暗号化">
 		<param name="Name" value="[HME0043A]●他人に分からない様に暗号化して保存したい">
-		<param name="Local" value="HME0043A.html">
+		<param name="Local" value="html\HME0043A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="異なるフォルダの秀丸が実行されているので起動できません">
 		<param name="Name" value="[HME0087A]●異なるフォルダの秀丸が実行されているので起動できません">
-		<param name="Local" value="HME0087A.html">
+		<param name="Local" value="html\HME0087A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="印刷">
 		<param name="Name" value="[HME0033A]●印刷ができません">
-		<param name="Local" value="HME0033A.html">
+		<param name="Local" value="html\HME0033A.html">
 		<param name="Name" value="[HME0034A]●印刷で行末が揃わない">
-		<param name="Local" value="HME0034A.html">
+		<param name="Local" value="html\HME0034A.html">
 		<param name="Name" value="秀丸パブリッシャーについて">
-		<param name="Local" value="6_publisher.html">
+		<param name="Local" value="html\6_publisher.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="印刷・ファイル操作・その他">
@@ -1760,269 +1772,269 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="引用符">
 		<param name="Name" value="[HMM0067A]●マクロで引用符を取得するには">
-		<param name="Local" value="HMM0067A.html">
+		<param name="Local" value="html\HMM0067A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="右クリックメニュー">
 		<param name="Name" value="[HME0075B]●Windows98にしてから右クリックメニューが遅い">
-		<param name="Local" value="HME0075B.html">
+		<param name="Local" value="html\HME0075B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="英語">
 		<param name="Name" value="表示言語の切替">
-		<param name="Local" value="2_language.html">
+		<param name="Local" value="html\2_language.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="演算子">
 		<param name="Name" value="[HMM0068A]●マクロ中の演算子の意味は？">
-		<param name="Local" value="HMM0068A.html">
+		<param name="Local" value="html\HMM0068A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="横スクロール">
 		<param name="Name" value="[HME0030A]●勝手に横スクロール">
-		<param name="Local" value="HME0030A.html">
+		<param name="Local" value="html\HME0030A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="下線で強調表示">
 		<param name="Name" value="[HME0060A]●カーソル行を下線で強調表示したい">
-		<param name="Local" value="HME0060A.html">
+		<param name="Local" value="html\HME0060A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="画面が乱れる">
 		<param name="Name" value="[HME0015A]●スクロールで画面が乱れる">
-		<param name="Local" value="HME0015A.html">
+		<param name="Local" value="html\HME0015A.html">
 		<param name="Name" value="[HME0016A]●秀丸の画面だけが乱れる">
-		<param name="Local" value="HME0016A.html">
+		<param name="Local" value="html\HME0016A.html">
 		<param name="Name" value="[HME0016B]●秀丸の画面だけが乱れる（その２）">
-		<param name="Local" value="HME0016B.html">
+		<param name="Local" value="html\HME0016B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="回答">
 		<param name="Name" value="[HME0010A]●会議室では誰が回答してくれるの？">
-		<param name="Local" value="HME0010A.html">
+		<param name="Local" value="html\HME0010A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="改行、EOF が表示されない">
 		<param name="Name" value="[HME0016D]●改行、EOF が表示されない">
-		<param name="Local" value="HME0016D.html">
+		<param name="Local" value="html\HME0016D.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="改行だけの行を削除">
 		<param name="Name" value="[HME0065A]●改行だけの行を削除したい">
-		<param name="Local" value="HME0065A.html">
+		<param name="Local" value="html\HME0065A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="改版履歴">
 		<param name="Name" value="改版履歴">
-		<param name="Local" value="updated.html">
+		<param name="Local" value="html\updated.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="外部プログラム">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能！！　プログラム実行">
-		<param name="Local" value="2_program.html">
+		<param name="Local" value="html\2_program.html">
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　外部プログラムの実行について">
-		<param name="Local" value="3_run.html">
+		<param name="Local" value="html\3_run.html">
 		<param name="Name" value="第IV部〜テキスト編集を極める！！　プログラム実行を利用したテキストの加工">
-		<param name="Local" value="4_run.html">
+		<param name="Local" value="html\4_run.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="外部ヘルプファイル">
 		<param name="Name" value="[HME0047A]●外部ヘルプファイルの起動方法">
-		<param name="Local" value="HME0047A.html">
+		<param name="Local" value="html\HME0047A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="拡張子">
 		<param name="Name" value="[HMM0015A]●拡張子の認識">
-		<param name="Local" value="HMM0015A.html">
+		<param name="Local" value="html\HMM0015A.html">
 		<param name="Name" value="[HME0091A]●ファイルタイプ別の設定の方法">
-		<param name="Local" value="HME0091A.html">
+		<param name="Local" value="html\HME0091A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="漢字コード">
 		<param name="Name" value="[HME0051A]●漢字コードの使い分け">
-		<param name="Local" value="HME0051A.html">
+		<param name="Local" value="html\HME0051A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="漢字だけを探したい">
 		<param name="Name" value="[HME0066A]●漢字だけを探したい">
-		<param name="Local" value="HME0066A.html">
+		<param name="Local" value="html\HME0066A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="寄稿要領">
 		<param name="Name" value="Ｑ＆Ａ集その他の原稿の寄稿要領">
-		<param name="Local" value="youryou.html">
+		<param name="Local" value="html\youryou.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="既に対応済みの過去のトラブル">
 		<param name="Name" value="既に対応済みの過去のトラブル">
-		<param name="Local" value="qa_trbl.html">
+		<param name="Local" value="html\qa_trbl.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="規則性のある文字列を検出">
 		<param name="Name" value="[HME0069A]●規則性のある文字列を検出したい">
-		<param name="Local" value="HME0069A.html">
+		<param name="Local" value="html\HME0069A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="起動オプション">
 		<param name="Name" value="[HME0045A]●ショートカットの起動オプションが効かない">
-		<param name="Local" value="HME0045A.html">
+		<param name="Local" value="html\HME0045A.html">
 		<param name="Name" value="起動オプションを使ってみよう">
-		<param name="Local" value="4_cmdlin.html">
+		<param name="Local" value="html\4_cmdlin.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="起動時に秀丸">
 		<param name="Name" value="[HME0027A]●起動時に秀丸が現れて邪魔だ">
-		<param name="Local" value="HME0027A.html">
+		<param name="Local" value="html\HME0027A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="強調表示">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　強調表示">
-		<param name="Local" value="2_highlight.html">
+		<param name="Local" value="html\2_highlight.html">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		<param name="Name" value="[HME0095A]●検索した単語を全て強調表示したい">
-		<param name="Local" value="HME0095A.html">
+		<param name="Local" value="html\HME0095A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="強調表示で、色やスタイル">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="空白行">
 		<param name="Name" value="[HME0062A]●空白行を改行だけの行にしたい">
-		<param name="Local" value="HME0062A.html">
+		<param name="Local" value="html\HME0062A.html">
 		<param name="Name" value="[HME0061A]●空白行を削除したい">
-		<param name="Local" value="HME0061A.html">
+		<param name="Local" value="html\HME0061A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="経緯">
 		<param name="Name" value="秀丸エディタＱ＆Ａ集の公開＆作成への経緯">
-		<param name="Local" value="s_keii.html">
+		<param name="Local" value="html\s_keii.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索">
 		<param name="Name" value="検索">
-		<param name="Local" value="2_find.html">
+		<param name="Local" value="html\2_find.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索した単語を強調表示">
 		<param name="Name" value="[HME0095A]●検索した単語を全て強調表示したい">
-		<param name="Local" value="HME0095A.html">
+		<param name="Local" value="html\HME0095A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索ダイアログボックス">
 		<param name="Name" value="[HMM0038A]●検索ダイアログボックスを出す">
-		<param name="Local" value="HMM0038A.html">
+		<param name="Local" value="html\HMM0038A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索での表示">
 		<param name="Name" value="[HMM0032A]●「検索での表示」の設定による動作の違い">
-		<param name="Local" value="HMM0032A.html">
+		<param name="Local" value="html\HMM0032A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索フラグ">
 		<param name="Name" value="[HMM0027A]●検索フラグの適用">
-		<param name="Local" value="HMM0027A.html">
+		<param name="Local" value="html\HMM0027A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="検索系コマンド">
 		<param name="Name" value="[HMM0049A]●検索系コマンドを使う場合は">
-		<param name="Local" value="HMM0049A.html">
+		<param name="Local" value="html\HMM0049A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="後方から検索">
 		<param name="Name" value="[HMM0074A]●文字列の後方から文字列を検索">
-		<param name="Local" value="HMM0074A.html">
+		<param name="Local" value="html\HMM0074A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="行の間隔">
 		<param name="Name" value="[HME0059A]●行と行の間隔を変えたい">
-		<param name="Local" value="HME0059A.html">
+		<param name="Local" value="html\HME0059A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="行の長さ">
 		<param name="Name" value="[HME0058A]●１行の長さをそろえたい">
-		<param name="Local" value="HME0058A.html">
+		<param name="Local" value="html\HME0058A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="行をソート">
 		<param name="Name" value="[HME0084A]●行をソートすることは出来ませんか？">
-		<param name="Local" value="HME0084A.html">
+		<param name="Local" value="html\HME0084A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="行頭に空白">
 		<param name="Name" value="[HME0024A]●行頭に空白が勝手に入って困る">
-		<param name="Local" value="HME0024A.html">
+		<param name="Local" value="html\HME0024A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="行頭の空白を削除">
 		<param name="Name" value="[HME0063A]●行頭の空白を削除したい">
-		<param name="Local" value="HME0063A.html">
+		<param name="Local" value="html\HME0063A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="行末の空白を削除">
 		<param name="Name" value="[HME0064A]●行末の空白を削除したい">
-		<param name="Local" value="HME0064A.html">
+		<param name="Local" value="html\HME0064A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="最新版">
 		<param name="Name" value="秀丸エディタの最新版">
-		<param name="Local" value="s_saisin.html">
+		<param name="Local" value="html\s_saisin.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="持ち出し">
 		<param name="Name" value="第VI部〜秀丸エディタ拡張モジュール　秀丸エディタ持ち出しキットについて">
-		<param name="Local" value="6_takeout.html">
+		<param name="Local" value="html\6_takeout.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="時間待ちサブルーチン">
 		<param name="Name" value="[HMM0035A]●時間待ちサブルーチン">
-		<param name="Local" value="HMM0035A.html">
+		<param name="Local" value="html\HMM0035A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="自動起動マクロ">
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　自動起動マクロ">
-		<param name="Local" value="3_autostartmacro.html">
+		<param name="Local" value="html\3_autostartmacro.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="自動保存">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　自動保存">
-		<param name="Local" value="2_autosave.html">
+		<param name="Local" value="html\2_autosave.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="質問">
 		<param name="Name" value="[HME0007A]●問い合わせ時の必要事項">
-		<param name="Local" value="HME0007A.html">
+		<param name="Local" value="html\HME0007A.html">
 		<param name="Name" value="[HME0006A]●質問したい時にはどうするの？">
-		<param name="Local" value="HME0006A.html">
+		<param name="Local" value="html\HME0006A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="実行結果ウィンドウ">
 		<param name="Name" value="[HME0091A]●ファイルタイプ別の設定の方法">
-		<param name="Local" value="HME0091A.html">
+		<param name="Local" value="html\HME0091A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="謝辞">
 		<param name="Name" value="謝辞">
-		<param name="Local" value="thanks.html">
+		<param name="Local" value="html\thanks.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="秀丸ウィンドウの管理">
 		<param name="Name" value="秀丸ウィンドウの管理">
-		<param name="Local" value="3_window.html">
+		<param name="Local" value="html\3_window.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="秀丸エディタＱ＆Ａ集 制作しよう会">
 		<param name="Name" value="「秀丸エディタＱ＆Ａ集 制作しよう会」とは？">
-		<param name="Local" value="about_us.html">
+		<param name="Local" value="html\about_us.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="秀丸のカスタマイズ">
 		<param name="Name" value="秀丸のカスタマイズ">
-		<param name="Local" value="2_custom.html">
+		<param name="Local" value="html\2_custom.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="秀丸マクロ">
@@ -2032,100 +2044,100 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="縦書き">
 		<param name="Name" value="縦書き">
-		<param name="Local" value="2_vertical.html">
+		<param name="Local" value="html\2_vertical.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="縦書きや段組の印刷">
 		<param name="Name" value="[HME0035A]●縦書きや段組みなど、きめ細かな設定で印刷したい">
-		<param name="Local" value="HME0035A.html">
+		<param name="Local" value="html\HME0035A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="重複行の削除">
 		<param name="Name" value="[HMM0076A]●重複行の削除">
-		<param name="Local" value="HMM0076A.html">
+		<param name="Local" value="html\HMM0076A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="瞬間起動">
 		<param name="Name" value="[HME0018B]●瞬間起動機能がメモリやシステムリソースを圧迫する">
-		<param name="Local" value="HME0018B.html">
+		<param name="Local" value="html\HME0018B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="上書きモード">
 		<param name="Name" value="[HME0014A]●上書きモードを解除したい">
-		<param name="Local" value="HME0014A.html">
+		<param name="Local" value="html\HME0014A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="上書き禁止・閲覧モード">
 		<param name="Name" value="[HMM0048A]●上書き禁止・閲覧モード時のマクロの動作">
-		<param name="Local" value="HMM0048A.html">
+		<param name="Local" value="html\HMM0048A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="常駐">
 		<param name="Name" value="[HME0025A]●起動するとともに常駐させたい">
-		<param name="Local" value="HME0025A.html">
+		<param name="Local" value="html\HME0025A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="常駐秀丸の終了">
 		<param name="Name" value="[HME0053A]●「常駐秀丸の終了」がわかりません">
-		<param name="Local" value="HME0053A.html">
+		<param name="Local" value="html\HME0053A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="色">
 		<param name="Name" value="[HME0056A]●画面の色を変更したい">
-		<param name="Local" value="HME0056A.html">
+		<param name="Local" value="html\HME0056A.html">
 		<param name="Name" value="[HME0057A]●純色以外の色を使いたい">
-		<param name="Local" value="HME0057A.html">
+		<param name="Local" value="html\HME0057A.html">
 		<param name="Name" value="[HME0092A]●コメント行やキーワードを色付けして表示するには">
-		<param name="Local" value="HME0092A.html">
+		<param name="Local" value="html\HME0092A.html">
 		<param name="Name" value="[HME0093A]●強調表示で、色やスタイルを設定する方法">
-		<param name="Local" value="HME0093A.html">
+		<param name="Local" value="html\HME0093A.html">
 		<param name="Name" value="[HME0096A]●[EOF]の色を変えるには">
-		<param name="Local" value="HME0096A.html">
+		<param name="Local" value="html\HME0096A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="数値">
 		<param name="Name" value="[HMM0071A]●入力が数値、整数であるかのチェック方法">
-		<param name="Local" value="HMM0071A.html">
+		<param name="Local" value="html\HMM0071A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="数値型変数の互換性">
 		<param name="Name" value="[HMM0079A]●16bit版秀丸との数値型変数の互換性">
-		<param name="Local" value="HMM0079A.html">
+		<param name="Local" value="html\HMM0079A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="制作趣旨">
 		<param name="Name" value="秀丸エディタＱ＆Ａ集の制作趣旨">
-		<param name="Local" value="s_syushi.html">
+		<param name="Local" value="html\s_syushi.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="正規表現">
 		<param name="Name" value="正規表現について">
-		<param name="Local" value="4_regular.html">
+		<param name="Local" value="html\4_regular.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="正規表現による置換">
 		<param name="Name" value="[HME0071A]●正規表現による置換をしたい">
-		<param name="Local" value="HME0071A.html">
+		<param name="Local" value="html\HME0071A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="正規表現の上検索">
 		<param name="Name" value="[HME0020A]●正規表現の上検索がヘン!?">
-		<param name="Local" value="HME0020A.html">
+		<param name="Local" value="html\HME0020A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="正規表現の設定">
 		<param name="Name" value="[HME0070A]●正規表現の設定はどうやるの">
-		<param name="Local" value="HME0070A.html">
+		<param name="Local" value="html\HME0070A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="正規表現の複数「*」">
 		<param name="Name" value="[HME0021A]●正規表現の複数「*」で障害">
-		<param name="Local" value="HME0021A.html">
+		<param name="Local" value="html\HME0021A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="設定">
 		<param name="Name" value="[HME0073A]●拡張子別や、grepの結果で秀丸の設定を変更する">
-		<param name="Local" value="HME0073A.html">
+		<param name="Local" value="html\HME0073A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="設定・起動オプション">
@@ -2135,190 +2147,190 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="設定を移行">
 		<param name="Name" value="[HME0078A]●各種設定を移行するためファイルに保存したい">
-		<param name="Local" value="HME0078A.html">
+		<param name="Local" value="html\HME0078A.html">
 		<param name="Name" value="[HME0078B]●設定を他のマシンに移行したい">
-		<param name="Local" value="HME0078B.html">
+		<param name="Local" value="html\HME0078B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="選択した範囲内のみ">
 		<param name="Name" value="[HME0083A]●検索/置換の「選択した範囲内のみ」の動作">
-		<param name="Local" value="HME0083A.html">
+		<param name="Local" value="html\HME0083A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="全角文字を意識する">
 		<param name="Name" value="[HME0023A]●「全角文字を意識する」がない">
-		<param name="Local" value="HME0023A.html">
+		<param name="Local" value="html\HME0023A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="窓の手">
 		<param name="Name" value="[HME0089A]●IEのソース表示に秀丸を使いたい">
-		<param name="Local" value="HME0089A.html">
+		<param name="Local" value="html\HME0089A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="送金">
 		<param name="Name" value="[HME0002A]●送金したのにまだ「送金について」が出る">
-		<param name="Local" value="HME0002A.html">
+		<param name="Local" value="html\HME0002A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="送金登録作業">
 		<param name="Name" value="[HME0003A]●「送金登録作業」の手順">
-		<param name="Local" value="HME0003A.html">
+		<param name="Local" value="html\HME0003A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="単語の検索">
 		<param name="Name" value="[HMM0039A]●単語の検索">
-		<param name="Local" value="HMM0039A.html">
+		<param name="Local" value="html\HMM0039A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="単語辞書登録">
 		<param name="Name" value="[HME0046A]●単語辞書登録の起動方法">
-		<param name="Local" value="HME0046A.html">
+		<param name="Local" value="html\HME0046A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="単語補完">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　単語補完">
-		<param name="Local" value="2_wordcomplete.html">
+		<param name="Local" value="html\2_wordcomplete.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="置換">
 		<param name="Name" value="置換">
-		<param name="Local" value="2_replace.html">
+		<param name="Local" value="html\2_replace.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="遅い">
 		<param name="Name" value="[HME0041A]●速いはずの秀丸が遅い！？">
-		<param name="Local" value="HME0041A.html">
+		<param name="Local" value="html\HME0041A.html">
 		<param name="Name" value="[HMM0078A]●ある特定のマクロの動作だけが遅い">
-		<param name="Local" value="HMM0078A.html">
+		<param name="Local" value="html\HMM0078A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="著作権・配布規定">
 		<param name="Name" value="著作権・配布規定">
-		<param name="Local" value="release.html">
+		<param name="Local" value="html\release.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="特定のファイルを開く">
 		<param name="Name" value="[HMM0047A]●特定のファイルを開く">
-		<param name="Local" value="HMM0047A.html">
+		<param name="Local" value="html\HMM0047A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="特定の文字列">
 		<param name="Name" value="[HME0067C]●編集中の文書中から特定の文字列をすべて見つけたい">
-		<param name="Local" value="HME0067C.html">
+		<param name="Local" value="html\HME0067C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="内容比較">
 		<param name="Name" value="他の秀丸エディタと内容比較">
-		<param name="Local" value="2_compfile.html">
+		<param name="Local" value="html\2_compfile.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="日時を挿入">
 		<param name="Name" value="[HMM0055A]●文章作成日時を挿入するには？">
-		<param name="Local" value="HMM0055A.html">
+		<param name="Local" value="html\HMM0055A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="入力チェック">
 		<param name="Name" value="[HMM0070A]●入力チェック、変数チェックを簡単に行う方法">
-		<param name="Local" value="HMM0070A.html">
+		<param name="Local" value="html\HMM0070A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="発言タイトル">
 		<param name="Name" value="[HME0008A]●発言タイトルの付け方は？">
-		<param name="Local" value="HME0008A.html">
+		<param name="Local" value="html\HME0008A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="発言にレスがつかない">
 		<param name="Name" value="[HME0009A]●発言にレスがつかない">
-		<param name="Local" value="HME0009A.html">
+		<param name="Local" value="html\HME0009A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="半角小文字を大文字に">
 		<param name="Name" value="[HMM0044A]●文字列型変数中の半角小文字を大文字に">
-		<param name="Local" value="HMM0044A.html">
+		<param name="Local" value="html\HMM0044A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="半角大文字を小文字に">
 		<param name="Name" value="[HMM0045A]●文字列型変数中の半角大文字を小文字に">
-		<param name="Local" value="HMM0045A.html">
+		<param name="Local" value="html\HMM0045A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="表記">
 		<param name="Name" value="Ｑ＆Ａ集の表記について">
-		<param name="Local" value="s_hyouki.html">
+		<param name="Local" value="html\s_hyouki.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="表示できない記号">
 		<param name="Name" value="[HME0016C]●表示できない記号がある">
-		<param name="Local" value="HME0016C.html">
+		<param name="Local" value="html\HME0016C.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="表示言語">
 		<param name="Name" value="表示言語の切替">
-		<param name="Local" value="2_language.html">
+		<param name="Local" value="html\2_language.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="浮動小数点数版秀丸">
 		<param name="Name" value="[HMM0075A]●浮動小数点数版秀丸との互換性">
-		<param name="Local" value="HMM0075A.html">
+		<param name="Local" value="html\HMM0075A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="複数選択">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　複数選択">
-		<param name="Local" value="2_multiselect.html">
+		<param name="Local" value="html\2_multiselect.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字が消える">
 		<param name="Name" value="[HME0013B]●スペースキーで文字が消える">
-		<param name="Local" value="HME0013B.html">
+		<param name="Local" value="html\HME0013B.html">
 		<param name="Name" value="[HME0013A]●文字を入力すると、入力してあった文字が消える">
-		<param name="Local" value="HME0013A.html">
+		<param name="Local" value="html\HME0013A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字コード">
 		<param name="Name" value="[HME0031A]●文字コードの設定がヘン？">
-		<param name="Local" value="HME0031A.html">
+		<param name="Local" value="html\HME0031A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字化け">
 		<param name="Name" value="[HME0074A]●特定のファイルを開くと文字化けする">
-		<param name="Local" value="HME0074A.html">
+		<param name="Local" value="html\HME0074A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字数">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　文字数の計算">
-		<param name="Local" value="2_wordcount.html">
+		<param name="Local" value="html\2_wordcount.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字単位">
 		<param name="Name" value="[HMM0073A]●文字列をバイト単位ではなく文字単位で扱う">
-		<param name="Local" value="HMM0073A.html">
+		<param name="Local" value="html\HMM0073A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字列の比較">
 		<param name="Name" value="[HMM0077A]●マクロでの文字列の比較">
-		<param name="Local" value="HMM0077A.html">
+		<param name="Local" value="html\HMM0077A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字列を含むファイル">
 		<param name="Name" value="[HME0067A]●ある文字列を含むファイルと存在する位置を知りたい">
-		<param name="Local" value="HME0067A.html">
+		<param name="Local" value="html\HME0067A.html">
 		<param name="Name" value="[HME0067B]●ある文字列を含むファイルを見つけたい">
-		<param name="Local" value="HME0067B.html">
+		<param name="Local" value="html\HME0067B.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="文字列型変数">
 		<param name="Name" value="[HMM0041A]●文字列型変数の扱う文字列の限界">
-		<param name="Local" value="HMM0041A.html">
+		<param name="Local" value="html\HMM0041A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="変換モジュール">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　変換モジュール">
-		<param name="Local" value="2_convert.html">
+		<param name="Local" value="html\2_convert.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="編集位置のマーク及び検索">
 		<param name="Name" value="編集位置のマーク及び検索">
-		<param name="Local" value="2_mark.html">
+		<param name="Local" value="html\2_mark.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="編集作業・検索等">
@@ -2328,7 +2340,7 @@
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="編集場所">
 		<param name="Name" value="編集場所について">
-		<param name="Local" value="hidpatio.html">
+		<param name="Local" value="html\hidpatio.html">
 		</OBJECT>
 </UL>
 </BODY></HTML>
