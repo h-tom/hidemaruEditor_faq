@@ -21,7 +21,8 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0082A.html">←前へ</a> <a href="HMM0084A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="HMM0082A.html">←前へ</a> <a href="HMM0084A.html">次へ→</a>
+<a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
 <section id="hmm0083a" class="level1">
 <h1>[HMM0083A]</h1>
@@ -63,20 +64,23 @@
 <p><img src="2_convert_06.png" width="613" height="433" alt="32bit版の互換性" /><br />
 </p>
 <p><a href="#HMM0083A_02">[補足］</a>も参照の事。</p></li>
-<li><p>DLLを実行するためのファイルが足りない。 VCのランタイムライブラリ等、DLLの実行に必要なファイルがない場合にもDLLのロードに失敗します。 DLL本体の他に、必要なファイルがあるかどうか確認してください。</p></li>
+<li><p>DLLを実行するためのファイルが足りない。
+VCのランタイムライブラリ等、DLLの実行に必要なファイルがない場合にもDLLのロードに失敗します。
+DLL本体の他に、必要なファイルがあるかどうか確認してください。</p></li>
 </ul></li>
 <li><p>ストアアプリ版の場合</p>
 <p>基本的にはデスクトップ版と同じですが、以下の制限があります。</p>
 <ul>
 <li><p>デスクトップ版と違い、<span class="attention_red">外部DLLを秀丸エディタ本体と同じ場所に配置することは出来ません。</span>その為、マクロフォルダ等、「秀丸エディタ本体」とは別の場所にDLLを配置する必要があります。</p></li>
-<li><p>ストアアプリ版は、2022/03/26現在、32bit版しかないので、DLLは<strong>32bit</strong>を使用する必要があります。</p></li>
+<li><p>ストアアプリ版は、2022/05/18現在、32bit版しかないので、DLLは<strong>32bit</strong>を使用する必要があります。</p></li>
 </ul>
 <p>使用するマクロが、ストアアプリ版で使用する事を考慮していない場合は、マクロを修正する必要があります。</p>
 <p>例えば、田楽DLLを使用するマクロが、</p>
 <div class="macro">
 <pre><code>loaddll hidemarudir + &quot;\\DengakuDLL.dll&quot;;</code></pre>
 </div>
-<p>となっていた場合、ストアアプリ版では秀丸エディタ本体と同じ場所にDLLを配置できないので、 DLLのロードに失敗することになります。</p>
+<p>となっていた場合、ストアアプリ版では秀丸エディタ本体と同じ場所にDLLを配置できないので、
+DLLのロードに失敗することになります。</p>
 <p>田楽DLLがマクロフォルダにある場合は、以下のようにマクロを修正します。</p>
 <div class="macro">
 <pre><code>loaddll macrodir + &quot;\\DengakuDLL.dll&quot;;</code></pre>
@@ -112,9 +116,12 @@ if (!result){
 <dl>
 <dt><span class="mark_dt3"><span id="HMM0083A_02">[補足]</span></span></dt>
 <dd>
-<p>64bit版秀丸エディタで、32bit DLLをマクロで動作可能にした場合、 32bit DLLから"hmjre.dll"を使う時には注意が必要です。</p>
+<p>64bit版秀丸エディタで、32bit DLLをマクロで動作可能にした場合、
+32bit DLLから"hmjre.dll"を使う時には注意が必要です。</p>
 <p>外部DLLには、正規表現を使うために、"hmjre.dll"をロードして使う物もあります。</p>
-<p>64bit版秀丸エディタに添付される "hmjre.dll" は 64bit の DLL です。 bit数の異なるDLLは、お互いにロードすることができないので、 32bit DLLから、64bit DLL の hmjre.dll をロードしようとしても必ず失敗することになります。</p>
+<p>64bit版秀丸エディタに添付される "hmjre.dll" は 64bit の DLL です。
+bit数の異なるDLLは、お互いにロードすることができないので、
+32bit DLLから、64bit DLL の hmjre.dll をロードしようとしても必ず失敗することになります。</p>
 <p>「32bit版との互換性」で<strong>「32bit DLL をマクロの loaddll で動作可能にする」</strong>を有効にするのは、あまりおすすめしません。秀丸エディタや使用する外部DLLを含め、32bit または 64bit で統一するほうが、面倒が少ないです。</p>
 </dd>
 </dl>
@@ -122,7 +129,8 @@ if (!result){
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0082A.html">←前へ</a>｜<a href="HMM0084A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="HMM0082A.html">←前へ</a>｜<a href="HMM0084A.html">次へ→</a>
+<a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 </section>
 </section>
 </body>

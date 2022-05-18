@@ -33,12 +33,11 @@
 <li><a href="#V912">秀丸エディタVer.9.12 マクロ関連の変更履歴</a></li>
 <li><a href="#V913">秀丸エディタVer.9.13 マクロ関連の変更履歴</a></li>
 <li><a href="#V914">秀丸エディタVer.9.14 マクロ関連の変更履歴</a></li>
+<li><a href="#V915">秀丸エディタVer.9.15 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
-<p>秀丸エディタ本体の更新内容に関しては、
-<a href="https://hide.maruo.co.jp/software/hidemarunew/v900_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.00の変更点</a>
-を参照してください。</p>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v900_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.00の変更点</a>を参照してください。</p>
 <p>【１】<a href="#LIST_V900">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.00</a>
 【２】<a href="#SPEC_V900">仕様変更 - 「秀丸エディタ」Ver.9.00</a></p>
 <section id="LIST_V900" class="level3">
@@ -49,7 +48,7 @@
 <li>getgrepfilehist 関数</li>
 <li>keepdde 文</li>
 <li>enumregvalue</li>
-<li>大文字の FIND文 を追加して、「検索…」コマンド相当ですぐマクロを終了するものを追加。</li>
+<li>大文字の FIND文 を追加して、「検索...」コマンド相当ですぐマクロを終了するものを追加。</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
@@ -92,7 +91,7 @@
 <ul>
 <li>setcompatiblemode 0x20000;では、カラーマーカーの対象も復元するように修正。</li>
 <li>input関数の第３パラメータで、0x100で複数行入力を可能にした。</li>
-<li>colormarker文のRGB値を “#ffffff” といった感じのRGB順の文字列でもできるように修正。</li>
+<li>colormarker文のRGB値を "#ffffff" といった感じのRGB順の文字列でもできるように修正。</li>
 </ul></li>
 <li>その他
 <ul>
@@ -124,9 +123,9 @@
 </section>
 <section id="V912" class="level2">
 <h2>秀丸エディタVer.9.12 マクロ関連の変更履歴</h2>
-<p>秀丸エディタ本体の更新内容に関しては、
-<a href="https://hide.maruo.co.jp/software/hidemarunew/v912_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.12の変更点</a>
-を参照してください。</p>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v912_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.12の変更点</a>を参照してください。</p>
+<p>【１】<a href="#LIST_V912">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.12</a></p>
+<p>【２】<a href="#SPEC_V912">仕様変更 - 「秀丸エディタ」Ver.9.12</a></p>
 <section id="LIST_V912" class="level3">
 <h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.12</h3>
 <ul>
@@ -143,23 +142,23 @@
 <ul>
 <li>config文で指定できるものに xHilightTitle xHilightDirectWord xHilightDirectMulti xHilightDirectIfdef を追加。</li>
 <li>setstaticvariable で「共有」に -1 を指定すると、一時的な制限の無い変数の出し入れを追加。</li>
-<li>getconfig関数の”RulerColor”が「文字と同じ」、“RulerBack”が「背景と同じ」の場合は、空の文字列を返すように修正。</li>
+<li>getconfig関数の"RulerColor"が「文字と同じ」、"RulerBack"が「背景と同じ」の場合は、空の文字列を返すように修正。</li>
 </ul></li>
 <li>その他
 <ul>
 <li>basenameの角括弧の添え字ができないバグ修正。</li>
 <li>configcolor文の65〜66番や色の指定方法の追加と、ヘルプに書かれていなかった番号の不足分を追記。（65でカーソル色、66でルーラー色）</li>
 <li>message文で文字が多すぎてウィンドウが出ない場合の対策。</li>
-<li>getconfig(“Tab”)でマイナス値の取得が64bit整数版でできなかった問題修正。</li>
+<li>getconfig("Tab")でマイナス値の取得が64bit整数版でできなかった問題修正。</li>
 <li>単語補完にテンプレート(スニペット)が含まれる場合、autocomplete 文でのマクロの直接選択はできないように修正。</li>
 </ul></li>
 </ul>
-<section id="SPEC_V912" class="level4">
-<h4>【２】仕様変更 - 「秀丸エディタ」Ver.9.12</h4>
+</section>
+<section id="SPEC_V912" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.12</h3>
 <ul>
 <li>callのネストの上限を200から150に変更。（内部的な都合）</li>
 </ul>
-</section>
 </section>
 </section>
 <section id="V913" class="level2">
@@ -178,6 +177,36 @@
 <section id="V914" class="level2">
 <h2>秀丸エディタVer.9.14 マクロ関連の変更履歴</h2>
 <p>Ver.9.14は、マクロ関連の変更はありません。</p>
+</section>
+<section id="V915" class="level2">
+<h2>秀丸エディタVer.9.15 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V915">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.12</a></p>
+<section id="LIST_V915" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.15</h3>
+<ul>
+<li>追加
+<ul>
+<li>stophistory キーワード</li>
+<li>regulardll キーワード</li>
+<li>lastupdatedx キーワード</li>
+<li>lastupdatedy キーワード</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>template 文で、パラメータでファイル名明示指定して実行できるようにした。</li>
+<li>getresultex(25) を追加して起動数の上限のエラーが発生したかどうかを取得可能にした。</li>
+<li>setfilehist で、カーソル位置の自動復元の位置を指定するパラメータ追加。</li>
+<li>findmarkerlist文で色などを取得パラメータを追加。</li>
+<li>getmaxinfo の検索文字列などの上限は4094となるように変更。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>localgrepで設定の組み合わせによってgrep結果の先頭にUTF-16のBOM相当の文字が挿入される問題修正。</li>
+<li>マクロ実行のダイアログで、ファイル名を "" でくくったばあいの対応を追加。</li>
+<li>Hidemaru_GetStaticVariable, Hidemaru_SetStaticVariableを追加</li>
+</ul></li>
+</ul>
+</section>
 </section>
 </section>
 <hr />
