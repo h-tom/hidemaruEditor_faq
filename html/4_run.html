@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第IV部〜テキスト編集を極める！！　プログラム実行を利用したテキストの加工</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="top" class="level1">
+<h1>第IV部〜テキスト編集を極める！！<br>　プログラム実行を利用したテキストの加工</h1>
+<hr />
+<section id="INTRODUCTION" class="level2">
+<h2>プログラム実行を利用したテキストの加工</h2>
+<p>秀丸エディタでは「プログラム実行」を使うことにより、標準入力・標準出力を利用するプログラムを利用して、テキストを加工できます。</p>
+<p>昔はlinuxのような便利なコマンドが少なくて活用しづらい機能でしたが、現在はWindowsでも便利なコマンドが増えたり、
+PowerShellが導入されたことで色々な編集に活用できます。</p>
+<p>メニューの「その他→プログラム実行」から使用できます。</p>
+<div class="title-li">
+<ul>
+<li>【１】<a href="#PROGRAM">プログラム実行の方法</a></li>
+<li>【２】<a href="#EXAMPLES">実用例</a></li>
+</ul>
+</div>
+<section id="PROGRAM" class="level3">
+<h3>【１】プログラム実行の方法</h3>
+<p>「プログラム実行」で標準入出力を使うを使う方法は、２通りあります。</p>
+<p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>にある、</p>
+<div class="title-li">
+<ul>
+<li><a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a></li>
+<li><a href="./2_program.html#PROGRAM2">【３】プログラム実行の方法その2</a></li>
+</ul>
+</div>
+<p>を参照してください。</p>
+<p>どちらの方法を使うかは、実行するプログラムや、編集しているファイルの文字コードによります。</p>
+<p>開いているファイルが「Shift_JIS」で、標準入力と標準出力の文字コードが「Shift_JIS」で動作するプログラム
+(もしくは、入出力のエンコードが起動オプションで指定可能なプログラム)である場合は、"&lt;con"、"&gt;con" を使うのが簡単です。コマンドラインに「 &lt;con &gt;con」と付けて実行することで、外部プログラムの標準入力に現在の選択範囲を渡し、標準出力を選択範囲に出力できます。</p>
+<p>実行するプログラムが、標準入出力の文字コードとしてUTF-8を期待する場合や編集しているファイルに「Shift_JISに含まれない文字」がある場合は、
+"&lt;con"、"&gt;con" は使わないでください。Shift_JISへの変換時にデータ欠落する場合があります。<br />
+その場合は、「オプション」-「詳細設定」を有効にし、エンコードを指定してください。</p>
+<ul>
+<li>「オプション」-「詳細設定」を有効にした場合は、「標準入力」「標準出力」も有効にしてください。「自動」を選んでおけば、"&lt;con"、"&gt;con" を使う場合と同じになります。</li>
+<li>範囲選択していない状態で、"&lt;con"、"&gt;con" を使うと、思わぬ結果になるので注意すること。</li>
+<li>範囲選択をしないで、カーソル位置に標準出力を挿入できます。<br />
+「オプション」-「詳細設定」で、「標準出力」を有効にし、「挿入」を選んでください。</li>
+</ul>
+</section>
+<section id="EXAMPLES" class="level3">
+<h3>【２】実用例</h3>
+<p>OSに標準であるコマンドでの実行例です。</p>
+<p>"&lt;con"、"&gt;con" を使っているので、「詳細設定」を有効にする場合は、「標準入力」「標準出力」も有効にし「自動」を選んでください。</p>
+<dl>
+<dt><strong>sort &lt;con &gt;con</strong></dt>
+<dd>
+<p>選択範囲を並び替える。</p>
+<p>起動オプションに "/R" を指定すると、逆順で出力されます。</p>
+<div class="macro">
+<pre><code>sort /R &lt;con &gt;con</code></pre>
+</div>
+<p>起動オプションに "/+&lt;number&gt;" を指定すると、&lt;number&gt;で指定した文字から比較を開始します。</p>
+<div class="macro">
+<pre><code>sort /+5 &lt;con &gt;con</code></pre>
+</div>
+<p>上記例では、5文字目から比較を行います。</p>
+</dd>
+<dt><strong>findstr "hoge" &lt;con &gt;con</strong></dt>
+<dd>
+<p>hogeという文字が入った行だけを抜き出す。</p>
+<p>起動オプションに "/I" を指定すると、大文字小文字を無視します。</p>
+<div class="macro">
+<pre><code>findstr /I &quot;hoge&quot; &lt;con &gt;con</code></pre>
+</div>
+<p><br />
+</p>
+</dd>
+<dt><strong>powershell -c "$input | Get-Unique" &lt;con &gt;con</strong></dt>
+<dd>
+<p>選択範囲の重複行を削除する。(事前にソートしておく必要があります)</p>
+<p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。
+(標準入力の内容が入っている)</p>
+</dd>
+<dt><strong>powershell -c "1..5" &gt;con</strong></dt>
+<dd>
+<p>以下のような連番を選択範囲に書き出す。(「詳細設定」有効、「標準出力」を有効にして「挿入」に設定すれば、範囲選択は不要)</p>
+<p>出力結果</p>
+<div class="macro">
+<pre><code>1
+2
+3
+4
+5</code></pre>
+</div>
+<p>数字を3桁にして、":"を追加したりも可能です。</p>
+<div class="macro">
+<pre><code>powershell -c &quot;1..5 | %{\&quot;{0:000}:\&quot; -f $_ }&quot; &gt;con</code></pre>
+</div>
+<p>出力結果</p>
+<div class="macro">
+<pre><code>001:
+002:
+003:
+004:
+005:</code></pre>
+</div>
+<p><br />
+</p>
+</dd>
+<dt><strong>cmd /c "dir /b c:\hoge" &gt;con</strong></dt>
+<dd>
+<p>「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。</p>
+<p>起動オプション "/b" は「ファイル名のみ出力」です。
+"/on" を追加するとファイル名でソートされ出力されます。</p>
+</dd>
+<dt><strong>powershell -c "<span class="math inline">$input | Sort-Object {$</span>_.Length}" &lt;con &gt;con</strong></dt>
+<dd>
+<p>選択範囲を行の長さでソートする。</p>
+<p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。
+(標準入力の内容が入っている)</p>
+<p>逆順にソートしたい場合は、<code>Sort-Object</code> のオプションに <code>-descending</code> を指定します。</p>
+<div class="macro">
+<pre><code>powershell -c &quot;$input|Sort-Object -descending { $_.Length }&quot;  &lt;con &gt;con</code></pre>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

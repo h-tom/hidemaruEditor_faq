@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第II部〜知っていると便利な秀丸の機能　CSV/TSVモード</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　CSV/TSVモード</h1>
+<hr />
+<section id="CSVMODE" class="level2">
+<h2>CSV/TSVモード</h2>
+<p>秀丸エディタ Ver.8.00以降では、「<strong>CSV/TSVモード</strong>」が使用できます。</p>
+<p>エディタ画面上で、CSV(カンマ区切りテキスト)、TSV(タブ区切りテキスト)を、表計算ソフトの様に<span class="attention_red">表示するモード</span>です。表計算ソフトのように計算する機能はありません。</p>
+<p>秀丸エディタ Ver.8.89 より、<strong>「セル内での改行」</strong> にも対応しています。詳細は「<a href="#SUPPLEMENTATION">補足</a>」の「<a href="#SUPPLEMENTATION-5">セル内での改行</a>」を参照。</p>
+<p>TSV/CSVモードの場合、動作が変わったり、使えない機能があります。詳細は、秀丸エディタのヘルプー<a href="https://help.maruo.co.jp/hidemaru/html/080_Config_FormTab_TsvCsv.html" class="externallink" target="_blank" rel="noopener">「TSVモード/CSVモード」</a>を参照してください。</p>
+<ul>
+<li><a href="#EXPLANATION">解説</a>
+<ul>
+<li><a href="#EXPLANATION-1">設定</a></li>
+</ul></li>
+<li><a href="#SUPPLEMENTATION">補足</a>
+<ul>
+<li><a href="#SUPPLEMENTATION-1">検索時の注意点</a></li>
+<li><a href="#SUPPLEMENTATION-2">指定した列のみ検索対象にしたい場合</a></li>
+<li><a href="#SUPPLEMENTATION-3">区切り文字のcolorcode</a></li>
+<li><a href="#SUPPLEMENTATION-4">区切り文字の表示</a></li>
+<li><a href="#SUPPLEMENTATION-5">セル内での改行</a></li>
+</ul></li>
+</ul>
+<section id="EXPLANATION" class="level3">
+<h3>[解説]</h3>
+<p>普通の設定で、CSVファイルを開いた状態です。</p>
+<p><img src="2_csv_tsv_01.png" width="501" height="270" alt="通常モード" /><br />
+</p>
+<p>「CSVモード」でCSVファイルを開いた状態です。(<span class="attention_red">縦と横のガイドラインを表示</span>)<br />
+カンマやタブを区切り文字として、表計算ソフトのように<span class="attention_red">表示できます。</span></p>
+<p><img src="2_csv_tsv_02.png" width="571" height="277" alt="CSVモード" /><br />
+</p>
+<p>CSVモードにするには、「メニュー」から設定する方法と、「<span class="filetype">ファイルタイプ別の設定</span>」から変更する方法があります。</p>
+<ul>
+<li><p>メニューは「表示」−「タブストップ」−「CSVモード(カンマ区切り)」で設定します。</p>
+<p><img src="2_csv_tsv_03.png" width="605" height="561" alt="メニューから設定" /><br />
+</p></li>
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」は「体裁」ー「タブ」−「タブの文字数」で設定します。
+TSVモードかCSVモードを選んでください。</p>
+<p><img src="2_csv_tsv_04.png" width="632" height="451" alt="ファイルタイプ別の設定から設定" /><br />
+</p></li>
+</ul>
+<p>一時的に表示を変更したい場合にはメニューから変更する方がお手軽です。</p>
+<hr />
+<p>CSV/TSVモード特有の動作として、ルーラ部のカラムをクリックする事で、列全体を選択できます。そのままドラッグして、列を移動させることも可能です。</p>
+<p><img src="2_csv_tsv_11.png" width="560" height="260" alt="列の選択" /><br />
+</p>
+<p>また、ルーラ部のカラムを右クリックすることで、その列をキーにしたソートが可能です。</p>
+<p><img src="2_csv_tsv_15.png" width="502" height="307" alt="列のキーにしたソート" /><br />
+</p>
+<section id="EXPLANATION-1" class="level4">
+<h4>設定</h4>
+<p>「<span class="filetype">ファイルタイプ別の設定</span>」ではなく、「<span class="env">動作環境</span>」という扱いです。設定が表示されない場合は、「<strong>上級者向け設定</strong>」にチェックを入れてください。</p>
+<ul>
+<li><p>「<strong>TSV/CSVモードの詳細</strong>」<br />
+「<span class="env">動作環境</span>」−「編集」−「TSV/CSV」で設定します。</p>
+<p>詳細は<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Edit_TsvCsv.html" class="externallink" target="_blank" rel="noopener">ヘルプ：TSV/CSVモードの詳細</a>を参照してください。</p>
+<p><img src="2_csv_tsv_05.png" width="469" height="220" alt="TSV/CSVモードの詳細" /><br />
+</p></li>
+<li><p>「<strong>ルーラの詳細</strong>」<br />
+TSV/CSVモードのカラム表示方法を設定できます。「<span class="env">動作環境</span>」−「表示/操作」−「ルーラー」にある「TSV/CSVモードのとき」で設定します。</p>
+<p>詳細は<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_User_Cursor2.html" class="externallink" target="_blank" rel="noopener">ヘルプ：ルーラの詳細</a>を参照してください。</p>
+<p><img src="2_csv_tsv_06.png" width="408" height="392" alt="ルーラの詳細" /><br />
+</p>
+<p>「目盛り」は、半角1文字ずつの目盛りを表示します、</p>
+<p>ABCの設定</p>
+<p><img src="2_csv_tsv_07.png" width="550" height="136" alt="ルーラの詳細(A,B)" /><br />
+</p>
+<p>123の設定</p>
+<p><img src="2_csv_tsv_08.png" width="550" height="136" alt="ルーラの詳細(1,2)" /><br />
+</p>
+<p>桁数</p>
+<p><img src="2_csv_tsv_09.png" width="550" height="136" alt="ルーラの詳細(桁数)" /><br />
+</p></li>
+<li><p>「<span class="filetype">ファイルタイプ別の設定</span>」の「デザイン」で「ガイドライン(縦)」と「ガイドライン(横)」を、表示するようにすると、Excelのセルっぽく表示することが出来ます。</p>
+<p><img src="2_csv_tsv_10.png" width="480" height="219" alt="ガイドラインの表示" /><br />
+</p></li>
+</ul>
+</section>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>[補足]</h3>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>検索時の注意点</h4>
+<p>例えば、以下の状態で、項目(セル)内の「最高気温」だけを検索する場合を考えます。(「最高気温時」にはマッチさせない)</p>
+<p><img src="2_csv_tsv_14.png" width="662" height="175" alt="CSVモード表示例2" /><br />
+</p>
+<ul>
+<li><p>単純に「最高気温」で検索した場合は、「最高気温」と「最高気温時」にマッチしてしまいます。</p></li>
+<li><p>項目(セル)内の内容ということで、正規表現を使用し「^最高気温$」で検索しても、マッチしません。</p>
+<p>これは、実際には</p>
+<!-- macro -->
+<div class="macro">
+<pre><code>日,最高気温,最高気温起時,最低気温,最低気温起時,平均気温,日照積算量</code></pre>
+</div>
+<p>という内容を検索しているため、<code>^</code>と<code>$</code>は、行頭と行末になるためマッチしません。
+(項目内の先頭、末尾にはならない)</p></li>
+</ul>
+<p>項目(セル)内のみマッチさせるには、正規表現の、前方一致(戻り読み)と後方一致(先読み)を使います。</p>
+<!-- macro -->
+<div class="macro">
+<pre><code>(?&lt;=^|,)最高気温(?=$|,)</code></pre>
+</div>
+<p>正規表現を使用するため、検索内容に正規表現のメタ文字がある場合はエスケープする必要があります。</p>
+<p>または、以下のように検索したい内容を <code>\Q</code> と <code>\E</code> で囲みます。</p>
+<!-- macro -->
+<div class="macro">
+<pre><code>(?&lt;=^|,)\Q最高気温\E(?=$|,)</code></pre>
+</div>
+<p>CSVの場合は <code>","</code> が区切り文字となりますが、TSVの場合は、<code>"\t"</code> を使います。</p>
+<!-- macro -->
+<div class="macro">
+<pre><code>(?&lt;=^|\t)\Q最高気温\E(?=$|\t)</code></pre>
+</div>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>指定した列のみ検索対象にしたい場合</h4>
+<p>指定した列のみ検索対象にしたい場合は、複数の方法があります。</p>
+<ul>
+<li>カラーマーカーを使う</li>
+<li>複数選択を使う(Ver.8.94以降が対象)</li>
+</ul>
+<p>複数選択を使う方法は、Ver.8.94以降が必要です。</p>
+</section>
+<section id="カラーマーカーを使う方法" class="level4">
+<h4>カラーマーカーを使う方法</h4>
+<ol type="1">
+<li><p>検索対象にしたい列全体を選択します。(ルーラー部分をクリックすれば、列全体を選択できます)</p></li>
+<li><p>メニューの「検索」−「カラーマーカー」−「一時的なカラーマーカーを付ける」を選び、カラーマーカーを付けます。</p></li>
+<li><p>対象にしたい列に対し、1.〜2.を繰り返します。</p></li>
+<li><p>検索ダイアログを表示させ、「追加の条件」にチェックを入れ、範囲を「<strong>「一時的なカラーマーカー」の範囲</strong>」に設定します。「追加の条件」に関しては、<a href="2_find.html">「第II部〜知っていると便利な秀丸の機能　検索」</a>にある、<a href="2_find.html#SUPPLEMENTATION-1">「追加の条件」</a>を参照してください。</p>
+<div style="position:relative;">
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" />
+<img src="2_csv_tsv_12.png" width="433" height="244" alt="検索ダイアログ-追加の条件" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
+<li><p>これで検索すれば、指定した列(カラーマーカーを付けた列)のみを、検索の対象に出来ます。</p></li>
+</ol>
+</section>
+<section id="複数選択を使う方法ver.8.94以降が対象" class="level4">
+<h4>複数選択を使う方法(Ver.8.94以降が対象)</h4>
+<ol type="1">
+<li><p>検索対象にしたい列全体を選択します。(ルーラー部分をクリックすれば、列全体を選択できます)</p></li>
+<li><p>メニューの「その他」−「コマンド一覧」から「クリップボード系」−「複数選択化」を選び、複数選択状態にします。</p></li>
+<li><p>対象にしたい列に対し、1.〜2.を繰り返します。</p></li>
+<li><p>検索ダイアログを表示させ、「選択した範囲」にチェックを入れ、「<span class="attention_red">文字単位</span>」に設定します。</p>
+<p>「選択した範囲」の詳細については、<a href="HME0083A.html"><strong>[HME0083A]</strong>●検索/置換の「選択した範囲」の動作</a>を参照してください。</p>
+<div style="position:relative;">
+<p><img src="2_find_101.png" width="433" height="244" alt="検索ダイアログ" />
+<img src="2_find_105.png" width="433" height="244" alt="検索ダイアログ-選択した範囲" style="position: absolute; left: 0px; top: 0px;"/></p>
+</div></li>
+<li><p>これで検索すれば、指定した列(範囲選択した列)のみを、検索の対象に出来ます。</p></li>
+</ol>
+</section>
+<section id="SUPPLEMENTATION-3" class="level4">
+<h4>区切り文字のcolorcode</h4>
+<p>CSVモードでも、区切り文字である "," の <code>colorcode</code> は、"0x00000020(タブ)"がセットされます。</p>
+</section>
+<section id="SUPPLEMENTATION-4" class="level4">
+<h4>区切り文字の表示</h4>
+<p>TSV/CSVモードの場合、設定によっては区切り文字(CSVの場合：","、TSVの場合：タブ文字)は表示されません。<br />
+表示する場合は、「<span class="filetype">ファイルタイプ別の設定</span>」-「デザイン」-「場所の一覧」にある「タブ文字」にチェックを入れます。
+(CSVの場合も、「タブ文字」にチェックを入れてください)</p>
+<p><img src="2_csv_tsv_17.png" width="465" height="128" alt="場所の一覧-タブ文字" /><br />
+</p>
+<p>CSVモードで、「タブ文字」にチェックを入れ、区切り文字を表示した場合<br />
+<img src="2_csv_tsv_16.png" width="485" height="109" alt="区切り文字の表示" /><br />
+</p>
+</section>
+<section id="SUPPLEMENTATION-5" class="level4">
+<h4>セル内での改行</h4>
+<p>秀丸エディタ Ver.8.89 より、「セル内での改行」 にも対応しています。
+Excelと違い、セル内で複数行を表示する形式ではなく、セル内改行を特殊文字として1行に表示します。</p>
+<p>Ver.8.94より、「<span class="filetype">ファイルタイプ別の設定</span>」-「体裁」-「タブ」に「セル内改行の変換」が追加され、ファイルタイプ毎に、自動で「セル内改行の特殊文字への変換」を行うことができます。</p>
+<p>セル内の改行があるのを検出すると、画面上部に注意書きが表示されます。</p>
+<p><img src="2_csv_tsv_21.png" width="721" height="250" alt="セル内での改行-変更" /><br />
+</p>
+<p>注意書き部分をクリックすると、「セル内改行の変換」ダイアログが表示され、セル内改行の特殊文字への変換方法を選択できます。</p>
+<p><img src="2_csv_tsv_22.png" width="483" height="336" alt="セル内での改行-変更" /><br />
+</p>
+<p>特殊文字への変換方法は以下の2種類になります。</p>
+<ul>
+<li><p>半角の矢印に変換</p>
+<p><img src="2_csv_tsv_24.png" width="790" height="62" alt="セル内での改行-半角の矢印に変換" /><br />
+</p></li>
+<li><p>特殊改行に変換</p>
+<p><img src="2_csv_tsv_25.png" width="631" height="62" alt="セル内での改行-特殊改行に変換" /><br />
+</p></li>
+</ul>
+<p>ファイルの「内容を確認するだけ」なら、どちらでも問題ないでしょう。他のアプリケーションに貼り付けたりする場合は、「特殊改行に変換」にしたほうがいいでしょう。</p>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

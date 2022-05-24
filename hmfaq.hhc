@@ -6,331 +6,339 @@
 </HEAD><BODY>
 <UL>
 	<LI> <OBJECT type="text/sitemap">
-		<param name="Name" value="秀丸エディタＱ＆Ａ集第８．１０版">
-		<param name="Local" value="hmindex0.html">
+		<param name="Name" value="秀丸エディタＱ＆Ａ集第９版">
+		<param name="Local" value="html\hmindex0.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="はじめに">
-		<param name="Local" value="hazimeni.html">
+		<param name="Local" value="html\hazimeni.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="このヘルプの内容">
-			<param name="Local" value="s_naiyou.html">
+			<param name="Local" value="html\s_naiyou.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタＱ＆Ａ集の公開＆作成への経緯">
-			<param name="Local" value="s_keii.html">
+			<param name="Name" value="Ｑ＆Ａ集の公開＆作成への経緯">
+			<param name="Local" value="html\s_keii.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタＱ＆Ａ集の制作趣旨">
-			<param name="Local" value="s_syushi.html">
+			<param name="Name" value="Ｑ＆Ａ集の制作趣旨">
+			<param name="Local" value="html\s_syushi.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸エディタの最新版">
-			<param name="Local" value="s_saisin.html">
+			<param name="Local" value="html\s_saisin.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第Ｉ部〜秀丸エディタＱ＆Ａ集">
-		<param name="Local" value="hmindex1.html">
+		<param name="Local" value="html\hmindex1.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Ｑ＆Ａ集の表記について">
-			<param name="Local" value="s_hyouki.html">
+			<param name="Local" value="html\s_hyouki.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="よくある質問 ">
-			<param name="Local" value="yokuaru.html">
+			<param name="Local" value="html\yokuaru.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="機能別Ｑ＆Ａ">
-			<param name="Local" value="qa_kinou.html">
+			<param name="Local" value="html\qa_kinou.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="質問番号順Ｑ＆Ａ">
-			<param name="Local" value="qa_order.html">
+			<param name="Local" value="html\qa_order.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="既に対応済みの過去のトラブル ">
-			<param name="Local" value="qa_trbl.html">
+			<param name="Local" value="html\qa_trbl.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能">
-		<param name="Local" value="hmindex2.html">
+		<param name="Local" value="html\hmindex2.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="検索 ">
-			<param name="Local" value="2_find.html">
+			<param name="Local" value="html\2_find.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="置換">
-			<param name="Local" value="2_replace.html">
+			<param name="Local" value="html\2_replace.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="grep/タグジャンプ">
-			<param name="Local" value="2_grep.html">
+			<param name="Local" value="html\2_grep.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="編集位置のマーク及び検索 ">
-			<param name="Local" value="2_mark.html">
+			<param name="Local" value="html\2_mark.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸のカスタマイズ">
-			<param name="Local" value="2_custom.html">
+			<param name="Local" value="html\2_custom.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="あいまい検索">
-			<param name="Local" value="2_fuzzy.html">
+			<param name="Local" value="html\2_fuzzy.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="変換モジュール">
-			<param name="Local" value="2_convert.html">
+			<param name="Local" value="html\2_convert.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="ファイルマネージャ枠">
-			<param name="Local" value="2_filemanager.html">
+			<param name="Local" value="html\2_filemanager.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="アウトライン解析の枠">
-			<param name="Local" value="2_outline.html">
+			<param name="Local" value="html\2_outline.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="アウトライン関連 見出し・折りたたみ・部分編集">
-			<param name="Local" value="2_outline_functions.html">
+			<param name="Name" value="見出し・折りたたみ・部分編集">
+			<param name="Local" value="html\2_outline_functions.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="アウトプット枠">
-			<param name="Local" value="2_output.html">
+			<param name="Local" value="html\2_output.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="文字数の計算">
-			<param name="Local" value="2_wordcount.html">
+			<param name="Local" value="html\2_wordcount.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="複数選択">
-			<param name="Local" value="2_multiselect.html">
+			<param name="Local" value="html\2_multiselect.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="カラーマーカー">
-			<param name="Local" value="2_colormarker.html">
+			<param name="Local" value="html\2_colormarker.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="単語補完">
-			<param name="Local" value="2_wordcomplete.html">
+			<param name="Local" value="html\2_wordcomplete.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="CSV/TSVモード">
-			<param name="Local" value="2_csv_tsv.html">
+			<param name="Local" value="html\2_csv_tsv.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="grepして置換">
-			<param name="Local" value="2_grepreplace.html">
+			<param name="Local" value="html\2_grepreplace.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="強調表示">
-			<param name="Local" value="2_highlight.html">
+			<param name="Local" value="html\2_highlight.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="自動保存">
-			<param name="Local" value="2_autosave.html">
+			<param name="Local" value="html\2_autosave.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="表示言語の切替">
-			<param name="Local" value="2_language.html">
+			<param name="Local" value="html\2_language.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="プログラム実行">
-			<param name="Local" value="2_program.html">
+			<param name="Local" value="html\2_program.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="他の秀丸エディタと内容比較">
-			<param name="Local" value="2_compfile.html">
+			<param name="Local" value="html\2_compfile.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="デスクトップ保存と復元">
-			<param name="Local" value="2_desktop.html">
+			<param name="Local" value="html\2_desktop.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="縦書き">
-			<param name="Local" value="2_vertical.html">
+			<param name="Local" value="html\2_vertical.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="EditorConfig">
+			<param name="Local" value="html\2_editorconfig.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="テンプレート">
+			<param name="Local" value="html\2_template.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと">
-		<param name="Local" value="hmindex3.html">
+		<param name="Local" value="html\hmindex3.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="マクロを実行してみよう">
-			<param name="Local" value="3_macro.html">
+			<param name="Local" value="html\3_macro.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="マクロ内での「\」や特殊文字の使い方 ">
-			<param name="Local" value="3_yenmk.html">
+			<param name="Local" value="html\3_yenmk.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸マクロで文字列を編集する">
-			<param name="Local" value="3_string.html">
+			<param name="Local" value="html\3_string.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="サブルーチンについて">
-			<param name="Local" value="3_sub.html">
+			<param name="Local" value="html\3_sub.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタウィンドウの管理 ">
-			<param name="Local" value="3_window.html">
+			<param name="Name" value="ウィンドウの管理 ">
+			<param name="Local" value="html\3_window.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタウインドウの管理（タブモード編）">
-			<param name="Local" value="3_tabmode.html">
+			<param name="Name" value="ウインドウの管理（タブモード編）">
+			<param name="Local" value="html\3_tabmode.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="マクロ登録数の制限突破大作戦 ">
-			<param name="Local" value="3_moremacro.html">
+			<param name="Local" value="html\3_moremacro.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="ビット操作を極める">
-			<param name="Local" value="3_bit.html">
+			<param name="Local" value="html\3_bit.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="自動起動マクロ">
-			<param name="Local" value="3_autostartmacro.html">
+			<param name="Local" value="html\3_autostartmacro.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="COMオブジェクト操作関連">
-			<param name="Local" value="3_com_object.html">
+			<param name="Local" value="html\3_com_object.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="マクロのデバッグについて">
-			<param name="Local" value="3_debug.html">
+			<param name="Local" value="html\3_debug.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="HMJRE.DLLを使う場合の注意点">
-			<param name="Local" value="3_hmjre.html">
+			<param name="Local" value="html\3_hmjre.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="外部プログラムの実行について">
-			<param name="Local" value="3_run.html">
+			<param name="Local" value="html\3_run.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="setcompatiblemode文 について">
-			<param name="Local" value="3_setcompatiblemode.html">
+			<param name="Local" value="html\3_setcompatiblemode.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.3.00 マクロ関連の変更履歴 ">
-			<param name="Local" value="3_macrov3.html">
+			<param name="Name" value="Ver.3.00 マクロ関連の変更履歴 ">
+			<param name="Local" value="html\3_macrov3.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.4.00 マクロ関連の変更履歴">
-			<param name="Local" value="3_macrov4.html">
+			<param name="Name" value="Ver.4.00 マクロ関連の変更履歴">
+			<param name="Local" value="html\3_macrov4.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.5.00 マクロ関連の変更履歴">
-			<param name="Local" value="3_macrov5.html">
+			<param name="Name" value="Ver.5.00 マクロ関連の変更履歴">
+			<param name="Local" value="html\3_macrov5.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.6.00 マクロ関連の変更履歴">
-			<param name="Local" value="3_macrov6.html">
+			<param name="Name" value="Ver.6.00 マクロ関連の変更履歴">
+			<param name="Local" value="html\3_macrov6.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.7.00 マクロ関連の変更履歴">
-			<param name="Local" value="3_macrov7.html">
+			<param name="Name" value="Ver.7.00 マクロ関連の変更履歴">
+			<param name="Local" value="html\3_macrov7.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.8.00 マクロ関連の変更履歴">
-			<param name="Local" value="3_macrov8.html">
+			<param name="Name" value="Ver.8.00 マクロ関連の変更履歴">
+			<param name="Local" value="html\3_macrov8.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタVer.9.00 マクロ関連の変更履歴">
-			<param name="Local" value="3_macrov9.html">
+			<param name="Name" value="Ver.9.00 マクロ関連の変更履歴">
+			<param name="Local" value="html\3_macrov9.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第IV部〜テキスト編集を極める！！">
-		<param name="Local" value="hmindex4.html">
+		<param name="Local" value="html\hmindex4.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="起動オプションを使ってみよう">
-			<param name="Local" value="4_cmdlin.html">
+			<param name="Local" value="html\4_cmdlin.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="正規表現について">
-			<param name="Local" value="4_regular.html">
+			<param name="Local" value="html\4_regular.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="タグ付き正規表現とは?">
-			<param name="Local" value="4_tagreg.html">
+			<param name="Local" value="html\4_tagreg.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="プログラム実行を利用したテキストの加工">
-			<param name="Local" value="4_run.html">
+			<param name="Local" value="html\4_run.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第V部〜マクロから呼び出すＤＬＬの作り方 ">
-		<param name="Local" value="make_dll.html">
+		<param name="Local" value="html\make_dll.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第VI部〜秀丸エディタ拡張モジュール">
-		<param name="Local" value="hmindex6.html">
+		<param name="Local" value="html\hmindex6.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸パブリッシャーについて">
-			<param name="Local" value="6_publisher.html">
+			<param name="Local" value="html\6_publisher.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸スペルチェックアドイン">
-			<param name="Local" value="6_spellcheck.html">
+			<param name="Local" value="html\6_spellcheck.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸エディタ持ち出しキットについて">
-			<param name="Local" value="6_takeout.html">
+			<param name="Name" value="持ち出しキットについて">
+			<param name="Local" value="html\6_takeout.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="あとがき">
-		<param name="Local" value="atogaki.html">
+		<param name="Local" value="html\atogaki.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="著作権・配布規定等 ">
-			<param name="Local" value="release.html">
+			<param name="Local" value="html\release.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="謝辞">
-			<param name="Local" value="thanks.html">
+			<param name="Local" value="html\thanks.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="ではでは">
-			<param name="Local" value="byebye.html">
+			<param name="Local" value="html\byebye.html">
 			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="APPENDIX(補足)">
-		<param name="Local" value="appendix.html">
+		<param name="Local" value="html\appendix.html">
 		</OBJECT>
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Ｑ＆Ａ集その他の原稿の寄稿要領">
-			<param name="Local" value="youryou.html">
+			<param name="Local" value="html\youryou.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="「秀丸エディタＱ＆Ａ集 制作しよう会」とは？">
-			<param name="Local" value="about_us.html">
+			<param name="Local" value="html\about_us.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="編集場所について">
-			<param name="Local" value="hidpatio.html">
+			<param name="Local" value="html\hidpatio.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="改版履歴 ">
-			<param name="Local" value="updated.html">
+			<param name="Local" value="html\updated.html">
 			</OBJECT>
 	</UL>
 </UL>
