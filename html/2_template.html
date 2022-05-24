@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第II部&#65374;知っていると便利な秀丸の機能　テンプレート</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第II部&#65374;知っていると便利な秀丸の機能　テンプレート</h1>
+<hr />
+<section id="editorconfig" class="level2">
+<h2>テンプレート</h2>
+<p>秀丸エディタ Ver.9.12以降では、「テンプレート」に対応しています。「テンプレート」とは「スニペット」とも呼ばれる機能で、定型的な内容を入力するための支援機能になります。</p>
+<ul>
+<li>解説
+<ul>
+<li>テンプレートファイルの場所</li>
+<li>テンプレートファイルの作成</li>
+<li>「テンプレート」の呼び出しかた</li>
+</ul></li>
+</ul>
+<section id="解説" class="level3">
+<h3>解説</h3>
+<p>「テンプレート」を使用するには、「<strong>指令された場所</strong>」に「<strong>テンプレートファイル</strong>」を作成する必要があります。</p>
+<p>テンプレートファイルは、単純なものとしては入力したい内容を記述したファイル(例えばメールの定型文のあいさつなど)になります。プログラム等でコード片を入力する場合は、入力個所を設定する等特殊命令(プレースホルダー等)を設定できます。</p>
+<p><img src="./2_template_01.png" width="632" height="464" alt="テンプレートの設定" /><br />
+</p>
+<p>「テンプレート」を呼び出すには、「テンプレート」コマンドを実行するか、「単語補完」を使います。<br />
+「単語補完」を使う場合は、「<strong>単語補完に含ませる</strong>」にチェックを入れてください。また、「ファイルタイプ別の設定」で「単語補完」も有効にしてください。</p>
+<section id="テンプレートファイルの場所" class="level4">
+<h4>テンプレートファイルの場所</h4>
+<p>デフォルトでは、「snippets」フォルダが指定されています。</p>
+<ul>
+<li>フォルダではなく、ファイルを指定してもいい。</li>
+<li>フォルダ + ワイルドカードも指定可能。</li>
+</ul>
+<p>ファイルタイプによって「テンプレート」を使い分けたい場合は、個別にファイル・フォルダを指定したり、ワイルドカードを使います。環境変数やフルパスではない場合は、「設定ファイル用のフォルダ」にあるフォルダ・ファイルと認識されます。</p>
+</section>
+<section id="テンプレートファイルの作成" class="level4">
+<h4>テンプレートファイルの作成</h4>
+<p>テンプレートファイルと認識する拡張子は3個あり、".txt" ".json" ".mac" です。</p>
+<p>".mac"以外は、<span class="btn-push">「新規作成」</span>ボタンや、横にある「▼」マークから新規作成できます。
+(新規作成されたファイルのエンコードや、BOMの有無は変更しないようにしましょう)</p>
+<p><img src="./2_template_02.png" width="265" height="185" alt="テンプレートの設定" /><br />
+</p>
+<p>テンプレート内に特殊命令を埋め込むことも可能です。テンプレート内に入力個所を指定し、TABキーで移動できます。入力個所にはデフォルト値も設定できます。</p>
+<p>詳細はヘルプ参照。</p>
+<section id="特殊命令について" class="level5">
+<h5>特殊命令について</h5>
+<p>テンプレート内にある "$" から始まる文字列は特殊な意味を持ちます。</p>
+<ul>
+<li><p>$数字(1&#65374;9)</p>
+<p>入力個所を示します。タブキーで各項目に移動可能です。入力モード時はテンプレートに下線がつきます。</p>
+<p>同じ数字を複数箇所に記述可能で、１か所入力すれば、同じ内容が挿入されます。</p>
+<p>また、デフォルト値を指定可能で、書式は以下になります。</p>
+<pre><code>$(数字,デフォルトの内容)
+${数字,デフォルトの内容}</code></pre>
+<p>例えば、以下のようなテンプレートを用意します(秀丸マクロの入力補助)。</p>
+<pre class="macro"><code>while($(1,#max) &gt; $(2,変数名)){
+    $2 = $2 + 1;
+}</code></pre>
+<p>2番目の「変数名」に「#cnt」と入力すると、以下のようになります。</p>
+<pre class="macro"><code>while(#max &gt; #cnt){
+    #cnt = #cnt + 1;
+}</code></pre></li>
+<li><p>$c or $0</p>
+<p>カーソル位置（または最後の入力箇所）</p>
+<p>入力個所がない場合、カーソル位置は変わりません。入力個所がある場合は、最後の入力個所になります。</p>
+<p>$c or $0 があると、その位置にカーソルを移動させます。</p></li>
+<li><p>$$</p>
+<p>$記号そのものを示す。</p></li>
+</ul>
+</section>
+<section id="テキストファイル.txtの場合" class="level5">
+<h5>テキストファイル(.txt)の場合</h5>
+<p>テキストファイルの場合、エンコードは UTF-8(BOMあり)です。
+(UTF16LE(BOMあり)、Shift_JISでも動作しますが、推奨されていません。)</p>
+<p>以下の2通りの方法があります。</p>
+<ul>
+<li><p>1ファイル/1テンプレート</p>
+<p>ファイルの内容がそのまま入力されます。テンプレートの候補/単語補完に表示されるのは「ファイル名」から拡張子をなくしたものになります。</p></li>
+<li><p>1ファイル/複数テンプレート</p>
+<p>各テンプレートの先頭行に、改ページ"CL"(U+000C)と「キーワード」を記入します。テンプレートの候補/単語補完に表示されるのは「キーワード」になります。</p>
+<div class="macro">
+<p><sup>C</sup><sub>L</sub>キーワード1<br />
+テンプレート1<br />
+<br />
+<sup>C</sup><sub>L</sub>キーワード2<br />
+テンプレート2</p>
+</div>
+<p>改ページ"CL"(U+000C)を入力するには、「その他」-「コマンド一覧」から、「挿入系」-「改ページ」を使います。</p></li>
+</ul>
+</section>
+<section id="jsonファイル.jsonの場合" class="level5">
+<h5>jsonファイル(.json)の場合</h5>
+<p>jsonファイルの場合、エンコードは UTF-8(BOMなし)です。</p>
+<p>「テンプレート」を「オブジェクト」として定義します。フォーマットが正しくないと、認識されません。</p>
+<ul>
+<li><p>"Object Name" はテンプレートの名前です。テンプレートが複数ある場合は重複させないこと。</p></li>
+<li><p>"prefix" は キーワードになります。</p></li>
+<li><p>"body" は 挿入される内容になります。<br />
+複数行になる場合は、配列として定義します。ダブルクォーテーション「"」、バックスラッシュ(￥マーク)「\」、スラッシュ「/」を含める場合は、
+"\"によるエスケープが必要です。</p>
+<pre><code>ダブルクォーテーション     \&quot;
+バックスラッシュ(￥マーク) \\
+スラッシュ                 \/</code></pre></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;Object Name&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;prefix&quot;</span><span class="fu">:</span> <span class="st">&quot;Keyword&quot;</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Line1&quot;</span><span class="ot">,</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Line2&quot;</span><span class="ot">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p>複数のテンプレートを含む場合は、複数のオブジェクトとし定義します。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;Object Name1&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;prefix&quot;</span><span class="fu">:</span> <span class="st">&quot;Keyword1&quot;</span><span class="fu">,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Line1&quot;</span><span class="ot">,</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Line2&quot;</span><span class="ot">,</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;&quot;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">,</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;Object Name2&quot;</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;prefix&quot;</span><span class="fu">:</span> <span class="st">&quot;Keyword2&quot;</span><span class="fu">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="dt">&quot;body&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Line1&quot;</span><span class="ot">,</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;Line2&quot;</span><span class="ot">,</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;&quot;</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="ot">]</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+</section>
+<section id="マクロファイル.macの場合" class="level5">
+<h5>マクロファイル(.mac)の場合</h5>
+<p>指定されたマクロを実行します。テンプレートの候補/単語補完に表示されるのは「ファイル名」から拡張子をなくしたものになります。</p>
+<p>「テンプレート」との違いは、ある程度の動的な処理も可能になる事です。マクロで取得できる情報を元に、直接文字列を挿入したり、テンプレートファイルを生成して呼び出すことも可能です。
+(テンプレートを直接呼び出し可能なのは Ver.9.15以降)</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第IV部〜テキスト編集を極める！！　タグ付き正規表現とは?</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第IV部〜テキスト編集を極める！！<br>　タグ付き正規表現とは?</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>タグ付き正規表現とは?</h2>
+<p>秀丸エディタでは Ver.3.0以降で「タグ付き正規表現」がサポートされています。
+(Ver.3.19までは正規表現エンジンに「JRE32.DLL」が使用されていましたが、Ver.4.00以降は「HMJRE.DLL」に変更されています)</p>
+<p>秀丸エディタVer.3.0〜Ver.4.19では秀丸エディタ独自の指定方法(\fを区切り文字で使用する方法)が使用されていましたが、秀丸エディタVer5.00以降では、正規表現エンジンであるHMJRE.DLLが変更され
+Prel等で使用されているグルーピング指定である「<code>()</code>」括弧でのタグ指定が可能になっています。
+(旧バージョンとの互換性から、現状でも"\f"を使う方法も指定可能ですが、「HMJRE.DLL」を使用している場合は使わないほうがいいです)</p>
+<p>以降の説明は、正規表現エンジンに「HMJRE.DLL」を使用する前提で行います。</p>
+<p>タグ付き正規表現により検索でヒットした文字列の一部又は全体を、置換文字列の一部又は全体として利用できるようになりました。ただし「正規表現」自体が解らないと、さっぱり意味が通じなくなるので、「タグ付き正規表現」を自在に操りたい人はまず「<a href="4_regular.html">正規表現</a>」を使いこなせるようにしましょう(^^)。</p>
+<p>秀丸エディタがサポートしているタグ付き正規表現の仕様は、秀丸エディタのヘルプの「検索系コマンド」-
+<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_PerlTag.html" class="externallink" target="_blank" rel="noopener">「タグ付き正規表現による置換について」</a>に書かれています。以下では、この仕様をもとにして実際の使い方を説明していきます。</p>
+<div class="title-li">
+<ul>
+<li>【１】 <a href="#LIST">実際にはどの様な事が出来るのか?</a></li>
+<li>【２】 <a href="#YEN-F">タグ指定の方法</a></li>
+<li>【３】 <a href="#YEN-DIGIT">検索元文字列の取り出し</a></li>
+<li>【４】 <a href="#EXAMPLES">タグ付き正規表現の使用例</a></li>
+<li>【５】 <a href="#TOPIC">タグ指定時の注意点</a></li>
+<li>【補足】 <a href="#DIFF">\fとグルーピングの違い</a></li>
+</ul>
+</div>
+<section id="LIST" class="level3">
+<h3>【１】実際にはどの様な事が出来るのか?</h3>
+<p>では実際には、秀丸エディタのタグ付き正規表現を使うと、どんなことができるようになるのでしょうか？<br />
+例えば下記のような、今までではマクロを使わないと実現できなかったことが、タグ付き正規表現を使った置換だけで処理できるようになります。</p>
+<ol type="1">
+<li>「A さんと B さんは友達です」を「B さんと A さんは友達です」に変換</li>
+<li>「1999年5月12日」という日付を「5/12/1999」に変換</li>
+<li>abc, 123等の英数字から成る文字列と、仮名・漢字による文字列との間に半角のスペースをいれる</li>
+<li>「abc」を『abc』というように括弧の種類を変える。</li>
+<li>ある種のデータが何行かおきで一纏まりとなっている物を1行 1レコードにし、表計算やデータベースで使いやすいよう整形する。</li>
+<li>行頭のコメント文字を１組だけ削除する</li>
+</ol>
+<p>次に、1.の例を使って、実際にタグ付き正規表現を使う時のルールを説明します。</p>
+</section>
+<section id="YEN-F" class="level3">
+<h3>【２】タグ指定の方法</h3>
+<p>秀丸エディタでタグ付き正規表現を使う場合には、どの部分を置換後の文字列として取り出すかを指定しなければ成りません。<br />
+文字列の指定には、<strong>「<code>()</code>」括弧、正規表現のグルーピング</strong>を用います。</p>
+<p>たとえば (1)の場合、置換後の文字列で利用したいのは、「A」「B」の部分ですので、検索文字列を</p>
+<pre><code>(.+)さんと(.+)さんは友達です</code></pre>
+<p>とすれば良いです。</p>
+</section>
+<section id="YEN-DIGIT" class="level3">
+<h3>【３】検索元文字列の取り出し</h3>
+<p>次にとり出した文字列の利用方法です。取り出した文字列は、検索文字列中の「()」括弧で囲まれた部分を前から、<strong>「\1」「\2」「\3」</strong>.....で利用できます。先ほどの 1. の例では、</p>
+<table>
+<caption>タグ番号の割り当て</caption>
+<tbody>
+<tr class="odd">
+<td><code>(.+)</code></td>
+<td style="text-align: center;">さんと</td>
+<td style="text-align: right;"><code>(.+)</code></td>
+<td style="text-align: left;">さんは友達です</td>
+</tr>
+<tr class="even">
+<td>↑</td>
+<td style="text-align: center;">　</td>
+<td style="text-align: right;">↑</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td>\1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: right;">\2</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>となります。つまり 1. の置換作業は、実際には</p>
+<pre><code>検索文字列:  (.+)さんと(.+)さんは友達です
+置換文字列:  \2さんと\1さんは友達です</code></pre>
+<p>とすれば良いです。</p>
+<p>ただし正規表現では<strong>「最長一致」</strong>の原則があるので、<strong>「Aさんと Bさんは友達です。C さんと Dさんは友達です」と続けて同じ表現がある場合、「」の中身全体にヒットしてしまいます。</strong><br />
+この様な場合、人の氏名に「。、」が使われないことを利用して、検索文字列を</p>
+<div class="attention_p">
+<p>([^。、]+)さんと([^。、]+)さんは友達です</p>
+</div>
+<p>等とすると良いでしょう。</p>
+</section>
+<section id="EXAMPLES" class="level3">
+<h3>【４】タグ付き正規表現の使用例</h3>
+<p>では、タグ付き正規表現を使って、上記の 2. 〜 5.の例も処理してみましょう。</p>
+<dl>
+<dt><strong>2.「1999年5月12日」という日付を「5/12/1999」に変換したい場合</strong></dt>
+<dd>
+<pre><code>検索文字列:([0-2]\d\d\d)年(1[0-2]|[0-9])月(3[0-1]|[1-2]?\d)日
+置換文字列:\2/\3/\1</code></pre>
+</dd>
+<dt><strong>3. abc, 123等の英数字から成る文字列と、仮名・漢字による文字列との間に半角のスペースをいれたい場合</strong></dt>
+<dd>
+<pre><code>検索文字列:([｡-ﾟぁ-んァ-ヶ亜-&#40657;])([0-9a-z]+)
+置換文字列:\1 \2</code></pre>
+<p>と</p>
+<pre><code>検索文字列:([0-9a-z\]+)([｡-ﾟぁ-んァ-ヶ亜-&#40657;])
+置換文字列:\1 \2</code></pre>
+<p>の 2 回に別けてやると良いです。
+1回でやる方法もありますが、指定方法が面倒になります(実際には[]で挟む文字列の中に「^」を使って、仮名・漢字以外の全ても文字列を指定し、メタキャラクタ「?」も合わせて利用します)。</p>
+<p>　一瞬</p>
+<pre><code>検索文字列:([｡-ﾟぁ-んァ-ヶ亜-&#40657;])([0-9a-z]+)([｡-ﾟぁ-んァ-ヶ亜-&#40657;])
+置換文字列:\1 \2 \3</code></pre>
+<p>で上手くいくような気がしますが、「1999年」の様な場合に上手くいきません。これは「1999」の前に仮名・漢字文字列が無いためです。</p>
+</dd>
+<dt><strong>4.「abc」を『abc』というように括弧の種類を変えたい場合</strong></dt>
+<dd>
+<pre><code>検索文字列:「([^」]+)」
+置換文字列:『\1』</code></pre>
+</dd>
+<dt><strong>5. ある種のデータが何行かおきに一纏まりとなっている物を1行 1レコードにし、表計算やデータベースで使いやすいよう整形したい場合</strong></dt>
+<dd>
+<p>この例では、例えば下記のように
+aaa
+111
+あああ
+bbb
+222
+いいい</p>
+<p>という内容を</p>
+<pre><code>aaa,111,あああ
+bbb,222,いいい</code></pre>
+<p>の様に、1 行 1レコードの形に直し、表計算やデータベースで使いやすいように整形します。</p>
+<p>上記の例のように、変換元データが３行にわたっているときに、カンマを区切り文字として１行に変換するには、下記のように検索文字列を設定します。</p>
+<pre><code>検索文字列:^(.+)\n(.+)\n(.+)$
+置換文字列:\1,\2,\3</code></pre>
+<p>　一纏まりとなるデータの行数が多い場合、更に多くなる分「(.+)\n」の記述が必要です。<br />
+　またデータの中に「,」が含まれている場合を顧慮していませんので注意してください。</p>
+</dd>
+<dt><strong>6. 行頭のコメント文字を１組だけ削除する</strong></dt>
+<dd>
+<p>////</p>
+<p>という行があったとして、行頭の//
+を１組だけ省きたいと考えて、正規表現をONにして、検索文字欄に ^//
+を指定し、置換文字欄を空欄にしたまま置換を行うと、////が全て消えてしまい期待通りの動作をしてくれません。本当は、</p>
+<pre><code>//</code></pre>
+<p>というふうになってほしいところですが。</p>
+<p>これは、「置換の前に確認」をONにして実行するとわかりますが、始めに//// の先頭２文字にヒットして削除され、//となるので、次にこの２文字にヒットしてこれも削除されてしまいます。</p>
+<p>この場合、下記のようにタグ付き正規表現を使うとうまく処理できます。</p>
+<pre><code>検索文字列:^//(.?)
+置換文字列:\1</code></pre>
+</dd>
+</dl>
+<hr />
+<p>その他に、hmjre.dll独自の記法ですが、"ヒットした扱いにするタグ指定 (?\tag-number)"という物もあります。これは、正規表現中の一部分のみマッチさせたい場合に使用します。</p>
+<pre><code>    検索文字列:秀丸(エディタ)(?\1)</code></pre>
+<p>これで、"秀丸"が前にある"<strong>エディタ</strong>"が検索可能です。本来は、"<strong>秀丸エディタ</strong>"にヒットしますが、
+<strong><code>(?\1)</code></strong>で、<strong>"\1"</strong>に当たる"<strong>エディタ</strong>"のみ、ヒットさせるように指示しています。<br />
+現状では、"先読み"や"戻り読み"がありますが、これらがサポートされていないバージョンでは、正規表現の一部のみマッチさせるのに使っていました。</p>
+</section>
+<section id="TOPIC" class="level3">
+<h3>【５】タグ指定時の注意点</h3>
+<p>タグの指定で注意すべきことや参考情報を挙げておきます。</p>
+<ol type="1">
+<li><p>入れ子になった括弧は、一番外側のみ認識します。</p>
+<p>例えば</p>
+<pre><code>(aaa(bbb)ccc)(ddd)</code></pre>
+<p>という指定をした場合、</p>
+<pre><code>(aaa(bbb)ccc)(ddd)
+ ------------ ---
+ \1           \2</code></pre>
+<p>と、解釈され、(bbb)は、タグの対象になりません。</p>
+<p>これは、"\f"と、括弧を使ったタグ指定の整合性をとるための制限になります。
+("\f"では入れ子は表現できない)</p></li>
+<li><p>タグの最大数は15までです。(Ver8.58で9から15へ変更)
+10以上は、\g{10}と記述します。10未満でも、同様に\g{1}と記述可能です。</p>
+<pre><code>\10</code></pre>
+<p>と記述しても、"\1"と"0"と認識されるので注意する事。</p></li>
+</ol>
+</section>
+<section id="DIFF" class="level3">
+<h3>【補足】\fとグルーピングの違い</h3>
+<ul>
+<li><p>\f と 括弧によるグルーピングの違いですが、通常使う分には、速度的な違いはわかりません。</p>
+<p>違いがわかるようなデータで置換すると、1〜2割程度、"\f"が遅い結果になります。
+(1000行の置換で確認)</p></li>
+<li><p>"\f"を使った場合、検索文字列内でタグの参照ができません。</p>
+<pre><code>例：(..)\1</code></pre>
+<p>上記正規表現は「いろいろ」「やれやれ」等にマッチしますが、"\f"を使った場合は、タグの参照ができないので、</p>
+<pre><code>例：..\f\0</code></pre>
+<p>と記述しても、2文字の後に"0"がある箇所にマッチします。</p></li>
+<li><p>正規表現が有効で、検索文字列に"\f"が含まれる場合、タグの処理は秀丸エディタ本体が行います。</p>
+<p>検索に"\f"が含まれない場合、括弧によるタグの処理は、正規表現DLLで行われます。
+<span class="font_red_bold">"\f"と括弧が混在するタグ指定は出来ません。</span></p>
+<p>混在した場合は、秀丸エディタ本体で"\f"を処理する都合上、"\f"が優先され、括弧でのタグ指定は無視されます。
+(グルーピングとしては機能する)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

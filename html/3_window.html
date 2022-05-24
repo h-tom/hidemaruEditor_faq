@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
+  <title>第III部〜秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタウィンドウの管理</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>秀丸エディタウィンドウの管理</h2>
+<p>秀丸マクロは現在編集中の文書に対する処理の他に、別のファイルやウィンドウを開いてそのファイルを処理したり、さらに変更内容を保存してファイルを閉じるといったことができるようになっています。このような複数の秀丸エディタウィンドウにまたがった処理を行うために、秀丸マクロには専用のコマンド群が用意されています。ここでは、それらのコマンドの基本的な解説と、実際にコマンドを使う上でいくつか注意すべき点をまとめました。</p>
+<div class="title-li">
+<ul>
+<li>【１】<a href="#OPENFILE">マクロから別の秀丸エディタウィンドウを開く</a></li>
+<li>【２】<a href="#WINDOW">複数の秀丸エディタウィンドウの間を移動する</a></li>
+<li>【３】<a href="#MISC">(補足)色々な方法でウィンドウを開く</a></li>
+<li>【４】<a href="#MISC2">(補足)秀丸エディタウィンドウの間を移動時の注意点</a></li>
+</ul>
+</div>
+<section id="OPENFILE" class="level3">
+<h3>【１】マクロから別の秀丸エディタウィンドウを開く</h3>
+<p>マクロの編集系や検索系の各種コマンドや関数は、全て<strong>現在マクロを実行しているウィンドウに対して働く</strong>わけですが、まだ秀丸エディタで開いていないファイルに対してこれらのコマンドを使うにはどうしたらよいでのしょうか？</p>
+<p>ここでは、あるファイル(例えば備忘録や雑記メモ)を開いてそのファイルの一番後ろにカーソルを移動するマクロを作りながら、その方法について解説していくことにしましょう。</p>
+<section id="OPENFILE1" class="level4">
+<h4>[1-1] ファイルを開く</h4>
+<p>まず、<strong>マクロからファイルを開く</strong>には<code>openfile</code>コマンドを使用します。ここで、コマンドの引数には開きたいファイルのファイル名を指定します。例えば、開きたいファイルの名前が <code>C:\foodir\memo.txt</code> だとすると、このファイルを開くには以下のように指定します。</p>
+<div class="macro">
+<pre><code>// メモファイルを開く
+openfile &quot;C:\\foodir\\memo.txt&quot;;</code></pre>
+</div>
+<p>ファイル名のパスの区切りの円記号を２つ重ねていますが、何故そうするかについては<a href="https://help.maruo.co.jp/be_hidemac/html/05_Esc.html" class="externallink" target="_blank" rel="noopener">こちらの解説</a>を参照してください。また、<strong>パス名に空白を含むファイル名</strong>の場合は以下のように<strong>ファイル名を(円記号＋)２重引用符で括って</strong>ください。</p>
+<div class="macro">
+<pre><code>// メモファイルを開く(パス名に空白を含む)
+openfile &quot;\&quot;C:\\My Documents\\memo.txt\&quot;&quot;;</code></pre>
+</div>
+<p>このマクロを実行した結果、どのようにファイルが開かれるかはマクロを実行するウィンドウやその他の状態によって異なりますが、その結果自体は<strong>秀丸エディタの「ファイルを開く」でファイルを開いたのと同じ</strong>です。新規ウィンドウで実行した場合はそのウィンドウに、別のファイルを開いているウィンドウで実行した場合は、新しくウィンドウが開いてそのファイルが読み込まれた状態になります。一方、このファイルを開いている他のウィンドウがある場合、その結果は秀丸エディタの「排他制御」の設定によって異なります。</p>
+<p>いずれにしても、このコマンドが成功した時点で指定したファイルを開いたウィンドウが<strong>画面上の一番手前にあり</strong>、かつ<strong>以降のマクロコマンドはこのウィンドウが操作対象になります</strong>。したがって、例のことを実行するマクロは以下のように書けばよいことになります。</p>
+<div class="macro">
+<pre><code>// メモファイルを開く
+openfile &quot;C:\\foodir\\memo.txt&quot;;
+if (result == false){
+&#160;&#160;&#160;&#160;// ファイルが開けなかった場合。
+&#160;&#160;&#160;&#160;message &quot;メモファイルが開けません&quot;;
+&#160;&#160;&#160;&#160;endmacro;
+}
+// ここに来た時点でマクロの実行は &quot;memo.txt&quot; に移っている
+// &quot;memo.txt&quot; の終わりに移動
+gofileend;</code></pre>
+</div>
+<p>ファイルがなかったり名前が間違っていたりその他の理由でファイルが開けなかった場合、
+<code>openfile</code> コマンドのあとの <code>result</code> キーワードは <code>false(== 0)</code> になっている (成功した場合は <code>true (== 1)</code>になる)ので、それを利用してここで示したようにきちんとエラー処理を行いましょう。</p>
+</section>
+<section id="OPENFILE2" class="level4">
+<h4>[1-2] 「ファイルを開く」ダイアログを表示してファイルを開く</h4>
+<p><code>openfile</code> コマンドに完全なファイル名を指定する代わりに<strong>ワイルドカード文字("*" や "?")を含んだファイル名</strong>を指定すると、それに<strong>マッチするファイルのみを表示した「ファイルを開く」ダイアログを出して、ユーザーが開くファイルを選択</strong>できるようになります。例えば、C:\foodir 中のテキストファイルのどれかを開くためのダイアログを出すには以下のように<code>openfile</code> コマンドを使います。</p>
+<div class="macro">
+<pre><code>// 「ファイルを開く」ダイアログを出してファイルを開く
+openfile &quot;C:\\foodir\\*.txt&quot;;</code></pre>
+</div>
+</section>
+<section id="OPENFILE3" class="level4">
+<h4>[1-3] オプション付きでファイルを開く</h4>
+<p><code>openfile</code> コマンドの引数には、以下のようにファイル名の他に<a href="https://help.maruo.co.jp/hidemaru/html/230_Option.html" class="externallink" target="_blank" rel="noopener">秀丸エディタの起動オプション</a>も指定できます。</p>
+<div class="macro">
+<pre><code>openfile &quot;C:\\foodir\\memo.txt&quot;; // 普通に開く。
+openfile &quot;/r C:\\bardir\\file.txt&quot;; // 書き込み禁止で開く。
+openfile &quot;/h C:\\bazdir\\work.txt&quot;; // ステルスモードで開く(後述)。
+openfile &quot;/je \&quot;C:\\My Documents\\memo.txt\&quot;&quot;; // 開いた後にカーソルをファイルの最後に移動。</code></pre>
+</div>
+<p>ここで、最後は空白を含んだパス名を持つファイルをオプション付きで開く時の２重引用符での括り方の例になっています。</p>
+<p>ちなみに、<code>openfile</code>の第２引数に<strong>ファイルを開く時の(デフォルトの)文字コードを指定</strong>できます。</p>
+<div class="macro">
+<pre><code>// 文字コードを指定してファイルを開く
+openfile &quot;C:\\foodir\\memo.txt&quot;, sjis;
+// 「ファイルを開く」ダイアログを出してファイルを開く(デフォルトの文字コードを指定)
+openfile &quot;C:\\foodir\\*.txt&quot;, jis;`</code></pre>
+</div>
+</section>
+<section id="OPENFILE4" class="level4">
+<h4>[1-4] 新規ウィンドウを開く</h4>
+<p>最後に、既にあるファイルでなくまっさらな状態の新しい秀丸エディタウィンドウを開く方法についてです。これには先に説明した<code>openfile</code>コマンドの引数でファイル名を指定しない(起動オプションはあってもよい)か、または別コマンドの<strong><code>newfile</code></strong> コマンドを使えばできます。但し、<code>openfile</code>を使った場合、<strong>そのコマンドを実行する秀丸エディタウィンドウがまっさらなウィンドウ(未編集・未入力)だと新しいウィンドウは開かれない</strong>ので注意が必要です。というわけで、確実に新しいウィンドウを開きたい時は<code>newfile</code> コマンドの方を使ってください。また、<code>openfile</code>コマンドでファイルを指定する場合も、コマンドを実行したウィンドウが新規ウィンドウだった時は、<strong>新しいウィンドウは開かれずにマクロを実行したウィンドウに読み込まれます</strong>。よって、<strong>確実に新しいウィンドウでファイルを開きたい</strong>場合は、以下のように<code>newfile</code> と <code>openfile</code> を組み合わせて実行してください。</p>
+<div class="macro">
+<pre><code>// 確実に新しいウィンドウでファイルを開く。
+newfile; // 確実に新規ウィンドウを開く。
+openfile &quot;C:\\MyDocuments\\memo.txt&quot;; // 今開いたウィンドウにファイルが読み込まれる。</code></pre>
+</div>
+<p>但し、このように開くと起動オプションを指定できないので、起動オプションを指定したい場合は使えません。</p>
+<p>以下のようにすれば起動オプションを指定しつつ確実に別のウィンドウでファイルを開くことができますが、元のまっさらなウィンドウをいじることになりますので、その旨を理解した上で行ってください。</p>
+<div class="macro">
+<pre><code>// 起動オプションを指定しつつ確実に新しいウィンドウでファイルを開く
+// まっさらなウィンドウだった場合は改行を挿入してまっさらでなくする
+if (filename == &quot;&quot; &amp;&amp; updated == false) insert &quot;\n&quot;;
+openfile &quot;/r C:\\foodir\\memo.txt&quot;; // 読込み専用で別ウィンドウを開く</code></pre>
+</div>
+<p>ここではまっさらなウィンドウをまっさらでなくするために改行を挿入していますが、他にも<strong><code>changename</code></strong> コマンドで適当なファイル名をつける方法もあります。</p>
+</section>
+<section id="OPENFILE5" class="level4">
+<h4>[1-5] ウィンドウを閉じる</h4>
+<p>今度は逆にウィンドウを閉じる方法ですが、<strong>現在マクロを実行しているウィンドウを閉じる</strong>には
+<strong><code>exit</code></strong>、または <strong><code>quit</code></strong>コマンドを使用します。また、<strong>ウィンドウを閉じる前に編集内容を保存したい</strong>時は<strong><code>saveexit</code></strong> コマンド、もしくはただの <strong><code>save</code></strong> コマンドと <code>exit</code>コマンドを組み合わせて使います。</p>
+<p>但し、これらの終了コマンドを使うと<strong>マクロの実行自身も終わってしまう</strong>ので注意が必要です。これは<code>openfile</code> を使って開いたウィンドウでも同様で、<strong>自動的にマクロの実行が元のウィンドウに戻ることはありません</strong>。例えばマクロ中で作業用ウィンドウを開いて、その上で作業をした後に元のウィンドウに戻って作業を続けようとして以下のようなマクロを作っても、意図した動作をしないわけです。</p>
+<div class="macro">
+<pre><code>// 作業ウィンドウを開いてその後元のウィンドウに戻る…？
+
+// 文字列変数に格納した文字を小文字に変換
+$s = &quot;ABCDEF&quot;; // これを &quot;abcdef&quot; に変換する
+newfile;       // 作業ウィンドウを開く
+insert $s;     // 文字列を挿入
+selectall;     // 全て選択
+tolower;       // 小文字に変換
+selectall;     // 全て選択
+$s = gettext(seltopx,seltopy,selendx,selendy); // 選択範囲の文字列を取得
+quit;          // このウィンドウを閉じる
+insert $s;     // 元のファイルに挿入…あれ？</code></pre>
+</div>
+<p>この例では最後の <code>insert</code>コマンドが元のウィンドウで実行されることを期待しているわけですが、実際にやってみると<strong>その前の <code>quit</code>コマンドが実行されて作業ウィンドウが閉じた時点でマクロが終了</strong>してしまい、元のウィンドウに文字は挿入されません。</p>
+<p>今の例のように、<strong>マクロ中で開いたウィンドウを閉じた後も元のウィンドウでマクロの実行を続けたい</strong>場合や、<strong>いくつかのウィンドウを開いた状態でそれらのウィンドウを行ったり来たりしながらマクロを実行する</strong>には、以下の章で説明する<strong>ウィンドウ管理系のコマンド</strong>を使う必要があります。</p>
+</section>
+</section>
+<section id="WINDOW" class="level3">
+<h3>【２】複数の秀丸エディタウィンドウの間を移動する</h3>
+<p>前章の最後の例を正しい形で実現するには、以下の２点を解決する必要があります。</p>
+<ul>
+<li>途中で開いた作業ウィンドウからマクロの実行を終了させることなく元のウィンドウに戻るには？</li>
+<li>開いた作業ウィンドウをマクロの実行を終了させることなく閉じるには？</li>
+</ul>
+<p>これらの内、前者はもっと一般的に</p>
+<ul>
+<li>マクロの実行を終了させることなく他のウィンドウに移動してマクロの実行を続けるには？</li>
+</ul>
+<p>と言い換えてもいいわけですが、これはさらに細かく</p>
+<ul>
+<li>(移動先の)他のウィンドウをどうやって指定するか？</li>
+<li>マクロの実行対象を他のウィンドウに移動するにはどうすればよいか？</li>
+</ul>
+<p>という問題に分けることができます。以下ではまずこの最初の問題、すなわち「他のウィンドウをどうやって指定するか？」について解説します。</p>
+<section id="WINDOW2-1" class="level4">
+<h4>[2-1] 他のウィンドウを指定する</h4>
+<p><strong>現在開かれているウィンドウをマクロ中で指定する</strong>のに、以下のような２通りの方法が用意されています。</p>
+<section id="WINDOW2-1-1" class="level5">
+<h5>ウィンドウ番号(ウィンドウの並び順)による指定</h5>
+<p><strong>ウィンドウ番号</strong>とは<strong>秀丸エディタウィンドウを画面手前から順番に０から数えたもの</strong>で、同じウィンドウでも、<strong>画面上の位置関係が変わるとそれに従ってウィンドウ番号も変化</strong>します。</p>
+<p>例えば以下の左図のような配置では、Ａ、Ｂ、Ｃの３つのウィンドウにはそれぞれ０、１、２のウィンドウ番号が割り振られます。ここで、右図のようにウィンドウＣを一番手前に持ってくると、ウィンドウ番号の割り振りがそれぞれＡのウィンドウ番号＝１、Ｂ＝２、Ｃ＝０ に変化します。</p>
+<table>
+<caption>ウィンドウ番号</caption>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 15%" />
+<col style="width: 41%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><img src="3_window_01.png" width="260" height="260" alt="w1" /></td>
+<td style="text-align: center;">ウィンドウＣを<br />
+→<br />
+一番手前にする</td>
+<td style="text-align: right;"><img src="3_window_02.png" width="260" height="260" alt="w2" /></td>
+</tr>
+</tbody>
+</table>
+<p>また、前章の例のようにマクロ中で他のウィンドウを開いた場合を考えると、ウィンドウを開く前は<strong>マクロを実行しているウィンドウが一番手前にある</strong>はずなので、そのウィンドウのウィンドウ番号は０です。次に、<code>openfile</code> や <code>newfile</code> で新しいウィンドウを開くと、そのウィンドウが一番手前に来ますからウィンドウ番号は０、また元のウィンドウはその後に回るのでウィンドウ番号は１に変わります。ちなみに、<strong>マクロの実行は新しく開いたウィンドウへ自動的に変わっていた</strong>ので、<strong>マクロを実行しているウィンドウのウィンドウ番号は常に０</strong>になっています。なお、この性質は後から解説する<strong>ウィンドウ間を移動するコマンドでウィンドウを移動した場合も成り立ちます</strong>。</p>
+<p>さて、あるファイルが開かれているか、また開かれていた時にそのウィンドウ番号を取得するには以下の関数を使います。</p>
+<div class="macro">
+<pre><code>findhidemaru(filename)</code></pre>
+</div>
+<p><code>findhidemaru</code>関数は、指定された名前(<code>filename</code>)を持つファイルが(秀丸エディタで)開かれている場合は、そのウィンドウのウィンドウ番号を返します。また、そのファイルを開いているウィンドウが存在しない時、もしくは指定したファイルを開いているウィンドウが現在マクロを実行しているウィンドウだった場合は
+(ウィンドウ番号０を返す様に思えますが何故か(^^;)-1 を返します。</p>
+<p>以下のサンプルマクロは、指定したファイルが開かれていればそのウィンドウ番号を、開かれていないかまたは開いているがそのウィンドウでマクロを実行した場合は -1 をメッセージボックスで表示します。</p>
+<div class="macro">
+<pre><code>// ウィンドウ番号を表示するサンプルマクロ
+#H_ORDER = findhidemaru(&quot;c:\\hidemaru\\install.txt&quot;);
+message &quot;ウィンドウ番号 = &quot; + str(#H_ORDER);</code></pre>
+</div>
+</section>
+<section id="WINDOW2-1-2" class="level5">
+<h5>ウィンドウハンドル(各ウィンドウに固有の数値)による指定</h5>
+<p><strong>ウィンドウハンドル</strong>とは、<strong>OSが個々のウィンドウを識別するためウィンドウに付与する整数値</strong>です。これは秀丸エディタウィンドウだけでなく全てのウィンドウに割り振られていますが、この値は<strong>ウィンドウが開かれた時から閉じられるまで同じ値を取ります</strong>。</p>
+<p>※ 同じファイルでもウィンドウを一度閉じてからまた開いた場合、ウィンドウハンドルは一般に異なる値となります。</p>
+<p>前述したウィンドウ番号はウィンドウの配置を変えるとそれにしたがって同じウィンドウでも番号が変化していたので、ウィンドウを指定する時には現在のウィンドウの配置がどうなっているかを常に意識する必要があります。一方、ウィンドウハンドルを使えば、<strong>ウィンドウの位置関係によらず常に同じ値でウィンドウを指定できます</strong>。</p>
+<p>さて、ウィンドウハンドルを取得するには以下の関数を使います。</p>
+<div class="macro">
+<pre><code>hidemaruhandle(windoworder)</code></pre>
+</div>
+<p>この関数は、指定されたウィンドウ番号(<code>windoworder</code>)を持つウィンドウのウィンドウハンドルを返します。また、無効なウィンドウ番号を指定した場合は -1 を返します。以下は指定したファイルを開いているウィンドウのウィンドウハンドルを表示するサンプルマクロです。</p>
+<div class="macro">
+<pre><code>// ウィンドウハンドルを表示するサンプルマクロ
+// まずウィンドウ番号を取得
+#H_ORDER = findhidemaru(&quot;c:\\hidemaru\\install.txt&quot;);
+if (#H_ORDER != -1) {
+&#160;&#160;&#160;&#160;// 有効なウィンドウ番号だった
+&#160;&#160;&#160;&#160;#H_HANDLE = hidemaruhandle(#H_ORDER);
+} else {
+&#160;&#160;&#160;&#160;// 無効なウィンドウ番号だった
+&#160;&#160;&#160;&#160;if (filename == &quot;c:\\hidemaru\\install.txt&quot;) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// 現在マクロを実行中のウィンドウで開いていた場合
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;#H_HANDLE = hidemaruhandle(0); // マクロを実行中のウィンドウのウィンドウ番号は必ず０
+&#160;&#160;&#160;&#160;}
+}
+message &quot;ウィンドウハンドル = &quot; + str(#H_HANDLE);</code></pre>
+</div>
+<p>このサンプルの無効なウィンドウ番号だった場合の処理で、現在のウィンドウが指定されたファイルを開いている場合をわざわざ確認していますが、これは前節で説明した<code>findhidemaru</code> 関数の仕様(現在のウィンドウで開いているファイル名を渡された場合も-1 を返す)のためです。その中の処理で現在のウィンドウのウィンドウハンドルを取得するために<strong><code>hidemaruhandle(0)</code></strong> という書き方をしていますが、先程のウィンドウ番号の説明で述べたウィンドウ番号の性質を考えると、これが<strong>現在マクロを実行中のウィンドウのウィンドウハンドルを取得する最も確実な方法</strong>です。</p>
+</section>
+</section>
+<section id="WINDOW2-2" class="level4">
+<h4>[2-2] マクロの実行対象を他のウィンドウに移動する</h4>
+<p>前節で解説した２通りのウィンドウの指定方法を使って、実際に<strong>マクロの実行対象を他のウィンドウに移す</strong>には、
+<strong><code>setactivehidemaru</code></strong> コマンドを用います。
+<code>setactivehidemaru</code>コマンドの引数に移動先のウィンドウのウィンドウ番号、またはウィンドウハンドルを指定すれば、そのウィンドウが画面の一番手前に移動し(つまりウィンドウ番号が０になる)、<strong>そのコマンド以降のマクロ文の実行は全てこのウィンドウが対象</strong>になります。</p>
+<p>以下のサンプルマクロは、元のウィンドウの内容を新しく開いたウィンドウに一行ずつコピーするマクロです。</p>
+<div class="macro">
+<pre><code>// 現在のウィンドウの内容を新規ウィンドウに１行ずつコピー
+#HWND = hidemaruhandle(0); // 現在のウィンドウのウィンドウハンドルを取得
+newfile; // 新規ウィンドウを開く。
+
+// 以下の文は新規ウィンドウで実行される
+#HWND_NEW = hidemaruhandle(0); // 今開いたウィンドウのウィンドウハンドルを取得
+setactivehidemaru #HWND; // 元のウィンドウに戻る。
+
+// 以下の文は元のウィンドウで実行される
+gofiletop; // ファイルの先頭にカーソルを移動
+while (code != eof) { // ファイルの終わりまでループ
+&#160;&#160;&#160;&#160;copyline; // 行のコピー
+&#160;&#160;&#160;&#160;setactivehidemaru #HWND_NEW; // コピー先ウィンドウに移動。
+
+&#160;&#160;&#160;&#160;// 以下新規ウィンドウで実行
+&#160;&#160;&#160;&#160;paste; // コピーした行を貼り付ける
+&#160;&#160;&#160;&#160;gofileend; // ウィンドウの終わりにカーソルを移動
+&#160;&#160;&#160;&#160;setactivehidemaru #HWND; // コピー元ウィンドウに移動。
+
+&#160;&#160;&#160;&#160;// 以下元のウィンドウで実行
+&#160;&#160;&#160;&#160;movetolineno 1, lineno + 1; // １行下がる
+&#160;&#160;&#160;&#160;if (result == false) break; // 最後の行が改行で終わっていない場合への対処
+}
+setactivehidemaru #HWND_NEW; // コピー先ウィンドウを手前にして終了。</code></pre>
+</div>
+<p>このサンプルマクロを実際に実行すると、元のウィンドウとマクロ中で新しく開いたウィンドウが目まぐるしく(^^;入れ替わりながら、行のコピー&amp;ペーストが行われている様子が見て取れると思います。</p>
+<p>なお、この例では全ての <code>setactivehidemaru</code>コマンドにウィンドウハンドルを渡していましたが、先に説明したようにウィンドウ番号を渡してもOKなので以下のようにも書けます。</p>
+<div class="macro">
+<pre><code>// 現在のウィンドウの内容を新規ウィンドウに１行ずつコピー
+// setactivehidemaru にウィンドウ番号を渡すバージョン
+newfile; // 新規ウィンドウを開く
+
+// 以下の文は新規ウィンドウで実行される
+setactivehidemaru 1; // 元のウィンドウに戻る
+
+// 以下の文は元のウィンドウで実行される
+gofiletop;
+while (code != eof) {
+&#160;&#160;&#160;&#160;copyline;
+&#160;&#160;&#160;&#160;setactivehidemaru 1; // コピー先ウィンドウに移動
+    
+&#160;&#160;&#160;&#160;// 以下新規ウィンドウで実行
+&#160;&#160;&#160;&#160;paste;
+&#160;&#160;&#160;&#160;gofileend;
+&#160;&#160;&#160;&#160;setactivehidemaru 1; // コピー元ウィンドウに移動
+    
+&#160;&#160;&#160;&#160;// 以下元のウィンドウで実行
+&#160;&#160;&#160;&#160;movetolineno 1, lineno + 1;
+&#160;&#160;&#160;&#160;if (result == false) break;
+}
+setactivehidemaru 1; // コピー先ウィンドウを手前にして終了</code></pre>
+</div>
+<p>ここで全ての <code>setactivehidemaru</code> コマンドに (ウィンドウ番号) 1 を渡していますが、これはコピー元ウィンドウとコピー先ウィンドウが必ず画面の一番手前(＝ウィンドウ番号０…マクロの実行対象)と、そのすぐ後ろ(＝ウィンドウ番号１)に配置されているはずだからです。</p>
+<p>ちなみに、他のウィンドウにマクロの実行を移すコマンドは、
+<code>setactivehidemaru</code> コマンドの他にも <strong><code>nexthidemaru</code></strong>
+(一番後ろのウィンドウが手前に来る) や <strong><code>prevhidemaru</code></strong>
+(一番手前のウィンドウが一番後ろに回る)
+コマンドがあります。これらを使うと上のサンプルマクロを以下のように書き換えることもできます。</p>
+<div class="macro">
+<pre><code>// 現在のウィンドウの内容を新規ウィンドウに１行ずつコピー
+// nexthidemaru/prevhidemaru を使うバージョン
+newfile; // 新規ウィンドウを開く
+
+// 以下の文は新規ウィンドウで実行される
+prevhidemaru; // 新規ウィンドウを一番後ろに回す
+
+// 以下の文は元のウィンドウで実行される
+gofiletop;
+while (code != eof){
+&#160;&#160;&#160;&#160;copyline;
+&#160;&#160;&#160;&#160;nexthidemaru; // 新規ウィンドウを一番手前に戻す
+
+&#160;&#160;&#160;&#160;// 以下新規ウィンドウで実行
+&#160;&#160;&#160;&#160;paste;
+&#160;&#160;&#160;&#160;gofileend;
+&#160;&#160;&#160;&#160;prevhidemaru; // 新規ウィンドウを一番後ろに回す
+
+&#160;&#160;&#160;&#160;// 以下元のウィンドウで実行
+&#160;&#160;&#160;&#160;movetolineno 1, lineno + 1;
+&#160;&#160;&#160;&#160;if (result == false) break;
+}
+nexthidemaru; // 新規ウィンドウを一番手前に戻して終了</code></pre>
+</div>
+<p><code>setactivehidemaru</code>を使った場合は一番手前とそのすぐ後ろのウィンドウを入れ替えていましたが、この例では一番手前と一番後ろのウィンドウを入れ替えています。これはマクロを実行したウィンドウの他に秀丸エディタウィンドウを開いていた場合でもちゃんと動作するようにするためです。</p>
+</section>
+<section id="WINDOW2-3" class="level4">
+<h4>[2-3] マクロの実行を終了することなくウィンドウを閉じる</h4>
+<p>この章の最初に示した問題の残り「マクロの実行を終了することなく作業ウィンドウを閉じること」についてですが、これは前節で説明した<code>setactivehidemaru</code> その他のウィンドウを移動するコマンドと、
+<strong><code>closehidemaru</code></strong> または <strong><code>closehidemaruforced</code></strong> コマンドを組み合わせることで実行できます。
+<code>closehidemaru(forced)</code> は引数で渡されたウィンドウハンドルかウィンドウ番号のウィンドウを閉じるコマンドですが、</p>
+<ul>
+<li><code>closehidemaru</code>は、閉じようとしているウィンドウが編集されていた場合、コマンドが失敗する。</li>
+<li><code>closehidemaruforced</code>は、編集内容を強制的に破棄して終了する。</li>
+</ul>
+<p>という点が異なります。</p>
+<p>コマンドが出揃った所で、前章の最後のサンプルマクロを完成させましょう。</p>
+<div class="macro">
+<pre><code>// 作業ウィンドウを開いてその後元のウィンドウに戻る(完成版)
+
+// 文字列変数に格納した文字を小文字に変換
+$s = &quot;ABCDEF&quot;; // これを &quot;abcdef&quot; に変換する
+#HWND = hidemaruhandle(0); // 元ウィンドウのウィンドウハンドルを取得
+newfile; // 作業ウィンドウを開く
+
+// 以下は作業ウィンドウでの処理
+#HWND_WORK = hidemaruhandle(0); // 作業ウィンドウのウィンドウハンドルを取得
+insert $s; // 文字列を挿入
+selectall; // 全て選択
+tolower; // 小文字に変換
+selectall; // 全て選択
+$s = gettext(seltopx,seltopy,selendx,selendy); // 選択範囲の文字列を取得
+setactivehidemaru #HWND; // 元のウィンドウに戻る
+
+// 元のウィンドウでの処理
+closehidemaruforced #HWND_WORK; // 作業ウィンドウを(強制的に)閉じる
+insert $s; // 元のファイルに挿入</code></pre>
+</div>
+<p>ちなみに、<code>closehidemarusaved</code>といった「保存して終了する」ようなコマンドは用意されていないので、もし終了する前に保存する必要がある場合は、閉じる前にそのウィンドウへ移動して<code>save</code> 等のコマンドを使って明示的に保存しましょう。</p>
+</section>
+<section id="WINDOW2-4" class="level4">
+<h4>[2-4]ファイル名リストのファイルについて１つづつマクロを実行する</h4>
+<p>最後に、今まで説明したウィンドウ操作系コマンドとマクロ中で別のマクロを実行する<strong><code>execmacro</code></strong> コマンドを組み合わせて、
+(grepの結果ウィンドウのような)ファイル名のリストについてそのファイル１つ１つに対して別のマクロを実行するサンプルを紹介します。</p>
+<div class="macro">
+<pre><code>// 秀丸マクロバッチ処理もどき
+//
+// 秀丸ウィンドウにファイル名のリストを書いておきます。
+// grep結果でも可、但し手抜きなのでパス名に&quot;(&quot;を含む場合は不可、
+// 最終行は読み取れないので改行を入れてください。
+// 各行の先頭文字列をファイル名とし、起動して$MacroNameで指定したマクロを
+// 実行するのを各ファイル毎に繰り返します。
+// $MacroNameのマクロでファイルを更新した場合は必ずsave;が必要。
+//
+$MacroName = &quot;test.mac&quot;;
+// 現在のhidemaruhandle保存
+#hid = hidemaruhandle(0);
+gofiletop;
+// ファイル名取得・マクロ実行ループ
+while(code != eof) {
+&#160;&#160;&#160;&#160;beginsel;
+&#160;&#160;&#160;&#160;searchdown &quot;\\n|\\(&quot;,regular;
+&#160;&#160;&#160;&#160;$file=gettext(seltopx, seltopy, selendx, selendy);
+&#160;&#160;&#160;&#160;// 存在確認
+&#160;&#160;&#160;&#160;if (!existfile($file)) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;message &quot;以下のファイルが見つかりませんでした。処理を中断します。\n\n&quot; + $file;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;// 秀丸起動
+&#160;&#160;&#160;&#160;openfile $file;
+&#160;&#160;&#160;&#160;#hid2 = hidemaruhandle(0);
+&#160;&#160;&#160;&#160;// マクロ実行
+&#160;&#160;&#160;&#160;execmacro $MacroName;
+&#160;&#160;&#160;&#160;// テンポラリ画面を閉じる
+&#160;&#160;&#160;&#160;setactivehidemaru #hid;
+&#160;&#160;&#160;&#160;closehidemaru #hid2;
+&#160;&#160;&#160;&#160;// 最終行だったら終わり
+&#160;&#160;&#160;&#160;golineend2;
+&#160;&#160;&#160;&#160;if (code == eof) break;
+&#160;&#160;&#160;&#160;down;
+&#160;&#160;&#160;&#160;golinetop2;
+}
+endmacro;</code></pre>
+</div>
+</section>
+</section>
+<section id="MISC" class="level3">
+<h3>【３】(補足) 色々な方法でウィンドウを開く</h3>
+<p>マクロから他のウィンドウを開くための解説は一通りしたわけですが、この章ではもう少し実際に近いサンプルをいくつか紹介します。</p>
+<section id="MISC-1" class="level4">
+<h4>[3-1] 既にファイルが開かれているかどうかを確認する</h4>
+<p>第１章で解説したように、 <code>openfile</code>コマンドで指定したファイルが既に開かれていた場合、その後の動作は秀丸エディタの「排他制御」の設定によって変わります。結果的にコマンドが成功したらそのファイルを開いたウィンドウが一番手前に来ているので、その後のマクロの動作に影響はないといえます。ですが、できればそのような設定によらず同じ動作をするようなマクロを作れれば、それはそれでスマートなことではあります。</p>
+<p>というわけで、以下は<strong>排他制御の設定によらず既に指定したファイルが開いていたらそのウィンドウを一番手前に持ってくる(開いていなければ新しく開く)</strong>、という処理を行うサンプルマクロです。</p>
+<div class="macro">
+<pre><code>// ファイルを開く・またはウィンドウを一番手前に持ってくる
+$file = &quot;C:\\foodir\\memo.txt&quot;; // ファイル名
+#H_ORDER = findhidemaru($file); // まずウィンドウ番号を取得
+if (#H_ORDER != -1) { // ウィンドウが見つかった
+&#160;&#160;&#160;&#160;#HWND = hidemaruhandle(#H_ORDER); // ウィンドウハンドルを取得
+&#160;&#160;&#160;&#160;setactivehidemaru #HWND; // そのウィンドウを手前にする
+} else { // まだ開かれていないか、自分で開いているか
+&#160;&#160;&#160;&#160;if ($file != filename) { // まだ開かれていなかった
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;openfile $file; // 新しく開く
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (result == false) {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;message $file + &quot;が開けません&quot;;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;endmacro;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;}
+&#160;&#160;&#160;&#160;// ここに来るのはファイルを開いているのが自分自身か、
+&#160;&#160;&#160;&#160;// もしくは新しく開いて成功したかどちらか
+&#160;&#160;&#160;&#160;#HWND = hidemaruhandle(0); // いずれにしてもそのウィンドウは一番手前に来ているはず
+}
+// この時点で #HWND に $file のウィンドウハンドルが入っていて
+// なおかつそのウィンドウが一番手前に来ているはず</code></pre>
+</div>
+</section>
+<section id="MISC-2" class="level4">
+<h4>[3-2] 作業ウィンドウを見えない状態で開く</h4>
+<p>さて次のサンプルは、第１章の最後の例でもありましたが、<strong>マクロ中で一時的に使うための作業ウィンドウを開く</strong>処理です。ところで、作業ウィンドウはマクロの実行中にだけ必要なものでなおかつ作業の様子はなるべく見られたくないですから、できればウィンドウが見えない状態で開ければ一番いいわけです。で、まさにそういう(いわゆる「ステルス状態」の)ウィンドウを開くための起動オプション("/h")が用意されているので、ここでもそれを使うことにしましょう。</p>
+<div class="macro">
+<pre><code>// ウィンドウを見えない状態で開くサンプルマクロ
+
+// 以下の処理が必要な理由は第１章を参照
+#modify_org = false; // 元のウィンドウをいじったかどうかのフラグ
+if (filename == &quot;&quot; &amp;&amp; modified == false) { // 元のウィンドウが新規ウィンドウの場合
+&#160;&#160;&#160;&#160;insert &quot;\n&quot;; // 下の openfile が失敗しない様に一時的に更新しておく
+&#160;&#160;&#160;&#160;#modify_org = true; // あとで元に戻す
+}
+
+#hwnd_org = hidemaruhandle(0); // 元のウィンドウのウィンドウハンドルを取得しておく
+openfile &quot;/h&quot;; // ステルス状態で新規ウィンドウを開く
+#hwnd_work = hidemaruhandle(0); // ステルスウィンドウのウィンドウハンドルを取得
+
+... // 作業ウィンドウで何かの仕事をする
+
+setactivehidemaru #hwnd_org; // 最後に元のウィンドウに戻る
+closehidemaruforced #hwnd_work; // ステルスウィンドウを閉じる
+if (#modify_org) undo; // 元のウィンドウをいじっていたら元に戻す</code></pre>
+</div>
+<p>ここで使ったステルスウィンドウですが、必ず<strong>マクロ内で責任を持って閉じるように</strong>しましょう。最近のバージョンの秀丸エディタではステルスウィンドウを閉じ忘れても、マクロが終了したら自動的に可視状態に変わるのでそれほど神経質になる必要はないのですが、いずれにしても身に覚えのないウィンドウが突如(^^;出現するわけですから気持ちの悪いことこのうえないです。というわけで、上のサンプルのように作業ウィンドウを開いたら、ちゃんと後始末をするようにしましょう。</p>
+</section>
+</section>
+<section id="MISC2" class="level3">
+<h3>【４】(補足)秀丸エディタウィンドウの間を移動時の注意点</h3>
+<p>マクロ実行中にウィンドウを切り替える場合の注意点。</p>
+<section id="MISC2-1" class="level4">
+<h4>[4-1] 外部DLLを使用してる場合</h4>
+<p>外部DLLをロードしている場合は、loaddll文/loaddll関数の有効範囲に注意してください。詳細は、<a href="HMM0081A.html">[HMM0081A]●「DLLがロードされてないのにdllfunc関数が使われました」と表示される</a>の、「loaddll文/loaddll関数の有効範囲の問題」を参照してください。</p>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

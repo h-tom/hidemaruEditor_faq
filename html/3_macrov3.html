@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
+  <title>第III部〜秀丸マクロのいろはにほへと　秀丸エディタVer.3.00 マクロ関連の変更履歴</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタVer.3.00 マクロ関連の変更履歴</h1>
+<hr />
+<section id="V3" class="level2">
+<h2>秀丸エディタVer.3.00 マクロ関連の変更履歴</h2>
+<p>秀丸 ver.3.00になって、機能強化に伴いマクロ文が追加されたり、仕様変更が行われました。また、いくつかのバグ修正も行われています。<br />
+そのため、裏を返せば ver.2.xとの間でマクロに一部非互換が発生しています。<br />
+この章では、マクロの非互換情報を中心に、マクロ関連の変更履歴の情報を集めました。</p>
+<p>【１】<a href="#LIST">マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 3.00</a><br />
+【２】<a href="#GOKAKKO">gokakko, goleftkakko, gorightkakko の仕様変更</a><br />
+【３】<a href="#STEALTH">ステルス秀丸の処理</a><br />
+【４】<a href="#ESCAPE">escape;のresult</a><br />
+【５】<a href="#HHANDLE">hidemaruhandle(0) の取り違え</a></p>
+<section id="LIST" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver. 3.00</h3>
+<ul>
+<li>loadhilight 文、hilighttitle 関数、colorcode 関数、copy2文、openbyhidemaru 文、openbyshell 文、nextmark 文、
+prevmark 文が追加された。</li>
+<li>ファイル系文の result に関して、trueで初期値を与え、エラー処理も統一された。<br />
+( saveas, insertfile, changename, appendsave, etc. )</li>
+<li>ダイアログボックスを出力するファイル系文で、失敗したりキャンセルされた場合は、result は false を返すように統一された。<br />
+( CHANGENAME, INSERTFILE, etc. )</li>
+<li>gokakko, goleftkakko, gorightkakko に関して、「コメント/文字定数」内の考慮が加えられた。</li>
+<li>剰余 % に関して、符号を考慮した計算方法に変更された。</li>
+<li>マクロが終了したとき、 /h でオープンされた窓が開かれる仕様になった。</li>
+<li>config を実行すると、disabledraw が無効になるバグを修正。</li>
+<li>totab; が \" でエスケープ処理を間違えるバグを修正。</li>
+<li>その他、マクロのバグが修正された。</li>
+</ul>
+</section>
+<section id="GOKAKKO" class="level3">
+<h3>【２】gokakko, goleftkakko, gorightkakko の仕様変更</h3>
+<pre><code>gokakko      対応する括弧に移動
+goleftkakko  &#39;{&#39;に移動
+gorightkakko &#39;}&#39;に移動</code></pre>
+<p>これらの 3 個のマクロ、コマンドは Ver. 3.00 から仕様が変更されました。<br />
+「ファイルタイプ別の設定」で「コメント/文字定数のカラー表示」を指定しない場合には従来の移動と同じです。また、これを指定した場合には、以下の動作になります。</p>
+<ol type="1">
+<li>gokakko は、「コメント/文字定数」の中にある括弧では移動しません。</li>
+<li>goleftkakko, gorightkakko は、「コメント/文字定数」の中にある括弧 { } を無視して移動します。</li>
+</ol>
+</section>
+<section id="STEALTH" class="level3">
+<h3>【３】ステルス秀丸の処理</h3>
+<p>マクロが終了したとき、 /h でオープンされた窓が開かれる仕様になりました。</p>
+<p>ちなみにこの仕様については、マクロのバグでマクロが異常終了したときは、有効ではありません。</p>
+<p>「入力補完」とか「辞書引き」のマクロ等では、意図して /h で残す場合がありましたが、Ver. 3.0x ではそれができません。</p>
+</section>
+<section id="ESCAPE" class="level3">
+<h3>【４】escape;のresult</h3>
+<div class="macro">
+<pre><code>escape;
+message str(result);</code></pre>
+</div>
+<p>現在 (Ver. 3.0x) でも、escape; は result = 0 となります。<br />
+偶然、この仕様であるが将来は不明です、<br />
+マクロのテストにはべんりですが、恒久的なコードをすることはお勧めではないです。</p>
+</section>
+<section id="HHANDLE" class="level3">
+<h3>【５】hidemaruhandle(0) の取り違え</h3>
+<p>下記のような例で発生する hidemaruhandle(0) の取り違えは治っていませんが、大きな問題ではありません。仕様にも見えるでしょう。</p>
+<p>「常駐秀丸の終了 (C) 」の後に、マクロ c1. mac を「マクロ実行」する、<br />
+その後で、c2.mac で確認すると、hidemaruhandle(0) の矛盾がわかります。</p>
+<div class="macro">
+<pre><code>// c1.mac
+saveas &quot;a1.txt&quot;;
+$wk1 = filename;
+#ii = hidemaruhandle(0);
+message str(#ii);
+$wk2 = &quot;a2.txt&quot;;
+openfile &quot;/h &quot; + $wk2;
+#jj = hidemaruhandle(0); // おいおい !!!
+message str(#jj);
+#kk = hidemaruhandle(findhidemaru($wk1)); // ナイナイ !!!
+message str(#kk);
+
+endmacro;</code></pre>
+</div>
+<p><br />
+</p>
+<div class="macro">
+<pre><code>// c2.mac
+#i = hidemaruhandle(0);
+message str(#i);
+
+endmacro;</code></pre>
+</div>
+<p>※この内容は秀丸エディタ ver.3.01の内容を元に書かれています。<br />
+今後のバージョンアップによっては、上記の内容が必ずしも当てはまらない場合もあるかもしれません。</p>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>
