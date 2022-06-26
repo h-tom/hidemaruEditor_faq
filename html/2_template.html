@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="author" content="h-tom" />
-  <title>第II部&#65374;知っていると便利な秀丸の機能　テンプレート</title>
+  <title>第II部〜知っていると便利な秀丸の機能　テンプレート</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -87,37 +87,40 @@
 <body>
 <p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
-<h1>第II部&#65374;知っていると便利な秀丸の機能　テンプレート</h1>
+<h1>第II部〜知っていると便利な秀丸の機能<br>　テンプレート</h1>
 <hr />
-<section id="editorconfig" class="level2">
+<section id="template" class="level2">
 <h2>テンプレート</h2>
 <p>秀丸エディタ Ver.9.12以降では、「テンプレート」に対応しています。「テンプレート」とは「スニペット」とも呼ばれる機能で、定型的な内容を入力するための支援機能になります。</p>
 <ul>
-<li>解説
+<li><a href="#explanation">解説</a>
 <ul>
-<li>テンプレートファイルの場所</li>
-<li>テンプレートファイルの作成</li>
-<li>「テンプレート」の呼び出しかた</li>
+<li><a href="#explanation-1">テンプレートファイルの場所</a></li>
+<li><a href="#explanation-2">テンプレートファイルの作成</a></li>
 </ul></li>
 </ul>
-<section id="解説" class="level3">
+<section id="explanation" class="level3">
 <h3>解説</h3>
 <p>「テンプレート」を使用するには、「<strong>指令された場所</strong>」に「<strong>テンプレートファイル</strong>」を作成する必要があります。</p>
 <p>テンプレートファイルは、単純なものとしては入力したい内容を記述したファイル(例えばメールの定型文のあいさつなど)になります。プログラム等でコード片を入力する場合は、入力個所を設定する等特殊命令(プレースホルダー等)を設定できます。</p>
 <p><img src="./2_template_01.png" width="632" height="464" alt="テンプレートの設定" /><br />
 </p>
-<p>「テンプレート」を呼び出すには、「テンプレート」コマンドを実行するか、「単語補完」を使います。<br />
-「単語補完」を使う場合は、「<strong>単語補完に含ませる</strong>」にチェックを入れてください。また、「ファイルタイプ別の設定」で「単語補完」も有効にしてください。</p>
-<section id="テンプレートファイルの場所" class="level4">
+<p>「テンプレート」を呼び出すには、「テンプレート」コマンドを実行するか、「単語補完」を使います。</p>
+<ul>
+<li>「テンプレート」コマンドは、メニューの「その他 - コマンド一覧」の「その他編集」にあります。</li>
+<li>「単語補完」を使う場合は、「<strong>単語補完に含ませる</strong>」にチェックを入れてください。また、「ファイルタイプ別の設定」で「単語補完」も有効にしてください。</li>
+</ul>
+<p>よく使う場合は、「単語補完」を使うか、「テンプレート」コマンドをメニューやツールバーに出しておきましょう。</p>
+<section id="explanation-1" class="level4">
 <h4>テンプレートファイルの場所</h4>
-<p>デフォルトでは、「snippets」フォルダが指定されています。</p>
+<p>デフォルトでは、「設定用フォルダ」にある「snippets」フォルダが指定されています。</p>
 <ul>
 <li>フォルダではなく、ファイルを指定してもいい。</li>
 <li>フォルダ + ワイルドカードも指定可能。</li>
 </ul>
-<p>ファイルタイプによって「テンプレート」を使い分けたい場合は、個別にファイル・フォルダを指定したり、ワイルドカードを使います。環境変数やフルパスではない場合は、「設定ファイル用のフォルダ」にあるフォルダ・ファイルと認識されます。</p>
+<p>ファイルタイプによって「テンプレート」を使い分けたい場合は、個別にファイル・フォルダを指定したり、ワイルドカードを使います。<strong>環境変数やフルパスではない場合は、「設定ファイル用のフォルダ」にあるフォルダ・ファイルと認識されます。</strong></p>
 </section>
-<section id="テンプレートファイルの作成" class="level4">
+<section id="explanation-2" class="level4">
 <h4>テンプレートファイルの作成</h4>
 <p>テンプレートファイルと認識する拡張子は3個あり、".txt" ".json" ".mac" です。</p>
 <p>".mac"以外は、<span class="btn-push">「新規作成」</span>ボタンや、横にある「▼」マークから新規作成できます。
@@ -126,11 +129,11 @@
 </p>
 <p>テンプレート内に特殊命令を埋め込むことも可能です。テンプレート内に入力個所を指定し、TABキーで移動できます。入力個所にはデフォルト値も設定できます。</p>
 <p>詳細はヘルプ参照。</p>
-<section id="特殊命令について" class="level5">
+<section id="explanation-2-1" class="level5">
 <h5>特殊命令について</h5>
 <p>テンプレート内にある "$" から始まる文字列は特殊な意味を持ちます。</p>
 <ul>
-<li><p>$数字(1&#65374;9)</p>
+<li><p>$数字(1〜9)</p>
 <p>入力個所を示します。タブキーで各項目に移動可能です。入力モード時はテンプレートに下線がつきます。</p>
 <p>同じ数字を複数箇所に記述可能で、１か所入力すれば、同じ内容が挿入されます。</p>
 <p>また、デフォルト値を指定可能で、書式は以下になります。</p>
@@ -152,7 +155,7 @@ ${数字,デフォルトの内容}</code></pre>
 <p>$記号そのものを示す。</p></li>
 </ul>
 </section>
-<section id="テキストファイル.txtの場合" class="level5">
+<section id="explanation-2-2" class="level5">
 <h5>テキストファイル(.txt)の場合</h5>
 <p>テキストファイルの場合、エンコードは UTF-8(BOMあり)です。
 (UTF16LE(BOMあり)、Shift_JISでも動作しますが、推奨されていません。)</p>
@@ -172,7 +175,7 @@ ${数字,デフォルトの内容}</code></pre>
 <p>改ページ"CL"(U+000C)を入力するには、「その他」-「コマンド一覧」から、「挿入系」-「改ページ」を使います。</p></li>
 </ul>
 </section>
-<section id="jsonファイル.jsonの場合" class="level5">
+<section id="explanation-2-3" class="level5">
 <h5>jsonファイル(.json)の場合</h5>
 <p>jsonファイルの場合、エンコードは UTF-8(BOMなし)です。</p>
 <p>「テンプレート」を「オブジェクト」として定義します。フォーマットが正しくないと、認識されません。</p>
@@ -217,7 +220,7 @@ ${数字,デフォルトの内容}</code></pre>
 <span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </section>
-<section id="マクロファイル.macの場合" class="level5">
+<section id="explanation-2-4" class="level5">
 <h5>マクロファイル(.mac)の場合</h5>
 <p>指定されたマクロを実行します。テンプレートの候補/単語補完に表示されるのは「ファイル名」から拡張子をなくしたものになります。</p>
 <p>「テンプレート」との違いは、ある程度の動的な処理も可能になる事です。マクロで取得できる情報を元に、直接文字列を挿入したり、テンプレートファイルを生成して呼び出すことも可能です。
