@@ -34,6 +34,8 @@
 <li><a href="#V913">秀丸エディタVer.9.13 マクロ関連の変更履歴</a></li>
 <li><a href="#V914">秀丸エディタVer.9.14 マクロ関連の変更履歴</a></li>
 <li><a href="#V915">秀丸エディタVer.9.15 マクロ関連の変更履歴</a></li>
+<li><a href="#V916">秀丸エディタVer.9.16 マクロ関連の変更履歴</a></li>
+<li><a href="#V917">秀丸エディタVer.9.17 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -204,6 +206,55 @@
 <li>localgrepで設定の組み合わせによってgrep結果の先頭にUTF-16のBOM相当の文字が挿入される問題修正。</li>
 <li>マクロ実行のダイアログで、ファイル名を "" でくくったばあいの対応を追加。</li>
 <li>Hidemaru_GetStaticVariable, Hidemaru_SetStaticVariableを追加</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="V916" class="level2">
+<h2>秀丸エディタVer.9.16 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V916">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.16</a></p>
+<p>【２】<a href="#SPEC_V916">仕様変更 - 「秀丸エディタ」Ver.9.16</a></p>
+<section id="LIST_V916" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.16</h3>
+<ul>
+<li>追加
+<ul>
+<li>up_nowrap、down_nowrap文追加(「カーソル上(折り返し無視)」「カーソル下(折り返し無視)」コマンド)。</li>
+<li>browsefile関数</li>
+<li>strreplace関数</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>eventの値 9の追加と、geteventparam で直前の選択内容の取得を追加。</li>
+<li>scrolllink文で自分自身を指定できないように修正。</li>
+<li>openfile等のエンコードの種類で数値の指定も対応。</li>
+<li>eval内でsetcompatiblemode 0x20000したときは、evalの外で検索文字列を復帰するように変更。</li>
+<li>split関数で一文字ずつの文字列分割でサロゲートペアは割れないように変更。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>setstaticvariableで全部消去のパラメータ指定ができていなかった問題修正。</li>
+<li>colormarker文などの文字列のRGB指定がうまくいかない場合がある問題修正。</li>
+<li>ダークモードでgettitle(1)ができないバグ修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V916" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.16</h3>
+<ul>
+<li>マクロ実行で最初のメモリ確保でエラーになったときそれ以上続行しないように修正。</li>
+</ul>
+</section>
+</section>
+<section id="V917" class="level2">
+<h2>秀丸エディタVer.9.17 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V917">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.17</a></p>
+<section id="LIST_V917" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.17</h3>
+<ul>
+<li>その他
+<ul>
+<li>execmacroで相対パス指定時の互換の動作の修正。</li>
 </ul></li>
 </ul>
 </section>
