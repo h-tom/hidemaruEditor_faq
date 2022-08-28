@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -30,6 +35,7 @@
 <p>第III部では、 <a href="https://www.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">コミュニテックス</a>の「秀シリーズサポートフォーラム(HIDESOFT)」の第４会議室に常駐している「秀丸マクロの達人」の面々が、これから秀丸マクロを使ってみよう！ と思っている人達にその技(芸？(^^;)をこっそり伝授します。</p>
 <section id="INDEX" class="level2">
 <h2>秀丸マクロのいろはにほへと</h2>
+<!-- list out start -->
 <ul>
 <li><a href="3_macro.html">マクロを実行してみよう</a></li>
 <li><a href="3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a></li>
@@ -45,6 +51,8 @@
 <li><a href="3_hmjre.html">HMJRE.DLLを使う場合の注意点</a></li>
 <li><a href="./3_run.html">外部プログラムの実行について</a></li>
 <li><a href="./3_setcompatiblemode.html">setcompatiblemode文 について</a></li>
+<li><a href="./3_execmacro.html">マクロから別のマクロを実行する方法</a></li>
+<li><a href="./3_staticvariable.html">静的な変数について</a></li>
 <li><a href="3_macrov3.html">秀丸エディタVer.3.00 マクロ関連の変更履歴</a></li>
 <li><a href="3_macrov4.html">秀丸エディタVer.4.00 マクロ関連の変更履歴</a></li>
 <li><a href="3_macrov5.html">秀丸エディタVer.5.00 マクロ関連の変更履歴</a></li>
@@ -53,6 +61,7 @@
 <li><a href="3_macrov8.html">秀丸エディタVer.8.00 マクロ関連の変更履歴</a></li>
 <li><a href="3_macrov9.html">秀丸エディタVer.9.00 マクロ関連の変更履歴</a></li>
 </ul>
+<!-- list out end -->
 <section id="supplement" class="level3">
 <h3>補足</h3>
 <ul>

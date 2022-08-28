@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -69,28 +74,34 @@
 <p>標準添付以外の変換モジュールを使うには、秀丸エディタに<span class="attention_red">登録する</span>必要があります。</p>
 <p>追加する変換モジュール (32bitの場合："*.hmf"、64bitの場合："*.hmf64") は、秀丸エディタ本体と同じ場所(デフォルトだと"C:\Program Files\Hidemaru")に置いてください。<br />
 変換モジュールによっては、変換モジュール本体とは別に動作で必要なファイルもあるので、添付されている説明をよく確認してください。</p>
+<p>変換モジュールを使うには以下の制限があります。</p>
+<ul>
+<li>変換モジュール = 外部プログラム で処理を行う都合上、カラーマーカーは破棄されます。
+(変換モジュールにはカラーマーカーの情報は渡らない)</li>
+<li>変換を行っていなくても、選択した範囲の全行に編集マークが付く。</li>
+</ul>
 <section id="EXPLANATION-1" class="level4">
 <h4>変換モジュールの登録方法</h4>
 <p>変換モジュールの登録は、メニューの「その他」-&gt;「<span class="env">動作環境</span>」で行います。</p>
 <ol type="1">
 <li><p>「<span class="font_red_bold">上級者向け設定</span>」にチェックが付いていない場合、チェックする。</p>
-<p><img src="2_mark_01.png" width="605" height="433" alt="上級者向け設定にチェック" /><br />
+<p><img src="./2_mark_01.png" width="605" height="433" alt="上級者向け設定にチェック" /><br />
 </p></li>
 <li><p>「編集」の下に項目が追加されるので、「編集」-「<span class="attention_red">変換</span>」を選択する。</p>
 <div style="position:relative;">
-<p><img src="HME0084A_01.png" width="613" height="437" alt="動作環境-変換" />
-<img src="2_convert_01.png" width="613" height="437" alt="動作環境-変換-追加" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="./HME0084A_01.png" width="613" height="437" alt="動作環境-変換" />
+<img src="./2_convert_01.png" width="613" height="437" alt="動作環境-変換-追加" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
 <li><p>「<strong>変換モジュール</strong>」に登録済みの変換モジュールが表示されます。(初期状態は"(標準の変換)"のみ)</p>
 <p><span class="btn-push">「追加」</span>ボタンで使用したい変換モジュールを指定します。<br />
 (秀丸エディタと同じ場所に変換モジュールを置いた場合は、表示されるはず)</p>
-<p><img src="2_convert_02.png" width="650" height="476" alt="選択画面" /><br />
+<p><img src="./2_convert_02.png" width="650" height="476" alt="選択画面" /><br />
 </p></li>
 <li><p>「<span class="font_red_bold">使用する変換</span>」に、追加した変換モジュール内の機能が表示されるので、使用する機能にチェックを入れて「OK」を押せば設定が反映されます。</p>
-<p><img src="2_convert_03.png" width="613" height="437" alt="変換モジュールを追加" /><br />
+<p><img src="./2_convert_03.png" width="613" height="437" alt="変換モジュールを追加" /><br />
 </p></li>
 <li><p>秀丸エディタの「編集」メニューの「変換」に4.で追加した機能が表示されます。（変換は<span class="attention_red">範囲選択をした状態</span>でないと、有効になりません）</p>
-<p><img src="2_convert_04.png" width="569" height="658" alt="変換モジュールを追加" /><br />
+<p><img src="./2_convert_04.png" width="569" height="658" alt="変換モジュールを追加" /><br />
 </p></li>
 </ol>
 </section>
@@ -144,7 +155,7 @@ if(!selecting){
 filter &quot;&quot; , &quot;Sort&quot; , &quot;000100010001000\&quot;00&quot;;
 endmacro;</code></pre>
 </div>
-<p>このマクロファイルを、「<a href="3_macro.html">秀丸マクロのいろはにほへと</a>」の「<a href="3_macro.html#REGIST">【４】マクロ登録</a>」、「<a href="3_macro.html#SHORTCUT">【５】ショートカットキーへの登録</a>」を参考に、マクロを登録し、キーに割り当ててください。</p>
+<p>このマクロファイルを、「<a href="./3_macro.html">秀丸マクロのいろはにほへと</a>」の「<a href="./3_macro.html#REGIST">【４】マクロ登録</a>」、「<a href="./3_macro.html#SHORTCUT">【５】ショートカットキーへの登録</a>」を参考に、マクロを登録し、キーに割り当ててください。</p>
 <p>複数選択状態で、マクロを実行する場合は注意が必要です。</p>
 <p>デフォルト状態では、filter文は「複数選択」に対応していません。たとえば複数選択状態で実行しても、複数選択した箇所全てではなく、カーソルのある箇所だけ実行されます。</p>
 <p>各種命令を「複数選択」に対応させるには、「<span class="font_red">setcompatiblemode</span>文」を使います。</p>
@@ -206,11 +217,11 @@ endmacro;</code></pre>
 </section>
 <section id="SUPPLEMENTATION-3" class="level4">
 <h4>「置換」で使うには</h4>
-<p>秀丸エディタ Ver.8.13より、置換する内容を指定するかわりに、変換モジュールの機能を指定できるようになりました。</p>
+<p>秀丸エディタ Ver.8.13より、置換する内容を指定するかわりに変換モジュールの機能を指定できるようになりました。</p>
 <p>これで何ができるかというと、検索でマッチした箇所を、大文字/小文字/全角/半角へ等に変換する事が可能になります。
 (検索でマッチした範囲に対し、指定された変換モジュールを使い変換する)</p>
-<p>詳細は、「<a href="hmindex2.html">知っていると便利な秀丸の機能</a>」の「<a href="2_replace.html">●置換</a>」にある、
-<a href="2_replace.html#SUPPLEMENTATION-3">[変換モジュールを使った置換]</a>を参照してください。</p>
+<p>詳細は、「<a href="./hmindex2.html">知っていると便利な秀丸の機能</a>」の「<a href="./2_replace.html">●置換</a>」にある、
+<a href="./2_replace.html#SUPPLEMENTATION-3">[変換モジュールを使った置換]</a>を参照してください。</p>
 <p>ただし、使用する変換モジュールが秀丸エディタ本体と同じ場所にない場合、マクロと同じくモジュール名にフルパスを指定する必要があります。</p>
 </section>
 <section id="SUPPLEMENTATION-4" class="level4">

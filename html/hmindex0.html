@@ -9,10 +9,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -62,6 +67,7 @@
 <li><p><a href="./qa_trbl.html">既に対応済みの過去のトラブル</a></p></li>
 </ul>
 <p>●<a href="./hmindex2.html">第II部〜知っていると便利な秀丸の機能</a></p>
+<!-- list out start -->
 <ul>
 <li><a href="./2_find.html">検索</a></li>
 <li><a href="./2_replace.html">置換</a></li>
@@ -89,45 +95,54 @@
 <li><a href="./2_vertical.html">縦書き</a></li>
 <li><a href="./2_editorconfig.html">EditorConfig</a></li>
 <li><a href="./2_template.html">テンプレート</a></li>
+<li><a href="./2_spellcheck.html">秀丸スペルチェックアドイン</a></li>
 </ul>
+<!-- list out end -->
 <p>●<a href="./hmindex3.html">第III部〜秀丸マクロのいろはにほへと</a></p>
+<!-- list out start -->
 <ul>
-<li><a href="./3_macro.html">マクロを実行してみよう</a></li>
-<li><a href="./3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a></li>
-<li><a href="./3_string.html">秀丸マクロで文字列を編集する</a></li>
-<li><a href="./3_sub.html">サブルーチンについて</a></li>
-<li><a href="./3_window.html">秀丸エディタウィンドウの管理</a></li>
-<li><a href="./3_tabmode.html">秀丸エディタウィンドウの管理(タブモード編)</a></li>
-<li><a href="./3_moremacro.html">マクロ登録数の制限突破大作戦</a></li>
-<li><a href="./3_bit.html">ビット演算を極める</a></li>
-<li><a href="./3_autostartmacro.html">自動起動マクロ</a></li>
-<li><a href="./3_com_object.html">COMオブジェクト操作関連</a></li>
-<li><a href="./3_debug.html">マクロのデバッグについて</a></li>
-<li><a href="./3_hmjre.html">HMJRE.DLLを使う場合の注意点</a></li>
+<li><a href="3_macro.html">マクロを実行してみよう</a></li>
+<li><a href="3_yenmk.html">マクロ内での「\」や特殊文字の使い方</a></li>
+<li><a href="3_string.html">秀丸マクロで文字列を編集する</a></li>
+<li><a href="3_sub.html">サブルーチンについて</a></li>
+<li><a href="3_window.html">秀丸エディタウィンドウの管理</a></li>
+<li><a href="3_tabmode.html">秀丸エディタウィンドウの管理(タブモード編)</a></li>
+<li><a href="3_moremacro.html">マクロ登録数の制限突破大作戦</a></li>
+<li><a href="3_bit.html">ビット演算を極める</a></li>
+<li><a href="3_autostartmacro.html">自動起動マクロ</a></li>
+<li><a href="3_com_object.html">COMオブジェクト操作関連</a></li>
+<li><a href="3_debug.html">マクロのデバッグについて</a></li>
+<li><a href="3_hmjre.html">HMJRE.DLLを使う場合の注意点</a></li>
 <li><a href="./3_run.html">外部プログラムの実行について</a></li>
 <li><a href="./3_setcompatiblemode.html">setcompatiblemode文 について</a></li>
-<li><a href="./3_macrov3.html">秀丸エディタVer.3.00 マクロ関連の変更履歴</a></li>
-<li><a href="./3_macrov4.html">秀丸エディタVer.4.00 マクロ関連の変更履歴</a></li>
-<li><a href="./3_macrov5.html">秀丸エディタVer.5.00 マクロ関連の変更履歴</a></li>
-<li><a href="./3_macrov6.html">秀丸エディタVer.6.00 マクロ関連の変更履歴</a></li>
-<li><a href="./3_macrov7.html">秀丸エディタVer.7.00 マクロ関連の変更履歴</a></li>
-<li><a href="./3_macrov8.html">秀丸エディタVer.8.00 マクロ関連の変更履歴</a></li>
-<li><a href="./3_macrov9.html">秀丸エディタVer.9.00 マクロ関連の変更履歴</a></li>
+<li><a href="./3_execmacro.html">マクロから別のマクロを実行する方法</a></li>
+<li><a href="./3_staticvariable.html">静的な変数について</a></li>
+<li><a href="3_macrov3.html">秀丸エディタVer.3.00 マクロ関連の変更履歴</a></li>
+<li><a href="3_macrov4.html">秀丸エディタVer.4.00 マクロ関連の変更履歴</a></li>
+<li><a href="3_macrov5.html">秀丸エディタVer.5.00 マクロ関連の変更履歴</a></li>
+<li><a href="3_macrov6.html">秀丸エディタVer.6.00 マクロ関連の変更履歴</a></li>
+<li><a href="3_macrov7.html">秀丸エディタVer.7.00 マクロ関連の変更履歴</a></li>
+<li><a href="3_macrov8.html">秀丸エディタVer.8.00 マクロ関連の変更履歴</a></li>
+<li><a href="3_macrov9.html">秀丸エディタVer.9.00 マクロ関連の変更履歴</a></li>
 </ul>
+<!-- list out end -->
 <p>●<a href="./hmindex4.html">第IV部〜テキスト編集を極める！！</a></p>
+<!-- list out start -->
 <ul>
-<li><a href="./4_cmdlin.html">起動オプションを使ってみよう</a></li>
-<li><a href="./4_regular.html">正規表現について</a></li>
-<li><a href="./4_tagreg.html">タグ付き正規表現とは?</a></li>
+<li><a href="4_cmdlin.html">起動オプションを使ってみよう</a></li>
+<li><a href="4_regular.html">正規表現について</a></li>
+<li><a href="4_tagreg.html">タグ付き正規表現とは?</a></li>
 <li><a href="./4_run.html">プログラム実行を利用したテキストの加工</a></li>
 </ul>
+<!-- list out end -->
 <p>●<a href="./make_dll.html">第V部〜マクロから呼び出すＤＬＬの作り方</a></p>
 <p>●<a href="./hmindex6.html">第VI部〜秀丸エディタ拡張モジュール</a></p>
+<!-- list out start -->
 <ul>
 <li><a href="./6_publisher.html">秀丸パブリッシャー</a></li>
-<li><a href="./6_spellcheck.html">秀丸スペルチェックアドイン</a></li>
 <li><a href="./6_takeout.html">秀丸エディタ持ち出しキット</a></li>
 </ul>
+<!-- list out end -->
 <p>●<a href="./atogaki.html">あとがき</a></p>
 <ul>
 <li><a href="./release.html">著作権・配布規定</a></li>
