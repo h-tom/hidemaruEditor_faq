@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタVer.3.00 マクロ関連の変更履歴</h1>
 <hr />
@@ -73,10 +78,8 @@ gorightkakko &#39;}&#39;に移動</code></pre>
 </section>
 <section id="ESCAPE" class="level3">
 <h3>【４】escape;のresult</h3>
-<div class="macro">
-<pre><code>escape;
+<pre class="macro"><code>escape;
 message str(result);</code></pre>
-</div>
 <p>現在 (Ver. 3.0x) でも、escape; は result = 0 となります。<br />
 偶然、この仕様であるが将来は不明です、<br />
 マクロのテストにはべんりですが、恒久的なコードをすることはお勧めではないです。</p>
@@ -86,8 +89,7 @@ message str(result);</code></pre>
 <p>下記のような例で発生する hidemaruhandle(0) の取り違えは治っていませんが、大きな問題ではありません。仕様にも見えるでしょう。</p>
 <p>「常駐秀丸の終了 (C) 」の後に、マクロ c1. mac を「マクロ実行」する、<br />
 その後で、c2.mac で確認すると、hidemaruhandle(0) の矛盾がわかります。</p>
-<div class="macro">
-<pre><code>// c1.mac
+<pre class="macro"><code>// c1.mac
 saveas &quot;a1.txt&quot;;
 $wk1 = filename;
 #ii = hidemaruhandle(0);
@@ -100,16 +102,13 @@ message str(#jj);
 message str(#kk);
 
 endmacro;</code></pre>
-</div>
 <p><br />
 </p>
-<div class="macro">
-<pre><code>// c2.mac
+<pre class="macro"><code>// c2.mac
 #i = hidemaruhandle(0);
 message str(#i);
 
 endmacro;</code></pre>
-</div>
 <p>※この内容は秀丸エディタ ver.3.01の内容を元に書かれています。<br />
 今後のバージョンアップによっては、上記の内容が必ずしも当てはまらない場合もあるかもしれません。</p>
 </section>

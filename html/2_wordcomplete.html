@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,13 +27,13 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　単語補完</h1>
 <hr />
 <section id="WORDCOMPLETE" class="level2">
 <h2>単語補完</h2>
-<p>秀丸エディタ Ver.7.00以降では、「<strong>単語補完</strong>」が使用可能です。</p>
+<p>秀丸エディタ Ver.7.00以降では「<strong>単語補完</strong>」が使用可能です。</p>
 <p>「単語補完」は、入力された文字から始まる単語をリストアップする機能です。</p>
 <p>補完の元となるデータは、以下を指定できます。</p>
 <ul>
@@ -48,18 +53,18 @@
 <ul>
 <li><p>ツールチップ(標準)</p>
 <div class="img_border">
-<p><img src="2_wordcomplete_05.png" width="280" height="200" alt="ツールチップ表示" /><br />
+<p><img src="./2_wordcomplete_05.png" width="280" height="200" alt="ツールチップ表示" /><br />
 </p>
 </div></li>
 <li><p>リスト</p>
 <div class="img_border">
-<p><img src="2_wordcomplete_06.png" width="439" height="217" alt="リスト表示" /><br />
+<p><img src="./2_wordcomplete_06.png" width="439" height="217" alt="リスト表示" /><br />
 </p>
 </div>
 <p>リストはマウスでサイズを変更できます。</p></li>
 <li><p>ステータスバーに表示</p>
 <div class="img_border">
-<p><img src="2_wordcomplete_07.png" width="355" height="187" alt="ステータスバー表示" /><br />
+<p><img src="./2_wordcomplete_07.png" width="355" height="187" alt="ステータスバー表示" /><br />
 </p>
 </div>
 <p>ステータスバー自体の表示領域が狭いと、候補が見えない事もあります。</p></li>
@@ -74,11 +79,11 @@
 <p>「単語補完」の設定は、以下の2箇所あります。</p>
 <ul>
 <li>共通の設定である「<span class="env">動作環境</span>」</li>
-<li>ファイルタイプ別に設定する、「<span class="filetype">ファイルタイプ別の設定</span>」</li>
+<li>ファイルタイプ別に設定する「<span class="filetype">ファイルタイプ別の設定</span>」</li>
 </ul>
 <section id="EXPLANATION-1" class="level4">
 <h4>「動作環境」-「編集」-「単語補完」</h4>
-<p><img src="2_wordcomplete_01.png" width="613" height="437" alt="編集-単語補完" /><br />
+<p><img src="./2_wordcomplete_01.png" width="613" height="437" alt="編集-単語補完" /><br />
 </p>
 <div class="mark_dt">
 <dl>
@@ -126,7 +131,7 @@ Alt+1〜9に、キー割り当てで機能が割り当てられても無視し�
 <dt>各種ダイアログ</dt>
 <dd>
 <p>秀丸エディタで使用される各種ダイアログでも、単語補完を有効にするか設定します。</p>
-<p><img src="2_wordcomplete_02.png" width="448" height="296" alt="各種ダイアログでの単語補完" /><br />
+<p><img src="./2_wordcomplete_02.png" width="448" height="296" alt="各種ダイアログでの単語補完" /><br />
 </p>
 </dd>
 </dl>
@@ -134,7 +139,7 @@ Alt+1〜9に、キー割り当てで機能が割り当てられても無視し�
 </section>
 <section id="EXPLANATION-2" class="level4">
 <h4>「ファイルタイプ別の設定」-「その他」-「単語補完」</h4>
-<p><img src="2_wordcomplete_03.png" width="632" height="451" alt="その他-単語補完" /><br />
+<p><img src="./2_wordcomplete_03.png" width="632" height="451" alt="その他-単語補完" /><br />
 </p>
 <div class="mark_dt">
 <dl>
@@ -162,7 +167,7 @@ ONにすると、自動で候補を表示します。(待ち時間は「<span cl
 <li><p>辞書ファイル<br />
 指定された辞書ファイルから、補完内容を検索します。ワイルドカードのアスタリクス"*"が使用できるので、"*.txt"とすれば、複数ファイルも対象にする事が可能ですが、余計なファイルを読み込む場合もあります。(補完辞書ファイル専用フォルダを用意すると良いかもしれません)</p></li>
 <li><p>「詳細」ボタンで、詳細設定が出来ます。</p>
-<p><img src="2_wordcomplete_04.png" width="399" height="366" alt="単語補完の検索対象の詳細" /><br />
+<p><img src="./2_wordcomplete_04.png" width="399" height="366" alt="単語補完の検索対象の詳細" /><br />
 </p>
 <ul>
 <li><p>辞書ファイルの種類</p>
@@ -270,7 +275,7 @@ tagsファイルも対象にします。あらかじめtagsファイルを作成
 </dl></li>
 </ul>
 <p>また、「検索方法」にある「さらに」ボタンを押すと、「単語の種類」をカスタムにした場合の設定も可能です。</p>
-<p><img src="2_wordcomplete_08.png" width="315" height="368" alt="単語補完の検索対象の詳細2" /><br />
+<p><img src="./2_wordcomplete_08.png" width="315" height="368" alt="単語補完の検索対象の詳細2" /><br />
 </p></li>
 </ul>
 </dd>
@@ -309,27 +314,25 @@ HMJRE.DLLのヘルプ-「<a href="https://help.maruo.co.jp/hmjre/html/ABOUT_SIMI
 <section id="SUPPLEMENTATION" class="level3">
 <h3>[補足]</h3>
 <ul>
-<li><p>補完用辞書ファイルは、<span class="attention_red">Shift_JISで記述する</span>必要があります。(2022/07/23現在)</p></li>
+<li><p>補完用辞書ファイルは、<span class="attention_red">Shift_JISで記述する</span>必要があります。(2022/09/19現在)</p></li>
 <li><p>「辞書ファイルの種類」ですが、「フリーフォーマット」だと特に指定はなく、通常の文書やテキストファイルから柔軟に補完対象を検索します。<br />
 「行単位」の場合は、候補を1行毎に記述してください。マッチした場合は、1行まるごと候補として表示されます。
 (マッチ自体は、先頭一致だけではなく、行内の途中にもマッチします)</p>
 <p>「辞書ファイルの種類」の設定による、補完動作の違いです。辞書ファイルの内容が以下のような場合、</p>
-<div class="macro">
-<pre><code>foundtopx, foundtopy, foundendx, foundendy</code></pre>
-</div>
+<pre class="macro"><code>foundtopx, foundtopy, foundendx, foundendy</code></pre>
 <p>「found」まで入力し、単語補完が動作した場合、以下のような違いがあります。</p>
 <ul>
 <li><p>フリーフォーマットの場合<br />
 各単語が個別に候補表示されます。(秀丸エディタ側が「検索方法」に従い、マッチした箇所を列挙する)</p>
 <div class="img_border">
-<p><img src="2_wordcomplete_09.png" width="485" height="135" alt="単語補完-フリーフォーマット" /><br />
+<p><img src="./2_wordcomplete_09.png" width="485" height="135" alt="単語補完-フリーフォーマット" /><br />
 </p>
 </div></li>
 <li><p>行単位の場合<br />
 マッチした箇所を含む行全体が、候補表示されます。
 (選択すると行の内容が挿入される)</p>
 <div class="img_border">
-<p><img src="2_wordcomplete_10.png" width="539" height="129" alt="単語補完-行単位" /><br />
+<p><img src="./2_wordcomplete_10.png" width="539" height="129" alt="単語補完-行単位" /><br />
 </p>
 </div></li>
 </ul></li>

@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -56,33 +61,33 @@
 <p>秀丸エディタで設定出来る内容の一覧表（詳細な説明は、<a href="https://help.maruo.co.jp/hidemaru/html/070_Env.html" class="externallink" target="_blank" rel="noopener">「秀丸エディタのヘルプ」</a>を参照）です。<br />
 ここだけは押さえておいた方が良いと思うものと、一覧表以外のカスタマイズについては、別のところで順に説明しています。</p>
 <p>動作環境を操作する場合は「<span class="attention_red">上級者向け設定</span>」をチェックしておいてください。<br />
-<img src="2_custom_02.png" width="208" height="433" alt="動作環境-上級者向け設定" /><br />
+<img src="./2_custom_02.png" width="208" height="433" alt="動作環境-上級者向け設定" /><br />
 </p>
 <ul>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→フォント」</strong><br />
 文字フォントやサイズなどを設定。</p></li>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→体裁」</strong><br />
-折り返し、行番号の計算方法、行間、文字間、自動インデント、タブの文字数などの設定。</p></li>
+折り返し 行番号の計算方法 行間 文字間 自動インデント タブの文字数などの設定。</p></li>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→デザイン」</strong><br />
-各種強調表示、複数行コメント、ルーラー、行番号、カーソル行、文字色の設定。</p></li>
+各種強調表示 複数行コメント ルーラー 行番号 カーソル行 文字色の設定。</p></li>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→その他」</strong><br />
-かな漢字変換の制御、保存する時に不要なタブや空白を変換、EOF制御文字の扱い、エンコード、改行BOM、バックアップファイルの設定。</p></li>
+かな漢字変換の制御 保存する時に不要なタブや空白を変換 EOF制御文字の扱い エンコード 改行BOM バックアップファイルの設定。</p></li>
 <li><p><strong>「その他→<span class="env">動作環境</span>→ウィンドウ」</strong><br />
-ツールバー表示、ファンクションキー表示、スクロールバー表示、タブモードなど、ウィンドウ関連を設定。</p></li>
+ツールバー表示 ファンクションキー表示 スクロールバー表示 タブモードなどウィンドウ関連を設定。</p></li>
 <li><p><strong>「その他→<span class="env">動作環境</span>→表示/操作」</strong><br />
-画面のスクロール方法、カーソル移動の加速、カーソル形状など、カーソル関連を設定。</p></li>
+画面のスクロール方法 カーソル移動の加速 カーソル形状などカーソル関連を設定。</p></li>
 <li><p><strong>「その他→<span class="env">動作環境</span>→環境」</strong><br />
-マクロファイル用、設定ファイル用のフォルダなど、パス関連を設定。<br />
+マクロファイル用 設定ファイル用のフォルダなどパス関連を設定。<br />
 Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指定してください。
 (デフォルトで書き込み権限のあるユーザーフォルダ以下に設定されるので、通常は問題ない)</p>
-<p><img src="3_macro_01.png" width="604" height="189" alt="動作環境-環境" /><br />
+<p><img src="./3_macro_01.png" width="604" height="189" alt="動作環境-環境" /><br />
 </p></li>
 <li><p><strong>「その他→<span class="env">動作環境</span>→パフォーマンス」</strong><br />
-やり直しバッファサイズ、テンポラリファイルの利用方法など、編集時の制御関連を設定。</p></li>
+やり直しバッファサイズ テンポラリファイルの利用方法など編集時の制御関連を設定。</p></li>
 <li><p><strong>「その他→<span class="env">動作環境</span>→ファイル」</strong><br />
-ファイルを開く時のダイアログタイプ、ファイルのヒストリ個数、ファイルの自動保存方法、ファイルの排他制御方法などを設定。</p></li>
+ファイルを開く時のダイアログタイプ ファイルのヒストリ個数 ファイルの自動保存方法 ファイルの排他制御方法などを設定。</p></li>
 <li><p><strong>「その他→<span class="env">動作環境</span>→編集」</strong><br />
-禁則処理の方法、禁則対象文字など、禁則処理を設定。</p></li>
+禁則処理の方法 禁則対象文字など禁則処理を設定。</p></li>
 </ul>
 </section>
 <section id="SCREEN" class="level3">
@@ -93,18 +98,18 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→デザイン」</strong>場所の一覧にある各項目の<strong>「文字の色」</strong>などを好きな色に変えて下さい。（各項目を選択し、プロパティから変更してください）<br />
 <strong>「カーソル行」</strong>と<strong>「普通の文字」</strong>は、別の色にしておいた方がいいでしょう。<br />
 カーソル行には<strong>「下線」</strong>を付けることも出来ます。<br />
-<img src="2_custom_01.png" width="632" height="451" alt="ファイルタイプ別の設定→デザイン" /><br />
+<img src="./2_custom_01.png" width="632" height="451" alt="ファイルタイプ別の設定→デザイン" /><br />
 </p></li>
 <li><p><strong>「OK」</strong>を押してダイアログを閉じ、カーソルを上下に移動してみて下さい。</p></li>
-<li><p>自分の気に入った設定になるまで２．〜３．を繰り返して下さい。</p></li>
+<li><p>自分の気に入った設定になるまで2.〜3.を繰り返して下さい。</p></li>
 </ol>
 <p>どうです。かなり見やすくなっていませんか？<br />
 これだけでもかまいませんが、マウスを使用する/しないで設定しておいた方がいい項目もあるので、そちらの設定もしてみましょう。</p>
 <ol type="1">
-<li><p><strong>「その他→<span class="env">動作環境</span>→ウィンドウ」</strong>にある、<strong>「ツールバー」</strong>、<strong>「縦スクロールバー」</strong>、<strong>「横スクロールバー」</strong>、<strong>「ファンクションキー表示」</strong>、<strong>「ステータスバー」</strong>、<strong>「タブモード」</strong>をお好みに応じてONにしたり、OFFにしたりして下さい。<br />
+<li><p><strong>「その他→<span class="env">動作環境</span>→ウィンドウ」</strong>にある、<strong>「ツールバー」</strong> <strong>「縦スクロールバー」</strong> <strong>「横スクロールバー」</strong><strong>「ファンクションキー表示」</strong> <strong>「ステータスバー」</strong> <strong>「タブモード」</strong>をお好みに応じてONにしたり、OFFにしたりして下さい。<br />
 意味が分からない場合は、とりあえず逆の設定（ONの時はOFF、OFFの時はON）にして下さい。<br />
 <strong>「詳細」</strong>ボタンがある場合は、その内容も確認してみてください。ステータスバーの場合は、全体の文字数や行数も表示できます。<br />
-<img src="2_custom_16.png" width="605" height="433" alt="設定-ウィンドウ" /><br />
+<img src="./2_custom_16.png" width="605" height="433" alt="設定-ウィンドウ" /><br />
 </p></li>
 <li><p><strong>「OK」</strong>を押してダイアログを閉じて下さい。</p></li>
 <li><p>自分の気に入った設定になるまで1.〜2.を繰り返して下さい。</p></li>
@@ -117,7 +122,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <p>まずは、よく使う<strong>「ファイル→開く」</strong>のダイアログを自分好みに変えてみましょう。（１アクションで<strong>「開く」</strong>のダイアログを出す方法もありますので、「<a href="#KEY">【６】キー操作</a>」を参照して下さい）</p>
 <ol type="1">
 <li><p><strong>「その他→<span class="env">動作環境</span>→ファイル」</strong>の<strong>「「開く」のダイアログ」</strong>を適当なものに変えて下さい。<br />
-<img src="2_custom_25.png" width="605" height="433" alt="「開く」のダイアログ" /><br />
+<img src="./2_custom_25.png" width="605" height="433" alt="「開く」のダイアログ" /><br />
 </p></li>
 <li><p><strong>「OK」</strong>を押してダイアログを閉じて下さい。</p></li>
 <li><p><strong>「ファイル→開く」</strong>で、どのようなダイアログが出るか確認してみて下さい。</p></li>
@@ -126,7 +131,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <p>最近使ったファイルは、<strong>「ファイル→[1]」</strong>などで開くことが出来ますが、デフォルトの設定（3つ）では少なすぎて足りないという方や、ヒストリなんて不要だという方がいると思います。そういう時は、「0〜20」の範囲で自由に変えることが出来ます。</p>
 <ol type="1">
 <li><p><strong>「その他→<span class="env">動作環境</span>→ファイル→ヒストリ1」</strong>の<strong>「ファイルヒストリ個数」</strong>をお好みに応じて変えて下さい。<br />
-<img src="2_custom_26.png" width="566" height="166" alt="ファイルヒストリ" /><br />
+<img src="./2_custom_26.png" width="566" height="166" alt="ファイルヒストリ" /><br />
 </p></li>
 <li><p><strong>「OK」</strong>を押してダイアログを閉じて下さい。</p></li>
 </ol>
@@ -149,39 +154,39 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <ol type="1">
 <li><p>1行が20文字（全角では10文字）以上のファイルを開いて下さい。「無題」で、適当に数行程度を作ったのでもかまいません。</p></li>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→体裁」</strong>の<strong>「折り返し文字数」</strong>で固定を選び、「20」にして下さい。<br />
-<img src="2_custom_05.png" width="511" height="171" alt="折り返し文字数" /><br />
+<img src="./2_custom_05.png" width="511" height="171" alt="折り返し文字数" /><br />
 </p></li>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→デザイン→表示2」</strong>にある、<strong>「行番号表示」</strong>をONにして下さい。（OFFのままでも、秀丸エディタウィンドウの右上に行番号が出ます）<br />
 </p>
 <div style="position:relative;">
-<p><img src="HME0016C_03.png" width="632" height="451" alt="表示2" />
-<img src="2_custom_10.png" width="632" height="451" alt="表示2-行番号表示" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="./HME0016C_03.png" width="632" height="451" alt="表示2" />
+<img src="./2_custom_10.png" width="632" height="451" alt="表示2-行番号表示" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→体裁→詳細」</strong>にある<strong>「行番号の計算方法」</strong>を<strong>「ワープロ的」</strong>にして下さい。<br />
-<img src="2_custom_06.png" width="500" height="155" alt="行番号の計算方法" /><br />
+<img src="./2_custom_06.png" width="500" height="155" alt="行番号の計算方法" /><br />
 </p></li>
 <li><p><strong>「OK」</strong>を押してダイアログを閉じて下さい。（これで、<strong>「ワープロ的」</strong>での行番号の計算方法が分かります）<br />
-<img src="2_custom_03.png" width="464" height="306" alt="ワープロ行" /><br />
+<img src="./2_custom_03.png" width="464" height="306" alt="ワープロ行" /><br />
 </p></li>
 <li><p>同様に、<strong>「行番号の計算方法」</strong>を<strong>「エディタ的」</strong>にして<strong>「エディタ行」</strong>の行番号の計算方法も確認して下さい。<br />
-<img src="2_custom_04.png" width="464" height="305" alt="ワープロ行" /><br />
+<img src="./2_custom_04.png" width="464" height="305" alt="ワープロ行" /><br />
 </p></li>
 </ol>
-<p>これで、<strong>「エディタ行」</strong>と<strong>「ワープロ行」</strong>が理解出来たと思いますので、自分にあった設定へ変更しておきましょう。</p>
-<p>原稿などを書く時は、1ページはワープロ行で100行にしたいといったようなことがあると思いますが、そういう時は、<strong>「ページ番号表示」</strong>をありにしておくといいでしょう。</p>
+<p>これで<strong>「エディタ行」</strong>と<strong>「ワープロ行」</strong>が理解出来たと思いますので、自分にあった設定へ変更しておきましょう。</p>
+<p>原稿などを書く時は、1ページはワープロ行で100行にしたいといったようなことがあると思いますが、そういう時は<strong>「ページ番号表示」</strong>をありにしておくといいでしょう。</p>
 <ol type="1">
 <li><p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>→デザイン→表示2」</strong>の<strong>「ページ番号表示」</strong>をONにして下さい。<br />
 </p>
 <div style="position:relative;">
-<p><img src="HME0016C_03.png" width="632" height="451" alt="表示2" />
-<img src="2_custom_11.png" width="632" height="451" alt="表示2-行番号表示" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="./HME0016C_03.png" width="632" height="451" alt="表示2" />
+<img src="./2_custom_11.png" width="632" height="451" alt="表示2-行番号表示" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div></li>
 <li><p><strong>「行数」</strong>を100にして下さい。</p></li>
 <li><p><strong>「OK」</strong>を押してダイアログを閉じて下さい。</p></li>
 </ol>
 <p>ここまで読まれた方の中には、「おいおい、ちょっと待ってくれー。わしは原稿も書くし(例えば拡張子は「TXT」)
 プログラム(例えば拡張子は「C」)もするので、ファイルを開くたびにそんな設定をしないといけないのか？」と思う方もいると思いますが、ご安心を。拡張子ごとに個別の設定できるので、「<a href="#EXT">【５】拡張子別の設定</a>」を参照して下さい。</p>
-<p>文章を編集中に人から声をかけられて編集作業を一時中断した後で、「あれっ、今まで何を編集したんだっけ？ 編集した行に移動出来れば思い出せるんだけどなー。」と思ったことはありませんか？そういう人のために、編集位置を検索するという機能がありますので、「<a href="2_mark.html">●編集位置のマーク及び検索</a>」を参照して下さい。</p>
+<p>文章を編集中に人から声をかけられて編集作業を一時中断した後で、「あれっ、今まで何を編集したんだっけ？ 編集した行に移動出来れば思い出せるんだけどなー。」と思ったことはありませんか？そういう人のために、編集位置を検索するという機能がありますので、「<a href="./2_mark.html">●編集位置のマーク及び検索</a>」を参照して下さい。</p>
 <p>ここまでは、カスタマイズとは言えないくらいの簡単な設定です。これ以降に、カスタマイズの本領を発揮する部分が書かれています。</p>
 </section>
 <section id="EXT" class="level3">
@@ -201,15 +206,15 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <p>として、それぞれの書式を設定してみましょう。</p>
 <p>「<span class="filetype">ファイルタイプ別の設定</span>」ダイアログにある、<span class="btn-push">「設定のリスト」</span>を使用します。</p>
 <p><strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>」</strong>ダイアログを開きます。</p>
-<p><img src="2_custom_14.png" width="444" height="77" alt="ファイルタイプ別の設定-共通" /><br />
+<p><img src="./2_custom_14.png" width="444" height="77" alt="ファイルタイプ別の設定-共通" /><br />
 </p>
 <p><span class="btn-push">「設定のリスト」</span>ボタンを押すと、「ファイルタイプ別の設定のリスト」ダイアログが表示されます。</p>
 <ul>
 <li><p>「<strong>設定名一覧</strong>」タブでは、設定の「新規作成」「コピー」「名前の変更」「削除」が出来ます。</p>
-<p><img src="filetype_name.png" width="452" height="365" alt="設定名一覧" /><br />
+<p><img src="./filetype_name.png" width="452" height="365" alt="設定名一覧" /><br />
 </p></li>
-<li><p>「<strong>ファイルタイプ一覧</strong>」タブでは、「拡張子」と「設定」の割り当ておよび、割り当てを解除します。</p>
-<p><img src="filetype_ext.png" width="452" height="365" alt="ファイルタイプ一覧" /><br />
+<li><p>「<strong>ファイルタイプ一覧</strong>」タブでは、「拡張子」と「設定」の関連付けや解除をします。</p>
+<p><img src="./filetype_ext.png" width="452" height="365" alt="ファイルタイプ一覧" /><br />
 </p></li>
 <li><p>「設定名」または「ファイルタイプ」を選び<span class="btn-push">「設定を開く」</span>ボタンを押すと、選んだ設定を変更できます。
 (「<span class="filetype">ファイルタイプ別の設定</span>」ダイアログが開く)</p></li>
@@ -219,7 +224,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <h4>拡張子に関連付けられているファイルの設定を変更</h4>
 <p>「ファイルタイプ別の設定のリスト」ダイアログから、「<span class="attention_red">ファイルタイプ一覧</span>」タブを選択します。</p>
 <p>ファイルタイプ一覧の中から変更したいファイルタイプ(拡張子)を選び、<span class="btn-push">「変更」</span>ボタンを押すと、「ファイルタイプに設定名の割り当て」ダイアログが表示されます。</p>
-<p><img src="filetype_ext_change.png" width="263" height="173" alt="ファイルタイプ一覧-変更" /><br />
+<p><img src="./filetype_ext_change.png" width="263" height="173" alt="ファイルタイプ一覧-変更" /><br />
 </p>
 <p>「適用される設定名」の横にある「<span class="rotate90">&gt;</span>」 をクリックすると、既存の設定一覧が表示されます。設定を変更し<span class="btn-push">「OK」</span>ボタンでダイアログを閉じると、選択した設定に切り替わります。</p>
 </section>
@@ -227,16 +232,16 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <h4>新しい拡張子に関連付けを行う</h4>
 <p>「ファイルタイプ別の設定のリスト」ダイアログから、「<span class="attention_red">ファイルタイプ一覧</span>」タブを選択します。</p>
 <p><span class="btn-push">「追加」</span>ボタンを押すと、ファイルタイプに登録されていない拡張子の関連付けを行う事が出来ます。追加する拡張子を入力し、設定名を選択します。</p>
-<p><img src="filetype_ext_add.png" width="265" height="224" alt="ファイルタイプの追加" /><br />
+<p><img src="./filetype_ext_add.png" width="265" height="224" alt="ファイルタイプの追加" /><br />
 </p>
 <p>今回は「ファイルタイプ」に、"<strong>TXT</strong>" を入力し、「適用される設定名」に「<strong>ﾃｷｽﾄﾌｧｲﾙ</strong>」を指定します。</p>
 <p>「新しい設定名を作る」にチェックを入れると、設定を新規に作ることも可能です。追加する拡張子を入力し、元にする設定名と新しく作る設定名を入力してください。</p>
-<p><img src="filetype_ext_add_new.png" width="265" height="224" alt="ファイルタイプと設定の追加" /><br />
+<p><img src="./filetype_ext_add_new.png" width="265" height="224" alt="ファイルタイプと設定の追加" /><br />
 </p>
 <p>「ファイルタイプ」の「<strong><span class="rotate90">&gt;</span></strong>」を押す事で、拡張子がない「grep結果」や「実行結果」の設定も行う事が出来ます。</p>
 <div style="position:relative;">
-<p><img src="filetype_ext_add.png" width="265" height="224" alt="ファイルタイプと設定の追加" />
-<img src="filetype_ext_grep.png" width="265" height="224" alt="ファイルタイプと設定の追加-grep結果" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="./filetype_ext_add.png" width="265" height="224" alt="ファイルタイプと設定の追加" />
+<img src="./filetype_ext_grep.png" width="265" height="224" alt="ファイルタイプと設定の追加-grep結果" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div>
 </section>
 <section id="EXT1-3" class="level4">
@@ -244,7 +249,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <p>「ファイルタイプ別の設定のリスト」ダイアログから、「<span class="attention_red">設定名一覧</span>」タブを選択します。</p>
 <p>元にしたい設定があるなら選択して<span class="btn-push">「コピー」</span>ボタンを、なければ<span class="btn-push">「新規」</span>ボタンを押すとダイアログが表示されるので、新しい設定の名前を入力してください。
 (どちらを選んでも、ダイアログのタイトルが異なるだけで中身は同じ。コピーだと選択してあった設定がデフォルトのコピー元になる)</p>
-<p><img src="filetype_new_copy.png" width="301" height="180" alt="設定の新規作成" /><br />
+<p><img src="./filetype_new_copy.png" width="301" height="180" alt="設定の新規作成" /><br />
 </p>
 <p>設定を選び<span class="btn-push">「設定を開く」</span>ボタンを押すと、<span class="filetype">ファイルタイプ別の設定</span>」ダイアログが開き、設定の変更も可能です。</p>
 <p>拡張子との関連付けは行われていないので、「<a href="#EXT1-1">拡張子に関連付けられているファイルの設定を変更</a>」を参考に、拡張子に関連付けてください。</p>
@@ -258,10 +263,10 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <p>「その他→キー割り当て」でキー割り当てのダイアログを呼び出します。</p>
 <p>現在割り当てているコマンドやキーが表示されるようになっています。また、コマンドの検索も可能で、「検索」コンボボックスに入力された内容を含むコマンド名を絞り込み可能です。ドロップダウンリストからは、コマンドの「分類」による絞り込みもできます。</p>
 <p>「キー」に対して「コマンド」を割り当てる方法と、</p>
-<p><img src="2_custom_31.png" width="737" height="401" alt="キー割り当てダイアログVer.8.90" /><br />
+<p><img src="./2_custom_31.png" width="737" height="401" alt="キー割り当てダイアログVer.8.90" /><br />
 </p>
 <p>「コマンド」に対して「キー」を割り当てる方法があります。</p>
-<p><img src="2_custom_32.png" width="737" height="401" alt="キー割り当てダイアログVer.8.90" /><br />
+<p><img src="./2_custom_32.png" width="737" height="401" alt="キー割り当てダイアログVer.8.90" /><br />
 </p>
 <section id="KEYLIST" class="level4">
 <h4>【６−１】キー割り当ての一覧表作成方法</h4>
@@ -297,7 +302,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <hr />
 <p>「コマンド」で「ファイル系」にある「<strong>なし</strong>」と、「その他」にある「<strong>何もしない</strong>」の違いについて。</p>
 <ul>
-<li><p>「ファイル系」にある「<strong>なし</strong>」は、キー割り当てをしないという意味ではなく、「デフォルトの動作にする」という意味になります。</p>
+<li><p>「ファイル系」にある「<strong>なし</strong>」は、キー割り当てをしないという意味ではなく、「<span class="attention_red">デフォルトの動作にする</span>」という意味になります。</p>
 <div class="box_line">
 <p>「なし」に設定しても、秀丸エディタ本体がデフォルトとして割り当てている機能があれば実行し、なければ何もしない。</p>
 </div>
@@ -311,11 +316,11 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <p>先ほど説明したメニューを作ってみましょう。</p>
 <ol type="1">
 <li><p><strong>「その他→メニュー編集」</strong>ダイアログボックスを表示し、<strong>「ユーザーメニュー」</strong>タブを選択してください。<br />
-<img src="2_custom_15.png" width="481" height="427" alt="ユーザーメニューダイアログ" /><br />
+<img src="./2_custom_15.png" width="481" height="427" alt="ユーザーメニューダイアログ" /><br />
 </p></li>
 <li><p><strong>「メニュー」</strong>コンボボックスから編集するメニューを選択して下さい。<br />
 （<strong>「メニュー１〜３、８」</strong>、<strong>「選択中右ボタン」</strong>はデフォルトで設定されています。<strong>「選択中右ボタン」</strong>とは、行が選択されている状態でマウスの右ボタンを押した時に出るメニューのことです。ちなみに通常時のマウスボタンは、<strong>「キー割り当て」</strong>ダイアログの<strong>「キー」</strong>リストボックスにあります）<br />
-<img src="2_custom_09.png" width="299" height="184" alt="ユーザーメニューリストボックス" /><br />
+<img src="./2_custom_09.png" width="299" height="184" alt="ユーザーメニューリストボックス" /><br />
 </p></li>
 <li><p><strong>「タイトル」</strong>エディットボックスにメニューの機能などを入力して下さい。<br />
 （メニューが表示された時に<strong>「タイトル表示」</strong>がONの場合は、メニューの最上部行にタイトルが表示されます）</p></li>
@@ -323,7 +328,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 （メニューが表示されるまでのタイムラグを設定できます。通常は０秒でいいのですが、２アクション（<kbd>[Ctrl]</kbd>+<kbd>[S]</kbd>→<kbd>[P]</kbd>等）でもいいからキーボードで操作したいけど、最初の<kbd>[Ctrl]</kbd>+<kbd>[S]</kbd>でメニューは出て欲しくない場合に遅延時間を設定しておくとよいでしょう。但し、この遅延時間の設定は、<kbd>[Ctrl]</kbd>との組み合わせでキー割り当てした場合にのみ有効です）</p></li>
 <li><p><strong>「追加」</strong>ボタンを押して下さい。<br />
 （メニュー内容を設定するためのダイアログが出ます）<br />
-<img src="2_custom_21.png" width="322" height="333" alt="メニュー追加" /><br />
+<img src="./2_custom_21.png" width="322" height="333" alt="メニュー追加" /><br />
 </p></li>
 <li><p><strong>「コマンド」</strong>コンボボックスとリストボックスで割り当てたい機能を選択して下さい。<br />
 （メニューを指定することで、メニューを階層化することも出来ます）</p></li>
@@ -356,7 +361,7 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 ファイルの保存場所は「設定ファイル用のフォルダ」になります。<br />
 拡張子は自動的に「KEY」になるので、拡張子なしで入力して下さい。例えば、「MYBIND」と入力。</li>
 <li><strong>「OK」</strong>ボタンを押して下さい。<br />
-マクロ登録の内容を保管するかどうかの確認ダイアログが出ますが、通常は<strong>「はい」</strong>を押して下さい。これで、「設定ファイル用のフォルダ」に「MYBIND.KEY」というファイルが作られます。</li>
+マクロ登録の内容を保管するかどうかの確認ダイアログが出ますが、通常は<strong>「はい」</strong>を押して下さい。これで「設定ファイル用のフォルダ」に「MYBIND.KEY」というファイルが作られます。</li>
 <li><strong>「キー割り当て」</strong>ダイアログは不要なので<strong>「キャンセル」</strong>ボタンを押して、ダイアログを閉じて下さい。</li>
 <li>他のパソコンへ、キー割り当て用のファイルを持っていけるようにコピーして下さい。</li>
 </ol>
@@ -373,8 +378,8 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 読み込んだ内容が、<strong>「キー割り当て」</strong>ダイアログに反映されます。</li>
 <li>読み込んだ内容を有効にするため、<strong>「キー割り当て」</strong>ダイアログの<strong>「OK」</strong>ボタンを押して下さい。</li>
 </ol>
-<p>※設定の移行手順の詳細については、<a href="HME0078A.html"><strong>[HME0078A]</strong>●各種設定を移行するためファイルに保存したい</a>、
-<a href="HME0078B.html"><strong>[HME0078B]</strong>●設定を他のパソコン移行したい</a> を参照してください。</p>
+<p>※設定の移行手順の詳細については、<a href="./HME0078A.html"><strong>[HME0078A]</strong>●各種設定を移行するためファイルに保存したい</a>、
+<a href="./HME0078B.html"><strong>[HME0078B]</strong>●設定を他のパソコン移行したい</a> を参照してください。</p>
 </section>
 </section>
 <section id="MACRO" class="level3">
@@ -383,13 +388,13 @@ Windows Vista以降のOSでは、必ず書き込み可能なフォルダを指�
 <strong>「マクロ」</strong>とは、Ｃ言語によく似たプログラムの一種です。作成したマクロも通常の機能と同様に<strong>「キー割り当て」</strong>が可能です。<br />
 この<strong>「マクロ」</strong>を使えるようになることで今まで時間がかかっていた編集作業等が簡単に出来るようになりますので、是非マスタして下さい。<br />
 秀丸エディタで最終的にたどりつく究極のカスタマイズ方法が、<strong>「マクロ」</strong>です。<br />
-詳細な説明は、「<a href="hmindex3.html">第III部〜秀丸マクロのいろはにほへと</a>」を参照して下さい。（サンプルマクロ、マクロの登録方法、マクロの実行方法と必要なことは全て書かれています）</p>
+詳細な説明は、「<a href="./hmindex3.html">第III部〜秀丸マクロのいろはにほへと</a>」を参照して下さい。（サンプルマクロ、マクロの登録方法、マクロの実行方法と必要なことは全て書かれています）</p>
 </section>
 <section id="LAST" class="level3">
 <h3>【８】最後に</h3>
 <p>ここまでに書いたことは、秀丸エディタのカスタマイズの大雑把な説明です。</p>
 <p>秀丸エディタの設定（特に<strong>「その他→<span class="filetype">ファイルタイプ別の設定</span>」</strong>、<strong>「その他→<span class="env">動作環境</span>」</strong>）にはその他にもいろいろ便利な機能がありますので、一通り目を通しておいて下さい。きっと新たな発見があるでしょう。</p>
-<p>また、標準で装備されていない機能でも、マクロを利用することで実現できるものもあります。（マクロについては、「<a href="hmindex3.html">第III部〜秀丸マクロのいろはにほへと</a>」を参照して下さい）</p>
+<p>また、標準で装備されていない機能でも、マクロを利用することで実現できるものもあります。（マクロについては、「<a href="./hmindex3.html">第III部〜秀丸マクロのいろはにほへと</a>」を参照して下さい）</p>
 <p>自分ではマクロを組めない場合は、<a href="https://www.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">コミュニテックス</a>にある<a href="https://www.maruo.co.jp/hidesoft/" class="externallink" target="_blank" rel="noopener">秀シリーズサポートフォーラム</a>の<a href="https://www.maruo.co.jp/hidesoft/4/" class="externallink" target="_blank" rel="noopener">「秀丸エディタマクロ作者会議室」</a>で質問すれば、何らかのヒントや回答が得られる場合もあります。</p>
 <p><a href="https://hide.maruo.co.jp/lib/index.html" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ(サイトー企画)&gt;ライブラリ</a>に秀丸エディタ用のマクロがたくさん登録されていますので、それらを利用するという方法もあります。</p>
 </section>

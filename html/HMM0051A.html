@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0051A] ●version キーワードの使い道は？ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,30 +27,36 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0050A.html">←前へ</a> <a href="HMM0052A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0050A.html">←前へ</a> <a href="./HMM0052A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0051a">[HMM0051A]</h1>
-<h2 id="HMM0051A_01">●version キーワードの使い道は？</h2>
+<section id="hmm0051a" class="level1">
+<h1>[HMM0051A]</h1>
+<section id="HMM0051A_01" class="level2">
+<h2>●version キーワードの使い道は？</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>秀丸マクロの新しいバージョンの機能を実装しているかどうか調べるためにversion キーワードを使ってみましたが、文法エラーが回避できません。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>秀丸マクロの新しいバージョンの機能を実装しているかどうか調べるためにversion キーワードを使ってみましたが、文法エラーが回避できません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>version キーワードを使って、あるバージョンから実装されたマクロ命令を使うかどうか振り分けることは、できそうに思えますができません。</p>
-<p>秀丸エディタマクロの現在の仕様では、マクロはコンパイル後に実行されるため、 version キーワード を使っても、バージョン判別ルーチンが実行されること無く、コンパイル時に文法エラーがあるというダイアログを出して止まってしまいます。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>version キーワードを使って、あるバージョンから実装されたマクロ命令を使うかどうか振り分けることは、できそうに思えますができません。</p>
+<p>秀丸エディタマクロの現在の仕様では、マクロはコンパイル後に実行されるため、
+version キーワード を使ってもバージョン判別ルーチンが実行されること無く、コンパイル時に文法エラーがあるというダイアログを出して止まってしまいます。</p>
 <p>では version の使い道が無いかというとそうでもなく、あるバージョンの秀丸エディタで当該のマクロ実行に致命的なバグがあることが既に分かっている場合に、そのバージョンの秀丸エディタでの実行を禁止させるために使うことができます。</p>
-<p>また、マクロの構成ファイルが増えてしまいますが、以下のようにファイルを分ける方法もあります。 (バージョン判定マクロを単純な内容にして、どのバージョンでも動くようにする必要があります)</p>
+<p>また、マクロの構成ファイルが増えてしまいますが、以下のようにファイルを分ける方法もあります。
+(バージョン判定マクロを単純な内容にして、どのバージョンでも動くようにする必要があります)</p>
 <ul>
 <li>バージョン判定してマクロ本体を実行するマクロ</li>
 <li>実際に処理を行うマクロ</li>
 </ul>
 <p>バージョン判定してマクロ本体を実行するマクロの例</p>
-<div class="macro">
-<pre><code>//バージョン判定してマクロ本体を実行するマクロ
+<pre class="macro"><code>//バージョン判定してマクロ本体を実行するマクロ
 if(version &gt; 800){
     //マクロを呼び出し
     exexmacro &quot;実際に処理を行うマクロファイル名&quot;;
@@ -53,11 +65,13 @@ if(version &gt; 800){
     message &quot;現在の秀丸エディタのバージョンでは実行できません。&quot;;
 }
 endmacro;</code></pre>
-</div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0050A.html">←前へ</a> <a href="HMM0052A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0050A.html">←前へ</a> <a href="./HMM0052A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

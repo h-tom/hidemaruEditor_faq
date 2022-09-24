@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　外部プログラムの実行について</h1>
 <hr />
@@ -36,7 +41,7 @@
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
 <p>秀丸エディタのマクロから他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2022/07/23現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
+<p>現状(2022/09/23現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -89,18 +94,14 @@
 <li><p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#NOTICE">【１】共通の注意点</a>を参照してください。</p></li>
 <li><p>run系文実行時の result は、プログラムの実行に成功した場合は <code>false</code>以外に 、失敗した場合は <code>false</code> になります。
 <code>true</code> かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
-<div class="macro">
-<pre><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
+<pre class="macro"><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
 if(!result){
     //失敗した場合の処理
 
-}</code></pre>
-</div></li>
+}</code></pre></li>
 <li><p>プログラム実行に成功し、同期実行の場合は、実行したプログラムが返す「終了ステータス」を取得可能です。取得には、<code>getresultex</code>関数で、引数に「9」を指定します。</p>
-<div class="macro">
-<pre><code>runsync &quot;xxxx.exe&quot;;
+<pre class="macro"><code>runsync &quot;xxxx.exe&quot;;
 #ret = getresultex(9);</code></pre>
-</div>
 <p>run文の場合は、同期実行に対応していないため、<code>getresultex(9)</code> は 常に「259」(同期しなかった)を返します。</p></li>
 </ul>
 </section>
@@ -141,7 +142,7 @@ if(!result){
 <li><p>同期フラグで、非同期実行/同期実行を指定できます。</p></li>
 <li><p>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</p></li>
 <li><p>表示フラグで、3以降の意味は、
-<a href="https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank" rel="noopener">ShellExecuteA function (shellapi.h)</a>
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank" rel="noopener">ShellExecuteA function (shellapi.h)</a>
 の「nShowCmd」を参照の事。</p></li>
 <li><p>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</p></li>
 <li><p>拡張フラグで、"%f" 等の変換を抑制できます</p></li>
@@ -150,8 +151,7 @@ if(!result){
 <p>わかりやすい例だと、コマンドプロンプト(cmd.exe)実行時に作業フォルダを指定すると、そのフォルダをカレントにしたコマンドプロンプトを開くことができます。
 PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
 <p>コマンドプロンプトを、マクロフォルダをカレントにした状態で開くマクロ</p>
-<div class="macro">
-<pre><code>runex &quot;cmd.exe&quot;
+<pre class="macro"><code>runex &quot;cmd.exe&quot;
 //sync   0:async, 1:sync
 , 0
 //stdin  0:none, 1:auto, 2:&lt;file, 3:(reserved), 4:current content, 5:selection
@@ -171,27 +171,18 @@ PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
 //extended flags
 , 0
 ;</code></pre>
-</div>
 <ul>
 <li><p>おまけ</p>
 <p>コマンドプロンプト、PowerShell、Windows Terminal は、起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
 <ul>
 <li><p>コマンドプロンプト</p>
-<div class="macro">
-<pre><code>cmd.exe /k cd /d &quot;開きたいフォルダ&quot;</code></pre>
-</div></li>
+<pre class="macro"><code>cmd.exe /k cd /d &quot;開きたいフォルダ&quot;</code></pre></li>
 <li><p>PowerShell(Ver.5)</p>
-<div class="macro">
-<pre><code>powershell.exe -noexit -command Set-Location -literalPath &#39;開きたいフォルダ&#39;</code></pre>
-</div></li>
+<pre class="macro"><code>powershell.exe -noexit -command Set-Location -literalPath &#39;開きたいフォルダ&#39;</code></pre></li>
 <li><p>PowerShell(Ver.7)</p>
-<div class="macro">
-<pre><code>pwsh.exe -WorkingDirectory &quot;開きたいフォルダ&quot;</code></pre>
-</div></li>
+<pre class="macro"><code>pwsh.exe -WorkingDirectory &quot;開きたいフォルダ&quot;</code></pre></li>
 <li><p>Windows Terminal</p>
-<div class="macro">
-<pre><code>wt.exe new-tab --startingDirectory &quot;開きたいフォルダ&quot;</code></pre>
-</div></li>
+<pre class="macro"><code>wt.exe new-tab --startingDirectory &quot;開きたいフォルダ&quot;</code></pre></li>
 </ul></li>
 </ul></li>
 </ul>

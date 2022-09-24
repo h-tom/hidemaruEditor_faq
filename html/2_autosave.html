@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　自動保存</h1>
 <hr />
@@ -33,12 +38,12 @@
 <li><a href="#PROCESS">設定手順</a></li>
 <li><a href="#SUPPLEMENTATION">補足</a></li>
 </ul>
-<p>「自動保存」の設定は、「<span class="env">動作環境</span>」-「ファイル」-「自動保存」から行います。「自動保存」が表示されない場合は、「上級者向け設定」にチェックを入れてください。</p>
-<p><img src="2_autosave_01.png" width="613" height="437" alt="自動保存のダイアログ" /><br />
+<p>「自動保存」の設定は「<span class="env">動作環境</span>」-「ファイル」-「自動保存」から行います。「自動保存」が表示されない場合は「上級者向け設定」にチェックを入れてください。</p>
+<p><img src="./2_autosave_01.png" width="613" height="437" alt="自動保存のダイアログ" /><br />
 </p>
 <section id="PROCESS" class="level3">
 <h3>設定手順</h3>
-<p>自動保存を有効にするには、まず保存場所を指定します。</p>
+<p>保存場所を指定します。</p>
 <section id="保存場所を設定" class="level4">
 <h4>保存場所を設定</h4>
 <div class="mark_dt">
@@ -95,8 +100,8 @@ NG:  C:\TEMP\%USERNAME%\Hidemaru\AutoSave</code></pre>
 <dt>遅延時間</dt>
 <dd>
 <p>設定できるのは、0秒以上です。</p>
-<p>遅延とありますが、一定時間、入力・編集など操作しない時間です。</p>
-<p>つまり、「遅延時間」を設定した場合、連続で操作・編集していると、「更新された回数」をすぎても保存されないので注意が必要です。</p>
+<p>遅延とありますが、入力・編集など操作しない時間になります。</p>
+<p>「遅延時間」を設定した場合、連続で操作・編集していると「更新された回数」をすぎても保存されないので注意が必要です。</p>
 </dd>
 <dt>ウィンドウ切り替えですぐに保存</dt>
 <dd>

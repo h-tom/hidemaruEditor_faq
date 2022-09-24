@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　自動起動マクロ</h1>
 <hr />
@@ -66,10 +71,10 @@
 <section id="SETTING" class="level3">
 <h3>【１】設定方法</h3>
 <p>通常のマクロと同じで、「マクロ」メニューから、「マクロ登録」を選択します。</p>
-<p><img src="3_autostartmacro_01.png" width="358" height="226" alt="マクロ登録" /><br />
+<p><img src="./3_autostartmacro_01.png" width="358" height="226" alt="マクロ登録" /><br />
 </p>
 <p>「マクロ登録」ダイアログが表示されるので、「対象」から「自動起動」を選びます。</p>
-<p><img src="3_autostartmacro_02.png" width="634" height="416" alt="マクロ登録ダイアログ" /><br />
+<p><img src="./3_autostartmacro_02.png" width="634" height="416" alt="マクロ登録ダイアログ" /><br />
 </p>
 <dl>
 <dt>&#9745;自動起動マクロを有効にする</dt>
@@ -137,9 +142,7 @@ seteventnotify 文 で指定された値を取得する。
 <dd>
 <p>「保存」と「印刷」には、「直前」と「直後」がありますが、呼び出されるマクロは1つです。その為、マクロ内で「直前」と「直後」を判断する必要があります。</p>
 <p>判断するには、geteventparam関数を使います。「保存」と「印刷」では、</p>
-<div class="macro">
-<pre><code>geteventparam(0)</code></pre>
-</div>
+<pre class="macro"><code>geteventparam(0)</code></pre>
 <p>の戻り値で判定し、"0" なら「直前」、"1"なら「直後」を示します。</p>
 </dd>
 <dt>ファイルを閉じるときのイベント</dt>

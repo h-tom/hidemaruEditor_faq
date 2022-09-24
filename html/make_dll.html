@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="top" class="level1">
 <h1>第V部〜マクロから呼び出すＤＬＬの作り方</h1>
 <hr />
@@ -237,7 +242,7 @@ message dllfuncstr(&quot;hello&quot;); // hello() の呼出し
 freedll; // DLLのアンロード</code></pre>
 </div>
 <p>DLLの作成方法その他に間違いがなければ、 以下のような"<code>hello world!</code>" というテキストが入ったメッセージボックスが表示されるはずです。</p>
-<p><img src="make_dll_01.png" width="167" height="160" alt="MsgBox" /><br />
+<p><img src="./make_dll_01.png" width="167" height="160" alt="MsgBox" /><br />
 </p>
 <p>この例は確かに単純ですが、1つ重要なことがあります。この関数のように文字列、したがって <code>LPCSTR (= const char*)</code>を返す場合、その文字列はDLL内部で静的に(またはヒープ領域に)確保したものでなければならない、ということです。この注意はもちろんDLL関数に限ったことではありませんが、 C またはC++ でプログラムを書いていれば</p>
 <div class="attention_p">
@@ -549,7 +554,7 @@ DLL関数が可変個の引数を取るかどうかに関わらず、マクロ�
 <p>文字列型の場合は <code>IsBadStringPtr()</code> API、ワイド文字列型の場合は <code>IsBadStringPtrW()</code> API でポインタの値が正当なものかどうか<strong>だけ</strong>はチェックできます。ポインタが指す先の文字列の内容、 または整数型の場合に値が不正かどうかの判断は 貴方(DLL関数)自身でやるしかないです。</p>
 <p><code>IsBadxxxxxPtr</code> APIに関しては、<span class="attention_red">Windows Vista以降非推奨</span>とのこと。詳細は、以下を参照してください。</p>
 <ul>
-<li><a href="https://docs.microsoft.com/ja-jp/windows/win32/api/winbase/nf-winbase-isbadstringptra" class="externallink" target="_blank" rel="noopener">IsBadStringPtr function</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/windows/win32/api/winbase/nf-winbase-isbadstringptra" class="externallink" target="_blank" rel="noopener">IsBadStringPtr function</a></li>
 </ul>
 </dd>
 </dl>
@@ -610,7 +615,7 @@ freedll;</code></pre>
 </div>
 <p>このマクロを実行すると、(ダイアログの細かい形はOSのバージョンで違いますが)
 以下のようないつもの「ファイルを開く」ダイアログが表示されるはずです。</p>
-<p><img src="make_dll_02.png" width="650" height="471" alt="ファイルオープンダイアログ" /><br />
+<p><img src="./make_dll_02.png" width="650" height="471" alt="ファイルオープンダイアログ" /><br />
 </p>
 <p>「色の選択」等の他のコモンダイアログを表示する API も 概ね上の<code>GetOpenFileName()</code> と同じようにモーダルダイアログを表示するだけなので、 特に何も考えずに APIを呼び出すだけでダイアログを出すことができます。</p>
 </section>
@@ -987,7 +992,7 @@ gcc もしくは gdb の設定を変更すれば何とかなるかもしれま�
 </ul>
 <p>MinGW gcc</p>
 <ul>
-<li><a href="http://www.mingw.org/" class="externallink" target="_blank" rel="noopener">MinGW | Minimalist GNU for Windows</a></li>
+<li><a href="https://osdn.net/projects/mingw/" class="externallink" target="_blank" rel="noopener">MinGW - Minimalist GNU for Windows</a></li>
 </ul>
 <p>Visual Studio Community/Visual Studio Express</p>
 <ul>

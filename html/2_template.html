@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -52,7 +57,7 @@
     code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
     code span.at { color: #7d9029; } /* Attribute */
     code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { } /* BuiltIn */
+    code span.bu { color: #008000; } /* BuiltIn */
     code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #4070a0; } /* Char */
     code span.cn { color: #880000; } /* Constant */
@@ -65,7 +70,7 @@
     code span.ex { } /* Extension */
     code span.fl { color: #40a070; } /* Float */
     code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
     code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
     code span.kw { color: #007020; font-weight: bold; } /* Keyword */
     code span.op { color: #666666; } /* Operator */
@@ -85,13 +90,13 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　テンプレート</h1>
 <hr />
 <section id="template" class="level2">
 <h2>テンプレート</h2>
-<p>秀丸エディタ Ver.9.12以降では、「テンプレート」に対応しています。「テンプレート」とは「スニペット」とも呼ばれる機能で、定型的な内容を入力するための支援機能になります。</p>
+<p>秀丸エディタ Ver.9.12以降では「テンプレート」に対応しています。「テンプレート」とは「スニペット」とも呼ばれる機能で、定型的な内容を入力するための支援機能になります。</p>
 <ul>
 <li><a href="#explanation">解説</a>
 <ul>
@@ -105,15 +110,15 @@
 <p>テンプレートファイルは、単純なものとしては入力したい内容を記述したファイル(例えばメールの定型文のあいさつなど)になります。プログラム等でコード片を入力する場合は、入力個所を設定する等特殊命令(プレースホルダー等)を設定できます。</p>
 <p><img src="./2_template_01.png" width="632" height="464" alt="テンプレートの設定" /><br />
 </p>
-<p>「テンプレート」を呼び出すには、「テンプレート」コマンドを実行するか、「単語補完」を使います。</p>
+<p>「テンプレート」を呼び出すには、「テンプレート」コマンドを実行するか「単語補完」を使います。</p>
 <ul>
 <li>「テンプレート」コマンドは、メニューの「その他 - コマンド一覧」の「その他編集」にあります。</li>
 <li>「単語補完」を使う場合は、「<strong>単語補完に含ませる</strong>」にチェックを入れてください。また、「ファイルタイプ別の設定」で「単語補完」も有効にしてください。</li>
 </ul>
-<p>よく使う場合は、「単語補完」を使うか、「テンプレート」コマンドをメニューやツールバーに出しておきましょう。</p>
+<p>よく使う場合は、「単語補完」を使うか「テンプレート」コマンドをメニューやツールバーに出しておきましょう。</p>
 <section id="explanation-1" class="level4">
 <h4>テンプレートファイルの場所</h4>
-<p>デフォルトでは、「設定用フォルダ」にある「snippets」フォルダが指定されています。</p>
+<p>デフォルトでは「設定用フォルダ」にある「snippets」フォルダが指定されています。</p>
 <ul>
 <li>フォルダではなく、ファイルを指定してもいい。</li>
 <li>フォルダ + ワイルドカードも指定可能。</li>

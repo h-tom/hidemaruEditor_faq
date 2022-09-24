@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　マクロのデバッグについて</h1>
 <hr />
@@ -36,21 +41,21 @@
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
 <p>秀丸エディタのマクロを自分で作成/実行する場合、思ったような結果にならない場合があります。どこで思ったように動作していないか調べるには、途中でマクロの実行を一時停止させ、選択状態や各種ウィンドウの状態などの確認や変数の内容を確認する必要があります。</p>
-<p>ここでは、マクロをデバッグする時の注意点や、あると便利なツールの紹介をおこないます。</p>
+<p>ここではマクロをデバッグする時の注意点や、あると便利なツールの紹介をおこないます。</p>
 </section>
 <section id="DEBUG-TOOL" class="level3">
 <h3>秀丸エディタのデバッグ機能について</h3>
 <p>秀丸エディタ本体にあるデバッグ機能について説明します。</p>
 <p>秀丸エディタ本体には、デバッグ関連の命令として以下の2つがあります。(2つしかないと言うべきか?)
-両方の命令は共に、デバッガ(デバッグを支援するツール/プログラム)にデータを出力します。</p>
-<p>デバッガは、一度に扱えるデータ量には制限があります。デバッグ用共有メモリサイズは4kバイトなので、これ以上は一度に表示されません。</p>
+両方の命令は。共にデバッガ(デバッグを支援するツール/プログラム)にデータを出力します。</p>
+<p>デバッガは一度に扱えるデータ量には制限があります。デバッグ用共有メモリサイズは4kバイトなので、これ以上は一度に表示されません。</p>
 <ul>
 <li><p><a href="https://help.maruo.co.jp/hidemac/html/090_MessageStatement_debuginfo.html" class="externallink" target="_blank" rel="noopener">debuginfo</a><br />
 引数に指定された文字列を、デバッガに出力します。</p>
 <p>"デバッガに出力"する機能だけではなく、デバッガへの出力をON/OFFする機能も持ちます。</p>
 <ul>
-<li>引数として数値の 「0」を指定した場合は、デバッガへの出力をOFFします。(マクロ実行直後はOFF状態)</li>
-<li>引数として数値の 「0」以外を指定した場合は、デバッガへの出力をONします。<br />
+<li>引数として数値の「0」を指定した場合は、デバッガへの出力をOFFします。(マクロ実行直後はOFF状態)</li>
+<li>引数として数値の「0」以外を指定した場合は、デバッガへの出力をONします。<br />
 Ver.8.77から、引数として数値の 「2」を指定した場合、デバッガだけではなく、アウトプット枠にもメッセージを出力します。アウトプット枠が表示されていない場合は、アウトプット枠も表示されます。</li>
 </ul></li>
 <li><p><a href="https://help.maruo.co.jp/hidemac/html/090_MessageStatement_showvars.html" class="externallink" target="_blank" rel="noopener">showvars</a><br />
@@ -63,11 +68,11 @@ Ver.8.77から、引数として数値の 「2」を指定した場合、デバ�
 <p><a href="https://www.vector.co.jp/vpack/filearea/winnt/prog/" class="externallink" target="_blank" rel="noopener">プログラミング</a>−<a href="https://www.vector.co.jp/vpack/filearea/winnt/prog/debug" class="externallink" target="_blank" rel="noopener">デバッガ</a> にあります。
 (OutputDebugString の出力をモニターできる物を探してください)</p></li>
 <li><p>Microsoft製のデバッガ</p>
-<p><a href="https://docs.microsoft.com/ja-jp/sysinternals/" class="externallink" target="_blank" rel="noopener">Windows Sysinternals</a> にある、「<a href="https://docs.microsoft.com/ja-jp/sysinternals/downloads/debugview" class="externallink" target="_blank" rel="noopener">DebugView - Windows Sysinternals</a>」です。
+<p><a href="https://learn.microsoft.com/ja-jp/sysinternals/" class="externallink" target="_blank" rel="noopener">Windows Sysinternals</a> にある、「<a href="https://learn.microsoft.com/ja-jp/sysinternals/downloads/debugview" class="externallink" target="_blank" rel="noopener">DebugView - Windows Sysinternals</a>」です。
 (その他のユーティリティ(Miscellaneous)にあります)</p></li>
 <li><p>秀丸マクロ専用のデバッガ</p>
 <p><a href="http://xn--pckzexbx21r8q9b.net/?page=nobu_tool_hm_debugmonitor" class="externallink" target="_blank" rel="noopener">秀丸マクロ.net-秀丸エディタ・デバッグ出力モニター</a> からダウンロードしてください。</p>
-<p>他のデバッガと異なり、秀丸マクロ専用のため、メッセージは読みやすいです。他のデバッガは、実行中のアプリケーションから出力される全てのデバッグメッセージ受け取るため出力内容が混在しますが、秀丸マクロ専用なので秀丸エディタ以外からのメッセージは表示されません。</p>
+<p>他のデバッガと異なり、秀丸マクロ専用のためメッセージは読みやすいです。他のデバッガは実行中のアプリケーションから出力される全てのデバッグメッセージ受け取るため出力内容が混在しますが、秀丸マクロ専用なので秀丸エディタ以外からのメッセージは表示されません。</p>
 <p>出力内容に"\n"(改行コード)が含まれないと出力されません。また、バッファサイズが少ない(512バイト)ようで、指定したデータが多いと全て表示されません。</p></li>
 </ul>
 <p>とりあえず使ってみて、自分に合ったデバッガを使ってください。</p>
@@ -75,7 +80,7 @@ Ver.8.77から、引数として数値の 「2」を指定した場合、デバ�
 <section id="DEBUG" class="level3">
 <h3>デバッグの方法</h3>
 <p>範囲選択やウィンドウの状態などを確認したい場合は、message文やquestion文を使ってメッセージを表示させ、マクロの実行を一時的に止める事で確認できます(disabledrawや、showwindow 0 で非表示にしている場合は無理ですが)。マクロを実行させている秀丸エディタの操作はできませんが、各種状態を確認するには有効な方法です。</p>
-<p>マクロ実行中に詳細情報を知りたい場合は、キーワードや変数の内容を、デバッグ用メッセージとして出力します。</p>
+<p>マクロ実行中に詳細情報を知りたい場合は、キーワードや変数の内容をデバッグ用メッセージとして出力します。</p>
 <p>デバッグメッセージを出力する方法はいくつかあります。</p>
 <ul>
 <li><a href="#DEBUG-1">debuginfo を使う場合</a></li>
@@ -89,13 +94,10 @@ Ver.8.77から、引数として数値の 「2」を指定した場合、デバ�
 <section id="DEBUG-1" class="level4">
 <h4>debuginfo を使う場合</h4>
 <p>秀丸エディタ本体にあるデバッグ用命令 debuginfo を使い、デバッガに出力します。</p>
-<p>マクロ実行初期状態は、デバッグ出力はOFFになっているので、ONにする必要があります。</p>
-<div class="macro">
-<pre><code>debuginfo 1;</code></pre>
-</div>
-<p>また、デバッグ出力として引数に指定できるのは、文字列だけなので数値は文字に変換する必要があります。</p>
-<div class="macro">
-<pre><code>//デバッグ出力をONにする。
+<p>マクロ実行初期状態はデバッグ出力はOFFになっているので、ONにする必要があります。</p>
+<pre class="macro"><code>debuginfo 1;</code></pre>
+<p>また、デバッグ出力として引数に指定できるのは文字列だけなので、数値は文字に変換する必要があります。</p>
+<pre class="macro"><code>//デバッグ出力をONにする。
 debuginfo 1;
 debuginfo str(100);
 debuginfo &quot;debuginfoのテスト1&quot;;
@@ -106,14 +108,13 @@ debuginfo &quot;debuginfoのテスト2(出力されない)&quot;;
 debuginfo 1;
 debuginfo &quot;debuginfoのテスト3&quot;;
 endmacro;</code></pre>
-</div>
 <p>「DebugView for Windows」と「秀丸エディタ・デバッグ出力モニター」での出力結果です。</p>
 <ul>
 <li><p>DebugView for Windows</p>
-<p><img src="3_debug_02.png" width="445" height="151" alt="DebugView for Windows" /><br />
+<p><img src="./3_debug_02.png" width="445" height="151" alt="DebugView for Windows" /><br />
 </p></li>
 <li><p>秀丸エディタ・デバッグ出力モニター(最後に改行文字を追加するようマクロを変更した状態)</p>
-<p><img src="3_debug_01.png" width="456" height="162" alt="秀丸エディタ・デバッグ出力モニター" /><br />
+<p><img src="./3_debug_01.png" width="456" height="162" alt="秀丸エディタ・デバッグ出力モニター" /><br />
 </p></li>
 </ul>
 <p>秀丸マクロヘルプの "debuginfo" の所には、以下の注意書きがあります。</p>
@@ -122,13 +123,12 @@ endmacro;</code></pre>
 デバッグアプリケーションもデバッグ端末もない場合は Windows の動作がおかしくなることがあるので注意してください。</code></pre>
 </div>
 <p>この説明にある「デバッグアプリケーション」とは、「デバッガ」の事です。その為、実際にはデバッガが起動しているか確認してから、メッセージを出力した方が良いでしょう。</p>
-<p>毎回チェックコードを書くのも大変なので、起動チェックおよび出力部分は、サブルーチン化します。</p>
+<p>毎回チェックコードを書くのも大変なので、起動チェックおよび出力部分はサブルーチン化します。</p>
 <p>起動チェックは、ウィンドウクラス名を検索する事で確認します。
 (<a href="https://help.maruo.co.jp/hidemac/html/180_Dde.html" class="externallink" target="_blank" rel="noopener">findwindowclass関数</a>を使う)</p>
 <p>「DebugView for Windows」のウィンドウクラス名は"dbgviewClass"、「秀丸エディタ・デバッグ出力モニター」のウィンドウクラス名は、"HM_DebugMonitor"です。</p>
-<p>この例では、2つのデバッガを検索し、どちらか見つかれば出力します。「秀丸エディタ・デバッグ出力モニター」の場合で、最後に改行が付いていない場合は追加します。</p>
-<div class="macro">
-<pre><code>//デバッグ出力をONにする。
+<p>この例では、2つのデバッガを検索しどちらか見つかれば出力します。「秀丸エディタ・デバッグ出力モニター」の場合で、最後に改行が付いていない場合は追加します。</p>
+<pre class="macro"><code>//デバッグ出力をONにする。
 debuginfo 1;
 
 call DEBUGOUT &quot;debuginfoのテスト1&quot;;
@@ -154,17 +154,16 @@ DEBUGOUT:
     //デバッガに出力
     debuginfo $$debug_message;
 return;</code></pre>
-</div>
 </section>
 <section id="DEBUG-2" class="level4">
 <h4>message文、question文 を使う方法</h4>
-<p>変数の内容を、文字列ならそのまま、数値なら文字列に変換して、引数に指定し表示させます。簡単ですが、ループ中で実行する場合は大変なので、使う箇所はよく考えましょう。</p>
+<p>変数の内容を、文字列ならそのまま数値なら文字列に変換して、引数に指定し表示させます。簡単ですが、ループ中で実行する場合は大変なので使う箇所はよく考えましょう。</p>
 <p>question文は戻り値があるので、押したボタンによって処理を終了させることも可能です。</p>
 <p>また、message文 question文 はフォーカスをエディタ画面に移動させてしまうので、枠を対象とするようなマクロの場合は注意が必要です。</p>
 <p>ちなみに message文 question文 だけではなく、ダイアログで表示している内容はダイアログがアクティブな状態で<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押せば、表示しているテキストをクリップボードにコピー可能です。
 (なかには、<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd> が効かないダイアログもあります。Windows 9x系OSでは出来ません)</p>
 <p>たとえば、以下のようなダイアログが表示されているときに、<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押すと、<br />
-<img src="3_debug_03.png" width="298" height="160" alt="DebugView for Windows" /><br />
+<img src="./3_debug_03.png" width="298" height="160" alt="DebugView for Windows" /><br />
 </p>
 <p>クリップボードには、以下の内容がコピーされます。</p>
 <div class="macro">
@@ -191,8 +190,7 @@ return;</code></pre>
 <li>「DBOUT_INIT」 が初期化のサブルーチンです。最初に1回だけ呼び出してください。</li>
 <li>「DBOUT」 がメッセージ出力用サブルーチンです。引数に指定された内容をアウトプット枠に出力します。</li>
 </ul>
-<div class="macro">
-<pre><code>//初期化処理
+<pre class="macro"><code>//初期化処理
 call DBOUT_INIT;
 //実際に出力する
 call DBOUT &quot;デバッグ出力1!!:&quot; + time + &quot;\n&quot;;
@@ -243,21 +241,20 @@ DBOUT_INIT:
     ##ret = sendmessage(##outputhandle, 0x111, 1009, 0);//1009=クリア
     //ここまで
     #Debug_OutputFlg = 1;
-return;</code></pre>
-</div>
+return;
+</code></pre>
 </section>
 <section id="DEBUG-4" class="level4">
 <h4>秀丸エディタに出力</h4>
 <p>各種情報をデバッグ用秀丸エディタに出力します。</p>
-<p>秀丸エディタはエディタ毎に別プロセスなので、マクロ実行中にクラッシュするような状態でも、巻き込まれる可能性が少ないです。</p>
+<p>秀丸エディタはエディタ毎に別プロセスなので、マクロ実行中にクラッシュするような状態でも巻き込まれる可能性が少ないです。</p>
 <p>秀丸エディタ本体をデバッグ用メッセージ出力に使うマクロの例です。一時フォルダ(TEMPフォルダ)にファイルを作成し、そこのメッセージを出力します。「DBOUT」を10回呼び出すと、ファイルを自動保存するようになっています。</p>
 <p>ウィンドウの切替を頻繁に行うので、少しうっとうしく感じる場合もあります。</p>
 <ul>
 <li>「DBOUT_INIT」 が初期化のサブルーチンです。最初に1回だけ呼び出してください。</li>
 <li>「DBOUT」 がメッセージ出力用サブルーチンです。</li>
 </ul>
-<div class="macro">
-<pre><code>//初期化処理
+<pre class="macro"><code>//初期化処理
 call DBOUT_INIT;
 call DBOUT &quot;デバッグ出力1!!:&quot; + time;
 call DBOUT &quot;デバッグ出力2!!:&quot; + time;
@@ -329,8 +326,8 @@ DBOUT_INIT:
     //ログ出力フラグをセット
     #Debug_OutputFlg = 1;
     setactivehidemaru ##main;
-return;</code></pre>
-</div>
+return;
+</code></pre>
 </section>
 </section>
 </section>

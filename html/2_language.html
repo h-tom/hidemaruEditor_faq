@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,13 +27,13 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　表示言語の切替</h1>
 <hr />
 <section id="language" class="level2">
 <h2>表示言語の切替</h2>
-<p>秀丸エディタ Ver.8.92以降では、「<strong>表示言語の切替</strong>」が可能です。</p>
+<p>秀丸エディタ Ver.8.92以降では「<strong>表示言語の切替</strong>」が可能です。</p>
 <ul>
 <li><a href="#PROCESS">表示言語の設定</a></li>
 <li><a href="#TRANSITION">「英語版(Maruo)」から「日本語版(Hidemaru)」への設定移行方法</a></li>
@@ -44,10 +49,10 @@
 (英語表記の場合「<span class="env">Environment</span>」-「Environment」-「Display language」)</p>
 <ul>
 <li><p>「表示言語」が日本語の場合<br />
-<img src="2_language_01.png" width="613" height="126" alt="表示言語の切替_日本語" /><br />
+<img src="./2_language_01.png" width="613" height="126" alt="表示言語の切替_日本語" /><br />
 </p></li>
 <li><p>「表示言語」が英語の場合<br />
-<img src="2_language_06.png" width="622" height="173" alt="表示言語の切替_英語" /><br />
+<img src="./2_language_06.png" width="622" height="173" alt="表示言語の切替_英語" /><br />
 </p></li>
 </ul>
 <dl>
@@ -65,15 +70,15 @@ Windowsの設定に従う。Windowsが日本語になっていれば日本語に
 </dd>
 </dl>
 <p>「表示言語」を切り替えて、「OK」で「<span class="env">動作環境</span>」のダイアログを閉じると、以下のメッセージが表示されます。</p>
-<p><img src="2_language_02.png" width="394" height="147" alt="表示言語の切替メッセージ" /><br />
+<p><img src="./2_language_02.png" width="394" height="147" alt="表示言語の切替メッセージ" /><br />
 </p>
 <p>起動している秀丸エディタ(常駐秀丸エディタを含む)をすべて終了し、再起動すると「表示言語」が切り替わります。</p>
 <ul>
 <li><p>「表示言語」が日本語の場合<br />
-<img src="2_language_03.png" width="430" height="141" alt="秀丸エディタ日本語表記" /><br />
+<img src="./2_language_03.png" width="430" height="141" alt="秀丸エディタ日本語表記" /><br />
 </p></li>
 <li><p>「表示言語」が英語の場合<br />
-<img src="2_language_04.png" width="430" height="141" alt="秀丸エディタ英語表記" /><br />
+<img src="./2_language_04.png" width="430" height="141" alt="秀丸エディタ英語表記" /><br />
 </p></li>
 </ul>
 </section>
@@ -86,10 +91,10 @@ Windowsの設定に従う。Windowsが日本語になっていれば日本語に
 <ol type="1">
 <li><p>「英語版(Maruo)」で、メニューの「Other」-「Backup/Restore environment」を選ぶ。</p></li>
 <li><p>ダイアログが表示されるので「Save settings to file」を選び、移行したい内容にチェックを入れ、<span class="btn-push">「Next&gt;&gt;」</span>ボタンを押す。</p>
-<p><img src="2_language_08.png" width="415" height="445" alt="設定内容の保存・復元ダイアログ" /><br />
+<p><img src="./2_language_08.png" width="415" height="445" alt="設定内容の保存・復元ダイアログ" /><br />
 </p></li>
 <li><p>保存形式を問い合わせるダイアログが表示されます。「Yes」を選べば、「日本語版(Hidemaru)」へ対応した形式になります。</p>
-<p><img src="2_language_05.png" width="413" height="310" alt="保存形式の問い合わせ" /><br />
+<p><img src="./2_language_05.png" width="413" height="310" alt="保存形式の問い合わせ" /><br />
 </p></li>
 <li><p>保存ファイル名を問い合わせるダイアログが表示されるので、適当なファイル名を付けて保存します。</p></li>
 <li><p>保存後、メッセージが表示されるので、それに従って設定を移行します。</p>
@@ -98,7 +103,7 @@ Windowsの設定に従う。Windowsが日本語になっていれば日本語に
 <li>日本語版を起動し、「その他」-「設定内容の保存/復元」から、保存した設定ファイルを読み込む。</li>
 </ul>
 <p>「英語版(Maruo)」は設定の移行を確認してからアンインストールした方がいいでしょう。</p>
-<p><img src="2_language_07.png" width="412" height="310" alt="保存後のメッセージ" /><br />
+<p><img src="./2_language_07.png" width="412" height="310" alt="保存後のメッセージ" /><br />
 </p></li>
 </ol>
 </section>

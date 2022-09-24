@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,13 +27,13 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　あいまい検索</h1>
 <hr />
 <section id="FUZZY" class="level2">
 <h2>「あいまい検索」について</h2>
-<p>正規表現DLLに、HMJRE.DLL を指定していると、「あいまい検索」が可能になります。</p>
+<p>正規表現DLLに HMJRE.DLL を指定していると、「あいまい検索」が可能になります。</p>
 <p>あいまい検索を有効にすると、以下の検索が可能になります。</p>
 <ul>
 <li>文字種等を無視</li>
@@ -43,7 +48,7 @@
 <section id="EXPLANATION" class="level3">
 <h3>[解説]</h3>
 <p>以下の機能があります。</p>
-<p><img src="2_fuzzy_02.png" width="399" height="431" alt="あいまい検索の設定ダイアログボックス" /><br />
+<p><img src="./2_fuzzy_02.png" width="399" height="431" alt="あいまい検索の設定ダイアログボックス" /><br />
 </p>
 <ol type="1">
 <li>半角／全角を区別しない</li>
@@ -64,7 +69,7 @@
 <p>ひらがなの「あ」を検索しても、カタカナや半角文字にもマッチする。</p>
 <pre><code>検索文字　　　：あ
 マッチする文字：あぁアァｱｧ</code></pre>
-<p>ひらがなの「は」を検索しても、カタカナ、半角文字、濁音、半濁音の有無を無視してマッチする。</p>
+<p>ひらがなの「は」を検索しても、カタカナ 半角文字 濁音 半濁音の有無を無視してマッチする。</p>
 <pre><code>検索文字　　　：は
 マッチする文字：はハばバぱパﾊﾊﾟﾊﾞ</code></pre></li>
 <li><p>5、8は、同一視する文字の指定です。</p></li>
@@ -73,20 +78,20 @@
 詳細については、
 HMJRE.DLLのヘルプ-「<a href="https://help.maruo.co.jp/hmjre/html/ABOUT_SIMILAR.html" class="externallink" target="_blank" rel="noopener">類似検索の詳細</a>」を参照してください。</p></li>
 <li><p>6、9、10、11は無視する文字の設定です。文字間の空白、タブ等を無視してマッチさせます。特定の文字を無視できます。</p></li>
-<li><p>カスタム1〜4で、同一視する文字列の指定も可能です。別途ファイルを作成し、同じ行内で、タブまたは空白で区切られた文字列を同一視します。</p>
+<li><p>カスタム1〜4で、同一視する文字列の指定も可能です。別途ファイルを作成し、同じ行内でタブまたは空白で区切られた文字列を同一視します。</p>
 <p>ファイルの例</p>
 <pre><code>秀丸  ひでまる  ｈｉｄｅｍａｒｕ</code></pre>
 <p>上記内容だと、「秀丸」「ひでまる」「ｈｉｄｅｍａｒｕ」という文字列 を同一視します。</p>
-<p>さらに</p>
+<p>さらに以下のチェック状態だと、</p>
 <ul>
 <li>&#9745;半角／全角を区別しない</li>
 <li>&#9745;全角文字で、ひらがなとカタカナを区別しない</li>
 <li>&#9745;大きい「あ」と小さい「ぁ」を区別しない</li>
 <li>&#9745;濁音／半濁音を無視する</li>
 </ul>
-<p>というチェック状態だと、「hidemaru」「ヒデマル」「ﾋﾃﾞﾏﾙ」「ヒテマル」「ﾋﾃﾏﾙ」「ひてまる」「ぴでまる」「ぴてまる」「びでまる」「ピデマル」「ピテマル」「ビデマル」「ﾋﾟﾃﾞまる」「ぴテマる」等も同一視することになります。</p>
+<p>「hidemaru」「ヒデマル」「ﾋﾃﾞﾏﾙ」「ヒテマル」「ﾋﾃﾏﾙ」「ひてまる」「ぴでまる」「ぴてまる」「びでまる」「ピデマル」「ピテマル」「ビデマル」「ﾋﾟﾃﾞまる」「ぴテマる」等も同一視することになります。</p>
 <p>実際に同一視指定ファイルを作成・有効にし、「秀丸」を検索した結果画面です。<br />
-<img src="2_fuzzy_01.png" width="637" height="266" alt="あいまい検索の結果" /><br />
+<img src="./2_fuzzy_01.png" width="637" height="266" alt="あいまい検索の結果" /><br />
 </p></li>
 </ul>
 </section>

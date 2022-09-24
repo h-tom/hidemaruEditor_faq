@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　マクロ内での「\」や特殊文字の使い方</h1>
 <hr />
@@ -111,8 +116,7 @@
 </div>
 <p>試しに、以下のマクロを実行してみてください。<br />
 @ と @ の間の表示に注目してみてください。</p>
-<div class="macro">
-<pre><code>//---- 「\」の扱いを調べるテストマクロ ---------------------
+<pre class="macro"><code>//---- 「\」の扱いを調べるテストマクロ ---------------------
 $str[1] = &quot;\t&quot;;
 $str[2] = &quot;\n&quot;;
 $str[3] = &quot;\&quot;&quot;;
@@ -130,38 +134,31 @@ while( $str[#i] != &quot;&quot; ) {
 }
 endmacro;
 //---- ここまで --------------------------------------------</code></pre>
-</div>
 </section>
 <section id="EXAMPLE" class="level3">
 <h3>【２】「\」の使用例</h3>
 <p>では、実際に「\」が出てくるマクロをいくつか書いてみましょう。</p>
 <p><strong>(a)ファイル「c:\test.txt」をオープンするマクロ</strong></p>
-<div class="macro">
-<pre><code>//---- ファイルをオープンするテストマクロ ------------------
+<pre class="macro"><code>//---- ファイルをオープンするテストマクロ ------------------
 openfile &quot;c:\\test.txt&quot;;
 endmacro;
 //---- ここまで --------------------------------------------</code></pre>
-</div>
 <p>ファイル名に「\」という文字を使いたい訳ですから、「\」自身の文字を表すために「\\」と表記します。</p>
 <p><strong>(b)改行を挿入するマクロ</strong></p>
-<div class="macro">
-<pre><code>//---- 改行を挿入するテストマクロ --------------------------
+<pre class="macro"><code>//---- 改行を挿入するテストマクロ --------------------------
 insert &quot;改行する文章\n改行した後の文章&quot;;
 endmacro;
 //---- ここまで --------------------------------------------</code></pre>
-</div>
 <p>改行を表現したい時は、「\n」でしたね。</p>
 <p><strong>(c)正規表現による改行検索を行うマクロ</strong></p>
 <p>実は、正規表現による検索・置換をする場合には、\の使い方が一見変わっているように見えます。【３】の例をごらんください。</p>
 </section>
 <section id="REGULAR" class="level3">
 <h3>【３】正規表現で使用する場合</h3>
-<div class="macro">
-<pre><code>//---- 改行検索を行うテストマクロ -------------------
+<pre class="macro"><code>//---- 改行検索を行うテストマクロ -------------------
 searchdown &quot;\\n&quot;, regular;
 endmacro;
 //---- ここまで -------------------------------------</code></pre>
-</div>
 <p>この表記だと、二重引用符の中は、「改行文字」ではなく「\nという２文字の文字列」になっています。「\\」が、\という文字自身を表していますので、そうなりますね。<br />
 でも、正規表現による検索・置換をする場合には、これでよいのです。というか、このように表記しなければいけません。</p>
 <p>なぜそうなるのかを説明するために、少し難しくなりますが秀丸エディタの内部動作を説明します。</p>
@@ -175,26 +172,18 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <p>上記のマクロを見て、「あれっ、改行って確か「\n」だから、「<code>searchdown "\\n",regular;</code>」じゃないの。試しに動かしたら、ちゃんと検索したぞー」とおっしゃる方もおられると思います。<br />
 これは、HMJRE.DLLが一応「改行文字そのもの」を送られてきた場合にも対応しているから動作しています。が、これは一般的な表記ではないので、複雑な文字列になると検索できない場合があります。というわけで、<code>"\\\\n"</code>と書くようにしましょう。</p>
 <p>この表記法は、改行だけに限らず、\を使う表記すべてに当てはまります。ということで、たとえばタブ文字を検索したい場合は</p>
-<div class="macro">
-<pre><code>searchdown &quot;\\t&quot;, regular;</code></pre>
-</div>
+<pre class="macro"><code>searchdown &quot;\\t&quot;, regular;</code></pre>
 <p>となりますし、\ という１文字を（正規表現中で）検索したいときには</p>
-<div class="macro">
-<pre><code>searchdown &quot;\\\\&quot;, regular;</code></pre>
-</div>
+<pre class="macro"><code>searchdown &quot;\\\\&quot;, regular;</code></pre>
 <p>となるわけですねヾ(^^;</p>
 <p>＃このように\を重ねて書かねばならないのはマクロ内だけです。正規表現による検索でもダイアログで普通に行う分には\は１個でよいです。<br />
 </p>
 <p>慣れてくると逆に混乱することがあるので、蛇足ですが(^^;)。</p>
 <p>では、正規表現のマクロ記述は何でも\を重ねて書けばよいかというと、ダブルクォーテーションマーク(" )だけは異なります。</p>
-<div class="macro">
-<pre><code>searchdown &quot;\&quot;&quot;, regular;</code></pre>
-</div>
+<pre class="macro"><code>searchdown &quot;\&quot;&quot;, regular;</code></pre>
 <p>が正解です。ダブルクォーテーションマークは制御文字でなく普通の文字なので、\"
 でダブルクォーテーションマーク１文字をHMJRE.DLLに渡せるからです。あるいは、以下のようにして「\"という２文字の文字列」をHMJRE.DLLに渡しても動作します。</p>
-<div class="macro">
-<pre><code>searchdown &quot;\\\&quot;&quot;, regular;</code></pre>
-</div>
+<pre class="macro"><code>searchdown &quot;\\\&quot;&quot;, regular;</code></pre>
 <p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。表示される内容が、HMJRE.DLLに渡される文字列となるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
 </section>
 <section id="SUPPLEMENT" class="level3">
@@ -256,8 +245,7 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <li>文字列中に括弧「( )」を使う場合には、「Keyword」を付けておくと、先頭と終端の括弧と区別できます。</li>
 </ul>
 <p>簡単な記述例</p>
-<div class="macro">
-<pre><code>message R&quot;hidemaru(&quot;Raw文字列リテラル&quot;の記述例です。)hidemaru&quot;;
+<pre class="macro"><code>message R&quot;hidemaru(&quot;Raw文字列リテラル&quot;の記述例です。)hidemaru&quot;;
 //        &quot;hidemaru&quot;が「Keyword」になっている。
 
 message R&quot;(&quot;Raw文字列リテラル&quot;の記述例です。)&quot;;
@@ -278,7 +266,6 @@ message R&quot;(&quot;Raw文字列
 message R&quot;(&quot;Raw文字列
 リテラル&quot;の記述例です。
     インデントもそのまま文字列扱いされます。)&quot;;</code></pre>
-</div>
 <p><br />
 </p>
 </dd>
@@ -304,8 +291,7 @@ message R&quot;(&quot;Raw文字列
 <li>文字列中に「"」を記述する場合は「""」とする必要があります。</li>
 </ul>
 <p>簡単な記述例</p>
-<div class="macro">
-<pre><code>message @&quot;&quot;&quot;Raw文字列リテラル&quot;&quot;の記述例です。&quot;;
+<pre class="macro"><code>message @&quot;&quot;&quot;Raw文字列リテラル&quot;&quot;の記述例です。&quot;;
 
 message @&quot;&quot;&quot;Raw文字列
 リテラル&quot;&quot;の記述例です。&quot;;
@@ -318,8 +304,8 @@ message @&quot;&quot;&quot;Raw文字列
 
 message @&quot;&quot;&quot;Raw文字列
 リテラル&quot;&quot;の記述例です。
-    インデントもそのまま文字列扱いされます。&quot;;</code></pre>
-</div>
+    インデントもそのまま文字列扱いされます。&quot;;
+</code></pre>
 <p><br />
 </p>
 </dd>
@@ -328,9 +314,7 @@ message @&quot;&quot;&quot;Raw文字列
 <hr />
 <p>例として「message文」を使いましたが、文字列を指定する箇所なら何処でもこの記法が使えます。正規表現パターンを指定する場合にも使用できるので、見やすくなります。</p>
 <p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>
-<div class="macro">
-<pre><code>openfile @&quot;C:\Program Files\Hidemaru\HIDEMARU.TXT&quot;;</code></pre>
-</div>
+<pre class="macro"><code>openfile @&quot;C:\Program Files\Hidemaru\HIDEMARU.TXT&quot;;</code></pre>
 </section>
 </section>
 </section>

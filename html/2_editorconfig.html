@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,13 +27,13 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　EditorConfig</h1>
 <hr />
 <section id="editorconfig" class="level2">
 <h2>EditorConfig</h2>
-<p>秀丸エディタ Ver.9.00以降では、「EditorConfig」に対応しています。</p>
+<p>秀丸エディタ Ver.9.00以降では「EditorConfig」に対応しています。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a>
 <ul>
@@ -42,7 +47,7 @@
 </ul>
 <section id="EXPLANATION" class="level3">
 <h3>[解説]</h3>
-<p>「EditorConfig」とは、さまざまなエディター や IDE で、コーディングスタイルを統一するための仕組みです。「.editorconfig」という設定ファイルを参照し、各プロジェクト毎やファイル毎に、コーディングスタイルを設定できます。</p>
+<p>「EditorConfig」とは、さまざまなエディター や IDE で、コーディングスタイルを統一するための仕組みです。「.editorconfig」という設定ファイルを参照し、各プロジェクト毎やファイル毎にコーディングスタイルを設定できます。</p>
 <p>詳細は「<a href="https://editorconfig.org/" class="externallink" target="_blank" rel="noopener">EditorConfigのwebサイト</a>」を参照してください。</p>
 <p>秀丸エディタで対応しているのは、以下になります。</p>
 <ul>
@@ -78,12 +83,12 @@
 .editorconfigの内容を無視します。</p></li>
 <li><p>「適用せず、注目バーを自動表示」<br />
 注目バーをクリックすると、適応させる項目が表示されます。<br />
-<img src="2_editorconfig_02.png" width="656" height="137" alt="注目バーを自動表示" /><br />
+<img src="./2_editorconfig_02.png" width="656" height="137" alt="注目バーを自動表示" /><br />
 <br />
 適応すると、ファイルは「更新」状態になります。</p></li>
 <li><p>「適用して、注目バーを常に表示」<br />
 注目バーを表示し、適応内容を表示します。<br />
-<img src="2_editorconfig_03.png" width="530" height="97" alt="注目バーに表示" /><br />
+<img src="./2_editorconfig_03.png" width="530" height="97" alt="注目バーに表示" /><br />
 </p></li>
 <li><p>「適用する」<br />
 確認なしで適用します。</p></li>
@@ -138,7 +143,7 @@
 <section id="SUPPLEMENTATION-1" class="level4">
 <h4>設定ファイルの記述方法</h4>
 <p>「.editorconfig」の記述方法です。エンコードは「UTF-8」にしてください。
-(「BOM」は基本的には不要。秀丸エディタは「BOM」があっても大丈夫ですが、他の環境で問題とある場合あり。)</p>
+(「BOM」は基本的には不要。秀丸エディタは「BOM」があっても大丈夫ですが、他の環境で問題となる場合あり。)</p>
 <p>形式的には、iniファイルに似ていて、以下の形式になります。</p>
 <pre class="macro"><code>#コメント
 ;コメント
@@ -288,9 +293,8 @@ indent_size が指定されていないときは、この値を使う。</p>
 <section id="SUPPLEMENTATION-2" class="level4">
 <h4>マクロ関連</h4>
 <ul>
-<li>「.editorconfig」の設定が元の「<span class="filetype">ファイルタイプ別の設定</span>」と異なっても、「一時的な設定」にはならないので、
-<code>configstate</code> キーワードを見ても設定が変更されたかどうかは判断できない。</li>
-<li>適用後に設定をgetconfigで見ても、適用された内容が取得できる。</li>
+<li>「.editorconfig」の設定が元の「<span class="filetype">ファイルタイプ別の設定</span>」と異なっても、「一時的な設定」にはならないので <code>configstate</code> キーワードを見ても設定が変更されたかどうかは判断できない。</li>
+<li>適用後に設定を getconfig で見ても、適用された内容が取得できる。</li>
 </ul>
 </section>
 </section>

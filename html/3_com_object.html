@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　COMオブジェクト操作関連</h1>
 <hr />
@@ -40,7 +45,7 @@
 <h3>【０】COMオブジェクトとは</h3>
 <p>COMとは、Component Object Modelの略です。
 Windowsでソフトウェアの機能を部品化して外部から呼び出して利用する仕組みを定めた技術仕様になります。</p>
-<p>ただし、現状(2022/07/23現在)では、古い技術になっています。とはいえ、使えなくなったという事ではなく Word Excel などの Office製品や、「Windows Script Host」などOSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
+<p>ただし、現状(2022/09/23現在)では、古い技術になっています。とはいえ、使えなくなったという事ではなく Word Excel などの Office製品や、「Windows Script Host」などOSの一部の機能には残っていますし、対応しているアプリケーションもまだあります。</p>
 <p>秀丸マクロで出来ないことでも、COMオブジェクトを使えば可能になることもあるので、使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
 <p>ここでは、OSに標準搭載されている「Windows Script Host」等を使って説明します。</p>
 </section>
@@ -50,9 +55,9 @@ Windowsでソフトウェアの機能を部品化して外部から呼び出し�
 <p>今回は以下のCOMオブジェクトを使用します。</p>
 <ol type="1">
 <li><p>「Windows Script Host」の各種オブジェクト</p>
-<p>以前は、chm形式の日本語ヘルプがダウンロードできましたが、現時点(2022/07/23)ではダウンロード出来なくなっています。</p>
+<p>以前は、chm形式の日本語ヘルプがダウンロードできましたが、現時点(2022/09/23)ではダウンロード出来なくなっています。</p>
 <p>その為、Microsoftのwebサイトを参照します。</p>
-<p>トップページは<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Microsoft Windows スクリプト テクノロジ</a>になります。今回使用する<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Windows Script Host</a>を選び、<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank" rel="noopener">リファレンス</a>から、<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank" rel="noopener">オブジェクト</a>を選びます。</p>
+<p>トップページは<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Microsoft Windows スクリプト テクノロジ</a>になります。今回使用する<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Windows Script Host</a>を選び、<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank" rel="noopener">リファレンス</a>から、<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank" rel="noopener">オブジェクト</a>を選びます。</p>
 <p>このページにある各種オブジェクトを使用します。</p>
 <p>このページに記載されている全てのオブジェクトが使える訳ではないので、注意してください。</p>
 <ul>
@@ -60,10 +65,10 @@ Windowsでソフトウェアの機能を部品化して外部から呼び出し�
 <li>WshArgumentsオブジェクト WshNamedオブジェクト WshUnnamedオブジェクト は、ホストプログラム(cscript.exe、wscript.exe)から実行した時に引数を取得するためのオブジェクトなので、秀丸マクロからでは使い道がありません。</li>
 </ul></li>
 <li><p>FileSystemObject オブジェクト</p>
-<p><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Microsoft Windows スクリプト テクノロジ</a>にある、
-Script ランタイム−<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank" rel="noopener">FileSystemObject</a>にあります。</p></li>
+<p><a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Microsoft Windows スクリプト テクノロジ</a>にある、
+Script ランタイム−<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc409798(v=msdn.10)" class="externallink" target="_blank" rel="noopener">FileSystemObject</a>にあります。</p></li>
 <li><p>Shell オブジェクト</p>
-<p><a href="https://docs.microsoft.com/ja-jp/windows/win32/shell/shell-application" class="externallink" target="_blank" rel="noopener">Shell object (Windows)</a></p></li>
+<p><a href="https://learn.microsoft.com/ja-jp/windows/win32/shell/shell-application" class="externallink" target="_blank" rel="noopener">Shell object (Windows)</a></p></li>
 </ol>
 <p>各オブジェクトのリンク先には、使用できるプロパティ、メソッドの説明があります。この情報を元に、秀丸マクロを作成していくことになります。
 (逆に言うと、このような情報がない場合には、マクロの作成は出来ません)</p>
@@ -75,8 +80,7 @@ Script ランタイム−<a href="https://docs.microsoft.com/ja-jp/previous-vers
 <h3>【２】秀丸マクロからCOMオブジェクトを使ってみる</h3>
 <p>COMオブジェクトを使用するには、まず <strong>createobject</strong>関数を使用します。</p>
 <p><strong>createobject</strong>関数では、使用するオブジェクトの「アプリケーション名」「クラス(オブジェクト)名」が必要です。場合によっては「バージョン」を指定します。</p>
-<div class="macro">
-<pre><code>//&quot;WScript&quot;の&quot;WshShell&quot;オブジェクトを使う
+<pre class="macro"><code>//&quot;WScript&quot;の&quot;WshShell&quot;オブジェクトを使う
 #n = createobject(&quot;WScript.Shell&quot;);
 
 //&quot;Excel&quot;の&quot;Application&quot;オブジェクトを使う
@@ -84,7 +88,6 @@ Script ランタイム−<a href="https://docs.microsoft.com/ja-jp/previous-vers
 
 //&quot;WinHttp&quot;の&quot;WinHttpRequest&quot;オブジェクトのバージョン&quot;5.1&quot;を使う
 #objHttp = createobject(&quot;WinHttp.WinHttpRequest.5.1&quot;);</code></pre>
-</div>
 <p><strong>createobject</strong>関数でCOMオブジェクトを使用できるようにし、そのオブジェクトが持つ各種メソッド呼び出しや、プロパティを設定します。</p>
 <section id="MACRO-1" class="level4">
 <h4>【２．１】「Windows Script Host」の "WshShell" オブジェクトを使ってみる</h4>
@@ -92,9 +95,7 @@ Script ランタイム−<a href="https://docs.microsoft.com/ja-jp/previous-vers
 <p>秀丸マクロの message文 と同じメッセージを表示する命令ですが、タイムアウト時間を設定でき自動で閉じることが出来ます。<br />
 (秀丸エディタ Ver.8.75以降では、message文が拡張され、タイムアウトする事も可能)</p>
 <p>Popupメソッドの引数、戻り値は以下になります。</p>
-<div class="macro">
-<pre><code>intButton = object.Popup(strText,[nSecondsToWait],[strTitle],[nType])</code></pre>
-</div>
+<pre class="macro"><code>intButton = object.Popup(strText,[nSecondsToWait],[strTitle],[nType])</code></pre>
 <ul>
 <li><p>引数</p>
 <dl>
@@ -128,23 +129,16 @@ WshShell オブジェクトを指定します。
 </dl></li>
 </ul>
 <p>WSH(VBScript)の場合は以下になります。</p>
-<div class="macro">
-<pre><code>&#39;オブジェクトの生成
-Set WshShell = WScript.CreateObject(&quot;WScript.Shell&quot;)
-&#39;メソッドの呼び出し、7秒待機する。
+<pre class="macro"><code>Set WshShell = WScript.CreateObject(&quot;WScript.Shell&quot;)
 BtnCode = WshShell.Popup(&quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32)
-&#39;結果の表示
 Wscript.echo BtnCode
-&#39;オブジェクトの解放
 Set WshShell = Nothing</code></pre>
-</div>
 <p>これを秀丸マクロに変換していきます。</p>
 <p>まず、WshShell オブジェクトを生成するため、<strong>createobject</strong> 関数を使います。</p>
 <p>WSH(VBScript)で実行する場合と違い、秀丸マクロではCOM関連の実行時エラーが出ないので、メソッドの実行やプロパティアクセス結果のチェックを行う必要があります。
 createobject関数は戻り値で判断できますが、基本的には getresultex関数 を使い、成功/失敗を判断します。
 (getresultex(10) で、COM関連命令が成功したか、失敗したかを返す)</p>
-<div class="macro">
-<pre><code>//オブジェクトの生成
+<pre class="macro"><code>//オブジェクトの生成
 #WshShell = createobject(&quot;WScript.Shell&quot;)
 //createobject関数の成功/失敗をチェック
 if(#WshShell == 0){ //if(getresultex(10) == false){
@@ -152,7 +146,6 @@ if(#WshShell == 0){ //if(getresultex(10) == false){
     message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
     endmacro;
 }</code></pre>
-</div>
 <p>次に"Popupメソッド"を呼び出します。</p>
 <p>呼び出すメソッドの戻り値によって、命令を使い分けます。</p>
 <ul>
@@ -169,18 +162,15 @@ if(#WshShell == 0){ //if(getresultex(10) == false){
 <li>オブジェクトの場合は、"<strong>getpropobj</strong>関数"、"<strong>setpropobj</strong>文"</li>
 </ul>
 <p><strong>Popup</strong>は<span class="attention_red">メソッド</span>で、戻り値が<span class="attention_red">数値</span>なので"<span class="attention_red">callmethod_returnnum関数</span>"を使いメソッド呼び出します。</p>
-<div class="macro">
-<pre><code>#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
+<pre class="macro"><code>#BtnCode = callmethod_returnnum(#WshShell, &quot;Popup&quot;, &quot;ご機嫌いかがですか?&quot;, 7, &quot;お答えください。&quot;, 4 + 32);
 //メソッドの呼び出しが成功したか確認
 if(getresultex(10) == false){
     //失敗した場合はメッセージを表示して終了
     message &quot;Popupメソッドの呼び出しに失敗しました。&quot;;
     endmacro;
 }</code></pre>
-</div>
 <p>あとは、結果の表示だけなので、最終的には以下のようなマクロになります。</p>
-<div class="macro">
-<pre><code>//オブジェクトの生成
+<pre class="macro"><code>//オブジェクトの生成
 #WshShell = createobject(&quot;WScript.Shell&quot;);
 //createobject関数の成功/失敗をチェック
 if(#WshShell == 0){ //if(getresultex(10) == false){
@@ -201,7 +191,6 @@ message str(#BtnCode);
 //オブジェクトの解放
 releaseobject #WshShell;
 endmacro;</code></pre>
-</div>
 <p>エラー検出処理が入っているのでWSH(VBScript)と比較するとマクロが冗長になってしまいますが、エラー検出をしないと正常動作しない場合に、どこでエラーになっているのか追いかけるのが大変です。面倒ですが、ある程度動作確認が出来るまでは、各メソッドの呼び出しやプロパティアクセス毎にチェックする事をお勧めします。</p>
 <p>また、WSH(VBScript、JScript)をつかって、事前に秀丸マクロで実行したい処理を実行してみるのも良いです。そもそも、処理方法自体が間違っているのか、秀丸マクロに変換する時点で間違っているのか判断の材料になります。</p>
 </section>
@@ -212,8 +201,7 @@ endmacro;</code></pre>
 <p>このマクロでは、色々なオブジェクトのプロパティ・メソッドを使っていることから、戻り値の型に従い getpropobj / getpropstr / callmethod_returnobj / callmethod_returnstrを使い分けています。</p>
 <p>各メソッド・プロパティの説明に従い適切な命令を使う必要がありますが、どうしてもわからない場合は、
 <strong>"member文", "member関数"</strong>を使う方法もあります。(プロパティは取得する場合のみで、セットすることは出来ない)</p>
-<div class="macro">
-<pre><code>// ファイル一覧の取得
+<pre class="macro"><code>// ファイル一覧の取得
 newfile;
 
 //shellオブジェクトの作成
@@ -354,7 +342,6 @@ releaseobject #Folder;
 releaseobject #WshFso;
 
 endmacro;</code></pre>
-</div>
 </section>
 <section id="MACRO-3" class="level4">
 <h4>【２．３】COM関連の特殊な動作</h4>
@@ -373,31 +360,25 @@ endmacro;</code></pre>
 <dt>オブジェクトを引数に渡す場合</dt>
 <dd>
 <p>COMのメソッドやプロパティには、引数にオブジェクトを指定する場合があります。</p>
-<div class="macro">
-<pre><code>//ArrayList オブジェクト生成
+<pre class="macro"><code>//ArrayList オブジェクト生成
 #array = createobject(&quot;System.Collections.ArrayList&quot;);
 //GetArrayListDataTypeメソッドは、
 //第一引数にArrayList オブジェクト
 //第二引数に、数値
 //を指定する必要がある。
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
-</div>
 <p>第一引数に「#array」を指定して、オブジェクトを指定しているように見えますが、上記マクロは正常に動作しません。</p>
 <p>createobject callmethod_returnobj getpropobj で戻り値を数値変数で受け取っていますが、これは「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。</p>
 <p>つまり、以下の"GetArrayListDataType"メソッド呼び出しは、第一引数に「オブジェクト」を要求しているのに、「数値」を渡していることになるので失敗します(呼び出すメソッドやプロパティ次第ですが)。</p>
-<div class="macro">
-<pre><code>$ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
-</div>
+<pre class="macro"><code>$ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
 <p>引数に「オブジェクト」を渡したい場合は、allowobjparam 文 を使い、オブジェクトそのものを渡すように指示します。</p>
 <p>使い方は2通りありますが、引数に指定する場合は後者の方法を推奨します。</p>
 <ul>
 <li><p>使い方その1</p>
 <p>allowobjparam 文の引数として、「1」を指定します。</p>
-<div class="macro">
-<pre><code>allowobjparam 1;
+<pre class="macro"><code>allowobjparam 1;
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
 allowobjparam 0;</code></pre>
-</div>
 <p>この場合、callmethod_returnstr 文が<span class="attention_red">失敗した場合</span>、パラメータの数値部分を「オブジェクト」として<span class="attention_red">再度実行</span>します。</p>
 <p>気をつけないといけないのは、<strong>callmethod_returnstr 文の呼び出しが失敗しない場合、再実行されない</strong>事です。</p></li>
 <li><p>使い方その2</p>
@@ -406,19 +387,16 @@ allowobjparam 0;</code></pre>
 <p>オブジェクトはパラメータとして渡すので、第一引数は"0"でもかまいません。
 (メソッドの戻り値が、バイト配列の場合、第一引数に"2"を指定する必要があります)</p>
 <p>"GetArrayListDataType" の場合、引数は2個で、最初はオブジェクトを渡すので「1」を、次の引数は変換しないので「0」を、第二引数に指定していきます。</p>
-<div class="macro">
-<pre><code>allowobjparam 0,1,0;
+<pre class="macro"><code>allowobjparam 0,1,0;
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
-allowobjparam 0;</code></pre>
-</div></li>
+allowobjparam 0;</code></pre></li>
 </ul>
 <p>allowobjparamで変換を有効にした場合は、<span class="attention_red">解除する</span>のを忘れないようにしましょう。解除しない場合は、他のメソッドやプロパティにも影響してしまします。</p>
 </dd>
 <dt>バイト配列を引数に渡したし、戻り値で受け取る場合</dt>
 <dd>
 <p>戻り値として「バイト配列」を受け取る場合は、第1引数のみ指定します。</p>
-<div class="macro">
-<pre><code>//対象のヘッダ部分を読み込み為、ADODBを使用する。
+<pre class="macro"><code>//対象のヘッダ部分を読み込み為、ADODBを使用する。
 #objStream = createobject( &quot;ADODB.Stream&quot; );
 setpropnum #objStream, &quot;Type&quot;, 1;//adTypeBinary
 callmethod #objStream, &quot;Open&quot;;
@@ -428,14 +406,11 @@ allowobjparam 2;
 //先頭から512バイト読み込み
 $buff = callmethod_returnstr(#objStream, &quot;Read&quot;, 512);
 allowobjparam 0;</code></pre>
-</div>
 <p>引数として指定する場合は、オブジェクトと同じ方法が使えますが、指定する値は「2」になります。</p>
-<div class="macro">
-<pre><code>allowobjparam 0,2;
+<pre class="macro"><code>allowobjparam 0,2;
 //出力用ストリームにバイナリで書き込み
 callmethod ##Stm_out, &quot;Write&quot;, $$bindata;
 allowobjparam 0;</code></pre>
-</div>
 </dd>
 </dl>
 </div>
@@ -452,18 +427,14 @@ allowobjparam 0;</code></pre>
 </ul>
 <p>使い方は多少複雑です。マクロヘルプのサンプルで説明します。</p>
 <p>秀丸エディタマクロでは戻り値により命令を使い分けていますが、「<strong>配列</strong>」という表現はないので <span class="attention_red">member 関数</span>を使い、戻り値はオブジェクトになるので<strong>数値型変数</strong>で受け取ります。</p>
-<div class="macro">
-<pre><code>#objDic = createobject(&quot;Scripting.Dictionary&quot;);
+<pre class="macro"><code>#objDic = createobject(&quot;Scripting.Dictionary&quot;);
 callmethod #objDic, &quot;add&quot;, &quot;Key1&quot;, &quot;Value1&quot;;
 callmethod #objDic, &quot;add&quot;, &quot;Key2&quot;, 2;
 callmethod #objDic, &quot;add&quot;, 3, &quot;Value3&quot;;
 
 #objKeys = member(#objDic, &quot;Keys&quot;); //ここでオブジェクトに変換される</code></pre>
-</div>
 <p>「Count プロパティ」は数値を返すので、「getpropnum」を使用し、配列の要素数を取得します。</p>
-<div class="macro">
-<pre><code>#c = getpropnum(#objKeys, &quot;Count&quot;); //&quot;Count&quot;で要素数</code></pre>
-</div>
+<pre class="macro"><code>#c = getpropnum(#objKeys, &quot;Count&quot;); //&quot;Count&quot;で要素数</code></pre>
 <p>「Item プロパティ」を使用して要素を取得しますが、要素自体の型があらかじめわかっていれば対応した命令を使用します。</p>
 <ul>
 <li>数値なら「getpropnum」</li>
@@ -471,8 +442,7 @@ callmethod #objDic, &quot;add&quot;, 3, &quot;Value3&quot;;
 </ul>
 <p>要素の型がわからない場合は、プロパティ取得の成功/失敗( getresultex(10) )をみて判断しするしかありません。</p>
 <p>最初に戻り値が文字列という前提で「getpropstr」を使っています。失敗した場合は、戻り値が数値と判断し「getpropnum」を使います。</p>
-<div class="macro">
-<pre><code>$key = getpropstr(#objKeys, &quot;Item&quot;, #i); //&quot;Item&quot;で要素
+<pre class="macro"><code>$key = getpropstr(#objKeys, &quot;Item&quot;, #i); //&quot;Item&quot;で要素
 if(getresultex(10)!=false){
     //「getpropstr」が成功した場合
     &lt;省略&gt;
@@ -486,7 +456,6 @@ if(getresultex(10)!=false){
     #i=#i+1;
     continue;
 }</code></pre>
-</div>
 </section>
 </section>
 </section>
@@ -509,9 +478,9 @@ if(getresultex(10)!=false){
 後入れ先出しリスト</li>
 </ul>
 <p>詳細は、以下のページから各クラスのページを参照してください。<br />
-<a href="https://docs.microsoft.com/ja-jp/dotnet/api/system.collections?view=netframework-4.8" class="externallink" target="_blank" rel="noopener">System.Collections 名前空間</a>
+<a href="https://learn.microsoft.com/ja-jp/dotnet/api/system.collections?view=netframework-4.8" class="externallink" target="_blank" rel="noopener">System.Collections 名前空間</a>
 "ArrayList"は、動的配列なので配列サイズは気にしなくても良いし、ソート/逆順ソートも可能になってます。</p>
-<p>連想配列は、WSHでも可能で、<a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc428065(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Dictionary オブジェクト</a>を使います。</p>
+<p>連想配列は、WSHでも可能で、<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc428065(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Dictionary オブジェクト</a>を使います。</p>
 </section>
 <section id="SCOPE" class="level4">
 <h4>COMオブジェクトの有効範囲</h4>
@@ -519,8 +488,7 @@ if(getresultex(10)!=false){
 (DLLのロードと同じ)</p>
 <p>次のマクロでは、2回目の"Popup"メソッドは、新規秀丸エディタを開いて呼び出しているため、失敗します。
 (新規秀丸エディタ上で、createobjectを実行していないので、"WScript.Shell" オブジェクトは存在してない)</p>
-<div class="macro">
-<pre><code>//オブジェクトの生成
+<pre class="macro"><code>//オブジェクトの生成
 #WshShell = createobject(&quot;WScript.Shell&quot;);
 if(#WshShell == 0){ //if(getresultex(10) == false){
     message &quot;WScript.Shell オブジェクトの生成に失敗しました。&quot;;
@@ -548,7 +516,6 @@ if(getresultex(10) == false){
 //オブジェクトの解放
 releaseobject #WshShell;
 endmacro;</code></pre>
-</div>
 <p>DLLの場合と違い、呼び出しに失敗してもマクロの実行は止まらない為、異常には気がつきにくいです。
 (メソッドの呼び出し、プロパティアクセス後は、エラーチェックをした方が良いです)</p>
 </section>
@@ -559,24 +526,20 @@ endmacro;</code></pre>
 <p>これらの関数の引数に、型を知りたい変数、メソッドの戻り値、プロパティを指定すると
 TypeName 関数は文字列、VarType 関数は数値で型を示す値を返します。</p>
 <p>以下のスクリプトを、コマンドプロンプトから、Cscriptで実行してみます。</p>
-<div class="macro">
-<pre><code>a = &quot;秀丸エディタ&quot;
+<pre class="macro"><code>a = &quot;秀丸エディタ&quot;
 WScript.echo  &quot;VarType:&quot; &amp; VarType(a) &amp; vbCrLf &amp; &quot;TypeName:&quot; &amp; TypeName(a)
 
 Set WshShell = Createobject(&quot;WScript.Shell&quot;)
 WScript.echo  &quot;VarType:&quot; &amp; VarType(WshShell) &amp; vbCrLf &amp; &quot;TypeName:&quot; &amp; TypeName(WshShell)</code></pre>
-</div>
 <p>上記スクリプトの実行結果です。TypeName関数は、オブジェクトの場合、オブジェクト名を返すようです。</p>
-<div class="macro">
-<pre><code>VarType :8
+<pre class="macro"><code>VarType :8
 TypeName:String
 VarType :9
 TypeName:IWshShell3</code></pre>
-</div>
 <p>各関数の詳細は以下のリンクを参照。</p>
 <ul>
-<li><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392344(v=msdn.10)" class="externallink" target="_blank" rel="noopener">TypeName 関数</a></li>
-<li><a href="https://docs.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392346(v=msdn.10)" class="externallink" target="_blank" rel="noopener">VarType 関数</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392344(v=msdn.10)" class="externallink" target="_blank" rel="noopener">TypeName 関数</a></li>
+<li><a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392346(v=msdn.10)" class="externallink" target="_blank" rel="noopener">VarType 関数</a></li>
 </ul>
 </section>
 </section>

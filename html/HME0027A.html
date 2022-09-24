@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HME0027A] ●起動時に秀丸が現れて邪魔だ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,38 +27,48 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0026A.html">←前へ</a> <a href="HME0028A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0026A.html">←前へ</a> <a href="./HME0028A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hme0027a">[HME0027A]</h1>
-<h2 id="HME0027A_01">●起動時に秀丸が現れて邪魔だ</h2>
+<section id="hme0027a" class="level1">
+<h1>[HME0027A]</h1>
+<section id="HME0027A_01" class="level2">
+<h2>●起動時に秀丸が現れて邪魔だ</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>Windowsが起動した直後に（無題）の秀丸エディタが勝手に開き、困っています。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>Windowsが起動した直後に（無題）の秀丸エディタが勝手に開き、困っています。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>「スタートアップフォルダ」にある、秀丸エディタのショートカット設定がおかしいのが原因です。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>「スタートアップフォルダ」にある、秀丸エディタのショートカット設定がおかしいのが原因です。</p>
 <p>本来は最小化状態で起動され、通知領域に格納されます。</p>
 <p>「その他」→「<span class="env">動作環境</span>」→「常駐機能」 → <span class="marker1">「秀丸エディタの常駐」</span>の設定を操作する事で、正しいショートカットを作成する事が出来ます。</p>
-<p>動作環境ダイアログを「OK」で閉じる際に、この設定に従い「スタートアップフォルダ」へショートカットの作成/削除が行われる為、以下の操作を行えば、ショートカットが一度削除され、新しいショートカットが再作成されます。 (Ver.8.89より、「スタートアップにリンク作成」ボタンが追加になっていて、そこから「ショートカットの作成」が可能です)</p>
+<p>動作環境ダイアログを「OK」で閉じる際に、この設定に従い「スタートアップフォルダ」へショートカットの作成/削除が行われる為、以下の操作を行えば、ショートカットが一度削除され、新しいショートカットが再作成されます。
+(Ver.8.89より、「スタートアップにリンク作成」ボタンが追加になっていて、そこから「ショートカットの作成」が可能です)</p>
 <ol type="1">
 <li>「秀丸エディタの常駐」をOFFにして、動作環境ダイアログを「OK」で閉じる。</li>
 <li>「秀丸エディタの常駐」をONにして、動作環境ダイアログを「OK」で閉じる。</li>
 </ol>
-<p><img src="HME0017A_01.png" width="468" height="141" alt="秀丸エディタの常駐" /><br />
+<p><img src="./HME0017A_01.png" width="468" height="141" alt="秀丸エディタの常駐" /><br />
 </p>
 <dl>
 <dt><span class="mark_dt3">[補足]</span></dt>
-<dd>「スタートアップフォルダ」に作成されるショートカットは、Ver.8.50から秀丸エディタ本体(hidemaru.exe)ではなく、別のプログラム(HmResident.exe)になっています。
+<dd>
+「スタートアップフォルダ」に作成されるショートカットは、Ver.8.50から秀丸エディタ本体(hidemaru.exe)ではなく、別のプログラム(HmResident.exe)になっています。
 </dd>
 </dl>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0026A.html">←前へ</a> <a href="HME0028A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0026A.html">←前へ</a> <a href="./HME0028A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

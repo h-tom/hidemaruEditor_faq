@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0054A] ●16bit版秀丸のmovetolinenoのバグ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,27 +27,31 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0053A.html">←前へ</a> <a href="HMM0055A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0053A.html">←前へ</a> <a href="./HMM0055A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0054a">[HMM0054A]</h1>
+<section id="hmm0054a" class="level1">
+<h1>[HMM0054A]</h1>
 <p>古い情報なので削除</p>
-<section id="HMM0054A_01" class="old_information">
+<section id="HMM0054A_01" class="level2 old_information">
 <h2>●16bit版秀丸のmovetolinenoのバグ</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>16bit版秀丸エディタで、movetolineno文でテキストの最終行に飛ばすように指定しても、その１つ前の行に飛んでしまいます。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>16bit版秀丸エディタで、movetolineno文でテキストの最終行に飛ばすように指定しても、その１つ前の行に飛んでしまいます。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>これは16bit版秀丸エディタの一部のバージョンにあったバグです。秀丸エディタでは起きないのですが、秀丸エディタでも16bit版秀丸エディタでも動作する汎用のマクロを作ろうとすると避けて通れません。(^^;)</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>これは16bit版秀丸エディタの一部のバージョンにあったバグです。秀丸エディタでは起きないのですが、秀丸エディタでも16bit版秀丸エディタでも動作する汎用のマクロを作ろうとすると避けて通れません。(^^;)</p>
 <p>　このバグの回避方法の例を以下に示します。</p>
 <ol type="1">
 <li><p>次行行頭への移動（例：movetolineno 0, lineno + 1;）の場合<br />
 以下の３行を組み合わせて代用できます。</p>
-<pre><code>golineend2;
+<pre class="macro"><code>golineend2;
 down;
 golinetop2;</code></pre>
 <p>前行行頭への移動等も同様にできます。</p></li>
@@ -53,6 +63,8 @@ golinetop2;</code></pre>
 </div>
 </section>
 <hr />
-<p><span class="link_navigate"><a href="HMM0053A.html">←前へ</a> <a href="HMM0055A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0053A.html">←前へ</a> <a href="./HMM0055A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
 </body>
 </html>

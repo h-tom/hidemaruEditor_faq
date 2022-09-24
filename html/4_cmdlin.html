@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第IV部〜テキスト編集を極める！！<br>　起動オプションを使ってみよう</h1>
 <hr />
@@ -58,7 +63,7 @@
 <p>（詳しくは秀丸エディタヘルプ<a href="https://help.maruo.co.jp/hidemaru/html/230_Option.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ起動時のオプション</a>を参照してください）</p>
 <p>この起動オプションは、「<strong>コマンドライン</strong>」で利用できます。コマンドラインというのは、起動したいアプリケーション名とその起動オプション・開きたいファイル名を『<strong>文字で</strong>』記述することで、そのアプリケーションを起動できるモノを指します（←ちょっといい加減な説明(^^;)）。<br />
 例えば、「ファイル名を指定して実行(R)」がそれに当たります。</p>
-<p><img src="4_cmdline_01.png" width="399" height="206" alt="ファイル名を指定して実行" /><br />
+<p><img src="./4_cmdline_01.png" width="399" height="206" alt="ファイル名を指定して実行" /><br />
 </p>
 <p>また、Windowsでは「<strong>コマンドプロンプト</strong>」「<strong>PowerShell</strong>」でも同様に Windowsアプリケーションを起動できたりします。</p>
 <p>実は、Windowsの「<strong>ショートカット</strong>」や「<strong>アプリケーションとの関連付け</strong>」でもコマンドラインの仕組みを使っています。<br />
@@ -81,7 +86,7 @@
 <p>試しに、秀丸エディタのショートカットを作成して、そのプロパティの「リンク先」の最後に</p>
 <pre><code>...\Hidemaru.exe /b</code></pre>
 <p>というふうに 半角スペースと"/b" を追加してみてください。</p>
-<p><img src="4_cmdline_02.png" width="421" height="580" alt="ショートカットの設定ダイアログ" /><br />
+<p><img src="./4_cmdline_02.png" width="421" height="580" alt="ショートカットの設定ダイアログ" /><br />
 </p>
 <div class="box_line">
 <dl>
@@ -186,9 +191,7 @@ file1.txt を開き test.mac を実行するが、file2.txt は開かない。</
 <p>「ファイル名を指定して実行」は、「スタートボタン」の右クリックメニューや、<kbd>[Windows]</kbd>+<kbd>[R]</kbd>キーを押すと実行できます。</p>
 <p>「ファイル名を指定して実行」ダイアログが開いたら、「名前」に「<code>shell:sendto</code>」を入力し「OK」を押す。</p></li>
 <li><p>コマンドプロンプト、PowerShellで以下を入力する。</p>
-<div class="macro">
-<pre><code>explorer shell:sendto</code></pre>
-</div></li>
+<pre class="macro"><code>explorer shell:sendto</code></pre></li>
 </ul>
 </section>
 </section>

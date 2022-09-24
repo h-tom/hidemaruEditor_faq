@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,14 +27,14 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　grep/タグジャンプ</h1>
 <hr />
 <section id="grep" class="level2">
 <h2>grep/タグジャンプ</h2>
 <p>現在編集しているファイルの内容や、あるフォルダに置かれている複数のファイルから、特定の文字列を含んだ行を全て調べる事ができます(<strong>grep("ぐれっぷ"と読む(^^;)機能</strong>)。<br />
-また、調べた結果の出力ファイルを使って、文字列の見つかった行(ファイル)へ直接移動ができます(<strong>タグジャンプ機能</strong>)。</p>
+また、調べた結果の出力ファイルを使って文字列の見つかった行(ファイル)へ直接移動ができます(<strong>タグジャンプ機能</strong>)。</p>
 <ul>
 <li><a href="#process">[手順]</a></li>
 <li><a href="#SUPPLEMENTATION">[補足]</a>
@@ -47,15 +52,15 @@
 <p>例えば、<strong>c:\diary</strong> フォルダにある、<strong>txt</strong> という拡張子を持つファイルから、「<strong>Love</strong>」という文字列を含む全ての行を調べたいとします。</p>
 <ol type="1">
 <li><p>メニューバーから「<strong>検索→grepの実行</strong>」を選択して下さい。</p>
-<p><img src="2_grep_01.png" width="464" height="338" alt="grepダイアログ" /><br />
+<p><img src="./2_grep_01.png" width="464" height="338" alt="grepダイアログ" /><br />
 </p></li>
 <li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p>
 <p>通常は1行のみですが、複数行を入力可能にできます。「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから、「<strong>複数行</strong>」を選択します。</p>
-<p><img src="2_grep_08.png" width="496" height="135" alt="複数行入力" /><br />
+<p><img src="./2_grep_08.png" width="496" height="135" alt="複数行入力" /><br />
 </p></li>
 <li><p>その下にある「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、検索対象となるファイル名を記入します(今の例だと「<strong>*.txt</strong>」)。<br />
 ※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <span class="rotate90"><strong>&gt;</strong></span> をクリックして"<strong>(現在の内容)</strong>"を選択して下さい。<br />
-　<img src="2_grep_06.png" width="356" height="54" alt="現在の内容" /><br />
+　<img src="./2_grep_06.png" width="356" height="54" alt="現在の内容" /><br />
 </p>
 <p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。<br />
 　ワイルドカードとは、<code>"*"</code>(アスタリクス) と <code>"?"</code> (クエスチョンマーク) の事で、</p>
@@ -123,13 +128,13 @@ fileフォルダにある、<code>"_"</code> の後に0または1文字がある
 この項目がONになっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
-「<strong>正規表現</strong>」は「<a href="4_regular.html">正規表現について</a>」を参照して下さい。</p></li>
+「<strong>正規表現</strong>」は「<a href="./4_regular.html">正規表現について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">あいまい検索</span>」チェックボックス：</strong><br />
 「正規表現」をさらに便利にした「<strong>あいまい</strong>」な検索が可能になります(全半角同一視等…説明もあいまい(^^;)。<br />
-「<strong>あいまい検索</strong>」は「<a href="2_fuzzy.html">あいまい検索について</a>」を参照して下さい。</p></li>
+「<strong>あいまい検索</strong>」は「<a href="./2_fuzzy.html">あいまい検索について</a>」を参照して下さい。</p></li>
 <li><p><strong>「<span class="font_blue">追加の条件</span>」チェックボックス：</strong><br />
 追加の条件に従って検索する範囲を制限できます。<br />
-<a href="2_find.html">検索</a>の<a href="2_find.html#SUPPLEMENTATION-1">「追加の条件」について</a>を参照してください。</p></li>
+<a href="./2_find.html">検索</a>の<a href="./2_find.html#SUPPLEMENTATION-1">「追加の条件」について</a>を参照してください。</p></li>
 <li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
 検索後、検索に該当する文字列を強調表示します。</p></li>
 <li><p><strong>「<span class="font_blue">ヒットしない行</span>」チェックボックス</strong><br />
@@ -140,7 +145,7 @@ fileフォルダにある、<code>"_"</code> の後に0または1文字がある
 grepの実行時は実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、この結果表示ウィンドウをアイコン化します。</p></li>
 <li><p><strong>「<span class="font_blue">出力形式</span>」メニュー：</strong><br />
 grep結果の出力形式を横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから設定します。</p>
-<p><img src="2_grep_12.png" width="484" height="163" alt="出力形式の設定" /><br />
+<p><img src="./2_grep_12.png" width="484" height="163" alt="出力形式の設定" /><br />
 </p>
 <p>チェック付きのメニューになっていて、個別にON/OFFできます。全部チェックがOFFだと「標準」となりますが、チェックをONにすると、その項目が表示されます。</p>
 <p>「出力形式」は7.を参照</p>
@@ -236,23 +241,23 @@ file1.txt(20): ファイル1の２０行目
 <section id="SUPPLEMENTATION" class="level3">
 <h3>[補足]</h3>
 <p>grepに関係する「<strong>動作環境</strong>」です。</p>
-<p><img src="2_grep_02.png" width="613" height="437" alt="動作環境−grepダイアログ" /><br />
+<p><img src="./2_grep_02.png" width="613" height="437" alt="動作環境−grepダイアログ" /><br />
 </p>
-<p><img src="2_grep_03.png" width="613" height="437" alt="動作環境−grepの動作" /><br />
+<p><img src="./2_grep_03.png" width="613" height="437" alt="動作環境−grepの動作" /><br />
 </p>
 <section id="SUPPLEMENTATION-1" class="level4">
 <h4>タグジャンプ</h4>
 <p>設定により、結果ウィンドウのファイル名の部分をダブルクリックする事で、タグジャンプさせる事も可能です。「<span class="env">動作環境</span>−検索−grepの動作」にある、「grep結果」の「<strong>grep結果上ではダブルクリック=タグジャンプとする</strong>」に、チェックを入れてください。</p>
 <p>「タグジャンプ」は秀丸エディタが出力した形式のみ有効ですが、ファイル名と行番号の判定方法をカスタマイズできます。<br />
 「<span class="env">動作環境</span>−その他のコマンド−タグジャンプ」にある、「タグジャンプ」の「<strong>タグジャンプ対象を正規表現で指定</strong>」をONにし、「ファイル名部分」と「行番号部分」を正規表現で指定できます。</p>
-<p><img src="2_grep_11.png" width="578" height="194" alt="動作環境−タグジャンプ対象を正規表現で指定" /><br />
+<p><img src="./2_grep_11.png" width="578" height="194" alt="動作環境−タグジャンプ対象を正規表現で指定" /><br />
 </p>
 </section>
 <section id="SUPPLEMENTATION-2" class="level4">
 <h4>grepのダイアログ</h4>
 <p>grepダイアログの種類は2種類あります。</p>
 <p><strong>新タイプ</strong>は、<a href="#process">[手順]</a>にあるダイアログで、<strong>普通タイプ</strong>は、フォルダ選択画面と一体になっています。</p>
-<p><img src="2_grep_04.png" width="503" height="388" alt="動作環境−grepダイアログ普通タイプ" /><br />
+<p><img src="./2_grep_04.png" width="503" height="388" alt="動作環境−grepダイアログ普通タイプ" /><br />
 </p>
 <p><strong>新タイプ</strong>はフォルダ選択ダイアログが別になっている事もあり、種類も変更可能です。好みに応じて設定を変更してください。</p>
 </section>
@@ -261,7 +266,7 @@ file1.txt(20): ファイル1の２０行目
 <p>通常、grep実行時に開いているファイルの場所を「検索するフォルダ」に自動的にセットしますが、前回grep実行時のフォルダを最初からセットできます。</p>
 <p>「<span class="env">動作環境</span> − 検索 − grepダイアログ − grepのダイアログボックス」にある、「<strong>前回のフォルダを使う</strong>」にチェックを入れてください。</p>
 <p>Ver.8.71より、「grepダイアログ」の「検索するフォルダ」の横に<span class="attention_red">ピン留めアイコン</span>が追加され、「<strong>前回のフォルダを使う</strong>」の設定を「grepダイアログ」から変更可能です。</p>
-<p><img src="2_grep_07.png" width="382" height="34" alt="前回のフォルダを使うのピン" /><br />
+<p><img src="./2_grep_07.png" width="382" height="34" alt="前回のフォルダを使うのピン" /><br />
 </p>
 <p>「<span class="attention_red">ピン留めアイコン</span>」自体を表示するかしないかも、「<span class="env">動作環境</span> − 検索 − grepダイアログ − grepのダイアログボックス」にある「ピン止めボタン表示」のチェックボックスで設定可能です。</p>
 <p>「検索するフォルダ」は、「検索するファイル」と違い、複数箇所の指定は出来ません。</p>
@@ -344,7 +349,7 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </section>
 <section id="SUPPLEMENTATION-5" class="level4">
 <h4>文字数制限の設定</h4>
-<p><img src="2_grep_05.png" width="455" height="344" alt="動作環境−grepの動作−文字数制限の設定" /><br />
+<p><img src="./2_grep_05.png" width="455" height="344" alt="動作環境−grepの動作−文字数制限の設定" /><br />
 </p>
 <p>処理の都合上、マッチした行が長いと全部を表示しない場合や、正規表現の対象となる一行の文字数の上限があります。その制限に関する設定をします。</p>
 <p>通常使用しているファイルで、1行の文字数が多くなければ、"<strong>小さい</strong>"や"<strong>大きい</strong>"で問題ないでしょう。どんなファイルでも必ずマッチさせたい場合は、"<strong>制限なし</strong>"を選択します。
@@ -355,9 +360,9 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </section>
 <section id="SUPPLEMENTATION-6" class="level4">
 <h4>補助メニュー</h4>
-<p>「検索する文字列」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューは、<a href="2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。</p>
+<p>「検索する文字列」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューは、<a href="./2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。</p>
 <p>「検索するファイル」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューです。</p>
-<p><img src="2_grep_10.png" width="302" height="234" alt="検索するファイルのメニュー" /><br />
+<p><img src="./2_grep_10.png" width="302" height="234" alt="検索するファイルのメニュー" /><br />
 </p>
 <p>前半には、「<span class="env">動作環境</span> − ファイル − 「開く」のダイアログボックス」にある「ファイルの種類の編集」で、「「開く」のダイアログ」に設定した内容が表示されます。後半には「除外の設定」や、「除外する拡張子」「除外するサブフォルダ」の指定をアシストする機能もあります。</p>
 </section>

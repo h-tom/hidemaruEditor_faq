@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,20 +27,20 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="top" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　プログラム実行</h1>
 <hr />
 <section id="INTRODUCTION" class="level2">
 <h2>プログラム実行</h2>
-<p>秀丸エディタでは、メニューの「その他→プログラム実行」から、外部プログラムの実行が可能です。</p>
+<p>メニューの「その他→プログラム実行」から、外部プログラムの実行が可能です。</p>
 <p>編集しているhtmlファイルをwebブラウザで開いたり等、開いているファイルを指定して別のアプリケーションを呼び出すこともできます。</p>
 <p>「プログラム実行」ダイアログにある「オプション」を展開すると表示される「詳細設定」のON/OFFにより、多少動作が異なります。<br />
 (「オプション」や「詳細設定」は、秀丸エディタVer.8.00から追加)</p>
-<p><img src="2_program_01.png" width="447" height="376" alt="プログラム実行ダイアログ-オプション展開" /><br />
-画像は、「オプション」を展開した状態です。</p>
-<p>「オプション」を閉じてしまうと、「詳細設定」のON/OFF状態が確認できないので、注意が必要です。</p>
-<p><img src="2_program_02.png" width="447" height="124" alt="プログラム実行ダイアログ-オプション閉じる" /><br />
+<p><img src="./2_program_01.png" width="447" height="376" alt="プログラム実行ダイアログ-オプション展開" /><br />
+画像は「オプション」を展開した状態です。</p>
+<p>「オプション」を閉じてしまうと、「詳細設定」のON/OFF状態が確認できないので注意が必要です。</p>
+<p><img src="./2_program_02.png" width="447" height="124" alt="プログラム実行ダイアログ-オプション閉じる" /><br />
 </p>
 <div class="title-li">
 <ul>
@@ -60,7 +65,7 @@
 </ul>
 <p>の文字がある場合、対象の内容に置換されてプログラムに引き渡されます。
 (大文字小文字の区別はありません)<br />
-特に、パーセントエンコード/URLエンコード を含む文字列を指定する場合は、注意が必要です。</p>
+特に、パーセントエンコード/URLエンコード を含む文字列を指定する場合は注意が必要です。</p>
 <p><strong><code>"C:\Program Files\Hidemaru\HIDEMARU.TXT"</code></strong> を秀丸エディタで開いている状態では、以下の内容に置換されます。</p>
 <dl>
 <dt>%f</dt>
@@ -102,8 +107,8 @@
 </dl>
 <p>例えば、以下の Vbscript を "argv.vbs" というファイル名で保存し、
 "%8C %B4 %88 %F6 %8B %86 %96 %BE" という文字列を引数として wscript.exe で実行してみます。</p>
-<div class="macro">
-<pre><code>Option Explicit
+<pre class="macro"><code>
+Option Explicit
 
 Dim WshArgs
 Dim Argv
@@ -119,12 +124,12 @@ Next
 set WshArgs = Nothing
 
 Wscript.echo Argv
-Wscript.quit</code></pre>
-</div>
+Wscript.quit
+</code></pre>
 <p>コマンドラインに指定する文字列。("argv.vbs" は、スクリプトを保存した場所に合わせて、修正してください)</p>
-<div class="macro">
-<pre><code>wscript.exe &quot;argv.vbs&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE</code></pre>
-</div>
+<pre class="macro"><code>
+wscript.exe &quot;argv.vbs&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE
+</code></pre>
 <p>出力結果</p>
 <div class="macro">
 <pre><code>---------------------------
@@ -165,10 +170,10 @@ OK
 <li>"&lt;con" と指定すると範囲選択していればその範囲を、範囲選択していない場合は開いているファイルの全内容が、標準入力の対象になります。</li>
 </ul></li>
 <li><p>標準出力</p>
-<p>なにも指定しない場合は、新規の秀丸エディタを開き、そこに出力されます。</p>
+<p>なにも指定しない場合は、新規の秀丸エディタを開きそこに出力されます。</p>
 <ul>
 <li>"&gt;ファイル名" で標準出力を指定したファイルに出力します。既存のファイルに追加する事は出来ません。上書きされます。</li>
-<li>"&gt;con" と指定すると、範囲選択していればその範囲を標準出力で置き換えます。範囲選択していない場合は、何も指定しない場合と同じで、新規の秀丸エディタを開きそこに出力されます。</li>
+<li>"&gt;con" と指定すると、範囲選択していればその範囲を標準出力で置き換えます。範囲選択していない場合は、何も指定しない場合と同じで新規の秀丸エディタを開きそこに出力されます。</li>
 </ul></li>
 <li><p>範囲選択は行選択である事が前提です。
 BOX選択では、選択範囲を標準入力へ送ることはできますが、"&gt;con"で正確に置換する事は出来ません。</p></li>

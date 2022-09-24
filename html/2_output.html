@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,14 +27,14 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　アウトプット枠</h1>
 <hr />
 <section id="OUTLINE" class="level2">
 <h2>アウトプット枠</h2>
-<p>秀丸エディタ Ver.8.00以降では、「アウトプット枠」が使用できます。<span class="attention_red">(Windows 98/Meでは使用できません)</span></p>
-<p>「アウトプット枠」には、「grep」の結果や、「プログラム実行」の結果を表示する事が出来ます。</p>
+<p>秀丸エディタ Ver.8.00以降では「アウトプット枠」が使用できます。<span class="attention_red">(Windows 98/Meでは使用できません)</span></p>
+<p>「アウトプット枠」には、「grep」の結果や「プログラム実行」の結果を表示する事が出来ます。</p>
 <p>「アウトプット枠」を表示するにはメニューの「表示」から「アウトプット枠」にチェックを入れます。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a>
@@ -43,20 +48,20 @@
 <h3>[解説]</h3>
 <p>「アウトプット枠」を使うには、「grep」や「プログラム実行」を行います。</p>
 <ul>
-<li>grepは、秀丸エディタウィンドウに結果を表示しますが、アウトプット枠にも結果を出力できます。</li>
-<li>「プログラム実行」では、コマンドプロンプトに表示される結果を、アウトプット枠に出力する事が出来ます。</li>
+<li>grep は秀丸エディタウィンドウに結果を表示しますが、アウトプット枠にも結果を出力できます。</li>
+<li>「プログラム実行」では、コマンドプロンプトに表示される結果をアウトプット枠に出力する事が出来ます。</li>
 </ul>
 <section id="EXPLANATION-1" class="level4">
 <h4>とりあえず使ってみよう</h4>
 <ul>
-<li><p>grepを実行し、結果をアウトプット枠に出力します。</p>
-<p>普通にgrepを実行して、「<strong>出力先</strong>」を「<span class="attention_red">アウトプット枠</span>」に設定します。</p>
-<p><img src="2_output_01.png" width="461" height="338" alt="grep-アウトプット枠" /><br />
+<li><p>grep を実行し結果をアウトプット枠に出力します。</p>
+<p>普通に grep を実行して、「<strong>出力先</strong>」を「<span class="attention_red">アウトプット枠</span>」に設定します。</p>
+<p><img src="./2_output_01.png" width="461" height="338" alt="grep-アウトプット枠" /><br />
 </p>
-<p>この状態で「OK」を押すと、エディタウィンドウの下に「アウトプット枠」が表示され、grep結果が出力されます。</p>
-<p><img src="2_output_04.png" width="465" height="517" alt="grep-アウトプット枠に出力" /><br />
+<p>この状態で「OK」を押すと、エディタウィンドウの下に「アウトプット枠」が表示されgrep結果が出力されます。</p>
+<p><img src="./2_output_04.png" width="465" height="517" alt="grep-アウトプット枠に出力" /><br />
 </p>
-<p>「アウトプット枠」にある、grep結果をダブルクリックすると、そこにタグジャンプします。また、「アウトプット枠」内のカーソルを操作し、タグジャンプしたい箇所で「Enter」を押しても同様にタグジャンプします。</p></li>
+<p>「アウトプット枠」にあるgrep結果をダブルクリックすると、そこにタグジャンプします。また「アウトプット枠」内のカーソルを操作し、タグジャンプしたい箇所で「Enter」を押しても同様にタグジャンプします。</p></li>
 <li><p>「<a href="./2_program.html">プログラム実行</a>」で結果をアウトプット枠に出力します。</p>
 <p>今回はコマンドプロンプト(cmd.exe)の内部コマンドである dirコマンドを使用します。</p>
 <ol type="1">
@@ -65,7 +70,7 @@
 <li>「詳細設定」と「標準出力」にチェックを入れ、「標準出力」の設定を「アウトプット枠」を選択します。</li>
 <li>「OK」を押すと、アウトプット枠にコマンドプロンプトと同じ結果が、出力されます。</li>
 </ol>
-<p><img src="2_output_08.png" width="465" height="651" alt="run-アウトプット枠に出力" /><br />
+<p><img src="./2_output_08.png" width="465" height="651" alt="run-アウトプット枠に出力" /><br />
 </p>
 <p>コンパイル等を実行しエラーだった場合、出力形式が秀丸エディタで認識できる形式なら、
 grepと同様にダブルクリック・カーソルを合わせての「Enter」で、エラー発生箇所にタグジャンプできます。</p></li>
@@ -73,16 +78,16 @@ grepと同様にダブルクリック・カーソルを合わせての「Enter�
 </section>
 <section id="EXPLANATION-2" class="level4">
 <h4>設定を変更してみよう</h4>
-<p>「アウトライン枠」内の右クリックメニューから、アウトプット枠の設定が可能です。</p>
-<p><img src="2_output_05.png" width="313" height="317" alt="アウトプット枠のメニュー" /><br />
+<p>「アウトライン枠」内の右クリックメニューからアウトプット枠の設定が可能です。</p>
+<p><img src="./2_output_05.png" width="313" height="317" alt="アウトプット枠のメニュー" /><br />
 </p>
 <ul>
-<li><p>「詳細」を選ぶと、「アウトライン枠」の設定が表示されます。</p>
-<p>表示位置と、「アウトライン枠」内のフォントと色の設定(文字色/背景色)できます。</p>
-<p><img src="2_output_06.png" width="496" height="453" alt="アウトプット枠の詳細" /><br />
+<li><p>「詳細」を選ぶと「アウトライン枠」の設定が表示されます。</p>
+<p>表示位置と「アウトライン枠」内のフォントと色の設定(文字色/背景色)できます。</p>
+<p><img src="./2_output_06.png" width="496" height="453" alt="アウトプット枠の詳細" /><br />
 </p></li>
-<li><p>「状態」を選ぶと、「アウトライン枠」のカレントパス設定が可能です。この設定は「タグジャンプ」に影響があります。grep結果で、フルパスで出力していない場合は、このパスと表示内容をフルパスと認識します。</p>
-<p><img src="2_output_07.png" width="473" height="176" alt="アウトプット枠の状態" /><br />
+<li><p>「状態」を選ぶと、「アウトライン枠」のカレントパス設定が可能です。この設定は「タグジャンプ」に影響があります。grep結果でフルパスで出力していない場合は、このパスと表示内容をフルパスと認識します。</p>
+<p><img src="./2_output_07.png" width="473" height="176" alt="アウトプット枠の状態" /><br />
 </p></li>
 </ul>
 </section>

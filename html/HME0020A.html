@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HME0020A] ●正規表現の上検索がヘン!? - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,29 +27,38 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0019A.html">←前へ</a> <a href="HME0021A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0019A.html">←前へ</a> <a href="./HME0021A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hme0020a">[HME0020A]</h1>
-<h2 id="HME0020A_01">●正規表現の上検索がヘン!?</h2>
+<section id="hme0020a" class="level1">
+<h1>[HME0020A]</h1>
+<section id="HME0020A_01" class="level2">
+<h2>●正規表現の上検索がヘン!?</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>正規表現の上検索が意図した通りに動きません。例えば、「ＡＢＣ」という文字列を「[ＡＢＣ]+」で下検索した場合は意図した通り「ＡＢＣ」にマッチするのですが、上検索だと「Ｃ」にマッチしてしまいます。本来は下検索同様「ＡＢＣ」にマッチするのではないでしょうか？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>正規表現の上検索が意図した通りに動きません。例えば、「ＡＢＣ」という文字列を「[ＡＢＣ]+」で下検索した場合は意図した通り「ＡＢＣ」にマッチするのですが、上検索だと「Ｃ」にマッチしてしまいます。本来は下検索同様「ＡＢＣ」にマッチするのではないでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>正規表現は「正規表現を装備するソフトウェアの数だけ、正規表現が存在する」と言われるくらい、微妙に異なる多くの仕様がある機能です。秀丸エディタにおける正規表現の動き方も仕様とお考えください。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>正規表現は「正規表現を装備するソフトウェアの数だけ、正規表現が存在する」と言われるくらい、微妙に異なる多くの仕様がある機能です。秀丸エディタにおける正規表現の動き方も仕様とお考えください。</p>
 <dl>
 <dt><span class="mark_dt3">[解説]</span></dt>
-<dd>上検索は、最初に見つかった「Ｃ」を基準に、下方向に最も長い文字列「Ｃ」を検索、次に「Ｂ」を基準に「ＢＣ」、次に「Ａ］を基準に「ＡＢＣ」になります。
+<dd>
+上検索は、最初に見つかった「Ｃ」を基準に、下方向に最も長い文字列「Ｃ」を検索、次に「Ｂ」を基準に「ＢＣ」、次に「Ａ］を基準に「ＡＢＣ」になります。
 </dd>
 </dl>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0019A.html">←前へ</a> <a href="HME0021A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0019A.html">←前へ</a> <a href="./HME0021A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

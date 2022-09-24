@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0056A] ●複数のウィンドウ間を移動したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,22 +27,26 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0055A.html">←前へ</a> <a href="HMM0057A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0055A.html">←前へ</a> <a href="./HMM0057A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0056a">[HMM0056A]</h1>
-<h2 id="HMM0056A_01">●複数のウィンドウ間を移動したい</h2>
+<section id="hmm0056a" class="level1">
+<h1>[HMM0056A]</h1>
+<section id="HMM0056A_01" class="level2">
+<h2>●複数のウィンドウ間を移動したい</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>openfile文でファイルを開くと、その後の処理は今開いたファイルに対して行われますが、元のファイルに戻るにはどうしたらよいのでしょうか？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>openfile文でファイルを開くと、その後の処理は今開いたファイルに対して行われますが、元のファイルに戻るにはどうしたらよいのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>既に開かれている秀丸エディタのウィンドウをアクティブにする(画面の一番手前に持ってくる)には、setactivehidemaru文を使います。</p>
-<div class="macro">
-<pre><code>//------- サンプルマクロ -------//
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>既に開かれている秀丸エディタのウィンドウをアクティブにする(画面の一番手前に持ってくる)には、setactivehidemaru文を使います。</p>
+<pre class="macro"><code>//------- サンプルマクロ -------//
 // 元のファイルに戻る
 #hwnd = hidemaruhandle( 0 ); //元ウィンドウのハンドルを取得する
 openfile &quot;c:\\hidemaru\\install.txt&quot;; //別ファイルを開く
@@ -46,12 +56,14 @@ openfile &quot;c:\\hidemaru\\install.txt&quot;; //別ファイルを開く
 setactivehidemaru #hwnd; //元のウィンドウに戻る
 endmacro;
 // ---------------------------- //</code></pre>
-</div>
-<p>※ hidemaruhandle()関数についてはマクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/160_Management.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ管理</a>の説明と「<a href="HMM0058A.html">●setactivehidemaru文の引数</a>」を参照して下さい。</p>
+<p>※ hidemaruhandle()関数についてはマクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/160_Management.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ管理</a>の説明と「<a href="./HMM0058A.html">●setactivehidemaru文の引数</a>」を参照して下さい。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0055A.html">←前へ</a> <a href="HMM0057A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0055A.html">←前へ</a> <a href="./HMM0057A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>
