@@ -157,7 +157,7 @@ seteventnotify 文 で指定された値を取得する。
 <dt>マクロ実行時の「自動起動」について</dt>
 <dd>
 <p>基本的には、マクロ実行中に各種操作をしても、自動起動マクロは実行されません。例外的に、マクロ終了後に「編集後タイマー」と「カーソル移動後タイマー」を「自動起動」させる事は可能です。</p>
-<p>この2つのイベントを自動実行するには、<code>setcompatiblemode 文</code> で指定します。詳細は「<a href="./3_">setcompatiblemode文 について</a>」</p>
+<p>この2つのイベントを自動実行するには、<code>setcompatiblemode 文</code> で指定します。詳細は「<a href="./3_setcompatiblemode.html">setcompatiblemode文 について</a>」</p>
 <p>マクロ実行中に「自動起動マクロ」を実行する方法は提供されていないので、どうしても自動起動マクロを実行したい場合は、レジストリから登録情報をよみとり、
 <code>execmacro 文</code> で実行する方法もあります。ただし、通常の自動起動マクロと違い、<code>eventキーワード</code>や<code>geteventparam関数</code>の戻り値はセットされません。</p>
 </dd>

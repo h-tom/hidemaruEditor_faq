@@ -191,6 +191,7 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <ul>
 <li><a href="#QUOTE">Ver.8.54以降の場合</a></li>
 <li><a href="#STRINGLITERAL">Ver.8.66以降の場合</a></li>
+<li><a href="#PYTHONSTYLE">Ver.9.19以降の場合</a></li>
 </ul>
 <section id="QUOTE" class="level4">
 <h4>Ver.8.54以降の場合</h4>
@@ -315,6 +316,77 @@ message @&quot;&quot;&quot;Raw文字列
 <p>例として「message文」を使いましたが、文字列を指定する箇所なら何処でもこの記法が使えます。正規表現パターンを指定する場合にも使用できるので、見やすくなります。</p>
 <p>また、ファイルパスを記述する際に、エクスプローラ等からコピーした文字列をそのまま使う事もできます。</p>
 <pre class="macro"><code>openfile @&quot;C:\Program Files\Hidemaru\HIDEMARU.TXT&quot;;</code></pre>
+</section>
+<section id="ver.9.19以降の場合" class="level4">
+<h4><span id="PYTHONSTYLE">Ver.9.19以降の場合</span></h4>
+<p>秀丸エディタ Ver.9.19以降では、pythonのヒアドキュメントのような記法も使えます。</p>
+<p>「"""」から始め、「"""」で末尾と判断します。「"(ダブルクォート)」の連続数は3個以上あればよく、先頭と末尾の個数は同じにする事。</p>
+<ul>
+<li><p>一行で書く場合は、単純にで囲むだけです。</p>
+<pre class="macro"><code>message &quot;&quot;&quot;先頭と末尾は3個なので、&quot;&quot;(2個) まではそのまま記述可能&quot;&quot;&quot;;</code></pre></li>
+<li><p>複数行で書く場合は注意が必要です。</p>
+<ul>
+<li><p>「先頭」の直後に文字列は記述できません。すぐ改行する必要がありますが、「先頭」直後の改行は無視されます。<br />
+「末尾」直前の改行とタブ・空白によるインデントは無視されます。「末尾」の直前は、改行またはタブ・空白によるインデントのみ許容されます。</p>
+<pre class="macro"><code>$header = &quot;### start ###&quot;;
+$text   = &quot;&quot;&quot;
+&quot;先頭&quot;と&quot;末尾&quot;は3個なので、&quot;&quot;(2個) まではそのまま記述可能
+&quot;&quot;&quot;;
+$footer = &quot;### end ###&quot;;
+debuginfo 2;
+debuginfo $header + $text + $footer;
+endmacro;</code></pre>
+<p>実行結果。<br />
+「先頭」直後の改行と、「末尾」直前の改行とタブ空白によるインデントも無視されるので、全部つながって1行になっている。</p>
+<pre class="macro"><code>### start ###&quot;先頭&quot;と&quot;末尾&quot;は3個なので、&quot;&quot;(2個) まではそのまま記述可能### end ###</code></pre>
+<p>「先頭」直後と「末尾」直前の改行が無視されるだけなので、空行を入れておけば改行可能。</p>
+<pre class="macro"><code>$header = &quot;### start ###&quot;;
+$text   = &quot;&quot;&quot;
+
+&quot;先頭&quot;と&quot;末尾&quot;は3個なので、&quot;&quot;(2個) まではそのまま記述可能
+
+&quot;&quot;&quot;;
+$footer = &quot;### end ###&quot;;
+debuginfo 2;
+debuginfo $header + $text + $footer;
+endmacro;</code></pre>
+<p>実行結果。<br />
+空行は改行と認識され、3行で出力される。</p>
+<pre class="macro"><code>### start ###
+&quot;先頭&quot;と&quot;末尾&quot;は3個なので、&quot;&quot;(2個) まではそのまま記述可能
+### end ###</code></pre></li>
+<li><p>インデント</p>
+<p>インデントも可能ですが、ベースライン(基準)は「末尾」の先頭になります。ベースライン(基準)より前のインデントは無視され、ベースライン(基準)より後のインデントは有効です。</p>
+<p>ベースライン(基準)より前には、タブ・空白によるインデントのみ許容されます。</p>
+<pre class="macro"><code>$header = &quot;### start ###&quot;;
+$text   = &quot;&quot;&quot;
+
+          インデントなし
+            インデント有り
+          下の行はインデントが「末尾」と同じなので空行扱いされる。
+          
+          &quot;&quot;&quot;;
+$footer = &quot;### end ###&quot;;
+debuginfo 2;
+debuginfo $header + $text + $footer;
+endmacro;</code></pre></li>
+<li><p>NGになる例</p>
+<ol type="1">
+<li><p>先頭の「<code>"""</code>」の後に改行以外の文字がある場合</p>
+<pre class="macro"><code>$text   = &quot;&quot;&quot;「先頭」
+と「末尾」は3個なので、&quot;&quot;(2個) まではそのまま記述可能
+&quot;&quot;&quot;;</code></pre></li>
+<li><p>末尾の「<code>"""</code>」の前にインデント(空白かタブ)以外の文字がある場合</p>
+<pre class="macro"><code>$text   = &quot;&quot;&quot;
+「先頭」と「末尾」は3個なので、&quot;&quot;(2個) まではそのまま記述可能
+です。&quot;&quot;&quot;;</code></pre></li>
+<li><p>末尾の「<code>"""</code>」のインデント(空白かタブ)より前に文字がある場合</p>
+<pre class="macro"><code>$text   = &quot;&quot;&quot;
+「先頭」と「末尾」は3個なので、&quot;&quot;(2個) まではそのまま記述可能
+    &quot;&quot;&quot;;</code></pre></li>
+</ol></li>
+</ul></li>
+</ul>
 </section>
 </section>
 </section>

@@ -42,6 +42,7 @@
 <li><a href="#V916">秀丸エディタVer.9.16 マクロ関連の変更履歴</a></li>
 <li><a href="#V917">秀丸エディタVer.9.17 マクロ関連の変更履歴</a></li>
 <li><a href="#V918">秀丸エディタVer.9.18 マクロ関連の変更履歴</a></li>
+<li><a href="#V919">秀丸エディタVer.9.19 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -268,6 +269,59 @@
 <section id="V918" class="level2">
 <h2>秀丸エディタVer.9.18 マクロ関連の変更履歴</h2>
 <p>Ver.9.18は、マクロ関連の変更はありません。</p>
+</section>
+<section id="V919" class="level2">
+<h2>秀丸エディタVer.9.19 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v919_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.19の変更点</a>を参照してください。</p>
+<p>【１】<a href="#LIST_V919">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.19</a></p>
+<p>【２】<a href="#SPEC_V919">仕様変更 - 「秀丸エディタ」Ver.9.19</a></p>
+<section id="LIST_V919" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.19</h3>
+<ul>
+<li>追加
+<ul>
+<li>jsmode 文</li>
+<li>execjs 文</li>
+<li>JavaScriptの名前変更に対応する文を従来のマクロでもできるように追加。
+escapeselect、 find1、replace1、del 等</li>
+<li>currentjsfilename キーワード</li>
+<li>inputstates キーワード</li>
+<li>gettotaltext()、getlinetext()、getselectedtext() 関数</li>
+<li>KEYASSIGN 文</li>
+<li>EDITMENU 文</li>
+<li>hidemaruversion 文</li>
+<li>switchregular、switchword、switchcasesense 文</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>encodeuri 関数で数字を変換しないように修正。</li>
+<li>setfilehist で -2 を指定したときうまくいかない問題修正。</li>
+<li>browsefile 関数で新規作成時の問い合わせを出すように修正。</li>
+<li>colormarker 文で json 指定を追加</li>
+<li>setsearchhist で先頭に挿入するパラメータ追加</li>
+<li>colorcode で幅ゼロのカラーマーカーの取得の情報も追加。</li>
+<li>disabledraw2 に対する enabledraw でも縦スクロール位置のパラメータは有効に変更。</li>
+<li>config "xStripe:+";でストライプ表示ONも可能にした。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>split関数がUTF-8のマクロファイルで全角文字などのとき、うまく動作しない問題修正。</li>
+<li>runsync の終了判断がうまくいかない場合がある問題修正。</li>
+<li>setbackgroundmode 時はタブモードの切り替えはできないように修正。</li>
+<li>マクロの """〜""" の文字列対応。</li>
+<li>escape 文などが裏で実行されるとフォーカス消失する問題など修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V919" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.19</h3>
+<ul>
+<li>js{}内の記述でマクロ上のJavaScriptの書き方に対応。</li>
+<li>HideMath.dllを通常版でも標準付属。</li>
+<li>マクロファイルはBOMなしUTF-8ファイルでも自動認識できるように修正。</li>
+<li>タブモードでtitle -1したウィンドウのfindwindowによる検索は、非タブモード互換の動作で、タブ内の仮想的なタイトルバーを検出可能にするように修正。</li>
+</ul>
+</section>
 </section>
 </section>
 <hr />
