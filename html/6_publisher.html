@@ -40,8 +40,10 @@
 <li>カラー印刷</li>
 <li>秀丸エディタ本体での文字修飾をそのまま印刷</li>
 </ul>
+<p>秀丸パブリッシャー Ver.5.09 からテンプレートファイルのエンコードが UTF-16LE に変更(既存のテンプレートは自動的に UTF-16LE へ変換)。
+Ver.5.09 からバージョンダウンする場合や、テンプレートファイルをマクロで編集していた場合は、注意してください。また、動作環境が秀丸エディタ Ver.9.00 以上となっていますが、Ver.8.99.4 で簡単に動作確認したところ問題ありませんでした。</p>
 <p>秀丸パブリッシャーは「持ち出しキット」で使用している場合や、<a href="#STORE">ストアアプリ版秀丸エディタ</a>でも使用可なVer.5.08 が公開されていますが、秀丸エディタ Ver.8.00以上が必要です。</p>
-<p>秀丸エディタ Ver.8.00未満の場合は、秀丸パブリッシャーのVer.4系を使用してください。ただし、「持ち出しキット」では使用できません。</p>
+<p>秀丸エディタ Ver.8.00未満の場合は、秀丸パブリッシャー Ver.4系を使用してください。ただし、「持ち出しキット」では使用できません。</p>
 <div class="box_line">
 <ul>
 <li><p>秀丸パブリッシャーのVer.4は、以下の2種類が存在します。</p>
@@ -60,6 +62,7 @@
 <li>【2】<a href="#PRINTOUT">印刷するには</a></li>
 <li>【3】<a href="#TEMPLATE">印刷フォーマットを指定して印刷したい</a></li>
 <li>【4】<a href="#WARNING">テンプレートの注意点</a></li>
+<li>【5】<a href="#TAKEOUT">持ち出しキットで使う場合</a></li>
 </ul>
 </div>
 <section id="INSTALL" class="level3">
@@ -75,14 +78,17 @@
 <ul>
 <li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank" rel="noopener">ソフトウェア</a> -
 <a href="https://hide.maruo.co.jp/software/hmpv.html" class="externallink" target="_blank" rel="noopener">秀丸パブリッシャー</a></p>
-<p>2022/11/15 現在、以下のバージョンが公開されています。</p>
+<p>2022/12/03 現在、以下のバージョンが公開されています。</p>
 <ul>
-<li>Ver.5.08　64bit/32bit共通(秀丸エディタ Ver.8.00以降が必要。ストアアプリ、持ち出しキット使用時でも動作可能)</li>
+<li>Ver.5.09　64bit/32bit共通(秀丸エディタ Ver.9.00以降が必要。ストアアプリ、持ち出しキット使用時でも動作可能)</li>
+</ul>
+<p>古い Ver.4 は、<a href="https://hide.maruo.co.jp/software/hmpvold.html" class="externallink" target="_blank" rel="noopener">秀丸パブリッシャーの古いバージョン</a>からダウンロードできます。</p>
+<ul>
 <li>Ver.4.25　64bit版(<span class="attention_red">32bit版秀丸エディタ/32bit OS でも使用可</span> .NET Framework 2.0 以上が必要)</li>
 <li>Ver.4.16b　32bit版(Visual Basic版 Visual Basic6.0のランタイムライブラリが必要)</li>
 </ul></li>
 </ul>
-<p>秀丸パブリッシャー自体は、フリーソフトウェアです。秀丸エディタ Ver.8.00 以上で使用する事が推奨されています。</p>
+<p>秀丸パブリッシャー自体は、フリーソフトウェアです。秀丸エディタ Ver.9.00 以上で使用する事が推奨されています。</p>
 <p>インストールファイルは、64bit/32bit共通です。</p>
 <p><img src="./6_publisher_01.png" width="307" height="147" alt="インストール実行" /><br />
 </p>
@@ -285,8 +291,10 @@ NG：%FileName%</code></pre>
 <p>設定変更を行っても、テンプレートへ保存しないようにするには、「テンプレート上書き禁止」をチェックしてください。</p>
 <p><img src="./6_publisher_16.png" width="630" height="102" alt="テンプレート上書き禁止" /><br />
 </p></li>
-<li><p>現状、BOXではUnicode特有の文字を指定できません。Shift_JISに含まれる文字のみ表示可能です。</p>
-<p>ただし、「属性」をファイル名にした場合(フルパスも含む)は、ファイル名にUnicode特有の文字があっても正常に表示されます。</p></li>
+<li><p>現状、BOXではUnicode特有の文字を表示できません。"?"に変換されて表示さます。
+Shift_JISに含まれる文字のみ表示可能です。</p>
+<p>ただし、「属性」をファイル名にした場合(フルパスも含む)は、ファイル名にUnicode特有の文字があっても正常に表示されます。</p>
+<p><span class="attention_red">Ver.5.09</span> からは Unicode特有の文字もちゃんと表示されるようになりました。</p></li>
 <li><p>テンプレートの保存場所は、「秀丸パブリッシャー」のダイアログから確認できます。</p>
 <p>「印刷」を実行し、秀丸パブリッシャーのダイアログを表示させます。ダイアログ左上のアイコン部分をクリックすると、メニューが表示されるので「設定」を選択します。</p>
 <p><span class="box_line">ストアアプリ版の場合：「最新バージョンの確認」はありません。</span></p>
@@ -297,6 +305,12 @@ NG：%FileName%</code></pre>
 </p>
 <p>テンプレートをバックアップする場合は、このフォルダを保存するようにしてください。</p></li>
 </ul>
+</section>
+<section id="TAKEOUT" class="level3">
+<h3>【5】持ち出しキットで使う場合</h3>
+<p>秀丸パブリッシャー Ver.5.08 から、<a href="./6_takeout.html">「持ち出しキット」</a>で使うことができます。</p>
+<p>「持ち出しキット」で使うには、インストーラから必要なファイルを抽出します。抽出には解凍ツールが必要です。</p>
+<p>詳細は、<a href="https://hide.maruo.co.jp/software/hmpv/v500_takeout.html" class="externallink" target="_blank" rel="noopener">秀丸パブリッシャーの持ち出しキット対応</a>を参照してください。</p>
 </section>
 </section>
 </section>
