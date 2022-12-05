@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,17 +27,17 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　カラーマーカー</h1>
 <hr />
 <section id="colormarker" class="level2">
 <h2>カラーマーカー</h2>
-<p>秀丸エディタ Ver.7.00以降では、「<strong>カラーマーカー</strong>」が使用可能です。
+<p>秀丸エディタ Ver.7.00以降では「<strong>カラーマーカー</strong>」が使用可能です。
 (Ver.7.00ではマクロからしか使えませんでしたが、Ver.8.00からダイアログが追加され、メニューから操作可能になりました)</p>
-<p>エディタ画面上で、任意の箇所にマーキングできます。ただし、<span class="font_red_bold">一時的なもの</span>なので、マーキングした状態が<span class="font_red_bold">保存される事はありません。</span>ファイルを閉じた時点で消去され、再度ファイルを開いても、マーキングした状態には復帰しません。</p>
+<p>エディタ画面上で任意の箇所にマーキングできます。ただし、<span class="font_red_bold">一時的なもの</span>なので、マーキングした状態が<span class="font_red_bold">保存される事はありません。</span>ファイルを閉じた時点で消去され、再度ファイルを開いてもマーキングした状態には復帰しません。</p>
 <p>また、カラーマーカーと検索と組み合わせると、検索にマッチする箇所を限定させる事が出来ます。
-(「<a href="2_find.html">第II部〜知っていると便利な秀丸の機能　検索</a>」にある「<a href="2_find.html#SUPPLEMENTATION-1">追加の条件</a>」を参照)</p>
+(「<a href="./2_find.html">第II部〜知っていると便利な秀丸の機能　検索</a>」にある「<a href="./2_find.html#SUPPLEMENTATION-1">追加の条件</a>」を参照)</p>
 <p>直接ではありませんが、「すべて検索-色付け」や、「他の秀丸エディタと内容比較」も内部的にカラーマーカーを使用しています。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a></li>
@@ -40,32 +45,32 @@
 </ul>
 <section id="EXPLANATION" class="level3">
 <h3>[解説]</h3>
-<p>カラーマーカーを使うには、まず、マーカーを付ける範囲を選択します。
+<p>カラーマーカーを使うには、マーカーを付ける範囲を選択します。
 (通常の選択でも、箱形選択でも、複数選択でもかまいません)</p>
 <p>「検索」メニューから「<strong>カラーマーカー</strong>」−「<strong>一時的なカラーマーカー</strong>」を選ぶと、「一時的なカラーマーカー」のダイアログが表示されます。</p>
-<p><img src="2_colormarker_02.png" width="534" height="537" alt="カラーマーカーのメニュー" /><br />
+<p><img src="./2_colormarker_02.png" width="534" height="537" alt="カラーマーカーのメニュー" /><br />
 </p>
-<p><img src="2_colormarker_03.png" width="322" height="263" alt="カラーマーカーのダイアログ" /><br />
+<p><img src="./2_colormarker_03.png" width="322" height="263" alt="カラーマーカーのダイアログ" /><br />
 </p>
 <p>カラーマーカーで設定できるのは、「文字色」「背景色」「スタイル」です。「編集したら削除」はカラーマーカーを付けた部分を編集した場合に、カラーマーカーを削除するかどうかの設定です。</p>
 <ul>
 <li><p><strong>「文字色」「背景色」</strong>は、色を指定します。色を付ける場合はチェックし、横にあるボタンで色を選択します。チェックしない場合は、色は設定されません。</p></li>
 <li><p><strong>スタイル</strong>は以下の設定が可能です。</p>
-<p><img src="common_style.png" width="419" height="363" alt="カラーマーカーのスタイル" /><br />
+<p><img src="./common_style.png" width="419" height="363" alt="カラーマーカーのスタイル" /><br />
 </p></li>
 <li><p>「<strong>編集したら削除</strong>」は、カラーマーカーをつけた箇所を編集した場合の動作を設定します。</p>
 <p>同じ内容で、上の行は「編集したら削除」が有効、下の行は「編集したら削除」が無効に設定しています。</p>
-<p><img src="2_colormarker_04.png" width="410" height="62" alt="編集したら削除−編集前" /><br />
+<p><img src="./2_colormarker_04.png" width="410" height="62" alt="編集したら削除−編集前" /><br />
 </p>
 <p>箱形選択して「秀丸」と「エディタ」の間に文字を挿入します。</p>
-<p><img src="2_colormarker_05.png" width="410" height="62" alt="編集したら削除−編集後" /><br />
+<p><img src="./2_colormarker_05.png" width="410" height="62" alt="編集したら削除−編集後" /><br />
 </p>
 <p>「編集したら削除」が有効な場合は、カラーマーカー自体が削除されます。「編集したら削除」が無効な場合は、追加した部分を含めカラーマーカーが維持されます。</p></li>
 <li><p>「<strong>一時的なカラーマーカーを付ける</strong>」は、設定ダイアログを開かずに、<span class="font_red_bold">前回と同じ設定でカラーマーカーをつけます。</span></p></li>
 <li><p>「<strong>一時的なカラーマーカーを消去</strong>」は、<strong>選択範囲した部分にある</strong>カラーマーカーを消します。</p></li>
 <li><p>「<strong>一時的なカラーマーカー全て消去</strong>」は、<strong>エディタ上にある全て</strong>のカラーマーカーを消します。</p></li>
 <li><p>「<strong>一時的なカラーマーカー選択</strong>」は、<strong>エディタ上にある全て</strong>のカラーマーカーを範囲選択します。複数箇所のカラーマーカーがある場合は、複数選択状態になります。</p></li>
-<li><p>「<strong>下のカラーマーカー</strong>」「<strong>上のカラーマーカー</strong>」は、カーソル位置を基準に、上または下にあるカラーマーカーの先頭部分に移動します。</p></li>
+<li><p>「<strong>下のカラーマーカー</strong>」「<strong>上のカラーマーカー</strong>」はカーソル位置を基準に、上または下にあるカラーマーカーの先頭部分に移動します。</p></li>
 </ul>
 </section>
 <section id="SUPPLEMENTATION" class="level3">

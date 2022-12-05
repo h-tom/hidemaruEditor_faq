@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第VI部〜秀丸エディタ拡張モジュール <br>　秀丸エディタ持ち出しキット</h1>
 <hr />
@@ -38,7 +43,7 @@ USBメモリ/USBハードディスク等リムーバブルメディア/ドライ
 </ul>
 <p>64bit版秀丸エディタで動作しないのは、USBメモリ等に入れて、どこでも動作させるのが目的の「持ち出しキット」だからです。
 64bit版秀丸エディタは、64bit OS 上でしか動作しないため、「どこでも動作させる」と言う目的からいうと向いていません。
-(64bit OSが一般的になれば状況は変わるかもしれません)</p>
+(64bit OSが一般的になれば、状況が変わるかも？ )</p>
 <p>手順の詳細は以下の項目を参照してください。</p>
 <div class="title-li">
 <ul>
@@ -50,12 +55,11 @@ USBメモリ/USBハードディスク等リムーバブルメディア/ドライ
 <section id="PREPARE" class="level3">
 <h3>【1】使用前の準備</h3>
 <p>「秀丸エディタ持ち出しキット」は、現在パソコンにインストールされている秀丸エディタを、リムーバブルメディア/ドライブ上にコピーし動作するように設定します。</p>
-<p>その為、</p>
+<p>その為、以下のものが必要です。</p>
 <ul>
 <li>パソコン上に32bit版秀丸エディタがインストールされている事。</li>
 <li>コピー先の、USBメモリ/USBハードディスク等リムーバブルメディア、またはドライブ</li>
 </ul>
-<p>が、必要になります。</p>
 </section>
 <section id="DOWNLOAD" class="level3">
 <h3>【2】ダウンロードとインストール</h3>
@@ -66,17 +70,17 @@ USBメモリ/USBハードディスク等リムーバブルメディア/ドライ
 <p>2018/04/25 現在、Ver.2.08です。</p>
 <p>ダウンロードしたファイルを実行してください。インストーラが起動します。</p>
 <p>以下の画面が表示された場合には、「持ち出し用の秀丸エディタを作成する」を選択してください。<br />
-<img src="6_takeout_01.png" width="510" height="361" alt="「持ち出し用の秀丸エディタを作成する」を選択" /><br />
+<img src="./6_takeout_01.png" width="510" height="361" alt="「持ち出し用の秀丸エディタを作成する」を選択" /><br />
 </p>
 <p>後は、「持ち出し用秀丸エディタの作成場所」を選択します。
 (リムーバブルメディアを指定する場合は、事前にOSへ認識させておいてください)<br />
-<img src="6_takeout_02.png" width="510" height="361" alt="「持ち出し用秀丸エディタの作成場所」の選択" /><br />
+<img src="./6_takeout_02.png" width="510" height="361" alt="「持ち出し用秀丸エディタの作成場所」の選択" /><br />
 </p>
 <p>パソコンにインストール済みの秀丸エディタの場所は自動的に検索されます。そこから関連するファイルをコピーしレジストリから設定を読み出し、「秀丸エディタ持ち出しキット」用の設定ファイル「HmRegIni.ini」が作成されます。<br />
-<img src="6_takeout_03.png" width="510" height="361" alt="ファイルのコピー作業" /><br />
+<img src="./6_takeout_03.png" width="510" height="361" alt="ファイルのコピー作業" /><br />
 </p>
 <p>最後に注意書きが表示されるのでよく読みましょう。<br />
-<img src="6_takeout_04.png" width="510" height="361" alt="注意書き" /><br />
+<img src="./6_takeout_04.png" width="510" height="361" alt="注意書き" /><br />
 </p>
 <p>コピーされるのは、秀丸エディタ本体および関連ファイルだけなので、マクロ・単語補完の辞書ファイル等は別途コピーしておく必要があります。</p>
 </section>

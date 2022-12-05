@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -34,6 +39,10 @@
 <li><a href="#V913">秀丸エディタVer.9.13 マクロ関連の変更履歴</a></li>
 <li><a href="#V914">秀丸エディタVer.9.14 マクロ関連の変更履歴</a></li>
 <li><a href="#V915">秀丸エディタVer.9.15 マクロ関連の変更履歴</a></li>
+<li><a href="#V916">秀丸エディタVer.9.16 マクロ関連の変更履歴</a></li>
+<li><a href="#V917">秀丸エディタVer.9.17 マクロ関連の変更履歴</a></li>
+<li><a href="#V918">秀丸エディタVer.9.18 マクロ関連の変更履歴</a></li>
+<li><a href="#V919">秀丸エディタVer.9.19 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -205,6 +214,117 @@
 <li>マクロ実行のダイアログで、ファイル名を "" でくくったばあいの対応を追加。</li>
 <li>Hidemaru_GetStaticVariable, Hidemaru_SetStaticVariableを追加</li>
 </ul></li>
+</ul>
+</section>
+</section>
+<section id="V916" class="level2">
+<h2>秀丸エディタVer.9.16 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V916">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.16</a></p>
+<p>【２】<a href="#SPEC_V916">仕様変更 - 「秀丸エディタ」Ver.9.16</a></p>
+<section id="LIST_V916" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.16</h3>
+<ul>
+<li>追加
+<ul>
+<li>up_nowrap、down_nowrap文追加(「カーソル上(折り返し無視)」「カーソル下(折り返し無視)」コマンド)。</li>
+<li>browsefile関数</li>
+<li>strreplace関数</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>eventの値 9の追加と、geteventparam で直前の選択内容の取得を追加。</li>
+<li>scrolllink文で自分自身を指定できないように修正。</li>
+<li>openfile等のエンコードの種類で数値の指定も対応。</li>
+<li>eval内でsetcompatiblemode 0x20000したときは、evalの外で検索文字列を復帰するように変更。</li>
+<li>split関数で一文字ずつの文字列分割でサロゲートペアは割れないように変更。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>setstaticvariableで全部消去のパラメータ指定ができていなかった問題修正。</li>
+<li>colormarker文などの文字列のRGB指定がうまくいかない場合がある問題修正。</li>
+<li>ダークモードでgettitle(1)ができないバグ修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V916" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.16</h3>
+<ul>
+<li>マクロ実行で最初のメモリ確保でエラーになったときそれ以上続行しないように修正。</li>
+</ul>
+</section>
+</section>
+<section id="V917" class="level2">
+<h2>秀丸エディタVer.9.17 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V917">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.17</a></p>
+<section id="LIST_V917" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.17</h3>
+<ul>
+<li>その他
+<ul>
+<li>execmacroで相対パス指定時の互換の動作の修正。</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="V918" class="level2">
+<h2>秀丸エディタVer.9.18 マクロ関連の変更履歴</h2>
+<p>Ver.9.18は、マクロ関連の変更はありません。</p>
+</section>
+<section id="V919" class="level2">
+<h2>秀丸エディタVer.9.19 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v919_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.19の変更点</a>を参照してください。</p>
+<p>【１】<a href="#LIST_V919">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.19</a></p>
+<p>【２】<a href="#SPEC_V919">仕様変更 - 「秀丸エディタ」Ver.9.19</a></p>
+<p>参考</p>
+<ul>
+<li>Microsoft の <a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc427807(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Jscriptのリファレンス</a></li>
+<li>MDN Web Docs の <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript" class="externallink" target="_blank" rel="noopener">JavaScript</a></li>
+</ul>
+<section id="LIST_V919" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.19</h3>
+<ul>
+<li>追加
+<ul>
+<li>jsmode 文</li>
+<li>execjs 文</li>
+<li>JavaScriptの名前変更に対応する文を従来のマクロでもできるように追加。
+escapeselect、 find1、replace1、del 等</li>
+<li>currentjsfilename キーワード</li>
+<li>inputstates キーワード</li>
+<li>gettotaltext()、getlinetext()、getselectedtext() 関数</li>
+<li>KEYASSIGN 文</li>
+<li>EDITMENU 文</li>
+<li>hidemaruversion 文</li>
+<li>switchregular、switchword、switchcasesense 文</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>encodeuri 関数で数字を変換しないように修正。</li>
+<li>setfilehist で -2 を指定したときうまくいかない問題修正。</li>
+<li>browsefile 関数で新規作成時の問い合わせを出すように修正。</li>
+<li>colormarker 文で json 指定を追加</li>
+<li>setsearchhist で先頭に挿入するパラメータ追加</li>
+<li>colorcode で幅ゼロのカラーマーカーの取得の情報も追加。</li>
+<li>disabledraw2 に対する enabledraw でも縦スクロール位置のパラメータは有効に変更。</li>
+<li>config "xStripe:+";でストライプ表示ONも可能にした。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>split関数がUTF-8のマクロファイルで全角文字などのとき、うまく動作しない問題修正。</li>
+<li>runsync の終了判断がうまくいかない場合がある問題修正。</li>
+<li>setbackgroundmode 時はタブモードの切り替えはできないように修正。</li>
+<li>マクロの """〜""" の文字列対応。</li>
+<li>escape 文などが裏で実行されるとフォーカス消失する問題など修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V919" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.19</h3>
+<ul>
+<li>js{}内の記述でマクロ上のJavaScriptの書き方に対応。</li>
+<li>HideMath.dllを通常版でも標準付属。</li>
+<li>マクロファイルはBOMなしUTF-8ファイルでも自動認識できるように修正。</li>
+<li>タブモードでtitle -1したウィンドウのfindwindowによる検索は、非タブモード互換の動作で、タブ内の仮想的なタイトルバーを検出可能にするように修正。</li>
 </ul>
 </section>
 </section>

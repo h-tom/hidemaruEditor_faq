@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　HMJRE.DLLを使う場合の注意点</h1>
 <hr />
@@ -67,8 +72,7 @@
 dllfunc/dllfuncstr 呼び出し時、文字列内に「<span class="attention_red">Shift_JISに含まれないUnicode文字</span>」があっても、秀丸エディタ内部の<span class="attention_red">「特殊な文字コード」がそのままHMJRE.DLLに渡されます。</span></p>
 <p>HMJRE.DLLの関数自体は、マッチ位置やマッチした長さを、バイト数で返します。「<strong>特殊な文字コード</strong>」は「<span class="attention_red">1文字4バイト</span>」なので、「<span class="attention_red">常に漢字は2バイト</span>」で扱うマクロ関数と一致しません。</p>
 <p>以下のマクロは、文字変数 <code>$a</code> の最後にある"a"の位置を返すマクロです。マクロ関数とHMJRE.DLL内の関数の比較になります。</p>
-<div class="macro">
-<pre><code>// マクロ1
+<pre class="macro"><code>// マクロ1
 // このマクロはUnicode(UTF-16LE)で保存する事
 //    0         1
 //    01234567890
@@ -96,26 +100,20 @@ message &quot;場所(#n1)     ：&quot; + str(#n1) + &quot;\n&quot; +
         &quot;取得文字2($b2)：&quot; + $b2 + &quot;&lt;--&quot;;
 freedll;
 endmacro;</code></pre>
-</div>
 <p><strong>「マクロでは、常に漢字は2バイトとして扱われる」</strong> ので、最後の"a"は10を期待します。</p>
-<div class="macro">
-<pre><code>//              ★
+<pre class="macro"><code>//              ★
 //    0         1
 //    01234567890
 $a = &quot;hidemaru&#131083;a&quot;;</code></pre>
-</div>
 <p>しかし、マクロを実行した結果は以下となり、strrstr関数は期待通り「10」を返しますが、FindRegular関数は「16」を返します。</p>
-<div class="macro">
-<pre><code>場所(#n1)     ：10
+<pre class="macro"><code>場所(#n1)     ：10
 場所(#n2)     ：16
 取得文字1($b1)：a&lt;--
 取得文字2($b2)：&lt;--</code></pre>
-</div>
 <p>これは "&#131083;"という文字が、UTF-16で表現するとサロゲートペアとなるため、Unicode文字2文字で表現されているからです。「<strong>特殊な文字コード</strong>」は1文字4バイトなので、2文字分で8バイトになっています。</p>
 <p>先ほどのマクロを変更して、マッチした長さを返すGetLastMatchLength関数を使用し、
 "&#131083;"を検索した時のマッチした長さ(バイト数)を確認してみます。</p>
-<div class="macro">
-<pre><code>// マクロ2
+<pre class="macro"><code>// マクロ2
 // このマクロはUnicode(UTF-16LE)で保存する事
 //    0         1
 //    01234567890
@@ -141,23 +139,18 @@ message &quot;文字列長(#l1)：&quot; + str(#l1) + &quot;\n&quot; +
         &quot;取得文字($b2)：&quot; + $b2 + &quot;&lt;--&quot;;
 freedll;
 endmacro;</code></pre>
-</div>
 <p>マクロ2の実行結果です。</p>
-<div class="macro">
-<pre><code>文字列長(#l1)：11
+<pre class="macro"><code>文字列長(#l1)：11
 場所(#n2)    ：0
 長さ(#l2)    ：8
 取得文字($b2)：&#131083;123456&lt;--</code></pre>
-</div>
 <p>"長さ(#l2)"が、"&#131083;" を検索しマッチしたバイト数になり、8である事が確認できます。</p>
 <p>以上のことから、マクロ1実行時にDLLへ渡される <code>$a</code> の中身は以下の様なデータになっている為、
 "FindRegular"の場合、最後の"a"の位置は 「16」 となります。
 ("&#131083;"は、"XXXX"と"YYYY" の様な、8バイトで表現される)</p>
-<div class="macro">
-<pre><code>//    0         1         2
+<pre class="macro"><code>//    0         1         2
 //    012345678901234567890
 $a = &quot;hidemaruXXXXYYYYa&quot;;</code></pre>
-</div>
 <p>「<span class="attention_red">マクロでは、常に漢字は2バイトとして扱われる</span>」ということになっていますが、
 HMJRE.DLLの関数使用時に「<strong>特殊な文字コード</strong>」が含まれると、<span class="attention_red">漢字1文字でも最大で8バイト</span>になる事もあるため、マクロ関数と一致しません。マクロ1、マクロ2で、"取得文字($b2)"がおかしいのは、この不一致が原因です。</p>
 <p>HMJRE.DLL内の関数で戻り値をマクロの関数で使用する場合は、ズレの有無をチェックし補正しないと、正確な位置・長さを取得出来ません。</p>
@@ -165,14 +158,11 @@ HMJRE.DLLの関数使用時に「<strong>特殊な文字コード</strong>」が
 <section id="UNICODE-2" class="level4">
 <h4>対処法</h4>
 <p>HMJRE.DLL Ver.3.13(秀丸エディタ Ver.8に添付)から、<code>"SetUnicodeIndexAutoConvert関数"</code>が追加されています。</p>
-<div class="macro">
-<pre><code>//#flg = 0 自動変換無効、#flg = 1 自動変換有効
+<pre class="macro"><code>//#flg = 0 自動変換無効、#flg = 1 自動変換有効
 #n = dllfunc(&quot;SetUnicodeIndexAutoConvert&quot;, #flg);</code></pre>
-</div>
 <p>この関数を使用すると、HMJRE.DLLの各関数の戻り値が、マクロでそのまま使用できるような値に自動変換されます。</p>
 <p>"SetUnicodeIndexAutoConvert関数" を使い自動変換を有効にしたマクロです。</p>
-<div class="macro">
-<pre><code>//マクロ3
+<pre class="macro"><code>//マクロ3
 // このマクロはUnicode(UTF-16LE)で保存する事
 //    0         1
 //    01234567890
@@ -210,16 +200,13 @@ message &quot;文字列長(#l) ：&quot; + str(#l) + &quot;\n&quot; +
         &quot;取得文字($b2)：&quot; + $b2 + &quot;&lt;--&quot;;
 freedll;
 endmacro;</code></pre>
-</div>
 <p>上記マクロの実行結果です。</p>
-<div class="macro">
-<pre><code>文字列長(#l) ：11
+<pre class="macro"><code>文字列長(#l) ：11
 場所    (#n1)：10
 場所    (#n2)：10
 長さ    (#l2)：1
 取得文字($b1)：a&lt;--
 取得文字($b2)：a&lt;--</code></pre>
-</div>
 <p>"FindRegular"の戻り値を、そのまま使用しても、正常に取得できています。
 ("SetUnicodeIndexAutoConvert" の自動変換が有効になっている)</p>
 <p>ということで、マクロからHMJRE.DLLを使う場合は以下の手順になります。</p>
@@ -266,11 +253,9 @@ Shift_JISの下位バイト。
 <p>HMJRE.DLLのVer.5.01から、"NotifyEncode"関数が追加されています。
 (秀丸エディタのVer.8.74以降から添付)<br />
 この関数を使用することで、対象のエンコードを指定できます。</p>
-<div class="macro">
-<pre><code>//ファイルと同じ文字コードを使う場合には、引数に &quot;encode&quot;キーワードを指定する。
+<pre class="macro"><code>//ファイルと同じ文字コードを使う場合には、引数に &quot;encode&quot;キーワードを指定する。
 //ファイルと違う文字コードを使う場合には、&quot;encode&quot;キーワードの値を調べて指定する。
 #n = dllfunc(&quot;NotifyEncode&quot;, encode);</code></pre>
-</div>
 <p>マクロから外国語を対象にして HMJRE.DLL を使う場合には、以下の手順になります。</p>
 <ol type="1">
 <li>NotifyEncode関数に、対象のエンコード値を指定して呼び出す。</li>

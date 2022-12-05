@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　ビット演算を極める</h1>
 <hr />
@@ -247,8 +252,7 @@ AND、OR、XORという名前の演算子は秀丸マクロには有りません
 0 XOR 0 = 0</code></pre></li>
 </ul>
 <p>では、実際に秀丸マクロのビット演算子を使って確認してみましょう。以下のマクロを実行して、ダイアログに表示される演算結果を見てください。</p>
-<div class="macro">
-<pre><code>#a = 1 &amp; 1;
+<pre class="macro"><code>#a = 1 &amp; 1;
 #b = 1 &amp; 0;
 #c = 0 &amp; 1;
 #d = 0 &amp; 0;
@@ -277,7 +281,6 @@ message &quot;1 XOR 1 = &quot; + str(#i);
 message &quot;1 XOR 0 = &quot; + str(#j);
 message &quot;0 XOR 1 = &quot; + str(#k);
 message &quot;0 XOR 0 = &quot; + str(#l);</code></pre>
-</div>
 </section>
 <section id="DETAIL" class="level3">
 <h3>【５】ビット演算の詳細</h3>
@@ -795,8 +798,7 @@ FF
 <dt>[例1] encode(charset)キーワードの操作</dt>
 <dd>
 <p>encode(charset)キーワード は、ビット0〜5までが文字コードを示し、ビット6〜7が改行コードを示します。</p>
-<div class="macro">
-<pre><code>$encode[0]=&quot;新規作成直後&quot;;
+<pre class="macro"><code>$encode[0]=&quot;新規作成直後&quot;;
 $encode[1]=&quot;Shift-JIS&quot;;
 $encode[2]=&quot;Unicode&quot;;
 $encode[3]=&quot;EUC&quot;;
@@ -853,7 +855,6 @@ $newline[3]=&quot;CR+LF&quot;;
 message &quot;エンコードは「&quot; + $encode[#encode] + &quot;」です。\n&quot; +
         &quot;改行コードは「&quot; + $newline[#newline] + &quot;」です。&quot;;
 endmacro;</code></pre>
-</div>
 </dd>
 </dl>
 <p><br />
@@ -862,8 +863,7 @@ endmacro;</code></pre>
 <dt>[例2] .hilightファイル内の値</dt>
 <dd>
 <p>.hilightファイル内で、強調表示部分の設定を表示する。</p>
-<div class="macro">
-<pre><code>//カーソルのある行を取り込む
+<pre class="macro"><code>//カーソルのある行を取り込む
 $line = gettext2(0, lineno, linelen2, lineno);
 #pos = strstr($line, &quot;,&quot;);
 if(#pos == -1) endmacro;
@@ -901,7 +901,6 @@ if((#hilifgt2 &amp; 0x020) == 0x020) $hilight = $hilight + &quot;,単語&quot;;
 //結果を表示
 message $hilight;
 endmacro;</code></pre>
-</div>
 </dd>
 </dl>
 <p><br />
@@ -910,8 +909,7 @@ endmacro;</code></pre>
 <dt>[例3] searchoptionキーワードの操作</dt>
 <dd>
 <p>searchoption を取得し、必要な設定を行い検索する。</p>
-<div class="macro">
-<pre><code>//検索オプション取得
+<pre class="macro"><code>//検索オプション取得
 #SEARCH_OPT  = searchoption;
 //「大文字/小文字の区別」がOFFなら有効にする。
 if((#SEARCH_OPT &amp; 0x00000002) != 0x00000002) #SEARCH_OPT  = #SEARCH_OPT | 0x00000002;
@@ -920,7 +918,6 @@ if((#SEARCH_OPT &amp; 0x00000002) != 0x00000002) #SEARCH_OPT  = #SEARCH_OPT | 0x
 if((#SEARCH_OPT &amp; 0x00000004) == 0x00000004) #SEARCH_OPT  = #SEARCH_OPT ^ 0x00000004;
 
 setsearch searchbuffer, #SEARCH_OPT;</code></pre>
-</div>
 </dd>
 </dl>
 <p><br />
@@ -929,8 +926,7 @@ setsearch searchbuffer, #SEARCH_OPT;</code></pre>
 <dt>[例4] existfile関数の戻り値判定</dt>
 <dd>
 <p>existfile関数は、第2引数に「1」を指定すると、ファイル属性を取得できます。その戻り値をチェックし、フォルダ(ディレクトリ)か判定しています。</p>
-<div class="macro">
-<pre><code>#ATTRIBUTE_READONLY  = 0x00000001;
+<pre class="macro"><code>#ATTRIBUTE_READONLY  = 0x00000001;
 #ATTRIBUTE_HIDDEN    = 0x00000002;
 #ATTRIBUTE_SYSTEM    = 0x00000004;
 #ATTRIBUTE_DIRECTORY = 0x00000010;
@@ -941,8 +937,8 @@ $CHECK = macrodir;
 if((#FILE_ATTRIBUTE &amp; #ATTRIBUTE_DIRECTORY) == #ATTRIBUTE_DIRECTORY){
     message &quot;[&quot; + $CHECK + &quot;]はフォルダです。&quot;;
 }
-endmacro;</code></pre>
-</div>
+endmacro;
+</code></pre>
 </dd>
 </dl>
 </section>

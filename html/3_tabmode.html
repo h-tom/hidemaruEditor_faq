@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタウィンドウの管理(タブモード編)</h1>
 <hr />
@@ -73,10 +78,8 @@
 tabgroup(グループID) を使ったほうがいいでしょう。</p>
 <p>どちらのキーワードも角カッコで添え字を付けて、他の秀丸エディタからも値を得ることができます。
 (ウィンドウハンドルさえわかれば、どちらも取得可能)</p>
-<div class="macro">
-<pre><code>#id   = tabgroup[hidemaruhandle(1)];
+<pre class="macro"><code>#id   = tabgroup[hidemaruhandle(1)];
 #oder = tabgrouporder[hidemaruhandle(1)];</code></pre>
-</div>
 <p>タブグループの数は、<code>tabgrouptotal</code> キーワードで取得できます。</p>
 <section id="TABGROUP-1" class="level4">
 <h4>[1-1] 新しいタブグループを作る</h4>
@@ -92,24 +95,18 @@ tabgroup(グループID) を使ったほうがいいでしょう。</p>
 <li>分離先の<span class="font_red">グループID</span></li>
 </ul>
 <p>例えば、編集中の秀丸エディタを、グループID 1 のタブへ分離する場合は以下のようになります。</p>
-<div class="macro">
-<pre><code>// 編集中の秀丸エディタを、グループID 1 のタブへ分離する
+<pre class="macro"><code>// 編集中の秀丸エディタを、グループID 1 のタブへ分離する
 //タブモードでなければ終了
 if(tabmode == false) endmacro;
 settabgroup hidemaruhandle(0), 1;</code></pre>
-</div>
 <p>グループID 1 など既存のタブグループではなく、新しいタブグループを作りたい場合は、グループIDに、-1 を指定します。</p>
-<div class="macro">
-<pre><code>// 編集中の秀丸エディタを、新しいタブグループに分離する。
+<pre class="macro"><code>// 編集中の秀丸エディタを、新しいタブグループに分離する。
 //タブモードでなければ終了
 if(tabmode == false) endmacro;
 settabgroup hidemaruhandle(0), -1;</code></pre>
-</div>
 <p>次に、<strong>ファイルを開く時に、新しいタブグループで開く</strong> には、起動オプション <code>/i</code> を指定します。</p>
-<div class="macro">
-<pre><code>// 新しいタブグループでファイルを開く
+<pre class="macro"><code>// 新しいタブグループでファイルを開く
 openfile &quot;/i \&quot;C:\\My Documents\\memo.txt\&quot;&quot;;</code></pre>
-</div>
 <p>新しいタブグループが作成され、ファイルを開きます。</p>
 </section>
 <section id="TABGROUP-2" class="level4">
@@ -119,8 +116,7 @@ openfile &quot;/i \&quot;C:\\My Documents\\memo.txt\&quot;&quot;;</code></pre>
 <p>例として「次のタブグループ」「次のタブグループ」に移動するマクロを作成します。条件として、最小化しているタブグループには、移動しません。</p>
 <section id="TABGROUP_MACRO1" class="level5">
 <h5>「次のタブグループ」へ移動するマクロ</h5>
-<div class="macro">
-<pre><code>//「次のタブグループ」
+<pre class="macro"><code>//「次のタブグループ」
 //タブモードでなければ、次の秀丸エディタへ
 if(tabmode == 0){
     prevhidemaru;
@@ -152,7 +148,6 @@ while(#next &lt; #max){
     #next = #next + 1;
 }
 endmacro;</code></pre>
-</div>
 <ul>
 <li><p>状態のチェックを行い、タブグループが1つだけなら終了します。</p></li>
 <li><p>tabgrouporderは、自分は0なので、順次加算して(2番目から順番に)チェックしていきます。</p></li>
@@ -167,8 +162,7 @@ endmacro;</code></pre>
 </section>
 <section id="TABGROUP_MACRO2" class="level5">
 <h5>「前のタブグループ」へ移動するマクロ</h5>
-<div class="macro">
-<pre><code>//「前のタブグループ」
+<pre class="macro"><code>//「前のタブグループ」
 //タブモードでなければ、前の秀丸エディタへ
 if(tabmode == 0){
     prevhidemaru;
@@ -200,7 +194,6 @@ while(#prev &gt; 0){
     #prev = #prev - 1;
 }
 endmacro;</code></pre>
-</div>
 <ul>
 <li>「次のタブグループ」とほぼ同じですが、タブグループのチェック方法が異なります。自分は「0」なので、最後(tabgrouptotal - 1)からチェックしていく事になります。</li>
 </ul>
@@ -220,19 +213,15 @@ endmacro;</code></pre>
 <li><p>タブグループ内のタブの数は、<code>tabtotal</code> キーワードで取得可能です。</p></li>
 <li><p>自分がタブグループ内の何番目のタブなのかは、<code>taborder</code> キーワードで取得可能です。</p></li>
 <li><p>タブの位置からウィンドウハンドルを取得するには、<code>gettabhandle</code> を使います。</p>
-<div class="macro">
-<pre><code>//自分自身のハンドル
+<pre class="macro"><code>//自分自身のハンドル
 //本来は、hidemaruhandle(0) でいいが、gettabhandleの例として
 #handle = gettabhandle(1, tabgrouporder, taborder);
 //同じタブグループの右隣のタブのハンドル
-#next = gettabhandle(1, tabgrouporder, taborder + 1);</code></pre>
-</div></li>
+#next = gettabhandle(1, tabgrouporder, taborder + 1);</code></pre></li>
 <li><p>タブグループの任意のタブ位置に移動するには、<code>settaborder</code>文を使います。自分自身を移動するのではなく、他のファイルを移動する場合は、<code>gettabhandle</code> でウィンドウハンドルを取得する事。</p>
-<div class="macro">
-<pre><code>//同じタブグループの右隣のタブを先頭に移動
+<pre class="macro"><code>//同じタブグループの右隣のタブを先頭に移動
 #next = gettabhandle(1, tabgrouporder, taborder + 1);
-settaborder #next, 0;</code></pre>
-</div></li>
+settaborder #next, 0;</code></pre></li>
 </ul>
 </section>
 </section>

@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0018A] ●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,27 +27,33 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0017A.html">←前へ</a> <a href="HMM0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0017A.html">←前へ</a> <a href="./HMM0019A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0018a">[HMM0018A]</h1>
-<h2 id="HMM0018A_01">●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意</h2>
+<section id="hmm0018a" class="level1">
+<h1>[HMM0018A]</h1>
+<section id="HMM0018A_01" class="level2">
+<h2>●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>openfileで自由な位置にウィンドウを開きたいのですが、思ったように動きません。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>openfileで自由な位置にウィンドウを開きたいのですが、思ったように動きません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。従って「<code>openfile"/(100,200,300,400)";</code>」は正しい書き方ですが、「<code>openfile "/(#XX,#YY,#CX,#CY)";</code>」は誤りです。数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。次にその例を示します。</p>
-<div class="macro">
-<pre><code>openfile &quot;/(&quot;+str(#XX)+&quot;,&quot;+str(#YY)+&quot;,&quot;+str(#CX)+&quot;,&quot;+str(#CY)+&quot;)&quot;;</code></pre>
-</div>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>openfile文の引数「x,y,cx,xy」には、文字列で数値を指定します。従って「<code>openfile"/(100,200,300,400)";</code>」は正しい書き方ですが、「<code>openfile "/(#XX,#YY,#CX,#CY)";</code>」は誤りです。数値型変数を使って秀丸エディタの開く位置をコントロールするには、数値型変数を文字型変数に変換してください。次にその例を示します。</p>
+<pre class="macro"><code>openfile &quot;/(&quot;+str(#XX)+&quot;,&quot;+str(#YY)+&quot;,&quot;+str(#CX)+&quot;,&quot;+str(#CY)+&quot;)&quot;;</code></pre>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0017A.html">←前へ</a> <a href="HMM0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0017A.html">←前へ</a> <a href="./HMM0019A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

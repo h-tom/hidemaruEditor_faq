@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,26 +27,26 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　他の秀丸エディタと内容比較</h1>
 <hr />
 <section id="compfile" class="level2">
 <h2>他の秀丸エディタと内容比較</h2>
-<p>メニューの「ウィンドウ」-「<strong>他の秀丸エディタと内容比較</strong>」を使うと、編集中の秀丸エディタと、他の秀丸エディタの内容を比較できます。</p>
-<p>以前のバージョンでは、違う箇所にカーソルが移動するだけでしたが、Ver.8以降は相違部分がカラーマーカーで表示されます。</p>
+<p>メニューの「ウィンドウ」-「<strong>他の秀丸エディタと内容比較</strong>」を使うと、編集中の秀丸エディタと他の秀丸エディタの内容を比較できます。</p>
+<p>以前のバージョンでは違う箇所にカーソルが移動するだけでしたが、Ver.8以降は相違部分がカラーマーカーで表示されます。</p>
 <ul>
 <li><a href="#PROCESS">解説</a></li>
 <li><a href="#SUPPLEMENTATION">補足</a></li>
 </ul>
 <section id="PROCESS" class="level3">
 <h3>解説</h3>
-<p>「他の秀丸エディタと内容比較」を実行するには、最低でも2つの秀丸エディタ(比較元と比較先)が開いている必要があります。ファイルを1つしか開いていない場合、「他の秀丸エディタと内容比較」は<span class="attention_red">無効</span>になり、実行できません。</p>
+<p>「他の秀丸エディタと内容比較」を実行するには、最低でも2つの秀丸エディタ(比較元と比較先)が開いている必要があります。ファイルを1つしか開いていない場合、「他の秀丸エディタと内容比較」は<span class="attention_red">無効</span>になり実行できません。</p>
 <hr />
 <p>「他の秀丸エディタと内容比較」を実行すると、「比較先の指定」ダイアログが開きます。(この動作は設定で変更可能)</p>
-<p><img src="2_compfile_01.png" width="501" height="272" alt="「比較先の指定」ダイアログ" /><br />
+<p><img src="./2_compfile_01.png" width="501" height="272" alt="「比較先の指定」ダイアログ" /><br />
 </p>
-<p>画像は、以下の3つのファイルを開いている状態で実行した場合です。</p>
+<p>画像は以下の3つのファイルを開いている状態で実行した場合です。</p>
 <ul>
 <li>編集中の秀丸エディタ</li>
 <li>比較用の秀丸エディタ</li>
@@ -49,7 +54,7 @@
 </ul>
 <p>「編集中の秀丸エディタ」以外の2つのファイルが、比較対象のファイルとしてリストに表示されています。</p>
 <p>リストから「比較対象のファイル」を選択し、<span class="btn-push">「指定」</span>ボタンを押すと、設定された条件で比較を開始します。</p>
-<p><img src="2_compfile_02.png" width="497" height="366" alt="実行結果の例1" /><br />
+<p><img src="./2_compfile_02.png" width="497" height="366" alt="実行結果の例1" /><br />
 </p>
 <p>設定に関してはヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/070_Env_Other_Compare.html" class="externallink" target="_blank" rel="noopener">比較</a>を参照してください。</p>
 <p>「比較先の指定」ダイアログで設定を変更すると<span class="env">「動作環境」</span>-「その他のコマンド」-「比較」の設定も変更されます(一時的に設定を変えるという意味ではありません)。</p>
@@ -57,8 +62,8 @@
 <section id="SUPPLEMENTATION" class="level3">
 <h3>補足</h3>
 <ul>
-<li><p>Ver.8.94から、「比較先の指定」ダイアログに、「横に並べる」「同時スクロール」が追加されています。</p>
-<p>「横に並べる」は実行時に比較対象ファイルを自動で横に並べます。カーソルも同時に移動するので、「同時スクロール」もチェックしておくと便利でしょう。</p>
+<li><p>Ver.8.94から、「比較先の指定」ダイアログに「横に並べる」「同時スクロール」が追加されています。</p>
+<p>「横に並べる」は実行時に比較対象ファイルを自動で横に並べます。カーソルも同時に移動するので「同時スクロール」もチェックしておくと便利でしょう。</p>
 <p>「横に並べる」を有効にした場合、並べる前のサイズ・位置に戻すことは出来ません。</p></li>
 <li><p>注意が必要なのは<span class="attention_red">「常にファイル先頭から比較」</span>です。チェックがOFFの場合は、お互いのカーソル位置を基準に比較を開始します。</p></li>
 <li><p>「カラーマーカーで色付けモード」がOFFの場合、最初の差異がある箇所にカーソルが移動します。「カラーマーカーで色付けモード」がONだと、「すべて検索-色付け」を実行したときのように、差異のある場所へ順次移動可能です。</p></li>

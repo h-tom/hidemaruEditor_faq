@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　自動起動マクロ</h1>
 <hr />
@@ -59,17 +64,16 @@
 </ul>
 <p>「自動起動」なので、マクロを実行したくないファイルにも、マクロを実行する事になります。その為、実行するマクロの内容にもよりますが、マクロ内で実行条件を絞るなど、対策が必要な場合もあります。</p>
 <p>「自動起動」ですが、マクロから操作した場合は、基本的に「自動起動」する事はありません(例外あり)。</p>
-<p>つまり、</p>
+<p>つまり、以下のマクロを実行しても「<strong>ファイルを開いた直後</strong>」で指定したマクロは、実行されません。ユーザーが操作した場合のみ実行されます。</p>
 <pre class="macro"><code>openfile &quot;〜&quot;;</code></pre>
-<p>というマクロを実行しても「<strong>ファイルを開いた直後</strong>」で指定したマクロは、実行されません。ユーザーが操作した場合のみ実行されます。</p>
 </section>
 <section id="SETTING" class="level3">
 <h3>【１】設定方法</h3>
 <p>通常のマクロと同じで、「マクロ」メニューから、「マクロ登録」を選択します。</p>
-<p><img src="3_autostartmacro_01.png" width="358" height="226" alt="マクロ登録" /><br />
+<p><img src="./3_autostartmacro_01.png" width="358" height="226" alt="マクロ登録" /><br />
 </p>
 <p>「マクロ登録」ダイアログが表示されるので、「対象」から「自動起動」を選びます。</p>
-<p><img src="3_autostartmacro_02.png" width="634" height="416" alt="マクロ登録ダイアログ" /><br />
+<p><img src="./3_autostartmacro_02.png" width="634" height="416" alt="マクロ登録ダイアログ" /><br />
 </p>
 <dl>
 <dt>&#9745;自動起動マクロを有効にする</dt>
@@ -137,9 +141,7 @@ seteventnotify 文 で指定された値を取得する。
 <dd>
 <p>「保存」と「印刷」には、「直前」と「直後」がありますが、呼び出されるマクロは1つです。その為、マクロ内で「直前」と「直後」を判断する必要があります。</p>
 <p>判断するには、geteventparam関数を使います。「保存」と「印刷」では、</p>
-<div class="macro">
-<pre><code>geteventparam(0)</code></pre>
-</div>
+<pre class="macro"><code>geteventparam(0)</code></pre>
 <p>の戻り値で判定し、"0" なら「直前」、"1"なら「直後」を示します。</p>
 </dd>
 <dt>ファイルを閉じるときのイベント</dt>
@@ -154,16 +156,16 @@ seteventnotify 文 で指定された値を取得する。
 </dd>
 <dt>マクロ実行時の「自動起動」について</dt>
 <dd>
-<p>基本的には、マクロ実行中に各種操作をしても、自動起動マクロは実行されません。例外的に、マクロ終了後に「編集後タイマー」と「カーソル移動後タイマー」を、「自動起動」させる事は可能です。</p>
-<p>この2つのイベントを自動実行するには、<code>setcompatiblemode 文</code> で指定します。</p>
-<p>マクロ実行中に、「自動起動マクロ」を実行する方法は提供されていないので、どうしても自動起動マクロを実行したい場合は、レジストリから登録情報をよみとり、
-<code>execmacro 文</code> で実行する方法もあります。ただし、通常の自動起動マクロと違い、<code>eventキーワード</code>や、<code>geteventparam関数</code>の戻り値はセットされません。</p>
+<p>基本的には、マクロ実行中に各種操作をしても、自動起動マクロは実行されません。例外的に、マクロ終了後に「編集後タイマー」と「カーソル移動後タイマー」を「自動起動」させる事は可能です。</p>
+<p>この2つのイベントを自動実行するには、<code>setcompatiblemode 文</code> で指定します。詳細は「<a href="./3_setcompatiblemode.html">setcompatiblemode文 について</a>」</p>
+<p>マクロ実行中に「自動起動マクロ」を実行する方法は提供されていないので、どうしても自動起動マクロを実行したい場合は、レジストリから登録情報をよみとり、
+<code>execmacro 文</code> で実行する方法もあります。ただし、通常の自動起動マクロと違い、<code>eventキーワード</code>や<code>geteventparam関数</code>の戻り値はセットされません。</p>
 </dd>
 <dt>自動起動マクロから、execmacro文で他のマクロを実行した場合</dt>
 <dd>
 <p>自動起動マクロで起動された場合、起動されたイベントの種類およびパラメータの値は、
 execmacro文で実行されたマクロからも取得可能です。</p>
-<p>逆に、execmacro文で実行されたマクロから、seteventnotify 文を実行しても、問題なく、処理されます。(seteventnotify 文で設定した内容は有効)</p>
+<p>逆に、execmacro文で実行されたマクロから、seteventnotify 文を実行しても、問題なく処理されます。(seteventnotify 文で設定した内容は有効)</p>
 </dd>
 </dl>
 </section>

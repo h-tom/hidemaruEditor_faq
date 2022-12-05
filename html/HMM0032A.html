@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0032A] ●「検索での表示」の設定による動作の違い{ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,40 +27,43 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0031A.html">←前へ</a> <a href="./HMM0033A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0032a">[HMM0032A]</h1>
-<h2 id="HMM0032A_01">●「検索での表示」の設定による動作の違い</h2>
+<section id="hmm0032a" class="level1">
+<h1>[HMM0032A]</h1>
+<section id="HMM0032A_01" class="level2">
+<h2>●「検索での表示」の設定による動作の違い</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>ある文字列を検索させて消去したいのですがうまくいきません。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>ある文字列を検索させて消去したいのですがうまくいきません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>たとえば、</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>たとえば、</p>
 <div class="macro">
 <pre><code>秀丸エディタ</code></pre>
 </div>
 <p>という内容で、"秀丸"を検索し削除する為に、</p>
-<div class="macro">
-<pre><code>gofiletop;
+<pre class="macro"><code>gofiletop;
 searchdown2 &quot;秀丸&quot;;
 if(result){
     message &quot;削除します&quot;;
     delete;
 }
 endmacro;</code></pre>
-</div>
-<p>というマクロを作った場合、削除されるのが"秀丸"ではなく、 "秀"という一文字しか削除できないという状況の対処方法です。</p>
+<p>というマクロを作った場合、削除されるのが"秀丸"ではなく、
+"秀"という一文字しか削除できないという状況の対処方法です。</p>
 <p>「その他」→「<span class="env">動作環境</span>」→「検索」→「検索の動作-検索での表示」が［<strong>点滅</strong>］になっていると、検索にマッチした箇所を削除できません。［<strong>範囲選択</strong>］にする必要があります。</p>
-<p>「検索での表示」が、［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。 (範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている)</p>
+<p>「検索での表示」が［点滅］になっている場合、選択されているように見えるますが、実際は選択されていません。その為、「delete;」等の命令を実行しても、カーソル位置にある文字を消すだけの動作になります。
+(範囲選択していれば、選択範囲が削除されますが、範囲選択されていないので、対象がカーソル位置のみになっている)</p>
 <p>「setcompatiblemode文」を使えば、マクロ実行時に「検索での表示」の設定を、一時的に変更できます。</p>
-<div class="macro">
-<pre><code>setcompatiblemode 0x00000200；</code></pre>
-</div>
+<pre class="macro"><code>setcompatiblemode 0x00000200；</code></pre>
 <p>setcompatiblemode文の設定抜粋</p>
 <table>
 <tbody>
@@ -73,8 +82,7 @@ endmacro;</code></pre>
 </tbody>
 </table>
 <p>以下のようにマクロを変更すれば、「検索での表示」の設定を変更しなくても、"秀丸"という検索にマッチした文字を削除できます。</p>
-<div class="macro">
-<pre><code>setcompatiblemode 0x00000200；
+<pre class="macro"><code>setcompatiblemode 0x00000200；
 gofiletop;
 searchdown2 &quot;秀丸&quot;;
 if(result){
@@ -82,11 +90,13 @@ if(result){
     delete;
 }
 endmacro;</code></pre>
-</div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0031A.html">←前へ</a> <a href="HMM0033A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0031A.html">←前へ</a> <a href="./HMM0033A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

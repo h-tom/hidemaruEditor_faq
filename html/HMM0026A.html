@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0026A] ●setsearchのフラグ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,30 +27,38 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0025A.html">←前へ</a> <a href="HMM0027A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0025A.html">←前へ</a> <a href="./HMM0027A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0026a">[HMM0026A]</h1>
-<h2 id="HMM0026A_01">●setsearchのフラグ</h2>
+<section id="hmm0026a" class="level1">
+<h1>[HMM0026A]</h1>
+<section id="HMM0026A_01" class="level2">
+<h2>●setsearchのフラグ</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>setsearchのフラグって何ですか？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>setsearchのフラグって何ですか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>検索ダイアログボックスの設定状態をマクロ文で再現するためのものです。下記の数値(の和)を指定します。<br />
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>検索ダイアログボックスの設定状態をマクロ文で再現するためのものです。下記の数値(の和)を指定します。<br />
 例えば「単語でしかも大文字小文字の区別あり」の場合は(1 + 2 =) 3 を指定します。</p>
 <p>ビット演算に関しては、「<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a>　<a href="./3_bit.html">ビット演算を極める</a>」を参考にしてください。</p>
 <p>Ver.8以降からは、フラグ2(<code>searchoption2</code> 相当)が追加されています。フラグ２は省略できます。</p>
-<div class="macro">
-<pre><code>setsearch &quot;文字列&quot;, フラグ1 [, フラグ2]</code></pre>
-</div>
+<pre class="macro"><code>setsearch &quot;文字列&quot;, フラグ1 [, フラグ2]</code></pre>
 <ul>
 <li><p>フラグ1</p>
 <table>
 <caption>フラグ1の内容</caption>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 43%" />
+<col style="width: 16%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">検索オプション</th>
@@ -200,6 +214,11 @@
 <span class="font_red_bold">フラグ2を有効にするためには、フラグ1の「追加の条件が有効であるかどうか(0x80000000)」のビットを立てる必要があります。</span></p>
 <table>
 <caption>フラグ2の内容</caption>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 43%" />
+<col style="width: 16%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">検索オプション</th>
@@ -223,7 +242,8 @@
 <hr />
 <dl>
 <dt><span id="exp1">注1</span></dt>
-<dd>対象となる範囲は、<code>settargetcolormarker</code> で指定します。
+<dd>
+対象となる範囲は、<code>settargetcolormarker</code> で指定します。
 </dd>
 </dl></li>
 </ul>
@@ -231,6 +251,9 @@
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0025A.html">←前へ</a> <a href="HMM0027A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0025A.html">←前へ</a> <a href="./HMM0027A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

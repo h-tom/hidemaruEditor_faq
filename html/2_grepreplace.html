@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
   <title>第II部〜知っていると便利な秀丸の機能　grepして置換</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,43 +27,43 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　grepして置換</h1>
 <hr />
 <section id="grep" class="level2">
 <h2>grepして置換</h2>
 <p>「grepして置換」はgrepを実行して、マッチ箇所を置換し上書き保存します。</p>
-<p>設定次第では、バックアップを取らずに上書き保存してしまうこともあるので、注意が必要です。
-(通常の置換と違い、<span class="attention_red">「やり直し」で戻すことはできません</span>)</p>
+<p>設定次第では、バックアップを取らずに上書き保存してしまうこともあるので注意が必要です。
+(通常の置換と違い<span class="attention_red">「やり直し」で戻すことはできません</span>)</p>
 <ul>
 <li><a href="#process">[手順]</a></li>
 </ul>
 <section id="process" class="level3">
 <h3>[手順]</h3>
-<p>基本的な使い方(オプション等)は、<a href="./2_grep.html">「grep」</a>と同じなので、そちらを参照してください。</p>
+<p>基本的な使い方(オプション等)は、<a href="./2_grep.html">「grep」</a>と同じなのでそちらを参照してください。</p>
 <p>grepと比較し、以下の箇所が異なります。</p>
 <ul>
 <li>「置換する文字列」の入力欄が増えています。</li>
 <li>「ヒットしない行」「検索文字列の強調」は使えません。</li>
 <li>「バックアップを作成」「保存の前に確認」が追加されている。</li>
 </ul>
-<p>「置換」と同じく、<span class="font_blue">「検索する文字列」</span>と<span class="font_blue">「置換する文字列」</span>は、複数行を入力可能にできます。詳細は<a href="2_replace.html">「置換」</a>-「<a href="2_replace.html#SUPPLEMENTATION">補足</a>」を参照してください。</p>
-<p><img src="2_grepreplace_01.png" width="464" height="364" alt="grepして置換ダイアログ" /><br />
+<p>「置換」と同じく、<span class="font_blue">「検索する文字列」</span>と<span class="font_blue">「置換する文字列」</span>は、複数行を入力可能にできます。詳細は<a href="./2_replace.html">「置換」</a>-「<a href="./2_replace.html#SUPPLEMENTATION">補足</a>」を参照してください。</p>
+<p><img src="./2_grepreplace_01.png" width="464" height="364" alt="grepして置換ダイアログ" /><br />
 </p>
 <ul>
 <li><p><strong><span class="font_blue">「バックアップを作成」チェックボックス</span>:</strong><br />
 置換しファイルを上書きする場合、バックアップファイルを作成するかどうかを設定します。</p></li>
 <li><p><strong><span class="font_blue">「保存の前に確認」チェックボックス</span>:</strong><br />
 置換しファイルを上書きする場合、問い合わせダイアログを表示するかどうかを設定します。</p>
-<p><img src="2_grepreplace_03.png" width="405" height="146" alt="grepして置換上書き保存確認ダイアログ" /><br />
+<p><img src="./2_grepreplace_03.png" width="405" height="146" alt="grepして置換上書き保存確認ダイアログ" /><br />
 </p></li>
 <li><p><strong><span class="font_blue">「検索」ボタン</span>:</strong><br />
 通常のgrepダイアログに切り替わります。</p></li>
 <li><p><strong><span class="font_blue">「置換」ボタン</span>:</strong><br />
 ボタンを押すと、以下のダイアログが表示されます。<br />
 <span class="font_red">(最初のメッセージは、オプションの設定により替わる。画像は「バックアップを作成」がONの場合)</span></p>
-<p><img src="2_grepreplace_02.png" width="336" height="296" alt="grepして置換確認ダイアログ" /><br />
+<p><img src="./2_grepreplace_02.png" width="336" height="296" alt="grepして置換確認ダイアログ" /><br />
 </p>
 <p>各種確認(チェックボックスをON)後、<strong><span class="font_red">「OK」</span></strong>を押すと実際に検索/置換が始まります。</p>
 <p>結果として以下のような内容が表示されます。置換した箇所にタグジャンプも可能です。</p>
@@ -70,7 +76,7 @@
 2 個の置換を行ないました。</code></pre>
 </div>
 <p>Ver.8.85より、「置換」ボタンの「▼」マークから、「クイック全置換で実行」が選択できます。通常の「全置換」と「クイック全置換」の違いについては、<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank" rel="noopener">秀丸エディタヘルプの「置換」</a>を参照してください。</p>
-<p><img src="2_grepreplace_04.png" width="239" height="98" alt="クイック全置換" /><br />
+<p><img src="./2_grepreplace_04.png" width="239" height="98" alt="クイック全置換" /><br />
 </p></li>
 </ul>
 </section>

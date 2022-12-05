@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第III部〜秀丸マクロのいろはにほへと　静的な変数について</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　静的な変数について</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>静的な変数について</h2>
+<ul>
+<li><a href="#ABOUT">はじめに</a></li>
+<li><a href="#SUPPLEMENTATION">補足</a></li>
+</ul>
+<section id="ABOUT" class="level3">
+<h3>はじめに</h3>
+<p>通常の変数はマクロ実行時のみ参照できますが、「静的な変数」を使うとマクロ終了後も内容を保持できます。ただし保存できるのは文字列のみです。</p>
+<ul>
+<li>静的な変数を設定する <a href="#setstaticvariable">setstaticvariable 文</a></li>
+<li>静的な変数を取得する <a href="#getstaticvariable">getstaticvariable 関数</a></li>
+</ul>
+<p>「静的な変数」のサイズ(設定による)や個数(32767個)は上限があります。「共有フラグ」の設定により、他の秀丸エディタから参照可能です。「共有フラグ」によっては、起動中の全ての秀丸エディタを終了しないとメモリが解放されないので、使用しなくなった「静的な変数」は必ず削除したり、最低限の範囲で使用するようにしましょう。</p>
+<section id="setstaticvariable" class="level4">
+<h4>setstaticvariable文</h4>
+<p><a href="https://help.maruo.co.jp/hidemac/html/155_OtherStatement_setstaticvariable.html" class="externallink" target="_blank" rel="noopener">setstaticvariable 文</a> は指定した名前の「静的な変数」へ書き込みを行います。</p>
+<pre class="macro"><code>setstaticvariable 変数名,文字列値,共有フラグ</code></pre>
+<dl>
+<dt>変数名(文字列)</dt>
+<dd>
+<p>静的な変数の名前を指定します。大文字小文字は区別されません。<br />
+変数名と文字列値に "" を指定すると、指定された共有フラグの静的な変数を全て削除します。</p>
+<pre class="macro"><code>//共有フラグ 0 に設定された静的な変数を全て削除する。
+setstaticvariable &quot;&quot;, &quot;&quot;, 0;</code></pre>
+</dd>
+<dt>文字列値(文字列)</dt>
+<dd>
+<p>変数に設定する内容<br />
+"" を指定すると、指定された静的な変数を削除します。</p>
+<pre class="macro"><code>//共有フラグ 0 に設定された静的な変数 checkに値を保存する。
+setstaticvariable &quot;check&quot;, &quot;hidemaru&quot;, 0;
+
+//共有フラグ 0 に設定された静的な変数 checkを削除する。
+setstaticvariable &quot;check&quot;, &quot;&quot;, 0;</code></pre>
+</dd>
+<dt>共有フラグ(数値)</dt>
+<dd>
+<dl>
+<dt>0</dt>
+<dd>
+マクロを実行している秀丸エディタのみで共有する(他の秀丸エディタ上で実行するマクロからは参照できない)。同じウィンドウであっても「ファイルを閉じる」「閉じて開く」をすると消去されます。
+</dd>
+<dt>1</dt>
+<dd>
+実行している全ての秀丸エディタから参照できます。
+</dd>
+<dt>2</dt>
+<dd>
+「0」と同じですが、「ファイルを閉じる」「閉じて開く」でも内容は保持されます。
+</dd>
+<dt>-1</dt>
+<dd>
+通常の変数と同じ(実行している秀丸エディタのみ/共有なし/マクロ実行時のみ)。
+</dd>
+</dl>
+</dd>
+</dl>
+<pre class="macro"><code>// check.mac
+setstaticvariable &quot;check&quot;, currentmacrobasename, 0;
+execmacro &quot;check1.mac&quot;;
+endmacro;</code></pre>
+<p>呼び出された側で「静的な変数」"check"を参照する。</p>
+<pre class="macro"><code>// check1.mac
+$a = getstaticvariable(&quot;check&quot;, 0);
+message $a;
+endmacro;</code></pre>
+</section>
+<section id="getstaticvariable" class="level4">
+<h4>getstaticvariable関数</h4>
+<p><a href="https://help.maruo.co.jp/hidemac/html/070_Function_getstaticvariable.html" class="externallink" target="_blank" rel="noopener">getstaticvariable 関数</a>は、指定した名前の「静的な変数」から読み出しを行います。</p>
+<pre class="macro"><code>$n = getstaticvariable(変数名,共有フラグ);</code></pre>
+<dl>
+<dt>変数名(文字列)</dt>
+<dd>
+<p>静的な変数の名前を指定します。大文字小文字は区別されません。<br />
+変数名と文字列値に""を指定すると、記憶されている変数名を列挙して","でつなげた文字列を返します。</p>
+<pre class="macro"><code>//共有フラグ 0 に設定された静的変数を全て削除する。
+message getstaticvariable(&quot;&quot;, 0);</code></pre>
+</dd>
+<dt>共有フラグ(数値)</dt>
+<dd>
+<dl>
+<dt>0</dt>
+<dd>
+マクロを実行している秀丸エディタのみで共有する(他の秀丸エディタ上で実行するマクロからは参照できない)。同じウィンドウであっても「ファイルを閉じる」「閉じて開く」をすると消去されます。
+</dd>
+<dt>1</dt>
+<dd>
+実行している全ての秀丸エディタから参照できます。
+</dd>
+<dt>2</dt>
+<dd>
+「0」と同じですが、「ファイルを閉じる」「閉じて開く」でも内容は保持されます。
+</dd>
+<dt>-1</dt>
+<dd>
+通常の変数と同じ(実行している秀丸エディタのみ、共有なし、マクロ実行時のみ)。
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>補足</h3>
+<section id="名前が同じで共有フラグが異なる場合" class="level4">
+<h4>名前が同じで、共有フラグが異なる場合</h4>
+<p>名前が同じでも共有フラグが異なる場合は、別の「静的な変数」と認識されます。</p>
+<pre class="macro"><code>setstaticvariable &quot;check&quot;, &quot;hidemaru editor&quot;, 0;
+setstaticvariable &quot;check&quot;, &quot;秀丸エディタ&quot;, 1;
+
+//名前は大文字小文字は区別されない
+$n1 = getstaticvariable(&quot;CHECK&quot;, 0);
+$n2 = getstaticvariable(&quot;CHECK&quot;, 1);
+
+message $n1 + &quot;\n&quot; + $n2;
+
+//後始末
+setstaticvariable &quot;check&quot;, &quot;&quot;, 0;
+setstaticvariable &quot;check&quot;, &quot;&quot;, 1;
+endmacro;</code></pre>
+</section>
+<section id="共有フラグの-1について" class="level4">
+<h4>共有フラグの「-1」について</h4>
+<p>「静的な変数」は外部DLLから取得・設定が可能です。共有フラグ「-1」だと、通常の文字変数と同じなので、外部DLLとのやり取りで使用するには都合がいいです。</p>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

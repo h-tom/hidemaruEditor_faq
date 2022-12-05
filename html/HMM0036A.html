@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0036A] ●IMEのマクロ動作中切断方法 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,22 +27,26 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0035A.html">←前へ</a> <a href="HMM0037A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0035A.html">←前へ</a> <a href="./HMM0037A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0036a">[HMM0036A]</h1>
-<h2 id="HMM0036A_01">●IMEのマクロ動作中切断方法</h2>
+<section id="hmm0036a" class="level1">
+<h1>[HMM0036A]</h1>
+<section id="HMM0036A_01" class="level2">
+<h2>●IMEのマクロ動作中切断方法</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>マクロの実行前後で、IMEの状態を同じにしておきたいのですが。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>マクロの実行前後で、IMEの状態を同じにしておきたいのですが。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>マクロの実行直後と終了直前にIMEの状態を調査して、希望の状態になるように設定します。次の例はマクロ実行中はIMEをOFFにし、マクロ実行後に、IMEのON/OFF状態を元の状態に戻します。</p>
-<div class="macro">
-<pre><code>//------- サンプルマクロ -------//
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>マクロの実行直後と終了直前にIMEの状態を調査して、希望の状態になるように設定します。次の例はマクロ実行中はIMEをOFFにし、マクロ実行後に、IMEのON/OFF状態を元の状態に戻します。</p>
+<pre class="macro"><code>//------- サンプルマクロ -------//
 #imeYN = imestate;
 if( #imeYN ) imeswitch; // IME を OFF
 //以下、マクロ本体
@@ -46,11 +56,13 @@ if( #imeYN ) imeswitch; // IME を OFF
 if( #imeYN != imestate ) imeswitch;
 endmacro;
 // ---------------------------- //</code></pre>
-</div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0035A.html">←前へ</a> <a href="HMM0037A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0035A.html">←前へ</a> <a href="./HMM0037A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

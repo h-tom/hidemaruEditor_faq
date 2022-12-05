@@ -166,6 +166,10 @@
 			<param name="Name" value="テンプレート">
 			<param name="Local" value="html\2_template.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="秀丸スペルチェックアドイン">
+			<param name="Local" value="html\2_spellcheck.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと">
@@ -227,6 +231,14 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="setcompatiblemode文 について">
 			<param name="Local" value="html\3_setcompatiblemode.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="マクロから別のマクロを実行する方法">
+			<param name="Local" value="html\3_execmacro.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="静的な変数について">
+			<param name="Local" value="html\3_staticvariable.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Ver.3.00 マクロ関連の変更履歴 ">
@@ -291,10 +303,6 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="秀丸パブリッシャーについて">
 			<param name="Local" value="html\6_publisher.html">
-			</OBJECT>
-		<LI> <OBJECT type="text/sitemap">
-			<param name="Name" value="秀丸スペルチェックアドイン">
-			<param name="Local" value="html\6_spellcheck.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="持ち出しキットについて">

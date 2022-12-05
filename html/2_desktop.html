@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,14 +27,14 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　デスクトップ保存と復元</h1>
 <hr />
 <section id="FUZZY" class="level2">
 <h2>「デスクトップ保存」と「デスクトップ復元」について</h2>
 <p>「デスクトップ保存」/「デスクトップ復元」は、秀丸エディタで開いているファイルのウィンドウサイズと位置を保存・復元します。</p>
-<p>Ver.8未満では、「デスクトップ保存/復元」は1つしか保存できませんでした。<br />
+<p>Ver.8未満では「デスクトップ保存/復元」は1つしか保存できませんでした。<br />
 Ver.8以降は「名前をつけてデスクトップを保存」も可能になり、複数の状態を保存できます。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a></li>
@@ -51,15 +56,16 @@ Ver.8以降は「名前をつけてデスクトップを保存」も可能にな
 <p>保存される情報は、基本的にはウィンドウの<strong>「サイズ」と「位置」</strong>です。ウィンドウの分割状態やIMEの状態、アクティブなウィンドウ(タブ)など、保存しない状態もあります。</p>
 <p>設定で有効にすれば、以下の内容も保存できます。</p>
 <ul>
-<li><p>Windows 10の仮想デスクトップ</p></li>
-<li><p>カーソルある<span class="attention_red">行</span></p>
+<li><p>Windows 10 以降の仮想デスクトップ</p></li>
+<li><p>カーソルある<span class="attention_red">行</span> の位置</p>
 <p>設定がOFFでも、以下の条件がそろえばカーソル位置は復元されます。</p>
 <ul>
 <li>「ファイルタイプ別の設定」にある「カーソル位置の自動復元」が有効になっている。</li>
 <li>ファイルヒストリに対象のファイルが残っている。</li>
 </ul></li>
+<li><p>検索の色付け</p></li>
 </ul></li>
-<li><p>「名前をつけてデスクトップを保存」は、「ウィンドウ」メニューから実行しますが、デフォルトでは表示されていません。その場合は以下の手順で表示させてください。</p>
+<li><p>「名前をつけてデスクトップを保存」は、「ウィンドウ」メニューから実行しますがデフォルトでは表示されていません。その場合は以下の手順で表示させてください。</p>
 <ol type="1">
 <li>メニューの「その他」-「メニュー編集」から「メニュー編集ダイアログ」を開く。</li>
 <li>「メニューバー」を選び、「ウィンドウ」を選択。</li>
@@ -71,14 +77,14 @@ Ver.8以降は「名前をつけてデスクトップを保存」も可能にな
 <li><p>「ウィンドウ」メニュー</p></li>
 <li><p>「常駐秀丸」の右クリックメニュー</p></li>
 <li><p>「起動オプション」<br />
-起動オプションの使い方は「<a href="4_cmdlin.html">第IV部〜テキスト編集を極める！！　起動オプションを使ってみよう</a>」を参照してください。</p>
+起動オプションの使い方は「<a href="./4_cmdlin.html">第IV部〜テキスト編集を極める！！　起動オプションを使ってみよう</a>」を参照してください。</p>
 <p>オプションは「/e」または、「/e:保存したデスクトップのフルパス」になります。</p></li>
 </ul>
 <p>復元する場合、現在開いている秀丸エディタがあると閉じようとするので、必要に応じて保存してください。</p></li>
 <li><p>「デスクトップを開く」は、「ウィンドウ」メニューから実行しますが、デフォルトでは表示されません。「名前をつけてデスクトップを保存」と同じ方法でメニューに表示させてください。</p></li>
 <li><p>「デスクトップ保存」/「デスクトップ復元」の設定</p>
 <p>設定は「<span class="env">動作環境</span>」-「ウィンドウ」-「デスクトップ保存」で行います。</p>
-<p><img src="2_desktop_01.png" width="541" height="190" alt="デスクトップ保存の設定" /><br />
+<p><img src="./2_desktop_01.png" width="534" height="214" alt="デスクトップ保存の設定" /><br />
 </p>
 <div class="mark_dt">
 <dl>
@@ -102,6 +108,10 @@ Windows 10の仮想デスクトップにある状態も保存します。チェ�
 <dd>
 カーソルの行位置も保存/復元します。
 OFFの場合は、「ファイルタイプ別の設定」にある「カーソル位置の自動復元」によります。
+</dd>
+<dt>検索の色付けを保存/復元する</dt>
+<dd>
+検索ダイアログで「すべて検索 - 色付け」を行っていた場合は、その状態を保存/復元対象にします。
 </dd>
 </dl>
 </div></li>

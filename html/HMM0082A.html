@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0082A] ●カーソルのある行の内容を文字列型変数に取り込む方法 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,53 +27,59 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0081A.html">←前へ</a> <a href="HMM0083A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0081A.html">←前へ</a> <a href="./HMM0083A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0082a">[HMM0082A]</h1>
-<h2 id="HMM0082A_01">●カーソルのある行の内容を文字列型変数に取り込む方法</h2>
+<section id="hmm0082a" class="level1">
+<h1>[HMM0082A]</h1>
+<section id="HMM0082A_01" class="level2">
+<h2>●カーソルのある行の内容を文字列型変数に取り込む方法</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd>カーソルのある行の内容を、文字列型変数に取り込む方法はありませんか？
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>カーソルのある行の内容を、文字列型変数に取り込む方法はありませんか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>方法は複数あります。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>方法は複数あります。</p>
 <ol class="example" type="1">
 <li><p>行選択を行い、選択範囲を取り込む</p>
-<div class="macro">
-<pre><code>selectline;
+<pre class="macro"><code>selectline;
 $line = gettext(seltopx, seltopy, selendx, selendy);
-message $line;</code></pre>
-</div></li>
+message $line;</code></pre></li>
 <li><p>gettext2関数と、キーワードを組み合わせて取り込む</p>
-<div class="macro">
-<pre><code>$line = gettext2(0,lineno,linelen2, lineno);
-message $line;</code></pre>
-</div></li>
+<pre class="macro"><code>$line = gettext2(0,lineno,linelen2, lineno);
+message $line;</code></pre></li>
 </ol>
 <dl>
 <dt><span class="mark_dt3">[解説]</span></dt>
-<dd><p>(1)のマクロは、行選択を行い、選択範囲の文字列を取り込んでいます。行選択の副作用でカーソルがマクロ実行前後で、違う位置に移動してしまう場合があります。</p>
-<p>(2)のマクロは</p>
+<dd>
+<p>(1)のマクロは、行選択を行い、選択範囲の文字列を取り込んでいます。行選択の副作用でカーソルがマクロ実行前後で、違う位置に移動してしまう場合があります。</p>
+<p>(2)のマクロは以下のキーワードを使用し、範囲選択なしで取り込んでいます。</p>
 <ul>
 <li>lineno キーワード</li>
 <li>linelen2 キーワード</li>
 </ul>
-<p>を使用し、範囲選択なしで取り込んでいます。</p>
-<p>行の先頭は、"0"と決まっているので直接記述し、行の長さは linelen2 キーワード、行数は、lineno キーワード を使い範囲を求め取得しています。</p>
+<p>行の先頭は、"0"と決まっているので直接記述し、行の長さは linelen2 キーワード、行数は lineno キーワード を使い範囲を求め取得しています。</p>
 <p>結果は同じですが、カーソルが移動する/しないの違いがあります。</p>
 </dd>
 <dt><span class="mark_dt3">[補足]</span></dt>
-<dd>(2)は、gettext関数でも問題ないように見えますが、折り返しがある場合や、タブコードがある場合、 gettext関数では正常に内容を(簡単には)取得できません。
+<dd>
+(2)は、gettext関数でも問題ないように見えますが、折り返しやタブコードがある場合、
+gettext関数では正常に内容を(簡単には)取得できません。
 </dd>
 </dl>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0081A.html">←前へ</a> <a href="HMM0083A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0081A.html">←前へ</a> <a href="./HMM0083A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

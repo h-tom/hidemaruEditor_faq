@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第IV部〜テキスト編集を極める！！<br>　タグ付き正規表現とは?</h1>
 <hr />
@@ -34,7 +39,7 @@
 Prel等で使用されているグルーピング指定である「<code>()</code>」括弧でのタグ指定が可能になっています。
 (旧バージョンとの互換性から、現状でも"\f"を使う方法も指定可能ですが、「HMJRE.DLL」を使用している場合は使わないほうがいいです)</p>
 <p>以降の説明は、正規表現エンジンに「HMJRE.DLL」を使用する前提で行います。</p>
-<p>タグ付き正規表現により検索でヒットした文字列の一部又は全体を、置換文字列の一部又は全体として利用できるようになりました。ただし「正規表現」自体が解らないと、さっぱり意味が通じなくなるので、「タグ付き正規表現」を自在に操りたい人はまず「<a href="4_regular.html">正規表現</a>」を使いこなせるようにしましょう(^^)。</p>
+<p>タグ付き正規表現により検索でヒットした文字列の一部又は全体を、置換文字列の一部又は全体として利用できるようになりました。ただし「正規表現」自体が解らないと、さっぱり意味が通じなくなるので、「タグ付き正規表現」を自在に操りたい人はまず「<a href="./4_regular.html">正規表現</a>」を使いこなせるようにしましょう(^^)。</p>
 <p>秀丸エディタがサポートしているタグ付き正規表現の仕様は、秀丸エディタのヘルプの「検索系コマンド」-
 <a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular_PerlTag.html" class="externallink" target="_blank" rel="noopener">「タグ付き正規表現による置換について」</a>に書かれています。以下では、この仕様をもとにして実際の使い方を説明していきます。</p>
 <div class="title-li">
@@ -136,13 +141,13 @@ Prel等で使用されているグルーピング指定である「<code>()</cod
 </dd>
 <dt><strong>5. ある種のデータが何行かおきに一纏まりとなっている物を1行 1レコードにし、表計算やデータベースで使いやすいよう整形したい場合</strong></dt>
 <dd>
-<p>この例では、例えば下記のように
-aaa
+<p>この例では、例えば下記のように</p>
+<pre><code>aaa
 111
 あああ
 bbb
 222
-いいい</p>
+いいい</code></pre>
 <p>という内容を</p>
 <pre><code>aaa,111,あああ
 bbb,222,いいい</code></pre>
@@ -169,7 +174,7 @@ bbb,222,いいい</code></pre>
 </dl>
 <hr />
 <p>その他に、hmjre.dll独自の記法ですが、"ヒットした扱いにするタグ指定 (?\tag-number)"という物もあります。これは、正規表現中の一部分のみマッチさせたい場合に使用します。</p>
-<pre><code>    検索文字列:秀丸(エディタ)(?\1)</code></pre>
+<pre><code>検索文字列:秀丸(エディタ)(?\1)</code></pre>
 <p>これで、"秀丸"が前にある"<strong>エディタ</strong>"が検索可能です。本来は、"<strong>秀丸エディタ</strong>"にヒットしますが、
 <strong><code>(?\1)</code></strong>で、<strong>"\1"</strong>に当たる"<strong>エディタ</strong>"のみ、ヒットさせるように指示しています。<br />
 現状では、"先読み"や"戻り読み"がありますが、これらがサポートされていないバージョンでは、正規表現の一部のみマッチさせるのに使っていました。</p>
@@ -185,11 +190,11 @@ bbb,222,いいい</code></pre>
 <pre><code>(aaa(bbb)ccc)(ddd)
  ------------ ---
  \1           \2</code></pre>
-<p>と、解釈され、(bbb)は、タグの対象になりません。</p>
+<p>と、解釈され(bbb)はタグの対象になりません。</p>
 <p>これは、"\f"と、括弧を使ったタグ指定の整合性をとるための制限になります。
 ("\f"では入れ子は表現できない)</p></li>
 <li><p>タグの最大数は15までです。(Ver8.58で9から15へ変更)
-10以上は、\g{10}と記述します。10未満でも、同様に\g{1}と記述可能です。</p>
+10以上は、\g{10}と記述します。10未満でも同様に\g{1}と記述可能です。</p>
 <pre><code>\10</code></pre>
 <p>と記述しても、"\1"と"0"と認識されるので注意する事。</p></li>
 </ol>
@@ -206,9 +211,9 @@ bbb,222,いいい</code></pre>
 <pre><code>例：..\f\0</code></pre>
 <p>と記述しても、2文字の後に"0"がある箇所にマッチします。</p></li>
 <li><p>正規表現が有効で、検索文字列に"\f"が含まれる場合、タグの処理は秀丸エディタ本体が行います。</p>
-<p>検索に"\f"が含まれない場合、括弧によるタグの処理は、正規表現DLLで行われます。
+<p>検索に"\f"が含まれない場合、括弧によるタグの処理は正規表現DLLで行われます。
 <span class="font_red_bold">"\f"と括弧が混在するタグ指定は出来ません。</span></p>
-<p>混在した場合は、秀丸エディタ本体で"\f"を処理する都合上、"\f"が優先され、括弧でのタグ指定は無視されます。
+<p>混在した場合は、秀丸エディタ本体で"\f"を処理する都合上、"\f"が優先され括弧でのタグ指定は無視されます。
 (グルーピングとしては機能する)</p></li>
 </ul>
 </section>

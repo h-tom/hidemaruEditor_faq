@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HME0018B] ●瞬間起動機能がメモリやシステムリソースを圧迫する - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,28 +27,36 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0018A.html">←前へ</a> <a href="HME0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0018A.html">←前へ</a> <a href="./HME0019A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hme0018b">[HME0018B]</h1>
-<h2 id="HME0018B_01">●瞬間起動機能がメモリやシステムリソースを圧迫する</h2>
+<section id="hme0018b" class="level1">
+<h1>[HME0018B]</h1>
+<section id="HME0018B_01" class="level2">
+<h2>●瞬間起動機能がメモリやシステムリソースを圧迫する</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>秀丸エディタの瞬間起動機能は低スペックのマシン向けと言われていますが、実際この機能を使うと、メモリやシステムリソースを圧迫してしまうようです。本当に、この機能をONにしておいた方がよいのでしょうか？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>秀丸エディタの瞬間起動機能は低スペックのマシン向けと言われていますが、実際この機能を使うと、メモリやシステムリソースを圧迫してしまうようです。本当に、この機能をONにしておいた方がよいのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>秀丸エディタの瞬間起動機能は、歴史的には、Ver.2.00(32bit版)が出来たとき、以前のVer.1.48までの16bit版に比べて秀丸エディタの起動に時間がかかってしまうのを改善するために設けられた設定です。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>秀丸エディタの瞬間起動機能は、歴史的にはVer.2.00(32bit版)が出来たとき、以前のVer.1.48までの16bit版に比べて秀丸エディタの起動に時間がかかってしまうのを改善するために設けられた設定です。</p>
 <p>一旦起動した秀丸エディタをリサイクルすることにより、新規にプロセスを起動するよりも速く秀丸エディタのウィンドウを開くことを可能にしています。</p>
 <p>但し、表示されませんが裏で秀丸エディタウィンドウを残したままの状態にしているため、その枚数分のメモリやシステムリソースを消費することになります。</p>
 <p>OSのシステムリソースに関しては、NT系OS(NT4.0、2000、XP、Vista、7、8、10)では、大幅に改善されています。特に理由がなければ、常駐機能および瞬間起動機能はONにしておきましょう。</p>
-<p>「秀丸エディタの瞬間起動」を利用するには、「秀丸エディタの常駐」も設定する必要があります。設定方法は、<a href="HME0017A.html">[HME0017A]●知らない秀丸がメモリー上に残っている</a>を参考にしてください。</p>
+<p>「秀丸エディタの瞬間起動」を利用するには、「秀丸エディタの常駐」も設定する必要があります。設定方法は、<a href="./HME0017A.html">[HME0017A]●知らない秀丸がメモリー上に残っている</a>を参考にしてください。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0018A.html">←前へ</a> <a href="HME0019A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0018A.html">←前へ</a> <a href="./HME0019A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

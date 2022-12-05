@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HME0094A] ●TeXとの連携 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,20 +27,25 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0093A.html">←前へ</a> <a href="HME0095A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0093A.html">←前へ</a> <a href="./HME0095A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hme0094a">[HME0094A]</h1>
-<h2 id="HME0094A_01">●TeXとの連携</h2>
+<section id="hme0094a" class="level1">
+<h1>[HME0094A]</h1>
+<section id="HME0094A_01" class="level2">
+<h2>●TeXとの連携</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>秀丸エディタで TeX を利用したいのですが、どうすればよいのでしょう？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>秀丸エディタで TeX を利用したいのですが、どうすればよいのでしょう？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>まず、TeX 本体やプレヴューワのインストールと動作確認を確実に行いましょう。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>まず、TeX 本体やプレヴューワのインストールと動作確認を確実に行いましょう。</p>
 <p>簡単に説明すると、TeX とは組版ソフトウェアであり、テキスト中に書式設定文字列などを埋め込んだものをベースに美しい表示・印刷出力を得るものです。そのコンパイルやプレビューなどを行うために、専用のソフトウェア群（TeX ディストリビューション）が必要になります。</p>
 <p>まずは TeX をインストールしておきます。お使いの書籍や、入手元のサイトのドキュメントを良くお読みの上、まずインストール作業を終了してください。<br />
 例えば TeX Wiki 内の説明<a href="https://texwiki.texjp.org/?Microsoft%20Windows" class="externallink" target="_blank" rel="noopener">https://texwiki.texjp.org/?Microsoft Windows</a>を参考にされると良いでしょう。<br />
@@ -48,11 +59,13 @@
 統合環境を目指していて、コンパイル、プレヴュー、コマンド補完と一通りそろっている<br />
 <a href="https://www.ms.u-tokyo.ac.jp/~abenori/soft/fortex.html" class="externallink" target="_blank" rel="noopener">https://www.ms.u-tokyo.ac.jp/~abenori/soft/fortex.html</a></p></li>
 </ul>
-<p>[TIPS]<br />
-TeX では開く括弧「{」に対して、閉じる括弧「}」を対応させる必要がありますが、いざコンパイルしたときに間違いが解っても、何処で間違っているのかなかなか解りません。<br />
-そのような時は、lacheckという TeXの文法チェッカを使用した次のマクロを使うと良いでしょう。 lacheck は上記 TeX Wiki 内の説明に従った場合は既にインストールされています。</p>
-<div class="macro">
-<pre><code>//TeX の原稿を、lacheck で check する
+<dl>
+<dt><span class="mark_dt3">[TIPS]</span></dt>
+<dd>
+<p>TeX では開く括弧「{」に対して、閉じる括弧「}」を対応させる必要がありますが、いざコンパイルしたときに間違いが解っても、何処で間違っているのかなかなか解りません。<br />
+そのような時は、lacheckという TeXの文法チェッカを使用した次のマクロを使うと良いでしょう。
+lacheck は上記 TeX Wiki 内の説明に従った場合は既にインストールされています。</p>
+<pre class="macro"><code>//TeX の原稿を、lacheck で check する
 setcompatiblemode 0x20000;
 $name = basename2;
 openfile &quot;/h&quot;;
@@ -71,12 +84,16 @@ gofiletop;
 clearupdated;
 title &quot;lacheck 出力結果 | &quot; + $name;
 title -1;</code></pre>
-</div>
+</dd>
+</dl>
 </dd>
 </dl>
 </div>
 <!-- 原稿協力：あべのりゆき氏 -->
 <hr />
-<p><span class="link_navigate"><a href="HME0093A.html">←前へ</a> <a href="HME0095A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0093A.html">←前へ</a> <a href="./HME0095A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

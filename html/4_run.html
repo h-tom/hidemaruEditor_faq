@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="top" class="level1">
 <h1>第IV部〜テキスト編集を極める！！<br>　プログラム実行を利用したテキストの加工</h1>
 <hr />
@@ -41,14 +46,13 @@ PowerShellが導入されたことで色々な編集に活用できます。</p>
 <section id="PROGRAM" class="level3">
 <h3>【１】プログラム実行の方法</h3>
 <p>「プログラム実行」で標準入出力を使うを使う方法は、２通りあります。</p>
-<p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>にある、</p>
+<p>「<a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>」にある、以下の項目を参照してください。</p>
 <div class="title-li">
 <ul>
 <li><a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a></li>
 <li><a href="./2_program.html#PROGRAM2">【３】プログラム実行の方法その2</a></li>
 </ul>
 </div>
-<p>を参照してください。</p>
 <p>どちらの方法を使うかは、実行するプログラムや、編集しているファイルの文字コードによります。</p>
 <p>開いているファイルが「Shift_JIS」で、標準入力と標準出力の文字コードが「Shift_JIS」で動作するプログラム
 (もしくは、入出力のエンコードが起動オプションで指定可能なプログラム)である場合は、"&lt;con"、"&gt;con" を使うのが簡単です。コマンドラインに「 &lt;con &gt;con」と付けて実行することで、外部プログラムの標準入力に現在の選択範囲を渡し、標準出力を選択範囲に出力できます。</p>

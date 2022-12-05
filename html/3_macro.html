@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　マクロを実行してみよう</h1>
 <hr />
@@ -68,7 +73,7 @@
 <pre><code>例) %USERPROFILE%\Documents\Hidemaru\StoreAppMacro</code></pre>
 <p>マクロフォルダはユーザーフォルダでなくてもかまいませんが、書き込み可能なフォルダを指定してください。フォルダの名前は任意に指定可能です。<a href="#exp2">(注2)</a></p>
 <p>デフォルト以外の場所にマクロフォルダを作成した場合には、設定を変更する必要があります。メニューの「その他 → <span class="env">動作環境</span>」で動作環境を開き、「環境」にある「パス」の「マクロファイル用のフォルダ」で設定します。</p>
-<p><img src="3_macro_01.png" width="604" height="189" alt="環境-パス" /><br />
+<p><img src="./3_macro_01.png" width="604" height="189" alt="環境-パス" /><br />
 </p>
 <p>タイプミスをするといけないので<span class="btn-push">[参照...]</span>ボタンを押して、先ほど作成したフォルダを選択してください。<span class="btn-push">「OK」</span>を選んで設定を終了します。<span class="btn-push">「キャンセル」</span>で終了すると、設定を変更したことにはならないので注意して下さい。</p>
 <p>これで作業は終了です。この作業は最初に１回だけやる必要があります。マクロ用フォルダの名前や場所を変えない限り、この作業をやりなおす必要はありません。</p>
@@ -84,7 +89,7 @@
 (64bit OSで、32bit版秀丸エディタを使っている場合、インストール先は"C:\Program Files(x86)\Hidemaru"になり、ここも保護されたフォルダになります)</p>
 <p>デフォルトマクロフォルダが指定されているユーザーフォルダは、エクスプローラでも見えないような設定になっています(OS側の設定)。見えるようにするにはOSの設定を変更する必要があります。
 (「フォルダーオプション」の「隠しファイル、隠しフォルダー、および隠しドライブを表示する」を選ぶ)</p>
-<p><img src="3_macro_02.png" width="444" height="540" alt="フォルダーオプション" /><br />
+<p><img src="./3_macro_02.png" width="444" height="540" alt="フォルダーオプション" /><br />
 </p>
 <p>OS側の設定を変更したくない場合は、ユーザーフォルダ以外にマクロフォルダを作成する必要があります。</p>
 <p>秀丸エディタの仕様ではマクロ用のフォルダは必ずしも準備しなくてもいいことになっていますが、
@@ -105,13 +110,13 @@
 <p>「とりあえず実行してみる」には、メニューから「マクロ→マクロ実行」を選びます。</p>
 </div>
 <p>ダイアログの中に、【１】でマクロ用フォルダに含まれるマクロファイルのリストが表示されます。その中から実行したいマクロファイルを選び、ファイル名のテキストボックスの中にそのファイル名が表示されたのを確認してから<span class="btn-push">「OK」</span>をクリックします。これで、そのマクロが実行されます。</p>
-<p><img src="3_macro_execute.png" width="406" height="395" alt="マクロの実行ダイアログ" /><br />
+<p><img src="./3_macro_execute.png" width="406" height="395" alt="マクロの実行ダイアログ" /><br />
 </p>
 <p>マクロ実行ダイアログは変更可能です。「<span class="env">動作環境</span> − 環境 − 高度な環境 − マクロ実行ダイアログ」で設定します。</p>
-<p><img src="3_macro_execute3.png" width="605" height="70" alt="マクロの実行ダイアログの設定" /><br />
+<p><img src="./3_macro_execute3.png" width="605" height="70" alt="マクロの実行ダイアログの設定" /><br />
 </p>
 <p>「参照ダイアログ」の場合、ファイル選択ダイアログが開きます。マクロをフォルダで分類しているような場合には、こちらのダイアログの方が便利でしょう。</p>
-<p><img src="3_macro_execute2.png" width="650" height="476" alt="マクロの実行　参照ダイアログ" /><br />
+<p><img src="./3_macro_execute2.png" width="650" height="476" alt="マクロの実行　参照ダイアログ" /><br />
 </p>
 </section>
 <section id="REGIST" class="level3">
@@ -125,13 +130,13 @@
 </ul>
 </div>
 <p>まず「マクロ→マクロ登録」で「マクロ登録」ダイアログを呼び出します。マクロ登録では「マクロ1」から「マクロ80」まで80個のマクロを登録できます。これらは「1〜10」「11〜20」という10個づつのグループになっていて、ダイアログの左側にある「対象」で切り替えることができます。</p>
-<p><img src="3_macro_registration2.png" width="606" height="415" alt="マクロの登録ダイアログ" /><br />
+<p><img src="./3_macro_registration2.png" width="606" height="415" alt="マクロの登録ダイアログ" /><br />
 </p>
 <p>「1〜10」グループに登録したマクロは、「マクロ」のプルダウンメニューの中にタイトルが表示され、そこから直接起動できます。<br />
 「11〜20」グループ以降に登録したものは、プルダウンメニューの中にグループ名が表示されます。<br />
 グループ名を選択すると該当するグループに登録されたマクロのタイトルのメニューが表示され、そこからマクロを起動できます。</p>
 <p>メニューの「マクロ」を開いたところ<br />
-<img src="HMM0012A_01.png" width="417" height="306" alt="マクロのメニュー" /><br />
+<img src="./HMM0012A_01.png" width="417" height="306" alt="マクロのメニュー" /><br />
 </p>
 <p>追加したいマクロ番号を「対象」とリストから選択後、リスト下段にあるタイトルとファイル名の入力欄で各項目を入力します。<br />
 ファイル名右側の「<strong><span class="rotate90">＞</span></strong>」ボタンでリストが出ます。「<strong>...</strong>」ボタンで、ファイル参照ダイアログを使って、マクロファイルを選択できます。</p>
@@ -155,8 +160,8 @@
 </div>
 <p>まず「その他→キー割り当て」でキー割り当てのダイアログを呼び出します。</p>
 <div style="position:relative;">
-<p><img src="2_custom_31.png" width="737" height="401" alt="キー割り当てのダイアログ" />
-<img src="keymap_v890.png" width="737" height="401" alt="キー割り当てのダイアログ-v890" style="position: absolute; left: 0px; top: 0px;"/></p>
+<p><img src="./2_custom_31.png" width="737" height="401" alt="キー割り当てのダイアログ" />
+<img src="./keymap_v890.png" width="737" height="401" alt="キー割り当てのダイアログ-v890" style="position: absolute; left: 0px; top: 0px;"/></p>
 </div>
 <p>「キーに対するコマンド」と「コマンドに対するキー」のタブが表示されていますが、割り当てる主体が「キー」なのか「コマンド」になるかの違いです。
 (説明は「キーに対するコマンド」で行います)</p>
@@ -193,9 +198,9 @@ Ctrl+1〜Ctrl+9のキー割り当ては「マクロ1」〜「マクロ9」に固
 <p>まず「その他→<span class="env">動作環境</span>→ウィンドウ」の「&#9744;ツールバー」の項目がチェックされていなかったら、これをチェックします。さらに[詳細]ボタンをクリックし、「ツールバー詳細」のダイアログを呼び出します。右側のボックスでコマンド系列に「メニュー/マクロ系」を指定すると、その下のリストに「マクロ1」から「マクロ10」までの（数字のデザインの）アイコンが表示されます。(11〜80まではアイコンがありません)
 これらは「マクロ登録」で「マクロ1」〜「マクロ80」へ割り当てたマクロに対応していますから、適宜選んで中央の[追加]ボタンをクリックすると、左側のツールバーリストの最後尾に追加されます。アイコンの並びは<span class="btn-push">「一つ上に」</span> <span class="btn-push">「一つ下に」</span>ボタンで調整します。作業が終わったら<span class="btn-push">&lt;OK&gt;</span>ボタンで終了します。</p>
 <p>これで、メニューの下のツールバーの数字のアイコンから直接マクロを起動できるようになります。</p>
-<p><img src="3_macro_toolbar.png" width="572" height="439" alt="ツールバーカスタマイズのダイアログ" /><br />
+<p><img src="./3_macro_toolbar.png" width="572" height="439" alt="ツールバーカスタマイズのダイアログ" /><br />
 </p>
-<p><img src="3_macro_toolbar2.png" width="579" height="133" alt="ツールバーカスタマイズ結果" /><br />
+<p><img src="./3_macro_toolbar2.png" width="579" height="133" alt="ツールバーカスタマイズ結果" /><br />
 </p>
 </section>
 <section id="USERMENU" class="level3">
@@ -204,10 +209,10 @@ Ctrl+1〜Ctrl+9のキー割り当ては「マクロ1」〜「マクロ9」に固
 <p>秀丸エディタには「メニュー1」から「メニュー8」および「選択中右ボタン」という９つのユーザーメニュー(ユーザーが自由に編集できるメニュー)が用意されています。ここに「マクロ1」から「マクロ80」までのマクロを登録できます。これを利用するためには、「メニューの編集」と「メニューのキー割り当て」の２段階の準備が必要になります。</p>
 </div>
 <p>まずメニューの編集をします。「その他→メニュー編集」で「メニューの編集」のダイアログを呼び出し、「ユーザーメニュー」のタブを選択します。「メニュー」欄で編集するメニューを選択すると、そのメニューの現在の内容が「内容」のリストに表示されます。</p>
-<p><img src="3_macro_usermenu.png" width="482" height="453" alt="ユーザーメニュー" /><br />
+<p><img src="./3_macro_usermenu.png" width="482" height="453" alt="ユーザーメニュー" /><br />
 </p>
 <p>[追加...]ボタンで「追加」ダイアログを呼び出します。</p>
-<p><img src="3_macro_usermenu_add.png" width="322" height="333" alt="ユーザーメニューの追加" /><br />
+<p><img src="./3_macro_usermenu_add.png" width="322" height="333" alt="ユーザーメニューの追加" /><br />
 </p>
 <p>コマンド系列に「メニュー/マクロ」を指定すると、下のリストに「マクロ1」から「マクロ80」までが表示されます<a href="#exp6">(注6)</a>。メニューに追加したいものをクリックして選択表示させ、「キー」欄に半角英数字１文字を入力します（この半角英数字はメニュー内での一種のショートカットキーになります）。ここで[追加]をクリックすると、「ユーザーメニューの設定」ダイアログに戻るので、「内容」リストの末尾に先ほど指定したマクロが追加されていることを確認して下さい。必要なら並べ替え等をし、[閉じる]で終了します。これでメニューの編集は終わりです。</p>
 <p>「メニュー1」から「メニュー8」の場合、次にメニューのキー割り当てをします<a href="#exp7">(注7)</a>。要領は【５】とほぼ同じです。違うのはコマンドリストから選ぶのが「マクロ」ではなく「メニュー」であるということだけです。</p>
@@ -240,54 +245,46 @@ Ctrl+1〜Ctrl+9のキー割り当ては「マクロ1」〜「マクロ9」に固
 <h4>サンプルマクロその１</h4>
 <p>「カーソル位置に現在日時を挿入するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL1.MAC としてください。</p>
-<div class="macro">
-<pre><code>//---ここから
+<pre class="macro"><code>//---ここから
 //QA_SMPL1.MAC
 insert date + &quot; &quot; + time;
 endmacro;
 //---ここまで</code></pre>
-</div>
 </section>
 <section id="SAMPLE2" class="level4">
 <h4>サンプルマクロその２</h4>
 <p>「編集中のテキストの末尾に『自分の名前』をの行を挿入するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL2.MAC としてください。<br />
 「自分の名前」のところは任意の文字列（ただし「vや「"」を含まない）に置き換えることができます。</p>
-<div class="macro">
-<pre><code>//---ここから
+<pre class="macro"><code>//---ここから
 //QA_SMPL2.MAC
 gofileend;
 insert &quot;\n&quot; + &quot;自分の名前&quot; + &quot;\n&quot;;
 endmacro;
 //---ここまで</code></pre>
-</div>
 </section>
 <section id="SAMPLE3" class="level4">
 <h4>サンプルマクロその３</h4>
 <p>「改行のみの行が連続していたら１行に置換するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL3.MAC としてください。</p>
-<div class="macro">
-<pre><code>//---ここから
+<pre class="macro"><code>//---ここから
 //QA_SMPL3.MAC
 gofileend;
 replaceup &quot;^\\n\\n+&quot;, &quot;\n&quot;, regular;
 while (result) findup;
 endmacro;
 //---ここまで</code></pre>
-</div>
-<p>このマクロの意味の詳細は、<a href="4_regular.html">第IV部〜テキスト編集を極める！！正規表現について</a> の<a href="4_regular.html#RETURNS">【５】 (補足)秀丸エディタ上での複数行にまたがる検索について</a>を参照してください。</p>
+<p>このマクロの意味の詳細は、<a href="./4_regular.html">第IV部〜テキスト編集を極める！！正規表現について</a> の<a href="./4_regular.html#RETURNS">【５】 (補足)秀丸エディタ上での複数行にまたがる検索について</a>を参照してください。</p>
 </section>
 <section id="SAMPLE4" class="level4">
 <h4>サンプルマクロその４</h4>
 <p>「空白（全角スペース、半角スペース、タブ）のみからなる行を改行のみの行に置換するマクロ」</p>
 <p>保存時のファイル名は QA_SMPL4.MAC としてください。</p>
-<div class="macro">
-<pre><code>//---ここから
+<pre class="macro"><code>//---ここから
 //QA_SMPL4.MAC
 replaceall &quot;^[ 　\\t]+$&quot;,&quot;&quot;, regular;
 endmacro;
 //---ここまで</code></pre>
-</div>
 <p>※このマニュアルは秀丸エディタ Ver.3.08
 の仕様を元に書かれています。秀丸エディタのバージョンによっては、必ずしもここに書かれている内容の通りとは限りません。</p>
 </section>

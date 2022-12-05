@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0077A] ●マクロでの文字列の比較 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,20 +27,25 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0076A.html">←前へ</a> <a href="HMM0078A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0076A.html">←前へ</a> <a href="./HMM0078A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0077a">[HMM0077A]</h1>
-<h2 id="HMM0077A_01">●マクロでの文字列の比較</h2>
+<section id="hmm0077a" class="level1">
+<h1>[HMM0077A]</h1>
+<section id="HMM0077A_01" class="level2">
+<h2>●マクロでの文字列の比較</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>マクロのif文で文字列の比較はできますか? 単純に、if ($a &lt; $b)などと比較すると、時々比較結果が変に感じるのですが…。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>マクロのif文で文字列の比較はできますか? 単純に、if ($a &lt; $b)などと比較すると、時々比較結果が変に感じるのですが…。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>できます。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>できます。</p>
 <p>ただし、比較のルールは文字コード順ではなく、辞書引き順となります。</p>
 <p>大小比較をする場合は注意が必要です。辞書引き順のルールは以下のようになっているようです。</p>
 <p>(以下は、本Ｑ＆Ａ執筆者が独自に調査した結果を基に記述しています。このルールに基づかない結果になることがあるかもしれません)</p>
@@ -70,13 +81,13 @@
 &#160;例) "カク" &lt; "カ゛ク"（半角カタカナ）</div>
 <p>ここまでで2つの文字列に違いが見られない場合、2つの文字列は同じであるという結果になります。<br />
 </p>
-<p>例) "バ"=="ハ゛" 漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、ご自身で確かめてみましょう。</p>
+<p>例) "バ"=="ハ゛"
+漢字や記号など言及していない部分もあります（一部、例２も参照ください）が、ここで挙げていくときりがないので、ご自身で確かめてみましょう。</p>
 <hr />
 <p><strong>（例１）</strong><br />
 次のマクロは、編集中のテキストのカーソル位置から、英大文字で始まる単語を取得して1単語ずつダイアログボックスに表示させようとしたものです。</p>
 <p>ファイルの最後に達するまで繰り返します。</p>
-<div class="macro">
-<pre><code>gowordtop;
+<pre class="macro"><code>gowordtop;
 #x1 = x;
 #y1 = y;
 while( 1 ) {
@@ -92,13 +103,12 @@ while( 1 ) {
     #x1 = x;
     #y1 = y;
 }</code></pre>
-</div>
 <p>英単語かどうかの判断に文字列の比較を使用しています (*1 の行)。<br />
-("A"〜"Z"で始まる単語を英単語であると判断) このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
-<p>正しく英大文字で始まる単語のみを表示するには、*1 の行を次のように変更します。</p>
-<div class="macro">
-<pre><code>if( ascii($s1) &gt;= &#39;A&#39; &amp;&amp; ascii($s1) &lt;= &#39;Z&#39; ) { // *1</code></pre>
-</div>
+("A"〜"Z"で始まる単語を英単語であると判断)
+このマクロは英大文字で始まる単語のみを表示する目的で作成したものですが、前述したルールにより英小文字で始まる単語も表示してしまいます。</p>
+<p>正しく英大文字で始まる単語のみを表示するには、*1
+の行を次のように変更します。</p>
+<pre class="macro"><code>if( ascii($s1) &gt;= &#39;A&#39; &amp;&amp; ascii($s1) &lt;= &#39;Z&#39; ) { // *1</code></pre>
 <p>比較対象を文字(列)のままではなく文字コードに変換して比較します。<br />
 ※ AとZの囲みがシングルクォートに変わっていることに注意。</p>
 <hr />
@@ -113,8 +123,7 @@ while( 1 ) {
 "㈱ヽ"=="㈱㈱"<br />
 "山ゞ"=="山山゛"</div>
 <p>厳密に（単純に）同じ文字列か比較を行いたい場合は、以下のような方法があります。</p>
-<div class="macro">
-<pre><code>$a = input (&quot;１個め&quot;, &quot;&quot;);
+<pre class="macro"><code>$a = input (&quot;１個め&quot;, &quot;&quot;);
 $b = input (&quot;２個め&quot;, &quot;&quot;);
 // 秀丸エディタの比較演算子による文字列比較 (WIN32 API のlstrcmp()と同じ)
 if ($a == $b) {
@@ -135,11 +144,11 @@ if (($a == &quot;&quot;) &amp;&amp; ($b == &quot;&quot;)) {
     message &quot;$a と $b は違う文字列です。&quot;;
 }
 endmacro;</code></pre>
-</div>
 <p>厳密な（単純な）大小関係を知りたい場合は、ascii関数を使って１文字ずつ比較する方法があります。</p>
 <dl>
 <dt><span class="mark_dt3">[解説]</span></dt>
-<dd>Win32API の lstrcmp() についての詳細は以下を参照してください。<br />
+<dd>
+Win32API の lstrcmp() についての詳細は以下を参照してください。<br />
 <a href="https://msdn.microsoft.com/ja-jp/windows/ms647488(v=vs.80)" class="externallink" target="_blank" rel="noopener">lstrcmp 関数</a>
 </dd>
 </dl>
@@ -148,6 +157,9 @@ endmacro;</code></pre>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0076A.html">←前へ</a> <a href="HMM0078A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0076A.html">←前へ</a> <a href="./HMM0078A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

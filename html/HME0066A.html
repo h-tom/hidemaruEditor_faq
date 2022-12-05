@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HME0066A] ●漢字だけを探したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,25 +27,31 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0065A.html">←前へ</a> <a href="HME0067A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0065A.html">←前へ</a> <a href="./HME0067A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hme0066a">[HME0066A]</h1>
-<h2 id="HME0066A_01">●漢字だけを探したい</h2>
+<section id="hme0066a" class="level1">
+<h1>[HME0066A]</h1>
+<section id="HME0066A_01" class="level2">
+<h2>●漢字だけを探したい</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>半角の英数文字と漢字が混ざっている文書で、漢字だけを検索したいのですが、どうしたらいいのでしょうか？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>半角の英数文字と漢字が混ざっている文書で、漢字だけを検索したいのですが、どうしたらいいのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><ul>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<ul>
 <li><p>Shift_JISの場合<br />
 正規表現で「[亜-&#40657;]」を検索して下さい。この指定で、「亜」から「&#40657;」の間の文字コードをもつ文字が検索できます。つまり、すべての漢字が検索できるわけです。</p>
 <dl>
 <dt><span class="mark_dt3">[解説]</span></dt>
-<dd><p>なお、最後の漢字は区点コードで次のようになっているようです。</p>
+<dd>
+<p>なお、最後の漢字は区点コードで次のようになっているようです。</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -62,7 +74,8 @@
 </dd>
 </dl></li>
 <li><p>unicodeの場合<br />
-Unicodeを使用している場合は、「[亜-&#40657;]」では、全ての漢字を検索することはできません。 Unicodeで漢字のみを示す正規表現は、かなり長くなります。</p>
+Unicodeを使用している場合は、「[亜-&#40657;]」では、全ての漢字を検索することはできません。
+Unicodeで漢字のみを示す正規表現は、かなり長くなります。</p>
 <div class="macro">
 <pre><code>[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DB5\u4E00-\u9FC3\uF900-\uFA2D\uFA30-\uFA6A\uFA70-\uFAD9]</code></pre>
 </div>
@@ -81,6 +94,9 @@ Unicodeを使用している場合は、「[亜-&#40657;]」では、全ての�
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0065A.html">←前へ</a> <a href="HME0067A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0065A.html">←前へ</a> <a href="./HME0067A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

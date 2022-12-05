@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HME0091A] ●ファイルタイプ別の設定の方法 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,20 +27,25 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HME0090A.html">←前へ</a> <a href="HME0092A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0090A.html">←前へ</a> <a href="./HME0092A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hme0091a">[HME0091A]</h1>
-<h2 id="HME0091A_01">●ファイルタイプ別の設定の方法</h2>
+<section id="hme0091a" class="level1">
+<h1>[HME0091A]</h1>
+<section id="HME0091A_01" class="level2">
+<h2>●ファイルタイプ別の設定の方法</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>「その他」-「ファイルタイプ別の設定」ダイアログの設定を変更したいのですがうまくいきません。設定直後は正しく設定できているように見えるのですが、別のファイルを開くと設定が反映されていません。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>「その他」-「ファイルタイプ別の設定」ダイアログの設定を変更したいのですがうまくいきません。設定直後は正しく設定できているように見えるのですが、別のファイルを開くと設定が反映されていません。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>秀丸エディタの「<span class="filetype">ファイルタイプ別の設定</span>」は、その名の通り、ファイルの拡張子ごとに(<a href="#ext">*</a>)設定ができる機能です。そのため、設定したい拡張子に対して正しく設定する必要があります。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>秀丸エディタの「<span class="filetype">ファイルタイプ別の設定</span>」は、その名の通り、ファイルの拡張子ごとに(<a href="#ext">*</a>)設定ができる機能です。そのため、設定したい拡張子に対して正しく設定する必要があります。</p>
 <ol type="1">
 <li><p>まず、対象の拡張子を持つファイルを秀丸エディタで開いて、そのウィンドウから「その他」-「<span class="filetype">ファイルタイプ別の設定</span>」を実行して設定ダイアログを表示させる必要があります。</p></li>
 <li><p>次に、ダイアログ最上部のドロップダウンリストで、設定のリストを表示し、使用したい設定を選択します。</p>
@@ -43,13 +54,17 @@
 <li><p>その後、ダイアログ下部の各項目で、修正したいものがあれば修正します。</p></li>
 <li><p>設定の選択と修正が完了したら、「OK」ボタンを押します。これで、その拡張子のファイルは、以後その設定で表示されるようになります。</p></li>
 </ol>
-<p><a href="2_custom.html#EXT">「第II部〜知っていると便利な秀丸の機能秀丸のカスタマイズ」 の【５】拡張子別の設定</a>も参照のこと。</p>
-<p>なお、設定のリストは、複数の拡張子で共有できます。例えば、「HTMLファイル」という設定リストを作った場合、 *.htmと*.htmlとそれぞれに上記手順で設定することで、両者が同じ設定を利用することができます。</p>
+<p><a href="./2_custom.html#EXT">「第II部〜知っていると便利な秀丸の機能秀丸のカスタマイズ」 の【５】拡張子別の設定</a>も参照のこと。</p>
+<p>なお、設定のリストは、複数の拡張子で共有できます。例えば、「HTMLファイル」という設定リストを作った場合、
+*.htmと*.htmlとそれぞれに上記手順で設定することで、両者が同じ設定を利用することができます。</p>
 <p><span id="ext">*</span>grepの結果や、「その他」-「プログラム実行」の実行結果ウィンドウについても、そのウィンドウを表示させた状態から設定できます。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HME0090A.html">←前へ</a> <a href="HME0092A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HME0090A.html">←前へ</a> <a href="./HME0092A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

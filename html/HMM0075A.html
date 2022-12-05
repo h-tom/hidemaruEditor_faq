@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0075A] ●浮動小数点数版秀丸との互換性 - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,20 +27,25 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0074A.html">←前へ</a> <a href="HMM0076A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0074A.html">←前へ</a> <a href="./HMM0076A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0075a">[HMM0075A]</h1>
-<h2 id="HMM0075A_01">●浮動小数点数版秀丸との互換性</h2>
+<section id="hmm0075a" class="level1">
+<h1>[HMM0075A]</h1>
+<section id="HMM0075A_01" class="level2">
+<h2>●浮動小数点数版秀丸との互換性</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>浮動小数点数版(統合版)の秀丸エディタでマクロを実行すると、これまで通常の秀丸エディタで動作していたマクロの一部が誤動作するのですが、互換性が無いのでしょうか？</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>浮動小数点数版(統合版)の秀丸エディタでマクロを実行すると、これまで通常の秀丸エディタで動作していたマクロの一部が誤動作するのですが、互換性が無いのでしょうか？</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>浮動小数点数版(統合版)の秀丸エディタは、秀丸マクロの数値型変数に、浮動小数点数を格納できるようにしたものです。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>浮動小数点数版(統合版)の秀丸エディタは、秀丸マクロの数値型変数に浮動小数点数を格納できるようにしたものです。</p>
 <p>マクロの文法は、数値 (リテラル) の書き方以外は100%互換がありますが、</p>
 <ol type="1">
 <li>浮動小数点数版のほうが扱える数値の範囲が広い（小数も使える、大きい/小さい値を使える）ので、通常版の数値の仕様におさまらない場合があります。</li>
@@ -47,10 +58,10 @@
 <p>後者の例としては、/（除算）の演算結果を変数に格納すると、通常版秀丸エディタでは整数の商が入り、余りが切り捨てられます。しかし、浮動小数点数版秀丸エディタでは、小数まで含んだ解が入ります。</p>
 <p>その除算の結果をもとに条件判定すると、通常版と浮動小数点数版とで動作が異なる場合が出てきます。</p>
 <p>以下の例は、#space個の半角スペースを$spaceに格納する例です。単にループして半角スペースを１個ずつ足していくよりも、以下のようにしたほうが秀丸マクロでは実行速度が出ます。</p>
-<p>以下のコーディングでは、通常版では正しく動作しますが、浮動小数点数版で動作させると、 whileループが意図したよりも１回多く回ることになります。</p>
+<p>以下のコーディングでは、通常版では正しく動作しますが、浮動小数点数版で動作させると、
+whileループが意図したよりも１回多く回ることになります。</p>
 <p>例えば #space == 10 の場合、#space / 80 == 0 であり、whileループの中のコードは実行されないというのが意図している動作です。浮動小数点数版では、#space / 80 == 0.125 であるため、whileループの中のコードが１回実行されてしまいます。</p>
-<div class="macro">
-<pre><code>$space = &quot;&quot;;
+<pre class="macro"><code>$space = &quot;&quot;;
 #sp1 = #space / 80;
 #sp2 = #space % 80;
 while (#sp1 &gt; 0) {
@@ -58,21 +69,19 @@ while (#sp1 &gt; 0) {
     #sp1 = #sp1 - 1;
 }
 $space = $space + leftstr($space80, #sp2);</code></pre>
-</div>
 <p>通常版も浮動小数点数版も同様に動作させるための方法は、意図している動作とロジックの関係で、必ずしも一概にはいえませんが、この例の場合、while文を</p>
-<div class="macro">
-<pre><code>while (#sp1 &gt;= 1) {</code></pre>
-</div>
+<pre class="macro"><code>while (#sp1 &gt;= 1) {</code></pre>
 <p>と変更することで、通常版も浮動小数点数版でも同様に動作するようになります。</p>
 <p>あるいは、常に整数の商を得るため、</p>
-<div class="macro">
-<pre><code>#sp1 = (#space - (#space % 80)) / 80;</code></pre>
-</div>
+<pre class="macro"><code>#sp1 = (#space - (#space % 80)) / 80;</code></pre>
 <p>としてもよいでしょう。</p>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0074A.html">←前へ</a> <a href="HMM0076A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0074A.html">←前へ</a> <a href="./HMM0076A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

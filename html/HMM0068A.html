@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0068A] ●マクロ中の演算子の意味は？ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,20 +27,25 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0067A.html">←前へ</a> <a href="HMM0069A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0067A.html">←前へ</a> <a href="./HMM0069A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0068a">[HMM0068A]</h1>
-<h2 id="HMM0068A_01">●マクロ中の演算子の意味は？</h2>
+<section id="hmm0068a" class="level1">
+<h1>[HMM0068A]</h1>
+<section id="HMM0068A_01" class="level2">
+<h2>●マクロ中の演算子の意味は？</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>秀丸マクロに使える演算子がヘルプに書いてありますが、私はＣ言語を知らないので、演算子の意味がわかりません。(^^;)</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>秀丸マクロに使える演算子がヘルプに書いてありますが、私はＣ言語を知らないので演算子の意味がわかりません。(^^;)</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>以下の表とマクロ例を参考にしてみてください。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>以下の表とマクロ例を参考にしてみてください。</p>
 <table>
 <caption>演算子</caption>
 <tbody>
@@ -123,8 +134,7 @@
 <ul>
 <li><p><strong>算術演算子の例</strong></p>
 <p>秀丸エディタの数値変数は整数型なので、/（除算）は余りを切り捨てた商の値になります。</p>
-<div class="macro">
-<pre><code>// 除算のマクロ例（ここから）
+<pre class="macro"><code>// 除算のマクロ例（ここから）
 #a = 17;
 #b = 5;
 #c = #a / #b;
@@ -133,20 +143,16 @@ message str(#c); // 3が表示される
 message str(#d); // 2が表示される
 endmacro;
 // （ここまで）</code></pre>
-</div>
 <p>+（加算）は文字変数にも使えます。秀丸マクロ言語は文字変数についてはＣ言語よりもBASIC 等に近いと言えます。</p>
-<div class="macro">
-<pre><code>// 文字列加算のマクロ例（ここから）
+<pre class="macro"><code>// 文字列加算のマクロ例（ここから）
 $a = &quot;秀丸エディタがインストールされているフォルダは、&quot;;
 $b = hidemarudir;
 $c = $a + $b;
 message $c;
 endmacro;
-// （ここまで）</code></pre>
-</div></li>
+// （ここまで）</code></pre></li>
 <li><p><strong>論理演算子の例</strong></p>
-<div class="macro">
-<pre><code>// 論理演算子のマクロ例（ここから）
+<pre class="macro"><code>// 論理演算子のマクロ例（ここから）
 // 現在のカーソル位置の文字種を判定します。
 #c = code;
 if (#c ＞ 0xff) {
@@ -161,10 +167,8 @@ if (#c ＞ 0xff) {
 }
 endmacro;
 // （ここまで）</code></pre>
-</div>
 <p>比較演算子は文字変数に対しても使うことができます。</p>
-<div class="macro">
-<pre><code>// 論理演算子のマクロ例２（ここから）
+<pre class="macro"><code>// 論理演算子のマクロ例２（ここから）
 // 現在のカーソル位置の文字種を判定します。
 $c = char(code);
 if ($c == &quot; &quot;) {
@@ -175,11 +179,9 @@ if ($c == &quot; &quot;) {
     message &quot;その他の文字です&quot;;
 }
 endmacro;
-// （ここまで）</code></pre>
-</div></li>
+// （ここまで）</code></pre></li>
 <li><p><strong>ビット演算子の例</strong></p>
-<div class="macro">
-<pre><code>// ビット演算子の例（ここから）
+<pre class="macro"><code>// ビット演算子の例（ここから）
 // 現在の文字コードを判定します。
 #c = charset &amp; 63;
 if ((#c == 0) || (#c == 1)) {
@@ -188,13 +190,15 @@ if ((#c == 0) || (#c == 1)) {
     message &quot;Shift_JIS以外の文字コードです&quot;;
 }
 endmacro;
-// （ここまで）</code></pre>
-</div></li>
+// （ここまで）</code></pre></li>
 </ul>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0067A.html">←前へ</a> <a href="HMM0069A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0067A.html">←前へ</a> <a href="./HMM0069A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

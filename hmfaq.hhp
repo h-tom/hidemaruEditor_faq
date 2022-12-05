@@ -9,10 +9,10 @@ Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
 Language=0x411 日本語 (日本)
-Title=秀丸エディタＱ＆Ａ集(第9版)
+Title=秀丸エディタＱ＆Ａ集(第9.1版)
 
 [WINDOWS]
-hmeqa="秀丸エディタＱ＆Ａ集(第9版)","hmfaq.hhc","hmfaq.hhk","html\hmindex0.html","html\hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
+hmeqa="秀丸エディタＱ＆Ａ集(第9.1版)","hmfaq.hhc","hmfaq.hhk","html\hmindex0.html","html\hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
 
 
 [FILES]
@@ -23,6 +23,7 @@ html\2_convert.html
 html\2_csv_tsv.html
 html\2_custom.html
 html\2_desktop.html
+html\2_editorconfig.html
 html\2_filemanager.html
 html\2_find.html
 html\2_fuzzy.html
@@ -37,6 +38,7 @@ html\2_outline_functions.html
 html\2_output.html
 html\2_program.html
 html\2_replace.html
+html\2_spellcheck.html
 html\2_template.html
 html\2_vertical.html
 html\2_wordcomplete.html
@@ -45,6 +47,7 @@ html\3_autostartmacro.html
 html\3_bit.html
 html\3_com_object.html
 html\3_debug.html
+html\3_execmacro.html
 html\3_hmjre.html
 html\3_macro.html
 html\3_macrov3.html
@@ -53,9 +56,11 @@ html\3_macrov5.html
 html\3_macrov6.html
 html\3_macrov7.html
 html\3_macrov8.html
+html\3_macrov9.html
 html\3_moremacro.html
 html\3_run.html
 html\3_setcompatiblemode.html
+html\3_staticvariable.html
 html\3_string.html
 html\3_sub.html
 html\3_tabmode.html
@@ -66,7 +71,6 @@ html\4_regular.html
 html\4_run.html
 html\4_tagreg.html
 html\6_publisher.html
-html\6_spellcheck.html
 html\6_takeout.html
 html\HME0001A.html
 html\HME0002A.html
@@ -180,6 +184,7 @@ html\HME0096A.html
 html\HME0097A.html
 html\HME0098A.html
 html\HME0099A.html
+html\HME0100A.html
 html\HMM0001A.html
 html\HMM0002A.html
 html\HMM0003A.html
@@ -269,8 +274,8 @@ html\HMM0084A.html
 html\about_us.html
 html\appendix.html
 html\atogaki.html
+html\base.css
 html\byebye.html
-html\external-link-red03-Shapes4FREE.png
 html\hazimeni.html
 html\hidpatio.html
 html\hmindex0.html

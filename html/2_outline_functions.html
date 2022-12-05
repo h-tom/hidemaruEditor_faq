@@ -10,10 +10,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -22,7 +27,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="hmindex0.html"><img src="hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="TOP" class="level1">
 <h1>第II部〜知っていると便利な秀丸の機能<br>　アウトライン関連 見出し・折りたたみ・部分編集</h1>
 <hr />
@@ -43,61 +48,61 @@
 </ul>
 <section id="EXPLANATION" class="level3">
 <h3>[解説]</h3>
-<p>基本的には「<a href="./2_outline.html">アウトライン解析の枠</a>」の設定が必要ですが、「<a href="#EXPLANATION-3-2">折りたたみ</a>」と「<a href="#EXPLANATION-3-3">部分編集</a>」は、範囲選択する事で実行できます。</p>
+<p>基本的には「<a href="./2_outline.html">アウトライン解析の枠</a>」の設定が必要ですが、「<a href="#EXPLANATION-3-2">折りたたみ</a>」と「<a href="#EXPLANATION-3-3">部分編集</a>」は、範囲選択から実行できます。</p>
 <p>各機能を使うには「見出しバー」や「折りたたみの空白」を表示させます。標準では非表示になっていて、表示するには以下の "&gt;&gt;" を押す事で表示可能です。</p>
-<p><img src="2_outline_functions_001.png" width="450" height="248" alt="各種表示切替1" /><br />
+<p><img src="./2_outline_functions_001.png" width="450" height="248" alt="各種表示切替1" /><br />
 </p>
 <p>もう一度 "&gt;&gt;" を押す事で非表示になります。</p>
-<p><img src="2_outline_functions_002.png" width="524" height="223" alt="各種表示切替2" /><br />
+<p><img src="./2_outline_functions_002.png" width="524" height="223" alt="各種表示切替2" /><br />
 </p>
 <section id="EXPLANATION-1" class="level4">
 <h4>見出しバー</h4>
 <p>カーソルが今どこにあるかを表示します。設定により表示しない事も可能です。
 (<a href="./2_outline.html#option-9">「アウトライン解析の枠 - 見出しバーに表示する対象」</a>)</p>
-<p><img src="2_outline_functions_003.png" width="591" height="262" alt="見出しの表示" /><br />
+<p><img src="./2_outline_functions_003.png" width="591" height="262" alt="見出しの表示" /><br />
 </p>
 <p>見出しバーの矢印を押す事で、見出しの移動が可能です。</p>
-<p><img src="2_outline_functions_004.png" width="420" height="115" alt="見出しの移動" /><br />
+<p><img src="./2_outline_functions_004.png" width="420" height="115" alt="見出しの移動" /><br />
 </p>
 </section>
 <section id="EXPLANATION-2" class="level4">
 <h4>折りたたみ</h4>
-<p>エディタ上の本文を、見出し単位で折りたたむ事が出来ます。折りたたみ可能な箇所は、<img src="2_outline_functions_005.png" width="12" height="12" alt="折りたたみのマーク1" /> で示されます。</p>
-<p><img src="2_outline_functions_006.png" width="418" height="454" alt="折りたたみ前" /><br />
+<p>エディタ上の本文を、見出し単位で折りたたむ事が出来ます。折りたたみ可能な箇所は、<img src="./2_outline_functions_005.png" width="12" height="12" alt="折りたたみのマーク1" /> で示されます。</p>
+<p><img src="./2_outline_functions_006.png" width="418" height="454" alt="折りたたみ前" /><br />
 </p>
-<p>「レベル3-3」で折りたたむと、それ以下のレベルまで折りたたまれます。<img src="2_outline_functions_007.png" width="12" height="12" alt="折りたたみのマーク1" /> をクリックすると展開されます。</p>
-<p><img src="2_outline_functions_008.png" width="414" height="332" alt="折りたたみ後" /><br />
+<p>「レベル3-3」で折りたたむと、それ以下のレベルまで折りたたまれます。<img src="./2_outline_functions_007.png" width="12" height="12" alt="折りたたみのマーク1" /> をクリックすると展開されます。</p>
+<p><img src="./2_outline_functions_008.png" width="414" height="332" alt="折りたたみ後" /><br />
 </p>
 <p>アウトラインの見出しだけではなく、<span class="attention_red">選択範囲を折りたたむ</span>事も可能です。「見出し」ではないので、マーカーが異なります。</p>
-<p><img src="2_outline_functions_009.png" width="417" height="338" alt="範囲選択の折りたたみ前" /><br />
+<p><img src="./2_outline_functions_009.png" width="417" height="338" alt="範囲選択の折りたたみ前" /><br />
 </p>
 <p>範囲選択すると範囲を示すマーカーが出るので、クリックすると折りたたまれます。</p>
-<p><img src="2_outline_functions_010.png" width="417" height="203" alt="範囲選択の折りたたみ前" /><br />
+<p><img src="./2_outline_functions_010.png" width="417" height="203" alt="範囲選択の折りたたみ前" /><br />
 </p>
 <ul>
 <li><p>折りたたみの設定</p>
 <p>折りたたみに関する設定は、「<strong><span class="filetype">ファイルタイプ別の設定</span></strong>」-「アウトライン」-「<strong>折りたたみ</strong>」で変更が可能です。</p>
-<p><img src="2_outline_functions_017.png" width="460" height="248" alt="折りたたみの設定" /><br />
+<p><img src="./2_outline_functions_017.png" width="460" height="248" alt="折りたたみの設定" /><br />
 </p>
 <p>「折りたたみ可能な条件」にある「折りたたみ可能な条件の設定」を押すと詳細設定も可能です。</p>
-<p><img src="2_outline_functions_018.png" width="420" height="473" alt="折りたたみ可能な条件" /><br />
+<p><img src="./2_outline_functions_018.png" width="420" height="473" alt="折りたたみ可能な条件" /><br />
 </p></li>
 </ul>
 </section>
 <section id="EXPLANATION-3" class="level4">
 <h4>部分編集</h4>
 <p>エディタ上の本文を、見出し単位で部分編集状態にする事が出来ます。部分編集になると、グレーアウトされた箇所は編集できません。<strong>検索や置換も、部分編集内に限定</strong>されます。</p>
-<p>部分編集可能な箇所は、<img src="2_outline_functions_005.png" width="12" height="12" alt="折りたたみのマーク1" /> で示され、範囲は点線で示されます。</p>
-<p><img src="2_outline_functions_011.png" width="417" height="331" alt="部分編集前" /><br />
+<p>部分編集可能な箇所は、<img src="./2_outline_functions_005.png" width="12" height="12" alt="折りたたみのマーク1" /> で示され、範囲は点線で示されます。</p>
+<p><img src="./2_outline_functions_011.png" width="417" height="331" alt="部分編集前" /><br />
 </p>
-<p>「レベル3-1」にカーソルがある状態で、見出しバーにある <img src="2_outline_functions_012.png" width="15" height="15" alt="部分編集のチェック" /> をクリックすると部分編集モードになります。</p>
-<p><img src="2_outline_functions_013.png" width="418" height="334" alt="部分編集後" /><br />
+<p>「レベル3-1」にカーソルがある状態で、見出しバーにある <img src="./2_outline_functions_012.png" width="15" height="15" alt="部分編集のチェック" /> をクリックすると部分編集モードになります。</p>
+<p><img src="./2_outline_functions_013.png" width="418" height="334" alt="部分編集後" /><br />
 </p>
 <p>折りたたみと同様に、<span class="attention_red">選択範囲を部分編集</span>にできます。</p>
 <ul>
 <li><p>部分編集対象外部分の表示方法</p>
 <p>デフォルト状態では、部分編集の対象外部分はグレーアウトしますが、表示方法は「<strong><span class="filetype">ファイルタイプ別の設定</span></strong>」-「アウトライン」-「部分編集」-「<strong>部分編集の表示</strong>」で変更が可能です。</p>
-<p><img src="2_outline_functions_014.png" width="411" height="205" alt="部分編集後" /><br />
+<p><img src="./2_outline_functions_014.png" width="411" height="205" alt="部分編集後" /><br />
 </p>
 <div class="mark_dt">
 <dl>
@@ -105,14 +110,14 @@
 <dd>
 <p>デフォルトは「制限モード」になっていて、対象外部分はグレーアウトします。「半透明」にチェックを入れると、対象外部分が半透明になりますが、白背景だとわかりにくいので黒背景に変えてみます。<br />
 画面配色の関係で、グレーアウトでは見にくい場合は半透明を使う方法もあります。</p>
-<p><img src="2_outline_functions_015.png" width="574" height="345" alt="グレーアウトと半透明" /><br />
+<p><img src="./2_outline_functions_015.png" width="574" height="345" alt="グレーアウトと半透明" /><br />
 </p>
 </dd>
 <dt>ローカル編集モード</dt>
 <dd>
 <p>ローカル編集モードは、部分編集部分のみ表示され、あたかも別の文章のように表示されます。
 (行番号も先頭が1から表示される)</p>
-<p><img src="2_outline_functions_016.png" width="417" height="227" alt="ローカル編集モード" /><br />
+<p><img src="./2_outline_functions_016.png" width="417" height="227" alt="ローカル編集モード" /><br />
 </p>
 </dd>
 </dl>

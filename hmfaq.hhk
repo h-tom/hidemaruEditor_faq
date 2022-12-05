@@ -106,6 +106,11 @@
 		<param name="Local" value="html\HME0044A.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="execmacro">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　マクロから別のマクロを実行する方法">
+		<param name="Local" value="html\3_execmacro.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="findwindow">
 		<param name="Name" value="[HMM0031A]●findwindow()の秀丸ファイル名指定時の注意事項">
 		<param name="Local" value="html\HMM0031A.html">
@@ -116,6 +121,11 @@
 		<param name="Local" value="html\3_string.html">
 		<param name="Name" value="[HMM0082A]●カーソルのある行の内容を文字列型変数に取り込む方法">
 		<param name="Local" value="html\HMM0082A.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="getstaticvariable">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　静的な変数について">
+		<param name="Local" value="html\3_staticvariable.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="grep/タグジャンプ">
@@ -1274,6 +1284,11 @@
 		<param name="Local" value="html\3_sub.html">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="setstaticvariable">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　静的な変数について">
+		<param name="Local" value="html\3_staticvariable.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="selecting">
 		<param name="Name" value="秀丸マクロで文字列を編集する">
 		<param name="Local" value="html\3_string.html">
@@ -2341,6 +2356,11 @@
 		<param name="Name" value="編集場所">
 		<param name="Name" value="編集場所について">
 		<param name="Local" value="html\hidpatio.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="静的な変数">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　静的な変数について">
+		<param name="Local" value="html\3_staticvariable.html">
 		</OBJECT>
 </UL>
 </BODY></HTML>

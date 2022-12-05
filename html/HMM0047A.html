@@ -5,14 +5,20 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="" />
   <title>[HMM0047A] ●特定のファイルを開く - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
@@ -21,23 +27,27 @@
   <![endif]-->
 </head>
 <body>
-<p><span class="link_navigate"><a href="HMM0046A.html">←前へ</a> <a href="HMM0048A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0046A.html">←前へ</a> <a href="./HMM0048A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
 <hr />
-<h1 id="hmm0047a">[HMM0047A]</h1>
-<h2 id="HMM0047A_01">●特定のファイルを開く</h2>
+<section id="hmm0047a" class="level1">
+<h1>[HMM0047A]</h1>
+<section id="HMM0047A_01" class="level2">
+<h2>●特定のファイルを開く</h2>
 <div class="marginleft">
 <dl>
-<dt><img src="q.png" width="32" height="29" alt="Q." /></dt>
-<dd><strong>指定したファイルが開いてなければ開く、既に開かれていればアクティブにする、というような操作をしたいのですが。</strong>
+<dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
+<dd>
+<strong>指定したファイルが開いてなければ開く、既に開かれていればアクティブにする、というような操作をしたいのですが。</strong>
 </dd>
 </dl>
 <hr />
 <dl>
-<dt><img src="a.png" width="32" height="29" alt="A." /></dt>
-<dd><p>これもさまざまな方法があります。</p>
+<dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
+<dd>
+<p>これもさまざまな方法があります。</p>
 <p>次の例は、既に開かれているファイル名を調査するタイプのマクロで、常に「MEMO.txt」という文書を編集できる状態にします。</p>
-<div class="macro">
-<pre><code>//------- サンプルマクロ -------//
+<pre class="macro"><code>//------- サンプルマクロ -------//
 
 $openFileName = &quot;c:\\hmmac\\MEMO.txt&quot;;
 if(tolower($openFileName) != filename){
@@ -47,7 +57,6 @@ if(tolower($openFileName) != filename){
 }
 endmacro;
 // ---------------------------- //</code></pre>
-</div>
 <p>秀丸エディタ Ver.8.66以降の場合、「setcompatiblemode」を使う方法もあります。</p>
 <div class="table_border2">
 <table>
@@ -61,18 +70,19 @@ endmacro;
 </table>
 </div>
 <p><br/></p>
-<div class="macro">
-<pre><code>//------- サンプルマクロ -------//
+<pre class="macro"><code>//------- サンプルマクロ -------//
 setcompatiblemode ((compatiblemode &amp; 0xFFFFFF0F) | 0x00000030);
 $openFileName = &quot;c:\\hmmac\\MEMO.txt&quot;;
 if(tolower($openFileName) != filename) openfile $openFileName;
 endmacro;
 // ---------------------------- //</code></pre>
-</div>
 </dd>
 </dl>
 </div>
 <hr />
-<p><span class="link_navigate"><a href="HMM0046A.html">←前へ</a> <a href="HMM0048A.html">次へ→</a> <a href="qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<p><span class="link_navigate"><a href="./HMM0046A.html">←前へ</a> <a href="./HMM0048A.html">次へ→</a>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+</section>
+</section>
 </body>
 </html>

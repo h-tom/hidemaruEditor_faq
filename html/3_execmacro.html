@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第III部〜秀丸マクロのいろはにほへと　マクロから別のマクロを実行する方法</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　マクロから別のマクロを実行する方法</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>マクロから別のマクロを実行する方法</h2>
+<ul>
+<li><a href="#ABOUT">はじめに</a></li>
+<li><a href="#EXECMACRO">execmacro文の使い方</a></li>
+<li><a href="#ARGV">引数を受け取る</a></li>
+<li><a href="#RETURN">戻り値を戻す/受け取る</a></li>
+<li><a href="#STATIC">変数の共有</a></li>
+<li><a href="#SUPPLEMENTATION">補足</a></li>
+</ul>
+<section id="ABOUT" class="level3">
+<h3>はじめに</h3>
+<p>マクロ実行中に別のマクロを呼び出す方法として execmacro文 があります。</p>
+<p>処理を分けるという意味ではサブルーチンと似ていますが、呼び出し元とファイルが別になっている事と変数のスコープが異なります。</p>
+<ul>
+<li><p>サブルーチンは呼び出し元と同じマクロ内に存在するため、呼び出し元マクロのグローバル変数にアクセスできます。</p></li>
+<li><p>execmacro 文 で呼び出した場合は呼び出し元のグローバル変数にはアクセスできず、別の変数として扱われます(文字変数に限定されるが、代替え手段あり)。</p>
+<p>呼び出し元で、「$a」 を設定しても、</p>
+<pre class="macro"><code>// check.mac
+$a = currentmacrobasename
+execmacro &quot;check1.mac&quot;;
+endmacro;</code></pre>
+<p>呼び出されたマクロ側では参照できません。別の変数として扱われます。</p>
+<pre class="macro"><code>// check1.mac
+message $a;
+endmacro;</code></pre></li>
+</ul>
+<p>サブルーチンのほうが便利そうですが、修正があった場合は同じ処理をしている箇所を探し出し修正しないといけません。
+execmacro 文を使って呼び出している場合は、ひとつのファイルを修正するだけで済みます。</p>
+<p>また、Ver.8以降だとサブルーチンと同様に引数も指定(文字列限定)できます。</p>
+<p>注意事項もあるので、ヘルプの<a href="https://help.maruo.co.jp/hidemac/html/110_MacroStatement_execmacro.html" class="externallink" target="_blank" rel="noopener">execmacro文</a>を一読しましょう。</p>
+</section>
+<section id="EXECMACRO" class="level3">
+<h3>execmacro文の使い方</h3>
+<p>execmacro 文は、引数に実行したいマクロファイルと、マクロに渡す引数を指定します。マクロに渡す引数は省略可能です。</p>
+<pre class="macro"><code>execmacro &quot;check1.mac&quot;, &quot;arg1&quot;, &quot;arg2&quot;;</code></pre>
+<ul>
+<li><p>マクロファイルの指定方法</p>
+<p>フルパスでマクロを指定しない場合の認識は以下になります。</p>
+<ul>
+<li>ファイル名だけの場合は、「<strong>マクロフォルダ</strong>」にあるマクロファイル</li>
+<li>相対パス指定の場合は、「<strong>カレントフォルダ(開いているファイルがあるフォルダ)</strong>」からの相対パス</li>
+</ul>
+<p>「<strong>マクロフォルダ</strong>」直下にあるマクロを指定する場合以外は、<span class="attention_red">フルパスで指定するようにしましょう。</span></p>
+<ul>
+<li><p>マクロフォルダからの相対パスにする場合は、macrodir キーワードを使用します。</p>
+<pre class="macro"><code>execmacro macrodir + @&quot;\folder\check1.mac&quot;;</code></pre></li>
+<li><p>実行中のマクロからの相対パスにする場合は、currentmacrodirectory キーワードを使用します。</p>
+<pre class="macro"><code>execmacro currentmacrodirectory + @&quot;\folder\check1.mac&quot;;</code></pre></li>
+<li><p>開いているファイルからの相対パスにする場合は、directory キーワードを使用します。</p>
+<pre class="macro"><code>execmacro directory + @&quot;\folder\check1.mac&quot;;</code></pre></li>
+</ul></li>
+<li><p>引数を指定する場合は、マクロファイル名の後に引数を指定します。最大で31個まで指定出来ます。</p>
+<pre class="macro"><code>execmacro &quot;check1.mac&quot;, &quot;arg1&quot;, &quot;arg2&quot;, &quot;arg3&quot;, … &quot;arg31&quot;;</code></pre>
+<p>配列を引数に指定できます。配列名と配列サイズを指定します。</p>
+<pre class="macro"><code>$array[0] = &quot;arg1&quot;;
+$array[1] = &quot;arg2&quot;;
+$array[2] = &quot;arg3&quot;;
+execmacro &quot;check1.mac&quot;, $array, 3;</code></pre></li>
+</ul>
+</section>
+<section id="ARGV" class="level3">
+<h3>引数を受け取る方法</h3>
+<p>execmacro 文から呼び出されたマクロ側で、引数が指定されているか確認する方法です。</p>
+<ul>
+<li>指定された引数の個数は、argcount キーワードで取得可能。</li>
+<li>引数自体は、getarg 関数で取得できる。</li>
+</ul>
+<p>argcount キーワードが 0 だと引数は指定されていないことになります。</p>
+<pre class="macro"><code>debuginfo 2;
+if(argcount &gt; 0){
+    #max = argcount;
+    
+    #n = 0;
+        while(#max &gt; #n){
+        debuginfo sprintf(&quot;1:getarg(%d)=%s\n&quot;, #n, getarg(#n));
+        #n = #n + 1;
+    }
+}else{
+    debuginfo &quot;引数無し&quot;;
+}</code></pre>
+<p>getarg関数で得られる内容、argcountキーワードの値は、状況により書き換えられたりします。
+execmacro 文から引数付きでマクロを呼び出し、元のマクロに戻っても内容が復元されることはありません。</p>
+<p><span class="attention_red">必要に応じて、argcountキーワードの値やgetargで取得できる内容を変数に保持しておくのがいいでしょう。</span></p>
+<section id="ARGV1" class="level4">
+<h4>動作確認その1</h4>
+<p>値が書き換えられるケース。</p>
+<ul>
+<li><p>動作確認用マクロ1 test_arg.mac</p>
+<pre class="macro"><code>//test_arg.mac
+debuginfo 2;
+
+execmacro &quot;test_arg1.mac&quot;, &quot;chk1-1&quot;, &quot;chk1-2&quot;, &quot;chk1-3&quot;;
+endmacro;</code></pre></li>
+<li><p>動作確認用マクロ2 test_arg1.mac</p>
+<pre class="macro"><code>//test_arg1.mac
+//debuginfo 2;
+#max = argcount;
+#n = 0;
+
+debuginfo sprintf(&quot;1:argcount=%d\n&quot;, #max);
+
+while(#max &gt; #n){
+    debuginfo sprintf(&quot;1:getarg(%d)=%s\n&quot;, #n, getarg(#n));
+    #n = #n + 1;
+}
+
+execmacro &quot;test_arg2.mac&quot;, &quot;chk2-1&quot;;
+
+#max = argcount;
+#n = 0;
+
+debuginfo sprintf(&quot;3:argcount=%d\n&quot;, #max);
+while(#max &gt; #n){
+    debuginfo sprintf(&quot;3:getarg(%d)=%s\n&quot;, #n, getarg(#n));
+    #n = #n + 1;
+}
+
+endmacro;</code></pre></li>
+<li><p>動作確認用マクロ3 test_arg2.mac</p>
+<pre class="macro"><code>//test_arg2.mac
+//debuginfo 2;
+#max = argcount;
+#n = 0;
+
+debuginfo sprintf(&quot;2:argcount=%d\n&quot;, #max);
+while(#max &gt; #n){
+    debuginfo sprintf(&quot;2:getarg(%d)=%s\n&quot;, #n, getarg(#n));
+    #n = #n + 1;
+}
+endmacro;</code></pre></li>
+</ul>
+<p>動作確認用マクロ1 "test_arg.mac" を実行すると、以下の内容がアウトプット枠に出力されます。</p>
+<pre class="macro"><code>1:argcount=3
+1:getarg(0)=chk1-1
+1:getarg(1)=chk1-2
+1:getarg(2)=chk1-3
+2:argcount=1
+2:getarg(0)=chk2-1
+3:argcount=1
+3:getarg(0)=chk2-1</code></pre>
+<ol type="1">
+<li>"test_arg.mac" から "test_arg1.mac" を 引数付きで呼び出し。</li>
+<li>"test_arg1.mac" から "test_arg2.mac" を引数付きで呼び出し。</li>
+<li>"test_arg2.mac" から "test_arg1.mac" に復帰しても、呼び出す前には戻らない。</li>
+</ol>
+</section>
+<section id="ARGV2" class="level4">
+<h4>動作確認その2</h4>
+<p>execmacro 文を使っていないけど、値が読み込めなくなるケース。</p>
+<ul>
+<li><p>動作確認用マクロ4 test_arg3.mac</p>
+<pre class="macro"><code>//test_arg3.mac
+debuginfo 2;
+
+execmacro &quot;test_arg3.mac&quot;, &quot;chk1-1&quot;, &quot;chk1-2&quot;, &quot;chk1-3&quot;;
+endmacro;</code></pre></li>
+<li><p>動作確認用マクロ2 test_arg1.mac</p>
+<pre class="macro"><code>//test_arg4.mac
+#max = argcount;
+#n = 0;
+
+$debug = &quot;&quot;;
+$debug = $debug + sprintf(&quot;1:argcount=%d\r\n&quot;, #max);
+
+while(#max &gt; #n){
+    $debug = $debug + sprintf(&quot;1:getarg(%d)=%s\r\n&quot;, #n, getarg(#n));
+    #n = #n + 1;
+}
+
+#main = hidemaruhandle(0);
+newfile;
+#sub = hidemaruhandle(0);
+#max = argcount;
+#n = 0;
+
+$debug = $debug + sprintf(&quot;2:argcount=%d\r\n&quot;, #max);
+while(#max &gt; #n){
+    $debug = $debug + sprintf(&quot;2:getarg(%d)=%s\r\n&quot;, #n, getarg(#n));
+    #n = #n + 1;
+}
+setactivehidemaru #main;
+closehidemaruforced #sub;
+
+#max = argcount;
+#n = 0;
+
+$debug = $debug + sprintf(&quot;3:argcount=%d\r\n&quot;, #max);
+while(#max &gt; #n){
+    $debug = $debug + sprintf(&quot;3:getarg(%d)=%s\r\n&quot;, #n, getarg(#n));
+    #n = #n + 1;
+}
+//アウトプット枠へ出力
+//「test_arg4.mac」で「debuginfo 2;」を実行していないが、debuginfoの出力モードはexecmacro文の実行でも伝搬される。
+//その為、「test_arg3.mac」で実行しているので問題ない。
+debuginfo $debug;
+
+endmacro;</code></pre></li>
+</ul>
+<p>動作確認用マクロ1 "test_arg3.mac" を実行すると、以下の内容がアウトプット枠に出力されます。</p>
+<pre class="macro"><code>1:argcount=3
+1:getarg(0)=chk1-1
+1:getarg(1)=chk1-2
+1:getarg(2)=chk1-3
+2:argcount=0
+3:argcount=3
+3:getarg(0)=chk1-1
+3:getarg(1)=chk1-2
+3:getarg(2)=chk1-3</code></pre>
+<ol type="1">
+<li>"test_arg3.mac" から "test_arg4.mac" を 引数付きで呼び出し。</li>
+<li>"test_arg4.mac" から 新しい秀丸エディタを開く。</li>
+<li>新しい秀丸エディタからは、argcountキーワードは 0(zero)を返す。</li>
+<li>新しい秀丸エディタから戻っても、getarg関数で得られる内容/argcountキーワードの値は書き換えられていない。</li>
+</ol>
+<p>getarg関数で得られる内容、argcountキーワードの値のスコープは、マクロを呼び出した秀丸エディタのみになります。</p>
+</section>
+</section>
+<section id="RETURN" class="level3">
+<h3>戻り値を戻す/受け取る</h3>
+<p>execmacro 文で実行したマクロから戻り値を設定出来ます。</p>
+<p><strong>文字列のみ</strong>で、数値は指定できません。</p>
+<ul>
+<li><p>戻り値を設定するには、endmacro 文に引数を指定します。</p>
+<pre class="macro"><code>//test_return.mac
+endmacro currentmacrobasename + &quot;を実行しました。&quot;;</code></pre></li>
+<li><p>戻り値を受け取るには、getresultex 関数を使います。</p>
+<pre class="macro"><code>execmacro &quot;test_return.mac&quot;;
+message &quot;戻り値:&quot; + getresultex(-1);</code></pre></li>
+</ul>
+<p>戻り値を設定出来るのは1つだけです。</p>
+</section>
+<section id="STATIC" class="level3">
+<h3>変数の共有</h3>
+<p>文字列限定ですが、マクロ間で変数を共有する方法はあります(秀丸エディタ Ver.8以降)。</p>
+<p>マクロ間で変数を共有するには、「静的な変数」を使います。「静的な変数」の詳細は、<a href="./3_staticvariable.html">第III部〜秀丸マクロのいろはにほへと　静的な変数について</a> を参照してください。</p>
+</section>
+<section id="SUPPLEMENTATION" class="level3">
+<h3>補足</h3>
+<section id="SUPPLEMENTATION-1" class="level4">
+<h4>execmacro文以外で引数付きでマクロを実行する方法</h4>
+<p>execmacro文の他に、秀丸エディタの起動オプションを使って指定する方法もあります。</p>
+<ul>
+<li>/x で実行するマクロ /a で引数を指定を指定。</li>
+</ul>
+<p>詳細は <a href="https://help.maruo.co.jp/hidemaru/index.html" class="externallink" target="_blank" rel="noopener">秀丸エディタヘルプ</a> - <a href="https://help.maruo.co.jp/hidemaru/html/230_Option.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ起動時のオプション</a> を参照してください。</p>
+</section>
+<section id="SUPPLEMENTATION-2" class="level4">
+<h4>execmacro文をループ内で使う場合</h4>
+<p>execmacro 文は外部のファイルを都度読み込むため時間がかかります。ループ内で使うと顕著です。</p>
+<p>setcompatiblemode 文を使えば、高速化する場合もあります。詳細は、<a href="./3_setcompatiblemode.html">第III部〜秀丸マクロのいろはにほへと　setcompatiblemode文 について</a> を参照してください。</p>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>
