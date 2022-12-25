@@ -96,6 +96,8 @@ sup{
 .macro {
     line-height         : normal;
     padding-left        : 5px;
+    padding-bottom      : 2px;
+    padding-top         : 2px;
     background-color    : #E0FFFF;
     border-style        : solid ;
     border-width        : 1px 3px 3px 1px ;
@@ -135,12 +137,6 @@ sup{
     color       : Black ;
     padding     : 5px;
     margin-left : 3em;
-}
-
-.old_information
-{
-    background-color    :#A9A9A9;
-    color               :#C0C0C0;
 }
 
 .externallink {
@@ -637,6 +633,12 @@ div.img_border img{
 
 .level3, .level4, .level5, .level6{
     padding-left : 2em;
+}
+
+.old_information
+{
+    background-color    :#A9A9A9;
+    color               :#C0C0C0;
 }
 
 /* モバイル用 640px 以下の設定*/

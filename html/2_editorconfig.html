@@ -56,7 +56,7 @@
 <li><strong>indent_style</strong>(インデントの種類。タブコードを使うか、スペースを使うか)</li>
 <li><strong>indent_size</strong>、<strong>tab_width</strong>(インデントのサイズ)</li>
 <li><strong>trim_trailing_whitespace</strong>(保存するときに行末の空白除去)</li>
-<li><strong>insert_final_newline</strong>(Ver.9.20(現在β版)以降 最後の行に改行を付けるかどうか）</li>
+<li><strong>insert_final_newline</strong>(Ver.9.20(現在β版)以降 最後の行が改行で終わっていない場合、保存時に改行を追加するか)</li>
 </ul>
 <section id="EXPLANATION-1" class="level4">
 <h4>EditorConfigを有効にする</h4>
@@ -69,7 +69,7 @@
 <li><strong>indent_style</strong>(インデントの種類。タブコードを使うか、スペースを使うか)</li>
 <li><strong>indent_size</strong>、<strong>tab_width</strong>(インデントのサイズ)</li>
 <li><strong>trim_trailing_whitespace</strong>(保存するときに行末の空白を除去するか)</li>
-<li><strong>insert_final_newline</strong>(最後の行に改行を付けるかどうか）</li>
+<li><strong>insert_final_newline</strong>(最後の行が改行で終わっていない場合、保存時に改行を追加するか)</li>
 </ul>
 <p>インデントの種類が変更になっても、既存の内容を変更することはありません。<br />
 例えば、タブでインデントしてあったファイルを開いても、スペースに置換するようなことしません。ファイル編集時の設定が変わるだけです。</p></li>
@@ -268,7 +268,7 @@ indent_size が指定されていないときは、この値を使う。</p>
 </dd>
 <dt>insert_final_newline</dt>
 <dd>
-<p>最後の行が改行で終わっていない場合、保存時に改行を付けるかどうか。(Ver.9.20(現在β版)以降対応)</p>
+<p>最後の行が改行で終わっていない場合、保存時に改行を追加するか。(Ver.9.20(現在β版)以降対応)</p>
 <p>設定値</p>
 <ul>
 <li>false<br />
