@@ -46,8 +46,11 @@
 <li>【２】<a href="#CODE">カーソル位置の文字が何かを知るには（code, unicodeキーワード）</a></li>
 <li>【３】<a href="#MOVETO">任意の座標にある文字が何かを判断するには（moveto,カーソル移動系コマンド）</a></li>
 <li>【４】<a href="#BEGINSEL">範囲選択するには</a></li>
+<li>　└　<a href="#BEGINSEL-1">「検索系文を使って検索する」の補足説明</a></li>
 <li>【５】<a href="#ESCAPE">範囲選択を解除するには</a></li>
-<li>【６】<a href="#GETTEXT">文字列型変数に取り込むには：その１（gettext文)</a></li>
+<li>　└　<a href="#endsel">endsel使用時の注意点</a></li>
+<li>【６】<a href="#GETTEXT">文字列型変数に取り込むには：その１</a></li>
+<li>　└　<a href="#GETTEXT-1">gettext文,gettext2文 の補足</a></li>
 <li>【７】<a href="#SELECTING">範囲選択されているか判断するには（selectingキーワード）</a></li>
 <li>【８】<a href="#CLIPBOARD">文字列型変数に取り込むには：その２（クリップボード経由）</a></li>
 <li>【９】<a href="#ASCII">変数内の文字が何かを知るには（ascii関数）</a></li>
@@ -217,7 +220,7 @@ message &quot;カーソル移動&quot;;
 endmacro;</code></pre>
 <p><img src="./3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="./3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>動作的にはおかしいが、現状（2022/12/06）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+<p>動作的にはおかしいが、現状（2023/01/07）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto、movetolineno、mooveto2、goline〜のコマンド)</p>
 <p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、解除されない場合はカーソル移動すると思わぬ結果になるので注意すること。</p>
 <p>この動作を回避するには、範囲選択終了後に、一度カーソルを動かせばいい。(left、right等)</p>
@@ -250,12 +253,16 @@ endmacro;</code></pre>
 </section>
 </section>
 <section id="GETTEXT" class="level3">
-<h3>【６】文字列型変数に取り込むには：その１（gettext文,gettext2文)</h3>
-<p>ユーザーの操作または上記のマクロ文で範囲選択した後、その選択された文字列を文字列型変数に取り込むにはどうすれば良いでしょうか。</p>
-<p>典型的には、以下のようなコーディングを見ることが多くなるでしょう。</p>
+<h3>【６】文字列型変数に取り込むには：その１</h3>
+<p>ユーザーの操作または上記のマクロ文で範囲選択した後、その選択された文字列を文字列型変数に取り込むにはどうすれば良いでしょうか。典型的には、以下のようなコーディングを見ることが多くなるでしょう。</p>
+<p>Ver.9.19 から <strong>getselectedtext</strong> 関数が追加されたので、各種キーワードが不要になります。</p>
+<pre class="macro"><code>$s = getselectedtext();</code></pre>
+<p>上記のコーディングで文字列型変数に取得する場合は、現在本当に範囲選択されているかを確認したほうがいいでしょう。範囲選択されていない場合は空文字が取得できますが、範囲選択が空なのか、範囲選択自体していないかは区別できません。</p>
+<hr />
+<p>Ver.9.19未満では 従来通り gettext、gettext2 関数を使います。</p>
 <pre class="macro"><code>$s = gettext(seltopx,seltopy,selendx,selendy);</code></pre>
-<p>秀丸マクロでは、範囲選択された文字列を直接文字変数に取り込むマクロ文は有りません。画面上の任意の範囲の文字列を文字変数に取り込む<strong>gettext</strong>文と、現在の選択範囲の座標値を示す<strong>seltopx</strong>〜<strong>selendy</strong>キーワード（範囲選択関連キーワード）を併用します。<br />
-(秀丸エディタVer5.00以降は、座標系がカラム位置、エディタ的に計算した行番号になっている<strong>gettext2</strong>文と、
+<p>秀丸マクロでは、範囲選択された文字列を直接文字変数に取り込むマクロ命令は有りません。画面上の任意の範囲の文字列を文字変数に取り込む<strong>gettext</strong>関数と、現在の選択範囲の座標値を示す<strong>seltopx</strong>〜<strong>selendy</strong>キーワード（範囲選択関連キーワード）を併用します。<br />
+(秀丸エディタVer5.00以降は、座標系がカラム位置、エディタ的に計算した行番号になっている<strong>gettext2</strong>関数と、
 <strong>seltopcolumn</strong>、<strong>seltoplineno</strong>、<strong>selendcolumn</strong>、<strong>selendlineno</strong> キーワードが追加されています)</p>
 <p>注意が必要なのは、各キーワードに値が入っているといって、その値どおり範囲選択されているとは限らないことです。<br />
 マクロヘルプの「<a href="https://help.maruo.co.jp/hidemac/html/060_Keyword_Selection.html" class="externallink" target="_blank" rel="noopener">範囲選択関連キーワード</a>」の説明にもあるように、範囲選択が解除された後も、キーワードは以前の値を保持しているためです。<br />
