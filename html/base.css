@@ -6,7 +6,11 @@ body {
 }
 
 h1{
-    line-height: 1.0em;
+    /*
+    H1は改行が含まれる場合が多いので、高さは1文字分に制限。フォントサイズも大きめに。
+    */
+    line-height: 1em;
+    font-size  : 2em;
 }
 
 h2 {
@@ -42,10 +46,6 @@ h2,h3,h4,h5,h6 {
 
 h4,h5,h6 {
     font-size :1em ;
-}
-
-.level1 > h1{
-    font-size :2em ;
 }
 
 strong{
@@ -614,17 +614,20 @@ div.img_border img{
 }
 
 .BoxF {
-    padding-top    : 0.5em;
-    padding-bottom : 0.5em;
+    padding-top    : 0.2em;
+    padding-bottom : 0.2em;
     padding-left   : 1em;
     padding-right  : 1em;
-    margin-top     : 2em;
-    margin-bottom  : 2em;
     margin-left    : 0em;
     margin-right   : 0em;
     color          : black;
     background     : #fff8e8;
     border-left    : solid 10px #ffc06e;
+}
+
+.BoxF>p {
+    margin-top    : 0.2em;
+    margin-bottom : 0.2em;
 }
 
 .Cursor{
@@ -646,6 +649,10 @@ div.img_border img{
     body {
         margin:1em;
     } 
+    
+    h1{
+        line-height: 1em;
+    }
     
     h1,h2,h3,h4,h5,h6 {
         font-size:1em ;
