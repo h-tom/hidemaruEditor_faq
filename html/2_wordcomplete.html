@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -314,7 +317,7 @@ HMJRE.DLLのヘルプ-「<a href="https://help.maruo.co.jp/hmjre/html/ABOUT_SIMI
 <section id="SUPPLEMENTATION" class="level3">
 <h3>[補足]</h3>
 <ul>
-<li><p>補完用辞書ファイルは、<span class="attention_red">Shift_JISで記述する</span>必要があります。(2023/05/13現在)</p></li>
+<li><p>補完用辞書ファイルは、<span class="attention_red">Shift_JISで記述する</span>必要があります。(2023/06/21現在)</p></li>
 <li><p>「辞書ファイルの種類」ですが、「フリーフォーマット」だと特に指定はなく、通常の文書やテキストファイルから柔軟に補完対象を検索します。<br />
 「行単位」の場合は、候補を1行毎に記述してください。マッチした場合は、1行まるごと候補として表示されます。
 (マッチ自体は、先頭一致だけではなく、行内の途中にもマッチします)</p>
