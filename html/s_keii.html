@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -44,7 +47,7 @@
 <aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>2023/05/13 現在、各種書籍が発刊されています。詳細は、秀まるおのホームページ(サイトー企画)の<a href="https://hide.maruo.co.jp/book/books1.html" class="externallink" target="_blank" rel="noopener">秀シリーズの解説書</a>を参照してください。
+<li id="fn1"><p>2023/06/24 現在、各種書籍が発刊されています。詳細は、秀まるおのホームページ(サイトー企画)の<a href="https://hide.maruo.co.jp/book/books1.html" class="externallink" target="_blank" rel="noopener">秀シリーズの解説書</a>を参照してください。
 (第８版編集担当より)<a href="#fnref1" class="footnote-back" role="doc-backlink">&#8617;&#65038;</a></p></li>
 <li id="fn2"><p>当・秀丸エディタＱ＆Ａ集は、初版時点ではこういう名称でした。<br />
 (第２版編集担当より)<a href="#fnref2" class="footnote-back" role="doc-backlink">&#8617;&#65038;</a></p></li>

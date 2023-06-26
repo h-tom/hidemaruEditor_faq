@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -45,6 +48,8 @@
 <li><a href="#V919">秀丸エディタVer.9.19 マクロ関連の変更履歴</a></li>
 <li><a href="#V920">秀丸エディタVer.9.20 マクロ関連の変更履歴</a></li>
 <li><a href="#V921">秀丸エディタVer.9.21 マクロ関連の変更履歴</a></li>
+<li><a href="#V922">秀丸エディタVer.9.22 マクロ関連の変更履歴</a></li>
+<li><a href="#V923">秀丸エディタVer.9.23 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -339,11 +344,11 @@ escapeselect、 find1、replace1、del 等</li>
 <ul>
 <li>追加
 <ul>
-<li>[javascript]hidemaruオブジェクトに sendMessage、getCursorPos、getCursorPosFromMousePos を追加。</li>
+<li>[JavaScript]hidemaruオブジェクトに sendMessage、getCursorPos、getCursorPosFromMousePos を追加。</li>
 <li>setselectionrange 文追加。</li>
 <li>getselectedrange 関数追加。</li>
 <li>hidemaruversionキーワード追加。</li>
-<li>[javascript]Stdioオブジェクトに flushメソッド、flushedプロパティ追加</li>
+<li>[JavaScript]Stdioオブジェクトに flushメソッド、flushedプロパティ追加</li>
 </ul></li>
 <li>変更、パラメータ追加等
 <ul>
@@ -352,7 +357,7 @@ escapeselect、 find1、replace1、del 等</li>
 <li>colormarker の強調指定で especially1 の指定ができない、getcolormarker で先頭からの順番取得などうまくいかない点や、jsでなくてもスタイルの文字列など修正。</li>
 <li>gettitleでタブ名の取得がうまくいかない場合がある問題修正。</li>
 <li>getfiletimeの書式で令和がおかしい問題修正。</li>
-<li>[javascript]jsで非同期の関数でhidemaruGlobalができないときのエラーをdebuginfoの出力にも出すように修正。（JScriptのみ）</li>
+<li>[JavaScript]jsで非同期の関数でhidemaruGlobalができないときのエラーをdebuginfoの出力にも出すように修正。（JScriptのみ）</li>
 <li>getresultex(26);でファイル保存後のエラーコード取得の追加と、エラー時のタブの更新など。</li>
 <li>platformキーワードでプライベートモードかどうか判別できるように修正。</li>
 <li>autocommstateにツールチップの情報取得追加。</li>
@@ -391,6 +396,77 @@ escapeselect、 find1、replace1、del 等</li>
 <li>refcallで呼んでいる中でexecmacroすると参照の変数ができない問題修正。</li>
 <li>decodeuriで%が無い場合やencodeuriされた文字でない場合の問題修正。</li>
 </ul></li>
+</ul>
+</section>
+</section>
+<section id="V922" class="level2">
+<h2>秀丸エディタVer.9.22 マクロ関連の変更履歴</h2>
+<p>秀丸エディタ本体の更新内容に関しては、<a href="https://hide.maruo.co.jp/software/hidemarunew/v922_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.22の変更点</a>を参照してください。</p>
+<p>【１】<a href="#LIST_V922">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.22</a></p>
+<p>【２】<a href="#SPEC_V922">仕様変更 - 「秀丸エディタ」Ver.9.22</a></p>
+<section id="LIST_V922" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.22</h3>
+<ul>
+<li>追加
+<ul>
+<li>config、configcolor、getconfig、getconfigcolorのJSON記述対応</li>
+<li>setbrowserpanetarget文、showbrowserpane文、refreshbrowserpane文、browserpanehandleキーワード、setbrowserpaneurl文、
+browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワード、browserpanecommand文/関数</li>
+<li>renderpanecommand文/関数</li>
+<li>setrenderpanetarget文、registercallback関数、registercallback に対する event</li>
+<li>endmacro_postcommand、keyhook、clearkeyhoook</li>
+<li>xpixel2、ypixel2</li>
+<li>keyhook に対する event と geteventparam</li>
+<li>[JavaScript]hidemaru.saveTextFile</li>
+<li>[JavaScript]hidemaru.setInterval、hidemaru.clearInterval</li>
+<li>[JavaScript]hidemaru.getPixelPosFromCursorPos</li>
+<li>[JavaScript]console.warnを独自に実装</li>
+</ul></li>
+<li>変更、パラメータ追加等
+<ul>
+<li>menu文でサブメニューとなって項目が多くて画面からはみ出るとき、ダークモードで多段になっていたのをやめてスクロールに変更。</li>
+<li>getselectedrangeを選択していないときに呼ぶと選択される場合がある問題修正。</li>
+<li>forwardtab、backtabで数値指定の追加。</li>
+<li>eventに10を追加。</li>
+<li>disabledraw2でのenabledrawで横スクロール位置指定不足の対応。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>decodeuriで%が無い場合やencodeuriされた文字でない場合の問題修正。</li>
+<li>refcallで呼んでいる中でexecmacroすると参照の変数ができない問題修正。</li>
+<li>getlinetextで折り返しがあると最後行が取得できない問題修正。</li>
+<li>iskeydownの処理改善。</li>
+<li>setTimeoutなどでメモリリークの修正。</li>
+<li>freedllで余計に解放していたバグ修正</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V922" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.22</h3>
+<ul>
+<li>マクロファイルはUTF-8やUTF-16でなければ、欧文ファイル上の欧文マクロファイルの動作は廃止して、Shift_JIS解釈に固定に変更。</li>
+<li>hidemaru.exeの終了コードは特に理由が無ければ0で固定となるようにした。</li>
+</ul>
+</section>
+</section>
+<section id="V923" class="level2">
+<h2>秀丸エディタVer.9.23 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V923">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.23</a></p>
+<p>【２】<a href="#SPEC_V923">仕様変更 - 「秀丸エディタ」Ver.9.23</a></p>
+<section id="LIST_V923" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.23</h3>
+<ul>
+<li>その他
+<ul>
+<li>マクロでrefcallと複数の秀丸エディタでの使用で落ちる問題修正。</li>
+<li>マクロの中断具合の調整。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V923" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.23</h3>
+<ul>
+<li>起動オプション/fの改行やBOM指定などの追加。（新規ファイル時）</li>
 </ul>
 </section>
 </section>

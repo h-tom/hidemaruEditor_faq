@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -57,7 +60,7 @@
 <p>右クリックで表示されるメニューです。</p>
 <p><img src="./HME0053A_03.png" width="269" height="194" alt="常駐秀丸メニュー" /><br />
 </p>
-<p>現時点(Ver.9.21)では、インストール時に秀丸エディタの起動状態をチェックし、起動中の場合は、常駐秀丸エディタを含め終了させることも出来ます。</p>
+<p>現時点(Ver.9.23)では、インストール時に秀丸エディタの起動状態をチェックし、起動中の場合は、常駐秀丸エディタを含め終了させることも出来ます。</p>
 <p><img src="./HME0053A_04.png" width="410" height="154" alt="秀丸エディタセットアップ" /><br />
 </p>
 </dd>

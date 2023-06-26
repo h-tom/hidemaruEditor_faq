@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -35,7 +38,7 @@
 <ul>
 <li><p><strong>第９版</strong></p>
 <ul>
-<li><p>第９．２版 2023/06/xx</p>
+<li><p>第９．２版 2023/06/24</p>
 <div class="marginleft">
 <dl>
 <dt>変更</dt>
@@ -48,10 +51,6 @@
 <li><a href="./6_takeout.html">第VI部〜秀丸エディタ拡張モジュール　秀丸エディタ持ち出しキット</a></li>
 <li>[HMM0082A] <a href="./HMM0082A.html">●カーソルのある行の内容を文字列型変数に取り込む方法</a></li>
 </ul>
-</dd>
-<dt>新規</dt>
-<dd>
-
 </dd>
 </dl>
 </div></li>

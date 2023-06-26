@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -78,7 +81,7 @@ DLL 本体の他に、必要なファイルがあるかどうか確認してく�
 <p>基本的にはデスクトップ版と同じですが、以下の制限があります。</p>
 <ul>
 <li><p>デスクトップ版と違い、<span class="attention_red">外部 DLL を秀丸エディタ本体と同じ場所に配置することは出来ません。</span>その為、マクロフォルダ等「秀丸エディタ本体」とは別の場所にDLLを配置する必要があります。</p></li>
-<li><p>ストアアプリ版は、2023/05/13現在、32bit版しかないので、DLL は<strong>32bit</strong>を使用する必要があります。</p></li>
+<li><p>ストアアプリ版は、2023/06/24現在、32bit版しかないので、DLL は<strong>32bit</strong>を使用する必要があります。</p></li>
 </ul>
 <p>使用するマクロがストアアプリ版で使用する事を考慮していない場合は、マクロを修正する必要があります。</p>
 <p>例えば、田楽DLLを使用するマクロが、</p>

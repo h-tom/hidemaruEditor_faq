@@ -13,8 +13,11 @@
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
     ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
       width: 0.8em;
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
@@ -64,7 +67,7 @@ USBメモリ/USBハードディスク等リムーバブルメディア/ドライ
 <ul>
 <li><a href="https://hide.maruo.co.jp/software/hmtakeout.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ持ち出しキット</a></li>
 </ul>
-<p>2023/05/13 現在、Ver.2.11です。</p>
+<p>2023/06/24 現在、Ver.2.11です。</p>
 <p>ダウンロードしたファイルを実行してください。インストーラが起動します。</p>
 <p>以下の画面が表示された場合には、「持ち出し用の秀丸エディタを作成する」を選択してください。<br />
 <img src="./6_takeout_01.png" width="510" height="361" alt="「持ち出し用の秀丸エディタを作成する」を選択" /><br />
