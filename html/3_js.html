@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第III部〜秀丸マクロのいろはにほへと　JavaScript対応</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　JavaScript対応</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>JavaScript対応</h2>
+<ul>
+<li><a href="#ABOUT">はじめに</a>
+<ul>
+<li><a href="#MODE">JavaScript実行環境</a></li>
+<li><a href="#HIDEMARUMACRO">JavaScriptから秀丸マクロの文/キーワード/関数の呼び出し方法</a></li>
+</ul></li>
+<li><a href="#RESTRICTION">制限事項</a></li>
+</ul>
+<section id="ABOUT" class="level3">
+<h3>はじめに</h3>
+<p>Ver.9.19以降、マクロファイル内にある、js{ } 記述内は JavaScriptで記述することが可能になりました。
+execjs文使用すると外部のjsファイルも実行できます。</p>
+<p>JavaScript実行時には、HidemaruGlobalオブジェクト、Hidemaruオブジェクト が常にグローバルに存在します。秀丸マクロ命令の実行や秀丸エディタの機能を使うには、この2つのオブジェクトを利用します。</p>
+<ul>
+<li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_HidemaruGlobal.html" class="externallink" target="_blank" rel="noopener">HidemaruGlobalオブジェクト</a>は、秀丸マクロの文/キーワード/関数と同名のメソッドがあります。
+jsmode文により、グローバル展開をON/OFFできる。</li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Hidemaru.html" class="externallink" target="_blank" rel="noopener">Hidemaruオブジェクト</a>は、秀丸エディタ本体関連機能がメソッドとして呼び出せます。
+JavaScript と 秀丸マクロ 間で変数をやり取りする場合は、Hidemaruオブジェクトを使います。</li>
+</ul>
+<p>他にも使用できるオブジェクトがあるのでマクロヘルプの <a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript.html" class="externallink" target="_blank" rel="noopener">JavaScript対応</a> −<a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Object.html" class="externallink" target="_blank" rel="noopener">オブジェクト</a> を参照してください。</p>
+<p><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_appendix.html" class="externallink" target="_blank" rel="noopener">その他</a> に注意点などが書いてあるので、よく読みましょう。</p>
+<section id="MODE" class="level4">
+<h4>JavaScript実行環境</h4>
+<p>JavaScriptの実行環境としては以下の3つを指定可能です。</p>
+<p><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_jsmode.html" class="externallink" target="_blank" rel="noopener">jsmode文</a>のパラメータ1で文字列として指定します。</p>
+<ul>
+<li><p>JScript(デフォルト)</p>
+<p>WSHベースのエンジンで秀丸エディタを実行できる環境なら標準搭載されています。</p>
+<p>対応規格は古い(ECMA-262 3rd edition(December 1999))。</p>
+<p>JScriptの資料は<a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/d1et7k7c(v=vs.84)" class="externallink" target="_blank" rel="noopener">JScript and VBScript Microsoft Learn</a>を参照。</p></li>
+<li><p>Chakra</p>
+<p>IEベースのエンジン。</p>
+<p>対応規格は古い(ECMA-262 5.1 edition(December 2009))。</p></li>
+<li><p>WebView2</p>
+<p>Chromium版 Microsoft Edge相当。
+Windows10、11以外の場合は、MicrosoftのサイトからWebView2ランタイムをインストールする必要があります。
+(Windows 7、8、8.1 をサポートしているのは、WebView2ランタイム バージョン 109 が最終になります)</p>
+<p>JavaScriptの資料は<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript" class="externallink" target="_blank" rel="noopener">JavaScript MDN</a>を参照。</p></li>
+</ul>
+<p>新しい JavaScript を使いたい場合は「WebView2」を使うしかありませんが、実行環境としては Windows 10、11 が主なターゲットになります。どの Windows 環境でも動かそうとする場合、現状では「JScript」を使うことになります。</p>
+</section>
+<section id="HIDEMARUMACRO" class="level4">
+<h4>JavaScriptから秀丸マクロの文/キーワード/関数の呼び出し方法</h4>
+<p>秀丸マクロの文/キーワード/関数は、HidemaruGlobalオブジェクトのメソッドとして呼び出すことができます。</p>
+<ul>
+<li>一部例外はあるが 文/キーワード/関数 をそのままのメソッドとして使用できる。<br />
+詳細は <a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_HidemaruGlobal_methods.html" class="externallink" target="_blank" rel="noopener">HidemaruGlobalオブジェクトのメソッド</a>を参照。</li>
+<li>メソッドとして呼び出す為、全て関数の書き方（メソッドの書き方）になる。(要は括弧を付けて呼び出す)</li>
+</ul>
+<section id="マクロの例" class="level5">
+<h5>マクロの例</h5>
+<pre class="macro"><code>//filename2キーワードとmessage文の呼び出し
+js {
+    //HidemaruGlobalオブジェクト の名前は「hidemaruGlobal」
+    a = hidemaruGlobal.filename2();
+    hidemaruGlobal.message(a);
+}</code></pre>
+<p>「hidemaruGlobal」のメソッドとして呼び出す為、<code>hidemaruGlobal.filename2();</code> としていますが、「hidemaruGlobal.」は省略できます。
+(通常はHidemaruGlobalのメソッドがグローバルに展開されている)</p>
+<pre class="macro"><code>//filename2キーワードとmessage文の呼び出し
+js {
+    //HidemaruGlobalオブジェクトを省略
+    a = filename2();
+    message(a);
+}</code></pre>
+<p><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_jsmode.html" class="externallink" target="_blank" rel="noopener">jsmode文</a>を使うことで、明示的にグローバル展開を無効にしたり有効にしたりできます。</p>
+</section>
+</section>
+</section>
+<section id="RESTRICTION" class="level3">
+<h3>制限事項</h3>
+<section id="秀丸エディタの切り替え" class="level4">
+<h4>秀丸エディタの切り替え</h4>
+<p>js{ }の実行中は、他の秀丸エディタへの切り替えができません。</p>
+<p>従来のマクロでは、アクティブな秀丸ディタが切り替われば、マクロ実行する秀丸ディタも切り替わっていましたが、
+js{ }内では切り替わりません。</p>
+<ul>
+<li><p>従来のマクロ</p>
+<pre class="macro"><code>debuginfo 1;
+openfile &quot;a.txt&quot;;
+debuginfo sprintf(&quot;basename=%s\n&quot;,basename);
+openfile &quot;b.txt&quot;;
+debuginfo sprintf(&quot;basename=%s\n&quot;,basename);
+endmacro;</code></pre>
+<p>実行結果</p>
+<pre class="macro"><code>basename=a.txt
+basename=b.txt</code></pre>
+<p>ファイルを開くと、アクティブな秀丸ディタも切り替わるので、マクロの実行も切り替わっている。
+(basename が切り替わっている)</p></li>
+<li><p>jsの場合</p>
+<pre class="macro"><code>debuginfo 1;
+openfile &quot;a.txt&quot;;
+debuginfo sprintf(&quot;js:basename=%s\n&quot;,basename);
+js{
+    openfile(&quot;b.txt&quot;);
+    debuginfo(sprintf(&quot;js:basename=%s\n&quot;, basename()));
+}
+endmacro;</code></pre>
+<p>実行結果</p>
+<pre class="macro"><code>js:basename=a.txt
+js:basename=a.txt</code></pre>
+<p>ファイルを開くと、アクティブな秀丸ディタは切り替わるが、マクロの実行は切り替わっていない。
+(basename が変わっていない)</p></li>
+</ul>
+</section>
+<section id="数値のやり取り" class="level4">
+<h4>数値のやり取り</h4>
+<p>数値を JavaScript と 秀丸マクロ 間でやり取りする場合は、64bit版でも、32bitまでという制限あり。</p>
+<p>(hidemaruオブジェクトの)getVar/setVarによる JavaScript - 秀丸マクロ間の数値型変数とのやりとりは、32bitの数値として扱われる。</p>
+<pre><code>32bitの数値の上限は 2147483647、下限は -2147483648</code></pre>
+<ul>
+<li><p>サンプルマクロ</p>
+<pre class="macro"><code>debuginfo 2;
+#a = 0x123456789;
+debuginfo(sprintf(&quot;macro:#a=0x%llx\n&quot;, #a));
+js{
+    var jsval1 = hidemaru.getVar(&quot;#a&quot;);
+    hidemaruGlobal.debuginfo(hidemaruGlobal.sprintf(&quot;js{} :#a=0x%llx\n&quot;, jsval1));
+    var jsval2 = 0x123456789;
+    hidemaruGlobal.debuginfo(hidemaruGlobal.sprintf(&quot;js{} :#b=0x%llx\n&quot;, jsval2));
+    hidemaru.setVar(&quot;#b&quot;, jsval2);
+}
+debuginfo(sprintf(&quot;macro:#b=0x%llx\n&quot;, #b));
+endmacro;</code></pre></li>
+<li><p>実行結果</p>
+<pre class="macro"><code>macro:#a=0x123456789
+js{} :#a=0x23456789
+js{} :#b=0x123456789
+macro:#b=0x0</code></pre>
+<ul>
+<li>32bit 以上の値を 秀丸マクロ → JavaScript の場合は、32bit で切り捨てられた値が JavaScript へ送られる。</li>
+<li>32bit 以上の値を JavaScript → 秀丸マクロ の場合は、0 が 秀丸マクロ へ送られる。</li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>
