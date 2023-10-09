@@ -323,4 +323,13 @@ HTML形式は、ミラーリングや、引用などに使用してください�
 
 -   [第III部〜秀丸マクロのいろはにほへと　JavaScript対応](./html/3_js.html) を新規追加。
 
+#### 2023/10/01
+
+-   [第II部〜知っていると便利な秀丸の機能　ブラウザ枠](./html/2_browser.html) を新規追加。
+
+#### 2023/10/09
+
+-   [第III部〜秀丸マクロのいろはにほへと　レンダリング枠](./html/3_rendering.html) を新規追加。
+
+
 [<span id="last_history">履歴の先頭へ</span>](#history)

@@ -2362,5 +2362,21 @@
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　静的な変数について">
 		<param name="Local" value="html\3_staticvariable.html">
 		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="レンダリング枠">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　レンダリング枠">
+		<param name="Local" value="html\3_rendering.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="JavaScript">
+		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと　JavaScript対応">
+		<param name="Local" value="html\3_js.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ブラウザ枠">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　ブラウザ枠">
+		<param name="Local" value="html\2_browser.html">
+		</OBJECT>
+
 </UL>
 </BODY></HTML>

@@ -170,6 +170,10 @@
 			<param name="Name" value="秀丸スペルチェックアドイン">
 			<param name="Local" value="html\2_spellcheck.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="ブラウザ枠">
+			<param name="Local" value="html\2_browser.html">
+			</OBJECT>
 	</UL>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="第III部〜秀丸マクロのいろはにほへと">
@@ -243,6 +247,10 @@
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="JavaScript対応">
 			<param name="Local" value="html\3_js.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="レンダリング枠">
+			<param name="Local" value="html\3_rendering.html">
 			</OBJECT>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Ver.3.00 マクロ関連の変更履歴 ">

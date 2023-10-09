@@ -687,6 +687,7 @@ div.img_border img{
     
     ul,ol{
         padding-inline-start: 0.5em;
+        padding-left: 24px;
     }
     
     li{
