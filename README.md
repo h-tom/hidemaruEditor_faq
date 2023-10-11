@@ -331,5 +331,9 @@ HTML形式は、ミラーリングや、引用などに使用してください�
 
 -   [第III部〜秀丸マクロのいろはにほへと　レンダリング枠](./html/3_rendering.html) を新規追加。
 
+#### 2023/10/10
+
+-   [秀丸エディタVer.9.00 マクロ関連の変更履歴](./html/3_macrov9.html)を修正。Ver.9.24の内容を追加。
+-   [秀丸エディタの最新版](./html/s_saisin.html)を修正。Windows 11 のサポートバージョンを 22H2 に変更。
 
 [<span id="last_history">履歴の先頭へ</span>](#history)
