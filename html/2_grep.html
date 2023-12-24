@@ -73,9 +73,7 @@
 </ul>
 <p>　を表します。</p>
 <p>複数のファイル名を入力したい時は、ファイル名を<span class="monospace">";"</span>(半角のセミコロン)で区切って下さい。</p>
-<div class="macro">
-<pre><code>例) *.txt;file\_?.man;a.doc</code></pre>
-</div>
+<pre class="macro"><code>例) *.txt;file\_?.man;a.doc</code></pre>
 <p>上記の例では、</p>
 <dl>
 <dt><code>*.txt</code></dt>
@@ -95,29 +93,21 @@ fileフォルダにある、<code>"_"</code> の後に0または1文字がある
 <p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足]</a>−<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。除外したいファイルの設定が出来ます。</p>
 <p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と直接指定した拡張子が、除外対象になります。
 (「動作環境」の設定を上書きするわけではない)</p>
-<div class="macro">
-<pre><code>&lt;!*.xxx&gt;</code></pre>
-</div>
+<pre class="macro"><code>&lt;!*.xxx&gt;</code></pre>
 <p>「<code>&lt;!</code>」に続き、除外したい内容を記述し、「<code>&gt;</code>」で閉じます。複数指定する場合は「<code>;</code>」で区切って入力します。</p>
-<div class="macro">
-<pre><code>例1)*.*&lt;!*.txt&gt;
+<pre class="macro"><code>例1)*.*&lt;!*.txt&gt;
 例2)*.*&lt;!*.txt;*.html&gt;</code></pre>
-</div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"*.txt"</code> と <code>"*.html"</code> は除外。</p>
 <p>となります。</p>
 <p>除外するファイルの入力をアシストする機能もあります。<a href="#SUPPLEMENTATION-6">補助メニュー</a>を参照してください。</p></li>
 <li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。「...」ボタンを押すと、フォルダ参照ダイアログが開き、フォルダを選択可能です。</p>
 <p>Ver.8.85以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
-<div class="macro">
-<pre><code>&lt;!フォルダ名\&gt;</code></pre>
-</div>
+<pre class="macro"><code>&lt;!フォルダ名\&gt;</code></pre>
 <p>「<code>&lt;!</code>」に続き、除外したいフォルダ名記述し、「<code>&gt;</code>」で閉じます。<span class="attention_red">フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</span>複数指定する場合は「<code>;</code>」で区切って入力します。</p>
-<div class="macro">
-<pre><code>例1)*.*&lt;!folder1\&gt;
+<pre class="macro"><code>例1)*.*&lt;!folder1\&gt;
 例2)*.*&lt;!folder1\;folder2\&gt;
 例3)*.*&lt;!folder*\&gt;</code></pre>
-</div>
 <p>例1)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> は除外。<br />
 例2)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder1"</code> と <code>"folder2"</code> は除外。<br />
 例3)は、<code>"*.*"</code>(全てのファイル)を対処とするが、<code>"folder*"</code> にマッチするフォルダは除外。</p>
@@ -148,7 +138,7 @@ fileフォルダにある、<code>"_"</code> の後に0または1文字がある
 grepの実行時は実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、この結果表示ウィンドウをアイコン化します。</p></li>
 <li><p><strong>「<span class="font_blue">出力形式</span>」メニュー：</strong><br />
 grep結果の出力形式を横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから設定します。</p>
-<p><img src="./2_grep_12.png" width="484" height="163" alt="出力形式の設定" /><br />
+<p><img src="./2_grep_12.png" width="492" height="188" alt="出力形式の設定" /><br />
 </p>
 <p>チェック付きのメニューになっていて、個別にON/OFFできます。全部チェックがOFFだと「標準」となりますが、チェックをONにすると、その項目が表示されます。</p>
 <p>「出力形式」は7.を参照</p>
@@ -158,6 +148,7 @@ grep結果の出力形式を横にある<span class="rotate90">▲</span>マー�
 <li>「桁表示」</li>
 <li>「ヒット文字列のみ」</li>
 <li>「日付順」</li>
+<li>「ファイル名なし」</li>
 </ul></li>
 <li><p><strong>「<span class="font_blue">エンコードの種類</span>」コンボボックス：</strong><br />
 検索するファイルのエンコードを指定します。「自動判定」で不都合がある場合には、指定してみてください。ただし、検索対象が全部同じエンコードでないと、誤判定します。</p></li>
@@ -176,62 +167,62 @@ grep結果の出力先を指定します。</p>
 <li><p><strong>「ファイル名一覧だけ作成」</strong><br />
 この項目がONの時は検索文字列が存在したファイル名(と始めに見つかった行番号)だけを結果として書き出します。</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]</p>
-<div class="macro">
-<pre><code>file1.txt(2)
+<pre class="macro"><code>file1.txt(2)
 file2.txt(2)
 file3.txt(2)
 file4.txt(2)
-(以下略)</code></pre>
-</div></li>
+(以下略)</code></pre></li>
 <li><p><strong>「ファイル名をフルパスで出力」</strong><br />
 検索文字列が見つかった場合、ファイル名だけではなくフルパスで表示します。</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]</p>
-<div class="macro">
-<pre><code>C:\TEMP\file1.txt(2): ファイル1の２行目
+<pre class="macro"><code>C:\TEMP\file1.txt(2): ファイル1の２行目
 C:\TEMP\file1.txt(12): ファイル1の１２行目
 C:\TEMP\file1.txt(20): ファイル1の２０行目
 C:\TEMP\file2.txt(2): ファイル2の２行目
 C:\TEMP\file2.txt(12): ファイル2の１２行目
 C:\TEMP\file2.txt(20): ファイル2の２０行目
-(以下略)</code></pre>
-</div></li>
+(以下略)</code></pre></li>
 <li><p><strong>「桁表示」</strong><br />
 検索文字列が見つかった場合、行数と桁数(Unicode(UTF-16)として数えた桁数)を出力します。</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]</p>
-<div class="macro">
-<pre><code>file1.txt(2,7): ファイル1の２行目
+<pre class="macro"><code>file1.txt(2,7): ファイル1の２行目
 file1.txt(12,8): ファイル1の１２行目
 file1.txt(20,7): ファイル1の２０行目
 file2.txt(2,7): ファイル2の２行目
 file2.txt(12,8): ファイル2の１２行目
 file2.txt(20,7): ファイル2の２０行目
-(以下略)</code></pre>
-</div></li>
+(以下略)</code></pre></li>
 <li><p><strong>「ヒット文字列のみ」</strong><br />
 マッチした文字を含む行ではなく、マッチした文字列のみ出力します。</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]</p>
-<div class="macro">
-<pre><code>file1.txt(2): ２
+<pre class="macro"><code>file1.txt(2): ２
 file1.txt(12): ２
 file1.txt(20): ２
 file2.txt(2): ２
 file2.txt(12): ２
 file2.txt(20): ２
-(以下略)</code></pre>
-</div></li>
+(以下略)</code></pre></li>
 <li><p><strong>「日付順」</strong><br />
 出力順をファイルの日付順(新しいファイルが早い)にします。
 (file1.txt をコピー・編集して file2.txt を作成したので、 file2.txt が先に出力される)</p>
 <p>[実行結果の例("file?.txt"について"２"を検索)]</p>
-<div class="macro">
-<pre><code>file2.txt(2): ファイル2の２行目
+<pre class="macro"><code>file2.txt(2): ファイル2の２行目
 file2.txt(12): ファイル2の１２行目
 file2.txt(20): ファイル2の２０行目
 file1.txt(2): ファイル1の２行目
 file1.txt(12): ファイル1の１２行目
 file1.txt(20): ファイル1の２０行目
-(以下略)</code></pre>
-</div></li>
+(以下略)</code></pre></li>
+<li><p><strong>「ファイル名無し」</strong><br />
+検索文字列が見つかった場合、マッチした行のみ出力します。<span class="attention_red">ファイル名を出力しないためタグジャンプはできません。</span></p>
+<p>[実行結果の例("file?.txt"について"２"を検索)]</p>
+<pre class="macro"><code>ファイル1の２行目
+ファイル1の１２行目
+ファイル1の２０行目
+ファイル2の２行目
+ファイル2の１２行目
+ファイル2の２０行目
+(以下略)</code></pre></li>
 </ul></li>
 <li><p>見つかったファイルに移動する(タグジャンプ機能)</p>
 <p>結果ウィンドウのファイル名の部分にカーソルがある状態で「<strong>その他→タグジャンプ</strong>」(デフォルトでは<span class="btn-push">F10</span>キー)を選択すると、
@@ -315,8 +306,7 @@ MicrosoftのWindows以前のOSである「MS-DOS」は、ファイル名は英�
 Windowsが登場しファイル名の制限が緩和されましたが、
 MS-DOSとの互換性を考慮しMS-DOSのファイル名規則に当てはまらないファイルが作成された場合には、
 OSが自動的にMS-DOS規格のファイル名も作成します。</p>
-<div class="cmdprompt">
-<pre><code>コマンドプロンプトから dir /x で 8.3形式 のファイル名を確認できる。
+<pre class="cmdprompt"><code>コマンドプロンプトから dir /x で 8.3形式 のファイル名を確認できる。
 2016/05/19  19:09                34              file1.txt
 2016/05/19  19:09                35              file2.txt
 2016/05/19  19:09                35              file3.txt
@@ -324,25 +314,18 @@ OSが自動的にMS-DOS規格のファイル名も作成します。</p>
 2016/05/19  19:10                44 FILE3_~1.TXT file3_longname.txt
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
-</div>
 <p>上記のようなファイルがあり、チェックなしの状態で検索するファイルに <strong>"*1.txt"</strong> を指定すると、</p>
-<div class="macro">
-<pre><code>file1.txt(1): 短縮名ファイルのテスト:file1.txt
+<pre class="macro"><code>file1.txt(1): 短縮名ファイルのテスト:file1.txt
 file3_longname.txt(1): 短縮名ファイルのテスト：file3_longname.txt</code></pre>
-</div>
 <p>という結果になり、本来対象にならないはずの「file3_longname.txt」が対象になっています。これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE3_~1.TXT」が "*1.txt" にマッチするからです。</p>
 <p>拡張子部分も同様で、4文字以上の拡張子を付けると、OSが自動的にMS-DOS規格のファイル名を作成します。</p>
-<div class="cmdprompt">
-<pre><code>2016/05/19  22:57                37 FILE1~1.HTM  file1.html
+<pre class="cmdprompt"><code>2016/05/19  22:57                37 FILE1~1.HTM  file1.html
 2016/05/19  22:58                35              file2.htm
                                     ↑ OSが自動的に作成した名前
                                        ファイル名が8.3形式以外の場合作成される。</code></pre>
-</div>
 <p>チェックなしの状態で、検索するファイルに <strong>"*.htm"</strong> を指定すると、</p>
-<div class="macro">
-<pre><code>file1.html(1): 短縮名ファイルのテスト：file1.html
+<pre class="macro"><code>file1.html(1): 短縮名ファイルのテスト：file1.html
 file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
-</div>
 <p>という結果になり、本来対象にならないはずの「file1.html」が対象になっています。これは、OSが自動的に作成したMS-DOS規格のファイル名「FILE1~1.HTM」が "*.htm" にマッチするからです。</p>
 <p>この動作はOSの仕様で、ワイルドカードを使用したファイル検索すると元の名前だけでなく8.3形式の名前に対してもチェックを行い、どちらかにマッチした場合はマッチしたと判定するためです。</p>
 <p>"<span class="font_blue">拡張子と短縮ファイル名を厳密にチェックする。</span>"にチェックを入れておくと、上記のような事は起こらなくなります。</p></li>

@@ -14,34 +14,30 @@ h1{
 }
 
 h2 {
-    color               : White;
-    background-color    : Blue;
+    background-color: Blue;
 }
 
 h3{
-    color               : White;
-    background-color    : #00BFFF;
+    background-color: #00BFFF;
 }
 
 h4 {
-    color               : White;
-    background-color    : mediumaquamarine;
+    background-color: mediumaquamarine;
 }
 
 h5 {
-    color               : White;
-    background-color    : steelblue;
+    background-color: steelblue;
 }
 
 h6 {
-    color               : White;
-    background-color    : gray;
+    background-color: gray;
 }
 
 h2,h3,h4,h5,h6 {
+    color           : White;
     padding-top     : 4px;
     padding-bottom  : 2px;
-    text-indent     : 2ex;
+    text-indent     : 1ex;
 }
 
 h4,h5,h6 {
@@ -53,18 +49,12 @@ strong{
     margin-left : 0.25em;
 }
 
-kbd {
-    background      : whitesmoke;
-    border-radius   : 5px;
-    border          : solid 2px silver;
-    box-shadow      : 0 1px 0px #c3c3c3;
-    color           : black;
-    font-family     : monospace;
-    font-weight     : bold;
-    line-height     : 180%;
-    margin          : 0 3px;
-    padding         : 0.10em 0.50em;
-    /*vertical-align: text-top;*/
+.level3, .level4, .level5, .level6{
+    padding-left : 2em;
+}
+
+.blindbr{
+    display: none;
 }
 
 .kbd {
@@ -142,7 +132,6 @@ sup{
 .externallink {
     font-weight : bold;
     padding     : 5px;
-    /*text-shadow : 1px 1px 1px black;*/
 }
 
 a[target="_blank"]:after {
@@ -158,14 +147,6 @@ a[target="_blank"]:after {
 .font_ms code {
     font-family: 'ＭＳ ゴシック',monospace;
 }
-
-/*div.table_border > table, div.table_border > table > thead > tr td , div.table_border > table > tbody > tr td{*/
-/*div.table_border  table, div.table_border th , div.table_border tr, div.table_border td{
-  border          : solid 1px #000000;
-  border-collapse : separate;
-  border-spacing  : 2px;
-}
-*/
 
 div.table_border  table{
     border          : solid 1px #000000;
@@ -257,10 +238,6 @@ div.box_line > p{
     margin-left     : 0.5em;
 }
 
-.br2::after {
-    content     : "\A\A";
-    white-space : pre;
-}
 
 .font_red {
     color   : Red;
@@ -312,11 +289,6 @@ div.box_line > p{
     background-color    : paleturquoise;
     padding-left        : 4px;
     padding-right       : 4px;
-    /*
-    color         : white;
-    background-color: #167acb;
-    padding       : 2px;
-    */
 }
 /* IE */
 @media screen\0 {
@@ -345,12 +317,6 @@ div.box_line > p{
     font-weight     : bold;
     background      : mistyrose;
     padding         : 2px;
-    /*
-    padding-top     : 2px;
-    padding-left    : 5px;
-    padding-right   : 5px;
-    padding-bottom  : 2px;
-    */
 }
 
 /* QA  end */
@@ -494,14 +460,6 @@ div.mark_dt > dl > dd {
 .mark_dt3 {
     font-weight : bold;
     background  : linear-gradient(transparent 70%, greenyellow 70%);
-    /*
-    border-bottom  :solid 3px lime
-    text-decoration:underline double darkblue;
-    /*
-    background-color : thistle;
-    padding-left    : 4px;
-    padding-right : 4px;
-    */
 }
 
 div.mark_dl > dl > dt{
@@ -634,10 +592,6 @@ div.img_border img{
     border-left:solid 3px red;
 }
 
-.level3, .level4, .level5, .level6{
-    padding-left : 2em;
-}
-
 .old_information
 {
     background-color    :#A9A9A9;
@@ -655,13 +609,22 @@ div.img_border img{
     }
     
     h1,h2,h3,h4,h5,h6 {
-        font-size:1em ;
+        font-size   :1em ;
+        text-indent :0ex;
     }
     
     img{
         max-width    : 100%;
         height       : auto;
         width        : auto;
+    }
+    
+    .level3, .level4, .level5, .level6{
+        padding-left : 0em;
+    }
+    
+    .blindbr{
+        display:  block;
     }
     
     .marginleft {
@@ -698,7 +661,9 @@ div.img_border img{
         margin-inline-start: 10px;
     }
     
-    .level3, .level4, .level5, .level6{
-        padding-left : 0em;
+    .link_navigate a{
+        margin-left     : 6px;
+        margin-right    : 6px;
+        line-height     :180%;
     }
 }
