@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第II部〜知っていると便利な秀丸の機能　ブラウザ枠</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第II部〜知っていると便利な秀丸の機能<br>　ブラウザ枠</h1>
+<hr />
+<section id="browser" class="level2">
+<h2>ブラウザ枠</h2>
+<p>ブラウザ枠は、秀丸エディタの１つの枠（ペイン）の中に、Webブラウザとほぼ同等のコンテンツを表示する機能です。
+Chromium版 Microsoft Edge を使える環境が必要です。</p>
+<p>詳細は<a href="https://hide.maruo.co.jp/software/hidemarunew/v922_1.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.22の新機能 ブラウザ枠</a>を参照してください。</p>
+<ul>
+<li><p>ブラウザ枠はタブグループ毎に共通の「ブラウザ枠」とタブに連動して表示される「個別ブラウザ枠」があり、ひとつの秀丸エディタに最大2個のブラウザ枠が表示できます。
+(非タブモードの場合も、「共通のブラウザ枠」と「個別ブラウザ枠」2個を表示できます)</p></li>
+<li><p>秀丸エディタ上でURLリンクとして認識している箇所をクリックした場合、「ブラウザ枠」や「個別ブラウザ枠」で表示できます。</p></li>
+<li><p>ローカルファイルを表示している場合、「ウォッチ」を有効にすると表示しているファイルを監視して自動的にブラウザ枠を更新します。「個別ブラウザ枠」の場合、編集しているファイルを上書き保存した場合にも更新させることができます。</p></li>
+</ul>
+<section id="SETTING" class="level3">
+<h3>設定</h3>
+<section id="SETTING1" class="level4">
+<h4>共通の「ブラウザ枠」</h4>
+<p>「表示 → ブラウザ枠」で「ブラウザ枠」を表示させます。「▼」からメニューを表示させ「詳細」を選びます。</p>
+<p><img src="./2_browser_01.png" width="273" height="310" alt="ブラウザ枠のメニュー" /><br />
+</p>
+<p>「ブラウザ枠」の設定ダイアログが表示されます。設定項目については<a href="https://help.maruo.co.jp/hidemaru/html/200_CmdWindow_CommonBrowserPane_Detail.html" class="externallink" target="_blank" rel="noopener">ブラウザ枠の詳細</a>を参照。</p>
+<p><img src="./2_browser_03.png" width="329" height="368" alt="ブラウザ枠の詳細" /><br />
+</p>
+</section>
+<section id="SETTING2" class="level4">
+<h4>「個別ブラウザ枠」</h4>
+<p>「個別ブラウザ枠」の設定は「<span class="filetype">ファイルタイプ別の設定</span>」にあります。「個別ブラウザ枠」の「▼」のメニューにある「個別ブラウザの設定」からも開けます。</p>
+<p><img src="./2_browser_02.png" width="302" height="367" alt="個別ブラウザ枠のメニュー" /><br />
+</p>
+<p><a href="https://help.maruo.co.jp/hidemaru/html/080_Config_EachBrowserPane.html" class="externallink" target="_blank" rel="noopener">ファイルタイプ別の設定−個別ブラウザ枠</a></p>
+<p><img src="./2_browser_04.png" width="396" height="174" alt="個別ブラウザ枠の設定1" /><br />
+</p>
+<p><a href="https://help.maruo.co.jp/hidemaru/html/080_Config_EachBrowserPane_Contents.html" class="externallink" target="_blank" rel="noopener">ファイルタイプ別の設定−コンテンツ</a></p>
+<p><img src="./2_browser_05.png" width="442" height="117" alt="個別ブラウザ枠の設定2" /><br />
+</p>
+</section>
+<section id="SETTING3" class="level4">
+<h4>リンクをクリックしたときの動作</h4>
+<p>メニューの「その他」-「動作環境」で動作環境ダイアログを表示させ、「上級者向け設定」をチェックし「表示/操作」にある「リンク」を選択します。</p>
+<p><img src="./2_browser_06.png" width="619" height="439" alt="動作環境-リンク" /><br />
+</p>
+<p><span class="btn-push">「ブラウザを指定」</span>ボタンを押すと「ブラウザの指定」ダイアログが開くので、「個別ブラウザ枠」か「ブラウザ枠」を指定します。</p>
+<p><img src="./2_browser_07.png" width="350" height="392" alt="ブラウザの指定" /><br />
+</p>
+</section>
+</section>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>

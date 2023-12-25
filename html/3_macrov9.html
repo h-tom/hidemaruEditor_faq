@@ -50,6 +50,11 @@
 <li><a href="#V921">秀丸エディタVer.9.21 マクロ関連の変更履歴</a></li>
 <li><a href="#V922">秀丸エディタVer.9.22 マクロ関連の変更履歴</a></li>
 <li><a href="#V923">秀丸エディタVer.9.23 マクロ関連の変更履歴</a></li>
+<li><a href="#V924">秀丸エディタVer.9.24 マクロ関連の変更履歴</a></li>
+<li><a href="#V925">秀丸エディタVer.9.25 マクロ関連の変更履歴</a></li>
+<li><a href="#V926">秀丸エディタVer.9.26 マクロ関連の変更履歴</a></li>
+<li><a href="#V927">秀丸エディタVer.9.27 マクロ関連の変更履歴</a></li>
+<li><a href="#V928">秀丸エディタVer.9.28 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -467,6 +472,96 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.23</h3>
 <ul>
 <li>起動オプション/fの改行やBOM指定などの追加。（新規ファイル時）</li>
+</ul>
+</section>
+</section>
+<section id="V924" class="level2">
+<h2>秀丸エディタVer.9.24 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V924">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.24</a></p>
+<section id="LIST_V924" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.24</h3>
+<ul>
+<li>その他
+<ul>
+<li>個別ブラウザ枠にフォーカスがあるときにWebView2のマクロ実行で操作できなくなるバグ修正。</li>
+<li>マクロ実行中にマクロ実行できない警告で、ブックマークやプロジェクトのmac:でチェックされていなかった問題修正。</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="V925" class="level2">
+<h2>秀丸エディタVer.9.25 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V925">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.25</a></p>
+<p>【２】<a href="#SPEC_V925">仕様変更 - 「秀丸エディタ」Ver.9.25</a></p>
+<section id="LIST_V925" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.25</h3>
+<ul>
+<li>追加
+<ul>
+<li>execeventmacro 文</li>
+<li>[JavaScript]hidemaru.createHttpServer</li>
+<li>[JavaScript]hidemaru.isProcessIdValid</li>
+<li>getimecandidatelist 関数</li>
+<li>shifthome 文</li>
+<li>shiftend 文</li>
+</ul></li>
+<li>変更
+<ul>
+<li>input関数で、サイズを指定するパラメータ追加</li>
+<li>browserpanecommandで、各種不足していた操作など追加</li>
+<li>prevposx、prevposyで、引数に-1を追加。</li>
+<li>HmOutputPane.dllの関数にClear()追加</li>
+<li>getfocus、setfocusでブラウザ枠の番号追加。</li>
+<li>browserpanecommand の"copy"で、ブラウザ枠内で範囲選択している箇所をコピー可能にした。</li>
+<li>[JavaScript]hidemaru.setTimeout、hidemaru.setInterval のパラメータ３追加。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>inputstatesでマウスを動かしたときも入力と判断されやすくするように調整。</li>
+<li>grepfolderbufferがif文で飛ばせない問題修正。</li>
+<li>自動起動マクロの[ファイルを閉じる直前]で、保存の問い合わせ中に再度自動起動マクロが働かないような対策。</li>
+<li>postExecMacroMemoryでautocompleteの同期を出すときの修正。</li>
+<li>insert(数字)ができなくなっていた問題修正。</li>
+<li>getcolormarkerで範囲に絞り込むときの位置がずれているバグ修正。</li>
+<li>loaddllで64bit版での32bit DLLが設定をONにしていてもできなかったバグ修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V925" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.25</h3>
+<ul>
+<li>起動オプション/fの改行やBOM指定などの追加。（新規ファイル時）</li>
+</ul>
+</section>
+</section>
+<section id="V926" class="level2">
+<h2>秀丸エディタVer.9.26 マクロ関連の変更履歴</h2>
+<p>Ver.9.26は、マクロ関連の変更はありません。</p>
+</section>
+<section id="V927" class="level2">
+<h2>秀丸エディタVer.9.27 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V927">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.27</a></p>
+<section id="LIST_V927" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.27</h3>
+<ul>
+<li>その他
+<ul>
+<li>question文でEscで[いいえ]になっていなかったのを再びできるように修正。</li>
+<li>closehidemaruがうまくいかない場合がある問題修正。</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="V928" class="level2">
+<h2>秀丸エディタVer.9.28 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V928">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.28</a></p>
+<section id="LIST_V928" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.28</h3>
+<ul>
+<li>その他
+<ul>
+<li>closehidemaruがうまくいかない場合がある問題修正。</li>
+</ul></li>
 </ul>
 </section>
 </section>

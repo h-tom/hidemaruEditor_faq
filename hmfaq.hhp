@@ -9,14 +9,15 @@ Enhanced decompilation=Yes
 Full-text search=Yes
 Index file=hmfaq.hhk
 Language=0x411 日本語 (日本)
-Title=秀丸エディタＱ＆Ａ集(第9.2版)
+Title=秀丸エディタＱ＆Ａ集(第9.3版)
 
 [WINDOWS]
-hmeqa="秀丸エディタＱ＆Ａ集(第9.2版)","hmfaq.hhc","hmfaq.hhk","html\hmindex0.html","html\hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
+hmeqa="秀丸エディタＱ＆Ａ集(第9.3版)","hmfaq.hhc","hmfaq.hhk","html\hmindex0.html","html\hmindex0.html",,,,,0x63520,,0x304e,,,,,,,,0
 
 
 [FILES]
 html\2_autosave.html
+html\2_browser.html
 html\2_colormarker.html
 html\2_compfile.html
 html\2_convert.html
@@ -58,6 +59,7 @@ html\3_macrov7.html
 html\3_macrov8.html
 html\3_macrov9.html
 html\3_moremacro.html
+html\3_rendering.html
 html\3_run.html
 html\3_setcompatiblemode.html
 html\3_staticvariable.html

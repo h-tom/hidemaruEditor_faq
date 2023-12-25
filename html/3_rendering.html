@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta charset="Shift_JIS" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="h-tom" />
+  <title>第III部〜秀丸マクロのいろはにほへと　レンダリング枠</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="base.css" />
+  <!--[if lt IE 9]>
+    <script src="./html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<section id="TOP" class="level1">
+<h1>第III部〜秀丸マクロのいろはにほへと<br>　レンダリング枠</h1>
+<hr />
+<section id="INDEX" class="level2">
+<h2>レンダリング枠</h2>
+<p>レンダリング枠は、秀丸マクロと相互のやりとりができるブラウザ枠みたいなものです。マクロ(renderpanecommand文/関数)からしか呼び出せません。ローカルのhtml及びlocalhost(自PC内のサーバー)に接続可能です。相互でやりとりができるので html/css/JavaScript でマクロ用GUI も作れます。</p>
+<p>詳細は<a href="https://hide.maruo.co.jp/software/hidemarunew/v922_2.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.22の新機能 レンダリング枠</a>を参照してください。</p>
+<ul>
+<li><p>レンダリング枠は、エディタ画面の上下左右に配置する事とエディタ画面上にオーバレイ表示できます。レンダリング枠は識別用の名前を付ける必要がありますが複数表示可能です。</p></li>
+<li><p>レンダリング枠内のJavaScriptからは、「js{ }」内で使用できる秀丸エディタ独自のオブジェクトは使用できません。
+(秀丸マクロ実行環境外なので使用できない)</p></li>
+<li><p>秀丸エディタマクロ → レンダリング枠 は「ブックマークレット」を使います。処理が複雑になる場合は、あらかじめJavaScriptで処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p></li>
+<li><p>レンダリング枠 → 秀丸エディタマクロ は「window.chrome.webview.postMessage」を使います。</p>
+<p>postMessage のパラメータにはオブジェクトを指定し、オブジェクトの funcid は関数ID、message 引数として任意の文字列を指定します。</p>
+<pre class="macro"><code>html側の例：&lt;script&gt;window.chrome.webview.postMessage({funcid:関数ID,message:&quot;引数&quot;});&lt;/script&gt;</code></pre>
+<p>"関数ID"は js{}内の関数を呼び出す場合は hidemaru.getFunctionId 、秀丸エディタマクロを呼び出す場合は registercallback を使って取得します。レンダリング枠側に "関数ID" を引き渡すのは、ブックマークレットを使います。</p>
+<p>"引数"は文字列で指定します。</p></li>
+<li><p>秀丸マクロが window.chrome.webview.postMessage で呼び出されたかどうかは event キーワードで判断します。指定された引数を取得するには geteventparam関数を使います。</p>
+<pre class="macro"><code>if(event == 0){
+    //通常処理
+}else if(event == 10){
+    //window.chrome.webview.postMessage で呼び出された場合
+    //引数を取得
+    $arg = geteventparam(0);
+}</code></pre></li>
+<li><p>html/css/JavaScript でマクロ用GUI を作るには以下の手順になります。</p>
+<ol type="1">
+<li>レンダリング枠に表示する html/css/JavaScript を準備</li>
+<li>html を表示。</li>
+<li>表示完了まで待機。</li>
+<li>イベント等でマクロを呼び出すのに必要な "関数ID"の設定や必要なら初期化処理をブックマークレットを使って行う。</li>
+<li>呼び出されたマクロと引数を元に秀丸エディタ側で処理を行う。</li>
+</ol>
+<p>3項で「表示完了まで待機」しているのは、レンダリング枠上でhtmlのロードが完全に終了していないと、ブックマークレットでhtml上の各要素にアクセスるのが失敗する場合もあるからです。
+(htmlの各要素が完全に読み込み完了してからアクセスした方が安全だから)</p>
+<p><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane.html" class="externallink" target="_blank" rel="noopener">レンダリング枠</a>にあるサンプルを参照。</p></li>
+</ul>
+</section>
+</section>
+<hr />
+<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+</body>
+</html>
