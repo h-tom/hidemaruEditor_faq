@@ -46,8 +46,13 @@
 <li><p>レンダリング枠 → 秀丸エディタマクロ は「window.chrome.webview.postMessage」を使います。</p>
 <p>postMessage のパラメータにはオブジェクトを指定し、オブジェクトの funcid は関数ID、message 引数として任意の文字列を指定します。</p>
 <pre class="macro"><code>html側の例：&lt;script&gt;window.chrome.webview.postMessage({funcid:関数ID,message:&quot;引数&quot;});&lt;/script&gt;</code></pre>
-<p>"関数ID"は js{}内の関数を呼び出す場合は hidemaru.getFunctionId 、秀丸エディタマクロを呼び出す場合は registercallback を使って取得します。レンダリング枠側に "関数ID" を引き渡すのは、ブックマークレットを使います。</p>
-<p>"引数"は文字列で指定します。</p></li>
+<p>"関数ID"は以下のどちらかで取得します。</p>
+<ul>
+<li>js{}内の関数を呼び出す場合は hidemaru.getFunctionId</li>
+<li>秀丸エディタマクロを呼び出す場合は registercallback を使って取得します。</li>
+</ul>
+<p>レンダリング枠側に "関数ID" を引き渡すのは、ブックマークレットを使います。</p>
+<p>"引数"は文字列で一つしか指定できません。複数の引数を指定する場合は、呼び出し先で分割可能な文字列に合成して指定します。</p></li>
 <li><p>秀丸マクロが window.chrome.webview.postMessage で呼び出されたかどうかは event キーワードで判断します。指定された引数を取得するには geteventparam関数を使います。</p>
 <pre class="macro"><code>if(event == 0){
     //通常処理
