@@ -37,42 +37,81 @@
 <section id="INDEX" class="level2">
 <h2>レンダリング枠</h2>
 <p>レンダリング枠は、秀丸マクロと相互のやりとりができるブラウザ枠みたいなものです。マクロ(renderpanecommand文/関数)からしか呼び出せません。ローカルのhtml及びlocalhost(自PC内のサーバー)に接続可能です。相互でやりとりができるので html/css/JavaScript でマクロ用GUI も作れます。</p>
-<p>詳細は<a href="https://hide.maruo.co.jp/software/hidemarunew/v922_2.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.22の新機能 レンダリング枠</a>を参照してください。</p>
+<p>詳細は<a href="https://hide.maruo.co.jp/software/hidemarunew/v922_2.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.22の新機能 レンダリング枠</a>と<a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ マクロ言語ヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane.html" class="externallink" target="_blank" rel="noopener">レンダリング枠</a>を参照してください。</p>
 <ul>
 <li><p>レンダリング枠は、エディタ画面の上下左右に配置する事とエディタ画面上にオーバレイ表示できます。レンダリング枠は識別用の名前を付ける必要がありますが複数表示可能です。</p></li>
 <li><p>レンダリング枠内のJavaScriptからは、「js{ }」内で使用できる秀丸エディタ独自のオブジェクトは使用できません。
-(秀丸マクロ実行環境外なので使用できない)</p></li>
-<li><p>秀丸エディタマクロ → レンダリング枠 は「ブックマークレット」を使います。処理が複雑になる場合は、あらかじめJavaScriptで処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p></li>
-<li><p>レンダリング枠 → 秀丸エディタマクロ は「window.chrome.webview.postMessage」を使います。</p>
-<p>postMessage のパラメータにはオブジェクトを指定し、オブジェクトの funcid は関数ID、message 引数として任意の文字列を指定します。</p>
-<pre class="macro"><code>html側の例：&lt;script&gt;window.chrome.webview.postMessage({funcid:関数ID,message:&quot;引数&quot;});&lt;/script&gt;</code></pre>
+(秀丸マクロ実行外なので使用できない)</p></li>
+<li><p>秀丸エディタマクロ → レンダリング枠 方向のやり取りは 「ブックマークレット」のように Javascript を使います。処理が複雑になる場合は、あらかじめ処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p></li>
+<li><p>レンダリング枠 → 秀丸エディタマクロ 方向のやり取りは「<strong>window.chrome.webview.postMessage</strong>」を使います。</p>
+<p>postMessage のパラメータにはオブジェクトを指定し、funcid は関数ID、message 引数として任意の文字列を指定します。</p>
+<pre class="macro"><code>html側の例：window.chrome.webview.postMessage({funcid:関数ID, message:&quot;引数&quot;});</code></pre>
 <p>"関数ID"は以下のどちらかで取得します。</p>
 <ul>
-<li>js{}内の関数を呼び出す場合は hidemaru.getFunctionId</li>
-<li>秀丸エディタマクロを呼び出す場合は registercallback を使って取得します。</li>
+<li>js{}内の関数を呼び出す場合は <strong>hidemaru.getFunctionId</strong></li>
+<li>秀丸エディタマクロを呼び出す場合は <strong>registercallback</strong></li>
 </ul>
 <p>レンダリング枠側に "関数ID" を引き渡すのは、ブックマークレットを使います。</p>
 <p>"引数"は文字列で一つしか指定できません。複数の引数を指定する場合は、呼び出し先で分割可能な文字列に合成して指定します。</p></li>
-<li><p>秀丸マクロが window.chrome.webview.postMessage で呼び出されたかどうかは event キーワードで判断します。指定された引数を取得するには geteventparam関数を使います。</p>
+<li><p>秀丸マクロが <strong>window.chrome.webview.postMessage</strong> で呼び出されたかどうかは <strong>event</strong> キーワードで判断します。指定された引数を取得するには <strong>geteventparam</strong> 関数を使います。</p>
 <pre class="macro"><code>if(event == 0){
     //通常処理
 }else if(event == 10){
     //window.chrome.webview.postMessage で呼び出された場合
-    //引数を取得
+    //message で指定した引数を取得
     $arg = geteventparam(0);
-}</code></pre></li>
+}
+endmacro;</code></pre></li>
 <li><p>html/css/JavaScript でマクロ用GUI を作るには以下の手順になります。</p>
 <ol type="1">
 <li>レンダリング枠に表示する html/css/JavaScript を準備</li>
 <li>html を表示。</li>
 <li>表示完了まで待機。</li>
 <li>イベント等でマクロを呼び出すのに必要な "関数ID"の設定や必要なら初期化処理をブックマークレットを使って行う。</li>
-<li>呼び出されたマクロと引数を元に秀丸エディタ側で処理を行う。</li>
 </ol>
 <p>3項で「表示完了まで待機」しているのは、レンダリング枠上でhtmlのロードが完全に終了していないと、ブックマークレットでhtml上の各要素にアクセスるのが失敗する場合もあるからです。
 (htmlの各要素が完全に読み込み完了してからアクセスした方が安全だから)</p>
-<p><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane.html" class="externallink" target="_blank" rel="noopener">レンダリング枠</a>にあるサンプルを参照。</p></li>
+<p><strong>window.chrome.webview.postMessage</strong> で呼び出されたマクロ・関数と引数を元に秀丸エディタ側で処理を行う。</p>
+<p><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane.html" class="externallink" target="_blank" rel="noopener">レンダリング枠</a>にある<a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_sample.html" class="externallink" target="_blank" rel="noopener">レンダリング枠のサンプルマクロ</a>を参照。</p></li>
 </ul>
+<section id="レンダリング枠用命令の補足" class="level3">
+<h3>レンダリング枠用命令の補足</h3>
+<p>各コマンドの詳細に関しては、以下のヘルプを参照してください。</p>
+<ul>
+<li><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_renderpanecommand.html">renderpanecommand文/関数</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_setrenderpanetarget.html">setrenderpanetarget文</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Hidemaru_getFunctionId.html">hidemaru.getFunctionId</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/110_MacroStatement_registercallback.html">registercallback関数</a></li>
+</ul>
+<section id="renderpanecommand文関数" class="level4">
+<h4>renderpanecommand文/関数</h4>
+<p>JavaScriptでjson形式やオブジェクトを使って指定する場合は、renderpanecommand文/関数 だけでほぼ全て操作が可能です。</p>
+<p>秀丸マクロから操作する場合は、renderpanecommand と setrenderpanetarget文を併用した方がマクロが書きやすい場合もあります。</p>
+<p>秀丸マクロからjson文字列と変数を組み合わせる場合は文字列変数の合成する方法もありますが、
+strreplace関数、sprintf関数を使う方法もあります。</p>
+<pre class="macro"><code>//sprintfを使う方法
+$dailog_base = &quot;&quot;&quot;
+    {
+        &quot;target&quot;:&quot;rendering#1&quot;,
+        &quot;show&quot;:1,
+        &quot;uri&quot;:&quot;file:///c:/folder/rendering.html&quot;,
+        &quot;place&quot;:&quot;%s&quot;
+    }
+    &quot;&quot;&quot;;
+//枠の位置を切り替えるために変数にしておく
+$place = &quot;leftside&quot;;
+//sprintfを使ってjson文字列を完成させる
+$json_str = sprintf($dailog_base, $place);
+//コマンドを実行
+renderpanecommand $json_str;</code></pre>
+</section>
+<section id="setrenderpanetarget文" class="level4">
+<h4>setrenderpanetarget文</h4>
+</section>
+<section id="hidemaru.getfunctionidregistercallback" class="level4">
+<h4>hidemaru.getFunctionId/registercallback</h4>
+</section>
+</section>
 </section>
 </section>
 <hr />
