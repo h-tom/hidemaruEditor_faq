@@ -78,10 +78,10 @@ endmacro;</code></pre></li>
 <h3>レンダリング枠用命令の補足</h3>
 <p>各コマンドの詳細に関しては、以下のヘルプを参照してください。</p>
 <ul>
-<li><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_renderpanecommand.html">renderpanecommand文/関数</a></li>
-<li><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_setrenderpanetarget.html">setrenderpanetarget文</a></li>
-<li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Hidemaru_getFunctionId.html">hidemaru.getFunctionId</a></li>
-<li><a href="https://help.maruo.co.jp/hidemac/html/110_MacroStatement_registercallback.html">registercallback関数</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_renderpanecommand.html" class="externallink" target="_blank" rel="noopener">renderpanecommand文/関数</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_setrenderpanetarget.html" class="externallink" target="_blank" rel="noopener">setrenderpanetarget文</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Hidemaru_getFunctionId.html" class="externallink" target="_blank" rel="noopener">hidemaru.getFunctionId</a></li>
+<li><a href="https://help.maruo.co.jp/hidemac/html/110_MacroStatement_registercallback.html" class="externallink" target="_blank" rel="noopener">registercallback関数</a></li>
 </ul>
 <section id="renderpanecommand文関数" class="level4">
 <h4>renderpanecommand文/関数</h4>
@@ -89,7 +89,9 @@ endmacro;</code></pre></li>
 <p>秀丸マクロから操作する場合は、renderpanecommand と setrenderpanetarget文を併用した方がマクロが書きやすい場合もあります。</p>
 <p>秀丸マクロからjson文字列と変数を組み合わせる場合は文字列変数の合成する方法もありますが、
 strreplace関数、sprintf関数を使う方法もあります。</p>
-<pre class="macro"><code>//sprintfを使う方法
+<ul>
+<li><p>sprintfを使う方法</p>
+<pre class="macro"><code>//sprintfを使う方法(json文字列内に&quot;%&quot;があると書式指定子と認識されてしまう場合があるので注意する)
 $dailog_base = &quot;&quot;&quot;
     {
         &quot;target&quot;:&quot;rendering#1&quot;,
@@ -103,13 +105,24 @@ $place = &quot;leftside&quot;;
 //sprintfを使ってjson文字列を完成させる
 $json_str = sprintf($dailog_base, $place);
 //コマンドを実行
-renderpanecommand $json_str;</code></pre>
-</section>
-<section id="setrenderpanetarget文" class="level4">
-<h4>setrenderpanetarget文</h4>
-</section>
-<section id="hidemaru.getfunctionidregistercallback" class="level4">
-<h4>hidemaru.getFunctionId/registercallback</h4>
+renderpanecommand $json_str;</code></pre></li>
+<li><p>strreplaceを使う方法</p>
+<pre class="macro"><code>//strreplaceを使う方法
+$dailog_base = &quot;&quot;&quot;
+    {
+        &quot;target&quot;:&quot;rendering#1&quot;,
+        &quot;show&quot;:1,
+        &quot;uri&quot;:&quot;file:///c:/folder/rendering.html&quot;,
+        &quot;place&quot;:&quot;%place%&quot;
+    }
+    &quot;&quot;&quot;;
+//枠の位置を切り替えるために変数にしておく
+$place = &quot;leftside&quot;;
+//strreplaceを使ってjson文字列を完成させる
+$json_str = strreplace($dailog_base, &quot;%place%&quot;, $place);
+//コマンドを実行
+renderpanecommand $json_str;</code></pre></li>
+</ul>
 </section>
 </section>
 </section>
