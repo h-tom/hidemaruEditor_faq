@@ -55,6 +55,7 @@
 <p>以下では、これらの特殊文字や、「\」自体を表記したい時の書き方を簡単にまとめてあります。</p>
 <p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルや、C#の逐語的リテラル文字列 記法が使用出来るようになりました。この記法を使用すれば、「\」によるエスケープなしで、記述した文字列をそのまま、変数に入力できます。<br />
 (記法によっては制限があります。「<a href="#STRINGLITERAL">Ver.8.66以降の場合</a>」を参照)</p>
+<p>秀丸エディタ Ver.9.19以降では、C# 11 Raw string のような記法も使えます。(「<a href="#CS11STYLE">Ver.9.19以降の場合</a>」を参照)</p>
 </section>
 <section id="YENMARK" class="level3">
 <h3>【１】「\」の意味</h3>
@@ -227,6 +228,7 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <dl>
 <dt>Raw文字列リテラル</dt>
 <dd>
+<p><a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#raw" class="externallink" target="_blank" rel="noopener">文字列の「R"」から始まる文字列</a>を参照</p>
 <p>Raw文字列リテラルは、「R」から始め、以降「"」「Keyword」「(」と続き、ここまでが先頭を示す文字列になります。その後に文字列を記述し、「)」「Keyword」「"」の文字列で終端を示します。</p>
 <div class="table_border1">
 <table>
@@ -275,6 +277,7 @@ message R&quot;(&quot;Raw文字列
 </dd>
 <dt>逐語的リテラル文字列</dt>
 <dd>
+<p><a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#atstring" class="externallink" target="_blank" rel="noopener">文字列の「@"」から始まる文字列</a>を参照</p>
 <p>逐語的リテラル文字列は、「@"」から始まり、文字列を記述し、「"」で終わります。</p>
 <div class="table_border1">
 <table>
@@ -321,8 +324,12 @@ message @&quot;&quot;&quot;Raw文字列
 <pre class="macro"><code>openfile @&quot;C:\Program Files\Hidemaru\HIDEMARU.TXT&quot;;</code></pre>
 </section>
 <section id="ver.9.19以降の場合" class="level4">
-<h4><span id="PYTHONSTYLE">Ver.9.19以降の場合</span></h4>
-<p>秀丸エディタ Ver.9.19以降では、Pythonのヒアドキュメントのような記法も使えます。</p>
+<h4><span id="CS11STYLE">Ver.9.19以降の場合</span></h4>
+<p>秀丸エディタ Ver.9.19以降では、C# 11 Raw string のような記法も使えます。</p>
+<ul>
+<li><a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#cs11" class="externallink" target="_blank" rel="noopener">文字列の「"""」から始まる文字列</a>を参照</li>
+<li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/raw-string" class="externallink" target="_blank" rel="noopener">Raw string literals - """ - C#</a></li>
+</ul>
 <p>「"""」から始め、「"""」で末尾と判断します。「"(ダブルクォート)」の連続数は3個以上あればよく、先頭と末尾の個数は同じにする事。</p>
 <ul>
 <li><p>一行で書く場合は、単純にで囲むだけです。</p>
@@ -372,7 +379,14 @@ $text   = &quot;&quot;&quot;
 $footer = &quot;### end ###&quot;;
 debuginfo 2;
 debuginfo $header + $text + $footer;
-endmacro;</code></pre></li>
+endmacro;</code></pre>
+<p>実行結果。<br />
+空行は改行と認識される。</p>
+<pre class="macro"><code>### start ###
+インデントなし
+  インデント有り
+下の行はインデントが「末尾」と同じなので空行扱いされる。
+### end ###</code></pre></li>
 <li><p>NGになる例</p>
 <ol type="1">
 <li><p>先頭の「<code>"""</code>」の後に改行以外の文字がある場合</p>
