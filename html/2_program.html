@@ -57,7 +57,8 @@
 <h3>【１】共通の注意点</h3>
 <ul>
 <li><p>コマンドラインに指定する文字列について</p>
-<p>文字列内に</p>
+<p>コマンドライン文字列内に以下の文字があると、対象の内容に置換されてプログラムに引き渡されます。
+(大文字小文字の区別はありません)</p>
 <ul>
 <li>%f</li>
 <li>%d</li>
@@ -66,9 +67,7 @@
 <li>%l</li>
 <li>%c</li>
 </ul>
-<p>の文字がある場合、対象の内容に置換されてプログラムに引き渡されます。
-(大文字小文字の区別はありません)<br />
-特に、パーセントエンコード/URLエンコード を含む文字列を指定する場合は注意が必要です。</p>
+<p>特に、パーセントエンコード/URLエンコード を含む文字列を指定する場合は注意が必要です。</p>
 <p><strong><code>"C:\Program Files\Hidemaru\HIDEMARU.TXT"</code></strong> を秀丸エディタで開いている状態では、以下の内容に置換されます。</p>
 <dl>
 <dt>%f</dt>
@@ -108,30 +107,24 @@
 カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。
 </dd>
 </dl>
-<p>例えば、以下の Vbscript を "argv.vbs" というファイル名で保存し、
+<p>例えば、以下の JScript を "argv.js" というファイル名で保存し、
 "%8C %B4 %88 %F6 %8B %86 %96 %BE" という文字列を引数として wscript.exe で実行してみます。</p>
-<pre class="macro"><code>
-Option Explicit
+<pre class="macro"><code>var i = 0;
+var Argv = &quot;&quot;;
+//引数の取得
+var WshArgs = WScript.Arguments;
 
-Dim WshArgs
-Dim Argv
-Dim i
+for (i = 0; i &lt; WshArgs.length; i++)
+{
+    Argv +=  i.toString(10) +  &quot; --&gt;&quot; + WshArgs(i) + &quot;&lt;--\n&quot;;
+}
 
-Argv = &quot;&quot;
-
-&#39;引数の取得
-Set WshArgs = WScript.Arguments
-For i = 0 to WshArgs.Count - 1
-    Argv = Argv &amp; cstr(i) &amp; &quot; --&gt;&quot; &amp; WshArgs(I) &amp; &quot;&lt;--&quot; &amp; vbcrlf
-Next
-set WshArgs = Nothing
-
-Wscript.echo Argv
-Wscript.quit
+WScript.echo(Argv);
+WScript.quit();
 </code></pre>
-<p>コマンドラインに指定する文字列。("argv.vbs" は、スクリプトを保存した場所に合わせて、修正してください)</p>
+<p>コマンドラインに指定する文字列。("argv.js" は、スクリプトを保存した場所に合わせて、修正してください)</p>
 <pre class="macro"><code>
-wscript.exe &quot;argv.vbs&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE
+wscript.exe &quot;argv.js&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE
 </code></pre>
 <p>出力結果</p>
 <div class="macro">

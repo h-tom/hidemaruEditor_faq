@@ -44,7 +44,7 @@
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
 <p>秀丸エディタのマクロから他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2024/04/04現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
+<p>現状(2024/04/11現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -97,7 +97,7 @@
 <li><p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#NOTICE">【１】共通の注意点</a>を参照してください。</p></li>
 <li><p>run系文実行時の result は、プログラムの実行に成功した場合は <code>false</code>以外に 、失敗した場合は <code>false</code> になります。
 <code>true</code> かどうかではなく、<code>false</code>ではない事を確認した方が良いでしょう。</p>
-<pre class="macro"><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.vbs&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
+<pre class="macro"><code>run @&quot;wscript.exe &quot;&quot;&quot; + macrodir + @&quot;\argv.js&quot;&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE&quot;;
 if(!result){
     //失敗した場合の処理
 
