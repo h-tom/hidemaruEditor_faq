@@ -108,7 +108,7 @@
 </dd>
 </dl>
 <p>例えば、以下の JScript を "argv.js" というファイル名で保存し、
-"%8C %B4 %88 %F6 %8B %86 %96 %BE" という文字列を引数として wscript.exe で実行してみます。</p>
+%8C %B4 %88 %F6 %8B %86 %96 %BE という8個の文字列を引数として wscript.exe で実行してみます。</p>
 <pre class="macro"><code>var i = 0;
 var Argv = &quot;&quot;;
 //引数の取得
@@ -116,37 +116,33 @@ var WshArgs = WScript.Arguments;
 
 for (i = 0; i &lt; WshArgs.length; i++)
 {
-    Argv +=  i.toString(10) +  &quot; --&gt;&quot; + WshArgs(i) + &quot;&lt;--\n&quot;;
+    Argv +=  (i+1).toString(10) +  &quot; --&gt;&quot; + WshArgs(i) + &quot;&lt;--\n&quot;;
 }
 
 WScript.echo(Argv);
 WScript.quit();
 </code></pre>
 <p>コマンドラインに指定する文字列。("argv.js" は、スクリプトを保存した場所に合わせて、修正してください)</p>
-<pre class="macro"><code>
-wscript.exe &quot;argv.js&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE
-</code></pre>
+<pre class="macro"><code>wscript.exe &quot;argv.js&quot; %8C %B4 %88 %F6 %8B %86 %96 %BE</code></pre>
 <p>出力結果</p>
-<div class="macro">
-<pre><code>---------------------------
+<pre class="macro"><code>---------------------------
 Windows Script Host
 ---------------------------
-
-0 --&gt;%8C&lt;--
-1 --&gt;HIDEMARU.TXT4&lt;--
-2 --&gt;%88&lt;--
-3 --&gt;C:\Program&lt;--
-4 --&gt;Files\Hidemaru\HIDEMARU.TXT6&lt;--
-5 --&gt;%8B&lt;--
-6 --&gt;%86&lt;--
-7 --&gt;%96&lt;--
-8 --&gt;HIDEMARU.TXTE&lt;--
+1 --&gt;%8C&lt;--
+2 --&gt;Hidemaru.txt4&lt;--
+3 --&gt;%88&lt;--
+4 --&gt;C:\Program&lt;--
+5 --&gt;Files\Hidemaru\Hidemaru.txt6&lt;--
+6 --&gt;%8B&lt;--
+7 --&gt;%86&lt;--
+8 --&gt;%96&lt;--
+9 --&gt;Hidemaru.txtE&lt;--
 
 ---------------------------
-OK
+OK   
 ---------------------------</code></pre>
-</div>
-<p>"%8C %B4 %88 %F6 %8B %86 %96 %BE" に含まれる、"%B"、"%F"が、ファイル名、フルパスに変換されて、プログラムに引き渡されています。さらに、フルパスの場合、スペースが含まれている為、引数の数も違ってしまっています。</p></li>
+<p>%8C %B4 %88 %F6 %8B %86 %96 %BE に含まれる "%B" "%F"が、ファイル名 フルパスに変換されてプログラムに引き渡されています。さらに、フルパスにスペースが含まれているので引数の数も一致しません。
+(起動オプションはスペースを項目の区切りにしている)</p></li>
 <li><p>標準出力でNULL文字が含まれる場合は、<strong>「その他→<span class="env">動作環境</span>→ファイル→エンコード2」</strong> にある以下の設定に影響されます。</p>
 <ul>
 <li>NULL文字があったとき警告メッセージを表示</li>
