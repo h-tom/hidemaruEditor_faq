@@ -42,7 +42,7 @@
 <li><p>レンダリング枠は、エディタ画面の上下左右に配置する事とエディタ画面上にオーバレイ表示できます。レンダリング枠は識別用の名前を付ける必要がありますが複数表示可能です。</p></li>
 <li><p>レンダリング枠内のJavaScriptからは、「js{ }」内で使用できる秀丸エディタ独自のオブジェクトは使用できません。
 (秀丸マクロ実行外なので使用できない)</p></li>
-<li><p>秀丸エディタマクロ → レンダリング枠 方向のやり取りは 「ブックマークレット」のように Javascript を使います。処理が複雑になる場合は、あらかじめ処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p></li>
+<li><p>秀丸エディタマクロ → レンダリング枠 方向のやり取りは 「ブックマークレット」のように JavaScript を使います。処理が複雑になる場合は、あらかじめ処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p></li>
 <li><p>レンダリング枠 → 秀丸エディタマクロ 方向のやり取りは「<strong>window.chrome.webview.postMessage</strong>」を使います。</p>
 <p>postMessage のパラメータにはオブジェクトを指定し、funcid は関数ID、message 引数として任意の文字列を指定します。</p>
 <pre class="macro"><code>html側の例：window.chrome.webview.postMessage({funcid:関数ID, message:&quot;引数&quot;});</code></pre>
@@ -52,7 +52,7 @@
 <li>秀丸エディタマクロを呼び出す場合は <strong>registercallback</strong></li>
 </ul>
 <p>レンダリング枠側に "関数ID" を引き渡すのは、ブックマークレットを使います。</p>
-<p>"引数"は文字列で一つしか指定できません。複数の引数を指定する場合は、呼び出し先で分割可能な文字列に合成して指定します。</p></li>
+<p>"引数"は文字列で1つしか指定できません。複数の引数を指定する場合は、呼び出し先で分割可能な文字列に合成して指定します。</p></li>
 <li><p>秀丸マクロが <strong>window.chrome.webview.postMessage</strong> で呼び出されたかどうかは <strong>event</strong> キーワードで判断します。指定された引数を取得するには <strong>geteventparam</strong> 関数を使います。</p>
 <pre class="macro"><code>if(event == 0){
     //通常処理
@@ -86,7 +86,7 @@ endmacro;</code></pre></li>
 <section id="renderpanecommand文関数" class="level4">
 <h4>renderpanecommand文/関数</h4>
 <p>JavaScriptでjson形式やオブジェクトを使って指定する場合は、renderpanecommand文/関数 だけでほぼ全て操作が可能です。</p>
-<p>秀丸マクロから操作する場合は、renderpanecommand と setrenderpanetarget文を併用した方がマクロが書きやすい場合もあります。</p>
+<p>秀丸マクロから操作する場合は、renderpanecommand と setrenderpanetarget文を併用した方がマクロを書きやすい場合もあります。</p>
 <p>秀丸マクロからjson文字列と変数を組み合わせる場合は文字列変数の合成する方法もありますが、
 strreplace関数、sprintf関数を使う方法もあります。</p>
 <ul>
