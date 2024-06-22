@@ -47,9 +47,9 @@
 </ul>
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
-<p>Ver.9.19以降、マクロファイル内にある、js{ } 記述内は JavaScriptで記述することが可能になりました。
-execjs文使用すると外部のjsファイルも実行できます。</p>
-<p>JavaScript実行時には、HidemaruGlobalオブジェクト、Hidemaruオブジェクト が常にグローバルに存在します。秀丸マクロ命令の実行や秀丸エディタの機能を使うには、この2つのオブジェクトを利用します。</p>
+<p>Ver.9.19以降、マクロファイル内にある js{ } 記述内は JavaScript で記述することが可能になりました。
+execjs文で別ファイルの JavaScript も実行できます。</p>
+<p>JavaScript 実行時には、HidemaruGlobal オブジェクト、Hidemaru オブジェクト が常にグローバルに存在します。秀丸マクロ命令の実行や秀丸エディタの機能を使うには、この2つのオブジェクトを利用します。</p>
 <ul>
 <li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_HidemaruGlobal.html" class="externallink" target="_blank" rel="noopener">HidemaruGlobalオブジェクト</a>は、秀丸マクロの文/キーワード/関数と同名のメソッドがあります。
 jsmode文により、グローバル展開をON/OFFできる。</li>
@@ -118,7 +118,7 @@ js {
 </section>
 <section id="RESTRICTION" class="level3">
 <h3>制限事項</h3>
-<section id="秀丸エディタの切り替え" class="level4">
+<section id="RESTRICTION1" class="level4">
 <h4>秀丸エディタの切り替え</h4>
 <p>js{ }の実行中は、他の秀丸エディタへの切り替えができません。</p>
 <p>従来のマクロでは、アクティブな秀丸ディタが切り替われば、マクロ実行する秀丸ディタも切り替わっていましたが、
@@ -152,7 +152,7 @@ js:basename=a.txt</code></pre>
 (basename が変わっていない)</p></li>
 </ul>
 </section>
-<section id="数値のやり取り" class="level4">
+<section id="RESTRICTION2" class="level4">
 <h4>数値のやり取り</h4>
 <p>数値を JavaScript と 秀丸マクロ 間でやり取りする場合は、64bit版でも、32bitまでという制限あり。</p>
 <p>(hidemaruオブジェクトの)getVar/setVarによる JavaScript - 秀丸マクロ間の数値型変数とのやりとりは、32bitの数値として扱われる。</p>
@@ -181,6 +181,63 @@ macro:#b=0x0</code></pre>
 <li>32bit 以上の値を JavaScript → 秀丸マクロ の場合は、0 が 秀丸マクロ へ送られる。</li>
 </ul></li>
 </ul>
+</section>
+<section id="RESTRICTION2" class="level4">
+<h4>「非同期」とは</h4>
+<p>現時点では秀丸マクロが実行中かどうかという意味合い。</p>
+<div class="mark_dt">
+<dl>
+<dt>同期</dt>
+<dd>
+秀丸マクロ実行中。
+</dd>
+<dt>非同期</dt>
+<dd>
+秀丸マクロが実行されていない状態。
+</dd>
+</dl>
+</div>
+<p>非同期の状態では、秀丸マクロ実行中ではないので使用できるオブジェクトに制限があります。</p>
+<ul>
+<li>hidemaruオブジェクトの幾つかのメソッド・プロパティは、非同期でも使用可能。</li>
+<li>hidemaruGlobalオブジェクトは、基本的には非同期で使うことはできない。非同期で使うことができるものには、説明文の最初に[非同期]と記載されている。</li>
+</ul>
+<p>秀丸マクロを制限なく使いたい場合は、hidemaru.postExecMacroFile や hidemaru.postExecMacroMemory でマクロを実行する方法もあります。</p>
+<section id="RESTRICTION2-1" class="level5">
+<h5>「非同期」のサンプルマクロ変更版</h5>
+<p>マクロ本体</p>
+<pre class="macro"><code>//ファイル名：test_js.mac
+hidemaruversion &quot;9.22.14&quot;;
+//アウトプット枠に出力
+debuginfo 2;
+debuginfo sprintf(&quot;%d:%s start\n&quot;, tickcount, currentmacrobasename);
+js{
+    //非同期で呼ばれる関数(秀丸マクロ実行中には呼び出されない)
+    function checkInterval(){
+        console.log(tickcount() + &quot;:[非同期] Call checkInterval() idInterval=&quot; + idInterval  + &quot;\n&quot;);
+        hidemaru.clearInterval(idInterval);
+    }
+    
+    //秀丸マクロ実行中に実行される内容
+    var idInterval;
+    idInterval = hidemaru.setInterval(checkInterval,1000);
+    console.log(tickcount() + &quot;:[同期] idInterval=&quot; + idInterval + &quot;\n&quot;);
+}
+debuginfo sprintf(&quot;%d:%s end\n&quot;, tickcount, currentmacrobasename);
+endmacro;</code></pre>
+<p>実行結果</p>
+<pre class="macro"><code>22375343:test_js.mac start                               ←マクロ開始
+22375406:[同期] idInterval=23414                         遅延時間と呼び出される関数を指定
+22375406:test_js.mac end                                 ←マクロ終了
+22376406:[非同期] Call checkInterval() idInterval=23414  ← setIntervalで指定した時間後に checkInterval関数が実行されている。</code></pre>
+<p>実行結果を見ればわかりますが、checkInterval 関数はマクロ実行時には呼び出されず、マクロが終了してから setInterval で指定した時間経過後に呼び出されています。</p>
+<p>JavaScript は明示的にリセットしなければ、同じスクリプトエンジン・同じ名前空間のオブジェクトはウィンドウを閉じるまで保持されます。この性質を利用しローバルスコープで変数を宣言すれば、どのタイミングでも変数にアクセス可能です。</p>
+<p>なので、マクロを終了しても</p>
+<pre class="macro"><code>idInterval = hidemaru.setInterval(checkInterval,1000);</code></pre>
+<p>idInterval の内容は保持されていので、checkInterval 関数内の</p>
+<pre class="macro"><code>hidemaru.clearInterval(idInterval);</code></pre>
+<p>で、タイマーを止めることができます。</p>
+</section>
 </section>
 </section>
 </section>

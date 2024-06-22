@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="" />
+  <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　マクロのデバッグについて</title>
   <style>
     code{white-space: pre-wrap;}
@@ -50,7 +50,7 @@
 <h3>秀丸エディタのデバッグ機能について</h3>
 <p>秀丸エディタ本体にあるデバッグ機能について説明します。</p>
 <p>秀丸エディタ本体には、デバッグ関連の命令として以下の2つがあります。(2つしかないと言うべきか?)
-両方の命令は。共にデバッガ(デバッグを支援するツール/プログラム)にデータを出力します。</p>
+両方の命令は、共にデバッガ(デバッグを支援するツール/プログラム)にデータを出力します。</p>
 <p>デバッガは一度に扱えるデータ量には制限があります。デバッグ用共有メモリサイズは4kバイトなので、これ以上は一度に表示されません。</p>
 <ul>
 <li><p><a href="https://help.maruo.co.jp/hidemac/html/090_MessageStatement_debuginfo.html" class="externallink" target="_blank" rel="noopener">debuginfo</a><br />
@@ -59,7 +59,7 @@
 <ul>
 <li>引数として数値の「0」を指定した場合は、デバッガへの出力をOFFします。(マクロ実行直後はOFF状態)</li>
 <li>引数として数値の「0」以外を指定した場合は、デバッガへの出力をONします。<br />
-Ver.8.77から、引数として数値の 「2」を指定した場合、デバッガだけではなく、アウトプット枠にもメッセージを出力します。アウトプット枠が表示されていない場合は、アウトプット枠も表示されます。</li>
+Ver.8.77から引数として数値の 「2」を指定すると、デバッガだけではなくアウトプット枠にもメッセージを出力します。アウトプット枠が表示されていない場合は、アウトプット枠も表示されます。</li>
 </ul></li>
 <li><p><a href="https://help.maruo.co.jp/hidemac/html/090_MessageStatement_showvars.html" class="externallink" target="_blank" rel="noopener">showvars</a><br />
 現在のマクロで定義されている変数とその内容の一覧を出力する。</p>
@@ -90,6 +90,7 @@ Ver.8.77から、引数として数値の 「2」を指定した場合、デバ�
 <li><a href="#DEBUG-2">message文、question文 を使う方法</a></li>
 <li><a href="#DEBUG-3">アウトプット枠に出力</a></li>
 <li><a href="#DEBUG-4">秀丸エディタに出力</a></li>
+<li><a href="#DEBUG-5">JavaScriptの場合</a></li>
 </ul>
 <p>「<a href="#DEBUG-1">debuginfo を使う場合</a>」がお勧めです。</p>
 <p>「<a href="#DEBUG-2">message文、question文 を使う方法</a>」は、チョット調べたい場合などには便利です。</p>
@@ -331,6 +332,11 @@ DBOUT_INIT:
     setactivehidemaru ##main;
 return;
 </code></pre>
+</section>
+<section id="DEBUG-5" class="level4">
+<h4>JavaScriptの場合</h4>
+<p>js{} の中では、<a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_appendix_console_log.html" class="externallink" target="_blank" rel="noopener">console.log()メソッド</a>が使用できます。出力先はアウトプット枠なので、あらかじめアウトプット枠に出力するよう hidemaruGlobal.debuginfo(2); を呼び出してください。<br />
+アウトプット枠ではなくデバッグアプリケーションに出力する手段は提供されていません。</p>
 </section>
 </section>
 </section>

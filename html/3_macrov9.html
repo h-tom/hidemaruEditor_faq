@@ -55,6 +55,10 @@
 <li><a href="#V926">秀丸エディタVer.9.26 マクロ関連の変更履歴</a></li>
 <li><a href="#V927">秀丸エディタVer.9.27 マクロ関連の変更履歴</a></li>
 <li><a href="#V928">秀丸エディタVer.9.28 マクロ関連の変更履歴</a></li>
+<li><a href="#V930">秀丸エディタVer.9.30 マクロ関連の変更履歴</a></li>
+<li><a href="#V932">秀丸エディタVer.9.32 マクロ関連の変更履歴</a></li>
+<li><a href="#V933">秀丸エディタVer.9.33 マクロ関連の変更履歴</a></li>
+<li><a href="#V934">秀丸エディタVer.9.34 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -125,7 +129,7 @@
 <h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.10</h3>
 <ul>
 <li>カレントフォルダ移動しない設定であっても、runsync runsync2 で実行したプログラムのカレントフォルダはファイルのあるフォルダとなる互換を維持するように修正。</li>
-<li>updatecount は検索したときは上がらないように修正。</li>
+<li>updatecount は検索したときに上がらないよう修正。</li>
 </ul>
 </section>
 </section>
@@ -449,7 +453,7 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <section id="SPEC_V922" class="level3">
 <h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.22</h3>
 <ul>
-<li>マクロファイルはUTF-8やUTF-16でなければ、欧文ファイル上の欧文マクロファイルの動作は廃止して、Shift_JIS解釈に固定に変更。</li>
+<li>マクロファイルはUTF-8やUTF-16でなければ、欧文ファイル上の欧文マクロファイルの動作は廃止して、Shift_JIS解釈と固定するように変更。</li>
 <li>hidemaru.exeの終了コードは特に理由が無ければ0で固定となるようにした。</li>
 </ul>
 </section>
@@ -471,7 +475,7 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <section id="SPEC_V923" class="level3">
 <h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.23</h3>
 <ul>
-<li>起動オプション/fの改行やBOM指定などの追加。（新規ファイル時）</li>
+<li>起動オプション/fの改行やBOM指定などの追加（新規ファイル時）。</li>
 </ul>
 </section>
 </section>
@@ -508,7 +512,7 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <li>変更
 <ul>
 <li>input関数で、サイズを指定するパラメータ追加</li>
-<li>browserpanecommandで、各種不足していた操作など追加</li>
+<li>browserpanecommandで、各種不足していた操作等を追加</li>
 <li>prevposx、prevposyで、引数に-1を追加。</li>
 <li>HmOutputPane.dllの関数にClear()追加</li>
 <li>getfocus、setfocusでブラウザ枠の番号追加。</li>
@@ -530,7 +534,7 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <section id="SPEC_V925" class="level3">
 <h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.25</h3>
 <ul>
-<li>起動オプション/fの改行やBOM指定などの追加。（新規ファイル時）</li>
+<li>起動オプション/fと改行やBOMの組み合わせで/fsと/fu32bができていなかったのを修正。</li>
 </ul>
 </section>
 </section>
@@ -546,7 +550,7 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <ul>
 <li>その他
 <ul>
-<li>question文でEscで[いいえ]になっていなかったのを再びできるように修正。</li>
+<li>question文で、Escで[いいえ]になっていなかったのを再びできるように修正。</li>
 <li>closehidemaruがうまくいかない場合がある問題修正。</li>
 </ul></li>
 </ul>
@@ -564,6 +568,61 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 </ul></li>
 </ul>
 </section>
+</section>
+<section id="V930" class="level2">
+<h2>秀丸エディタVer.9.30 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V930">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.30</a></p>
+<p>【２】<a href="#SPEC_V930">仕様変更 - 「秀丸エディタ」Ver.9.30</a></p>
+<section id="LIST_V930" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.30</h3>
+<ul>
+<li>追加
+<ul>
+<li>[JavaScript]hidemaru.runProcessのProcessInfoオブジェクトにonCloseメソッド追加</li>
+</ul></li>
+<li>その他
+<ul>
+<li>getconfigで"cl"を指定するとカーソル行OFFだったのがONになってしまう問題修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V930" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.30</h3>
+<ul>
+<li>キー操作の保存でShiftを押しながらのときは「"""」の文字列の形式にしてみる（暫定）。</li>
+<li>[次の検索色付け]/[前の検索色付け]コマンド追加。</li>
+</ul>
+</section>
+</section>
+<section id="V932" class="level2">
+<h2>秀丸エディタVer.9.32 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V932">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.32</a></p>
+<p>【２】<a href="#SPEC_V932">仕様変更 - 「秀丸エディタ」Ver.9.32</a></p>
+<section id="LIST_V932" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.32</h3>
+<ul>
+<li>その他
+<ul>
+<li>HmJre.dll V5.34にして、クイック全置換の正規表現の行頭(^)がうまくいかない場合がある問題修正。</li>
+<li>filter関数でhmfjs指定時にgetresultex(18)が得られない問題修正。</li>
+<li>keepdllで3を指定してファイルを閉じたときにしてみる（暫定）。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V932" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.32</h3>
+<ul>
+<li>デスクトップ復元で、アクティブだったタブを復元するように修正。</li>
+</ul>
+</section>
+</section>
+<section id="V933" class="level2">
+<h2>秀丸エディタVer.9.33 マクロ関連の変更履歴</h2>
+<p>Ver.9.33は、マクロ関連の変更はありません。</p>
+</section>
+<section id="V934" class="level2">
+<h2>秀丸エディタVer.9.34 マクロ関連の変更履歴</h2>
+<p>Ver.9.34は、マクロ関連の変更はありません。</p>
 </section>
 </section>
 <hr />

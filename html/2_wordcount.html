@@ -39,7 +39,7 @@
 <p>秀丸エディタ Ver.6.00以降では「文字数計算」が可能です。</p>
 <p>「文書全体の文字数」 「選択範囲の文字数」 「全体の行数」 「選択範囲の行数」が表示できます。
 (「全体の行数」 「選択範囲の行数」はステータスバーへの表示のみ)</p>
-<p>メニューの「その他−コマンド一覧」を選択し、「その他−文字数計算」を選んでください。</p>
+<p>メニューの「その他−コマンド一覧」を選びます。「文字数計算」と入力して選ぶか、「その他」から「文字数計算」を選んでください。</p>
 <ul>
 <li><p>文書全体の文字数を表示例<br />
 (範囲選択していなければ全体の文字数を、範囲選択している場合は選択範囲内の文字数を表示します)</p>
@@ -53,19 +53,21 @@
 <section id="EXPLANATION" class="level3">
 <h3>[解説]</h3>
 <p>「文字数の計算」ですが、ダイアログで表示する方法のほか、<span class="attention_red">ステータスバーに表示可能</span>です。頻繁に使用するなら、ステータスバーに表示するように設定した方が良いでしょう。</p>
-<p>ステータスバーの設定は「<strong>その他-<span class="env">動作環境</span></strong>」から動作環境のダイアログを表示させ、「<strong>ウィンドウ</strong>」を選択します。「<strong>ウィンドウ下部</strong>」にステータスバーの設定があります。表示する項目数によっては狭くて見にくい場合もあるので、「<strong>ファンクションキーとステータスバーを合体</strong>」のチェックは、外した方がよいでしょう。</p>
-<p><img src="./2_wordcount_05.png" width="605" height="433" alt="動作環境-ウィンドウ" /><br />
+<p>ステータスバーの設定は「<strong>その他-<span class="env">動作環境</span></strong>」から動作環境ダイアログを表示させ、「<strong>ウィンドウ</strong>」を選択します。<br />
+ステータスバーの表示をON/OFFするチェックボックスと<span class="btn-push">「詳細」</span>ボタンがあります。</p>
+<p><img src="./2_wordcount_05.png" width="619" height="439" alt="動作環境-ウィンドウ" /><br />
 </p>
-<p>「<strong>ステータスバー</strong>」の「<strong>詳細</strong>」を押すと表示する項目の設定画面が表示されるので、表示したい項目を選択します。</p>
+<p>「<strong>ステータスバー</strong>」の<span class="btn-push">「詳細」</span>ボタンを押すと、表示する項目の設定ダイアログが表示されます。</p>
 <p>行数の計算は、現在開いているファイルの「<span class="filetype">ファイルタイプ別の設定</span>」にある、「<strong>体裁-詳細-行番号の計算方法</strong>」によります。</p>
-<p>「<strong>ファンクションキーとステータスバーを合体</strong>」のチェック状態によって、操作するタブが違うので、注意してください。</p>
+<p>「<strong>合体</strong>」のチェック状態によって、操作するタブが違うので注意してください。
+(「<strong>合体</strong>」をONするとファンクションキーとステータスバーを1列に表示するので、表示は見にくいです)</p>
 <ul>
 <li>チェックが<strong>OFF</strong>の場合「<span class="attention_red">通常</span>」のタブ</li>
 <li>チェックが<strong>ON</strong>の場合「<span class="attention_red">ファンクションキーと合体時</span>」のタブ</li>
 </ul>
 <p><img src="./2_wordcount_06.png" width="475" height="383" alt="文字数計算-結合文字" /><br />
 </p>
-<p>「計算方法」を押すと、文字数計算のダイアログが開き、文字数の計算方法が設定できます。すべて共通なので、1回設定すればいいです。</p>
+<p><span class="btn-push">「計算方法」</span>ボタンを押すと、文字数の計算方法が設定できます。共通の設定なので何処かで1回設定すればいいです。</p>
 <p><img src="./2_wordcount_11.png" width="405" height="273" alt="文字数計算-文字数計算の設定" /><br />
 </p>
 <p>Ver.8.97以降では、文字種毎の文字数も表示されます。半角文字以外を「<strong>数えない</strong>」、半角文字を「<strong>単語(連続した半角)</strong>」にすると、簡易的ですが英単語数としてカウントできます。</p>
@@ -150,22 +152,22 @@
 </tbody>
 </table>
 </div>
-<p>ステータスバーには、以下のように表示されます。(「ファンクションキーとステータスバーを合体」はOFF状態)</p>
+<p>ステータスバーには、以下のように表示されます。(「合体」はOFF状態)</p>
 <p><img src="./2_wordcount_09.png" width="746" height="279" alt="文字数計算-ステータスバーの表示状態" /><br />
 </p>
 </section>
 <section id="SUPPLEMENTATION" class="level3">
 <h3>[補足]</h3>
-<p>Unicodeの場合、結合文字や絵文字があると秀丸エディタの設定により、見た目と文字数が一致しません。以下の例では、見た目は1文字ですが、文字数は<span class="attention_red">2</span>になっています。(全角文字も1文字で計算するように設定)</p>
+<p>文字コードがUnicodeで結合文字や絵文字がある場合は、秀丸エディタの設定により見た目と文字数が一致しません。以下の例では、見た目は1文字ですが、文字数は<span class="attention_red">2</span>になっています。(全角文字も1文字で計算するように設定)</p>
 <div style="position:relative; height:313px;">
 <p><img src="./2_wordcount_12.png" width="280" height="92" alt="文字数計算-結合文字1" style="position: absolute;"/>
 <img src="./2_wordcount_11.png" width="405" height="273" alt="文字数計算-結合文字2" style="position: absolute; left: 5px; top: 30px; box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .5);"/>
 <img src="./2_wordcount_13.png" width="405" height="273" alt="文字数計算-結合文字3" style="position: absolute; left: 5px; top: 30px;"/></p>
 </div>
 <p>これは、<code>"ボ"</code>が、Unicodeの結合文字で構成されているためです。
-1文字に見えますが、<code>"ホ"(U+30d8)</code> + <code>"&#12441;"(濁点 U+3099)</code> の2文字で構成されているため、文字数としては<span class="attention_red">2</span>として計算されます。</p>
-<p>結合文字の<span class="attention_red">表示方法</span>は、「<span class="env">動作環境</span>−編集−高度な編集2」で設定できます。</p>
-<p><img src="./2_wordcount_04.png" width="613" height="437" alt="文字数計算-結合文字" /><br />
+1文字に見えますが、<code>"ホ"(U+30d8)</code> + <code>"&#12441;"(濁点 U+3099)</code> の2文字で構成されているので、文字数としては<span class="attention_red">2</span>として計算されます。</p>
+<p>結合文字の<span class="attention_red">表示方法</span>は、「<span class="env">動作環境</span>−編集−高度な編集2」で設定できます。(「上級者向け設定」をONする必要あり)</p>
+<p><img src="./2_wordcount_04.png" width="619" height="439" alt="文字数計算-結合文字" /><br />
 </p>
 <p>Unicodeの結合文字や絵文字を秀丸エディタ上で表示されている文字数でカウントするには、「全角文字」の設定で「<span class="attention_red">カーソル移動単位</span>」を選択します。ただし、使用しているフォントの影響を受けます。</p>
 <ul>

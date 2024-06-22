@@ -2341,6 +2341,8 @@
 		<param name="Name" value="変換モジュール">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　変換モジュール">
 		<param name="Local" value="html\2_convert.html">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　置換">
+		<param name="Local" value="html\2_replace.html#SUPPLEMENTATION-3">
 		</OBJECT>
 	<LI> <OBJECT type="text/sitemap">
 		<param name="Name" value="編集位置のマーク及び検索">
@@ -2376,6 +2378,13 @@
 		<param name="Name" value="ブラウザ枠">
 		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　ブラウザ枠">
 		<param name="Local" value="html\2_browser.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="クイック全置換">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　grepして置換">
+		<param name="Local" value="html\2_grepreplace.html">
+		<param name="Name" value="第II部〜知っていると便利な秀丸の機能　置換">
+		<param name="Local" value="html\2_replace.html">
 		</OBJECT>
 
 </UL>

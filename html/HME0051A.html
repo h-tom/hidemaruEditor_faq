@@ -55,7 +55,7 @@
 <p>「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード1」→「自動判定で開くとき」で、<span class="marker1">「ファイルの内容を解析してエンコードの種類を自動認識する」</span>をONにして下さい。<br />
 (「<strong>エンコード1</strong>」が表示されていない場合は、「動作環境」画面左下にある「<span class="attention_red">上級者向け設定</span>」をONにしてください)</p>
 <p>使用状況に合わせ、エンコードの優先度を変更したり、新規作成時のエンコードの指定も出来ます。</p>
-<p><img src="./HME0051A_01.png" width="613" height="437" alt="エンコード1" /><br />
+<p><img src="./HME0051A_01.png" width="619" height="439" alt="エンコード1" /><br />
 </p></li>
 <li><p>ファイルを開くときに明示的に文字コードを指定する。</p>
 <p>メニューの「ファイル」→「開く」等のダイアログで、「文字コード」で正しい文字コードを指定します。</p></li>
@@ -63,7 +63,7 @@
 <p>ショートカットの作成方法は、<a href="./4_cmdlin.html#DRAGDROP">テキスト編集を極める！！　起動オプションを使ってみよう</a>を参照してください。</p></li>
 <li><p>(EUCコードの場合のみ)保存するフォルダを決めておく。</p>
 <p>秀丸エディタの「その他」→「<span class="env">動作環境</span>」→「ファイル」→「エンコード2」にある、<span class="marker1">「EUCコードの指定ドライブ」</span>の欄にドライブを指定し、EUCコードのファイルはそこに保存する。</p>
-<p><img src="./HME0051A_02.png" width="613" height="437" alt="エンコード2" /><br />
+<p><img src="./HME0051A_02.png" width="619" height="439" alt="エンコード2" /><br />
 </p></li>
 <li><p>ファイルの先頭に、文字コードを記述しておく</p>
 <p>ファイルの先頭に、文字コードを記述しておく方法もあります。ただし、「<span class="filetype">ファイルタイプ別の設定</span>」で、判定を有効にしておく必要があります。</p>
@@ -91,7 +91,9 @@
 <ul>
 <li><p>最初の <code>"-*-"</code> の後、最後の <code>"-*-"</code> の前には、スペースを入れてください。(タブは使用しないこと)</p>
 <p>以下の書式では認識しない</p>
-<pre><code># -*-coding: utf-8-*-</code></pre></li>
+<div class="macro">
+<pre><code># -*-coding: utf-8-*-</code></pre>
+</div></li>
 <li><p><code>coding</code> の後は、<code>":"</code>だけではなく、<code>"="</code> でもいいです。
 (<code>coding</code>とその後の文字(<code>":"</code>または<code>"="</code>)との間に、スペースを入れてはいけません)</p></li>
 </ul></li>

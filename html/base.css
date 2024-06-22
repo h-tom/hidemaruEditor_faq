@@ -465,8 +465,12 @@ div.mark_dt > dl > dd {
 div.mark_dl > dl > dt{
     font-weight         : bold;
     color               : White;
+    background-color    : Blue;
+    padding-left        : 0.2em;
+    /*
     background-color    : #00BFFF;
     border-left         : solid 5px navy;
+    */
 }
 
 .outline_marker1{
