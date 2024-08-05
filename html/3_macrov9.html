@@ -59,6 +59,8 @@
 <li><a href="#V932">秀丸エディタVer.9.32 マクロ関連の変更履歴</a></li>
 <li><a href="#V933">秀丸エディタVer.9.33 マクロ関連の変更履歴</a></li>
 <li><a href="#V934">秀丸エディタVer.9.34 マクロ関連の変更履歴</a></li>
+<li><a href="#V935">秀丸エディタVer.9.35 マクロ関連の変更履歴</a></li>
+<li><a href="#V937">秀丸エディタVer.9.37 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -623,6 +625,64 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <section id="V934" class="level2">
 <h2>秀丸エディタVer.9.34 マクロ関連の変更履歴</h2>
 <p>Ver.9.34は、マクロ関連の変更はありません。</p>
+</section>
+<section id="V935" class="level2">
+<h2>秀丸エディタVer.9.35 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V935">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.35</a></p>
+<p>【２】<a href="#SPEC_V935">仕様変更 - 「秀丸エディタ」Ver.9.35</a></p>
+<section id="LIST_V935" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.35</h3>
+<ul>
+<li>追加
+<ul>
+<li>settotaltext、hidemaru.setTotalText追加。</li>
+<li>keepobjectのパラメータ追加。</li>
+</ul></li>
+<li>変更
+<ul>
+<li>hidemaru.postExecMacroMemoryで成否を返すようにした。</li>
+<li>settotaltextは部分編集を解除するように変更。</li>
+<li>endmacro_postcommandはそのマクロ自身がすぐ終了しなかったのを終了するように修正。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>down 数字;で行選択モードのときうまくいかない問題修正。</li>
+<li>existfileの非同期対応。</li>
+<li>renderpanecommandの前にhidemaru.setIntervalするとおかしい問題修正。</li>
+<li>setactivehidemaruが失敗する場合の対策。</li>
+<li>openbyshellのパラメータ指定でfile: の日本語などのパスがうまくいかないのを修正</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V935" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.35</h3>
+<ul>
+<li>各種ブラウザ枠は、ダークモードやライトモードの影響を受けないように変更。</li>
+</ul>
+</section>
+</section>
+<section id="V937" class="level2">
+<h2>秀丸エディタVer.9.37 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V937">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.37</a></p>
+<p>【２】<a href="#SPEC_V937">仕様変更 - 「秀丸エディタ」Ver.9.37</a></p>
+<section id="LIST_V937" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.37</h3>
+<ul>
+<li>その他
+<ul>
+<li>jsmodeで "allreset"した後の getJsMode がおかしかった問題修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V937" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.37</h3>
+<ul>
+<li>Home/Endキーにキー割り当てされている場合のアウトライン解析の枠の動作の調整。</li>
+<li>[動作環境]→[ウィンドウ]→[横スクロールバー]→[編集して上限が小さくなるときも自動調整する]は非推奨という位置づけにして、対応する括弧の強調も保持するように修正。</li>
+<li>前/次ページ、ファイルの先頭/最後コマンドにキー割り当てされたコマンドをアウトライン解析の枠上で実行したときの対応。</li>
+<li>ファイルマネージャ枠などのスクロールバー部分などでホイールが効かない問題修正。</li>
+</ul>
+</section>
 </section>
 </section>
 <hr />

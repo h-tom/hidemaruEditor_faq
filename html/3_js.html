@@ -42,8 +42,17 @@
 <li><a href="#POSSIBLE">JavaScriptでなにができるのか</a></li>
 <li><a href="#MODE">JavaScript実行環境</a></li>
 <li><a href="#HIDEMARUMACRO">JavaScriptから秀丸マクロの文/キーワード/関数の呼び出し方法</a></li>
+<li><a href="#JSMODE">jsmode文の説明</a></li>
+<li><a href="#OBJECT">オブジェクトの有効範囲</a></li>
+<li><a href="#GETJSMODE">jsmodeの設定状態確認</a></li>
+<li><a href="#SYNCHRONIZE">「同期/非同期」とは</a></li>
 </ul></li>
-<li><a href="#RESTRICTION">制限事項</a></li>
+<li><a href="#RESTRICTION">制限事項</a>
+<ul>
+<li><a href="#RESTRICTION1">秀丸エディタの切り替え</a></li>
+<li><a href="#RESTRICTION2">数値のやり取り</a></li>
+<li><a href="#RESTRICTION3">カラーマーカー</a></li>
+</ul></li>
 </ul>
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
@@ -57,11 +66,10 @@ jsmode文により、グローバル展開をON/OFFできる。</li>
 JavaScript と 秀丸マクロ 間で変数をやり取りする場合は、Hidemaruオブジェクトを使います。</li>
 </ul>
 <p>他にも使用できるオブジェクトがあるのでマクロヘルプの <a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript.html" class="externallink" target="_blank" rel="noopener">JavaScript対応</a> −<a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Object.html" class="externallink" target="_blank" rel="noopener">オブジェクト</a> を参照してください。</p>
-<p><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_appendix.html" class="externallink" target="_blank" rel="noopener">その他</a> に注意点などが書いてあるので、よく読みましょう。</p>
 <section id="POSSIBLE" class="level4">
 <h4>JavaScriptでなにができるのか</h4>
 <p>JavaScript は汎用プログラム言語です。各種ライブラリも利用できます。</p>
-<p>JavaScriptの使い方としては以下の方法があります。どちらの方法がいいかはマクロによるのでいろいろ試してみましょう。</p>
+<p>JavaScript の使い方としては以下の方法があります。どちらの方法がいいかはマクロによるのでいろいろ試してみましょう。</p>
 <ul>
 <li><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_HidemaruGlobal.html" class="externallink" target="_blank" rel="noopener">HidemaruGlobalオブジェクト</a>、
 <a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_Hidemaru.html" class="externallink" target="_blank" rel="noopener">Hidemaruオブジェクト</a> を使い JavaScript内ですべて完結させる。</li>
@@ -70,27 +78,27 @@ JavaScript と 秀丸マクロ 間で変数をやり取りする場合は、Hide
 </section>
 <section id="MODE" class="level4">
 <h4>JavaScript実行環境</h4>
-<p>JavaScriptの実行環境としては以下の3つを指定可能です。</p>
-<p><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_jsmode.html" class="externallink" target="_blank" rel="noopener">jsmode文</a>のパラメータ1で文字列として指定します。</p>
+<p>JavaScriptの実行環境(JavaScriptエンジン)としては以下の3つを指定可能です。</p>
+<p><a href="#JSMODE">jsmode文</a>のパラメータ1で文字列として指定します。明示的に指定しない場合は、"<span class="attention_red">JScript</span>" が使用されます。</p>
 <ul>
 <li><p>JScript(デフォルト)</p>
 <p>WSHベースのエンジンで秀丸エディタを実行できる環境なら標準搭載されています。</p>
 <p>対応規格は古い(ECMA-262 3rd edition(December 1999))。</p>
 <p>JScriptの資料は<a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/scripting-articles/d1et7k7c(v=vs.84)" class="externallink" target="_blank" rel="noopener">JScript and VBScript Microsoft Learn</a>を参照。</p></li>
 <li><p>Chakra</p>
-<p>IEベースのエンジン。</p>
+<p>IEベースのエンジン。使用できる環境と出来ない環境がある。</p>
 <p>対応規格は古い(ECMA-262 5.1 edition(December 2009))。</p></li>
 <li><p>WebView2</p>
-<p>Chromium版 Microsoft Edge相当。
-Windows10、11以外の場合は、MicrosoftのサイトからWebView2ランタイムをインストールする必要があります。
-(Windows 7、8、8.1 をサポートしているのは、WebView2ランタイム バージョン 109 が最終になります)</p>
+<p>Chromium版 Microsoft Edge相当のエンジン。</p>
+<p>Windows10、11以外の場合は、MicrosoftのサイトからWebView2ランタイムをインストールする必要があります。
+(Windows 7 / 8 / 8.1 をサポートしているのは、WebView2ランタイム バージョン 109 が最終になります)</p>
 <p>JavaScriptの資料は<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript" class="externallink" target="_blank" rel="noopener">JavaScript MDN</a>を参照。</p></li>
 </ul>
-<p>新しい JavaScript を使いたい場合は「WebView2」を使うしかありませんが、実行環境としては Windows 10、11 が主なターゲットになります。どの Windows 環境でも動かそうとする場合、現状では「JScript」を使うことになります。</p>
+<p>新しい JavaScript を使うには「WebView2」を指定しますが、実行環境としては Windows 10 / 11 が主なターゲットになります。どの Windows 環境でも動かしたい場合は「JScript」を使うことになります。</p>
 </section>
 <section id="HIDEMARUMACRO" class="level4">
 <h4>JavaScriptから秀丸マクロの文/キーワード/関数の呼び出し方法</h4>
-<p>秀丸マクロの文/キーワード/関数は、HidemaruGlobalオブジェクトのメソッドとして呼び出すことができます。</p>
+<p>秀丸マクロの文/キーワード/関数は HidemaruGlobal オブジェクトのメソッドとして呼び出すことができます。</p>
 <ul>
 <li>一部例外はあるが 文/キーワード/関数 をそのままのメソッドとして使用できる。<br />
 詳細は <a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_HidemaruGlobal_methods.html" class="externallink" target="_blank" rel="noopener">HidemaruGlobalオブジェクトのメソッド</a>を参照。</li>
@@ -112,7 +120,274 @@ js {
     a = filename2();
     message(a);
 }</code></pre>
-<p><a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_jsmode.html" class="externallink" target="_blank" rel="noopener">jsmode文</a>を使うことで、明示的にグローバル展開を無効にしたり有効にしたりできます。</p>
+<p><a href="#JSMODE">jsmode文</a>を使うことで、明示的にhidemaruGlobalオブジェクトのメソッド等のグローバル展開を無効にしたり有効にしたりできます。
+(デフォルトで「グローバル展開は有効」となっている)</p>
+</section>
+</section>
+<section id="JSMODE" class="level4">
+<h4>jsmode文の説明</h4>
+<p>jsmode文は 2個のパラメータを指定します。詳細はマクロヘルプの<a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_jsmode.html" class="externallink" target="_blank" rel="noopener">jsmode文</a>を参照。</p>
+<dl>
+<dt>パラメータ1</dt>
+<dd>
+<ul>
+<li><p>数値を指定した場合は「グローバル展開の無効/有効」の指定(0 or 1)と見なされる。</p>
+<p>現状の「JavaScript実行環境」と「名前空間」でグローバル展開の無効(0)/有効(1)を設定します。グローバル展開の設定が異なると「<span class="attention_red">別の実行環境</span>」に切り替わることになります。</p>
+<pre class="macro"><code>newfile;
+debuginfo 2;
+//$mode = &quot;WebView2&quot;;
+$mode = &quot;JScript&quot;;
+
+jsmode $mode + @&quot;\namesapce&quot;, 1;
+js{
+    console.log(&quot;jsmode(0)=&quot; + hidemaru.getJsMode());
+    var name = &quot;hidemaru&quot;;
+    console.log(&quot;name(0)  =&quot; + name);
+}
+jsmode 0;
+js{
+    console.log(&quot;jsmode(1)=&quot; + hidemaru.getJsMode());
+    if(typeof(name) === &quot;undefined&quot;){
+        console.log(&quot;name(1)  =宣言されていません。&quot;);
+    }else if(hidemaru.getJsMode().indexOf(&quot;webview2&quot;, 0) == 0 &amp;&amp; name == &quot;&quot;){
+        console.log(&quot;name(1)  =&#39;&#39;です。宣言されていないか、空文字がセットされています。&quot; );
+    }else{
+        console.log(&quot;name(1)  =&quot; + name);
+    }
+}
+endmacro;</code></pre></li>
+<li><p>文字列を指定した場合は、「<strong>JavaScript実行環境</strong>」と「<strong>名前空間</strong>」の指定となります。「名前空間」は「JavaScript実行環境」の後に "\" を付けて指定します。最初の "\" まで「JavaScript実行環境」とし、後は「名前空間」と認識します。</p>
+<pre class="macro"><code>jsmode &quot;JScript\\namesapce&quot;;</code></pre>
+<p>「JavaScript実行環境」は<a href="#MODE">JavaScript実行環境</a>を参照。「JavaScript実行環境」を省略した場合は、"JScript"を指定したことになります。</p>
+<p>「名前空間」を指定しない場合は、内部的にはマクロを実行しているファイル名(フルパス)が設定されます。</p>
+<pre class="macro"><code>//jsmode &quot;実行環境の指定\名前空間&quot;, グローバル展開の無効/有効
+//&quot;\&quot;は&quot;\\&quot;と書くこと
+jsmode &quot;JScript\\namesapce&quot;, 1;
+
+//逐語的リテラル文字列の記法を使えば&quot;\&quot;のエスケープは不要
+jsmode @&quot;JScript\namesapce&quot;, 1;
+
+//「JavaScript実行環境」を省略した場合は&quot;JScript&quot;と見なす。
+jsmode @&quot;\namesapce&quot;, 1;
+
+//「名前空間」を省略した場合は内部的には開いているファイルのフルパスが設定される。
+jsmode @&quot;JScript\&quot;, 1;
+</code></pre></li>
+<li><p>パラメータ1に指定できる特殊な文字列として以下の2つがあります。</p>
+<ul>
+<li><p>""</p>
+<p>スクリプトエンジンを既定の「JScript」に戻し、<span class="attention_red">次に実行する</span> js{} または execjs はリセットされた状態で実行されます。
+(パラメータ2は無視されます。)</p>
+<p>使い方が難しいです。</p>
+<ol type="1">
+<li>jsmode @"JScript", 1; を指定して js{} を実行</li>
+<li>jsmode @""; を指定すると、「JScript」に戻るが、js{}は実行していない状態</li>
+<li>jsmode @"JScript", 1: を指定して js{} を実行</li>
+</ol>
+<p>上記内容だと、リセットされるのは 3) の「js{}」実行時です。「JScript」がリセットされます。</p>
+<pre class="macro"><code>newfile;
+debuginfo 2;
+$mode = &quot;WebView2&quot;;
+jsmode $mode + @&quot;\namesapce&quot;, 1;
+js{
+    console.log(&quot;jsmode(0)=&quot; + hidemaru.getJsMode());
+    var name = &quot;hidemaru&quot;;
+    console.log(&quot;name(0)  =&quot; + name);
+}
+jsmode @&quot;&quot;, 0;
+//以下のjs{} 部分を有効にすると動作が変わります。
+//(「JScript」に戻っているので、リセット対象は「JScript」になる)
+/*
+js{
+    console.log(&quot;jsmode(1)=&quot; + hidemaru.getJsMode());
+}
+*/
+jsmode $mode + @&quot;\namesapce&quot;, 1;
+js{
+    console.log(&quot;jsmode(2)=&quot; + hidemaru.getJsMode());
+    if(typeof(name) === &quot;undefined&quot;){
+        console.log(&quot;name(2)  =宣言されていません。&quot;);
+    }else if(hidemaru.getJsMode().indexOf(&quot;webview2&quot;, 0) == 0 &amp;&amp; name == &quot;&quot;){
+        console.log(&quot;name(2)  =&#39;&#39;です。宣言されていないか、空文字がセットされています。&quot; );
+    }else{
+        console.log(&quot;name(2)  =&quot; + name);
+    }
+}</code></pre></li>
+<li><p>"allreset"</p>
+<p>現在の秀丸エディタ上に残っている他の実行空間・名前空間を全てリセットします。</p></li>
+</ul></li>
+</ul>
+</dd>
+<dt>パラメータ2</dt>
+<dd>
+<ul>
+<li>数値のみ(0 or 1)。グローバル展開の無効=0、グローバル展開の有効=1 になります。省略した場合は「1」を指定したと見なします。</li>
+</ul>
+</dd>
+</dl>
+<p>jsmode文を実行すると、それ以降の「js{}」は設定した内容で実行されます。
+jsmode文を実行したマクロから execmacro文 で呼び出したマクロ内の「js{}」も(jsmode文がなければ)同じ設定で実行されます。</p>
+</section>
+<section id="OBJECT" class="level4">
+<h4>オブジェクトの有効範囲</h4>
+<p>JavaScript では明示的にリセットしなければ、オブジェクト(変数、関数も含む)はウィンドウを閉じるまで保持されます。
+JavaScript 内でグローバルスコープで宣言したものなら、他のマクロの JavaScript 内から参照できますが、以下の条件があります。</p>
+<ol type="1">
+<li><p><span class="attention_red">同じ秀丸エディタ上</span></p>
+<p>JavaScript を実行する秀丸エディタが異なれば、他の条件が一致していても別の実行環境となる。</p></li>
+<li><p>同じJavaScript実行環境(スクリプトエンジン)</p></li>
+<li><p>同じ名前空間</p></li>
+<li><p>同じグローバル展開状態の場合</p></li>
+</ol>
+<p>jsmode文を明示的に指定しないとデフォルト設定となるので条件が揃いやすいです。条件が揃えば別のマクロからでも JavaScript のオブジェクトにアクセス(読み書き変更)できます。つまり、自分で作成したマクロ以外から意図しない変更が加えられることも考えられます。</p>
+<p>トラブルを避ける意味でも JavaScript を使うときには「<strong>名前空間</strong>」を指定しましょう。</p>
+<p>execjs 文も同じで、execjs 文を実行した状態が有効範囲となります。</p>
+<p>「<strong>名前空間</strong>」は「他と衝突しないユニークな名前」が望ましいのですが、簡単に済ますなら以下の方法があります。</p>
+<ul>
+<li>「マクロファイル名(フルパス)」</li>
+<li>「マクロファイル名(ファイル名のみ)」+「開いているファイル名(ファイル名のみ)」</li>
+<li>tickcountキーワード + 「マクロファイル名(ファイル名のみ)」または「開いているファイル名(ファイル名のみ)」</li>
+</ul>
+<pre class="macro"><code>debuginfo 2;
+jsmode @&quot;JScript\&quot; + currentmacrofilename;
+js{
+    console.log(&quot;hidemaru.getJsMode = &quot; + hidemaru.getJsMode());
+}
+
+jsmode @&quot;JScript\&quot; + currentmacrobasename + &quot;#&quot; + basename;
+js{
+    console.log(&quot;hidemaru.getJsMode = &quot; + hidemaru.getJsMode());
+}
+
+jsmode @&quot;JScript\&quot; + hex(tickcount &amp; 0x7fffffff) + &quot;#&quot; + currentmacrobasename;
+js{
+    console.log(&quot;hidemaru.getJsMode = &quot; + hidemaru.getJsMode());
+}</code></pre>
+<p>「名前空間」は文字列長の制限や使えない文字はありませんが、"" や "allreset" は使わないようにしましょう。</p>
+</section>
+<section id="GETJSMODE" class="level4">
+<h4>jsmodeの設定状態確認</h4>
+<p>現状の jsmode文 の設定状態を取得するには、JavaScript内で hidemaru.getJsMode() 関数を使います。</p>
+<p>JavaScript実行環境(スクリプトエンジン)、識別用文字列(名前空間)、グローバル展開の設定を文字列にして返します。(各項目の区切り文字として "\" を使用)</p>
+<p>識別用文字列内に "\" が入る場合もあるので、"\" で分割した場合は、先頭は「スクリプトエンジン」、最後は「グローバル展開の設定」、その他が「識別用文字列」になります。</p>
+<ul>
+<li><p>動作確認用マクロ(デフォルト状態)</p>
+<pre class="macro"><code>//newfile
+//jsmode 0;
+debuginfo 2;
+js{
+    //getJsMode()関数で取得
+    var getmodestr   = hidemaru.getJsMode();
+    //&quot;\&quot;で分解
+    var getmode      = getmodestr.split(&quot;\\&quot;);
+    //先頭を取り出し
+    var ScriptEngine = getmode.shift();
+    //最後を取り出し
+    var GlobalFlag   = getmode.pop();
+    //残りを合成
+    var Distinction  = getmode.join(&quot;\\&quot;);
+
+    console.log(&quot;hidemaru.getJsMode = &quot; + getmodestr);
+    console.log(&quot;ScriptEngine       = &quot; + ScriptEngine);
+    console.log(&quot;GlobalFlag         = &quot; + GlobalFlag);
+    console.log(&quot;Distinction        = &quot; + Distinction);
+}
+endmacro;</code></pre></li>
+<li><p>出力結果1</p>
+<p>「名前空間」を指定しない場合は、識別用文字列は開いているファイルのフルパスになります。</p>
+<pre class="macro"><code>hidemaru.getJsMode = jscript\c:\temp\test.txt\&lt;global&gt;
+ScriptEngine       = jscript
+GlobalFlag         = &lt;global&gt;
+Distinction        = c:\temp\test.txt</code></pre>
+<p><code>newfile</code> を有効にすると無題の新規ファイルを開くのでフォルダ名になります。</p>
+<pre class="macro"><code>hidemaru.getJsMode = jscript\c:\temp\\&lt;global&gt;
+ScriptEngine       = jscript
+GlobalFlag         = &lt;global&gt;
+Distinction        = c:\temp\</code></pre></li>
+<li><p>出力結果2</p>
+<p><code>jsmode 0;</code> のコメント部分を有効にして、グローバル展開の設定を変更してみます。</p>
+<pre class="macro"><code>hidemaru.getJsMode = jscript\c:\temp\\&lt;strict&gt;
+ScriptEngine       = jscript
+GlobalFlag         = &lt;strict&gt;
+Distinction        = c:\temp\</code></pre></li>
+<li><p>出力結果3</p>
+<p>jsmode部分を変更。「JavaScript実行環境(スクリプトエンジン)」と「名前空間」を指定。</p>
+<pre class="macro"><code>jsmode @&quot;WebView2\namesapce&quot;;</code></pre>
+<p>識別用文字列(名前空間)が設定した文字列になります。</p>
+<pre class="macro"><code>hidemaru.getJsMode = webview2\namesapce\&lt;global&gt;
+ScriptEngine       = webview2
+GlobalFlag         = &lt;global&gt;
+Distinction        = namesapce</code></pre></li>
+<li><p>出力結果4</p>
+<p>jsmode部分を変更。「JavaScript実行環境(スクリプトエンジン)」を指定し「名前空間」空白にする。</p>
+<pre class="macro"><code>jsmode @&quot;WebView2\&quot;;</code></pre>
+<p>「JavaScript実行環境(スクリプトエンジン)」は設定した文字列になります。識別用文字列は開いているファイルのフルパスになる。</p>
+<pre class="macro"><code>hidemaru.getJsMode = webview2\c:\temp\test.txt\&lt;global&gt;
+ScriptEngine       = webview2
+GlobalFlag         = &lt;global&gt;
+Distinction        = c:\temp\test.txt</code></pre></li>
+</ul>
+</section>
+<section id="SYNCHRONIZE" class="level4">
+<h4>「同期/非同期」とは</h4>
+<p>現時点(2024/08/05)では秀丸マクロが実行中かどうかという意味合い。</p>
+<div class="mark_dt">
+<dl>
+<dt>同期</dt>
+<dd>
+秀丸マクロ実行中。
+</dd>
+<dt>非同期</dt>
+<dd>
+秀丸マクロが実行されていない状態。
+</dd>
+</dl>
+</div>
+<p>非同期の状態では、秀丸マクロ実行中ではないので使用できるオブジェクトに制限があります。</p>
+<ul>
+<li>hidemaruオブジェクトの幾つかのメソッド・プロパティは、非同期でも使用可能。</li>
+<li>hidemaruGlobalオブジェクトは、基本的に非同期で使うことはできない。非同期で使うことができるものには、説明文の最初に[非同期]と記載されている。</li>
+</ul>
+<p>秀丸マクロを制限なく使いたい場合は、hidemaru.postExecMacroFile や hidemaru.postExecMacroMemory で秀丸マクロを実行する方法もあります。</p>
+<section id="RESTRICTION2-1" class="level5">
+<h5>「非同期」のサンプルマクロ変更版</h5>
+<p>マクロ本体</p>
+<pre class="macro"><code>//ファイル名：test_js.mac
+hidemaruversion &quot;9.22.14&quot;;
+//アウトプット枠に出力
+debuginfo 2;
+debuginfo sprintf(&quot;%d:%s start\n&quot;, tickcount, currentmacrobasename);
+js{
+    //非同期で呼ばれる関数(秀丸マクロ実行中には呼び出されない)
+    //この関数が呼ばれる時は、マクロの実行は終了しているので使用できる命令は「非同期」のみ
+    function checkInterval(){
+        console.log(tickcount() + &quot;:[非同期] Call checkInterval() idInterval=&quot; + idInterval  + &quot;\n&quot;);
+        //インターバル実行を解除(clearInterval は非同期でも使える)
+        hidemaru.clearInterval(idInterval);
+    }
+    
+    //秀丸マクロ実行中に実行される内容
+    //setInterval の戻り値をグローバル変数で保存
+    var idInterval;
+    //インターバル実行を設定(checkInterval 関数を 1000ms毎に実行)
+    idInterval = hidemaru.setInterval(checkInterval,1000);
+    console.log(tickcount() + &quot;:[同期] idInterval=&quot; + idInterval + &quot;\n&quot;);
+}
+debuginfo sprintf(&quot;%d:%s end\n&quot;, tickcount, currentmacrobasename);
+endmacro;</code></pre>
+<p>実行結果</p>
+<pre class="macro"><code>22375343:test_js.mac start                               ←マクロ開始
+22375406:[同期] idInterval=23414                         遅延時間と呼び出される関数を指定
+22375406:test_js.mac end                                 ←マクロ終了
+22376406:[非同期] Call checkInterval() idInterval=23414  ← setIntervalで指定した時間後に checkInterval関数が実行されている。</code></pre>
+<p>実行結果を見ればわかりますが、checkInterval 関数はマクロ実行時には呼び出されず、マクロが終了してから setInterval で指定した時間経過後に呼び出されています。</p>
+<p>JavaScript は明示的にリセットしなければ、オブジェクト(関数も含む)はウィンドウを閉じるまで保持されます。この性質を利用しグローバルスコープで変数を宣言すれば、どのタイミングでも変数にアクセス可能です。
+(ただし、同じスクリプトエンジン・同じ名前空間・同じグローバル展開状態 の場合のみ)</p>
+<p>なので、マクロを終了しても</p>
+<pre class="macro"><code>idInterval = hidemaru.setInterval(checkInterval,1000);</code></pre>
+<p>idInterval の内容は保持されていので、checkInterval 関数内の</p>
+<pre class="macro"><code>hidemaru.clearInterval(idInterval);</code></pre>
+<p>で、タイマーを止めることができます。</p>
 </section>
 </section>
 </section>
@@ -182,62 +457,20 @@ macro:#b=0x0</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="RESTRICTION2" class="level4">
-<h4>「非同期」とは</h4>
-<p>現時点では秀丸マクロが実行中かどうかという意味合い。</p>
-<div class="mark_dt">
-<dl>
-<dt>同期</dt>
-<dd>
-秀丸マクロ実行中。
-</dd>
-<dt>非同期</dt>
-<dd>
-秀丸マクロが実行されていない状態。
-</dd>
-</dl>
-</div>
-<p>非同期の状態では、秀丸マクロ実行中ではないので使用できるオブジェクトに制限があります。</p>
-<ul>
-<li>hidemaruオブジェクトの幾つかのメソッド・プロパティは、非同期でも使用可能。</li>
-<li>hidemaruGlobalオブジェクトは、基本的には非同期で使うことはできない。非同期で使うことができるものには、説明文の最初に[非同期]と記載されている。</li>
-</ul>
-<p>秀丸マクロを制限なく使いたい場合は、hidemaru.postExecMacroFile や hidemaru.postExecMacroMemory でマクロを実行する方法もあります。</p>
-<section id="RESTRICTION2-1" class="level5">
-<h5>「非同期」のサンプルマクロ変更版</h5>
-<p>マクロ本体</p>
-<pre class="macro"><code>//ファイル名：test_js.mac
-hidemaruversion &quot;9.22.14&quot;;
-//アウトプット枠に出力
-debuginfo 2;
-debuginfo sprintf(&quot;%d:%s start\n&quot;, tickcount, currentmacrobasename);
-js{
-    //非同期で呼ばれる関数(秀丸マクロ実行中には呼び出されない)
-    function checkInterval(){
-        console.log(tickcount() + &quot;:[非同期] Call checkInterval() idInterval=&quot; + idInterval  + &quot;\n&quot;);
-        hidemaru.clearInterval(idInterval);
-    }
-    
-    //秀丸マクロ実行中に実行される内容
-    var idInterval;
-    idInterval = hidemaru.setInterval(checkInterval,1000);
-    console.log(tickcount() + &quot;:[同期] idInterval=&quot; + idInterval + &quot;\n&quot;);
-}
-debuginfo sprintf(&quot;%d:%s end\n&quot;, tickcount, currentmacrobasename);
-endmacro;</code></pre>
-<p>実行結果</p>
-<pre class="macro"><code>22375343:test_js.mac start                               ←マクロ開始
-22375406:[同期] idInterval=23414                         遅延時間と呼び出される関数を指定
-22375406:test_js.mac end                                 ←マクロ終了
-22376406:[非同期] Call checkInterval() idInterval=23414  ← setIntervalで指定した時間後に checkInterval関数が実行されている。</code></pre>
-<p>実行結果を見ればわかりますが、checkInterval 関数はマクロ実行時には呼び出されず、マクロが終了してから setInterval で指定した時間経過後に呼び出されています。</p>
-<p>JavaScript は明示的にリセットしなければ、同じスクリプトエンジン・同じ名前空間のオブジェクトはウィンドウを閉じるまで保持されます。この性質を利用しローバルスコープで変数を宣言すれば、どのタイミングでも変数にアクセス可能です。</p>
-<p>なので、マクロを終了しても</p>
-<pre class="macro"><code>idInterval = hidemaru.setInterval(checkInterval,1000);</code></pre>
-<p>idInterval の内容は保持されていので、checkInterval 関数内の</p>
-<pre class="macro"><code>hidemaru.clearInterval(idInterval);</code></pre>
-<p>で、タイマーを止めることができます。</p>
-</section>
+<section id="RESTRICTION3" class="level4">
+<h4>カラーマーカー</h4>
+<p>カラーマーカーを使用している場合は注意が必要です。</p>
+<p>JavaScript を使用し、以下のような作業を行うと、カラーマーカーの情報は消えてしまいます。</p>
+<ol type="1">
+<li>ファイルの内容をすべて取得</li>
+<li>JavaScriptで内容を変更</li>
+<li>秀丸エディタ側の内容と入替</li>
+</ol>
+<p>解析ツール + カラーマーカー の場合は再解析が必要になります。目印としてカラーマーカーを使っていた場合、カラーマーカーがなくなります。</p>
+<p>カラーマーカーの情報も JavaScript 内から取得可能なので、カラーマーカーの情報を保存、入れ替えた内容に対して再適応させる方法もありますが、変更した内容に対し正しく反映させるられるかは不明です。</p>
+<p>カラーマーカーを消えないようにするには、秀丸エディタ本体側の機能を使い内容を変更する必要があります。
+(HidemaruGlobalオブジェクトを使用し、秀丸マクロの置換等のコマンドを使う)</p>
+<p>JavaScript での処理内容によりますが、ファイル内容全体を対象とする場合は、カラーマーカーの有無を確認したほうがいいでしょう。</p>
 </section>
 </section>
 </section>
