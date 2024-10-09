@@ -36,7 +36,7 @@
 <hr />
 <section id="INDEX" class="level2">
 <h2>レンダリング枠</h2>
-<p>レンダリング枠は、秀丸マクロと相互のやりとりができるブラウザ枠みたいなものです。マクロ(renderpanecommand文/関数)からしか呼び出せません。ローカルのhtml及びlocalhost(自PC内のサーバー)に接続可能です。相互でやりとりができるので html/css/JavaScript でマクロ用GUI も作れます。</p>
+<p>レンダリング枠は、秀丸マクロと相互のやりとりができるブラウザ枠みたいなものです。マクロ(renderpanecommand文/関数)からしか呼び出せません。ローカルのhtml及びlocalhost(自PC内のサーバー)に接続可能です。レンダリング枠と秀丸マクロ間でやりとりができるので html/css/JavaScript でマクロ用GUI も作れます。</p>
 <p>詳細は<a href="https://hide.maruo.co.jp/software/hidemarunew/v922_2.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ Ver9.22の新機能 レンダリング枠</a>と<a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ マクロ言語ヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane.html" class="externallink" target="_blank" rel="noopener">レンダリング枠</a>を参照してください。</p>
 <ul>
 <li><p>レンダリング枠は、エディタ画面の上下左右に配置する事とエディタ画面上にオーバレイ表示できます。レンダリング枠は識別用の名前を付ける必要がありますが複数表示可能です。</p></li>
@@ -68,10 +68,10 @@ endmacro;</code></pre></li>
 <li>html を表示。</li>
 <li>表示完了まで待機。</li>
 <li>イベント等でマクロを呼び出すのに必要な "関数ID"の設定や必要なら初期化処理をブックマークレットを使って行う。</li>
+<li><strong>window.chrome.webview.postMessage</strong> で呼び出されたマクロ・関数と引数を元に秀丸エディタマクロ側で処理を行う。</li>
 </ol>
-<p>3項で「表示完了まで待機」しているのは、レンダリング枠上でhtmlのロードが完全に終了していないと、ブックマークレットでhtml上の各要素にアクセスるのが失敗する場合もあるからです。
+<p>3項で「表示完了まで待機」しているのは、レンダリング枠上でhtmlのロードが完全に終了していないと、ブックマークレットでhtml上の各要素にアクセスするのが失敗する場合もあるからです。
 (htmlの各要素が完全に読み込み完了してからアクセスした方が安全だから)</p>
-<p><strong>window.chrome.webview.postMessage</strong> で呼び出されたマクロ・関数と引数を元に秀丸エディタ側で処理を行う。</p>
 <p><a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane.html" class="externallink" target="_blank" rel="noopener">レンダリング枠</a>にある<a href="https://help.maruo.co.jp/hidemac/html/245_RenderingPane_sample.html" class="externallink" target="_blank" rel="noopener">レンダリング枠のサンプルマクロ</a>を参照。</p></li>
 </ul>
 <section id="レンダリング枠用命令の補足" class="level3">
