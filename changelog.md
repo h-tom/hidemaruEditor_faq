@@ -446,11 +446,11 @@
     -   [第III部〜秀丸マクロのいろはにほへと　マクロ登録数の制限突破大作戦](./html/3_moremacro.html)
     -   [第III部〜秀丸マクロのいろはにほへと　サブルーチンについて](./html/3_sub.html)
     -   [第III部〜秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理](./html/3_window.html)
-    -   [\[HMM0016A\] [●openfile のオプションでの注意項目](./html/HMM0016A.html)
-    -   [\[HMM0018A\] [●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意](./html/HMM0018A.html)
-    -   [\[HMM0046A\] [●keypressed文による分岐のスケルトン](./html/HMM0046A.html)
-    -   [\[HMM0075A\] [●浮動小数点数版秀丸との互換性](./html/HMM0075A.html)
-    -   [\[HMM0077A\] [●マクロでの文字列の比較](./html/HMM0077A.html)
+    -   \[HMM0016A\] [●openfile のオプションでの注意項目](./html/HMM0016A.html)
+    -   \[HMM0018A\] [●openfile の /(x,y,cx,xy) オプションでのマクロの動作時の注意](./html/HMM0018A.html)
+    -   \[HMM0046A\] [●keypressed文による分岐のスケルトン](./html/HMM0046A.html)
+    -   \[HMM0075A\] [●浮動小数点数版秀丸との互換性](./html/HMM0075A.html)
+    -   \[HMM0077A\] [●マクロでの文字列の比較](./html/HMM0077A.html)
 
 -   [第III部〜秀丸マクロのいろはにほへと　秀丸エディタVer.8 マクロ関連の変更履歴](./html/3_macrov8.html)の誤記修正
 -   [第III部〜秀丸マクロのいろはにほへと　COMオブジェクト操作関連](./html/3_com_object.html)を変更。
@@ -465,9 +465,9 @@
 -   [第I部〜秀丸エディタＱ＆Ａ集　よくある質問](./html/yokuaru.html)を修正。行がつながってしまっていた箇所があったので修正。
 -   \[HME0016C\] [●表示できない記号がある](./html/HME0016C.html)を修正。
 -   以下のページで、設定画面の「上級者向け設定」がチェックされていないと表示されない項目がある事を追記。
-    -   [\[HME0031A\] [●文字コードの設定がヘン？ ](./html/HME0031A.html)
-    -   [\[HME0051A\] [●漢字コードの使い分け](./html/HME0051A.html)
-    -   [\[HME0074A\] [●特定のファイルを開くと文字化けする](./html/HME0074A.html)
+    -   \[HME0031A\] [●文字コードの設定がヘン？ ](./html/HME0031A.html)
+    -   \[HME0051A\] [●漢字コードの使い分け](./html/HME0051A.html)
+    -   \[HME0074A\] [●特定のファイルを開くと文字化けする](./html/HME0074A.html)
 -   \[HME0081A\] [●秀丸でハイパーリンク ](./html/HME0081A.html) の画像を変更。
 
 #### 2017/12/09
