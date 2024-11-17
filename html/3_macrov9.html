@@ -61,6 +61,7 @@
 <li><a href="#V934">秀丸エディタVer.9.34 マクロ関連の変更履歴</a></li>
 <li><a href="#V935">秀丸エディタVer.9.35 マクロ関連の変更履歴</a></li>
 <li><a href="#V937">秀丸エディタVer.9.37 マクロ関連の変更履歴</a></li>
+<li><a href="#V939">秀丸エディタVer.9.39 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -681,6 +682,39 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <li>[動作環境]→[ウィンドウ]→[横スクロールバー]→[編集して上限が小さくなるときも自動調整する]は非推奨という位置づけにして、対応する括弧の強調も保持するように修正。</li>
 <li>前/次ページ、ファイルの先頭/最後コマンドにキー割り当てされたコマンドをアウトライン解析の枠上で実行したときの対応。</li>
 <li>ファイルマネージャ枠などのスクロールバー部分などでホイールが効かない問題修正。</li>
+</ul>
+</section>
+</section>
+<section id="V939" class="level2">
+<h2>秀丸エディタVer.9.39 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V939">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.39</a></p>
+<p>【２】<a href="#SPEC_V939">仕様変更 - 「秀丸エディタ」Ver.9.39</a></p>
+<section id="LIST_V939" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.39</h3>
+<ul>
+<li>追加
+<ul>
+<li>jsの非同期対応を一部追加。</li>
+<li>awaitjs 文と hidemaru.notifyAwait メソッド追加。</li>
+</ul></li>
+<li>変更
+<ul>
+<li>config関係のJSON記述できる箇所を増やした。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>hidemaru.getVar で数値の配列ができない問題修正。</li>
+<li>showvars で配列がマイナス時の表示の修正。</li>
+<li>js のdown()で256以上できなかった問題修正。</li>
+<li>従来マクロの一部の内部的な改善。</li>
+<li>Windows 11 24H2 で JScript が落ちるかもしれない場合の対策。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V939" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.39</h3>
+<ul>
+<li>[その他]→[動作環境]→[環境]→[高度な環境2]に、「ブラウザ枠/WebView2を使わない」オプションを追加。</li>
 </ul>
 </section>
 </section>
