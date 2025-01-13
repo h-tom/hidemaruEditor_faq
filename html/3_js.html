@@ -230,8 +230,7 @@ jsmode文を実行したマクロから execmacro文 で呼び出したマクロ
 </section>
 <section id="OBJECT" class="level4">
 <h4>オブジェクトの有効範囲</h4>
-<p>JavaScript では明示的にリセットしなければ、オブジェクト(変数、関数も含む)はウィンドウを閉じるまで保持されます。
-JavaScript 内でグローバルスコープで宣言したものなら、他のマクロの JavaScript 内から参照できますが、以下の条件があります。</p>
+<p>JavaScript では明示的にリセットしなければ、オブジェクト(変数、関数も含む)はウィンドウを閉じるまで保持されます。グローバルスコープで宣言したものなら、他のマクロの JavaScript 内から参照できますが、以下の条件があります。</p>
 <ol type="1">
 <li><p><span class="attention_red">同じ秀丸エディタ上</span></p>
 <p>JavaScript を実行する秀丸エディタが異なれば、他の条件が一致していても別の実行環境となる。</p></li>
@@ -330,7 +329,7 @@ Distinction        = c:\temp\test.txt</code></pre></li>
 </section>
 <section id="SYNCHRONIZE" class="level4">
 <h4>「同期/非同期」とは</h4>
-<p>現時点(2024/08/05)では秀丸マクロが実行中かどうかという意味合い。</p>
+<p>現時点(2025/01/13)では秀丸マクロが実行中かどうかという意味合い。</p>
 <div class="mark_dt">
 <dl>
 <dt>同期</dt>
@@ -460,7 +459,7 @@ macro:#b=0x0</code></pre>
 <section id="RESTRICTION3" class="level4">
 <h4>カラーマーカー</h4>
 <p>カラーマーカーを使用している場合は注意が必要です。</p>
-<p>JavaScript を使用し、以下のような作業を行うと、カラーマーカーの情報は消えてしまいます。</p>
+<p>JavaScript を使用し、以下のような作業をすると、カラーマーカーの情報は消えてしまいます。</p>
 <ol type="1">
 <li>ファイルの内容をすべて取得</li>
 <li>JavaScriptで内容を変更</li>
