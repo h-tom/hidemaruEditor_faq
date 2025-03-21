@@ -484,8 +484,10 @@ div.mark_dl > dl > dt{
 }
 
 div.img_border img{
-    /*border  : aquamarine solid 2px;*/
-    border  : blue solid 1px;*/
+    /*
+    border  : aquamarine solid 2px;
+    */
+    border  : blue solid 1px;
 }
 
 /* -start---------------------------------------- */

@@ -5,7 +5,7 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="" />
+  <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　秀丸エディタVer.9 マクロ関連の変更履歴</title>
   <style>
     code{white-space: pre-wrap;}
@@ -62,6 +62,9 @@
 <li><a href="#V935">秀丸エディタVer.9.35 マクロ関連の変更履歴</a></li>
 <li><a href="#V937">秀丸エディタVer.9.37 マクロ関連の変更履歴</a></li>
 <li><a href="#V939">秀丸エディタVer.9.39 マクロ関連の変更履歴</a></li>
+<li><a href="#V941">秀丸エディタVer.9.41 マクロ関連の変更履歴</a></li>
+<li><a href="#V943">秀丸エディタVer.9.43 マクロ関連の変更履歴</a></li>
+<li><a href="#V944">秀丸エディタVer.9.44 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -717,6 +720,55 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <li>[その他]→[動作環境]→[環境]→[高度な環境2]に、「ブラウザ枠/WebView2を使わない」オプションを追加。</li>
 </ul>
 </section>
+</section>
+<section id="V941" class="level2">
+<h2>秀丸エディタVer.9.41 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V941">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.41</a></p>
+<p>【２】<a href="#SPEC_V941">仕様変更 - 「秀丸エディタ」Ver.9.41</a></p>
+<section id="LIST_V941" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.41</h3>
+<ul>
+<li>その他
+<ul>
+<li>従来マクロの createobject が keepobject 指定なしのときでも closenew や loadfile で解放されていた問題修正。</li>
+<li>menu 文の内部的な高さ計算のずれ修正。</li>
+<li>JavaScript のマクロで固まる場合がある問題修正。</li>
+<li>findwindow で固まる場合がある問題修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V941" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.41</h3>
+<ul>
+<li>検索のカーソル位置が固定に設定されているときは、ファイル末尾のスクロール位置も画面の半分までではなく、固定となるように変更。</li>
+</ul>
+</section>
+</section>
+<section id="V943" class="level2">
+<h2>秀丸エディタVer.9.43 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V943">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.43</a></p>
+<section id="LIST_V943" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.43</h3>
+<ul>
+<li>追加
+<ul>
+<li>非同期対応とconfigのJSON対応など。</li>
+<li>getdpi関数。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>JavaScriptでファイルを閉じたときにインスタンスが閉じない問題修正。</li>
+<li>V9.43β2でWebView2でsprintfが落ちていた問題修正。</li>
+<li>input関数の複数行のダイアログは、他のサイズ変更可能なダイアログ同様 dpiの異なるモニタでは移動できないようにした。（無理矢理はできてしまう）</li>
+<li>デスクトップ復元時の自動起動マクロの実行タイミング調整。（Ver.9.44で再修正）</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="V944" class="level2">
+<h2>秀丸エディタVer.9.44 マクロ関連の変更履歴</h2>
+<p>Ver.9.44は、マクロ関連の変更はありません。
+(デスクトップ復元の調整を従来通りに戻した。（自動起動マクロで固まったりする）)</p>
 </section>
 </section>
 <hr />
