@@ -434,10 +434,10 @@ div.mark_dt > dl > dd {
 
 /* 定義リスト2 */
 div.mark_dt > dl{
-    border-left         : solid 3px navy;
+    border-left         : solid 3px dodgerblue;/*navy;*/
 }
 div.mark_dt > dl > dt {
-    color               : White;
+    color               : black; /*White;*/
     margin-left         : 0.5em;
     font-weight         : bold;
     /* 変更 2021/03/27
@@ -449,9 +449,10 @@ div.mark_dt > dl > dt {
     background-color    : lightsteelblue;
     */
     /* 変更 2022/03/28 */
-    background-color    : darkgray;
-    border-left         : solid 5px navy;
+    background-color    : aliceblue; /*darkgray*/;
+    border-left         : solid 5px dodgerblue;/*navy;*/
 }
+
 div.mark_dt > dl > dd {
     margin-bottom   : 0.5em;
 }

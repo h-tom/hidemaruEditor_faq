@@ -65,6 +65,7 @@
 <li><a href="#V941">秀丸エディタVer.9.41 マクロ関連の変更履歴</a></li>
 <li><a href="#V943">秀丸エディタVer.9.43 マクロ関連の変更履歴</a></li>
 <li><a href="#V944">秀丸エディタVer.9.44 マクロ関連の変更履歴</a></li>
+<li><a href="#V946">秀丸エディタVer.9.46 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -769,6 +770,35 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <h2>秀丸エディタVer.9.44 マクロ関連の変更履歴</h2>
 <p>Ver.9.44は、マクロ関連の変更はありません。
 (デスクトップ復元の調整を従来通りに戻した。（自動起動マクロで固まったりする）)</p>
+</section>
+<section id="V946" class="level2">
+<h2>秀丸エディタVer.9.46 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V946">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.46</a></p>
+<p>【２】<a href="#SPEC_V946">仕様変更 - 「秀丸エディタ」Ver.9.46</a></p>
+<section id="LIST_V946" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.46</h3>
+<ul>
+<li>追加
+<ul>
+<li>findmarkerlist で個数の取得や先頭に移動する方法追加。</li>
+<li>inputstates で「現在操作していないウィンドウ」を取得可能にした。</li>
+</ul></li>
+<li>変更</li>
+<li>その他
+<ul>
+<li>colormarker のjson/オブジェクト指定で選択が無いときなどの問題修正。</li>
+<li>currentjsfilename が execjs でないとき動作していなかった問題修正。</li>
+<li>js の insert() で第２パラメータの指定で改行できない問題修正。</li>
+<li>非アクティブな秀丸エディタで renderpanecommand({show:0}) 　をすると本体にフォーカスを与えようとする問題修正。</li>
+</ul></li>
+</ul>
+</section>
+<section id="SPEC_V946" class="level3">
+<h3>【２】仕様変更 - 「秀丸エディタ」Ver.9.46</h3>
+<ul>
+<li>hidemaru.postExecMacroFileによる実行はキー操作の記録されないように修正。</li>
+</ul>
+</section>
 </section>
 </section>
 <hr />
