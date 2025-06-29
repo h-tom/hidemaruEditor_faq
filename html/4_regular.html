@@ -47,13 +47,13 @@
 </ul>
 </div>
 <ul>
-<li><p>以下の内容は、秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" class="externallink" target="_blank" rel="noopener">「検索系コマンド→検索→正規表現」</a>の内容についての補足です。よってヘルプを参照しながら読まれる事を想定して書かれています。</p></li>
-<li><p>秀丸エディタは、Ver.3.19までは正規表現エンジンに「JRE32.DLL」が使用されていましたが、
+<li>以下の内容は、秀丸エディタヘルプの<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Regular.html" class="externallink" target="_blank" rel="noopener">「検索系コマンド→検索→正規表現」</a>の内容についての補足です。よってヘルプを参照しながら読まれる事を想定して書かれています。</li>
+<li>秀丸エディタはVer.3.19まで正規表現エンジンに「JRE32.DLL」が使用されていましたが、
 Ver.4.00以降は「HMJRE.DLL」に変更されています。<br />
-以下の内容は、正規表現エンジンに「HMJRE.DLL」を使用する前提で書かれています。</p></li>
-<li><p>32bit版の場合、Ver.8.75までは「JRE32.DLL」も標準添付されていましたが、
-Ver.8.77以降は、標準添付されなくなりました。</p>
-<p>(「JRE32.DLL」の64bit版が存在しないので、64bit版秀丸エディタには、最初から「JRE32.DLL」は標準添付されていません)</p></li>
+以下の内容は、正規表現エンジンに「HMJRE.DLL」を使用する前提で書かれています。</li>
+<li>32bit版の場合、Ver.8.75までは「JRE32.DLL」も標準添付されていましたが、
+Ver.8.77以降は標準添付されなくなりました。
+(「JRE32.DLL」の64bit版が存在しないので、64bit版秀丸エディタには最初から「JRE32.DLL」は標準添付されていません)</li>
 </ul>
 <section id="REGEXP-0" class="level3">
 <h3>【０】 いんとろだくしょん</h3>
@@ -120,7 +120,7 @@ Ver.8.77以降は、標準添付されなくなりました。</p>
 </div>
 <p>にもマッチします(笑)。</p>
 <dl>
-<dt><span id="index-1">(*1)</span></dt>
+<dt><span id="index-1" class="mark_dt3">(*1)</span></dt>
 <dd>
 正規表現で対象の文を探していって、それに一致する文字列を見出したとき、「<strong>(正規表現パターンに)マッチした</strong>」と表現します。
 </dd>
@@ -147,54 +147,60 @@ Ver.8.77以降は、標準添付されなくなりました。</p>
 <tbody>
 <tr>
 <td style="text-align: left;"><strong><code>*</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の０個以上の繰り返し</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の０個以上の繰り返し</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>+</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の１個以上の繰り返し</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の１個以上の繰り返し</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>?</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の０個(＝１個もない)または１個</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の０個(＝１個もない)または１個</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>{n}</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の n 個の繰り返し</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の n 個の繰り返し</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>{n,}</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の n 個以上の繰り返し</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の n 個以上の繰り返し</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>{n,m}</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の n からm 個の繰り返し</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の n からm 個の繰り返し</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>*?</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の０個以上の繰り返し(最短一致)</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の０個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>+?</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の１個以上の繰り返し(最短一致)</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の１個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>??</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の０個(＝１個もない)または１個(最短一致)</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の０個(＝１個もない)または１個(最短一致)</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>{n}?</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の n 個の繰り返し(最短一致)</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の n 個の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>{n,}?</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の n 個以上の繰り返し(最短一致)</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の n 個以上の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong><code>{n,m}?</code></strong></td>
-<td style="text-align: left;"><strong>直前の文字(※)の n からm 個の繰り返し(最短一致)</strong>にマッチ</td>
+<td style="text-align: left;"><strong>直前の文字(<a href="#index-2">*2</a>)の n からm 個の繰り返し(最短一致)</strong>にマッチ</td>
 </tr>
 </tbody>
 </table>
+<dl>
+<dt><span id="index-2" class="mark_dt3">(*2)</span></dt>
+<dd>
+またはグルーピングされたパターンでもよい(<a href="#group">後述</a>)。
+</dd>
+</dl>
 <p><br />
 </p>
 <table>
@@ -272,17 +278,15 @@ Ver.8.77以降は、標準添付されなくなりました。</p>
 <td style="text-align: left;">正規表現パターンに埋め込むコメント。検索では無視される。</td>
 </tr>
 <tr>
+<td style="text-align: left;"><strong><code>(?:expression)</code></strong></td>
+<td style="text-align: left;">グルーピング指定(タグ参照対象外)</td>
+</tr>
+<tr>
 <td style="text-align: left;"><strong><code>\Q〜\E</code></strong></td>
 <td style="text-align: left;"><code>\Q</code>から<code>\E</code>の間(<code>\E</code>がない場合は最後まで)のメタ文字を、通常の文字として扱う。</td>
 </tr>
 </tbody>
 </table>
-<dl>
-<dt>※</dt>
-<dd>
-またはグルーピングされたパターンでもよい(<a href="#group">後述</a>)。
-</dd>
-</dl>
 <p>これら以外にも、特定の場所に現れた場合、特殊な意味を持つ記号(キャラクタクラス指定の中の "<code>-</code>" 等)もあります。ちなみに、これら以外の普通に記号と呼ばれている "<code>@</code>" 等は、正規表現では「普通の文字」として扱われます。</p>
 <section id="BASIC-1-1" class="level5">
 <h5>量指定メタキャラクタと「最長一致」/「最短一致」</h5>
@@ -405,9 +409,9 @@ Ver.8.77以降は、標準添付されなくなりました。</p>
 </tr>
 </tbody>
 </table>
-<p>の３行からなるファイル、と言う事が出来ます。「<strong>テキストファイル</strong>」は(文字コード体系の違いを除けば)普通の文字<a href="#index-2">(*2)</a>と改行文字の並びで構成されているので、<strong>どんな環境でも論理行は同じもの</strong>になります。元々正規表現は sed等のテキスト整形ツールで使われていたものですが、それらはエディタの様にテキストファイルを「表示」することなくツール内部だけで処理をするため、<strong>見た目にはよらない形でテキストを扱う</strong>ような形式になっていなければならないわけです。</p>
+<p>の３行からなるファイル、と言う事が出来ます。「<strong>テキストファイル</strong>」は(文字コード体系の違いを除けば)普通の文字<a href="#index-3">(*3)</a>と改行文字の並びで構成されているので、<strong>どんな環境でも論理行は同じもの</strong>になります。元々正規表現は sed等のテキスト整形ツールで使われていたものですが、それらはエディタの様にテキストファイルを「表示」することなくツール内部だけで処理をするため、<strong>見た目にはよらない形でテキストを扱う</strong>ような形式になっていなければならないわけです。</p>
 <dl>
-<dt><span id="index-2">(*2)</span></dt>
+<dt><span id="index-3" class="mark_dt3">(*3)</span></dt>
 <dd>
 タブ、改ページ文字等のいわゆるコントロール文字も含みます。
 </dd>
@@ -747,6 +751,8 @@ Ver.3.0 以降の秀丸エディタで改ページコードを指定したい場
 <p>もはや正気の沙汰ではない笑い</p>
 </div>
 <p>にもマッチするようになります(笑)…って笑ってる場合じゃないですね。ちゃんと説明すると、"<code>うひ+</code>" というパターンに対して、前から順に「うひ」「うひひ」「うひ」「うひひひひひ」がマッチしています。で、括弧の中のパターンにマッチするものが(１個以上)並んでいるわけですから、この文全体が "<code>(うひ+)+</code>" というパターンにマッチするわけです。</p>
+<p>"<strong><code>(</code></strong>" と "<strong><code>)</code></strong>"で行う「グルーピング」は「タグ付き正規表現」の参照先にもなります。詳細は「<a href="./4_tagreg.html">タグ付き正規表現</a>」を参照。</p>
+<p>「グルーピング」は行いたいが「タグ付き正規表現」の参照先にしたくない場合は、"<strong><code>(?:</code></strong>" と "<strong><code>)</code></strong>"で囲むこと。</p>
 </section>
 <section id="OR" class="level5">
 <h5>パターンの論理和</h5>
