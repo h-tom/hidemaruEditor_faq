@@ -5,7 +5,6 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="" />
   <title>第III部〜秀丸マクロのいろはにほへと　マクロ内での「\」や特殊文字の使い方</title>
   <style>
     code{white-space: pre-wrap;}
@@ -69,34 +68,34 @@
 <col style="width: 47%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><strong>\t</strong></td>
 <td style="text-align: left;">タブ</td>
 <td style="text-align: left;">16進数の「09」、10進数の「9」</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><strong>\n</strong></td>
 <td style="text-align: left;">改行</td>
 <td style="text-align: left;">16進数の「0A」、10進数の「10」</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><strong>\"</strong></td>
 <td style="text-align: left;">「"」自身</td>
 <td style="text-align: left;">16進数の「22」、10進数の「34」</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><strong>\\</strong></td>
 <td style="text-align: left;">「\」自身</td>
 <td style="text-align: left;">16進数の「5C」、10進数の「92」</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><strong>\x</strong><em>hh</em></td>
 <td style="text-align: left;">任意の文字コード hh の文字
 (16進数)</td>
 <td style="text-align: left;">例えば「\x41」で、16進数の「41」、
 10進数の「65」。これは文字でいうと「A」です。</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;"><strong>\u</strong><em>hhhh</em></td>
 <td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数4桁固定)</td>
@@ -108,7 +107,7 @@
 下位サロゲート <code>\uDC0B</code><br />
 のように2文字文を使う表現になる。</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;"><strong>\U</strong><em>hhhhhhhh</em></td>
 <td style="text-align: left;">任意のユニコードで指定する文字<br />
 (16進数8桁固定)</td>
@@ -234,11 +233,11 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <table>
 <caption>Raw文字列リテラル</caption>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">通常</td>
 <td style="text-align: left;">"文字列"</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">Raw文字列リテラル</td>
 <td style="text-align: left;">R"Keyword(文字列)Keyword"</td>
 </tr>
@@ -283,11 +282,11 @@ message R&quot;(&quot;Raw文字列
 <table>
 <caption>逐語的リテラル文字列</caption>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">通常</td>
 <td style="text-align: left;">"文字列"</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">逐語的リテラル文字列</td>
 <td style="text-align: left;">@"文字列"</td>
 </tr>

@@ -5,7 +5,6 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="" />
   <title>[HMM0026A] ●setsearchのフラグ - 秀丸エディタＱ＆Ａ集</title>
   <style>
     code{white-space: pre-wrap;}
@@ -63,149 +62,149 @@
 <col style="width: 16%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">検索オプション</th>
 <th style="text-align: left;">フラグ</th>
 <th style="text-align: left;">その他</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">単語の検索</td>
 <td style="text-align: left;">0x00000001 (ビット0)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">大文字/小文字の区別</td>
 <td style="text-align: left;">0x00000002 (ビット1)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">置換かどうか</td>
 <td style="text-align: left;">0x00000004 (ビット2) (置換の場合に1)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">置換の場合、問い合わせの有無</td>
 <td style="text-align: left;">0x00000008 (ビット3)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">正規表現</td>
 <td style="text-align: left;">0x00000010 (ビット4)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">あいまい検索</td>
 <td style="text-align: left;">0x00000020 (ビット5)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">ファイル名一覧だけ作成</td>
 <td style="text-align: left;">0x00000040 (ビット6) (grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">次の秀丸エディタも続けて検索</td>
 <td style="text-align: left;">0x00000080 (ビット7)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">サブフォルダも検索</td>
 <td style="text-align: left;">0x00000100 (ビット8) (grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">最小化状態で実行</td>
 <td style="text-align: left;">0x00000200 (ビット9) (grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">ファイル名をフルパスで出力</td>
 <td style="text-align: left;">0x00000400 (ビット10)(grep用)</td>
 <td style="text-align: left;"></td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">検索文字列の強調</td>
 <td style="text-align: left;">0x00000800 (ビット11)(検索，grep用)</td>
 <td style="text-align: left;">Ver.5.00以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">検索文字列の強調</td>
 <td style="text-align: left;">0x00001000 (ビット12)(置換用）</td>
 <td style="text-align: left;">Ver.5.00以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">検索文字列の強調を変更</td>
 <td style="text-align: left;">0x00002000 (ビット13)</td>
 <td style="text-align: left;">Ver.5.00以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">追加の条件（普通の文字）</td>
 <td style="text-align: left;">0x00010000 (ビット16)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">追加の条件（コメント）</td>
 <td style="text-align: left;">0x00020000 (ビット17)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">追加の条件（#ifdef等の無効部分）</td>
 <td style="text-align: left;">0x00040000 (ビット18)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">追加の条件（スクリプト部分）</td>
 <td style="text-align: left;">0x00080000 (ビット19)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">追加の条件（文字列）</td>
 <td style="text-align: left;">0x00100000 (ビット20)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">追加の条件（HTML/XMLタグ）</td>
 <td style="text-align: left;">0x00200000 (ビット21)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">追加の条件（「のみ」）</td>
 <td style="text-align: left;">0x00400000 (ビット22)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">追加の条件が有効であるかどうか</td>
 <td style="text-align: left;">0x00800000 (ビット23)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">一周する</td>
 <td style="text-align: left;">0x01000000 (ビット24)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">検索したら閉じる</td>
 <td style="text-align: left;">0x02000000 (ビット25)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">バックアップ</td>
 <td style="text-align: left;">0x04000000 (ビット26)(grepして置換用)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">保存の前に確認</td>
 <td style="text-align: left;">0x08000000 (ビット27)(grepして置換用)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">出力先</td>
 <td style="text-align: left;">0x30000000 (ビット28,29)(grep用)</td>
 <td style="text-align: left;">Ver.6.50以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">searchoption2が有効かどうか</td>
 <td style="text-align: left;">0x80000000 (ビット31)</td>
 <td style="text-align: left;">Ver.8.00以降</td>
@@ -223,19 +222,19 @@
 <col style="width: 16%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: left;">検索オプション</th>
 <th style="text-align: left;">フラグ</th>
 <th style="text-align: left;">その他</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">ヒットしない行</td>
 <td style="text-align: left;">0x00000001 (ビット0)(grep用)</td>
 <td style="text-align: left;">Ver.8.00以降</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">追加の条件で「指定の範囲/カラーマーカー内」が有効かどうか</td>
 <td style="text-align: left;">0x00000002 (ビット1)(検索,置換用)</td>
 <td style="text-align: left;">Ver.8.56以降<a href="#exp1">(注1)</a></td>

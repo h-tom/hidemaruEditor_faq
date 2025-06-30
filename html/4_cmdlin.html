@@ -5,7 +5,6 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="" />
   <title>第IV部〜テキスト編集を極める！！　起動オプションを使ってみよう</title>
   <style>
     code{white-space: pre-wrap;}
@@ -37,6 +36,15 @@
 <section id="option" class="level2">
 <h2>起動オプションを使ってみよう</h2>
 <p>秀丸エディタに限らず、Windowsのアプリケーションの多くで、「<span class="font_red_bold">起動オプション</span>」を使うことができます。これによって、そのアプリケーションをどんな状態で起動させるかや、起動してすぐに実行したい処理などを指示できます。起動オプションをうまく使うと、単にアプリケーションを起動するだけとはひとあじ違う使い方ができるわけで、こんなイイものを使わない手はないでしょう。(^_^)</p>
+<div class="title-li">
+<ul>
+<li>【１】<a href="#DRAGDROP">ショートカットへの「ドラッグ&amp;ドロップ」の場合</a></li>
+<li>【２】<a href="#REG">「アプリケーションとの関連付け」の場合</a></li>
+<li>【３】<a href="#info">注意点など</a></li>
+<li>【４】<a href="#CMD">コマンドプロンプトでの応用</a></li>
+<li>【５】<a href="#SUPPLEMENT">補足</a></li>
+</ul>
+</div>
 <p>秀丸エディタの場合は、以下のような起動オプションを利用できます。</p>
 <table>
 <caption>秀丸エディタ 起動オプションの例</caption>
@@ -45,19 +53,19 @@
 <col style="width: 83%" />
 </colgroup>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">/b</td>
 <td style="text-align: left;">秀丸エディタを閲覧モードで起動します。</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">/j行番号,桁番号</td>
 <td style="text-align: left;">ファイルを開いてから，指定された行にカーソルを移動します。</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: left;">/xマクロ名</td>
 <td style="text-align: left;">秀丸エディタ起動と同時にマクロを実行します。</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: left;">/fe /fj など</td>
 <td style="text-align: left;">オープンするファイルの文字コードを指定します。</td>
 </tr>
@@ -74,15 +82,6 @@
 ショートカットは、デスクトップ上に置いて使う以外にも、右クリックメニューの中の「<strong>送る</strong>」の機能を追加するために使うことができます。「送る」の送り先は、ユーザーフォルダ内のフォルダに置かれたショートカットなので、そこへショートカットを作成すれば「送る」に追加されます。
 (「ファイル名を指定して実行(R)」や「送る」のフォルダを開く方法は「<a href="#SUPPLEMENT">補足</a>」-「<a href="#SUPPLEMENT-1">「送る」のフォルダを開く方法</a>」を参照)</p>
 <p>ということは、ショートカットの「<strong>リンク先</strong>」のところに起動オプションを書き加えておいて、そこにファイルを<strong>ドラッグ&amp;ドロップ</strong>すれば（または「<strong>送る</strong>」）、いつもと一味違う秀丸エディタが立ち上がって便利便利、ということになるはずです。</p>
-<div class="title-li">
-<ul>
-<li>【１】<a href="#DRAGDROP">ショートカットへの「ドラッグ&amp;ドロップ」の場合</a></li>
-<li>【２】<a href="#REG">「アプリケーションとの関連付け」の場合</a></li>
-<li>【３】<a href="#info">注意点など</a></li>
-<li>【４】<a href="#CMD">コマンドプロンプトでの応用</a></li>
-<li>【５】<a href="#SUPPLEMENT">補足</a></li>
-</ul>
-</div>
 <section id="DRAGDROP" class="level3">
 <h3>【１】ショートカットへの「ドラッグ&amp;ドロップ」の場合</h3>
 <p>ここでは例題として、デスクトップ上に「秀丸エディタを閲覧モードで開く」ショートカットを作成して、そこにファイルをドラッグ&amp;ドロップするとそのファイルが閲覧モードで開くようにしてみましょう。</p>
