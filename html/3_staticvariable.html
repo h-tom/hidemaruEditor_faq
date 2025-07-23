@@ -30,7 +30,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　静的な変数について</h1>
 <hr />
@@ -140,7 +140,7 @@ message getstaticvariable(&quot;&quot;, 0);</code></pre>
 </section>
 <section id="SUPPLEMENTATION" class="level3">
 <h3>補足</h3>
-<section id="名前が同じで共有フラグが異なる場合" class="level4">
+<section id="SUPPLEMENTATION-1" class="level4">
 <h4>名前が同じで、共有フラグが異なる場合</h4>
 <p>名前が同じでも共有フラグが異なる場合は、別の「静的な変数」と認識されます。</p>
 <pre class="macro"><code>setstaticvariable &quot;check&quot;, &quot;hidemaru editor&quot;, 0;
@@ -157,9 +157,16 @@ setstaticvariable &quot;check&quot;, &quot;&quot;, 0;
 setstaticvariable &quot;check&quot;, &quot;&quot;, 1;
 endmacro;</code></pre>
 </section>
-<section id="共有フラグの-1について" class="level4">
+<section id="SUPPLEMENTATION-2" class="level4">
 <h4>共有フラグの「-1」について</h4>
 <p>「静的な変数」は外部DLLから取得・設定が可能です。共有フラグ「-1」だと、通常の文字変数と同じなので、外部DLLとのやり取りで使用するには都合がいいです。</p>
+</section>
+<section id="SUPPLEMENTATION-3" class="level4">
+<h4>JavaScriptを使った同等処理</h4>
+<p>「<a href="./3_js.html">JavaScript対応</a>」の「<a href="./3_js.html#OBJECT">オブジェクトの有効範囲</a>」でも説明しましたが、オブジェクト(変数、関数も含む)はウィンドウを閉じるまで保持されるので 共有フラグ = 0 と同じ状態です。</p>
+<p>JavaScript側でグローバル変数として宣言しておけば、マクロ側から読み書き可能です。
+(JavaScript側の実行環境や名前空間に注意)</p>
+<p>JavaScript の場合、サイズや個数の制限はありません。</p>
 </section>
 </section>
 </section>
