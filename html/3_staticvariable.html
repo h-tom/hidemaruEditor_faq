@@ -111,7 +111,7 @@ endmacro;</code></pre>
 <dd>
 <p>静的な変数の名前を指定します。大文字小文字は区別されません。<br />
 変数名と文字列値に""を指定すると、記憶されている変数名を列挙して","でつなげた文字列を返します。</p>
-<pre class="macro"><code>//共有フラグ 0 に設定された静的変数を全て削除する。
+<pre class="macro"><code>//共有フラグ 0 に設定された静的変数を全て列挙する。
 message getstaticvariable(&quot;&quot;, 0);</code></pre>
 </dd>
 <dt>共有フラグ(数値)</dt>
@@ -166,7 +166,7 @@ endmacro;</code></pre>
 <p>「<a href="./3_js.html">JavaScript対応</a>」の「<a href="./3_js.html#OBJECT">オブジェクトの有効範囲</a>」でも説明しましたが、オブジェクト(変数、関数も含む)はウィンドウを閉じるまで保持されるので 共有フラグ = 0 と同じ状態です。</p>
 <p>JavaScript側でグローバル変数として宣言しておけば、マクロ側から読み書き可能です。
 (JavaScript側の実行環境や名前空間に注意)</p>
-<p>JavaScript の場合、サイズや個数の制限はありません。</p>
+<p>JavaScript の場合、サイズや個数の制限はありません。数値をやり取りする場合は制限があります。「<a href="./3_js.html">JavaScript対応</a>」の「<a href="./3_js.html#RESTRICTION2">数値のやり取り</a>」を参照。</p>
 </section>
 </section>
 </section>
