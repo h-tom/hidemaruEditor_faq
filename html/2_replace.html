@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部〜知っていると便利な秀丸の機能　置換</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -108,7 +111,7 @@
 <p><img src="./2_replace_10.png" width="224" height="132" alt="クイック全置換" /><br />
 </p>
 <p>通常の「全置換」と「クイック全置換」の違いについては、<a href="https://help.maruo.co.jp/hidemaru/html/190_CmdSearch_Replace.html" class="externallink" target="_blank" rel="noopener">秀丸エディタヘルプの「置換」</a>を参照してください。</p>
-<p>簡単に説明しておくと、変換モジュールを使った状態と同じで、対象範囲をまるごと入れ替えるような動作になります。その為、置換した箇所の把握はできません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。</p></li>
+<p>簡単に説明しておくと、変換モジュールを使った状態と同じで対象範囲をまるごと入れ替えるような動作になります。その為、置換した箇所の把握はできません。また、カラーマーカーや折りたたみなどは保持されずに破棄されます。</p></li>
 </ul></li>
 </ol>
 </section>
@@ -153,7 +156,7 @@
 <p>従来のダイアログでの表示例<br />
 <img src="./2_replace_07.png" width="453" height="59" alt="確認ダイアログ従来タイプその2" /><br />
 </p>
-<p>これは、例えば「下検索」実行時に、ファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。以前のように、マッチしなくなった場合、ダイアログを消すよう変更できます。
+<p>これは、例えば「下検索」実行時にファイル末尾まで検索した場合、そのまま「上検索」を実行可能にする為です。以前のようにマッチしなくなった場合、ダイアログを消すよう変更できます。
 (「置換の確認の種類」を「従来の互換(末端で自動的に消す)」に設定)</p>
 </section>
 <section id="SUPPLEMENTATION-2" class="level4">
@@ -270,7 +273,7 @@
 <dl>
 <dt>例)hidemaru と editor を大文字に変換したい場合</dt>
 <dd>
-<p>通常の置換では、置換を2回実行する必要があります。</p>
+通常の置換では、置換を2回実行する必要があります。
 <ul>
 <li><p>置換一回目</p>
 <pre><code>検索：hidemaru
@@ -285,13 +288,13 @@
 実行前：HIDEMARU editor
 実行後：HIDEMARU EDITOR</code></pre></li>
 </ul>
-<p>変換モジュールの機能を使えば一回の置換で可能。</p>
+変換モジュールの機能を使えば一回の置換で可能。
 <pre><code>検索：(hidemaru|editor)
 置換：\(0,ToUpper)
 
 実行前：hidemaru editor
 実行後：HIDEMARU EDITOR</code></pre>
-<p>変換モジュールの機能を組み合わせることも可能で、大文字に変換して、さらに全角へ変換という事もできます。</p>
+変換モジュールの機能を組み合わせることも可能で、大文字に変換して、さらに全角へ変換という事もできます。
 <pre><code>検索：(hidemaru|editor)
 置換：\((0,ToUpper),ToZenkakuAlnum)
 

@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部〜秀丸マクロのいろはにほへと　マクロ内での「\」や特殊文字の使い方</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -50,9 +53,9 @@
 <p>ということは、その二重引用符の間に「二重引用符自体」とか「改行文字」とかを書きたいと思った場合に、どうすればよいでしょうか？<br />
 秀丸マクロの場合、これらはＣ言語と同様の書式を用いることで書き表すことができます。<br />
 具体的には、このような特殊文字は半角の「\」とその後ろに特定の文字を組み合わせることによって書き表す、という「きまり」になっています。</p>
-<p>逆にいうと、「\」の文字を書きたいときに、単に「\」と書くとよろしくない、ということになります。</p>
-<p>以下では、これらの特殊文字や、「\」自体を表記したい時の書き方を簡単にまとめてあります。</p>
-<p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルや、C#の逐語的リテラル文字列 記法が使用出来るようになりました。この記法を使用すれば、「\」によるエスケープなしで、記述した文字列をそのまま、変数に入力できます。<br />
+<p>逆にいうと、「\」の文字を書きたいときに単に「\」と書くとよろしくないということになります。</p>
+<p>以下では、これらの特殊文字や「\」自体を表記したい時の書き方を簡単にまとめてあります。</p>
+<p>秀丸エディタ Ver.8.66以降では、C++11のRaw文字列リテラルやC#の逐語的リテラル文字列 記法が使用出来るようになりました。この記法を使用すれば、「\」によるエスケープなしで、記述した文字列をそのまま、変数に入力できます。<br />
 (記法によっては制限があります。「<a href="#STRINGLITERAL">Ver.8.66以降の場合</a>」を参照)</p>
 <p>秀丸エディタ Ver.9.19以降では、C# 11 Raw string のような記法も使えます。(「<a href="#CS11STYLE">Ver.9.19以降の場合</a>」を参照)</p>
 </section>
@@ -162,19 +165,19 @@ endmacro;
 searchdown &quot;\\n&quot;, regular;
 endmacro;
 //---- ここまで -------------------------------------</code></pre>
-<p>この表記だと、二重引用符の中は、「改行文字」ではなく「\nという２文字の文字列」になっています。「\\」が、\という文字自身を表していますので、そうなりますね。<br />
-でも、正規表現による検索・置換をする場合には、これでよいのです。というか、このように表記しなければいけません。</p>
+<p>この表記だと、二重引用符の中は「改行文字」ではなく「\nという２文字の文字列」になっています。「\\」が、\という文字自身を表していますので、そうなりますね。<br />
+でも、正規表現による検索・置換をする場合にはこれでよいのです。というか、このように表記しなければいけません。</p>
 <p>なぜそうなるのかを説明するために、少し難しくなりますが秀丸エディタの内部動作を説明します。</p>
 <div class="box_line">
 <p>秀丸エディタは正規表現による検索・置換をするために、HMJRE.DLLというプログラムを利用しています。秀丸エディタはHMJRE.DLLに、検索文字列を渡します。
-HMJRE.DLLは渡された文字列を「解析」して、その中に「\nという２文字の文字列」が有った場合、それを「改行文字」だと「解釈」をします。<br />
-つまり、HMJRE.DLLに渡す文字列にも、マクロで表記するのと同様な「表記のきまり」があるということです。だから、改行文字を検索させたい場合は HMJRE.DLL に対して「\nという２文字の文字列」を送ってあげる必要があって、そのためには秀丸エディタのマクロ文では「\nという２文字の文字列」を記述してあげればよいことになっています。</p>
+HMJRE.DLLは渡された文字列を「解析」してその中に「\nという２文字の文字列」が有った場合、それを「改行文字」だと「解釈」をします。<br />
+つまり、HMJRE.DLLに渡す文字列にもマクロで表記するのと同様な「表記のきまり」があるということです。だから、改行文字を検索させたい場合は HMJRE.DLL に対して「\nという２文字の文字列」を送ってあげる必要があって、そのためには秀丸エディタのマクロ文では「\nという２文字の文字列」を記述してあげればよいことになっています。</p>
 </div>
 <p>というわけで、searchdown 文の引数として「\nという２文字の文字列」を記述してあげればよいので、
 <code>"\\\\n"</code>という書き方になるのです。</p>
 <p>上記のマクロを見て、「あれっ、改行って確か「\n」だから、「<code>searchdown "\\n",regular;</code>」じゃないの。試しに動かしたら、ちゃんと検索したぞー」とおっしゃる方もおられると思います。<br />
 これは、HMJRE.DLLが一応「改行文字そのもの」を送られてきた場合にも対応しているから動作しています。が、これは一般的な表記ではないので、複雑な文字列になると検索できない場合があります。というわけで、<code>"\\\\n"</code>と書くようにしましょう。</p>
-<p>この表記法は、改行だけに限らず、\を使う表記すべてに当てはまります。ということで、たとえばタブ文字を検索したい場合は</p>
+<p>この表記法は改行だけに限らず、\を使う表記すべてに当てはまります。ということで、たとえばタブ文字を検索したい場合は</p>
 <pre class="macro"><code>searchdown &quot;\\t&quot;, regular;</code></pre>
 <p>となりますし、\ という１文字を（正規表現中で）検索したいときには</p>
 <pre class="macro"><code>searchdown &quot;\\\\&quot;, regular;</code></pre>
@@ -187,7 +190,7 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <p>が正解です。ダブルクォーテーションマークは制御文字でなく普通の文字なので、\"
 でダブルクォーテーションマーク１文字をHMJRE.DLLに渡せるからです。あるいは、以下のようにして「\"という２文字の文字列」をHMJRE.DLLに渡しても動作します。</p>
 <pre class="macro"><code>searchdown &quot;\\\&quot;&quot;, regular;</code></pre>
-<p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。表示される内容が、HMJRE.DLLに渡される文字列となるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
+<p>もし、マクロ内で正規表現がうまく動かない場合は、使用する正規表現を message文で表示してみてください。表示される内容がHMJRE.DLLに渡される文字列となるので、実際にどのような文字列が渡されているのか確認出来ます。</p>
 </section>
 <section id="SUPPLEMENT" class="level3">
 <h3>【４】補足</h3>
@@ -227,8 +230,8 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <dl>
 <dt>Raw文字列リテラル</dt>
 <dd>
-<p><a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#raw" class="externallink" target="_blank" rel="noopener">文字列の「R"」から始まる文字列</a>を参照</p>
-<p>Raw文字列リテラルは、「R」から始め、以降「"」「Keyword」「(」と続き、ここまでが先頭を示す文字列になります。その後に文字列を記述し、「)」「Keyword」「"」の文字列で終端を示します。</p>
+<a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#raw" class="externallink" target="_blank" rel="noopener">文字列の「R"」から始まる文字列</a>を参照
+Raw文字列リテラルは、「R」から始め、以降「"」「Keyword」「(」と続き、ここまでが先頭を示す文字列になります。その後に文字列を記述し、「)」「Keyword」「"」の文字列で終端を示します。
 <div class="table_border1">
 <table>
 <caption>Raw文字列リテラル</caption>
@@ -249,7 +252,7 @@ HMJRE.DLLは渡された文字列を「解析」して、その中に「\nとい
 <li>「Keyword」は、0文字以上なので省略も可能です。省略する場合は、前後の「Keyword」を省略します。</li>
 <li>文字列中に括弧「( )」を使う場合には、「Keyword」を付けておくと、先頭と終端の括弧と区別できます。</li>
 </ul>
-<p>簡単な記述例</p>
+簡単な記述例
 <pre class="macro"><code>message R&quot;hidemaru(&quot;Raw文字列リテラル&quot;の記述例です。)hidemaru&quot;;
 //        &quot;hidemaru&quot;が「Keyword」になっている。
 
@@ -271,13 +274,13 @@ message R&quot;(&quot;Raw文字列
 message R&quot;(&quot;Raw文字列
 リテラル&quot;の記述例です。
     インデントもそのまま文字列扱いされます。)&quot;;</code></pre>
-<p><br />
-</p>
+<br />
+
 </dd>
 <dt>逐語的リテラル文字列</dt>
 <dd>
-<p><a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#atstring" class="externallink" target="_blank" rel="noopener">文字列の「@"」から始まる文字列</a>を参照</p>
-<p>逐語的リテラル文字列は、「@"」から始まり、文字列を記述し、「"」で終わります。</p>
+<a href="https://help.maruo.co.jp/hidemac/html/010_Intro.html" class="externallink" target="_blank" rel="noopener">秀丸マクロヘルプ</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement.html" class="externallink" target="_blank" rel="noopener">式について</a> - <a href="https://help.maruo.co.jp/hidemac/html/040_Statement_String.html#atstring" class="externallink" target="_blank" rel="noopener">文字列の「@"」から始まる文字列</a>を参照
+逐語的リテラル文字列は、「@"」から始まり、文字列を記述し、「"」で終わります。
 <div class="table_border1">
 <table>
 <caption>逐語的リテラル文字列</caption>
@@ -296,7 +299,7 @@ message R&quot;(&quot;Raw文字列
 <ul>
 <li>文字列中に「"」を記述する場合は「""」とする必要があります。</li>
 </ul>
-<p>簡単な記述例</p>
+簡単な記述例
 <pre class="macro"><code>message @&quot;&quot;&quot;Raw文字列リテラル&quot;&quot;の記述例です。&quot;;
 
 message @&quot;&quot;&quot;Raw文字列
@@ -312,8 +315,8 @@ message @&quot;&quot;&quot;Raw文字列
 リテラル&quot;&quot;の記述例です。
     インデントもそのまま文字列扱いされます。&quot;;
 </code></pre>
-<p><br />
-</p>
+<br />
+
 </dd>
 </dl>
 </div>

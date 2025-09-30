@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部〜知っていると便利な秀丸の機能　検索</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,7 +39,7 @@
 <section id="find" class="level2">
 <h2>検索</h2>
 <p>編集中のテキストファイルの中からある文字列を探したい時には、秀丸エディタの「検索」機能を使えば簡単にできます。</p>
-<p>※文字列をあるだけ探したい場合は、<strong>grep機能</strong>を使った方が効率的です。詳しくは「<a href="./2_grep.html">●grep/タグジャンプ</a>」を参照して下さい。</p>
+<p>※文字列をあるだけ探したい場合は<strong>grep機能</strong>を使った方が効率的です。詳しくは「<a href="./2_grep.html">●grep/タグジャンプ</a>」を参照して下さい。</p>
 <ul>
 <li><a href="#EXPLANATION">[解説]</a></li>
 <li><a href="#SUPPLEMENTATION">[補足]</a>
@@ -55,15 +58,15 @@
 <p>編集中のファイルにある「<strong>Love</strong>」という文字列を探したいとします。</p>
 <ol type="1">
 <li><p>秀丸エディタの「<strong>検索</strong>」メニューから(もしくはツールバーやファンクションキーで)「<strong>検索</strong>」を選択して、<strong><span class="font_blue">「検索」</span></strong>のエディットボックスに「<strong>Love</strong>」と入力します。</p>
-<p>通常は1行のみですが、<strong>複数行を入力可能</strong>にできます。詳細は「<a href="#SUPPLEMENTATION">補足</a>」-「<a href="#SUPPLEMENTATION-3">複数行</a>」を参照してください。</p>
+<p>通常は1行のみですが<strong>複数行を入力可能</strong>にできます。詳細は「<a href="#SUPPLEMENTATION">補足</a>」-「<a href="#SUPPLEMENTATION-3">複数行</a>」を参照してください。</p>
 <p><img src="./2_find_101.png" width="433" height="244" alt="検索ダイアログ" /><br />
 </p></li>
-<li><p>次に、適宜オプションを指定します。ここで、各オプションの意味は以下の通りです。</p>
+<li><p>次に適宜オプションを指定します。ここで各オプションの意味は以下の通りです。</p>
 <ul>
 <li><p><strong><span class="font_blue">「大文字／小文字の区別</span>」チェックボックス：</strong><br />
 検索文字列の大文字と小文字を区別して検索します。この項目が OFF の場合、上の例で「<strong>LOVE</strong>」や「<strong>love</strong>」も検索されます。</p></li>
 <li><p><strong>「<span class="font_blue">単語の検索</span>」チェックボックス：</strong><br />
-この項目が ON になっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等の、ある単語の一部になっている場合は検索されません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
+この項目が ON になっていると、「<strong>Lover</strong>」や「<strong>ILoveNY</strong>」等のある単語の一部になっている場合は検索されません。ここで言う「<strong>単語</strong>」とは、<strong>半角英字とアンダースコア("_")のみで構成された文字(列)</strong>を指します。</p></li>
 <li><p><strong>「<span class="font_blue">正規表現</span>」チェックボックス：</strong><br />
 検索文字列に「<strong>正規表現</strong>」が使える様になります。<br />
 「<strong>正規表現</strong>」は「<a href="./4_regular.html">正規表現について</a>」を参照して下さい。<br />
@@ -83,7 +86,7 @@
 <li><p><strong>「<span class="font_blue">次の秀丸エディタも続けて検索</span>」チェックボックス</strong><br />
 現在編集中の秀丸エディタウィンドウの他にも秀丸エディタが開いていた場合、その秀丸エディタウィンドウも検索対象にします。</p></li>
 <li><p><strong>「<span class="font_blue">一周する</span>」チェックボックス</strong><br />
-下検索の場合、ファイルの一番下まで検索し終わった場合、ファイルの先頭に戻って検索を続行します。上検索の場合は逆になります。</p></li>
+下検索の場合、ファイルの一番下まで検索し終わるとファイルの先頭に戻って検索を続行します。上検索の場合は逆になります。</p></li>
 <li><p><strong>「<span class="font_blue">追加の条件</span>」チェックボックス</strong><br />
 追加の条件に従って検索する範囲を制限できます。</p></li>
 <li><p><strong>「<span class="font_blue">検索文字列を強調</span>」チェックボックス</strong><br />
@@ -181,7 +184,7 @@ OFF だとダイアログ表示させたまま、検索します。</p>
 <dl>
 <dt>ボタンの種類</dt>
 <dd>
-<p>ボタンの動作を設定します。(標準=xx を選んだ場合、ボタン表示が"xx"になります)</p>
+ボタンの動作を設定します。(標準=xx を選んだ場合、ボタン表示が"xx"になります)
 <ul>
 <li>ドロップダウンのみ</li>
 <li>ドロップダウン付き(標準=適用)</li>

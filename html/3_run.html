@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　外部プログラムの実行について</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -44,7 +47,7 @@
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
 <p>秀丸エディタのマクロから他のプログラム(実行ファイル)を起動する方法は複数あり、使用する命令文によって、出来ること/出来ないことがあります。</p>
-<p>現状(2025/07/16現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
+<p>現状(2025/09/30現在)では単純にプログラムを実行するだけなら run文 でもいいです。複雑な事をする場合は、引数の指定が難しいですが runex文 をお勧めします。</p>
 <div class="table_border">
 <table>
 <caption>命令文による違い</caption>
@@ -76,7 +79,7 @@
 </div>
 <p>○:問題なし。<br />
 △:制限あり。標準入出力を使う場合は Shift_JIS に変換される。<br />
-▽:制限あり。標準入出力は、Shift_JIS、UTF-8、UTF-16LEに対応。<br />
+▽:制限あり。標準入出力は、Shift_JIS UTF-8 UTF-16LE に対応。<br />
 ×:不可。<br />
 </p>
 <hr />
@@ -114,7 +117,7 @@ if(!result){
 <h4>run</h4>
 <p>非同期でプログラムの実行します。(プログラムを実行しても、終了を待たないで次の命令に進みます)
 非同期なので、プログラムの「終了ステータス」を受け取ることは出来ません。</p>
-<p>引数に、"&lt;con" 、"&gt;con" 、"&lt;ファイル名"、"&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
+<p>引数に "&lt;con" "&gt;con" "&lt;ファイル名" "&gt;ファイル名" などを付けることにより、標準入出力のリダイレクトが可能です。</p>
 <p><a href="./2_program.html">第II部〜知っていると便利な秀丸の機能　プログラム実行</a>の<a href="./2_program.html#PROGRAM1">【２】プログラム実行の方法その1</a>を参照してください。</p>
 </section>
 <section id="runsyncrunsync2" class="level4">
@@ -143,11 +146,11 @@ if(!result){
 表示フラグ, 非描画フラグ, エンコード, 拡張フラグ;</p>
 <ul>
 <li><p>同期フラグで、非同期実行/同期実行を指定できます。</p></li>
-<li><p>リダイレクトを行う場合は、標準入力、標準出力、標準エラー出力の各フラグと、各ファイル名を設定すること。</p></li>
+<li><p>リダイレクトを行う場合は、標準入力 標準出力 標準エラー出力 の各フラグと各ファイル名を設定すること。</p></li>
 <li><p>表示フラグで、3以降の意味は、
 <a href="https://learn.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea" class="externallink" target="_blank" rel="noopener">ShellExecuteA function (shellapi.h)</a>
 の「nShowCmd」を参照の事。</p></li>
-<li><p>エンコードで、文字コードを指定できます。現状は、ANSI(Shift_JIS)、UTF16-LE、UTF-8 を指定できます。</p></li>
+<li><p>エンコードで文字コードを指定できます。現状は、ANSI(Shift_JIS) UTF16-LE UTF-8 を指定できます。</p></li>
 <li><p>拡張フラグで、"%f" 等の変換を抑制できます</p></li>
 <li><p>作業フォルダの使い方</p>
 <p>作業フォルダは、実行ファイルの実行時のフォルダを指定します。</p>
@@ -176,7 +179,7 @@ PowerShell(powershell.exe、pwsh.exe)でも有効です。</p>
 ;</code></pre>
 <ul>
 <li><p>おまけ</p>
-<p>コマンドプロンプト、PowerShell、Windows Terminal は、起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
+<p>コマンドプロンプト PowerShell Windows Terminal は起動オプションを指定することで、任意のフォルダを開くことが可能です。(runex文ではなく、run文でも可能)</p>
 <ul>
 <li><p>コマンドプロンプト</p>
 <pre class="macro"><code>cmd.exe /k cd /d &quot;開きたいフォルダ&quot;</code></pre></li>

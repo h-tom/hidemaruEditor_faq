@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　静的な変数について</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -47,7 +50,7 @@
 <li>静的な変数を設定する <a href="#setstaticvariable">setstaticvariable 文</a></li>
 <li>静的な変数を取得する <a href="#getstaticvariable">getstaticvariable 関数</a></li>
 </ul>
-<p>「静的な変数」のサイズ(設定による)や個数(32767個)は上限があります。「共有フラグ」の設定により、他の秀丸エディタから参照可能です。「共有フラグ」によっては、起動中の全ての秀丸エディタを終了しないとメモリが解放されないので、使用しなくなった「静的な変数」は必ず削除したり、最低限の範囲で使用するようにしましょう。</p>
+<p>「静的な変数」のサイズ(設定による)や個数(32767個)は上限があります。「共有フラグ」の設定により、他の秀丸エディタから参照可能です。「共有フラグ」によっては、起動中の全ての秀丸エディタを終了しないとメモリが解放されないので、使用しなくなった「静的な変数」は必ず削除したり最低限の範囲で使用するようにしましょう。</p>
 <section id="setstaticvariable" class="level4">
 <h4>setstaticvariable文</h4>
 <p><a href="https://help.maruo.co.jp/hidemac/html/155_OtherStatement_setstaticvariable.html" class="externallink" target="_blank" rel="noopener">setstaticvariable 文</a> は指定した名前の「静的な変数」へ書き込みを行います。</p>
@@ -55,15 +58,15 @@
 <dl>
 <dt>変数名(文字列)</dt>
 <dd>
-<p>静的な変数の名前を指定します。大文字小文字は区別されません。<br />
-変数名と文字列値に "" を指定すると、指定された共有フラグの静的な変数を全て削除します。</p>
+静的な変数の名前を指定します。大文字小文字は区別されません。<br />
+変数名と文字列値に "" を指定すると、指定された共有フラグの静的な変数を全て削除します。
 <pre class="macro"><code>//共有フラグ 0 に設定された静的な変数を全て削除する。
 setstaticvariable &quot;&quot;, &quot;&quot;, 0;</code></pre>
 </dd>
 <dt>文字列値(文字列)</dt>
 <dd>
-<p>変数に設定する内容<br />
-"" を指定すると、指定された静的な変数を削除します。</p>
+変数に設定する内容<br />
+"" を指定すると、指定された静的な変数を削除します。
 <pre class="macro"><code>//共有フラグ 0 に設定された静的な変数 checkに値を保存する。
 setstaticvariable &quot;check&quot;, &quot;hidemaru&quot;, 0;
 
@@ -109,8 +112,8 @@ endmacro;</code></pre>
 <dl>
 <dt>変数名(文字列)</dt>
 <dd>
-<p>静的な変数の名前を指定します。大文字小文字は区別されません。<br />
-変数名と文字列値に""を指定すると、記憶されている変数名を列挙して","でつなげた文字列を返します。</p>
+静的な変数の名前を指定します。大文字小文字は区別されません。<br />
+変数名と文字列値に""を指定すると、記憶されている変数名を列挙して","でつなげた文字列を返します。
 <pre class="macro"><code>//共有フラグ 0 に設定された静的変数を全て列挙する。
 message getstaticvariable(&quot;&quot;, 0);</code></pre>
 </dd>
