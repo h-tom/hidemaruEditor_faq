@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0084A] ●フォルダにある複数のファイルにマクロを実行したい - 秀丸エディタＱ＆Ａ集</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -47,9 +50,9 @@
 <dl>
 <dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
 <dd>
-<p>秀丸マクロ単独では、フォルダ内のファイルをリストアップする方法はありません。<br />
-対象のファイルが少なければ、個別にファイルを開いてマクロを実行するのが簡単です。</p>
-<p><strong>秀丸マクロ単独では無理ですが、外部プログラム DLL COMコンポーネントを使えば、指定したフォルダ内ファイルをリストアップすることは可能です。</strong></p>
+秀丸マクロ単独では、フォルダ内のファイルをリストアップする方法はありません。<br />
+対象のファイルが少なければ、個別にファイルを開いてマクロを実行するのが簡単です。
+<strong>秀丸マクロ単独では無理ですが、外部プログラム DLL COMコンポーネントを使えば、指定したフォルダ内ファイルをリストアップすることは可能です。</strong>
 <ul>
 <li><p>外部プログラムを使う方法　その1</p>
 <p>コマンドプロンプトからバッチファイルを使います。(Windows 10 20H2 の コマンドプロンプトで確認)</p>
@@ -75,7 +78,7 @@ if &quot;%SEARCHFILES%&quot; == &quot;&quot; set SEARCHFILES=*.txt
 
 @rem バッチファイルをダブルクリックで実行する場合、以下の行を有効に(@rem を削除)しないとエラーがあってもわからない
 @rem pause</code></pre>
-<p>以下の箇所は、自分の環境に合わせて編集してください。秀丸エディタのある場所と実行するマクロを指定します。</p>
+<p>以下の箇所は自分の環境に合わせて編集してください。秀丸エディタのある場所と実行するマクロを指定します。</p>
 <pre class="macro"><code>@rem 秀丸エディタのパスと実行するマクロを指定する
 set HIDEMARU=C:\Program Files\Hidemaru\Hidemaru.exe
 set MACRO=_test.mac</code></pre>
@@ -95,7 +98,7 @@ for文にある <code>dir</code> の <code>/A</code> オプション部分を変
 <p>PowerShellから、PowerShellスクリプトを使います。(Windows 10 20H2 の PowerShell 7.1.2 で動作確認済み)</p>
 <p>PowerShellスクリプトで対象ファイルをリストアップし、起動オプションを指定して秀丸エディタを起動します。ただし、実行するマクロ内で秀丸エディタを閉じないと次のファイルに進みません。
 (自動で連続実行させたい場合は、マクロ内で exit や quit 等を使い、秀丸エディタを閉じる必要がある)</p>
-<p>PowerShellは、バージョンによりスクリプトを実行ができない場合があります。その場合は、スクリプトを実行できるようにPowerShellを設定してください。</p>
+<p>PowerShell はバージョンによりスクリプトを実行ができない場合があります。その場合は、スクリプトを実行できるようにPowerShellを設定してください。</p>
 <pre class="macro"><code>Param(
     [parameter(mandatory=$true)][String]$FilePath ,
     [String]$FileFilter = &quot;*.txt&quot;
@@ -116,8 +119,8 @@ foreach($files in $list){
 <pre class="macro"><code>#秀丸エディタのパスと、実行するマクロを指定する
 $hidemaru = &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;
 $macro    = &quot;_test.mac&quot;</code></pre>
-<p>デフォルトでは、フォルダ 読み取り専用ファイル 隠しファイル システムファイルはリストアップしません。
-for文にある <code>Get-ChildItem</code> の <code>-Attributes</code> オプション部分を変更すると、リストアップするファイルを変更できます。詳細は PowerShellで <code>Help Get-ChildItem</code> を実行してください。</p>
+<p>デフォルトでは フォルダ 読み取り専用ファイル 隠しファイル システムファイルはリストアップしません。
+<code>Get-ChildItem</code> の <code>-Attributes</code> オプション部分を変更すると、リストアップするファイルを変更できます。詳細は PowerShell で <code>Help Get-ChildItem</code> を実行してください。</p>
 <pre class="macro"><code>$list = Get-ChildItem -File -Path $FilePath -Filter $FileFilter -Attributes !D+!H+!R+!S</code></pre>
 <p>編集した内容を、「macro_files.ps1」という名前で保存します。</p>
 <p>スクリプトを実行する時は、引数を指定する必要があります。</p>
@@ -297,7 +300,7 @@ $Searchfile = &quot;txt&quot;;</code></pre>
 execmacro &quot;_test.mac&quot;;
 
 //ここまで</code></pre>
-<p>デフォルトでは、読み取り専用ファイル、隠しファイル、システムファイルはリストアップしません。
+<p>デフォルトでは 読み取り専用ファイル 隠しファイル システムファイルはリストアップしません。
 <code>##Check_attr</code> を変更すればリストアップできます。</p>
 <pre class="macro"><code>##Check_attr = (##ATTR_HIDDEN | ##ATTR_READONLY | ##ATTR_SYSTEM);</code></pre></li>
 </ul>
