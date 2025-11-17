@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第II部〜知っていると便利な秀丸の機能　EditorConfig</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -64,7 +67,7 @@
 <section id="EXPLANATION-1" class="level4">
 <h4>EditorConfigを有効にする</h4>
 <p>「EditorConfig」を有効にするには「<span class="env">動作環境</span> - 環境 - editorconfig」を開き、「editorconfigの検出」にチェックを入れます。</p>
-<p><img src="./2_editorconfig_01.png" width="554" height="233" alt="editorconfigの設定" /><br />
+<p><img src="./2_editorconfig_01.png" width="550" height="318" alt="editorconfigの設定" /><br />
 </p>
 <ul>
 <li><p>「タブ幅等の体裁」は以下の設定が対象です。</p>
@@ -172,8 +175,8 @@ charset = utf-8</code></pre>
 <dl>
 <dt><strong>*</strong></dt>
 <dd>
-<p>"/"を含まない任意の文字列</p>
-<p>以下のように、"*"を指定した場合は全てのファイルという意味になる</p>
+"/"を含まない任意の文字列
+以下のように、"*"を指定した場合は全てのファイルという意味になる
 <pre class="macro"><code>[*]
 charset = utf-8</code></pre>
 </dd>
@@ -187,13 +190,13 @@ charset = utf-8</code></pre>
 </dd>
 <dt><strong>{str1,str2}</strong></dt>
 <dd>
-<p>str1 または str2</p>
+str1 または str2
 <pre class="macro"><code>#readme.md または readme.txt に対応させる場合
 [{readme.md, readme.txt}]
 #以下の書き方でもOK
 #[readme.{md, txt}]
 charset = utf-8</code></pre>
-<p>他の記号と組み合わせる事も可能</p>
+他の記号と組み合わせる事も可能
 <pre class="macro"><code>#拡張子が md または txt に対応させる場合
 [*.{md, txt}]
 charset = utf-8</code></pre>
@@ -221,8 +224,8 @@ charset = utf-8</code></pre>
 <dl>
 <dt>root</dt>
 <dd>
-<p>ファイルの先頭に記述します。「.editorconfig」の検索を継続するかを設定。</p>
-<p>設定値</p>
+ファイルの先頭に記述します。「.editorconfig」の検索を継続するかを設定。
+設定値
 <ul>
 <li>true<br />
 現在のファイルで止める。</li>
@@ -232,25 +235,25 @@ charset = utf-8</code></pre>
 </dd>
 <dt>indent_size</dt>
 <dd>
-<p>インデントの文字数を数値で指定。</p>
-<p>設定値</p>
+インデントの文字数を数値で指定。
+設定値
 <ul>
 <li>0以上の整数</li>
 </ul>
 </dd>
 <dt>tab_width</dt>
 <dd>
-<p>インデントの文字数を数値で指定。
-indent_size が指定されていないときは、この値を使う。</p>
-<p>設定値</p>
+インデントの文字数を数値で指定。
+indent_size が指定されていないときは、この値を使う。
+設定値
 <ul>
 <li>0以上の整数</li>
 </ul>
 </dd>
 <dt>indent_style</dt>
 <dd>
-<p>インデントのスタイルの設定。インデントを空白で入力するか、タブコードを入力するか。</p>
-<p>設定値</p>
+インデントのスタイルの設定。インデントを空白で入力するか、タブコードを入力するか。
+設定値
 <ul>
 <li>tab<br />
 タブコード</li>
@@ -260,8 +263,8 @@ indent_size が指定されていないときは、この値を使う。</p>
 </dd>
 <dt>trim_trailing_whitespace</dt>
 <dd>
-<p>保存時、行末にある空白を除去。</p>
-<p>設定値</p>
+保存時、行末にある空白を除去。
+設定値
 <ul>
 <li>false<br />
 除去しない</li>
@@ -271,8 +274,8 @@ indent_size が指定されていないときは、この値を使う。</p>
 </dd>
 <dt>insert_final_newline</dt>
 <dd>
-<p>最後の行が改行で終わっていない場合、保存時に改行を追加するか。(Ver.9.20以降対応)</p>
-<p>設定値</p>
+最後の行が改行で終わっていない場合、保存時に改行を追加するか。(Ver.9.20以降対応)
+設定値
 <ul>
 <li>false<br />
 追加しない</li>
@@ -282,8 +285,8 @@ indent_size が指定されていないときは、この値を使う。</p>
 </dd>
 <dt>end_of_line</dt>
 <dd>
-<p>改行の種類</p>
-<p>設定値</p>
+改行の種類
+設定値
 <ul>
 <li>cr</li>
 <li>lf</li>
@@ -292,8 +295,8 @@ indent_size が指定されていないときは、この値を使う。</p>
 </dd>
 <dt>charset</dt>
 <dd>
-<p>ファイルのエンコード</p>
-<p>設定値</p>
+ファイルのエンコード
+設定値
 <ul>
 <li>latin1</li>
 <li>utf-8</li>
