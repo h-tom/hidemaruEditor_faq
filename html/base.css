@@ -57,7 +57,7 @@ strong{
     display: none;
 }
 
-.kbd {
+kbd {
     background      : whitesmoke;
     border-radius   : 5px;
     border          : solid 2px silver;

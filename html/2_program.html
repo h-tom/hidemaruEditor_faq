@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第II部〜知っていると便利な秀丸の機能　プログラム実行</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,38 +75,30 @@
 <dt>%f</dt>
 <dd>
 <p>開いているファイルのフルパス</p>
-<div class="macro">
-<pre><code>C:\Program Files\Hidemaru\HIDEMARU.TXT</code></pre>
-</div>
+<pre class="macro"><code>C:\Program Files\Hidemaru\HIDEMARU.TXT</code></pre>
 </dd>
 <dt>%d</dt>
 <dd>
 <p>開いているファイルのフォルダ名</p>
-<div class="macro">
-<pre><code>C:\Program Files\Hidemaru</code></pre>
-</div>
+<pre class="macro"><code>C:\Program Files\Hidemaru</code></pre>
 </dd>
 <dt>%b</dt>
 <dd>
 <p>開いているファイルのファイル名</p>
-<div class="macro">
-<pre><code>HIDEMARU.TXT</code></pre>
-</div>
+<pre class="macro"><code>HIDEMARU.TXT</code></pre>
 </dd>
 <dt>%n</dt>
 <dd>
 <p>開いているファイルのファイル名から拡張子を除いたもの</p>
-<div class="macro">
-<pre><code>HIDEMARU</code></pre>
-</div>
+<pre class="macro"><code>HIDEMARU</code></pre>
 </dd>
 <dt>%l</dt>
 <dd>
-カーソル位置の行番号(先頭が1)
+<p>カーソル位置の行番号(先頭が1)</p>
 </dd>
 <dt>%c</dt>
 <dd>
-カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。
+<p>カーソル位置の桁(先頭が1)、マクロの <code>column</code> と同じくタブ文字も1文字とカウントします。</p>
 </dd>
 </dl>
 <p>例えば、以下の JScript を "argv.js" というファイル名で保存し、

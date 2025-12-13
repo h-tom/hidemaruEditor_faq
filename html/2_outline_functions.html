@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第II部〜知っていると便利な秀丸の機能　アウトライン関連 見出し・折りたたみ・部分編集</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -138,13 +141,9 @@
 <p>setcompatiblemode文の詳細は、マクロヘルプを参照してください。</p>
 <ul>
 <li><p>エディタ画面上と同じく、折りたたみを解除したくない場合は、以下の値をセットします。</p>
-<div class="macro">
-<pre><code>setcompatiblemode 0x00000003; //折りたたみを維持</code></pre>
-</div></li>
+<pre class="macro"><code>setcompatiblemode 0x00000003; //折りたたみを維持</code></pre></li>
 <li><p>エディタ画面上と同じく、部分編集を解除したくない場合は、以下の値をセットします。</p>
-<div class="macro">
-<pre><code>setcompatiblemode 0x0000000c; //部分編集を維持</code></pre>
-</div></li>
+<pre class="macro"><code>setcompatiblemode 0x0000000c; //部分編集を維持</code></pre></li>
 </ul>
 </section>
 </section>
