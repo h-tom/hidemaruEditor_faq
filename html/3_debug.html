@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　マクロのデバッグについて</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　マクロのデバッグについて</h1>
 <hr />
@@ -166,12 +169,11 @@ return;</code></pre>
 <p>また、message文 question文 はフォーカスをエディタ画面に移動させてしまうので、枠を対象とするようなマクロの場合は注意が必要です。</p>
 <p>ちなみに message文 question文 だけではなく、ダイアログで表示している内容はダイアログがアクティブな状態で<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押せば、表示しているテキストをクリップボードにコピー可能です。
 (なかには、<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd> が効かないダイアログもあります。Windows 9x系OSでは出来ません)</p>
-<p>たとえば、以下のようなダイアログが表示されているときに、<kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押すと、<br />
+<p>たとえば、以下のようなダイアログが表示されているときに <kbd>[Ctrl]</kbd>+<kbd>[C]</kbd>を押すと、<br />
 <img src="./3_debug_03.png" width="298" height="160" alt="DebugView for Windows" /><br />
 </p>
 <p>クリップボードには、以下の内容がコピーされます。</p>
-<div class="macro">
-<pre><code>---------------------------
+<pre class="macro"><code>---------------------------
 秀丸エディタ
 ---------------------------
 無題のまま保存されたファイルがあります。
@@ -179,7 +181,6 @@ return;</code></pre>
 ---------------------------
 はい(Y)   いいえ(N)
 ---------------------------</code></pre>
-</div>
 <p>エラーメッセージを保存する事も出来るので、結構便利です。</p>
 </section>
 <section id="DEBUG-3" class="level4">

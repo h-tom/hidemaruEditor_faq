@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0082A] ●カーソルのある行の内容を文字列型変数に取り込む方法 - 秀丸エディタＱ＆Ａ集</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
 </head>
 <body>
 <p><span class="link_navigate"><a href="./HMM0081A.html">←前へ</a> <a href="./HMM0083A.html">次へ→</a><br class="blindbr">
-<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a> <a href="./hmindex0.html">目次</a></span></p>
 <hr />
 <section id="hmm0082a" class="level1">
 <h1>[HMM0082A]</h1>
@@ -40,7 +43,7 @@
 <dl>
 <dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
 <dd>
-<strong>カーソルのある行の内容を、文字列型変数に取り込む方法はありませんか？</strong>
+<p><strong>カーソルのある行の内容を、文字列型変数に取り込む方法はありませんか？</strong></p>
 </dd>
 </dl>
 <hr />
@@ -73,7 +76,7 @@ message $line;</code></pre></li>
 </dd>
 <dt>マクロ (2) は キーワードを使用し、範囲選択なしで取り込んでいます。</dt>
 <dd>
-<p>行の先頭は、"0"と決まっているので直接記述し、行の長さは linelen2 キーワード、行数は lineno キーワード を使い範囲を求め取得しています。</p>
+行の先頭は、"0"と決まっているので直接記述し、行の長さは linelen2 キーワード、行数は lineno キーワード を使い範囲を求め取得しています。
 <ul>
 <li>マクロ実行前後でカーソルは移動しない</li>
 <li>行末に改行コードがあっても取り込まない</li>
@@ -81,7 +84,7 @@ message $line;</code></pre></li>
 </dd>
 <dt>マクロ (3) は Ver.9.19 で追加された関数を使用しています。</dt>
 <dd>
-<p>getlinetext の引数には 本来は lineno キーワードの値を使用しますが、0 を指定するとカーソル行が対象になります。</p>
+getlinetext の引数には 本来は lineno キーワードの値を使用しますが、0 を指定するとカーソル行が対象になります。
 <ul>
 <li>マクロ実行前後でカーソルは移動しない</li>
 <li>行末に改行コードがある場合は取り込む</li>
@@ -101,7 +104,7 @@ message $line;</code></pre></li>
 </div>
 <hr />
 <p><span class="link_navigate"><a href="./HMM0081A.html">←前へ</a> <a href="./HMM0083A.html">次へ→</a><br class="blindbr">
-<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a> <a href="./hmindex0.html">目次</a></span></p>
 </section>
 </section>
 </body>

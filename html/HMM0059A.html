@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0059A] ●ウィンドウを見えなくしたい - 秀丸エディタＱ＆Ａ集</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
 </head>
 <body>
 <p><span class="link_navigate"><a href="./HMM0058A.html">←前へ</a> <a href="./HMM0060A.html">次へ→</a><br class="blindbr">
-<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a> <a href="./hmindex0.html">目次</a></span></p>
 <hr />
 <section id="hmm0059a" class="level1">
 <h1>[HMM0059A]</h1>
@@ -40,7 +43,7 @@
 <dl>
 <dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
 <dd>
-<strong>マクロから別のウィンドウを開いているのですが、そのウィンドウを非表示にできますか？</strong>
+<p><strong>マクロから別のウィンドウを開いているのですが、そのウィンドウを非表示にできますか？</strong></p>
 </dd>
 </dl>
 <hr />
@@ -63,15 +66,14 @@ setactivehidemaru #hwnd; //元ウィンドウへ移動
 closehidemaruforced #hwnd_stealth; //ステルスウィンドウを閉じる
 endmacro;
 // ---------------------------- //</code></pre>
-<p>※
-ステルスモードで開いたウィンドウは「必ず」マクロの中で終了させて下さい！！</p>
-<p>なお、ステルスウィンドウに対する findwindow() 関数は失敗する場合が多いので、なるべく開いた「直後」に hidemaruhandle( 0 ) でウィンドウハンドルを取得しておきましょう。</p>
+<p>※ステルスモードで開いたウィンドウは「必ず」マクロの中で終了させて下さい！！</p>
+なお、ステルスウィンドウに対する findwindow() 関数は失敗する場合が多いので、なるべく開いた「直後」に hidemaruhandle( 0 ) でウィンドウハンドルを取得しておきましょう。
 </dd>
 </dl>
 </div>
 <hr />
 <p><span class="link_navigate"><a href="./HMM0058A.html">←前へ</a> <a href="./HMM0060A.html">次へ→</a><br class="blindbr">
-<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a> <a href="./hmindex0.html">目次</a></span></p>
 </section>
 </section>
 </body>

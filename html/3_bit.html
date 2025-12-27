@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部〜秀丸マクロのいろはにほへと　ビット演算を極める</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　ビット演算を極める</h1>
 <hr />
@@ -204,14 +207,14 @@
 <dl>
 <dt>[例]</dt>
 <dd>
-<p>10進数で11の値を、16進数で記述し変数に代入する。</p>
+10進数で11の値を、16進数で記述し変数に代入する。
 <pre><code>#a = 0x0b;</code></pre>
 </dd>
 <dt>[補足]</dt>
 <dd>
-<p>もちろん、これは以下のように書くのと同じ意味です。</p>
+もちろん、これは以下のように書くのと同じ意味です。
 <pre><code>#a = 11;</code></pre>
-<p>秀丸エディタの側から見ると、どちらの方法で記述しても値としては同じであるため、結果は変わりません。逆にいえば、16進数表記は、ビット演算を行う場合に、コードを書く側の人間が、コードが理解しやすくなって便利な記述方法であるとも言えます。</p>
+秀丸エディタの側から見ると、どちらの方法で記述しても値としては同じであるため結果は変わりません。逆にいえば、16進数表記はビット演算を行う場合に、コードを書く側の人間がコードが理解しやすくなって便利な記述方法であるとも言えます。
 </dd>
 </dl>
 <p>ビットとは、2進数ではその1桁に相当します。
@@ -219,18 +222,18 @@
 <dl>
 <dt>[補足]</dt>
 <dd>
-一般には、最上位ビットをマイナス符号と考えて、値の表す範囲を変える符号付き表記も有ります。秀丸マクロの場合、数値と数値変数の表記は、4バイト（32ビット）の符号付き整数になります。1バイトや2バイト分の表記だと、符号無しと同様になります。
+一般には、最上位ビットをマイナス符号と考えて、値の表す範囲を変える符号付き表記も有ります。秀丸マクロの場合、数値と数値変数の表記は 4バイト（32ビット）の符号付き整数になります。1バイトや2バイト分の表記だと、符号無しと同様になります。
 </dd>
 </dl>
 </section>
 <section id="CONCEPT" class="level3">
 <h3>【４】ビット演算の概念</h3>
 <p>次にビット演算の概念を説明します。</p>
-<p>AND、OR、XORは、それぞれ以下の結果になります。</p>
+<p>AND OR XOR は、それぞれ以下の結果になります。</p>
 <dl>
 <dt>[補足]</dt>
 <dd>
-AND、OR、XORという名前の演算子は秀丸マクロには有りません。ここでは、演算の概念の説明のためにこの表記を使っています。
+AND OR XOR という名前の演算子は秀丸マクロには有りません。ここでは、演算の概念の説明のためにこの表記を使っています。
 </dd>
 </dl>
 <ul>
@@ -486,7 +489,7 @@ XOR)
 </tr>
 </tbody>
 </table>
-<p>これを実際に秀丸マクロで記述すると以下のようになります。</p>
+これを実際に秀丸マクロで記述すると以下のようになります。
 <div class="macro">
 <pre><code>#a = 0xb6 &amp; 0x88;
 #b = 0xb6 | 0x88;
@@ -505,13 +508,13 @@ message &quot;0xb6 XOR 0x88 = &quot; + str(#c);</code></pre>
 <p>これらの演算子を利用して、秀丸マクロの中では16進数の値（文字コード等）の分類ができたり、フラグの値として使用される値の一部ビットを操作したりできます。</p>
 <section id="and_operator" class="level4">
 <h4>【６-１】AND演算</h4>
-<p>AND演算を使うと、マスキング（＝任意のビットを0にした値を出力）ができます。
+<p>AND 演算を使うと、マスキング（＝任意のビットを0にした値を出力）ができます。
 0にしたいビットを0に、元の値を残したいビットを1にした値を作成してAND演算することで実現できます。</p>
 <dl>
 <dt>[例]</dt>
 <dd>
-<p>ANDで(2進数における)任意の桁が0か1かを調べる。</p>
-<p>調べたい桁だけを1にし、それ以外を0にした数(この値のことをマスクなどともいいます)とAND演算して、結果がマスクと等しければ1で、等しくなければ0であると判ります。</p>
+ANDで(2進数における)任意の桁が0か1かを調べる。
+調べたい桁だけを1にし、それ以外を0にした数(この値のことをマスクなどともいいます)とAND演算して、結果がマスクと等しければ1で、等しくなければ0であると判ります。
 <table>
 <thead>
 <tr style="text-align:center">
@@ -576,7 +579,7 @@ AND)
 </tr>
 </tbody>
 </table>
-<p>複数の桁を一気に判定することもできます。</p>
+複数の桁を一気に判定することもできます。
 <table>
 <thead>
 <tr style="text-align:center">
@@ -646,12 +649,12 @@ AND)
 </section>
 <section id="or_operator" class="level4">
 <h4>【６-２】OR演算</h4>
-<p>OR演算を使うと、任意のビットを1に変更できます。</p>
+<p>OR 演算を使うと、任意のビットを1に変更できます。</p>
 <p>1にしたいビットを1に、元の値を残したいビットを0にした値を作成してOR演算することで実現できます。</p>
 <dl>
 <dt>[例]</dt>
 <dd>
-<p>2<sup>0</sup>ビット〜2<sup>3</sup>ビット(下位4ビット)を1にしたい場合。</p>
+2<sup>0</sup>ビット〜2<sup>3</sup>ビット(下位4ビット)を1にしたい場合。
 <table>
 <thead>
 <tr style="text-align:center">
@@ -721,7 +724,7 @@ BF
 </section>
 <section id="xor_operator" class="level4">
 <h4>【６-３】XOR演算</h4>
-<p>XOR演算を使うと、任意のビットの値を反転できます。</p>
+<p>XOR 演算を使うと、任意のビットの値を反転できます。</p>
 <dl>
 <dt>[例]</dt>
 <dd>
@@ -799,7 +802,7 @@ FF
 <dl>
 <dt>[例1] encode(charset)キーワードの操作</dt>
 <dd>
-<p>encode(charset)キーワード は、ビット0〜5までが文字コードを示し、ビット6〜7が改行コードを示します。</p>
+encode(charset)キーワード はビット0〜5までが文字コードを示し、ビット6〜7が改行コードを示します。
 <pre class="macro"><code>$encode[0]=&quot;新規作成直後&quot;;
 $encode[1]=&quot;Shift-JIS&quot;;
 $encode[2]=&quot;Unicode&quot;;
@@ -864,7 +867,7 @@ endmacro;</code></pre>
 <dl>
 <dt>[例2] .hilightファイル内の値</dt>
 <dd>
-<p>.hilightファイル内で、強調表示部分の設定を表示する。</p>
+.hilightファイル内で強調表示部分の設定を表示する。
 <pre class="macro"><code>//カーソルのある行を取り込む
 $line = gettext2(0, lineno, linelen2, lineno);
 #pos = strstr($line, &quot;,&quot;);
@@ -910,7 +913,7 @@ endmacro;</code></pre>
 <dl>
 <dt>[例3] searchoptionキーワードの操作</dt>
 <dd>
-<p>searchoption を取得し、必要な設定を行い検索する。</p>
+searchoption を取得し、必要な設定を行い検索する。
 <pre class="macro"><code>//検索オプション取得
 #SEARCH_OPT  = searchoption;
 //「大文字/小文字の区別」がOFFなら有効にする。
@@ -927,7 +930,7 @@ setsearch searchbuffer, #SEARCH_OPT;</code></pre>
 <dl>
 <dt>[例4] existfile関数の戻り値判定</dt>
 <dd>
-<p>existfile関数は、第2引数に「1」を指定すると、ファイル属性を取得できます。その戻り値をチェックし、フォルダ(ディレクトリ)か判定しています。</p>
+existfile関数は、第2引数に「1」を指定するとファイル属性を取得できます。その戻り値をチェックしフォルダ(ディレクトリ)か判定しています。
 <pre class="macro"><code>#ATTRIBUTE_READONLY  = 0x00000001;
 #ATTRIBUTE_HIDDEN    = 0x00000002;
 #ATTRIBUTE_SYSTEM    = 0x00000004;

@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　秀丸エディタウィンドウの管理(タブモード編)</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　秀丸エディタウィンドウの管理(タブモード編)</h1>
 <hr />
@@ -46,7 +49,7 @@
 <li>秀丸エディタウィンドウを切り替える → タブを切り替える</li>
 </ul>
 <p>「開く」「閉じる」「切り替える」に関しては、秀丸エディタウィンドウ操作と同じコマンドを使います。</p>
-<p>基本操作は秀丸エディタウィンドウと同じですが、タブ、タブグループに関するキーワード、コマンドが追加されています。タブの操作に関しては、追加されたコマンドを使用する事になります。</p>
+<p>基本操作は秀丸エディタウィンドウと同じですが、タブ/タブグループに関するキーワード コマンド が追加されています。タブの操作に関しては、追加されたコマンドを使用する事になります。</p>
 <p>タブ関連マクロ命令の使い方に関しては、マクロヘルプ-
 <a href="https://help.maruo.co.jp/hidemac/html/170_TabManagement.html" class="externallink" target="_blank" rel="noopener">秀丸エディタ管理(タブ編)</a>
 に例があるので参考にしてください。</p>
@@ -102,21 +105,21 @@ tabgroup(グループID) を使ったほうがいいでしょう。</p>
 //タブモードでなければ終了
 if(tabmode == false) endmacro;
 settabgroup hidemaruhandle(0), 1;</code></pre>
-<p>グループID 1 など既存のタブグループではなく、新しいタブグループを作りたい場合は、グループIDに、-1 を指定します。</p>
+<p>グループID 1 など既存のタブグループではなく新しいタブグループを作りたい場合は、グループIDに -1 を指定します。</p>
 <pre class="macro"><code>// 編集中の秀丸エディタを、新しいタブグループに分離する。
 //タブモードでなければ終了
 if(tabmode == false) endmacro;
 settabgroup hidemaruhandle(0), -1;</code></pre>
-<p>次に、<strong>ファイルを開く時に、新しいタブグループで開く</strong> には、起動オプション <code>/i</code> を指定します。</p>
+<p>次に <strong>ファイルを開く時に、新しいタブグループで開く</strong> には、起動オプション <code>/i</code> を指定します。</p>
 <pre class="macro"><code>// 新しいタブグループでファイルを開く
 openfile &quot;/i \&quot;C:\\My Documents\\memo.txt\&quot;&quot;;</code></pre>
 <p>新しいタブグループが作成され、ファイルを開きます。</p>
 </section>
 <section id="TABGROUP-2" class="level4">
 <h4>[1-2] タブグループ間の移動</h4>
-<p>残念ながら、タブグループ間を移動する命令は無いため、マクロで対応します。
-(設定により、タブの移動(次のタブ、前のタブ)でタブグループ間を含む移動は可能になりますが、単純にタブグループだけの移動という命令はない)</p>
-<p>例として「次のタブグループ」「次のタブグループ」に移動するマクロを作成します。条件として、最小化しているタブグループには、移動しません。</p>
+<p>残念ながら、タブグループ間を移動する命令は無いためマクロで対応します。
+(設定により、タブの移動(次のタブ/前のタブ)でタブグループ間を含む移動は可能になりますが、単純にタブグループだけの移動という命令はない)</p>
+<p>例として「次のタブグループ」「次のタブグループ」に移動するマクロを作成します。条件として、最小化しているタブグループには移動しません。</p>
 <section id="TABGROUP_MACRO1" class="level5">
 <h5>「次のタブグループ」へ移動するマクロ</h5>
 <pre class="macro"><code>//「次のタブグループ」
@@ -158,9 +161,8 @@ endmacro;</code></pre>
 <pre><code>第1引数：true
 第2引数：調べるタブグループの順番</code></pre>
 <p>を指定します。</p></li>
-<li><p>ウィンドウハンドルから表示状態をチェックし、最小化していなければ、
-<code>setactivehidemaru</code> でアクティブなウィンドウ(タブグループ)を切り替えます。
-(タブグループの切り替えに、<code>nexthidemaru</code>、<code>prevhidemaru</code> を使わないのは、「タブの切り替え」になってしまうから)</p></li>
+<li><p>ウィンドウハンドルから表示状態をチェックし、最小化していなければ <code>setactivehidemaru</code> でアクティブなウィンドウ(タブグループ)を切り替えます。
+(タブグループの切り替えに <code>nexthidemaru</code> <code>prevhidemaru</code> を使わないのは、「タブの切り替え」になってしまうから)</p></li>
 </ul>
 </section>
 <section id="TABGROUP_MACRO2" class="level5">
@@ -207,11 +209,11 @@ endmacro;</code></pre>
 <h3>【２】タブ</h3>
 <p>タブの操作は、基本的にはウィンドウ操作と同じです。</p>
 <ul>
-<li><p>タブを切り替えるには、次のタブ <code>nexttab</code>、前のタブ <code>prevtab</code> を使いますが、切り替えの範囲はタブグループ内のみです。</p>
+<li><p>タブを切り替えるには 「次のタブ( <code>nexttab</code>) 」 「前のタブ(<code>prevtab</code>)」を使いますが、切り替えの範囲はタブグループ内のみです。</p>
 <ul>
-<li>設定により、タブの移動(次のタブ、前のタブ)で、タブグループ間を含む移動も可能。</li>
+<li>設定により、タブの移動(次のタブ/前のタブ)でタブグループ間を含む移動も可能。</li>
 <li>タブの移動に <code>nexthidemaru</code> <code>prevhidemaru</code> も使えますが、切り替えの順番は秀丸エディタ本体の設定に左右されます。</li>
-<li>分割したウィンドウの移動に、次のタブ <code>nexttab</code>、前のタブ <code>prevtab</code>は使用できません。</li>
+<li>分割したウィンドウの移動に「次のタブ( <code>nexttab</code>) 」「前のタブ(<code>prevtab</code>)」 は使用できません。</li>
 </ul></li>
 <li><p>タブグループ内のタブの数は、<code>tabtotal</code> キーワードで取得可能です。</p></li>
 <li><p>自分がタブグループ内の何番目のタブなのかは、<code>taborder</code> キーワードで取得可能です。</p></li>

@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>[HMM0079A] ●16bit版秀丸との数値型変数の互換性 - 秀丸エディタＱ＆Ａ集</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
 </head>
 <body>
 <p><span class="link_navigate"><a href="./HMM0078A.html">←前へ</a> <a href="./HMM0080A.html">次へ→</a><br class="blindbr">
-<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a> <a href="./hmindex0.html">目次</a></span></p>
 <hr />
 <section id="hmm0079a" class="level1">
 <h1>[HMM0079A]</h1>
@@ -41,9 +44,9 @@
 <dl>
 <dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
 <dd>
-<strong>自作のマクロを16bit版秀丸エディタでも動作するようにしたいのですが、数値型変数の互換性はありますか？<br />
+<p><strong>自作のマクロを16bit版秀丸エディタでも動作するようにしたいのですが、数値型変数の互換性はありますか？<br />
 例えば、２バイト文字かどうか判定するために、code の値を 0xff
-と大小比較しても大丈夫でしょうか？</strong>
+と大小比較しても大丈夫でしょうか？</strong></p>
 </dd>
 </dl>
 <hr />
@@ -54,7 +57,7 @@
 <div class="line-block">数値型変数は４バイトの符号付きの値を記憶することができます。</div>
 <p>とありますので、動作は変わりません。</p>
 <p>例えば以下のマクロを32bit版(ver.3.13)と16bit版(ver.1.48)で確認したところ、動作は全く同じです。</p>
-<pre class="macro"><code>if ((code &amp; 0xff00) != 0) {
+<pre><code>if ((code &amp; 0xff00) != 0) {
     message &quot;(code &amp; 0xff00) != 0&quot;;
 }
 if (code &gt; 0xff) {
@@ -69,7 +72,7 @@ if (0x8000 &lt; 0xffff) message &quot;16bit版でも同じ？&quot;;</code></pre
 </section>
 <hr />
 <p><span class="link_navigate"><a href="./HMM0078A.html">←前へ</a> <a href="./HMM0080A.html">次へ→</a><br class="blindbr">
-<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a></span></p>
+<a href="./qa_kinou.html">機能別Ｑ＆Ａ</a> <a href="./qa_order.html">質問番号順Ｑ＆Ａ</a> <a href="./hmindex0.html">目次</a></span></p>
 </section>
 </body>
 </html>

@@ -57,7 +57,7 @@ strong{
     display: none;
 }
 
-.kbd {
+kbd {
     background      : whitesmoke;
     border-radius   : 5px;
     border          : solid 2px silver;
@@ -467,6 +467,7 @@ div.mark_dl > dl > dt{
     font-weight         : bold;
     color               : White;
     background-color    : Blue;
+    margin-top          : 0.7em;
     padding-left        : 0.2em;
     /*
     background-color    : #00BFFF;
@@ -605,6 +606,10 @@ div.img_border img{
     color               :#C0C0C0;
 }
 
+/* 定義リスト3 */
+div.qa-dd > dl > dd{
+    font-weight     : bold;
+}
 /* モバイル用 640px 以下の設定*/
 @media screen and (max-width: 640px) {
     body {

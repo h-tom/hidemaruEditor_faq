@@ -7,6 +7,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>第III部〜秀丸マクロのいろはにほへと　マクロ登録数の制限突破大作戦</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　マクロ登録数の制限突破大作戦</h1>
 <hr />
@@ -54,12 +57,12 @@
 ＃16bit版秀丸エディタには使用できません。</p>
 <p><span class="font_bold">「マクロランチャー for 秀丸エディタ」の入手先：</span></p>
 <ul>
-<li><a href="http://jrkun.my.coocan.jp/" class="externallink" target="_blank" rel="noopener">ＪＲくんのホームページ</a></li>
+<li><a href="https://www.vector.co.jp/soft/win95/writing/se081627.html" class="externallink" target="_blank" rel="noopener">マクロランチャー for 秀丸95</a></li>
 </ul>
 </section>
 <section id="MACRO" class="level3">
 <h3>【２】「エッ！　秀丸エディタってマクロが80個しか登録できないのっ!?」〜マクロ登録数の制限を克服するマクロ〜</h3>
-<p>秀丸エディタを使っていて、マクロの便利さに気づくと、気に入ったマクロをどんどん登録してしまいがちです。そこで「ハタ」と気が付きます。マクロ登録ダイアログボックスには80個しか登録場所がない悲劇的な事実に。「ま、ま、まさかね。80個でおしまいなんて。ウソでしょ。だって秀丸エディタの紹介記事を見ると、マクロがスゴイ、マクロが便利だ、って書いてあるじゃん。それなのに、今さらマクロがたった80個だけしか使えないなんて…。なんとかしてケローーー」。</p>
+<p>秀丸エディタを使っていて、マクロの便利さに気づくと気に入ったマクロをどんどん登録してしまいがちです。そこで「ハタ」と気が付きます。マクロ登録ダイアログボックスには80個しか登録場所がない悲劇的な事実に。「ま、ま、まさかね。80個でおしまいなんて。ウソでしょ。だって秀丸エディタの紹介記事を見ると、マクロがスゴイ、マクロが便利だ、って書いてあるじゃん。それなのに、今さらマクロがたった80個だけしか使えないなんて…。なんとかしてケローーー」。</p>
 <section id="LIMIT" class="level4">
 <h4>仕様上の制限</h4>
 <p>冷静になってもう一度、秀丸エディタの「マクロ登録」ダイアログを見ると、80個しか登録場所がありませんよね。秀丸エディタのヘルプには「秀丸エディタのマクロは、80個まで登録できますが、キー割り当て可能なのは1番から50番までの50個だけです。」と記載されています。(<strong>Ver.4.10β9</strong> より制限がなくなり、80個すべて割り当て可能)<br />
@@ -152,8 +155,8 @@ else if(result==30)execmacro &quot;macro30.mac&quot;;</code></pre>
 <dl>
 <dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
 <dd>
-<p>では、この制限を回避し、無制限にショートカットキーにマクロを割り当てるマクロを紹介します。「キー割り当ては50個で十分」という方も、備えあれば憂いなし、将来の不安を取り除くためにも1度お試しください。</p>
-<p>手順は以下の通りです。ここでは例として、マクロ「ASCII.mac」をAlt＋Ctrl＋Shift＋A（Alt／Ctrl／Shiftキーを同時に押しながらAキーを押す）に割り付けたい場合を想定します。また、便宜上、Alt／Ctrl／Shiftを特殊キー、A〜Zと0〜9を一般キーと呼ぶことにします。</p>
+では、この制限を回避し、無制限にショートカットキーにマクロを割り当てるマクロを紹介します。「キー割り当ては50個で十分」という方も、備えあれば憂いなし、将来の不安を取り除くためにも1度お試しください。
+手順は以下の通りです。ここでは例として、マクロ「ASCII.mac」をAlt＋Ctrl＋Shift＋A（Alt／Ctrl／Shiftキーを同時に押しながらAキーを押す）に割り付けたい場合を想定します。また、便宜上、Alt／Ctrl／Shiftを特殊キー、A〜Zと0〜9を一般キーと呼ぶことにします。
 <ol type="1">
 <li><p>マクロ登録</p>
 <p>まず、以下の「moreMac.mac」を作成して、50番未満のマクロ登録位置に登録します。例として、「マクロ：1」の位置に登録名を「マクロ登録数の拡大」として登録してみます。</p>

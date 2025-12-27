@@ -8,6 +8,9 @@
   <meta name="author" content="h-tom" />
   <title>第III部〜秀丸マクロのいろはにほへと　JavaScript対応</title>
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,7 +33,7 @@
   <![endif]-->
 </head>
 <body>
-<p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
+<p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
 <h1>第III部〜秀丸マクロのいろはにほへと<br>　JavaScript対応</h1>
 <hr />
@@ -268,7 +271,7 @@ js{
 <h4>jsmodeの設定状態確認</h4>
 <p>現状の jsmode文 の設定状態を取得するには、JavaScript内で hidemaru.getJsMode() 関数を使います。</p>
 <p>JavaScript実行環境(スクリプトエンジン)、識別用文字列(名前空間)、グローバル展開の設定を文字列にして返します。(各項目の区切り文字として "\" を使用)</p>
-<p>識別用文字列内に "\" が入る場合もあるので、"\" で分割した場合は、先頭は「スクリプトエンジン」、最後は「グローバル展開の設定」、その他が「識別用文字列」になります。</p>
+<p>識別用文字列内に "\" が入ることもあるので、"\" で分割した場合は、先頭は「スクリプトエンジン」 最後は「グローバル展開の設定」 その他が「識別用文字列」になります。</p>
 <ul>
 <li><p>動作確認用マクロ(デフォルト状態)</p>
 <pre class="macro"><code>//newfile
@@ -329,7 +332,7 @@ Distinction        = c:\temp\test.txt</code></pre></li>
 </section>
 <section id="SYNCHRONIZE" class="level4">
 <h4>「同期/非同期」とは</h4>
-<p>現時点(2025/05/03)では秀丸マクロが実行中かどうかという意味合い。</p>
+<p>現時点(2025/12/14)では秀丸マクロが実行中かどうかという意味合い。</p>
 <div class="mark_dt">
 <dl>
 <dt>同期</dt>
@@ -395,7 +398,7 @@ endmacro;</code></pre>
 <section id="RESTRICTION1" class="level4">
 <h4>秀丸エディタの切り替え</h4>
 <p>js{ }の実行中は、他の秀丸エディタへの切り替えができません。</p>
-<p>従来のマクロでは、アクティブな秀丸ディタが切り替われば、マクロ実行する秀丸ディタも切り替わっていましたが、
+<p>従来のマクロでは、アクティブな秀丸ディタが切り替わればマクロ実行する秀丸ディタも切り替わっていましたが、
 js{ }内では切り替わりません。</p>
 <ul>
 <li><p>従来のマクロ</p>
@@ -466,7 +469,7 @@ macro:#b=0x0</code></pre>
 <li>秀丸エディタ側の内容と入替</li>
 </ol>
 <p>解析ツール + カラーマーカー の場合は再解析が必要になります。目印としてカラーマーカーを使っていた場合、カラーマーカーがなくなります。</p>
-<p>カラーマーカーの情報も JavaScript 内から取得可能なので、カラーマーカーの情報を保存、入れ替えた内容に対して再適応させる方法もありますが、変更した内容に対し正しく反映させるられるかは不明です。</p>
+<p>カラーマーカーの情報も JavaScript 内から取得可能なので、カラーマーカーの情報を保存/入れ替えた内容に対して再適応させる方法もありますが、変更した内容に対し正しく反映させるられる保証はありません。</p>
 <p>カラーマーカーを消えないようにするには、秀丸エディタ本体側の機能を使い内容を変更する必要があります。
 (HidemaruGlobalオブジェクトを使用し、秀丸マクロの置換等のコマンドを使う)</p>
 <p>JavaScript での処理内容によりますが、ファイル内容全体を対象とする場合は、カラーマーカーの有無を確認したほうがいいでしょう。</p>
