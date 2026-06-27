@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -224,7 +227,7 @@ message &quot;カーソル移動&quot;;
 endmacro;</code></pre>
 <p><img src="./3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="./3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>動作的にはおかしいが、現状（2026/01/31）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+<p>動作的にはおかしいが、現状（2026/06/23）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto movetolineno mooveto2 goline〜 のコマンド)</p>
 <p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、解除されない場合はカーソル移動すると思わぬ結果になるので注意すること。</p>
 <p>この動作を回避するには、範囲選択終了後に一度カーソルを動かせばいい。(left right等)</p>
@@ -262,6 +265,7 @@ endmacro;</code></pre>
 <p>Ver.9.19 から <strong>getselectedtext</strong> 関数が追加されたので、各種キーワードが不要になります。</p>
 <pre class="macro"><code>$s = getselectedtext();</code></pre>
 <p>上記のコーディングで文字列型変数に取得する場合は、現在本当に範囲選択されているかを確認したほうがいいでしょう。範囲選択されていない場合は空文字が取得できますが、範囲選択が空なのか、範囲選択自体していないかは区別できません。</p>
+<p>また、gettext 関数と違い範囲選択状態を変化させないので、単純に置き換えるとマクロが誤動作する場合もあります。</p>
 <hr />
 <p>Ver.9.19未満では 従来通り gettext、gettext2 関数を使います。</p>
 <pre class="macro"><code>$s = gettext(seltopx,seltopy,selendx,selendy);</code></pre>

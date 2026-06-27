@@ -11,10 +11,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -73,6 +76,7 @@
 <li><a href="#V950">秀丸エディタVer.9.50 マクロ関連の変更履歴</a></li>
 <li><a href="#V952">秀丸エディタVer.9.52 マクロ関連の変更履歴</a></li>
 <li><a href="#V953">秀丸エディタVer.9.53 マクロ関連の変更履歴</a></li>
+<li><a href="#V955">秀丸エディタVer.9.55 マクロ関連の変更履歴</a></li>
 </ul>
 <section id="V900" class="level2">
 <h2>秀丸エディタVer.9.00 マクロ関連の変更履歴</h2>
@@ -906,6 +910,30 @@ browserpaneurlキーワード、setbrowserpanesize文、browserpanesizeキーワ
 <h2>秀丸エディタVer.9.53 マクロ関連の変更履歴</h2>
 <p>Ver.9.53は、マクロ関連の変更はありません。
 (Ver.9.52で見出しバーの表示で落ちる場合がある問題修正。)</p>
+</section>
+<section id="V955" class="level2">
+<h2>秀丸エディタVer.9.55 マクロ関連の変更履歴</h2>
+<p>【１】<a href="#LIST_V955">マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.55</a></p>
+<section id="LIST_V955" class="level3">
+<h3>【１】マクロ関連の変更履歴 - 「秀丸エディタ」Ver.9.55</h3>
+<ul>
+<li>追加
+<ul>
+<li>StdioオブジェクトにonExit追加。</li>
+</ul></li>
+<li>変更
+<ul>
+<li>setwindowposで透明な枠を計算に入れないパラメータを追加。</li>
+<li>jsの一部効率化。</li>
+<li>jsmodeの不足分修正。(registercallback)</li>
+<li>JavaScriptのval()はNumber()と同じになるように変更。</li>
+</ul></li>
+<li>その他
+<ul>
+<li>HmJre.dll 更新 Ver.5.3.9</li>
+</ul></li>
+</ul>
+</section>
 </section>
 </section>
 <hr />

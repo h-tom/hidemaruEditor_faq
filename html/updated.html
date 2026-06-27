@@ -12,8 +12,12 @@
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -39,7 +43,7 @@
 <ul>
 <li><p><strong>第９版</strong></p>
 <ul>
-<li><p>第９．８版 2026/06/xx</p>
+<li><p>第９．８版 2026/06/27</p>
 <div class="marginleft">
 <dl>
 <dt>変更</dt>
@@ -49,12 +53,8 @@
 <li><a href="./2_browser.html">第II部〜知っていると便利な秀丸の機能　ブラウザ枠</a></li>
 <li><a href="./3_rendering.html">第III部〜秀丸マクロのいろはにほへと　レンダリング枠</a></li>
 <li><a href="./3_js.html">第III部〜秀丸マクロのいろはにほへと　JavaScript対応</a></li>
-</ul>
-</dd>
-<dt>新規</dt>
-<dd>
-<ul>
-<li></li>
+<li><a href="./3_string.html">第III部〜秀丸マクロのいろはにほへと　秀丸マクロで文字列を編集する</a></li>
+<li>[HME0040A] <a href="./HME0040A.html">●バックアップファイルを作りたくない</a></li>
 </ul>
 </dd>
 </dl>
