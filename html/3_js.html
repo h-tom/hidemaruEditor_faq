@@ -11,7 +11,6 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -35,7 +34,7 @@
 <body>
 <p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
-<h1>第III部〜秀丸マクロのいろはにほへと<br>　JavaScript対応</h1>
+<h1>第III部〜秀丸マクロのいろはにほへと<br />　JavaScript対応</h1>
 <hr />
 <section id="INDEX" class="level2">
 <h2>JavaScript対応</h2>
@@ -59,7 +58,7 @@
 </ul>
 <section id="ABOUT" class="level3">
 <h3>はじめに</h3>
-<p>Ver.9.19以降、マクロファイル内にある js{ } 記述内は JavaScript で記述することが可能になりました。
+<p>Ver.9.19以降、マクロファイル内にある js{ } 内は JavaScript を記述し動作させることができます。
 execjs文で別ファイルの JavaScript も実行できます。</p>
 <p>JavaScript 実行時には、HidemaruGlobal オブジェクト、Hidemaru オブジェクト が常にグローバルに存在します。秀丸マクロ命令の実行や秀丸エディタの機能を使うには、この2つのオブジェクトを利用します。</p>
 <ul>
@@ -107,7 +106,7 @@ JavaScript と 秀丸マクロ 間で変数をやり取りする場合は、Hide
 詳細は <a href="https://help.maruo.co.jp/hidemac/html/250_JavaScript_HidemaruGlobal_methods.html" class="externallink" target="_blank" rel="noopener">HidemaruGlobalオブジェクトのメソッド</a>を参照。</li>
 <li>メソッドとして呼び出す為、全て関数の書き方（メソッドの書き方）になる。(要は括弧を付けて呼び出す)</li>
 </ul>
-<section id="マクロの例" class="level5">
+<section id="macro_js" class="level5">
 <h5>マクロの例</h5>
 <pre class="macro"><code>//filename2キーワードとmessage文の呼び出し
 js {
@@ -159,7 +158,7 @@ js{
     }
 }
 endmacro;</code></pre></li>
-<li><p>文字列を指定した場合は、「<strong>JavaScript実行環境</strong>」と「<strong>名前空間</strong>」の指定となります。「名前空間」は「JavaScript実行環境」の後に "\" を付けて指定します。最初の "\" まで「JavaScript実行環境」とし、後は「名前空間」と認識します。</p>
+<li><p>文字列を指定した場合は、「<strong>JavaScript実行環境</strong>」と「<strong>名前空間(固有の実体名)</strong>」の指定となります。「名前空間」は「JavaScript実行環境」の後に "\" を付けて指定します。最初の "\" まで「JavaScript実行環境」とし、後は「名前空間」と認識します。</p>
 <pre class="macro"><code>jsmode &quot;JScript\\namesapce&quot;;</code></pre>
 <p>「JavaScript実行環境」は<a href="#MODE">JavaScript実行環境</a>を参照。「JavaScript実行環境」を省略した場合は、"JScript"を指定したことになります。</p>
 <p>「名前空間」を指定しない場合は、内部的にはマクロを実行しているファイル名(フルパス)が設定されます。</p>
@@ -182,12 +181,12 @@ jsmode @&quot;JScript\&quot;, 1;
 <p>スクリプトエンジンを既定の「JScript」に戻し、<span class="attention_red">次に実行する</span> js{} または execjs はリセットされた状態で実行されます。
 (パラメータ2は無視されます。)</p>
 <p>使い方が難しいです。</p>
-<ol type="1">
+<ol class="example" type="1">
 <li>jsmode @"JScript", 1; を指定して js{} を実行</li>
-<li>jsmode @""; を指定すると、「JScript」に戻るが、js{}は実行していない状態</li>
-<li>jsmode @"JScript", 1: を指定して js{} を実行</li>
+<li>jsmode @""; を指定すると、「JScript」に戻るが js{} は実行していない状態</li>
+<li>jsmode @"JScript", 1; を指定して js{} を実行</li>
 </ol>
-<p>上記内容だと、リセットされるのは 3) の「js{}」実行時です。「JScript」がリセットされます。</p>
+<p>上記内容だと、リセットされるのは (3)の「js{}」実行時で「JScript」がリセットされます。</p>
 <pre class="macro"><code>newfile;
 debuginfo 2;
 $mode = &quot;WebView2&quot;;
@@ -197,7 +196,7 @@ js{
     var name = &quot;hidemaru&quot;;
     console.log(&quot;name(0)  =&quot; + name);
 }
-jsmode @&quot;&quot;, 0;
+jsmode @&quot;&quot;;
 //以下のjs{} 部分を有効にすると動作が変わります。
 //(「JScript」に戻っているので、リセット対象は「JScript」になる)
 /*
@@ -215,7 +214,8 @@ js{
     }else{
         console.log(&quot;name(2)  =&quot; + name);
     }
-}</code></pre></li>
+}
+endmacro;</code></pre></li>
 <li><p>"allreset"</p>
 <p>現在の秀丸エディタ上に残っている他の実行空間・名前空間を全てリセットします。</p></li>
 </ul></li>
@@ -241,10 +241,10 @@ jsmode文を実行したマクロから execmacro文 で呼び出したマクロ
 <li><p>同じ名前空間</p></li>
 <li><p>同じグローバル展開状態の場合</p></li>
 </ol>
-<p>jsmode文を明示的に指定しないとデフォルト設定となるので条件が揃いやすいです。条件が揃えば別のマクロからでも JavaScript のオブジェクトにアクセス(読み書き変更)できます。つまり、自分で作成したマクロ以外から意図しない変更が加えられることも考えられます。</p>
-<p>トラブルを避ける意味でも JavaScript を使うときには「<strong>名前空間</strong>」を指定しましょう。</p>
+<p>jsmode文を明示的に指定しないとデフォルト設定となるので条件が揃いやすいです。条件が揃えば別のマクロからでも JavaScript のオブジェクトにアクセス(読み書き変更)できます。つまり、自分で作成したマクロ以外から意図しないオブジェクトの変更が加えられることも考えられます。</p>
+<p>トラブルを避ける意味でも JavaScript を使うときには「<strong>名前空間(固有の実体名)</strong>」を指定しましょう。</p>
 <p>execjs 文も同じで、execjs 文を実行した状態が有効範囲となります。</p>
-<p>「<strong>名前空間</strong>」は「他と衝突しないユニークな名前」が望ましいのですが、簡単に済ますなら以下の方法があります。</p>
+<p>「<strong>名前空間(固有の実体名)</strong>」は「他と衝突しないユニークな名前」が望ましいのですが、簡単に済ますなら以下の方法があります。</p>
 <ul>
 <li>「マクロファイル名(フルパス)」</li>
 <li>「マクロファイル名(ファイル名のみ)」+「開いているファイル名(ファイル名のみ)」</li>
@@ -332,7 +332,7 @@ Distinction        = c:\temp\test.txt</code></pre></li>
 </section>
 <section id="SYNCHRONIZE" class="level4">
 <h4>「同期/非同期」とは</h4>
-<p>現時点(2025/12/14)では秀丸マクロが実行中かどうかという意味合い。</p>
+<p>現時点(2026/05/06)では秀丸マクロが実行中かどうかという意味合い。</p>
 <div class="mark_dt">
 <dl>
 <dt>同期</dt>
@@ -478,6 +478,6 @@ macro:#b=0x0</code></pre>
 </section>
 </section>
 <hr />
-<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+<p><a href="#TOP">ページトップ</a>　<a href="./hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

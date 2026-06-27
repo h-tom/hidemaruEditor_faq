@@ -3,6 +3,7 @@ body {
     line-height     : 1.4em;
     word-wrap       : break-word;
     overflow-wrap   : break-word;
+    /*font-family     : "BIZ UDゴシック", sans-serif;*/
 }
 
 h1{
@@ -48,6 +49,8 @@ strong{
     margin-right: 0.25em;
     margin-left : 0.25em;
 }
+
+/* utf8 code {font-family: "BIZ UDGothic";} utf8 */
 
 .level3, .level4, .level5, .level6{
     padding-left : 2em;
@@ -376,6 +379,7 @@ li {
     overflow        : auto;
     margin-top      : 2px;
     margin-bottom   : 2px;
+    font-family     : 'ＭＳ ゴシック',monospace;
 }
 
 .box pre{
@@ -499,21 +503,27 @@ div.img_border img{
     text-decoration:underline wavy red;
 }
 
+@supports not (text-decoration-style: wavy){
+    .ul_red_wave{
+        text-decoration :none;
+        border-bottom   :dashed 2px red;
+    }
+}
+
 /* IE */
 @media screen\0 {
     .ul_red_wave{
         text-decoration :none;
-        border-bottom   :solid 2px red;
+        border-bottom   :dashed 2px red;
     }
 }
 /* edgw */
 @supports (-ms-ime-align: auto) {
     .ul_red_wave{
         text-decoration :none;
-        border-bottom   :solid 2px red;
+        border-bottom   :dashed 2px red;
     }
 }
-
 /* -end------------------------------------------ */
 
 .marker_yellow {

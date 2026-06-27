@@ -11,7 +11,6 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
     div.column{flex: auto; overflow-x: auto;}
@@ -35,7 +34,7 @@
 <body>
 <p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a></p>
 <section id="TOP" class="level1">
-<h1>第III部〜秀丸マクロのいろはにほへと<br>　レンダリング枠</h1>
+<h1>第III部〜秀丸マクロのいろはにほへと<br />　レンダリング枠</h1>
 <hr />
 <section id="INDEX" class="level2">
 <h2>レンダリング枠</h2>
@@ -45,7 +44,8 @@
 <li><p>レンダリング枠は、エディタ画面の上下左右に配置する事とエディタ画面上にオーバレイ表示できます。レンダリング枠は識別用の名前を付ける必要がありますが複数表示可能です。</p></li>
 <li><p>レンダリング枠内のJavaScriptからは、「js{ }」内で使用できる秀丸エディタ独自のオブジェクトは使用できません。
 (秀丸マクロ実行外なので使用できない)</p></li>
-<li><p>秀丸エディタマクロ → レンダリング枠 方向のやり取りは 「ブックマークレット」のように JavaScript を使います。処理が複雑になる場合は、あらかじめ処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p></li>
+<li><p>秀丸エディタマクロ → レンダリング枠 方向のやり取りは 「ブックマークレット」のように JavaScript を使います。処理が複雑になる場合は、あらかじめ処理用の関数を作成しておき、それを呼び出す方がいいでしょう。</p>
+<p>または、renderpanecommand の "uri"でファイルと一緒にパラメータとして渡す方法もあります。</p></li>
 <li><p>レンダリング枠 → 秀丸エディタマクロ 方向のやり取りは「<strong>window.chrome.webview.postMessage</strong>」を使います。</p>
 <p>postMessage のパラメータにはオブジェクトを指定し、funcid は関数ID、message 引数として任意の文字列を指定します。</p>
 <pre class="macro"><code>html側の例：window.chrome.webview.postMessage({funcid:関数ID, message:&quot;引数&quot;});</code></pre>
@@ -54,8 +54,8 @@
 <li>js{}内の関数を呼び出す場合は <strong>hidemaru.getFunctionId</strong></li>
 <li>秀丸エディタマクロを呼び出す場合は <strong>registercallback</strong></li>
 </ul>
-<p>レンダリング枠側に "関数ID" を引き渡すのは、ブックマークレットを使います。</p>
-<p>"引数"は文字列で1つしか指定できません。複数の引数を指定する場合は、呼び出し先で分割可能な文字列に合成して指定します。</p></li>
+<p>レンダリング枠側に "関数ID" を引き渡す必要があります。</p>
+<p>postMessageで指定する"引数"は文字列で1つしか指定できません。複数の引数を指定する場合は、呼び出し先で分割可能な文字列に合成して指定します。</p></li>
 <li><p>秀丸マクロが <strong>window.chrome.webview.postMessage</strong> で呼び出されたかどうかは <strong>event</strong> キーワードで判断します。指定された引数を取得するには <strong>geteventparam</strong> 関数を使います。</p>
 <pre class="macro"><code>if(event == 0){
     //通常処理
@@ -131,6 +131,6 @@ renderpanecommand $json_str;</code></pre></li>
 </section>
 </section>
 <hr />
-<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+<p><a href="#TOP">ページトップ</a>　<a href="./hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

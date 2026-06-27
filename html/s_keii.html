@@ -11,10 +11,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -35,7 +38,7 @@
 <body>
 <p><a href="./hmindex0.html"><img src="./hide_by2.png" width="88" height="32" alt="Hidemaru Q and A" /></a></p>
 <section id="top" class="level1">
-<h1>秀丸エディタＱ＆Ａ集〜はじめに<br>　秀丸エディタＱ＆Ａ集の公開＆作成への経緯</h1>
+<h1>秀丸エディタＱ＆Ａ集〜はじめに<br />　秀丸エディタＱ＆Ａ集の公開＆作成への経緯</h1>
 <hr />
 <p><strong>秀丸FAQ(仮称)公開＆作成への経緯</strong></p>
 <p>秀丸エディタは、Windows 3.1/Windows 95/Windows NT の各環境で使われているエディタで、「ウィンドウズの定番エディタ」として広く知られています。ところが、これに対応した秀丸および秀丸マクロについて総合的に解説した書籍やヘルプは残念ながら皆無の状態です。<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -50,13 +53,13 @@
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p>2025/12/14 現在、各種書籍が発刊されています。詳細は、秀まるおのホームページ(サイトー企画)の<a href="https://hide.maruo.co.jp/book/books1.html" class="externallink" target="_blank" rel="noopener">秀シリーズの解説書</a>を参照してください。
+<li id="fn1"><p>2026/06/23 現在、各種書籍が発刊されています。詳細は、秀まるおのホームページ(サイトー企画)の<a href="https://hide.maruo.co.jp/book/books1.html" class="externallink" target="_blank" rel="noopener">秀シリーズの解説書</a>を参照してください。
 (第８版編集担当より)<a href="#fnref1" class="footnote-back" role="doc-backlink">&#8617;&#65038;</a></p></li>
 <li id="fn2"><p>当・秀丸エディタＱ＆Ａ集は、初版時点ではこういう名称でした。<br />
 (第２版編集担当より)<a href="#fnref2" class="footnote-back" role="doc-backlink">&#8617;&#65038;</a></p></li>
 </ol>
 </section>
 <hr />
-<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+<p><a href="#TOP">ページトップ</a>　<a href="./hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

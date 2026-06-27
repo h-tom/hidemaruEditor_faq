@@ -11,10 +11,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -35,7 +38,7 @@
 <body>
 <p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex2.html">知っていると便利な秀丸の機能</a></p>
 <section id="TOP" class="level1">
-<h1>第II部〜知っていると便利な秀丸の機能<br>　強調表示</h1>
+<h1>第II部〜知っていると便利な秀丸の機能<br />　強調表示</h1>
 <hr />
 <section id="highlight" class="level2">
 <h2>強調表示</h2>
@@ -363,6 +366,6 @@ endmacro;</code></pre>
 </section>
 </section>
 <hr />
-<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+<p><a href="#TOP">ページトップ</a>　<a href="./hmindex0.html">目次に戻る</a></p>
 </body>
 </html>

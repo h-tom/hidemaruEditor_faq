@@ -11,10 +11,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -35,7 +38,7 @@
 <body>
 <p><a href="./hmindex0.html"><img src="./hide_by2.png" style="vertical-align:middle;" title="目次へ" alt="Hidemaru Q and A" /></a> ＞<a href="./hmindex2.html">知っていると便利な秀丸の機能</a></p>
 <section id="TOP" class="level1">
-<h1>第II部〜知っていると便利な秀丸の機能<br>　秀丸スペルチェックアドイン</h1>
+<h1>第II部〜知っていると便利な秀丸の機能<br />　秀丸スペルチェックアドイン</h1>
 <hr />
 <section id="INDEX" class="level2">
 <h2>秀丸スペルチェックアドインとは?</h2>
@@ -83,14 +86,14 @@ OSの「設定」→「時刻と言語」→「言語」から言語パックを
 <ul>
 <li><p><a href="http://aspell.net/win32/" class="externallink" target="_blank" rel="noopener">GNU Aspell (Win32 version)</a></p>
 <p>「<strong>Binaries</strong>」にある、「<strong>Full installer</strong>」をクリックすれば「GNU Aspell」がダウンロード出来ます。<br />
-(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2025/12/14現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
+(Aspell-(バージョン番号)-Setup.exeというファイル名になります。2026/06/23現在、「Aspell-0-50-3-3-Setup.exe」です)</p>
 <div class="img_border">
 <p><img src="./2_spellcheck_01.png" width="425" height="205" alt="Aspellダウンロード先" /><br />
 </p>
 </div>
 <p><span class="attention_red">GNU Aspell は、プログラム本体だけでは使用できません。チェックする言語に対応した辞書ファイルが必要です。</span></p>
 <p>ここでは例として「<strong>英語用辞書</strong>」をダウンロードします。プログラム本体と同じ場所で、辞書ファイルもダウンロード出来ます。「<strong>英語用辞書</strong>」なので、「Precompiled dictionaries:」にある「<strong>English</strong>」のファイルをダウンロードしてください。<br />
-(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2025/12/14現在、「Aspell-en-0.50-2-3.exe」です)</p>
+(Aspell-en-(バージョン番号).exeというファイル名でダウンロード出来ます。2026/06/23現在、「Aspell-en-0.50-2-3.exe」です)</p>
 <div class="img_border">
 <p><img src="./2_spellcheck_02.png" width="452" height="465" alt="Aspell辞書ダウンロード先" /><br />
 </p>
@@ -106,7 +109,7 @@ OSの「設定」→「時刻と言語」→「言語」から言語パックを
 <ul>
 <li><p><a href="https://hide.maruo.co.jp/" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ</a> - <a href="https://hide.maruo.co.jp/software/index.html" class="externallink" target="_blank" rel="noopener">ソフトウェア</a> -
 <a href="https://hide.maruo.co.jp/software/hmspell.html" class="externallink" target="_blank" rel="noopener">秀丸スペルチェックアドイン</a></p>
-<p>2025/12/14現在、以下のバージョンが公開されています。</p>
+<p>2026/06/23現在、以下のバージョンが公開されています。</p>
 <ul>
 <li>Ver.2.02</li>
 </ul></li>
@@ -232,6 +235,6 @@ Aspellを選択しないと<span class="btn-push">「Aspellについての設定
 </section>
 </section>
 <hr />
-<p><a href="#TOP">ページトップ</a>　<a href="hmindex0.html">目次に戻る</a></p>
+<p><a href="#TOP">ページトップ</a>　<a href="./hmindex0.html">目次に戻る</a></p>
 </body>
 </html>
