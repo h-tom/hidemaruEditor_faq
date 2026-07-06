@@ -12,8 +12,12 @@
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -332,7 +336,7 @@ Distinction        = c:\temp\test.txt</code></pre></li>
 </section>
 <section id="SYNCHRONIZE" class="level4">
 <h4>「同期/非同期」とは</h4>
-<p>現時点(2026/05/06)では秀丸マクロが実行中かどうかという意味合い。</p>
+<p>現時点(2026/07/06)では秀丸マクロが実行中かどうかという意味合い。</p>
 <div class="mark_dt">
 <dl>
 <dt>同期</dt>
