@@ -42,7 +42,7 @@
 <hr />
 <section id="editorconfig" class="level2">
 <h2>EditorConfig</h2>
-<p>秀丸エディタ Ver.9.00以降では「EditorConfig」に対応しています。</p>
+<p>秀丸エディタ Ver.9.00以降は「EditorConfig」に対応しています。</p>
 <ul>
 <li><a href="#EXPLANATION">解説</a>
 <ul>
@@ -56,7 +56,7 @@
 </ul>
 <section id="EXPLANATION" class="level3">
 <h3>[解説]</h3>
-<p>「EditorConfig」とは、さまざまなエディター や IDE で、コーディングスタイルを統一するための仕組みです。「.editorconfig」という設定ファイルを参照し、各プロジェクト毎やファイル毎にコーディングスタイルを設定できます。</p>
+<p>「EditorConfig」とは、さまざまなエディター や IDE でコーディングスタイルを統一するための仕組みです。「.editorconfig」という設定ファイルを参照し、各プロジェクト毎やファイル毎にコーディングスタイルを設定できます。</p>
 <p>詳細は「<a href="https://editorconfig.org/" class="externallink" target="_blank" rel="noopener">EditorConfigのwebサイト</a>」を参照してください。</p>
 <p>秀丸エディタで対応しているのは、以下になります。</p>
 <ul>
@@ -69,7 +69,7 @@
 </ul>
 <section id="EXPLANATION-1" class="level4">
 <h4>EditorConfigを有効にする</h4>
-<p>「EditorConfig」を有効にするには「<span class="env">動作環境</span> - 環境 - editorconfig」を開き、「editorconfigの検出」にチェックを入れます。</p>
+<p>「EditorConfig」を有効にするには「<span class="env">動作環境</span> - 環境 - editorconfig」を開き、「editorconfigの検出」にチェックを入れます。(表示されない場合は「上級者向け設定」をONにしてください。)</p>
 <p><img src="./2_editorconfig_01.png" width="550" height="318" alt="editorconfigの設定" /><br />
 </p>
 <ul>
@@ -81,7 +81,7 @@
 <li><strong>insert_final_newline</strong>(最後の行が改行で終わっていない場合、保存時に改行を追加するか)</li>
 </ul>
 <p>インデントの種類が変更になっても、既存の内容を変更することはありません。<br />
-例えば、タブでインデントしてあったファイルを開いても、スペースに置換するようなことしません。ファイル編集時の設定が変わるだけです。</p></li>
+例えば、タブでインデントしてあったファイルを開いてもスペースに置換するようなことしません。ファイル編集時の設定が変わるだけです。</p></li>
 <li><p>「エンコードの種類」は以下の設定が対象です。</p>
 <ul>
 <li><strong>charset</strong>(ファイルのエンコード)</li>
@@ -106,7 +106,7 @@
 </ol>
 <p>(3)と(4)の場合は、変更があってもファイルは「更新」状態になりません。</p></li>
 </ul>
-<p>適用したインデントの設定が、元の「<span class="filetype">ファイルタイプ別の設定</span>」と異なっても、「一時的な設定」にはなりません。</p>
+<p>適用したインデントの設定が元の「<span class="filetype">ファイルタイプ別の設定</span>」と異なっても、「一時的な設定」にはなりません。</p>
 <hr />
 <ul>
 <li><p>ファイル構成の例。</p>
@@ -131,20 +131,21 @@
     ┃ end_of_line = lf
     ┃
     ┗file2-1.txt</code></pre>
-<p>「editorconfigの検出」が有効な場合、開いたファイルのあるフォルダを起点として、上方向に「.editorconfig」を検索します。ドライブのルートフォルダにたどり着くか、「root = true」の記述がある「.editorconfig」が見つかるまで検索します。</p>
+<p>「editorconfigの検出」が有効な場合、開いたファイルのあるフォルダを起点として上方向に「.editorconfig」を検索します。ドライブのルートにたどり着くか、「root = true」の記述がある「.editorconfig」が見つかるまで検索します。</p>
 <ul>
-<li>「file1-1.txt」を開いた場合、上方向へ検索を開始するので、「base」にある「.editorconfig」が有効です。</li>
-<li>「file2-1.txt」を開いた場合、同じフォルダにある「.editorconfig」と、「base」にある「.editorconfig」の両方が有効です。</li>
+<li>「file1-1.txt」を開いた場合、上方向へ検索を開始するので「base」にある「.editorconfig」が有効です。</li>
+<li>「file2-1.txt」を開いた場合、同じフォルダにある「.editorconfig」と「base」にある「.editorconfig」の両方が有効です。</li>
 </ul>
 <hr />
 <p>複数の「.editorconfig」が見つかり、設定が重複している場合は対象のファイルに近い「.editorconfig」の内容が優先されます。</p>
 <ul>
-<li>「file2-1.txt」を開いた場合、同じフォルダに「.editorconfig」があるので、「end_of_line = lf」が適用される。</li>
+<li>「file2-1.txt」を開くと、同じフォルダに「.editorconfig」があるので「end_of_line = lf」が適用される。</li>
 </ul>
 <hr />
-<p>「.editorconfig」内に複数のマッチする条件があり、設定が重複している場合は、最後にマッチした内容が有効です。</p>
+<p>「.editorconfig」内に複数のマッチする条件がある場合は、最後にマッチした内容が有効です。</p>
 <ul>
-<li>「file2-1.txt」を開いた場合、"[*]" により全部のファイルにマッチするので「end_of_line = crlf」が適用されるが、後にある"[*.txt]" で「end_of_line = lf」が最終的に有効になる。</li>
+<li>「file2-1.txt」を開いた場合、"[*]" により全部のファイルにマッチするので「end_of_line = crlf」が適用されるが、後にある"[*.txt]" がマッチするので「end_of_line = lf」が最終的に適用されます。
+(ファイルの後ろにあるマッチする条件で上書きされる)</li>
 </ul></li>
 </ul>
 </section>
@@ -154,7 +155,7 @@
 <section id="SUPPLEMENTATION-1" class="level4">
 <h4>設定ファイルの記述方法</h4>
 <p>「.editorconfig」の記述方法です。エンコードは「UTF-8」にしてください。
-(「BOM」は基本的には不要。秀丸エディタは「BOM」があっても大丈夫ですが、他の環境で問題となる場合あり。)</p>
+(「BOM」は基本的には不要。秀丸エディタは「BOM」があっても大丈夫ですが、他の環境で問題となる場合あり)</p>
 <p>形式的には、iniファイルに似ていて、以下の形式になります。</p>
 <pre class="macro"><code>#コメント
 ;コメント
@@ -167,7 +168,7 @@ root = true
 設定名 = 設定値</code></pre>
 <ul>
 <li><p>「適用するファイル」の記述方法です。</p>
-<p>ファイル名を直接指定。フォルダ名がない場合は、ファイル名のみにマッチします。</p>
+<p>ファイル名を直接指定。フォルダ名がない場合はファイル名のみにマッチします。</p>
 <pre class="macro"><code>[README.TXT]
 charset = utf-8</code></pre>
 <p>フォルダを指定する場合は区切り文字として "/" を使うこと。</p>
