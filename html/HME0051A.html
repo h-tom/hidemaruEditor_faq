@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -76,9 +78,7 @@
 <ol type="1">
 <li><p>書式その１</p>
 <p>行の先頭に<code>"#"</code> 次に<code>"encoding:"</code> 次に文字コードを示す文字列(utf-8|shift_jis|jis|ecu-jp等)を指定します。</p>
-<div class="macro">
-<pre><code># encoding: utf-8</code></pre>
-</div>
+<pre class="macro"><code># encoding: utf-8</code></pre>
 <ul>
 <li>各項目間にスペースを入れても問題ありません。
 (<code>#</code>の前にスペースを入れるのはダメ)</li>
@@ -87,26 +87,20 @@
 </ul></li>
 <li><p>書式その２</p>
 <p>行の先頭に<code>"#"</code> 次に<code>"-*-"</code> 次に<code>"coding:"</code> 次に文字コードを示す文字列 最後に<code>"-*-"</code>を指定します。</p>
-<div class="macro">
-<pre><code># -*- coding: utf-8 -*-</code></pre>
-</div>
+<pre class="macro"><code># -*- coding: utf-8 -*-</code></pre>
 <ul>
 <li><p>最初の <code>"-*-"</code> の後、最後の <code>"-*-"</code> の前にはスペースを入れてください。(タブは使用しないこと)</p>
 <p>以下の書式では認識しない</p>
-<div class="macro">
-<pre><code># -*-coding: utf-8-*-</code></pre>
-</div></li>
+<pre class="macro"><code># -*-coding: utf-8-*-</code></pre></li>
 <li><p><code>coding</code> の後は、<code>":"</code>だけではなく、<code>"="</code> でもいいです。
 (<code>coding</code>とその後の文字(<code>":"</code>または<code>"="</code>)との間に、スペースを入れてはいけません)</p></li>
 </ul></li>
 </ol>
 <p>文字コードを記述する箇所は、<span class="attention_red">ファイルの先頭から2行目</span>までです。</p>
 <p>C言語等の場合は、そのまま記述するとコンパイル時にエラーになるため、コメント文字を利用します。(使用する言語のブロックコメントで囲んでください)</p>
-<div class="macro">
-<pre><code>/*
+<pre class="macro"><code>/*
 # coding: utf-8
-*/</code></pre>
-</div></li>
+*/</code></pre></li>
 </ol>
 </dd>
 </dl>

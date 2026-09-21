@@ -500,6 +500,23 @@ HTML形式は、ミラーリングや、引用などに使用してください�
 
 -   [第II部〜知っていると便利な秀丸の機能　EditorConfig](./html/2_editorconfig.html)を修正。
 
+#### 2026/08/31
+
+-   [著作権・配布規定等](./html/release.html) を修正。「AI学習用データとしての利用について」を追加。
+
+#### 2026/09/12
+
+-   \[ビルド\] Gemini Notebook で使うデータを作成出来るようにした。
+    内容に変更はないが Gemini Notebook用データ作成用に markdown の記述方法を変更。
+    markdown(pandoc) + α を GitHub-Flavored Markdown/original unextended Markdown/CommonMark Markdown with extensions
+    へ変換できるようにした。現状は GitHub-Flavored Markdown で出力。
+-   CSSで文字を90°回転させていた箇所を修正。似た文字を使用するようにした。
+-   [第III部〜秀丸マクロのいろはにほへと　サブルーチンについて](./html/3_sub.html)を修正。誤記修正。
+
+#### 2026/09/19
+
+-   \[HMM0076A\] [●重複行の削除](./html/HMM0076A.html)を修正。標準の変換モジュールに「重複行削除(隣接行のみ)」が追加されていることを追記。
+
 -----------------------------------------------------------------------------------------------------------------
 
 [<span id="last_history">履歴の先頭へ</span>](#history)

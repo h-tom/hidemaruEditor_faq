@@ -28,7 +28,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -54,7 +53,7 @@
 <h3>【０】COMオブジェクトとは</h3>
 <p>COMとは Component Object Model の略です。
 Windowsでソフトウェアの機能を部品化して、外部から呼び出して利用する仕組みを定めた技術仕様になります。</p>
-<p>ただし、現状(2026/08/12現在)では古い技術になっています。とはいえ、使えなくなったという事ではありません。
+<p>ただし、現状(2026/09/16現在)では古い技術になっています。とはいえ、使えなくなったという事ではありません。
 Word Excel などの Office製品等、対応しているアプリケーションもまだあります。
 OS に標準添付されている「Windows Script Host」や OS自体の機能にも残っています。</p>
 <p>秀丸マクロで出来ないことでもCOMオブジェクトを使えば可能になることもあるので、使い方を覚えておくのも良いでしょう。(いつまで使えるかはわかりませんが)</p>
@@ -66,7 +65,7 @@ OS に標準添付されている「Windows Script Host」や OS自体の機能�
 <p>今回は以下のCOMオブジェクトを使用します。</p>
 <ol type="1">
 <li><p>「Windows Script Host」の各種オブジェクト</p>
-<p>以前はchm形式の日本語ヘルプがダウンロードできましたが、現時点(2026/08/12)ではダウンロード出来なくなっています。</p>
+<p>以前はchm形式の日本語ヘルプがダウンロードできましたが、現時点(2026/09/16)ではダウンロード出来なくなっています。</p>
 <p>その為、Microsoftのwebサイトを参照します。</p>
 <p>トップページは<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc392483(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Microsoft Windows スクリプト テクノロジ</a>になります。今回使用する<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364455(v=msdn.10)" class="externallink" target="_blank" rel="noopener">Windows Script Host</a>を選び、<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364460(v=msdn.10)" class="externallink" target="_blank" rel="noopener">リファレンス</a>から<a href="https://learn.microsoft.com/ja-jp/previous-versions/windows/scripting/cc364453(v=msdn.10)" class="externallink" target="_blank" rel="noopener">オブジェクト</a>を選びます。</p>
 <p>このページにある各種オブジェクトを使用します。</p>
@@ -104,7 +103,7 @@ Script ランタイム−<a href="https://learn.microsoft.com/ja-jp/previous-ver
 <h4>【２．１】「Windows Script Host」の "WshShell" オブジェクトを使ってみる</h4>
 <p>WshShell オブジェクト にある、"Popup"メソッドを使ってみます。</p>
 <p>秀丸マクロの message文 と同じメッセージを表示する命令ですが、タイムアウト時間を設定でき自動で閉じることが出来ます。<br />
-(秀丸エディタ Ver.8.75以降ではmessage文が拡張され、タイムアウトする事も可能)</p>
+(秀丸エディタ Ver.8.75から message文が拡張され、タイムアウトする事も可能)</p>
 <p>Popupメソッドの引数、戻り値は以下になります。</p>
 <pre class="macro"><code>intButton = object.Popup(strText,[nSecondsToWait],[strTitle],[nType])</code></pre>
 <ul>
@@ -370,7 +369,7 @@ endmacro;</code></pre>
 <dl>
 <dt>オブジェクトを引数に渡す場合</dt>
 <dd>
-COMのメソッドやプロパティには、引数にオブジェクトを指定する場合があります。
+<p>COMのメソッドやプロパティには、引数にオブジェクトを指定する場合があります。</p>
 <pre class="macro"><code>//ArrayList オブジェクト生成
 #array = createobject(&quot;System.Collections.ArrayList&quot;);
 //GetArrayListDataTypeメソッドは、
@@ -378,12 +377,12 @@ COMのメソッドやプロパティには、引数にオブジェクトを指�
 //第二引数に、数値
 //を指定する必要がある。
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
-第一引数に「#array」を指定して、オブジェクトを指定しているように見えますが、上記マクロは正常に動作しません。
-createobject callmethod_returnobj getpropobj で戻り値を数値変数で受け取っていますが、これは「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。
-つまり、以下の"GetArrayListDataType"メソッド呼び出しは第一引数に「オブジェクト」を要求しているのに、「数値」を渡していることになるので失敗します(呼び出すメソッドやプロパティ次第ですが)。
+<p>第一引数に「#array」を指定して、オブジェクトを指定しているように見えますが、上記マクロは正常に動作しません。</p>
+<p>createobject callmethod_returnobj getpropobj で戻り値を数値変数で受け取っていますが、これは「オブジェクト識別用の番号」が格納されているだけで、オブジェクト本体ではありません。</p>
+<p>つまり、以下の"GetArrayListDataType"メソッド呼び出しは第一引数に「オブジェクト」を要求しているのに、「数値」を渡していることになるので失敗します(呼び出すメソッドやプロパティ次第ですが)。</p>
 <pre class="macro"><code>$ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);</code></pre>
-引数に「オブジェクト」を渡したい場合は、allowobjparam 文 を使い、オブジェクトそのものを渡すように指示します。
-使い方は2通りありますが、引数に指定する場合は後者の方法を推奨します。
+<p>引数に「オブジェクト」を渡したい場合は、allowobjparam 文 を使い、オブジェクトそのものを渡すように指示します。</p>
+<p>使い方は2通りありますが、引数に指定する場合は後者の方法を推奨します。</p>
 <ul>
 <li><p>使い方その1</p>
 <p>allowobjparam 文の引数として、「1」を指定します。</p>
@@ -402,11 +401,11 @@ allowobjparam 0;</code></pre>
 $ret = callmethod_returnstr(#lib, &quot;GetArrayListDataType&quot;, #array, #n);
 allowobjparam 0;</code></pre></li>
 </ul>
-allowobjparamで変換を有効にした場合は、<span class="attention_red">解除する</span>のを忘れないようにしましょう。解除しない場合は、他のメソッドやプロパティにも影響してしまします。
+<p>allowobjparamで変換を有効にした場合は、<span class="attention_red">解除する</span>のを忘れないようにしましょう。解除しない場合は、他のメソッドやプロパティにも影響してしまします。</p>
 </dd>
 <dt>バイト配列を引数に渡したし、戻り値で受け取る場合</dt>
 <dd>
-戻り値として「バイト配列」を受け取る場合は、第1引数のみ指定します。
+<p>戻り値として「バイト配列」を受け取る場合は、第1引数のみ指定します。</p>
 <pre class="macro"><code>//対象のヘッダ部分を読み込み為、ADODBを使用する。
 #objStream = createobject( &quot;ADODB.Stream&quot; );
 setpropnum #objStream, &quot;Type&quot;, 1;//adTypeBinary
@@ -417,7 +416,7 @@ allowobjparam 2;
 //先頭から512バイト読み込み
 $buff = callmethod_returnstr(#objStream, &quot;Read&quot;, 512);
 allowobjparam 0;</code></pre>
-引数として指定する場合は、オブジェクトと同じ方法が使えますが、指定する値は「2」になります。
+<p>引数として指定する場合は、オブジェクトと同じ方法が使えますが、指定する値は「2」になります。</p>
 <pre class="macro"><code>allowobjparam 0,2;
 //出力用ストリームにバイナリで書き込み
 callmethod ##Stm_out, &quot;Write&quot;, $$bindata;
@@ -428,7 +427,7 @@ allowobjparam 0;</code></pre>
 </section>
 <section id="MACRO-3-2" class="level5">
 <h5>戻り値が配列(SAFEARRAY)の場合</h5>
-<p>秀丸エディタ Ver.8.98以降では、戻り値が配列(SAFEARRAY)のメソッドに対応しています。</p>
+<p>秀丸エディタ Ver.8.98から、戻り値が配列(SAFEARRAY)のメソッドに対応しています。</p>
 <p>戻り値が配列(SAFEARRAY)の場合、自動的にオブジェクトに変換されます。オブジェクトにある以下のプロパティを使用し、各要素を取得します。</p>
 <ul>
 <li>Count プロパティ<br />

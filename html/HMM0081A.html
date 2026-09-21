@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -53,23 +55,7 @@
 <p>原因としては 以下の内容が考えられます。</p>
 <ul>
 <li><p>loaddll文/関数でdllの読み込みに失敗しているのに、dllfunc/dllfuncstrを呼び出している</p>
-<p>DLLの読み込み失敗に関しては、<a href="./HMM0083A.html">[HMM0083A]●外部DLLのロードに失敗する</a>を参照してください。</p>
-<!--
--   DLL の読み込みに失敗する原因としては、DLL が適切な位置に配置されていない等が考えられます。
-    実行するマクロと同じ場所か、マクロフォルダか、秀丸エディタ本体と同じ場所に配置するかは、
-    マクロの説明書等に記載されているはずなので確認してください。
--   マクロと DLL が同じ場所にあるにも関わらず、動作しない場合は、DLL のロード部分を確認見直してみてください。
-    単純にファイル名が間違っている場合もあります。
--   64bit版秀丸エディタを使用しているのに、32bit版の DLL をロードしようとしている。\
-    基本的に、64bit版秀丸エディタで使用できるのは、64bit版 DLL だけです。
-    オプションの設定で、32bit版 DLL を使用する事も出来ますが、[正常に動作する保証はありません。]{.attention_red}
-
-    ![32bit版の互換性](./2_convert_06.png){height="439" width="619"}\
-
--   DLLを実行するためのファイルが足りない。
-    VCのランタイムライブラリ等、DLL の実行に必要なファイルがない場合にも DLL のロードに失敗します。
-    DLL 本体の他に、必要なファイルがあるかどうか確認してください。
---></li>
+<p>DLLの読み込み失敗に関しては、<a href="./HMM0083A.html">[HMM0083A]●外部DLLのロードに失敗する</a>を参照してください。</p></li>
 <li><p>loaddll文/loaddll関数の有効範囲の問題</p>
 <p>秀丸エディタではVer.3.02以降、外部DLLを使用できるようになりましたが、以下の制限が存在します。</p>
 <ul>

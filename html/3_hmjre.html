@@ -27,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -259,7 +258,7 @@ Shift_JISの下位バイト。
 (0xe0〜0xef の 範囲はアクセント記号付きの文字が割り当てられている)<br />
 その為、欧文文字を検索したくても Shift_JIS の上位バイトと認識され正しく検索出来ない場合があります。日本語以外の言語を使用する場合には、あらかじめ言語の情報をDLLに教えておく必要があります。</p>
 <p>HMJRE.DLLのVer.5.01から、"NotifyEncode"関数が追加されています。
-(秀丸エディタのVer.8.74以降から添付)<br />
+(秀丸エディタのVer.8.74から添付)<br />
 この関数を使用することで、対象のエンコードを指定できます。</p>
 <pre class="macro"><code>//ファイルと同じ文字コードを使う場合には、引数に &quot;encode&quot;キーワードを指定する。
 //ファイルと違う文字コードを使う場合には、&quot;encode&quot;キーワードの値を調べて指定する。

@@ -27,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -63,11 +62,11 @@
 <p><img src="./2_grep_01.png" width="464" height="338" alt="grepダイアログ" /><br />
 </p></li>
 <li><p>一番上にある「<strong><span class="font_blue">検索する文字列</span></strong>」の部分に探したい文字列(今の例だと「<strong>Love</strong>」)を記入して下さい。</p>
-<p>通常は1行のみですが、複数行入力もできます。「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから、「<strong>複数行</strong>」を選択します。</p>
+<p>通常は1行のみですが、複数行入力もできます。「<strong><span class="font_blue">検索する文字列</span></strong>」入力欄横にある<strong>&#9205;</strong>マークを押すと表示されるメニューから、「<strong>複数行</strong>」を選択します。</p>
 <p><img src="./2_grep_08.png" width="496" height="135" alt="複数行入力" /><br />
 </p></li>
 <li><p>その下にある「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、検索対象となるファイル名を記入します(今の例だと「<strong>*.txt</strong>」)。<br />
-※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <span class="rotate90"><strong>&gt;</strong></span> をクリックして"<strong>(現在の内容)</strong>"を選択して下さい。<br />
+※現在編集中の内容に対して実行したい時は、入力ボックスの右端にある矢印 <strong>∨</strong> をクリックして"<strong>(現在の内容)</strong>"を選択して下さい。<br />
 　<img src="./2_grep_06.png" width="356" height="54" alt="現在の内容" /><br />
 </p>
 <p>※ファイル名には<strong>MS-DOS</strong>のコマンドライン入力でお馴染み(?)の「<strong>ワイルドカード</strong>」が使用できます。<br />
@@ -96,7 +95,7 @@
 </dl>
 <p>の3つから検索することになります。</p>
 <p><span class="attention_red">「検索するファイル」</span>に関しては、<a href="#SUPPLEMENTATION">[補足]</a>−<a href="#SUPPLEMENTATION-4">検索するファイル</a> も参照。除外したいファイルの設定が出来ます。</p>
-<p>Ver.8.73以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と直接指定した拡張子が、除外対象になります。
+<p>Ver.8.73から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、直接「<span class="attention_red">除外したい拡張子</span>」を指定する事が出来ます。「<span class="attention_red">除外したい拡張子</span>」を指定すると、「動作環境」で除外設定した拡張子と直接指定した拡張子が、除外対象になります。
 (「動作環境」の設定を上書きするわけではない)</p>
 <pre class="macro"><code>&lt;!*.xxx&gt;</code></pre>
 <p>「<code>&lt;!</code>」に続き、除外したい内容を記述し、「<code>&gt;</code>」で閉じます。複数指定する場合は「<code>;</code>」で区切って入力します。</p>
@@ -107,7 +106,7 @@
 <p>となります。</p>
 <p>除外するファイルの入力をアシストする機能もあります。<a href="#SUPPLEMENTATION-6">補助メニュー</a>を参照してください。</p></li>
 <li><p>その下にある「<strong>検索するフォルダ</strong>」で、検索対象のファイルのあるフォルダを選択します(今の例だと「<strong>c:\diary</strong>」)。「...」ボタンを押すと、フォルダ参照ダイアログが開きフォルダを選択可能です。</p>
-<p>Ver.8.85以降から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
+<p>Ver.8.85から、「<strong><span class="font_blue">検索するファイル</span></strong>」の部分に、「<span class="attention_red">除外したいフォルダ</span>」を指定する事が出来ます。</p>
 <pre class="macro"><code>&lt;!フォルダ名\&gt;</code></pre>
 <p>「<code>&lt;!</code>」に続き除外したいフォルダ名記述し「<code>&gt;</code>」で閉じます。<span class="attention_red">フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</span>複数指定する場合は「<code>;</code>」で区切って入力します。</p>
 <pre class="macro"><code>例1)*.*&lt;!folder1\&gt;
@@ -142,7 +141,7 @@
 <li><p><strong>「<span class="font_blue">最小化状態で実行</span>」チェックボックス：</strong><br />
 grepの実行時は実行結果を表示するための秀丸エディタウィンドウを自動で開きますが、この項目がONの時はgrepの実行が終了するまで、この結果表示ウィンドウをアイコン化します。</p></li>
 <li><p><strong>「<span class="font_blue">出力形式</span>」メニュー：</strong><br />
-grep結果の出力形式を横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューから設定します。</p>
+grep結果の出力形式を横にある<strong>&#9205;</strong>マークを押すと表示されるメニューから設定します。</p>
 <p><img src="./2_grep_12.png" width="492" height="188" alt="出力形式の設定" /><br />
 </p>
 <p>チェック付きのメニューになっていて、個別にON/OFFできます。全部チェックがOFFだと「標準」となりますが、チェックをONにすると、その項目が表示されます。</p>
@@ -282,12 +281,11 @@ file1.txt(20): ファイル1の２０行目
 exeファイルなどテキストではないファイルを、除外します。</p>
 <p>exeファイル等、あきらかに拡張子で判定可能なものは拡張子で判断し、それ以外はファイルを開いて判定します。</p></li>
 <li><p><span class="font_blue">指定した拡張子を除外</span><br />
-指定した拡張子を持つファイルを、対象外にします。</p>
+指定した拡張子を持つファイルを対象外にします。</p>
 <p>記述方法は2つあり、記述方法が異なるので注意。(混在は不可)</p>
 <ul>
 <li><p>拡張子を指定する記述方法<br />
-<span class="monospace">"."</span>(ドット)を含まない拡張子を指定します。実行ファイルの場合、
-<span class="monospace">".exe"</span> ではなく <span class="monospace">"exe"</span> と指定する。</p>
+<span class="monospace">"."</span>(ドット)を含まない拡張子を指定します。実行ファイルの場合、<span class="monospace">".exe"</span> ではなく <span class="monospace">"exe"</span> と指定する。</p>
 <p>複数の拡張子を指定する場合は " "(スペース)で区切る。<br />
 実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace">exe dll</span></p></li>
 <li><p>ワイルドカードを含む文字列を指定する記述方法<br />
@@ -296,7 +294,7 @@ exeファイルなどテキストではないファイルを、除外します�
 実行ファイル(*.exe)とDLL(*.dll)を除外する場合：<span class="monospace">*.exe;*.dll</span></p>
 <p>ワイルドカードにマッチするかどうかの判定方法は、「拡張子を厳密にチェックする」をONにした時と同じロジックになるとの事。</p></li>
 </ul>
-<p>Ver.8.85以降、「ワイルドカードを含む文字列を指定する記述方法」の場合、「除外するフォルダ」も指定可能です。フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</p>
+<p>Ver.8.85から「ワイルドカードを含む文字列を指定する記述方法」の場合、「除外するフォルダ」も指定可能です。フォルダ名の最後には必ず 「<code>\</code>」 を付けること。</p>
 <p>以下の例は、拡張子が dll exe doc のファイルと「temp」というフォルダを除外します。</p>
 <pre><code>例)*.dll;*.exe;*.doc;temp\</code></pre></li>
 </ul></li>
@@ -351,8 +349,8 @@ file2.htm(1): 短縮名ファイルのテスト：file2.htm</code></pre>
 </section>
 <section id="SUPPLEMENTATION-6" class="level4">
 <h4>補助メニュー</h4>
-<p>「検索する文字列」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューは、<a href="./2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。</p>
-<p>「検索するファイル」入力部の横にある<span class="rotate90">▲</span>マークを押すと表示されるメニューです。</p>
+<p>「検索する文字列」入力部の横にある<strong>&#9205;</strong>マークを押すと表示されるメニューは、<a href="./2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。</p>
+<p>「検索するファイル」入力部の横にある<strong>&#9205;</strong>マークを押すと表示されるメニューです。</p>
 <p><img src="./2_grep_10.png" width="302" height="234" alt="検索するファイルのメニュー" /><br />
 </p>
 <p>前半には、「<span class="env">動作環境</span> − ファイル − 「開く」のダイアログボックス」にある「ファイルの種類の編集」で、「「開く」のダイアログ」に設定した内容が表示されます。後半には「除外の設定」や、「除外する拡張子」「除外するサブフォルダ」の指定をアシストする機能もあります。</p>

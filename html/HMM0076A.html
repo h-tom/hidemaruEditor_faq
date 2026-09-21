@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -50,11 +52,11 @@
 <dl>
 <dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
 <dd>
-<p>同一内容の行が連続している場合のみ、下記のマクロで可能です。<br />
-マクロで内容全体処理する場合は、事前にソートしておく必要があります。</p>
+<p>秀丸エディタVer.9.48 から標準の変換モジュールに「重複行削除(隣接行のみ)」が追加されています。同一内容の行が連続している場合、重複行削除が可能です。</p>
+<p>同一内容の行が連続している場合のみ、下記のマクロで可能です。マクロで内容全体処理する場合は事前にソートしておく必要があります。</p>
 <p><a href="https://hide.maruo.co.jp/lib/hmconv/index.html" class="externallink" target="_blank" rel="noopener">秀まるおのホームページ(サイトー企画)−秀丸エディタの変換モジュールライブラリ</a>に、
 uniq(重複行削除)の機能を持つ変換モジュールが登録されているので、それを使う方法もあります。
-(変換モジュールの場合は、ソートしなくても同一内容の行を削除可能)</p>
+(変換モジュールの場合、ソートしなくても同一内容の行を削除可能)</p>
 <pre class="macro"><code>//------------------ uniq.mac -------------------------------------
 
 disabledraw;

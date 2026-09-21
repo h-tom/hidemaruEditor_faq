@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -60,7 +62,7 @@
 <dt><span class="mark_dt3">[参考]</span></dt>
 <dd>
 <p>「パスワード」の扱いは、あなたが持っているキャッシュカードと考えれば簡単です。誰かがあなたの学校や会社の掲示板に「このキャッシュカードが落ちていましたよ、名前と住所、電話番号に、そうそう暗証番号は○○○…」と誰かが掲示したとしたらどうでしょう？掲示した人があなたに向かって「いやぁ〜、暗証番号や住所まで書いちゃってゴメンね。悪意があったわけじゃなく知らなかっただけだから。許してネ」と言ったとしたら、笑って許せますか？</p>
-<p>　悪意がなくても(過失でも)厳罰に処されることは、一般の社会では珍しいことではありません。通信あるいはシェアウエアという社会でも、そのルールを守り、お互いに気持ちよくすごしたいものです。</p>
+<p>悪意がなくても(過失でも)厳罰に処されることは、一般の社会では珍しいことではありません。通信あるいはシェアウエアという社会でも、そのルールを守り、お互いに気持ちよくすごしたいものです。</p>
 </dd>
 </dl>
 </dd>

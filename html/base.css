@@ -503,6 +503,10 @@ div.img_border img{
     text-decoration:underline wavy red;
 }
 
+div.dt_up > dl > dt{
+    margin-top      : 0.7em;
+}
+
 @supports not (text-decoration-style: wavy){
     .ul_red_wave{
         text-decoration :none;

@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -66,8 +68,7 @@
 <dd>
 <p>まず以下の点を確認してください。</p>
 <ol type="1">
-<li>自分の表示したい項目について、「その他」→「<span class="filetype">ファイルタイプ別の設定</span>」の</li>
-</ol>
+<li><p>自分の表示したい項目について、「その他」→「<span class="filetype">ファイルタイプ別の設定</span>」の</p>
 <ul>
 <li>「表示」
 <ul>
@@ -92,8 +93,7 @@
 <li>強調表示一覧の「文字列」の設定が終了しているか?</li>
 </ul></li>
 </ul>
-<p>の項目に問題はありませんか?</p>
-<ol start="2" type="1">
+<p>の項目に問題はありませんか?</p></li>
 <li><p>同じく「その他」→「<span class="filetype">ファイルタイプ別の設定</span>」の「カラー」で設定は合っていますか?
 「背景色」や「選択範囲」と重なると文字が見えなくなります。</p></li>
 <li><p>「その他」→「<span class="filetype">ファイルタイプ別の設定</span>」→「カラー」の「場所の一覧」にあるように、カラー表示には優先順位があります。この点は問題がありませんか?</p></li>

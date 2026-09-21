@@ -28,7 +28,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -42,9 +41,8 @@
 <hr />
 <section id="INTRODUCTION" class="level2">
 <h2>プログラム実行を利用したテキストの加工</h2>
-<p>秀丸エディタでは「プログラム実行」を使うことにより、標準入力・標準出力を利用するプログラムを利用して、テキストを加工できます。</p>
-<p>昔はlinuxのような便利なコマンドが少なくて活用しづらい機能でしたが、現在はWindowsでも便利なコマンドが増えたり、
-PowerShellが導入されたことで色々な編集に活用できます。</p>
+<p>秀丸エディタでは「プログラム実行」を使うことにより、標準入力・標準出力を利用するプログラムを利用してテキストを加工できます。</p>
+<p>昔は linux のような便利なコマンドが少なくて活用しづらい機能でしたが、現在は Windows でも便利なコマンドが増えたり、PowerShell が導入されたことで色々な編集に活用できます。</p>
 <p>メニューの「その他→プログラム実行」から使用できます。</p>
 <div class="title-li">
 <ul>
@@ -62,7 +60,7 @@ PowerShellが導入されたことで色々な編集に活用できます。</p>
 <li><a href="./2_program.html#PROGRAM2">【３】プログラム実行の方法その2</a></li>
 </ul>
 </div>
-<p>どちらの方法を使うかは、実行するプログラムや、編集しているファイルの文字コードによります。</p>
+<p>どちらの方法を使うかは、実行するプログラムや編集しているファイルの文字コードによります。</p>
 <p>開いているファイルが「Shift_JIS」で、標準入力と標準出力の文字コードが「Shift_JIS」で動作するプログラム
 (もしくは、入出力のエンコードが起動オプションで指定可能なプログラム)である場合は、"&lt;con" "&gt;con" を使うのが簡単です。コマンドラインに「 &lt;con &gt;con」と付けて実行することで、外部プログラムの標準入力に現在の選択範囲を渡し、標準出力を選択範囲に出力できます。</p>
 <p>実行するプログラムが、標準入出力の文字コードとしてUTF-8を期待する場合や編集しているファイルに「Shift_JISに含まれない文字」がある場合は、
@@ -79,42 +77,43 @@ PowerShellが導入されたことで色々な編集に活用できます。</p>
 <h3>【２】実用例</h3>
 <p>OSに標準であるコマンドでの実行例です。</p>
 <p>"&lt;con" "&gt;con" を使っているので、「詳細設定」を有効にする場合は、「標準入力」「標準出力」も有効にし「自動」を選んでください。</p>
-<p>"PowerShell" の実行ファイル名は Ver.6 以降 "pwsh.exe" になっています。
+<p>"PowerShell" の実行ファイル名は Ver.6 から "pwsh.exe" になっています。
 PowerShell Ver.6 以降を使う場合は、 "PowerShell" を "pwsh" に読み替えて実行してください。</p>
+<div class="dt_up">
 <dl>
 <dt><strong>sort &lt;con &gt;con</strong></dt>
 <dd>
-選択範囲を並び替える。
-起動オプションに "/R" を指定すると、逆順で出力されます。
+<p>選択範囲を並び替える。</p>
+<p>起動オプションに "/R" を指定すると、逆順で出力されます。</p>
 <div class="macro">
 <pre><code>sort /R &lt;con &gt;con</code></pre>
 </div>
-起動オプションに "/+&lt;number&gt;" を指定すると、&lt;number&gt;で指定した文字から比較を開始します。
+<p>起動オプションに "/+&lt;number&gt;" を指定すると、&lt;number&gt;で指定した文字から比較を開始します。</p>
 <div class="macro">
 <pre><code>sort /+5 &lt;con &gt;con</code></pre>
 </div>
-上記例では、5文字目から比較を行います。
+<p>上記例では、5文字目から比較を行います。</p>
 </dd>
 <dt><strong>findstr "hoge" &lt;con &gt;con</strong></dt>
 <dd>
-hogeという文字が入った行だけを抜き出す。
-起動オプションに "/I" を指定すると、大文字小文字を無視します。
+<p>hogeという文字が入った行だけを抜き出す。</p>
+<p>起動オプションに "/I" を指定すると、大文字小文字を無視します。</p>
 <div class="macro">
 <pre><code>findstr /I &quot;hoge&quot; &lt;con &gt;con</code></pre>
 </div>
-<br />
-
+<p><br />
+</p>
 </dd>
 <dt><strong>powershell -c "$input | Get-Unique" &lt;con &gt;con</strong></dt>
 <dd>
-選択範囲の重複行を削除する。(事前にソートしておく必要があります)
-<code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。
-(標準入力の内容が入っている)
+<p>選択範囲の重複行を削除する。(事前にソートしておく必要があります)</p>
+<p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。
+(標準入力の内容が入っている)</p>
 </dd>
 <dt><strong>powershell -c "1..5" &gt;con</strong></dt>
 <dd>
-以下のような連番を選択範囲に書き出す。(「詳細設定」有効、「標準出力」を有効にして「挿入」に設定すれば、範囲選択は不要)
-出力結果
+<p>以下のような連番を選択範囲に書き出す。(「詳細設定」有効、「標準出力」を有効にして「挿入」に設定すれば、範囲選択は不要)</p>
+<p>出力結果</p>
 <div class="macro">
 <pre><code>1
 2
@@ -122,11 +121,11 @@ hogeという文字が入った行だけを抜き出す。
 4
 5</code></pre>
 </div>
-数字を3桁にして、":"を追加したりも可能です。
+<p>数字を3桁にして、":"を追加したりも可能です。</p>
 <div class="macro">
 <pre><code>powershell -c &quot;1..5 | %{\&quot;{0:000}:\&quot; -f $_ }&quot; &gt;con</code></pre>
 </div>
-出力結果
+<p>出力結果</p>
 <div class="macro">
 <pre><code>001:
 002:
@@ -134,26 +133,27 @@ hogeという文字が入った行だけを抜き出す。
 004:
 005:</code></pre>
 </div>
-<br />
-
+<p><br />
+</p>
 </dd>
 <dt><strong>cmd /c "dir /b c:\hoge" &gt;con</strong></dt>
 <dd>
-「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。
-起動オプション "/b" は「ファイル名のみ出力」です。
-"/on" を追加するとファイル名でソートされ出力されます。
+<p>「c:\hoge」フォルダのファイル一覧を選択範囲に書き出す。</p>
+<p>起動オプション "/b" は「ファイル名のみ出力」です。
+"/on" を追加するとファイル名でソートされ出力されます。</p>
 </dd>
 <dt><strong>powershell -c "<span class="math inline">$input | Sort-Object {$</span>_.Length}" &lt;con &gt;con</strong></dt>
 <dd>
-選択範囲を行の長さでソートする。
-<code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。
-(標準入力の内容が入っている)
-逆順にソートしたい場合は、<code>Sort-Object</code> のオプションに <code>-descending</code> を指定します。
+<p>選択範囲を行の長さでソートする。</p>
+<p><code>$input</code> は powershellの自動変数で、渡されたすべての入力を列挙する列挙子が格納されます。
+(標準入力の内容が入っている)</p>
+<p>逆順にソートしたい場合は、<code>Sort-Object</code> のオプションに <code>-descending</code> を指定します。</p>
 <div class="macro">
 <pre><code>powershell -c &quot;$input|Sort-Object -descending { $_.Length }&quot;  &lt;con &gt;con</code></pre>
 </div>
 </dd>
 </dl>
+</div>
 </section>
 </section>
 </section>

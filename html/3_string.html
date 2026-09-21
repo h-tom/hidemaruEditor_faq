@@ -27,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -109,7 +108,7 @@ insertreturn文は、「改行キーを押したのと全く同じ働き」を�
 } else {
     message &quot;1バイト文字です&quot;;
 }</code></pre>
-秀丸マクロの数値型は４バイトであり、0x8000以降も正の値となるので、上記の書き方でＯＫです。
+<p>秀丸マクロの数値型は４バイトであり、0x8000以降も正の値となるので、上記の書き方でＯＫです。</p>
 </dd>
 <dt>（例） または、以下でもOK。</dt>
 <dd>
@@ -118,33 +117,33 @@ insertreturn文は、「改行キーを押したのと全く同じ働き」を�
 } else {
     message &quot;1バイト文字です&quot;;
 }</code></pre>
-ここで他の特殊文字の例も見ましょう。
+<p>ここで他の特殊文字の例も見ましょう。</p>
 </dd>
 <dt>（例） 改行文字を判定する。</dt>
 <dd>
 <pre class="macro"><code>if (code == 0x0d) {
     message &quot;改行文字です&quot;;
 }</code></pre>
-以下の書き方では改行文字と判定できません。insert文で改行を挿入する場合との違いに注意しましょう。
+<p>以下の書き方では改行文字と判定できません。insert文で改行を挿入する場合との違いに注意しましょう。</p>
 <pre class="macro"><code>if (code == 0x0a) {
 if (code == &#39;\n&#39;) {
 if (code == ascii(&quot;\n&quot;)) {
 if (code == ascii(&quot;\r&quot;)) { // これもなぜか ascii(&quot;\r&quot;) == 10 となり駄目</code></pre>
-※秀丸マクロでは、\rも 0x0a として処理されます。
+<p>※秀丸マクロでは、\rも 0x0a として処理されます。</p>
 </dd>
 <dt>（例） 文末を判定する。<strong>eof</strong>キーワードが文末を示します。</dt>
 <dd>
 <pre class="macro"><code>if (code == eof) {
     message &quot;文末です&quot;;
 }</code></pre>
-　
+<p>　</p>
 </dd>
 <dt>（例） タブ文字の判定。</dt>
 <dd>
 <pre class="macro"><code>if (code == 0x09) {
     message &quot;タブ文字です&quot;;
 }</code></pre>
-以下の書き方でも大丈夫です。
+<p>以下の書き方でも大丈夫です。</p>
 <pre class="macro"><code>if (code == &#39;\t&#39;) {
     message &quot;タブ文字です&quot;;
 }</code></pre>
@@ -227,7 +226,7 @@ message &quot;カーソル移動&quot;;
 endmacro;</code></pre>
 <p><img src="./3_string_501.png" width="350" height="193" alt="範囲選択終了時" /> <img src="./3_string_502.png" width="350" height="193" alt="カーソル移動終了時" /><br />
 </p>
-<p>動作的にはおかしいが、現状（2026/08/12）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
+<p>動作的にはおかしいが、現状（2026/09/16）においては仕様ということです。範囲選択状態から、検索を使用して見つけた位置まで範囲選択を伸ばす事も可能になっているので、カーソル移動コマンドの使用時は範囲選択を維持しているとの事。<br />
 (カーソル移動コマンドとは、moveto movetolineno mooveto2 goline〜 のコマンド)</p>
 <p>範囲選択した後の操作（コマンド？）で範囲選択が解除されれば問題はないが、解除されない場合はカーソル移動すると思わぬ結果になるので注意すること。</p>
 <p>この動作を回避するには、範囲選択終了後に一度カーソルを動かせばいい。(left right等)</p>
@@ -313,28 +312,28 @@ $s = gettext(seltopx,seltopy,selendx,selendy, 1);</code></pre></li>
 <dl>
 <dt><strong>rectselecting</strong></dt>
 <dd>
-BOX範囲選択中かどうかを表します。範囲選択中の場合は１、そうでない場合は０です。
+<p>BOX範囲選択中かどうかを表します。範囲選択中の場合は１、そうでない場合は０です。</p>
 </dd>
 <dt><strong>lineselecting</strong></dt>
 <dd>
-行選択開始コマンドによる選択中かどうかを表します。(Ver.8.00以降)
+<p>行選択開始コマンドによる選択中かどうかを表します。(Ver.8.00以降)</p>
 </dd>
 <dt><strong>selectionlock</strong></dt>
 <dd>
-選択開始/BOX選択開始/行選択開始コマンドによる選択中かどうかを表します。(Ver.8.00以降)
+<p>選択開始/BOX選択開始/行選択開始コマンドによる選択中かどうかを表します。(Ver.8.00以降)</p>
 </dd>
 <dt><strong>mouseselecting</strong></dt>
 <dd>
-マウスによる選択中かどうかと、その選択方法を表します。(Ver.8.00以降)
-0：マウスによる選択ではない<br />
+<p>マウスによる選択中かどうかと、その選択方法を表します。(Ver.8.00以降)</p>
+<p>0：マウスによる選択ではない<br />
 1：文字単位の選択<br />
 2：単語単位の選択<br />
 3：行単位（折り返しまで）の選択<br />
-4：行単位（改行まで）の選択
+4：行単位（改行まで）の選択</p>
 </dd>
 <dt><strong>multiselecting</strong></dt>
 <dd>
-複数選択中であるかどうかを表します。(Ver.8.40以降)
+<p>複数選択中であるかどうかを表します。(Ver.8.40以降)</p>
 </dd>
 </dl>
 </section>

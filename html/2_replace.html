@@ -27,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -122,7 +121,7 @@
 <h3>[補足]</h3>
 <ul>
 <li><p>検索部分は、<a href="./2_find.html">検索</a>の「<a href="./2_find.html#SUPPLEMENTATION-2">検索文字列の取り込みについて</a>」と同じ事が可能です。</p></li>
-<li><p>「検索」「置換」部分は、<strong>複数行入力</strong>に対応しています。「検索」「置換」入力部の横にある<span class="rotate90">▲</span>マークのメニューから「<span class="attention_red">複数行</span>」を選択してください。</p>
+<li><p>「検索」「置換」部分は、<strong>複数行入力</strong>に対応しています。「検索」「置換」入力部の横にある<strong>&#9205;</strong>マークのメニューから「<span class="attention_red">複数行</span>」を選択してください。</p>
 <p><img src="./2_replace_02.png" width="433" height="412" alt="置換ダイアログ-複数選択" /><br />
 </p>
 <p>「検索」で表示されるメニューは<a href="./2_find.html#SUPPLEMENTATION-4">検索ダイアログ</a> と同じです。<br />
@@ -252,31 +251,29 @@
 </div>
 <p>置換のエディットボックスに以下のフォーマットで記入すること。</p>
 <div class="box_line">
-<div class="macro">
-<pre><code>\(タグ番号, 関数名, 変換モジュール名)</code></pre>
-</div>
+<pre class="macro"><code>\(タグ番号, 関数名, 変換モジュール名)</code></pre>
 <dl>
 <dt>タグ番号</dt>
 <dd>
-0 はマッチした全体。<br />
-1〜15 は、タグ付き正規表現を使用した場合のタグ番号。
+<p>0 はマッチした全体。</p>
+<p>1〜15 は、タグ付き正規表現を使用した場合のタグ番号。</p>
 </dd>
 <dt>関数名</dt>
 <dd>
-使用したい機能を指定。<br />
-「ハンカク」を実行したい場合は "ToHankaku" を指定する。
+<p>使用したい機能を指定。</p>
+<p>「ハンカク」を実行したい場合は "ToHankaku" を指定する。</p>
 </dd>
 <dt>変換モジュール名</dt>
 <dd>
-標準添付の変換モジュールは省略可能。標準添付以外の変換モジュールを使う場合は指定する必要がある。<br />
-<span class="attention_red">秀丸エディタ本体と同じ場所に変換モジュールがある場合以外は、フルパスで指定する事。</span>
+<p>標準添付の変換モジュールは省略可能。標準添付以外の変換モジュールを使う場合は指定する必要がある。</p>
+<p><span class="attention_red">秀丸エディタ本体と同じ場所に変換モジュールがある場合以外は、フルパスで指定する事。</span></p>
 </dd>
 </dl>
 </div>
 <dl>
 <dt>例)hidemaru と editor を大文字に変換したい場合</dt>
 <dd>
-通常の置換では、置換を2回実行する必要があります。
+<p>通常の置換では、置換を2回実行する必要があります。</p>
 <ul>
 <li><p>置換一回目</p>
 <pre><code>検索：hidemaru
@@ -291,13 +288,13 @@
 実行前：HIDEMARU editor
 実行後：HIDEMARU EDITOR</code></pre></li>
 </ul>
-変換モジュールの機能を使えば一回の置換で可能。
+<p>変換モジュールの機能を使えば一回の置換で可能。</p>
 <pre><code>検索：(hidemaru|editor)
 置換：\(0,ToUpper)
 
 実行前：hidemaru editor
 実行後：HIDEMARU EDITOR</code></pre>
-変換モジュールの機能を組み合わせることも可能で、大文字に変換して、さらに全角へ変換という事もできます。
+<p>変換モジュールの機能を組み合わせることも可能で、大文字に変換して、さらに全角へ変換という事もできます。</p>
 <pre><code>検索：(hidemaru|editor)
 置換：\((0,ToUpper),ToZenkakuAlnum)
 

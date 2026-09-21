@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -53,7 +55,7 @@
 <p>検索ダイアログボックスの設定状態をマクロ文で再現するためのものです。下記の数値(の和)を指定します。<br />
 例えば「単語でしかも大文字小文字の区別あり」の場合は(1 + 2 =) 3 を指定します。</p>
 <p>ビット演算に関しては、「<a href="./hmindex3.html">秀丸マクロのいろはにほへと</a>　<a href="./3_bit.html">ビット演算を極める</a>」を参考にしてください。</p>
-<p>Ver.8以降からは、フラグ2(<code>searchoption2</code> 相当)が追加されています。フラグ２は省略できます。</p>
+<p>Ver.8.00からフラグ2(<code>searchoption2</code> 相当)が追加されています。フラグ２は省略できます。</p>
 <pre class="macro"><code>setsearch &quot;文字列&quot;, フラグ1 [, フラグ2]</code></pre>
 <ul>
 <li><p>フラグ1</p>
@@ -215,7 +217,7 @@
 </tbody>
 </table></li>
 <li><p>フラグ2</p>
-<p>フラグ2は、Ver.8.00以降から拡張されたフラグで、searchoption2に相当するフラグを設定します。<br />
+<p>フラグ2はVer.8.00から拡張されたフラグで、searchoption2に相当するフラグを設定します。<br />
 <span class="font_red_bold">フラグ2を有効にするためには、フラグ1の「追加の条件が有効であるかどうか(0x80000000)」のビットを立てる必要があります。</span></p>
 <table>
 <caption>フラグ2の内容</caption>

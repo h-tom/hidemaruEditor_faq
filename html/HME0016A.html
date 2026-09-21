@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -51,10 +53,8 @@
 <dl>
 <dt><img src="./a.png" width="32" height="29" alt="A." /></dt>
 <dd>
-<p>秀丸エディタは、「独自のBitBltテクノロジーによる高速スクロール処理」を行っており、この技術により高速な描画を実現しています。ただし、「独自」と言っても、完全に Windows 95プログラム仕様の範囲内で行われており正統な技術です。しかし、ごく少数のビデオボード（ビデオドライバ）では、その（正統な）処理に未対応なものがあります。この場合、秀丸エディタの画面は乱れ、事実上使用できません。<br />
-</p>
-<p>最新のディスプレイドライバを入手してインストールする、デスクトップ型パソコンであればビデオボードを取り替える、などの対応が考えられますが、秀丸エディタを使いたいという強い希望がある場合は、製品を購入前に秀丸エディタが問題なく動作するかどうかをぜひ確かめるようにしてください。<br />
-</p>
+<p>秀丸エディタは、「独自のBitBltテクノロジーによる高速スクロール処理」を行っており、この技術により高速な描画を実現しています。ただし、「独自」と言っても、完全に Windows 95プログラム仕様の範囲内で行われており正統な技術です。しかし、ごく少数のビデオボード（ビデオドライバ）では、その（正統な）処理に未対応なものがあります。この場合、秀丸エディタの画面は乱れ、事実上使用できません。</p>
+<p>最新のディスプレイドライバを入手してインストールする、デスクトップ型パソコンであればビデオボードを取り替える、などの対応が考えられますが、秀丸エディタを使いたいという強い希望がある場合は、製品を購入前に秀丸エディタが問題なく動作するかどうかをぜひ確かめるようにしてください。</p>
 <p>※なお、秀丸エディタ(Ver.2.15)からはスクロール方式を変更したため、この障害は発生しないようです。最新版を入手すると良いでしょう。</p>
 <dl>
 <dt><span class="mark_dt3">[補足]</span></dt>

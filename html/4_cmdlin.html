@@ -27,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -120,38 +119,26 @@ Hidemaru.exe を右ドラッグ（Hidemaru.exe の上でマウスの右ボタン
 <h4>ファイル名に空白を含む場合</h4>
 <p>コマンドラインは、他のアプリケーションを起動したり他のアプリケーションから起動されたり等、色々使われているので簡単に注意点を示します。</p>
 <p>コマンドラインで、各パラメータ(/b 等)の区切りには、半角スペースが使用されます。また、Windowsではファイルやフォルダの名前に半角スペースが使用可能です。その為、半角スペースを含む名前を指定する場合には、注意が必要です。</p>
-<div class="box_line2">
-<pre><code>例)秀丸エディタの標準的なインストール先
+<pre class="box_line2"><code>例)秀丸エディタの標準的なインストール先
 　 C:\Program Files\Hidemaru\Hidemaru.exe</code></pre>
-</div>
 <p>この <code>C:\Program Files\Hidemaru\Hidemaru.exe</code> を単純に半角スペースで分割すると、</p>
-<div class="box_line2">
-<pre><code>「C:\Program」と「Files\Hidemaru\Hidemaru.exe」</code></pre>
-</div>
+<pre class="box_line2"><code>「C:\Program」と「Files\Hidemaru\Hidemaru.exe」</code></pre>
 <p>になり、<code>hidemaru.exe</code> を起動する事が出来ません。(<code>C:\Program</code> が見つかりませんと言われる)</p>
 <p>その為、半角スペースを含む場合には、全体を「"」(ダブルクオート)で囲みます。</p>
-<div class="box_line2">
-<pre><code>&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;</code></pre>
-</div>
+<pre class="box_line2"><code>&quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot;</code></pre>
 <p>秀丸エディタのショートカットで、リンク先のパスが「"」(ダブルクオート)で囲まれているのは、このためです。</p>
 <p>秀丸エディタでファイルを指定して開く場合も同じで、対象のファイルパスに半角スペースを含む場合は、全体を「"」(ダブルクオート)で囲みます。</p>
-<div class="box_line2">
-<pre><code>例)秀丸エディタで同じフォルダにあるファイルを開く場合。
+<pre class="box_line2"><code>例)秀丸エディタで同じフォルダにあるファイルを開く場合。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot;</code></pre>
-</div>
 <p>秀丸エディタは柔軟にファイル判定するらしく、ファイル名を「"」で囲まなくてもファイルを開いてくれますが、なるべく囲むようにしてください。</p>
-<div class="box_line2">
-<pre><code>//この状態でも問題なくファイルを開いてくれる。
+<pre class="box_line2"><code>//この状態でも問題なくファイルを開いてくれる。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; C:\Program Files\Hidemaru\hidemaru.txt</code></pre>
-</div>
 <p>上記のように柔軟に判定してくれるのありがたいのですが、以下のようにファイルを2個開きたい場合は、
 "空白を含むパス"と優先して認識するようでファイルが開けません。</p>
-<div class="box_line2">
-<pre><code>//カレントフォルダにファイルが2個あって開きたい場合。
+<pre class="box_line2"><code>//カレントフォルダにファイルが2個あって開きたい場合。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; file1.txt file2.txt
 
 実行すると、&quot;file1.txt file2.txt&quot; という新規ファイルを開く。</code></pre>
-</div>
 <p>ファイルを複数開くには、以下の方法があります。</p>
 <ul>
 <li><p>方法1 ファイル名を「"」(ダブルクォートで囲む)。</p>
@@ -163,24 +150,18 @@ Hidemaru.exe を右ドラッグ（Hidemaru.exe の上でマウスの右ボタン
 <section id="info-2" class="level4">
 <h4>オプションを指定する場所</h4>
 <p>オプションを指定する場合、記述する場所も重要になります。</p>
-<div class="box_line2">
-<pre><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい。
+<pre class="box_line2"><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; /x test.mac</code></pre>
-</div>
 <p>この記述だと、"C:\Program Files\Hidemaru\hidemaru.txt" は開きますが、test.mac は "無題"の秀丸エディタが開き、そこで実行されます。<br />
 ("/x test.mac" の後に無題の秀丸エディタを指定している状態)</p>
 <p>"C:\Program Files\Hidemaru\hidemaru.txt" は開き、そのファイル上で、test.mac を実行するには以下の記述になります。<br />
 (<strong>ファイルを指定する場合、起動オプションは、ファイルより前に指定しなければならない</strong>)</p>
-<div class="box_line2">
-<pre><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい。
+<pre class="box_line2"><code>// &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot; を 開き、 そのファイルに test.mac を実行したい。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x test.mac &quot;C:\Program Files\Hidemaru\hidemaru.txt&quot;</code></pre>
-</div>
 <p>マクロを実行する場合、複数のファイルを指定しても、最初のファイルしか開かないようです。</p>
-<div class="box_line2">
-<pre><code>// マクロの実行と、ファイルを2個指定した場合。
+<pre class="box_line2"><code>// マクロの実行と、ファイルを2個指定した場合。
 &quot;C:\Program Files\Hidemaru\Hidemaru.exe&quot; /x test.mac  &quot;file1.txt&quot; &quot;file2.txt&quot;
 file1.txt を開き test.mac を実行するが、file2.txt は開かない。</code></pre>
-</div>
 </section>
 </section>
 <section id="CMD" class="level3">

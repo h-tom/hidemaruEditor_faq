@@ -10,10 +10,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     /* The extra [class] is a hack that increases specificity enough to
        override a similar rule in reveal.js */
@@ -24,7 +27,6 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="base.css" />
   <!--[if lt IE 9]>
@@ -43,7 +45,7 @@
 <dl>
 <dt><img src="./q.png" width="32" height="29" alt="Q." /></dt>
 <dd>
-<strong>半角の英数文字と漢字が混ざっている文書で、漢字だけを検索したいのですが、どうしたらいいのでしょうか？</strong>
+<p><strong>半角の英数文字と漢字が混ざっている文書で、漢字だけを検索したいのですが、どうしたらいいのでしょうか？</strong></p>
 </dd>
 </dl>
 <hr />
@@ -85,14 +87,10 @@ Unicodeで漢字のみを示す正規表現は、かなり長くなります。<
 <pre><code>[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DB5\u4E00-\u9FC3\uF900-\uFA2D\uFA30-\uFA6A\uFA70-\uFAD9]</code></pre>
 </div>
 <p>サロゲートペア領域は、</p>
-<div class="macro">
-<pre><code>[\u{20000}-\u{2A6D6}\u{2F800}-\u{2FA1D}]</code></pre>
-</div>
+<pre class="macro"><code>[\u{20000}-\u{2A6D6}\u{2F800}-\u{2FA1D}]</code></pre>
 <p>になります。</p>
 <p>これでは長いので、適当に省略してみました。</p>
-<div class="macro">
-<pre><code>[\u3400-\u9FC3\uF900-\uFAD9\u{20000}-\u{2A6D6}\u{2F800}-\u{2FA1D}]</code></pre>
-</div>
+<pre class="macro"><code>[\u3400-\u9FC3\uF900-\uFAD9\u{20000}-\u{2A6D6}\u{2F800}-\u{2FA1D}]</code></pre>
 <p>カタカナ、ひらがなも含める場合は、IMEの文字パレット等を参考にコードを追加してください。</p></li>
 </ul>
 </dd>
